@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Дипломы и сертификаты — Ситковский А.М.</title>
+  <meta name="description" content="Коллаж дипломов, благодарностей и сертификатов Арсения Михайловича Ситковского.">
+  <link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/additions.css"><link rel="stylesheet" href="assets/diplomas.css"><script defer src="assets/site.js"></script>
+  <script>
+    let DIPLOMAS=[]; let activeYear='all';
+    function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+    function renderYears(){
+      const years=[...new Set(DIPLOMAS.map(x=>x.year).filter(Boolean))].sort((a,b)=>b-a);
+      document.getElementById('years').innerHTML=`<button class="${activeYear==='all'?'active':''}" data-year="all">Все годы</button>`+years.map(y=>`<button class="${String(y)===String(activeYear)?'active':''}" data-year="${y}">${y}</button>`).join('');
+      document.querySelectorAll('#years button').forEach(btn=>btn.onclick=()=>{activeYear=btn.dataset.year; renderGallery(); renderYears();});
+    }
+    function renderGallery(){
+      const list=activeYear==='all'?DIPLOMAS:DIPLOMAS.filter(x=>String(x.year)===String(activeYear));
+      const box=document.getElementById('gallery');
+      if(!list.length){box.innerHTML='<div class="diploma-empty">Галерея пока не загружена. Загрузите подготовленный пакет `assets/diplomas/` и `data/diplomas/gallery.json` в репозиторий.</div>';return}
+      box.innerHTML=list.map((d,i)=>`<button class="diploma-thumb" data-index="${DIPLOMAS.indexOf(d)}" title="${esc(d.title)}"><img loading="lazy" src="${esc(d.thumb)}" alt="${esc(d.title)}"></button>`).join('');
+      document.querySelectorAll('.diploma-thumb').forEach(btn=>btn.onclick=()=>openDiploma(+btn.dataset.index));
+    }
+    function openDiploma(i){
+      const d=DIPLOMAS[i]; if(!d) return;
+      const modal=document.getElementById('modal');
+      document.getElementById('modal-img').src=d.full;
+      document.getElementById('modal-img').alt=d.title;
+      document.getElementById('modal-title').textContent=(d.year?d.year+' · ':'')+d.title;
+      const dl=document.getElementById('modal-download');
+      dl.href=d.download||d.full; dl.download=(d.download_filename||d.id+'.webp');
+      modal.classList.add('open'); document.body.style.overflow='hidden';
+    }
+    function closeDiploma(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape') closeDiploma();});
+    async function load(){
+      try{DIPLOMAS=(await fetch('data/diplomas/gallery.json',{cache:'no-store'}).then(r=>r.json())).items||[]}catch(e){DIPLOMAS=[]}
+      renderYears(); renderGallery();
+    }
+    document.addEventListener('DOMContentLoaded',load);
+  </script>
+</head>
+<body><div class="wrap"><header data-header></header>
+<section class="diplomas-hero"><h1 class="ru">Дипломы, благодарности и сертификаты</h1><h1 class="en">Diplomas, awards and certificates</h1><p class="ru">Сплошной визуальный архив профессиональных и образовательных подтверждений. Нажмите на любую миниатюру, чтобы открыть её на весь экран и скачать изображение.</p><p class="en">A continuous visual archive of professional and educational records. Click any thumbnail to open it full-screen and download the image.</p></section>
+<div id="years" class="diploma-years"></div>
+<section class="diplomas-wrap"><div id="gallery" class="diplomas-collage"></div></section>
+<div id="modal" class="diploma-modal" onclick="if(event.target.id==='modal') closeDiploma()"><div class="diploma-modal-bar"><div id="modal-title" class="diploma-modal-title"></div><div class="diploma-modal-actions"><a id="modal-download" href="#" download>Скачать</a><button onclick="closeDiploma()">Закрыть</button></div></div><img id="modal-img" src="" alt=""></div>
+<footer class="footer"><span>Персональный сайт Ситковского А.М.</span><br><span>omnistat@yandex.ru</span></footer></div></body></html>
