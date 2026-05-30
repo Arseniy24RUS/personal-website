@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T15:20:46+00:00",
+  "generated_at": "2026-05-30T17:58:36+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
@@ -8,7 +8,7 @@
     "orcid": "0000-0002-8725-6580",
     "scopus_author_id": "57220956828",
     "wos_researcher_id": "AAG-1530-2021",
-    "github": "Arseniy24RUS"
+    "github_username": "Arseniy24RUS"
   },
   "elibrary_metrics": {
     "source": "saved_elibrary_author_items_html",
@@ -470,7 +470,7 @@
   },
   "scopus_metrics": {
     "source": "scopus_api",
-    "generated_at": "2026-05-30T15:20:46+00:00",
+    "generated_at": "2026-05-30T17:58:36+00:00",
     "scopus_author_id": "57220956828",
     "author_profile_status": 401,
     "search_status": 200,
@@ -480,7 +480,36 @@
     "h_index_recomputed_from_retrieved_works": 2,
     "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available."
   },
+  "open_sources_report": {
+    "generated_at": "2026-05-30T17:58:26+00:00",
+    "providers": {
+      "orcid": {
+        "status": "ok",
+        "http_status": 200,
+        "url": "https://pub.orcid.org/v3.0/0000-0002-8725-6580/works"
+      },
+      "openalex_author": {
+        "status": "ok",
+        "http_status": 200,
+        "url": "https://api.openalex.org/authors/https%3A%2F%2Forcid.org%2F0000-0002-8725-6580?mailto=omnistat%40yandex.ru"
+      },
+      "openalex_works": {
+        "status": "ok",
+        "http_status": 200,
+        "url": "https://api.openalex.org/works?filter=authorships.author.id%3Ahttps%3A%2F%2Fopenalex.org%2FA5007601767&per-page=200&sort=publication_date%3Adesc&mailto=omnistat%40yandex.ru"
+      },
+      "crossref": {
+        "status": "ok",
+        "http_status": 200,
+        "url": "https://api.crossref.org/works?filter=orcid%3A0000-0002-8725-6580&rows=100&sort=published&order=desc&mailto=omnistat%40yandex.ru"
+      }
+    },
+    "records_total_before_dedupe": 42,
+    "records_total_after_dedupe": 18
+  },
   "canonical_publications_count": 58,
   "scopus_enriched_publications_count": 7,
-  "admin_queue_size": 0
+  "open_sources_records_count": 18,
+  "open_sources_enriched_publications_count": 6,
+  "admin_queue_size": 12
 }

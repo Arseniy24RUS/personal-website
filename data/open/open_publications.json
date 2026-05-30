@@ -1,11 +1,7 @@
-[
-  {
-    "id": "open_10.22363/2312-8313-2026-13-1-86-95",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.65,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+{
+  "generated_at": "2026-05-30T17:58:27+00:00",
+  "records": [
+    {
       "source": "orcid_public_api",
       "orcid": "0000-0002-8725-6580",
       "title": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure",
@@ -82,15 +78,86 @@
         "path": "/0000-0002-8725-6580/work/211318940",
         "display-index": "1"
       }
-    }
-  },
-  {
-    "id": "open_10.18413/2408-9338-2025-11-4-1-4",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.65,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+    },
+    {
+      "source": "orcid_public_api",
+      "orcid": "0000-0002-8725-6580",
+      "title": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities",
+      "year": 2026,
+      "doi": "10.17853/1994-5639-2026-1-33-64",
+      "type": "journal-article",
+      "url": "https://doi.org/10.17853/1994-5639-2026-1-33-64",
+      "put_code": 202525133,
+      "raw": {
+        "put-code": 202525133,
+        "created-date": {
+          "value": 1768479836642
+        },
+        "last-modified-date": {
+          "value": 1768479836642
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.17853/1994-5639-2026-1-33-64",
+              "external-id-normalized": {
+                "value": "10.17853/1994-5639-2026-1-33-64",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2026"
+          },
+          "month": {
+            "value": "01"
+          },
+          "day": {
+            "value": "01"
+          }
+        },
+        "journal-title": {
+          "value": "The Education and science journal"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-8725-6580/work/202525133",
+        "display-index": "1"
+      }
+    },
+    {
       "source": "orcid_public_api",
       "orcid": "0000-0002-8725-6580",
       "title": "Sociological diagnostics of population dissatisfaction as a tool for managing territorial development",
@@ -167,15 +234,8 @@
         "path": "/0000-0002-8725-6580/work/208228256",
         "display-index": "1"
       }
-    }
-  },
-  {
-    "id": "open_10.19181/demis.2025.5.4.11",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.65,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+    },
+    {
       "source": "orcid_public_api",
       "orcid": "0000-0002-8725-6580",
       "title": "Methodological Aspects of Demographic Expertise of Projects and Works",
@@ -252,15 +312,86 @@
         "path": "/0000-0002-8725-6580/work/200970214",
         "display-index": "1"
       }
-    }
-  },
-  {
-    "id": "open_10.22363/2312-8313-2025-12-3-319-327",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.65,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+    },
+    {
+      "source": "orcid_public_api",
+      "orcid": "0000-0002-8725-6580",
+      "title": "Методология и практика проведения демографической экспертизы на примере региональной программы «Повышение рождаемости в Республике Тыва на период 2023–2025 годов»",
+      "year": 2025,
+      "doi": "10.25178/nit.2025.4.13",
+      "type": "journal-article",
+      "url": "https://doi.org/10.25178/nit.2025.4.13",
+      "put_code": 198410443,
+      "raw": {
+        "put-code": 198410443,
+        "created-date": {
+          "value": 1764588056839
+        },
+        "last-modified-date": {
+          "value": 1764588056839
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Методология и практика проведения демографической экспертизы на примере региональной программы «Повышение рождаемости в Республике Тыва на период 2023–2025 годов»"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.25178/nit.2025.4.13",
+              "external-id-normalized": {
+                "value": "10.25178/nit.2025.4.13",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.25178/nit.2025.4.13"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.25178/nit.2025.4.13"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "12"
+          },
+          "day": {
+            "value": "01"
+          }
+        },
+        "journal-title": {
+          "value": "The New Research of Tuva"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-8725-6580/work/198410443",
+        "display-index": "1"
+      }
+    },
+    {
       "source": "orcid_public_api",
       "orcid": "0000-0002-8725-6580",
       "title": "State demographic and family policy: an overview of current research and practices",
@@ -337,15 +468,8 @@
         "path": "/0000-0002-8725-6580/work/195820218",
         "display-index": "1"
       }
-    }
-  },
-  {
-    "id": "open_10.22363/2312-8313-2025-12-3-375-385",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.65,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+    },
+    {
       "source": "orcid_public_api",
       "orcid": "0000-0002-8725-6580",
       "title": "The impact of state agglomeration policy on long-term trends of population changes in Russia",
@@ -422,15 +546,164 @@
         "path": "/0000-0002-8725-6580/work/195820219",
         "display-index": "1"
       }
-    }
-  },
-  {
-    "id": "open_10.52180/1999-9836_2025_21_4_8_602_617",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.65,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+    },
+    {
+      "source": "orcid_public_api",
+      "orcid": "0000-0002-8725-6580",
+      "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+      "year": 2025,
+      "doi": "10.17853/1994-5639-2025-6-149-179",
+      "type": "journal-article",
+      "url": "https://doi.org/10.17853/1994-5639-2025-6-149-179",
+      "put_code": 185359580,
+      "raw": {
+        "put-code": 185359580,
+        "created-date": {
+          "value": 1749046621574
+        },
+        "last-modified-date": {
+          "value": 1749046621574
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.17853/1994-5639-2025-6-149-179",
+              "external-id-normalized": {
+                "value": "10.17853/1994-5639-2025-6-149-179",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.17853/1994-5639-2025-6-149-179"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.17853/1994-5639-2025-6-149-179"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "06"
+          },
+          "day": {
+            "value": "04"
+          }
+        },
+        "journal-title": {
+          "value": "The Education and science journal"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-8725-6580/work/185359580",
+        "display-index": "1"
+      }
+    },
+    {
+      "source": "orcid_public_api",
+      "orcid": "0000-0002-8725-6580",
+      "title": "Система расселения Республики Тыва: опорные населённые пункты",
+      "year": 2025,
+      "doi": "10.25178/nit.2025.2.4",
+      "type": "journal-article",
+      "url": "https://doi.org/10.25178/nit.2025.2.4",
+      "put_code": 185178608,
+      "raw": {
+        "put-code": 185178608,
+        "created-date": {
+          "value": 1748846941096
+        },
+        "last-modified-date": {
+          "value": 1753579646117
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Система расселения Республики Тыва: опорные населённые пункты"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.25178/nit.2025.2.4",
+              "external-id-normalized": {
+                "value": "10.25178/nit.2025.2.4",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.25178/nit.2025.2.4"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.25178/nit.2025.2.4"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2025"
+          },
+          "month": {
+            "value": "06"
+          },
+          "day": {
+            "value": "02"
+          }
+        },
+        "journal-title": {
+          "value": "The New Research of Tuva"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-8725-6580/work/185178608",
+        "display-index": "1"
+      }
+    },
+    {
       "source": "orcid_public_api",
       "orcid": "0000-0002-8725-6580",
       "title": "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia",
@@ -503,15 +776,86 @@
         "path": "/0000-0002-8725-6580/work/198817695",
         "display-index": "1"
       }
-    }
-  },
-  {
-    "id": "open_10.22394/2304-3369-2023-4-33-52",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.65,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+    },
+    {
+      "source": "orcid_public_api",
+      "orcid": "0000-0002-8725-6580",
+      "title": "Образовательные межрегиональные миграции в России в 2017–2019 гг.: гендерные и пространственные аспекты",
+      "year": 2024,
+      "doi": "10.25178/nit.2024.3.13",
+      "type": "journal-article",
+      "url": "https://doi.org/10.25178/nit.2024.3.13",
+      "put_code": 167305896,
+      "raw": {
+        "put-code": 167305896,
+        "created-date": {
+          "value": 1726130139069
+        },
+        "last-modified-date": {
+          "value": 1726130139069
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0001-9884-1913",
+            "path": "0000-0001-9884-1913",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Crossref"
+          },
+          "assertion-origin-orcid": null,
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": null
+        },
+        "title": {
+          "title": {
+            "value": "Образовательные межрегиональные миграции в России в 2017–2019 гг.: гендерные и пространственные аспекты"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.25178/nit.2024.3.13",
+              "external-id-normalized": {
+                "value": "10.25178/nit.2024.3.13",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": {
+                "value": "https://doi.org/10.25178/nit.2024.3.13"
+              },
+              "external-id-relationship": "self"
+            }
+          ]
+        },
+        "url": {
+          "value": "https://doi.org/10.25178/nit.2024.3.13"
+        },
+        "type": "journal-article",
+        "publication-date": {
+          "year": {
+            "value": "2024"
+          },
+          "month": {
+            "value": "09"
+          },
+          "day": {
+            "value": "12"
+          }
+        },
+        "journal-title": {
+          "value": "The New Research of Tuva"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-8725-6580/work/167305896",
+        "display-index": "1"
+      }
+    },
+    {
       "source": "orcid_public_api",
       "orcid": "0000-0002-8725-6580",
       "title": "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern",
@@ -584,15 +928,8 @@
         "path": "/0000-0002-8725-6580/work/141480365",
         "display-index": "0"
       }
-    }
-  },
-  {
-    "id": "open_10.26653/2076-4650-2021-6-08",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.65,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+    },
+    {
       "source": "orcid_public_api",
       "orcid": "0000-0002-8725-6580",
       "title": "IDENTIFICATION OF ECONOMIC SPECIALIZATION AND COOPERATION POTENTIAL OF THE REGIONS OF THE RUSSIAN FEDERATION",
@@ -665,15 +1002,8 @@
         "path": "/0000-0002-8725-6580/work/110567882",
         "display-index": "0"
       }
-    }
-  },
-  {
-    "id": "open_10.22394/2304-3369-2021-2-102-119",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.65,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+    },
+    {
       "source": "orcid_public_api",
       "orcid": "0000-0002-8725-6580",
       "title": "Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory",
@@ -746,15 +1076,108 @@
         "path": "/0000-0002-8725-6580/work/93095276",
         "display-index": "0"
       }
-    }
-  },
-  {
-    "id": "open_методика_и_практика_формирования_многоуровневой_системы_цент",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.45,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+    },
+    {
+      "source": "orcid_public_api",
+      "orcid": "0000-0002-8725-6580",
+      "title": "Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals",
+      "year": 2020,
+      "doi": "10.1051/e3sconf/202021707021",
+      "type": "conference-paper",
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85097958022&partnerID=MN8TOARS",
+      "put_code": 121647683,
+      "raw": {
+        "put-code": 121647683,
+        "created-date": {
+          "value": 1666939600065
+        },
+        "last-modified-date": {
+          "value": 1666939600065
+        },
+        "source": {
+          "source-orcid": null,
+          "source-client-id": {
+            "uri": "https://orcid.org/client/0000-0002-5982-8983",
+            "path": "0000-0002-5982-8983",
+            "host": "orcid.org"
+          },
+          "source-name": {
+            "value": "Scopus - Elsevier"
+          },
+          "assertion-origin-orcid": {
+            "uri": "https://orcid.org/0000-0002-8725-6580",
+            "path": "0000-0002-8725-6580",
+            "host": "orcid.org"
+          },
+          "assertion-origin-client-id": null,
+          "assertion-origin-name": {
+            "value": "Arseniy Sitkovskiy"
+          }
+        },
+        "title": {
+          "title": {
+            "value": "Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals"
+          },
+          "subtitle": null,
+          "translated-title": null
+        },
+        "external-ids": {
+          "external-id": [
+            {
+              "external-id-type": "doi",
+              "external-id-value": "10.1051/e3sconf/202021707021",
+              "external-id-normalized": {
+                "value": "10.1051/e3sconf/202021707021",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": null,
+              "external-id-relationship": "self"
+            },
+            {
+              "external-id-type": "eid",
+              "external-id-value": "2-s2.0-85097958022",
+              "external-id-normalized": {
+                "value": "2-s2.0-85097958022",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": null,
+              "external-id-relationship": "self"
+            },
+            {
+              "external-id-type": "issn",
+              "external-id-value": "22671242 25550403",
+              "external-id-normalized": {
+                "value": "2267-1242",
+                "transient": true
+              },
+              "external-id-normalized-error": null,
+              "external-id-url": null,
+              "external-id-relationship": "part-of"
+            }
+          ]
+        },
+        "url": {
+          "value": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85097958022&partnerID=MN8TOARS"
+        },
+        "type": "conference-paper",
+        "publication-date": {
+          "year": {
+            "value": "2020"
+          },
+          "month": null,
+          "day": null
+        },
+        "journal-title": {
+          "value": "E3S Web of Conferences"
+        },
+        "visibility": "public",
+        "path": "/0000-0002-8725-6580/work/121647683",
+        "display-index": "0"
+      }
+    },
+    {
       "source": "openalex_api",
       "openalex_id": "https://openalex.org/W3191794798",
       "title": "Методика и практика формирования многоуровневой системы центров социальных услуг (Methodology and Practice of Forming a Multi-Level System of Centers of Social Services)",
@@ -2215,15 +2638,8 @@
         "updated_date": "2025-10-10T17:16:08.811792",
         "created_date": "2025-10-10T00:00:00"
       }
-    }
-  },
-  {
-    "id": "open_демографический_фактор_в_обеспечении_устойчивого_развития_ме",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.45,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+    },
+    {
       "source": "openalex_api",
       "openalex_id": "https://openalex.org/W3187712357",
       "title": "Демографический фактор в обеспечении устойчивого развития мегаполиса (Demographic Factor in Ensuring Sustainable Development of the Megacity)",
@@ -3189,15 +3605,8 @@
         "updated_date": "2025-10-10T17:16:08.811792",
         "created_date": "2025-10-10T00:00:00"
       }
-    }
-  },
-  {
-    "id": "open_демографическая_политика_российской_федерации_demographic_po",
-    "entity_type": "publication",
-    "action": "review_open_publication",
-    "confidence": 0.45,
-    "reason": "Open bibliographic record from ORCID/OpenAlex/Crossref was not matched to canonical eLibrary/Scopus list",
-    "candidate": {
+    },
+    {
       "source": "openalex_api",
       "openalex_id": "https://openalex.org/W3182071828",
       "title": "Демографическая Политика Российской Федерации (Demographic Policy of the Russian Federation)",
@@ -3837,5 +4246,5 @@
         "created_date": "2025-10-10T00:00:00"
       }
     }
-  }
-]
+  ]
+}

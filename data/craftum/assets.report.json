@@ -4,7 +4,7 @@
     "source": "craftum_home",
     "local": "assets/craftum/portrait-library.jpeg",
     "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/1ce55438-c984-4a9c-9e9b-76f601ed94fc.jpeg",
-    "status": "downloaded",
+    "status": "exists",
     "sha256": "4b6bcdff54e798be9e00c10a0fa694cef43f72d46002cbff11a64dbc273c6d5f",
     "size": 3315914
   },
@@ -58,7 +58,7 @@
     "source": "craftum_projects",
     "local": "assets/craftum/varna-correct.webp",
     "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/460ba97d-2daf-42f8-b901-b8e2fd31f72f.webp",
-    "status": "downloaded",
+    "status": "exists",
     "sha256": "e213a527b9c4fcf1cfc030a24ed083055cdb6de3b13f72ad9e945b668ad06564",
     "size": 56936
   },
@@ -67,7 +67,7 @@
     "source": "craftum_projects",
     "local": "assets/craftum/verkhny-ufaley.webp",
     "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/b0b72b9c-cc43-4ffc-b691-3c04c7de3304.webp",
-    "status": "downloaded",
+    "status": "exists",
     "sha256": "3c241fb029b320f85a4fa30f5c763195463b8737e03634b4a92aaf68b0fd0b01",
     "size": 164470
   },

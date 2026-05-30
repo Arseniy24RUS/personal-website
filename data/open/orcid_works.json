@@ -1,0 +1,1403 @@
+{
+  "last-modified-date": {
+    "value": 1775836949690
+  },
+  "group": [
+    {
+      "last-modified-date": {
+        "value": 1775836949690
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.22363/2312-8313-2026-13-1-86-95",
+            "external-id-normalized": {
+              "value": "10.22363/2312-8313-2026-13-1-86-95",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 211318940,
+          "created-date": {
+            "value": 1775836949690
+          },
+          "last-modified-date": {
+            "value": 1775836949690
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.22363/2312-8313-2026-13-1-86-95",
+                "external-id-normalized": {
+                  "value": "10.22363/2312-8313-2026-13-1-86-95",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2026"
+            },
+            "month": {
+              "value": "04"
+            },
+            "day": {
+              "value": "10"
+            }
+          },
+          "journal-title": {
+            "value": "RUDN Journal of Public Administration"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/211318940",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1768479836642
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.17853/1994-5639-2026-1-33-64",
+            "external-id-normalized": {
+              "value": "10.17853/1994-5639-2026-1-33-64",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 202525133,
+          "created-date": {
+            "value": 1768479836642
+          },
+          "last-modified-date": {
+            "value": 1768479836642
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.17853/1994-5639-2026-1-33-64",
+                "external-id-normalized": {
+                  "value": "10.17853/1994-5639-2026-1-33-64",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2026"
+            },
+            "month": {
+              "value": "01"
+            },
+            "day": {
+              "value": "01"
+            }
+          },
+          "journal-title": {
+            "value": "The Education and science journal"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/202525133",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1773315521751
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.18413/2408-9338-2025-11-4-1-4",
+            "external-id-normalized": {
+              "value": "10.18413/2408-9338-2025-11-4-1-4",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.18413/2408-9338-2025-11-4-1-4"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 208228256,
+          "created-date": {
+            "value": 1773315521751
+          },
+          "last-modified-date": {
+            "value": 1773315521751
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Sociological diagnostics of population dissatisfaction as a tool for managing territorial development"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.18413/2408-9338-2025-11-4-1-4",
+                "external-id-normalized": {
+                  "value": "10.18413/2408-9338-2025-11-4-1-4",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.18413/2408-9338-2025-11-4-1-4"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.18413/2408-9338-2025-11-4-1-4"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "12"
+            },
+            "day": {
+              "value": "30"
+            }
+          },
+          "journal-title": {
+            "value": "Research Result Sociology and Management"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/208228256",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1767031802834
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.19181/demis.2025.5.4.11",
+            "external-id-normalized": {
+              "value": "10.19181/demis.2025.5.4.11",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.19181/demis.2025.5.4.11"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 200970214,
+          "created-date": {
+            "value": 1767031802834
+          },
+          "last-modified-date": {
+            "value": 1767031802834
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Methodological Aspects of Demographic Expertise of Projects and Works"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.19181/demis.2025.5.4.11",
+                "external-id-normalized": {
+                  "value": "10.19181/demis.2025.5.4.11",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.19181/demis.2025.5.4.11"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.19181/demis.2025.5.4.11"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "12"
+            },
+            "day": {
+              "value": "29"
+            }
+          },
+          "journal-title": {
+            "value": "DEMIS. Demographic Research"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/200970214",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1764588056839
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.25178/nit.2025.4.13",
+            "external-id-normalized": {
+              "value": "10.25178/nit.2025.4.13",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.25178/nit.2025.4.13"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 198410443,
+          "created-date": {
+            "value": 1764588056839
+          },
+          "last-modified-date": {
+            "value": 1764588056839
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Методология и практика проведения демографической экспертизы на примере региональной программы «Повышение рождаемости в Республике Тыва на период 2023–2025 годов»"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.25178/nit.2025.4.13",
+                "external-id-normalized": {
+                  "value": "10.25178/nit.2025.4.13",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.25178/nit.2025.4.13"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.25178/nit.2025.4.13"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "12"
+            },
+            "day": {
+              "value": "01"
+            }
+          },
+          "journal-title": {
+            "value": "The New Research of Tuva"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/198410443",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1762108164049
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.22363/2312-8313-2025-12-3-319-327",
+            "external-id-normalized": {
+              "value": "10.22363/2312-8313-2025-12-3-319-327",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 195820218,
+          "created-date": {
+            "value": 1762108164049
+          },
+          "last-modified-date": {
+            "value": 1762108164049
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "State demographic and family policy: an overview of current research and practices"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.22363/2312-8313-2025-12-3-319-327",
+                "external-id-normalized": {
+                  "value": "10.22363/2312-8313-2025-12-3-319-327",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "11"
+            },
+            "day": {
+              "value": "01"
+            }
+          },
+          "journal-title": {
+            "value": "RUDN Journal of Public Administration"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/195820218",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1762108164209
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.22363/2312-8313-2025-12-3-375-385",
+            "external-id-normalized": {
+              "value": "10.22363/2312-8313-2025-12-3-375-385",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.22363/2312-8313-2025-12-3-375-385"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 195820219,
+          "created-date": {
+            "value": 1762108164209
+          },
+          "last-modified-date": {
+            "value": 1762108164209
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "The impact of state agglomeration policy on long-term trends of population changes in Russia"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.22363/2312-8313-2025-12-3-375-385",
+                "external-id-normalized": {
+                  "value": "10.22363/2312-8313-2025-12-3-375-385",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.22363/2312-8313-2025-12-3-375-385"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.22363/2312-8313-2025-12-3-375-385"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "11"
+            },
+            "day": {
+              "value": "01"
+            }
+          },
+          "journal-title": {
+            "value": "RUDN Journal of Public Administration"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/195820219",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1749046621574
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.17853/1994-5639-2025-6-149-179",
+            "external-id-normalized": {
+              "value": "10.17853/1994-5639-2025-6-149-179",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.17853/1994-5639-2025-6-149-179"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 185359580,
+          "created-date": {
+            "value": 1749046621574
+          },
+          "last-modified-date": {
+            "value": 1749046621574
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.17853/1994-5639-2025-6-149-179",
+                "external-id-normalized": {
+                  "value": "10.17853/1994-5639-2025-6-149-179",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.17853/1994-5639-2025-6-149-179"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.17853/1994-5639-2025-6-149-179"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "06"
+            },
+            "day": {
+              "value": "04"
+            }
+          },
+          "journal-title": {
+            "value": "The Education and science journal"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/185359580",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1753579646117
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.25178/nit.2025.2.4",
+            "external-id-normalized": {
+              "value": "10.25178/nit.2025.2.4",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.25178/nit.2025.2.4"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 185178608,
+          "created-date": {
+            "value": 1748846941096
+          },
+          "last-modified-date": {
+            "value": 1753579646117
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Система расселения Республики Тыва: опорные населённые пункты"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.25178/nit.2025.2.4",
+                "external-id-normalized": {
+                  "value": "10.25178/nit.2025.2.4",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.25178/nit.2025.2.4"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.25178/nit.2025.2.4"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "06"
+            },
+            "day": {
+              "value": "02"
+            }
+          },
+          "journal-title": {
+            "value": "The New Research of Tuva"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/185178608",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1764932715522
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.52180/1999-9836_2025_21_4_8_602_617",
+            "external-id-normalized": {
+              "value": "10.52180/1999-9836_2025_21_4_8_602_617",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 198817695,
+          "created-date": {
+            "value": 1764932715522
+          },
+          "last-modified-date": {
+            "value": 1764932715522
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.52180/1999-9836_2025_21_4_8_602_617",
+                "external-id-normalized": {
+                  "value": "10.52180/1999-9836_2025_21_4_8_602_617",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": null,
+            "day": null
+          },
+          "journal-title": {
+            "value": "Living Standards of the Population in the Regions of Russia"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/198817695",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1726130139069
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.25178/nit.2024.3.13",
+            "external-id-normalized": {
+              "value": "10.25178/nit.2024.3.13",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.25178/nit.2024.3.13"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 167305896,
+          "created-date": {
+            "value": 1726130139069
+          },
+          "last-modified-date": {
+            "value": 1726130139069
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Образовательные межрегиональные миграции в России в 2017–2019 гг.: гендерные и пространственные аспекты"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.25178/nit.2024.3.13",
+                "external-id-normalized": {
+                  "value": "10.25178/nit.2024.3.13",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.25178/nit.2024.3.13"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.25178/nit.2024.3.13"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2024"
+            },
+            "month": {
+              "value": "09"
+            },
+            "day": {
+              "value": "12"
+            }
+          },
+          "journal-title": {
+            "value": "The New Research of Tuva"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/167305896",
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1693471227716
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.22394/2304-3369-2023-4-33-52",
+            "external-id-normalized": {
+              "value": "10.22394/2304-3369-2023-4-33-52",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.22394/2304-3369-2023-4-33-52"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 141480365,
+          "created-date": {
+            "value": 1693471227716
+          },
+          "last-modified-date": {
+            "value": 1693471227716
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.22394/2304-3369-2023-4-33-52",
+                "external-id-normalized": {
+                  "value": "10.22394/2304-3369-2023-4-33-52",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.22394/2304-3369-2023-4-33-52"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.22394/2304-3369-2023-4-33-52"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2023"
+            },
+            "month": null,
+            "day": null
+          },
+          "journal-title": {
+            "value": "Management Issues"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/141480365",
+          "display-index": "0"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1654213107566
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.26653/2076-4650-2021-6-08",
+            "external-id-normalized": {
+              "value": "10.26653/2076-4650-2021-6-08",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.26653/2076-4650-2021-6-08"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 110567882,
+          "created-date": {
+            "value": 1648596003541
+          },
+          "last-modified-date": {
+            "value": 1654213107566
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "IDENTIFICATION OF ECONOMIC SPECIALIZATION AND COOPERATION POTENTIAL OF THE REGIONS OF THE RUSSIAN FEDERATION"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.26653/2076-4650-2021-6-08",
+                "external-id-normalized": {
+                  "value": "10.26653/2076-4650-2021-6-08",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.26653/2076-4650-2021-6-08"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.26653/2076-4650-2021-6-08"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2021"
+            },
+            "month": null,
+            "day": null
+          },
+          "journal-title": {
+            "value": "Scientific Review. Series 1. Economics and Law"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/110567882",
+          "display-index": "0"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1654061923988
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.22394/2304-3369-2021-2-102-119",
+            "external-id-normalized": {
+              "value": "10.22394/2304-3369-2021-2-102-119",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.22394/2304-3369-2021-2-102-119"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 93095276,
+          "created-date": {
+            "value": 1619782021299
+          },
+          "last-modified-date": {
+            "value": 1654061923988
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.22394/2304-3369-2021-2-102-119",
+                "external-id-normalized": {
+                  "value": "10.22394/2304-3369-2021-2-102-119",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.22394/2304-3369-2021-2-102-119"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.22394/2304-3369-2021-2-102-119"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2021"
+            },
+            "month": null,
+            "day": null
+          },
+          "journal-title": {
+            "value": "Management Issues"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/93095276",
+          "display-index": "0"
+        }
+      ]
+    },
+    {
+      "last-modified-date": {
+        "value": 1666939600065
+      },
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "eid",
+            "external-id-value": "2-s2.0-85097958022",
+            "external-id-normalized": {
+              "value": "2-s2.0-85097958022",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": null,
+            "external-id-relationship": "self"
+          },
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1051/e3sconf/202021707021",
+            "external-id-normalized": {
+              "value": "10.1051/e3sconf/202021707021",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": null,
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 121647683,
+          "created-date": {
+            "value": 1666939600065
+          },
+          "last-modified-date": {
+            "value": 1666939600065
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0002-5982-8983",
+              "path": "0000-0002-5982-8983",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Scopus - Elsevier"
+            },
+            "assertion-origin-orcid": {
+              "uri": "https://orcid.org/0000-0002-8725-6580",
+              "path": "0000-0002-8725-6580",
+              "host": "orcid.org"
+            },
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": {
+              "value": "Arseniy Sitkovskiy"
+            }
+          },
+          "title": {
+            "title": {
+              "value": "Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.1051/e3sconf/202021707021",
+                "external-id-normalized": {
+                  "value": "10.1051/e3sconf/202021707021",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "eid",
+                "external-id-value": "2-s2.0-85097958022",
+                "external-id-normalized": {
+                  "value": "2-s2.0-85097958022",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "self"
+              },
+              {
+                "external-id-type": "issn",
+                "external-id-value": "22671242 25550403",
+                "external-id-normalized": {
+                  "value": "2267-1242",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": null,
+                "external-id-relationship": "part-of"
+              }
+            ]
+          },
+          "url": {
+            "value": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85097958022&partnerID=MN8TOARS"
+          },
+          "type": "conference-paper",
+          "publication-date": {
+            "year": {
+              "value": "2020"
+            },
+            "month": null,
+            "day": null
+          },
+          "journal-title": {
+            "value": "E3S Web of Conferences"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/121647683",
+          "display-index": "0"
+        }
+      ]
+    }
+  ],
+  "path": "/0000-0002-8725-6580/works"
+}

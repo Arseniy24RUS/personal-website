@@ -12,7 +12,8 @@
     "url": "https://www.elibrary.ru/item.asp?id=88771337",
     "sources": [
       "elibrary",
-      "scopus"
+      "scopus",
+      "orcid_public_api"
     ],
     "scopus": {
       "eid": "2-s2.0-105026678596",
@@ -26,7 +27,20 @@
       "openaccess": "1",
       "match_type": "curated_translation_match"
     },
-    "doi": "10.17853/1994-5639-2026-1-33-64"
+    "doi": "10.17853/1994-5639-2026-1-33-64",
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "doi": "10.17853/1994-5639-2026-1-33-64",
+        "title": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities",
+        "year": 2026,
+        "url": "https://doi.org/10.17853/1994-5639-2026-1-33-64",
+        "venue": null,
+        "cited_by_count": null,
+        "is_oa": null,
+        "oa_status": null
+      }
+    ]
   },
   {
     "source": "elibrary_rinc_tsv",
@@ -205,7 +219,7 @@
       "openaccess": "1",
       "match_type": "doi_and_title_match"
     },
-    "doi": "10.32687/0869-866X-2025-33-5-1280-1285"
+    "doi": "10.32687/0869-866x-2025-33-5-1280-1285"
   },
   {
     "source": "elibrary_rinc_tsv",
@@ -235,7 +249,8 @@
     "url": "https://www.elibrary.ru/item.asp?id=82678054",
     "sources": [
       "elibrary",
-      "scopus"
+      "scopus",
+      "orcid_public_api"
     ],
     "scopus": {
       "eid": "2-s2.0-105008183052",
@@ -249,7 +264,20 @@
       "openaccess": "1",
       "match_type": "curated_translation_match"
     },
-    "doi": "10.17853/1994-5639-2025-6-149-179"
+    "doi": "10.17853/1994-5639-2025-6-149-179",
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "doi": "10.17853/1994-5639-2025-6-149-179",
+        "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+        "year": 2025,
+        "url": "https://doi.org/10.17853/1994-5639-2025-6-149-179",
+        "venue": null,
+        "cited_by_count": null,
+        "is_oa": null,
+        "oa_status": null
+      }
+    ]
   },
   {
     "source": "elibrary_rinc_tsv",
@@ -339,7 +367,8 @@
     "url": "https://www.elibrary.ru/item.asp?id=82491287",
     "sources": [
       "elibrary",
-      "scopus"
+      "scopus",
+      "orcid_public_api"
     ],
     "scopus": {
       "eid": "2-s2.0-105007238835",
@@ -353,7 +382,20 @@
       "openaccess": "1",
       "match_type": "curated_translation_match"
     },
-    "doi": "10.25178/nit.2025.2.4"
+    "doi": "10.25178/nit.2025.2.4",
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "doi": "10.25178/nit.2025.2.4",
+        "title": "Система расселения Республики Тыва: опорные населённые пункты",
+        "year": 2025,
+        "url": "https://doi.org/10.25178/nit.2025.2.4",
+        "venue": null,
+        "cited_by_count": null,
+        "is_oa": null,
+        "oa_status": null
+      }
+    ]
   },
   {
     "source": "elibrary_rinc_tsv",
@@ -368,7 +410,8 @@
     "url": "https://www.elibrary.ru/item.asp?id=85423263",
     "sources": [
       "elibrary",
-      "scopus"
+      "scopus",
+      "orcid_public_api"
     ],
     "scopus": {
       "eid": "2-s2.0-105024117741",
@@ -382,7 +425,20 @@
       "openaccess": "1",
       "match_type": "curated_translation_match"
     },
-    "doi": "10.25178/nit.2025.4.13"
+    "doi": "10.25178/nit.2025.4.13",
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "doi": "10.25178/nit.2025.4.13",
+        "title": "Методология и практика проведения демографической экспертизы на примере региональной программы «Повышение рождаемости в Республике Тыва на период 2023–2025 годов»",
+        "year": 2025,
+        "url": "https://doi.org/10.25178/nit.2025.4.13",
+        "venue": null,
+        "cited_by_count": null,
+        "is_oa": null,
+        "oa_status": null
+      }
+    ]
   },
   {
     "source": "elibrary_rinc_tsv",
@@ -487,7 +543,8 @@
     "url": "https://www.elibrary.ru/item.asp?id=72083389",
     "sources": [
       "elibrary",
-      "scopus"
+      "scopus",
+      "orcid_public_api"
     ],
     "scopus": {
       "eid": "2-s2.0-85205435011",
@@ -501,7 +558,20 @@
       "openaccess": "1",
       "match_type": "curated_translation_match"
     },
-    "doi": "10.25178/nit.2024.3.13"
+    "doi": "10.25178/nit.2024.3.13",
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "doi": "10.25178/nit.2024.3.13",
+        "title": "Образовательные межрегиональные миграции в России в 2017–2019 гг.: гендерные и пространственные аспекты",
+        "year": 2024,
+        "url": "https://doi.org/10.25178/nit.2024.3.13",
+        "venue": null,
+        "cited_by_count": null,
+        "is_oa": null,
+        "oa_status": null
+      }
+    ]
   },
   {
     "source": "elibrary_rinc_tsv",
@@ -771,7 +841,8 @@
     "url": "https://www.elibrary.ru/item.asp?id=45066549",
     "sources": [
       "elibrary",
-      "scopus"
+      "scopus",
+      "orcid_public_api"
     ],
     "scopus": {
       "eid": "2-s2.0-85097958022",
@@ -785,7 +856,20 @@
       "openaccess": "1",
       "match_type": "doi_and_title_match"
     },
-    "doi": "10.1051/e3sconf/202021707021"
+    "doi": "10.1051/e3sconf/202021707021",
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "doi": "10.1051/e3sconf/202021707021",
+        "title": "Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals",
+        "year": 2020,
+        "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85097958022&partnerID=MN8TOARS",
+        "venue": null,
+        "cited_by_count": null,
+        "is_oa": null,
+        "oa_status": null
+      }
+    ]
   },
   {
     "source": "elibrary_rinc_tsv",

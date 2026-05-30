@@ -1,0 +1,3108 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 14,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ],
+          "date-time": "2026-04-10T14:07:19Z",
+          "timestamp": 1775830039651,
+          "version": "3.50.1"
+        },
+        "reference-count": 5,
+        "publisher": "Peoples' Friendship University of Russia",
+        "issue": "1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  10
+                ]
+              ],
+              "date-time": "2026-04-10T00:00:00Z",
+              "timestamp": 1775779200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Vestn. Ross. univ. družby nar., Ser. Gos. munic. upr."
+        ],
+        "abstract": "<jats:p>This study analyzes the age and sex structure of indigenous peoples of the Russian Federation based on data from the 2020 All-Russian Population Census. Using statistical and cluster analysis methods, typological groups of peoples based on similar demographic characteristics are identified. Two clearly distinct demographic types are identified: Cluster I, with a predominantly young population, and Cluster II, with a predominantly older population. Quantitative indicators and distinctive features of each type are presented. Conclusions are drawn regarding the demographic resilience of some groups and the risks of depopulation in others, and areas for further research and measures to support indigenous peoples are proposed.</jats:p>",
+        "DOI": "10.22363/2312-8313-2026-13-1-86-95",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ],
+          "date-time": "2026-04-10T13:29:10Z",
+          "timestamp": 1775827750000
+        },
+        "page": "86-95",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure"
+        ],
+        "prefix": "10.22363",
+        "volume": "13",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-0600-7639",
+            "authenticated-orcid": false,
+            "given": "Dmitry V.",
+            "family": "Nakisbaev",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "RUDN University"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "Arseniy M.",
+            "family": "Sitkovskiy",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Federal Research Sociological Center of the Russian Academy of Sciences"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "9635",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Loginov VG. Indigenous small-numbered peoples of the North: dynamics and features of reproduction. Corporate Governance and Innovative Economic Development of the North: Bulletin of Research Center of Corporate Law, Management and Venture Investment of Syktyvkar State University, 2019;(1):136–149. (In Russ.). https://doi.org/10.34130/2070-4992-2019-1-136-149 EDN: CQISVU",
+            "DOI": "10.34130/2070-4992-2019-1-136-149"
+          },
+          {
+            "key": "ref2",
+            "unstructured": "Koptseva NP, Shishatskiy NG, Bryukhanova EA. The dynamics of the population and features of the modern resettlement system indigenous peoples of the north in the Arctic zone of the Krasnoyarsk territory. Journal of Siberian Federal University. Humanities and Social Sciences, 2023;16(2):164–183. (In Russ.). EDN: UUJJUX"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rostovskaya TK, Plekhanova LV, Sitkovskiy AM. Features of demographic development of indigenous small-numbered peoples of the north of the KHMAO in 2002–2022. Voprosy istorii, 2023;(9–1):172–187. (In Russ.). https://doi.org/10.31166/VoprosyIstorii202309Statyi16 EDN: OCPEER",
+            "DOI": "10.31166/VoprosyIstorii202309Statyi16"
+          },
+          {
+            "key": "ref4",
+            "unstructured": "Fauzer VV, Kalieva SA. Indigenous peoples of the Russian North and the Republic of Kazakhstan. In Popova LA, Burtsev IN. (eds.), Aktual’nye problemy, napravleniya i mekhanizmy razvitiya proizvoditel’nykh sil Severa — 2024: sbornik statei Devyatoi Vserossiiskoi nauchno-prakticheskoi konferentsii (s mezhdunarodnym uchastiem) (18–20 sentyabrya 2024 g., Syktyvkar): v 2 chastyah. Ch.I. Voronezh: Stroki publ.; 2024:86–93. (In Russ.)."
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Sitkovskiy AM. The impact of state agglomeration policy on long-term trends of population changes in Russia. RUDN Journal of Public Administration. 2025;12(3):375–385. (In Russ.). https://doi.org/10.22363/2312-8313-2025-12-3-375-385 EDN: BMRMLM",
+            "DOI": "10.22363/2312-8313-2025-12-3-375-385"
+          }
+        ],
+        "container-title": [
+          "RUDN Journal of Public Administration"
+        ],
+        "link": [
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/49696/26875",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/49696/26886",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/49696/26886",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ],
+          "date-time": "2026-04-10T13:29:23Z",
+          "timestamp": 1775827763000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://journals.rudn.ru/public-administration/article/view/49696"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ]
+        },
+        "references-count": 5,
+        "journal-issue": {
+          "issue": "1",
+          "published-online": {
+            "date-parts": [
+              [
+                2026,
+                4,
+                10
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
+        "ISSN": [
+          "2411-1228",
+          "2312-8313"
+        ],
+        "issn-type": [
+          {
+            "value": "2411-1228",
+            "type": "electronic"
+          },
+          {
+            "value": "2312-8313",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              16
+            ]
+          ],
+          "date-time": "2026-01-16T03:33:43Z",
+          "timestamp": 1768534423434,
+          "version": "3.49.0"
+        },
+        "reference-count": 37,
+        "publisher": "Russian State Vocational Pedagogical University",
+        "issue": "1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  1,
+                  1
+                ]
+              ],
+              "date-time": "2026-01-01T00:00:00Z",
+              "timestamp": 1767225600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.edscience.ru/jour/about/editorialPolicies#openAccessPolicy"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Obraz. nauka"
+        ],
+        "abstract": "<jats:p>\n                    <jats:italic>Introduction.</jats:italic>\n                    Global demographic challenges necessitate training specialists who possess both traditional and advanced digital and managerial competencies. However, the structure and content of demographic programmes at leading universities have not previously undergone comprehensive comparative analysis\n                    <jats:bold>.</jats:bold>\n                    <jats:italic>Aim</jats:italic>\n                    <jats:bold>.</jats:bold>\n                    The present study aimed to conduct both quantitative and qualitative content analyses of master’s and doctoral programmes in demography at universities across Europe, North America, Latin America, Australia, Africa, and Russia. It sought to identify the core and variable components of their curricula, thereby enabling the compilation of a list of key competencies acquired by graduates upon completion of these programmes.\n                    <jats:italic>Methodology and research methods</jats:italic>\n                    . The analysis involved automated processing of complete programme texts (tokenisation, lemmatisation), construction of a TF-IDF matrix, calculation of cosine similarity between programmes, and cluster analysis (Ward’s method) based on a binary matrix of key competencies. Thematic similarity networks and a programme dendrogram were visualised, and a bilingual comparative table of competencies was provided.\n                    <jats:italic>Results</jats:italic>\n                    . The analysis conducted revealed that all the educational programmes considered provide a fundamental set of competencies, including: comprehensive theoretical knowledge in the field of demographic processes; proficiency in modern analytical methods; the ability to conduct independent research; skills in interdisciplinary collaboration; and the capability to work with big data. Additionally, 30% of the programmes available in the public domain are distinguished by the integration of management and ethical modules, alongside an emphasis on digital demography and project-based activities, which enhances their competitiveness in the international educational arena. It is noteworthy that programmes developed in Western countries exhibit a shift in focus towards applied tasks, accompanied by a reduction in the volume of theoretical and research components.\n                    <jats:italic>Scientific novelty</jats:italic>\n                    . For the first time, a comparable quantitative and qualitative analysis of educational pathways in demography has been conducted on a corpus of original programme texts, employing contemporary methods of textual data processing and visualisation.\n                    <jats:italic>Practical significance</jats:italic>\n                    . The results obtained facilitate the optimisation of new demography programme development, ensuring a balance between fundamental, research, and applied training, while also broadening the range of competencies through digital and managerial modules.\n                  </jats:p>",
+        "DOI": "10.17853/1994-5639-2026-1-33-64",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              15
+            ]
+          ],
+          "date-time": "2026-01-15T10:37:18Z",
+          "timestamp": 1768473438000
+        },
+        "page": "33-64",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Comparative content analysis of master’s and doctoral  programmes in demography at world-class universities"
+        ],
+        "prefix": "10.17853",
+        "volume": "28",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-1629-7780",
+            "authenticated-orcid": true,
+            "given": "T. K.",
+            "family": "Rostovskaya",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Institute of Social Demography, Federal Research Sociological Centre of the Russian Academy of Sciences"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": true,
+            "given": "A. M.",
+            "family": "Sitkovskiy",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute of Social Demography, Federal Research Sociological Centre of the Russian Academy of Sciences; Peoples’ Friendship University of Russia named after P. Lumumba"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "7191",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              1
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Blake J. Issues in the training and recruitment of demographers. Demography. 1964;1:258–263. doi:10.2307/2060068",
+            "DOI": "10.1007/BF03208466"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Okonjo C. Demographic research and training in Africa. The Journal of Modern African Studies. 1966;4(4):540–548. doi:10.1017/S0022278X00013847",
+            "DOI": "10.1017/S0022278X00013847"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Dasvarma G.L. The importance of population studies and the state of technical demographic training in Asia. Asian Population Studies. 2010;6(1):1–2. doi:10.1080/17441731003603330",
+            "DOI": "10.1080/17441731003603330"
+          },
+          {
+            "key": "ref4",
+            "unstructured": "IUSSP/UNFPA Seminar on demographic training in developing countries: towards an agenda for revitalisation. Summary Report. The Hague; 2009. Accessed August 18, 2025. https://archive.iussp.org/Activities/infodata/report09.pdf"
+          },
+          {
+            "key": "ref5",
+            "unstructured": "Teaching demography in the early 21st century. Genus. 2002;58(3/4). Accessed August 18, 2025. https://www.jstor.org/stable/i29788731"
+          },
+          {
+            "key": "ref6",
+            "unstructured": "Burch T.K. Teaching demography: ten principles and two rationales. Genus. 2002;58(3/4):21–34. Accessed August 18, 2025. https://www.jstor.org/stable/29788735"
+          },
+          {
+            "key": "ref7",
+            "unstructured": "Burch T.K. Teaching the fundamentals of demography: a model-based approach to family and fertility. Genus. 2002;58(3/4):73–90. Accessed August 18, 2025. https://www.jstor.org/stable/29788737"
+          },
+          {
+            "key": "ref8",
+            "unstructured": "Palloni A. Rethinking the teaching of demography: new challenges and opportunities. Genus. 2002;58(3/4):35–70. Accessed August 18, 2025. https://www.jstor.org/stable/29788736"
+          },
+          {
+            "key": "ref9",
+            "unstructured": "Caselli G. Teaching demography: a number of priorities from the IUSSP Working Group. Genus. 2002;58(3/4):11–17. Accessed August 18, 2025. https://www.jstor.org/stable/29788734"
+          },
+          {
+            "key": "ref10",
+            "unstructured": "Goldman N. Incorporating health into demographic training. Genus. 2002;58(3/4):91–107. Accessed August 18, 2025. https://www.jstor.org/stable/29788738"
+          },
+          {
+            "key": "ref11",
+            "unstructured": "Presser H.B., Das M.B. Mainstreaming gender in demographic training: benefits and constraints. Genus. 2002;58(3/4):165–187. Accessed August 18, 2025. https://www.jstor.org/stable/29788741"
+          },
+          {
+            "key": "ref12",
+            "unstructured": "Carey J.R. The importance of including biodemography in the demography curriculum. Genus. 2002;58(3/4):189–199. Accessed August 18, 2025. https://www.jstor.org/stable/29788742"
+          },
+          {
+            "key": "ref13",
+            "unstructured": "Simmons A., Piché V. Teaching migration and globalisation. Genus. 2002;58(3/4):109–133. Accessed August 18, 2025. https://www.jstor.org/stable/29788739"
+          },
+          {
+            "key": "ref14",
+            "unstructured": "Golini A. Teaching demography of aging. Genus. 2002;58(3/4):135–163. Accessed August 18, 2025. https://www.jstor.org/stable/29788740"
+          },
+          {
+            "key": "ref15",
+            "unstructured": "Ordorica Mellado M. México en el contexto de la enseñanza de la demografía en América Latina. Papeles de Población. 2003;(36):47–77. Accessed August 18, 2025. https://www.researchgate.net/publication/26421023_Mexico_en_el_contexto_de_la_ensenanza_de_la_demografia_en_America_Latina"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Abowitz D.A. Teaching demography to undergraduates: a pedagogical dilemma. Teaching Sociology. 1990;18(1):63–68. doi:10.2307/1318233",
+            "DOI": "10.2307/1318233"
+          },
+          {
+            "key": "ref17",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Tabutin D. Whither demography? Strengths and weaknesses of the discipline over fifty years of change. Population. 2007;62(1):15–31. doi:10.3917/popu.701.0015",
+            "DOI": "10.3917/pope.701.0015"
+          },
+          {
+            "key": "ref18",
+            "unstructured": "Wajnman S., Gonçalves E.L. Is there a basic framework for training in demography? Papeles de Población. 2003;(36):21–40. Accessed August 18, 2025. https://www.researchgate.net/publication/26421020_Is_there_a_basic_framework_for_training_in_demography"
+          },
+          {
+            "key": "ref19",
+            "unstructured": "Preston S.H., Heuveline P., Guillot M. Demography: Measuring and Modeling Population Processes. Malden, MA: Blackwell; 2001. Accessed August 18, 2025. https://archive.org/details/demographymeasur0000pres"
+          },
+          {
+            "key": "ref20",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Keyfitz N., Caswell H. Applied Mathematical Demography. 3rd ed. New York: Springer; 2005. doi:10.1007/b139042",
+            "DOI": "10.1007/b139042"
+          },
+          {
+            "key": "ref21",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Valentei D.I. Population knowledge system (1973). Vestnik Moskovskogo universiteta. Seriya 6. Ekonomika = Moscow University Economics Bulletin. 2016;4:134–148. (In Russ.) doi:10.38050/013001052016411",
+            "DOI": "10.38050/013001052016411"
+          },
+          {
+            "key": "ref22",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Kalabikhina I.E. An interdisciplinary approach to the demography teaching at universities. Vestnik Moskovskogo universiteta. Seriya 6: Ekonomika = Moscow University Economics Bulletin. 2017;1:169-173. (In Russ.) doi:10.38050/01300105201719",
+            "DOI": "10.38050/01300105201719"
+          },
+          {
+            "key": "ref23",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rostovskaya T.K., Bedrina E.B., Zolotareva O.A. Razvitie demograficheskogo obrazovaniya v Rossii i za rubezhom = Development of Demographic Education in Russia and Abroad. Moscow: FCTAS RAS; 2024. (In Russ.) doi:10.19181/monogr.978-5-89697-421-5.2023",
+            "DOI": "10.31085/9785392405954-2023-224"
+          },
+          {
+            "key": "ref24",
+            "unstructured": "Tkachenko A.A. History and current problems of teaching the course “Demography”: Russian specifics. In: Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017:195–204. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment"
+          },
+          {
+            "key": "ref25",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Bedrina E.B., Chernova K.V. The system of demographic education in federal universities of Russia. In: Global’nye vyzovy demograficheskomu razvitiyu: sbornik nauchnykh statei. Vol. II = Global Challenges to Demographic Development: Collected Scientific Articles. Vol. II. Ekaterinburg: Institute of Economics, Ural Branch of RAS; 2022:50–63. (In Russ.) doi:10.17059/udf-2022-4-5",
+            "DOI": "10.17059/udf-2022-4-5"
+          },
+          {
+            "key": "ref26",
+            "unstructured": "Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017. 632 p. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment"
+          },
+          {
+            "key": "ref27",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Kalabikhina I.E. Interdisciplinary approach to teaching demographic disciplines. In: Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017:174–176. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment",
+            "DOI": "10.38050/01300105201719"
+          },
+          {
+            "key": "ref28",
+            "unstructured": "Mikheeva A.R. Demography and sociology of the family as a field of interdisciplinary analysis. In: Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017:177–184. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment"
+          },
+          {
+            "key": "ref29",
+            "unstructured": "Sakhvadze A.Sh. Demographic education and population studies in universities of Georgia. In: Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017:185–194. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment"
+          },
+          {
+            "key": "ref30",
+            "unstructured": "Tozhieva Z.N., Alekperova Sh.T. Demographic education of Uzbekistan: history and modernity. In: Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017:207–208. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment"
+          },
+          {
+            "key": "ref31",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rostovskaya T.K., Zolotareva O.A. The professional standard “Demographer” as a factor in shaping a new model of human resources. Sotsiologicheskaya nauka i sotsial’naya praktika = Sociological Science and Social Practice. 2021;9(2):82–95. (In Russ.) doi:10.19181/snsp.2021.9.2.8106",
+            "DOI": "10.19181/snsp.2021.9.2.8106"
+          },
+          {
+            "key": "ref32",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Bedrina E.B., Chernova K.V. Professional standards as a basis for the development and improvement of knowledge in demography. Human Progress. 2021;7(3):1–14. (In Russ.) doi:10.34709/IM.173.5",
+            "DOI": "10.34709/IM.173.5"
+          },
+          {
+            "key": "ref33",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rostovskaya T.K., Shabunova A.A., Davletshina L.A. demographic education in modern Russia: mismatch between the needs and opportunities. Economic and Social Changes: Facts, Trends, Forecast. 2022;15(2):55–72. doi:10.15838/esc.2022.2.80.4",
+            "DOI": "10.15838/esc.2022.2.80.4"
+          },
+          {
+            "key": "ref34",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Chernova K.V., Bedrina E.B. Development of demographic education in Russian higher education institutions. Narodonaselenie = Population. 2020;23(4):125–139. (In Russ.) doi:10.19181/population.2020.23.4.12",
+            "DOI": "10.19181/population.2020.23.4.12"
+          },
+          {
+            "key": "ref35",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Ryazantsev S.V., Rostovskaya T.K., Davletshina L.A. Current issues of demography and training of demographers in Tuva. Novye issledovaniya Tuvy = New Research of Tuva. 2022;(4):146–168. (In Russ.) doi:10.25178/nit.2022.4.12",
+            "DOI": "10.25178/nit.2022.4.12"
+          },
+          {
+            "key": "ref36",
+            "unstructured": "Bagirova A., Voroshilova A. The formation of demographic competencies of public servants as a new feature of Russian education. In: International Multidisciplinary Scientific Conferences on Social Sciences and Arts (SGEM 2014): Conference Proceedings. 2014;2:955–962. doi:10.5593/sgemso cial2014/B12/S2.122"
+          },
+          {
+            "key": "ref37",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Williams J.R., Schatz E.J., Clark B.D., Collinson M.A., Clark S.J., Menken J., et al. Improving public health training and research capacity in Africa: a replicable model for linking training to health and socio-demographic surveillance data. Global Health Action. 2010;3:5287. doi:10.3402/gha.v3i0.5287",
+            "DOI": "10.3402/gha.v3i0.5287"
+          }
+        ],
+        "container-title": [
+          "The Education and science journal"
+        ],
+        "link": [
+          {
+            "URL": "https://www.edscience.ru/jour/article/viewFile/4810/1371",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              15
+            ]
+          ],
+          "date-time": "2026-01-15T10:38:14Z",
+          "timestamp": 1768473494000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.edscience.ru/jour/article/view/4810"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              1
+            ]
+          ]
+        },
+        "references-count": 37,
+        "journal-issue": {
+          "issue": "1",
+          "published-online": {
+            "date-parts": [
+              [
+                2026,
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.17853/1994-5639-2026-1-33-64",
+        "ISSN": [
+          "2310-5828",
+          "1994-5639"
+        ],
+        "issn-type": [
+          {
+            "value": "2310-5828",
+            "type": "electronic"
+          },
+          {
+            "value": "1994-5639",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              12
+            ]
+          ],
+          "date-time": "2026-03-12T18:42:35Z",
+          "timestamp": 1773340955017,
+          "version": "3.50.1"
+        },
+        "reference-count": 0,
+        "publisher": "Belgorod National Research University",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "RR. S. and M."
+        ],
+        "DOI": "10.18413/2408-9338-2025-11-4-1-4",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              12
+            ]
+          ],
+          "date-time": "2026-03-12T09:03:36Z",
+          "timestamp": 1773306216000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Sociological diagnostics of population dissatisfaction as a tool for managing territorial development"
+        ],
+        "prefix": "10.18413",
+        "volume": "11",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "Arseniy M.",
+            "family": "Sitkovskiy",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Russian Academy of Sciences"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-1629-7780",
+            "authenticated-orcid": false,
+            "given": "Tamara K.",
+            "family": "Rostovskaya",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Russian Academy of Sciences"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "7740",
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              30
+            ]
+          ]
+        },
+        "container-title": [
+          "Research Result Sociology and Management"
+        ],
+        "original-title": [
+          "Социологическая диагностика неудовлетворённости населения как инструмент управления развитием территорий"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              12
+            ]
+          ],
+          "date-time": "2026-03-12T09:03:42Z",
+          "timestamp": 1773306222000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://rrsociology.ru/en/journal/annotation/3959/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              30
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-online": {
+            "date-parts": [
+              [
+                2025,
+                12,
+                30
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.18413/2408-9338-2025-11-4-1-4",
+        "ISSN": [
+          "2408-9338"
+        ],
+        "issn-type": [
+          {
+            "value": "2408-9338",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              30
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              29
+            ]
+          ],
+          "date-time": "2025-12-29T18:02:55Z",
+          "timestamp": 1767031375813,
+          "version": "3.48.0"
+        },
+        "reference-count": 15,
+        "publisher": "Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences (FCTAS RAS)",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              29
+            ]
+          ]
+        },
+        "abstract": "<jats:p>The article discusses the concept of demographic analysis of projects and proposals and proposes an author's approach to its implementation. This topic is relevant due to the lack of unified methods for implementing demographic analysis in the professional standards “Demographer”. The introduction justifies the need for demographic analysis to assess the consequences of managerial decisions in demographic development. Although the professional standard includes such a function, there are currently no developed methodical recommendations. A review of literature shows that several re-searchers have tried to conceptualize demographic analysis: they discussed the experience of analyzing demographic policy measures, assessed the demographic risks associated with individual bills, proposed introducing mandatory demographic analysis for strategic documents through legislation, etc., but a unified method has not been developed yet. The methodology and methods section presents a two-step approach: 1) an expert analysis of document content (checking for compliance with demographic policy goals, scientific validity, comprehensiveness of measures, etc.) and 2) demographic scenario modeling of consequences of implementation. The results section demonstrates how this methodology was applied using the example of The Strategy for Spatial Development in Russia until 2030: an analysis of its content revealed a concentration on supporting large cities and insufficient attention paid to demographic risks, and alternative scenarios for demographic development (urbanization vs. decentralization) were calculated with population forecasts until 2100. It was shown that implementing the urbanization scenario would lead to higher rates of long-term depopulation compared to a balanced scenario. In the discussion, the results were compared with other demographic modeling studies and the areas where the methodology could be applied in practical demographic analysis were highlighted. The conclusions emphasize that this methodology contributes to institutionalizing demographic analysis as a tool for strategic planning and providing a scientific basis for assessing demographic impacts of projects.</jats:p>",
+        "DOI": "10.19181/demis.2025.5.4.11",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              29
+            ]
+          ],
+          "date-time": "2025-12-29T17:28:06Z",
+          "timestamp": 1767029286000
+        },
+        "page": "188-215",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Methodological Aspects of Demographic Expertise of Projects and Works"
+        ],
+        "prefix": "10.19181",
+        "volume": "5",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "Arseniy",
+            "family": "Sitkovskiy",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Institute of Social Demography FCTAS RAS, Moscow, Russia"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-9143-1740",
+            "authenticated-orcid": false,
+            "given": "Timur",
+            "family": "Miryazov",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute of Social Demography FCTAS RAS, Moscow, Russia"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "8249",
+        "reference": [
+          {
+            "key": "ref=1",
+            "unstructured": "Antonov, A. I. O sootvetstvii mer i sredstv demograficheskoi politiki ee dolgosrochnym tseliam (opyt demograficheskoi ekspertizy) [On the compliance of measures and means of demographic policy with its long-term goals (experience of demographic expertise)]. Demograficheskie issledovaniya [Demographic Research]: a collection. Moscow : KDU Publ., 2009. Pp. 148–161. (In Russ.)."
+          },
+          {
+            "key": "ref=2",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rostovskaya, T. K. Features of the Work of a Demographer: An Overview of the Professional Standard. DEMIS. Demographic research. 2023. Vol. 3, No. 3. Pp. 253–258. DOI 10.19181/demis.2023.3.3.17. (In Russ.).",
+            "DOI": "10.19181/demis.2023.3.3.17"
+          },
+          {
+            "key": "ref=3",
+            "unstructured": "Beloborodov, I. I. Vspomogatel’nyye reproduktivnyye tekhnologii kak faktor demograficheskoy degradatsii (demograficheskaya ekspertiza zakonoproyekta «O vspomogatel'nykh reproduktivnykh tekhnologiyakh» Respubliki Belarus’) [Assisted reproductive technologies as a factor in demographic degradation (demographic examination of the draft law “On Assisted Reproductive Technologies” of the Republic of Belarus)]. Demograficheskie issledovaniya. 2012. No. 13. URL: http://demographia.net/demograficheskaya-ekspertiza-zakonoproekta-o-vspomogatelnyh-reproduktivnyh-tehnologiyah-respubliki (accessed on 06.08.2016). (In Russ.)."
+          },
+          {
+            "key": "ref=4",
+            "unstructured": "Suknyova, S. A. Arkticheskaya zona Severo-Vostoka Rossii: problemy demograficheskogo razvitiya [Arctic zone of the North-East of Russia: problems of demographic development]. Regional Economics: Theory and Practice. 2013. No. 25. Pp. 13–16. (In Russ.)."
+          },
+          {
+            "key": "ref=5",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Sitkovskiy, A. M. The Impact of State Agglomeration Policy on Long-Term Trends of Population Changes in Russia. RUDN Journal of Public Administration. 2025. Vol. 12, No. 3. Pp. 375–385. DOI 10.22363/2312-8313-2025-12-3-375-385. (In Russ.).",
+            "DOI": "10.22363/2312-8313-2025-12-3-375-385"
+          },
+          {
+            "key": "ref=6",
+            "unstructured": "Varygina, A. S. Normativno-pravovye osnovy otsenki demograficheskikh protsessov [Regulatory and legal framework for assessing demographic processes]. Ekonomika i sotsium [Economy and Society]. 2017. No. 9 (40). Pp. 64–67. (In Russ.)."
+          },
+          {
+            "key": "ref=7",
+            "unstructured": "Nozhenko, D. V. Problems of Application of the Program-Target Method in the Management of Demographic Processes. Moscow Economic Journal 2020. No. 7. P. 421–427. DOI 10.24411/2413-046X-2020-10499. (In Russ.)."
+          },
+          {
+            "key": "ref=8",
+            "unstructured": "Kaberty, N. G., Bekoev, G. B. Demographic Measures for Labor Market Regulation in North Ossetia. Population. 2024. Vol. 27, No. 4. Pp. 153–162. DOI 10.24412/1561-7785-2024-4-153-162. (In Russ.)."
+          },
+          {
+            "key": "ref=9",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Makarov, V. L., Bakhtizin, A. R., Sushko, E. D., et al. Supercomputer Technologies in Social Sciences: Agent-Oriented Demographic Models. Herald of the Russian Academy of Sciences. 2016. Vol. 86, No. 3. P. 252–262. DOI 10.18254/978-5-604-5843-7-8. (In Russ.).",
+            "DOI": "10.1134/S1019331616030047"
+          },
+          {
+            "key": "ref=10",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Whelpton, P. K. Population of the United States, 1925 to 1975. The American Journal of Sociology. 1928. Vol. 34, No. 2. Pp. 253–270. DOI 10.1086/214667.",
+            "DOI": "10.1086/214667"
+          },
+          {
+            "key": "ref=11",
+            "unstructured": "Nazarov, A. A., Nosova, M. G. The technic of Aging in Demography and its Applications. Tomsk State University Journal of Control and Computer Science. 2009. No. 3 (8). Pp. 67–74. (In Russ.)."
+          },
+          {
+            "key": "ref=12",
+            "unstructured": "Stover, D., Kirmeyer, S. DemProj Manual: A Computer Program for Making Population Projections. Washington : The Futures Group International, 2007. 106 p."
+          },
+          {
+            "key": "ref=13",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Shimizu, S., Shin, S. Applicability of SARIMA Model in Tokyo Population Migration Forecast. Proceedings of the 14th International Conference on Human System Interaction (HSI). Gdansk : IEEE, 2021. Pp. 1–4. DOI 10.1109/HSI52170.2021.9538690.",
+            "DOI": "10.1109/HSI52170.2021.9538690"
+          },
+          {
+            "key": "ref=14",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Filimonov, S. N., Baran, O. I., Ryabov, V. A. Natural Reproduction of the Population of Siberian Federal District at the Beginning of the Second Wave of Depopulation (Peculiarities and Prediction. Health Care of the Russian Federation. 2019. Vol. 63, No. 3. Pp. 116–121. DOI 10.18821/0044-197X-2019-63-3-116-121. (In Russ.).",
+            "DOI": "10.18821/0044-197X-2019-63-3-116-121"
+          },
+          {
+            "key": "ref=15",
+            "unstructured": "Zyryanova, M. A., Popova, L. A. Faktornyi analiz protsessov rozhdaemosti v severnykh regionakh Rossii [Factor analysis of fertility processes in the northern regions of Russia]. Sever i rynok: formirovanie ekonomicheskogo poryadka. 2018. No. 3 (59). Pp. 111–121. DOI 10.25702/KSC.2220-802X-3-2018-59-111-121. (In Russ.)."
+          }
+        ],
+        "container-title": [
+          "DEMIS. Demographic Research"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              29
+            ]
+          ],
+          "date-time": "2025-12-29T17:59:37Z",
+          "timestamp": 1767031177000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.demis-journal.ru/index.php/demis/article/view/9199"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              29
+            ]
+          ]
+        },
+        "references-count": 15,
+        "journal-issue": {
+          "issue": "4",
+          "published-online": {
+            "date-parts": [
+              [
+                2025
+              ]
+            ]
+          },
+          "published-print": {
+            "date-parts": [
+              [
+                2025,
+                12,
+                29
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.19181/demis.2025.5.4.11",
+        "ISSN": [
+          "2782-2303",
+          "2782-229X"
+        ],
+        "issn-type": [
+          {
+            "type": "print",
+            "value": "2782-2303"
+          },
+          {
+            "type": "electronic",
+            "value": "2782-229X"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              29
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              8
+            ]
+          ],
+          "date-time": "2026-01-08T10:52:08Z",
+          "timestamp": 1767869528331,
+          "version": "3.49.0"
+        },
+        "reference-count": 0,
+        "publisher": "The New Research of Tuva Editorial Board",
+        "issue": "4",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  12,
+                  1
+                ]
+              ],
+              "date-time": "2025-12-01T00:00:00Z",
+              "timestamp": 1764547200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "NRT"
+        ],
+        "abstract": "<jats:p>В статье представлена апробация авторской методики проведения демографической экспертизы документов в сфере демографической политики на примере региональной программы Республики Тыва «Повышение рождаемости в Республике Тыва на период 2023–2025  годов».\r\nМетодологическую базу исследования составляют методы экспертной оценки, сценарного прогнозирования и метод передвижки возрастов. Для подготовки и обработки данных использовался программный продукт Spectrum (модуль DemProj). Источниками данных выступили нормативно-правовые акты, статистические материалы Росстата и результаты предыдущих научных исследований.\r\nВ соответствии с авторской методикой проведения демографической экспертизы, на первом этапе проводится оценка документа на соответствие действующему законодательству, полноту представленной информации, соответствие актуальным научным теориям. На втором этапе моделируются два сценария динамики суммарного коэффициента рождаемости: базовый (без учёта мер) и целевой (с реализацией мероприятий программы).\r\nС помощью сценарного прогнозирования численности населения были выявлены демографические последствия реализации мероприятий программы. Рассмотрены два сценария: базовый (без реализации мероприятий) и целевой (с учётом реализации программы). В результате показано, что меры программы в Туве способны повысить рождаемость примерно на 8–10% по сравнению с базовым трендом, а численность населения к 2045 году может увеличиться на 20 тыс. чел. по сравнению с вариантом без реализации программы. Также выявлены успешные практики и проблемные аспекты программы, даны экспертные рекомендации по её совершенствованию.\r\nРезультаты исследования демонстрируют значительный потенциал предложенной методики как эффективного инструмента анализа и повышения качества региональных программ демографического развития, позволяющего минимизировать риски принятия недостаточно обоснованных управленческих решений.</jats:p>",
+        "DOI": "10.25178/nit.2025.4.13",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              1
+            ]
+          ],
+          "date-time": "2025-12-01T08:07:06Z",
+          "timestamp": 1764576426000
+        },
+        "page": "233-253",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Методология и практика проведения демографической экспертизы на примере региональной программы «Повышение рождаемости в Республике Тыва на период 2023–2025 годов»"
+        ],
+        "prefix": "10.25178",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-1629-7780",
+            "authenticated-orcid": false,
+            "given": "Тамара Керимовна",
+            "family": "Ростовская",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "Арсений Михайлович",
+            "family": "Ситковский",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-7627-5375",
+            "authenticated-orcid": false,
+            "given": "Луиза Нахидовна",
+            "family": "Гишкаева",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "10814",
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              1
+            ]
+          ]
+        },
+        "container-title": [
+          "The New Research of Tuva"
+        ],
+        "link": [
+          {
+            "URL": "https://nit.tuva.asia/nit/article/download/1547/1782",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://nit.tuva.asia/nit/article/download/1547/1782",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              8
+            ]
+          ],
+          "date-time": "2026-01-08T05:37:27Z",
+          "timestamp": 1767850647000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://nit.tuva.asia/nit/article/view/1547"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              1
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-online": {
+            "date-parts": [
+              [
+                2025,
+                12,
+                1
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.25178/nit.2025.4.13",
+        "ISSN": [
+          "2079-8482"
+        ],
+        "issn-type": [
+          {
+            "value": "2079-8482",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2025-11-02T15:10:56Z",
+          "timestamp": 1762096256611,
+          "version": "build-2065373602"
+        },
+        "reference-count": 0,
+        "publisher": "Peoples' Friendship University of Russia",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2025-11-01T00:00:00Z",
+              "timestamp": 1761955200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Vestn. Ross. univ. družby nar., Ser. Gos. munic. upr."
+        ],
+        "abstract": "<jats:p>-</jats:p>",
+        "DOI": "10.22363/2312-8313-2025-12-3-319-327",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2025-11-02T15:09:02Z",
+          "timestamp": 1762096142000
+        },
+        "page": "319-327",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "State demographic and family policy: an overview of current research and practices"
+        ],
+        "prefix": "10.22363",
+        "volume": "12",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-1629-7780",
+            "authenticated-orcid": false,
+            "given": "Tamara R.",
+            "family": "Rostovskaya",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "RUDN University"
+              },
+              {
+                "name": "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "Arseniy M.",
+            "family": "Sitkovskiy",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "RUDN University"
+              },
+              {
+                "name": "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "9635",
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              1
+            ]
+          ]
+        },
+        "container-title": [
+          "RUDN Journal of Public Administration"
+        ],
+        "link": [
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/46827/25727",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/46827/25737",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/46827/25737",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2025-11-02T15:09:03Z",
+          "timestamp": 1762096143000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://journals.rudn.ru/public-administration/article/view/46827"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              1
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-online": {
+            "date-parts": [
+              [
+                2025,
+                11,
+                1
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
+        "ISSN": [
+          "2411-1228",
+          "2312-8313"
+        ],
+        "issn-type": [
+          {
+            "value": "2411-1228",
+            "type": "electronic"
+          },
+          {
+            "value": "2312-8313",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              11
+            ]
+          ],
+          "date-time": "2026-04-11T01:36:03Z",
+          "timestamp": 1775871363181,
+          "version": "3.50.1"
+        },
+        "reference-count": 16,
+        "publisher": "Peoples' Friendship University of Russia",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2025-11-01T00:00:00Z",
+              "timestamp": 1761955200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Vestn. Ross. univ. družby nar., Ser. Gos. munic. upr."
+        ],
+        "abstract": "<jats:p>The study analyzes the impact of state agglomeration policy on demographic trends in Russia, with a special focus on the relationship between urbanization and birth rate. The study is based on data on population size and differences in demographic indicators between urban and rural areas, and includes a forecast of possible changes in the demographic situation up to 2100 using scenario modeling methods. The purpose of the study is to identify the key consequences of the agglomeration approach for long-term demographic development in line with the new “Spatial Development Strategy of the Russian Federation for the period up to 2030 with a forecast up to 2036”, as well as to assess possible approaches to adjusting state policy in the context of depopulation. The study materials include Rosstat’s estimated data on population size and components of its change, including total fertility rates for urban and rural populations. Methods of forecasting demographic dynamics components were applied, in particular SARIMA (implemented in Python) for fertility forecasting. The population is projected using the cohort-component method (“age shifting”) with the Spectrum software (DemProj module). Three main scenarios are considered: continuation of the current urbanization trend, maintenance of a static share of urban and rural population, and a “deurbanization” scenario as a possible alternative. The results show that given the current low birth rates and zero migration growth, Russia’s population will continue to decline under all three scenarios. The issue of declining birth rates in cities is particularly acute, exacerbated by the consolidation of agglomerations. It is concluded that the ongoing urbanization policy, combined with low birth rates, intensifies the country’s depopulation, while a deurbanization policy cannot radically change the demographic situation.</jats:p>",
+        "DOI": "10.22363/2312-8313-2025-12-3-375-385",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2025-11-02T15:09:02Z",
+          "timestamp": 1762096142000
+        },
+        "page": "375-385",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "The impact of state agglomeration policy on long-term trends of population changes in Russia"
+        ],
+        "prefix": "10.22363",
+        "volume": "12",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "Arseniy M.",
+            "family": "Sitkovskiy",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "9635",
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              1
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "ref1",
+            "unstructured": "Grigor’eva EM. SMART methodology. Economic Research. 2023;(1):34–37. (In Russ.). EDN: RGRHUA"
+          },
+          {
+            "key": "ref2",
+            "unstructured": "Alekseev AI, Zubarevich NV. A crisis of urbanization and the Russian countryside. Migratsiya i urbanizatsiya v SNG i Baltii v 90-e gody [Migration and urbanisation in the CIS and Baltic States in the 1990s]. Moscow: Tsentr izucheniya problem vynuzhdennoi migratsii v SNG publ.; 1999:83–94. (In Russ.). EDN: VTOSJN"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Bondarenko LV, Arkhangelskiy VN. Demographic situation in rural areas: assessment and prospects. Ehkonomika, trud, upravlenie v sel’skom khozyaistve. 2023;(10):164–176. (In Russ.). https://doi.org/10.33938/2310-164 EDN: UBFNTS",
+            "DOI": "10.33938/2310-164"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Bezverbny VA, Maksimov AN. Depopulation trends of rural areas of the Russian Federation according to the Russian census 2020. Nauka. Kul’tura. Obshchestvo. 2022;28(4):150–161. (In Russ.). https://doi.org/10.19181/nko.2022.28.4.12 EDN: DDNZQM",
+            "DOI": "10.19181/nko.2022.28.4.12"
+          },
+          {
+            "key": "ref5",
+            "unstructured": "Vishnevskiy AG, Kvasha EA, Harkova TL, Sherbakova EM. Rural Russia in a demographical study. Universe of Russia. Sociology. Ethnology. 2007;16(1):17–58. (In Russ.). EDN: HYVXEZ"
+          },
+          {
+            "key": "ref6",
+            "unstructured": "Iontsev VA, Braga EA. Features of demography processes in rural population of Russian region. Moscow University Economics Bulletin. 2011;(5):73–81. (In Russ.). EDN: ONSYUP"
+          },
+          {
+            "key": "ref7",
+            "unstructured": "Medkov VM. Demografiya [Demography]. Moscow: Infra-M publ.; 2007. (In Russ.). EDN: SDPXWX"
+          },
+          {
+            "key": "ref8",
+            "unstructured": "Patsiorkovsky VV, Patsiorkovskaya VV. The Russian village: factors of demographic growth. Russia and the Contemporary World. 2010;(3):59–71. (In Russ.). EDN: MWEDFD"
+          },
+          {
+            "key": "ref9",
+            "unstructured": "Pivovarov YuL. Urbanizatsiya Rossii v XX veke: idealy i real’nost’ [Urbanisation of Russia in the XX century: ideals and reality]. Geografiya mirovogo razvitiya: sbornik nauchnykh trudov [Geography of world development: Collection of scientific papers]. Moscow: Tovarishchestvo nauchnykh izdanii KMK publ.; 2010:228–239. (In Russ.). EDN: ZCUNJF"
+          },
+          {
+            "key": "ref10",
+            "unstructured": "Rybakovsky LL. “Efficiency” as basic index for the state and trends in natality. Sotsiologicheskie issledovaniya. 2016;(4):23–30. (In Russ.). EDN: VZSLIL"
+          },
+          {
+            "key": "ref11",
+            "unstructured": "Lappo GM, Lukhmanov DN, Nefedova TG, Polyan PM, Popov RA, Safronov SG, et al. Gorod i derevnya v Evropeiskoi Rossii: sto let peremen [Cities and villages in European Russia: A century of change]. Moscow: OGI publ.; 2001. (In Russ.). EDN: TZWHWT"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Makarov VL, Bakhtizin AR, Sushko ED, Vasenin VA, Borisov VA, Roganov VA. Supercomputer technologies in social sciences: agent-­oriented demographic models. Vestnik Rossijskoi akademii nauk. 2016;86(3):252. (In Russ.). https://doi.org/10.18254/978-5-604-5843-7-8 EDN: TNPHBF",
+            "DOI": "10.1134/S1019331616030047"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Whelpton PK. Population of the United States, 1925 to 1975. American Journal of Sociology. 1928;34(2):253–270. https://doi.org/10.1086/214667",
+            "DOI": "10.1086/214667"
+          },
+          {
+            "key": "ref14",
+            "unstructured": "Nazarov AA, Nosova MG. The technique of aging in demography and its applications. Tomsk State University Journal of Control and Computer Science. 2009;(3):67–74. (In Russ.). EDN: MNHJOT"
+          },
+          {
+            "key": "ref15",
+            "unstructured": "Stover D, Kirmeyer S. DemProj manual: a computer program for making population projections. The Futures Group International; 2007."
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Shimizu S, Shin S. Applicability of SARIMA model in Tokyo population migration forecast. In: Proceedings of the 14th International Conference on Human System Interaction (HSI). Gdańsk; 2021:1–4. https://doi.org/10.1109/HSI52170.2021.9538690",
+            "DOI": "10.1109/HSI52170.2021.9538690"
+          }
+        ],
+        "container-title": [
+          "RUDN Journal of Public Administration"
+        ],
+        "link": [
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/46833/25733",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/46833/25743",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/46833/25743",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2025-11-02T15:09:10Z",
+          "timestamp": 1762096150000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://journals.rudn.ru/public-administration/article/view/46833"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              1
+            ]
+          ]
+        },
+        "references-count": 16,
+        "journal-issue": {
+          "issue": "3",
+          "published-online": {
+            "date-parts": [
+              [
+                2025,
+                11,
+                1
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.22363/2312-8313-2025-12-3-375-385",
+        "ISSN": [
+          "2411-1228",
+          "2312-8313"
+        ],
+        "issn-type": [
+          {
+            "value": "2411-1228",
+            "type": "electronic"
+          },
+          {
+            "value": "2312-8313",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              6
+            ]
+          ],
+          "date-time": "2026-03-06T20:52:34Z",
+          "timestamp": 1772830354501,
+          "version": "3.50.1"
+        },
+        "reference-count": 38,
+        "publisher": "Russian State Vocational Pedagogical University",
+        "issue": "6",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  6,
+                  4
+                ]
+              ],
+              "date-time": "2025-06-04T00:00:00Z",
+              "timestamp": 1748995200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.edscience.ru/jour/about/editorialPolicies#openAccessPolicy"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Obraz. nauka"
+        ],
+        "abstract": "<jats:p><jats:bold>Introduction. </jats:bold>Intra-Russian educational migration among young people is significant due to the necessity for balanced spatial development within the educational system and the need to enhance the appeal of regional universities. The absence of an effective regional educational policy results in an uneven distribution of youth and the emergence of regional disparities in access to higher education.</jats:p><jats:p><jats:bold>Aim. </jats:bold>The <jats:italic>aim</jats:italic> of this study is to classify Russian regions based on the patterns of educational migration among young people. This classification seeks to formulate scientifically grounded recommendations for enhancing regional educational policies and managing migration flows effectively.<jats:italic> </jats:italic></jats:p><jats:p><jats:bold>Methodology and research methods.</jats:bold> The study utilised statistical data from Rosstat regarding intra-Russian migration flows of young people from 2019 to 2023, along with the results of the 2020 All-Russian Population Census. The methodology is grounded in the calculation of the migration balance for specific age groups, including applicants aged 17 to 18 years and university graduates aged 20 to 23 years. Additionally, it involves the calculation of the return coefficient to develop a typology of regions categorised as donors, acceptors, transit, balanced, and closed.<jats:italic> </jats:italic></jats:p><jats:p><jats:bold>Results. </jats:bold>Stable regional differences in educational migration have been identified: 45 regions in Russia serve as donors (losing youth), 12 regions are acceptors (attracting applicants), 21 regions maintain a balanced position, 2 regions are classified as transit, and an additional 5 territories exhibit low migration activity (closed). Data for 4 new territories is currently unavailable. Numerical criteria have been proposed, and a typology of Russian regions based on the educational migration of young people has been developed.<jats:italic> </jats:italic></jats:p><jats:p><jats:bold>Scientific novelty. </jats:bold>An innovative methodology for classifying regions based on migration balance and return coefficient has been developed, taking into account the unique characteristics of internal youth migration in Russia to assess regional educational policy effectively.<jats:italic> </jats:italic></jats:p><jats:p><jats:bold>Practical significance.</jats:bold> The results can be utilised by government agencies and universities to modify educational policies, enhance the appeal of various regions, and manage the educational migration patterns of young people.</jats:p>",
+        "DOI": "10.17853/1994-5639-2025-6-149-179",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              4
+            ]
+          ],
+          "date-time": "2025-06-04T09:46:54Z",
+          "timestamp": 1749030414000
+        },
+        "page": "149-179",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education"
+        ],
+        "prefix": "10.17853",
+        "volume": "27",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": true,
+            "given": "A. M.",
+            "family": "Sitkovskiy",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Peoples’ Friendship University of Russia named after P. Lumumba"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-1069-1648",
+            "authenticated-orcid": true,
+            "given": "A. V.",
+            "family": "Dozhdikov",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Federal Research Sociological Centre of the Russian Academy of Sciences"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "7191",
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              4
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Apienko S.N., Lukash A.V. Innovation development of regions and internal migration in Russia. E-Management. 2023;6(1):81–94. (In Russ.) doi:10.26425/2658-3445-2023-6-1-81-94",
+            "DOI": "10.26425/2658-3445-2023-6-1-81-94"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Khramova M.N., Zorin D.P. Problems of implementing competitive advantages of the Russian Far East in the context of human capital development. Nauchnoe obozrenie. Seriya 1: Ekonomika i pravo = Scientific Review. Series 1: Economics and Law. 2020;(4):44–58. (In Russ.) doi:10.26653/2076-46502020-4-04",
+            "DOI": "10.26653/2076-4650-2020-4-04"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rakachev V.N., Morozoeva E.V. Higher education as a resource for regional development policy: the case of the Krasnodar Territory. Vestnik Rossiiskogo universiteta druzhby narodov. Seriya: Politologiya = Bulletin of the Russian University of Peoples’ Friendship. Series: Political Science. 2022;24(4):827–855. (In Russ.) doi:10.22363/2313-1438-2022-24-4-827-855",
+            "DOI": "10.22363/2313-1438-2022-24-4-827-855"
+          },
+          {
+            "key": "ref4",
+            "unstructured": "Klyachko T.L., Semionova E.A. Migration mobility of Russian youth is conditioned by educational priorities. Ekonomicheskoe razvitie Rossii = Economic Development of Russia. 2021;28(10):61–63 (In Russ.) Accessed April 18, 2025. https://cyberleninka.ru/article/n/migrationnaya-mobilnost-rossiyskoy-molodezhi-obuslovlena-obrazovatelnymi-prioritetami"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Dozhdikov A.V. Interregional youth migration in the Russian Federation. DEMIS. Demograficheskie issledovaniya = DEMIS. Demographic Research. 2024;4(3):119–137. (In Russ.) doi:10.19181/demis.2024.4.3.8",
+            "DOI": "10.19181/demis.2024.4.3.8"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Dozhdikov A.V. Educational migration in the Republic of Mordovia. Regionologiya = Regionology. 2023;31(1):182–198. (In Russ.) doi:10.15507/2413-1407.122.031.202301.182-198",
+            "DOI": "10.15507/2413-1407.122.031.202301.182-198"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Dozhdikov A.V., Kornilova E.V. Educational migration of applicants between regions of the Russian Federation as a source of data for planning the development of the higher education system. Vysshee obrazovanie v Rossii = Higher Education in Russia. 2023;32(3):67–83. (In Russ.) doi:10.31992/08693617-2023-32-3-67-83",
+            "DOI": "10.31992/0869-3617-2023-32-3-67-83"
+          },
+          {
+            "key": "ref8",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Zhao M., Hu Y. Migration premium? The economic returns to youth inter‐province migration in post‐reform China. Journal of Youth Studies. 2019;22:1409–1427. doi:10.1080/13676261.2019.158 7153",
+            "DOI": "10.1080/13676261.2019.1587153"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Ding X. College education and internal migration in China. China Economic Review. 2021;69:101649. doi:10.1016/j.chieco.2021.101649",
+            "DOI": "10.1016/j.chieco.2021.101649"
+          },
+          {
+            "key": "ref10",
+            "unstructured": "Hvozdetska B., Varha N., Nikon N., Kocsis Z., Kovács K. Migratory moods and temporary employment of students of Central and Eastern Europe. Italian Sociological Review. 2020;10:305. doi:10.13136/isr.v10i2.342"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Baryla E.A., Dotterweich D. Student migration: do significant factors vary by region? Education Economics. 2001;9(3):269–280. doi:10.1080/09645290110086135",
+            "DOI": "10.1080/09645290110086135"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Hanssen T., Mathisen T. Exploring the attractiveness of a Norwegian rural higher education institution using importance‐performance analysis. Scandinavian Journal of Educational Research. 2018;62:68–87. doi:10.1080/00313831.2016.1212254",
+            "DOI": "10.1080/00313831.2016.1212254"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Marsiglia F., Campos A., Wu S., Nuño-Gutiérrez B., García-Pérez H., Glick J. Exploring the association between educational aspirations and intentions to migrate among youth in central Mexico by gender. International Journal of Social Welfare. 2023;33(3):579–590. doi:10.1111/ijsw.12625",
+            "DOI": "10.1111/ijsw.12625"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Nygård O. Pre-migration status, social capital, and the educational aspirations of children of immigrants in disadvantaged Swedish schools. Scandinavian Journal of Educational Research. 2021;66:580–593. doi:10.1080/00313831.2021.1897878",
+            "DOI": "10.1080/00313831.2021.1897878"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Chesters J., Cuervo H. (In)equality of opportunity: educational attainments of young people from rural, regional and urban Australia. The Australian Educational Researcher. 2021;49:43–61. doi:10.1007/s13384-021-00432-0",
+            "DOI": "10.1007/s13384-021-00432-0"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Xiaoyin L., Abzhapparova A. Educational migration: the experience of China. Journal of Philosophy, Culture and Political Science. 2019. doi:10.26577/jpcp.2019.v67.i1.017",
+            "DOI": "10.26577/jpcp.2019.v67.i1.017"
+          },
+          {
+            "key": "ref17",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rehák Š., Eriksson R. Migration of university graduates and structural aspects of regional higher education. European Planning Studies. 2020;28:1941–1959. doi:10.1080/09654313.2019.1700483",
+            "DOI": "10.1080/09654313.2019.1700483"
+          },
+          {
+            "key": "ref18",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Cui C., Wang Y., Wang Q. The interregional migration of human capital: the case of “first-class” university graduates in China. Applied Spatial Analysis and Policy. 2021;15:397–419. doi:10.1007/s12061-021-09401-7",
+            "DOI": "10.1007/s12061-021-09401-7"
+          },
+          {
+            "key": "ref19",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Iammarino S., Marinelli E. Education-job (mis)match and interregional migration: Italian university graduates’ transition to work. Regional Studies. 2015;49:866–882. doi:10.1080/00343404.2014.965135",
+            "DOI": "10.1080/00343404.2014.965135"
+          },
+          {
+            "key": "ref20",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Haussen T., Uebelmesser S. Job changes and interregional migration of graduates. Regional Studies. 2018;52:1346–1359. doi:10.1080/00343404.2017.1381335",
+            "DOI": "10.1080/00343404.2017.1381335"
+          },
+          {
+            "key": "ref21",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Fini R., Meoli A., Sobrero M. University graduates’ early career decisions and interregional mobility: self-employment versus salaried job. Regional Studies. 2022;56:972–988. doi:10.1080/00343404.2022.2069236",
+            "DOI": "10.1080/00343404.2022.2069236"
+          },
+          {
+            "key": "ref22",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Horvath K. Migration background – statistical classification and the problem of implicitly ethnicising categorisation in educational contexts. Ethnicities. 2019;19:558–574. doi:10.1177/1468796819833432",
+            "DOI": "10.1177/1468796819833432"
+          },
+          {
+            "key": "ref23",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Kotavaara N., Kotavaara O., Rusanen J., Muilu T. University graduate migration in Finland. Geoforum. 2018. doi:10.1016/j.geoforum.2018.07.010",
+            "DOI": "10.1016/j.geoforum.2018.07.010"
+          },
+          {
+            "key": "ref24",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Champion T., Green A., Kollydas K. The gainers and losers from the United Kingdom’s university-related migration: a subregional analysis of Graduate Outcomes Survey data. Population, Space and Place. 2024;30(5). doi:10.1002/psp.2757",
+            "DOI": "10.1002/psp.2757"
+          },
+          {
+            "key": "ref25",
+            "unstructured": "López E.A., Juárez L.G., Veytia M.G. Typological scheme of migrations and forced displacements. Estudios Fronterizos. 2019;20:e028. doi:10.21670/ref.190728"
+          },
+          {
+            "key": "ref26",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Piguet E., Kaenzig R., Guélat J. The uneven geography of research on “environmental migration”. Population and Environment. 2018;39:357–383. doi:10.1007/s11111-018-0296-4",
+            "DOI": "10.1007/s11111-018-0296-4"
+          },
+          {
+            "key": "ref27",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Kaenzig R., Piguet E. Toward a typology of displacements in the context of slow-onset environmental degradation. An analysis of hazards, policies, and mobility patterns. Sustainability. 2021;13(18):10235. doi:10.3390/su131810235",
+            "DOI": "10.3390/su131810235"
+          },
+          {
+            "key": "ref28",
+            "unstructured": "Du H. Mobilities and identities of educated young adults: a life-history and biographical study. China Review. 2018;18:35–57."
+          },
+          {
+            "key": "ref29",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Davda L.S., Radford D.R., Scambler S., Gallagher J.E. A typology of internationally qualified dentists in the UK based on migration and professional integration. Journal of Migration and Health. 2024; 9(1):100232. doi:10.1016/j.jmh.2024.100232",
+            "DOI": "10.1016/j.jmh.2024.100232"
+          },
+          {
+            "key": "ref30",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rostovskaya T.K., Skorobogatova V.I., Vasilieva E.N. Obrazovatel’naya migratsiya v kontekste geopoliticheskikh vyzovov = Educational Migration in the Context of Geopolitical Challenges. Moscow: Publishing House Prospekt; 2023. 128 p. (In Russ.) Accessed April 18, 2025. https://argorussia.ru/ru/node/1473",
+            "DOI": "10.31085/9785392400607-2023-128"
+          },
+          {
+            "key": "ref31",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Kashnitsky I.S., Mkrtchyan N.V., Leshukov O.V. Interregional youth migration in Russia: a comprehensive analysis of demographic statistics. Voprosy obrazovaniya = Educational Studies Moscow. 2016;(3):169–203. (In Russ.) doi:10.17323/1814-9545-2016-3-169-203",
+            "DOI": "10.17323/1814-9545-2016-3-169-203"
+          },
+          {
+            "key": "ref32",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Mkrtchyan N.V. Gender disproportions in long‐term migration flows in Russia. Demograficheskoe obozrenie = Demographic Review. 2021;(3):6–19. (In Russ.) doi:10.17323/demreview.v8i3.13264",
+            "DOI": "10.17323/demreview.v8i3.13264"
+          },
+          {
+            "key": "ref33",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Gerasimov A.A. Gender balance in intraregional migration in Russia: spatial and age differentiation. Demograficheskoe obozrenie = Demographic Review. 2022;(1):92–108. (In Russ.) doi:10.17323/demreview.v9i1.14575",
+            "DOI": "10.17323/demreview.v9i1.14575"
+          },
+          {
+            "key": "ref34",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Vorobyova O.D., Topilin A.V., Grebenyuk A.A., Lebedeva T.V. Analysis of migration processes based on population census data in Russia. Ekonomika regiona = Regional Economy. 2016;(1):175–188. (In Russ.) doi:10.17059/2016-1-13",
+            "DOI": "10.17059/2016-1-13"
+          },
+          {
+            "key": "ref35",
+            "unstructured": "Sivoplyasova S.Y. Gender peculiarities of migration behavior of youth in Central Asia and Russia. In: Mezhdunarodny demograficheski forum: materialy zasedaniya = International Demographic Forum: Proceedings. 2020:458–463. (In Russ.) Accessed January 05, 2025. https://www.spsl.nsc.ru/FullText/konfe/МеждДемФор2020.pdf"
+          },
+          {
+            "key": "ref36",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Mikryukov N.Y. Interregional and international migrations as factors of gender disproportions in Russian regions. Nauka. Kul’tura. Obshchestvo = Science. Culture. Society. 2023;29(4):65–84. (In Russ.) doi:10.19181/nko.2023.29.4.6",
+            "DOI": "10.19181/nko.2023.29.4.6"
+          },
+          {
+            "key": "ref37",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Bezverbny V.A., Mikryukov N.Y., Sitkovsky A.M. Educational interregional migrations in Russia in 2017–2019: gender and spatial aspects. Novye issledovaniya Tuvy = New Research of Tuva. 2024;(3):226–239. (In Russ.) doi:10.25178/nit.2024.3.13",
+            "DOI": "10.25178/nit.2024.3.13"
+          },
+          {
+            "key": "ref38",
+            "unstructured": "Kasymova S.R. Gender socialization of children in the context of labor migration from Tajikistan. Diaspory = Diasporas. 2012;(2):124–148. (In Russ.) Accessed January 05, 2025. https://www.demoscope.ru/weekly/2014/0583/analit02.php"
+          }
+        ],
+        "container-title": [
+          "The Education and science journal"
+        ],
+        "link": [
+          {
+            "URL": "https://www.edscience.ru/jour/article/viewFile/4406/1323",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              3
+            ]
+          ],
+          "date-time": "2025-08-03T19:24:04Z",
+          "timestamp": 1754249044000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.edscience.ru/jour/article/view/4406"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              4
+            ]
+          ]
+        },
+        "references-count": 38,
+        "journal-issue": {
+          "issue": "6",
+          "published-online": {
+            "date-parts": [
+              [
+                2025,
+                6,
+                4
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.17853/1994-5639-2025-6-149-179",
+        "ISSN": [
+          "2310-5828",
+          "1994-5639"
+        ],
+        "issn-type": [
+          {
+            "value": "2310-5828",
+            "type": "electronic"
+          },
+          {
+            "value": "1994-5639",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              4
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              24
+            ]
+          ],
+          "date-time": "2025-08-24T00:12:20Z",
+          "timestamp": 1755994340701,
+          "version": "3.44.0"
+        },
+        "reference-count": 0,
+        "publisher": "The New Research of Tuva Editorial Board",
+        "issue": "2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  6,
+                  2
+                ]
+              ],
+              "date-time": "2025-06-02T00:00:00Z",
+              "timestamp": 1748822400000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "NRT"
+        ],
+        "abstract": "<jats:p>В статье представлен анализ опорного каркаса расселения Республики Тыва. Методологическую базу составляют методы исследования статистики, геоинформационные методы (построение карт-схем, метод изохрон). Для подготовки и обработки данных использовались MS Excel и MS Power BI, для построения карт — Yandex DataLens и EverGis. Источниками данных выступили краеведческие источники, данные Всероссийской переписи населения 2010 г., а также оценочные данные о численности населения в населённых пунктах по итогам 2020 г.\r\nПредложена методика выявления «опорного каркаса расселения», который в данном случае представлен как сеть наиболее устойчивых населённых пунктов с точки зрения их демографической динамики. Методика позволила выявить и визуализировать опорный каркас расселения Республики Тыва. Он включает в себя один «средний город» — Кызыл и 12 его периферийных населённых пунктов, 15 опорных населённых пунктов, а также 78 прилегающих населённых пунктов. Результат представлен в виде карты-схемы. Проанализированы и визуализированы зоны 60-минутной транспортной доступности от всех 16 центров «опорного каркаса».\r\nТакже выявлены и проанализированы значительные расхождения между официальным перечнем «опорных» и «прилегающих населённых пунктов» Республики Тыва и результатами данного исследования, внесены предложения по доработке первого.\r\nМетодика может служить инструментом для принятия обоснованных управленческих решений по формированию приоритетов в финансировании и модернизации узловых центров.</jats:p>",
+        "DOI": "10.25178/nit.2025.2.4",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              2
+            ]
+          ],
+          "date-time": "2025-06-02T02:27:24Z",
+          "timestamp": 1748831244000
+        },
+        "page": "70-91",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Система расселения Республики Тыва: опорные населённые пункты"
+        ],
+        "prefix": "10.25178",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "Арсений Михайлович",
+            "family": "Ситковский",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3163-5933",
+            "authenticated-orcid": false,
+            "given": "Лейла Федоровна",
+            "family": "Деловарова",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "10814",
+        "published-online": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "The New Research of Tuva"
+        ],
+        "link": [
+          {
+            "URL": "https://nit.tuva.asia/nit/article/download/1478/1716",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://nit.tuva.asia/nit/article/download/1478/1716",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              8,
+              23
+            ]
+          ],
+          "date-time": "2025-08-23T23:46:57Z",
+          "timestamp": 1755992817000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://nit.tuva.asia/nit/article/view/1478"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              2
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-online": {
+            "date-parts": [
+              [
+                2025,
+                6,
+                2
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.25178/nit.2025.2.4",
+        "ISSN": [
+          "2079-8482"
+        ],
+        "issn-type": [
+          {
+            "type": "electronic",
+            "value": "2079-8482"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              2
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              5
+            ]
+          ],
+          "date-time": "2025-12-05T07:41:57Z",
+          "timestamp": 1764920517333,
+          "version": "3.46.0"
+        },
+        "reference-count": 0,
+        "publisher": "Institute of Economics Russian Academy of Sciences",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "LSPRP"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "abstract": "<jats:p>Исследование, основанное на интеграции пространственных, демографических и социально-экономических данных, раскрывает системные взаимосвязи между демографическими процессами и уровнем социально-экономического развития субъектов Российской Федерации. Цель работы состоит в выявлении и оценке взаимосвязей между демографическими процессами (рождаемость, смертность, ожидаемая продолжительность жизни, миграционный прирост) и показателями социально - экономического развития российских регионов в 1990-2025 гг., а также построении типологии регионов России по сходству этих взаимосвязей. Используя матрицы парных коэффициентов корреляции для 85 регионов, полученные на основе наблюдений ключевых 59 социально-экономических показателей Росстата в период 1990-2025 гг., и авторскую базу данных значимых корреляций (r ≥ 0,7), выполнены два уровня анализа: (1) агрегация средних коэффициентов корреляции по каждому из выбранных демографических показателей и (2) кластерный анализ «корреляционных портретов» регионов с использованием алгоритмов k-средних и иерархической кластеризации. Кроме того, для обоснования результатов проведён обзор отечественной и зарубежной литературы по влиянию демографических процессов на экономику, жилищные условия, социальную инфраструктуру и региональное развитие. В результате установлено, что ожидаемая продолжительность жизни демонстрирует наиболее прочные положительные связи с валовым региональным продуктом (ВРП) на душу населения и стоимостью фиксированного потребительского набора, а отрицательные связи - с обеспеченностью больничными койками и долей населения с доходами ниже прожиточного минимума. Суммарный коэффициент рождаемости в большинстве регионов обратно связан с уровнем урбанизации, обеспеченностью жильём и кредитной нагрузкой. Численность и плотность населения тесно связаны с концентрацией медицинских кадров и одновременно отрицательно коррелируют с общей кредитной задолженностью и обеспеченностью жилой площадью. Кластерный анализ позволил выделить четыре типа регионов - синергетический, переходный, смешанный и контрастный - отличающиеся количеством и значимостью корреляционных связей. Выявленные закономерности подтверждают теорию агломерационных эффектов и демографического перехода, а также подчёркивают необходимость реализации дифференцированной региональной политики, учитывающей специфику социально-экономического развития субъектов Российской Федерации.</jats:p>",
+        "DOI": "10.52180/1999-9836_2025_21_4_8_602_617",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              5
+            ]
+          ],
+          "date-time": "2025-12-05T07:19:29Z",
+          "timestamp": 1764919169000
+        },
+        "page": "602-617",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia"
+        ],
+        "prefix": "10.52180",
+        "volume": "21",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-3148-7072",
+            "authenticated-orcid": false,
+            "given": "V.A.",
+            "family": "Bezverbny",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-1629-7780",
+            "authenticated-orcid": false,
+            "given": "T.R.",
+            "family": "Rostovskaya",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "A.M.",
+            "family": "Sitkovskiy",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0002-1045-3591",
+            "authenticated-orcid": false,
+            "given": "S.V.",
+            "family": "Roslavtsev",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "29830",
+        "published-online": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "container-title": [
+          "Living Standards of the Population in the Regions of Russia"
+        ],
+        "original-title": [
+          "ВЗАИМОСВЯЗИ ДЕМОГРАФИЧЕСКИХ И СОЦИАЛЬНО-ЭКОНОМИЧЕСКИХ ПОКАЗАТЕЛЕЙ РАЗВИТИЯ РЕГИОНОВ РОССИИ"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              5
+            ]
+          ],
+          "date-time": "2025-12-05T07:19:37Z",
+          "timestamp": 1764919177000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://elibrary.ru/item.asp?id=83896667"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-online": {
+            "date-parts": [
+              [
+                2025
+              ]
+            ]
+          },
+          "published-print": {
+            "date-parts": [
+              [
+                2025
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617",
+        "ISSN": [
+          "1999-9836",
+          "2713-3397"
+        ],
+        "issn-type": [
+          {
+            "value": "1999-9836",
+            "type": "print"
+          },
+          {
+            "value": "2713-3397",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              14
+            ]
+          ],
+          "date-time": "2025-11-14T17:45:51Z",
+          "timestamp": 1763142351183,
+          "version": "3.32.0"
+        },
+        "reference-count": 0,
+        "publisher": "The New Research of Tuva Editorial Board",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2024,
+                  9,
+                  12
+                ]
+              ],
+              "date-time": "2024-09-12T00:00:00Z",
+              "timestamp": 1726099200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "NRT"
+        ],
+        "abstract": "<jats:p>В статье рассматриваются гендерные и пространственные аспекты межрегиональных образовательных миграций в России за период 2017–2019  годов. Особое внимание уделяется возрастным категориям 15–16  и 17–18  лет. Исследование выявляет тенденции привлекательности регионов для образовательных мигрантов, а также гендерные различия в выборе образовательного пути и последующей трудовой миграции.\r\nРезультаты исследования показывают, что многие российские регионы, включая центральную Россию, Ростовскую и Свердловскую области, а также Красноярский и Хабаровский края, привлекательны для образовательной миграции. В то же время, Республика Татарстан и Приморский край несмотря на значительные инвестиции в образовательную инфраструктуру, оказались менее привлекательными. Гендерный анализ выявил, что женская образовательная миграция тяготеет к крупнейшим агломерациям и западным регионам, в то время как мужская миграция часто связана с военным образованием и службой.\r\nОтдельно отмечена ситуация в Республике Тыва, которая представляет собой уникальный кейс в контексте изучаемой тематики. В отличие от других регионов, где женская образовательная миграция часто является маловозвратной, в Туве наблюдается значительный возврат женщин в возрастной группе 19–25  лет.\r\nВ статье предложен ряд рекомендаций для выравнивания гендерных дисбалансов, включая более равномерное распределение ресурсной ренты и инвестиции в диверсификацию экономики страны и регионов.</jats:p>",
+        "DOI": "10.25178/nit.2024.3.13",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              9,
+              12
+            ]
+          ],
+          "date-time": "2024-09-12T08:07:28Z",
+          "timestamp": 1726128448000
+        },
+        "page": "226-239",
+        "source": "Crossref",
+        "is-referenced-by-count": 3,
+        "title": [
+          "Образовательные межрегиональные миграции в России в 2017–2019  гг.: гендерные и пространственные аспекты"
+        ],
+        "prefix": "10.25178",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-3148-7072",
+            "authenticated-orcid": false,
+            "given": "Вадим Александрович",
+            "family": "Безвербный",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Николай Юрьевич",
+            "family": "Микрюков",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "Арсений Михайлович",
+            "family": "Ситковский",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "10814",
+        "published-online": {
+          "date-parts": [
+            [
+              2024,
+              9,
+              12
+            ]
+          ]
+        },
+        "container-title": [
+          "The New Research of Tuva"
+        ],
+        "link": [
+          {
+            "URL": "https://nit.tuva.asia/nit/article/download/1358/1663",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://nit.tuva.asia/nit/article/download/1358/1663",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              1,
+              12
+            ]
+          ],
+          "date-time": "2025-01-12T22:47:17Z",
+          "timestamp": 1736722037000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://nit.tuva.asia/nit/article/view/1358"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024,
+              9,
+              12
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-online": {
+            "date-parts": [
+              [
+                2024,
+                9,
+                12
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.25178/nit.2024.3.13",
+        "ISSN": [
+          "2079-8482"
+        ],
+        "issn-type": [
+          {
+            "type": "electronic",
+            "value": "2079-8482"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              9,
+              12
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              29
+            ]
+          ],
+          "date-time": "2025-12-29T19:07:00Z",
+          "timestamp": 1767035220323,
+          "version": "3.40.5"
+        },
+        "reference-count": 0,
+        "publisher": "The Russian Presidential Academy of National Economy and Public Administration",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "MI"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "DOI": "10.22394/2304-3369-2023-4-33-52",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              8,
+              31
+            ]
+          ],
+          "date-time": "2023-08-31T07:31:11Z",
+          "timestamp": 1693467071000
+        },
+        "page": "33-52",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern"
+        ],
+        "prefix": "10.22394",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-0448-3519",
+            "authenticated-orcid": false,
+            "given": "O.A.",
+            "family": "Kozlova",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "Institute of Economics of the Ural Branch of the Russian Academy of Sciences",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "A.M.",
+            "family": "Sitkovskiy",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "9677",
+        "published-online": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "container-title": [
+          "Management Issues"
+        ],
+        "original-title": [
+          "Методический подход к анализу социально-демографических факторов формирования опорного каркаса расселения"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              8,
+              31
+            ]
+          ],
+          "date-time": "2023-08-31T07:31:14Z",
+          "timestamp": 1693467074000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://journal-management.com/issue/2023/04/03"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-online": {
+            "date-parts": [
+              [
+                2023
+              ]
+            ]
+          },
+          "published-print": {
+            "date-parts": [
+              [
+                2023
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.22394/2304-3369-2023-4-33-52",
+        "ISSN": [
+          "2304-3369",
+          "2308-8842"
+        ],
+        "issn-type": [
+          {
+            "type": "print",
+            "value": "2304-3369"
+          },
+          {
+            "type": "electronic",
+            "value": "2308-8842"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              14
+            ]
+          ],
+          "date-time": "2025-05-14T08:37:18Z",
+          "timestamp": 1747211838701,
+          "version": "3.40.5"
+        },
+        "reference-count": 0,
+        "publisher": "Publishing House Economic Education",
+        "issue": "6",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "SRS1E&amp;L"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        },
+        "abstract": "<jats:p>The economic specialization of territories is a common definition in economic studies, while the methodology for its definition varies considerably. The paper presents an attempt to comprehend the essence of the concept of economic specialization of the territory in modern conditions. Various approaches to its definition are presented and analyzed, both by great Soviet scientists and modern interpretations. A methodology and formula for determining the economic specialization of subjects of the Russian Federation is proposed, taking into account the existing limitations of publicly available statistical information. Based on the identified economic specialization, the similarity coefficient of the economic specialization of the subjects of the Russian Federation was calculated. The calculation method includes computer data processing in the M language in the Microsoft Power Query environment. All subjects of the Russian Federation were divided into 9 groups in accordance with their economic specializations in order to determine a list of comparable territories. In order to identify the real potential of economic cooperation of adjacent territories, on the basis of the grouping, a cartogram of the economic specialization of the constituent entities of the Russian Federation was formed using the MapChart software tool. In the course of visual analysis, zones of similar economic specialization were identified, and the degree of cooperation potential was determined based on the similarity coefficient. This study is of an applied nature and is intended to expand the tools for developing a targeted state policy for managing the development of territories. The identification of economic specialization is intended to form groups of comparable territories for a one-time solution to emerging problems of the same type. Identification of the cooperation potential of the subjects of the Russian Federation is in demand from the point of view of the formation of interregional industry clusters, which corresponds to the current trends in the formation of state policy in the development of agglomerations and the transformation of the settlement system.</jats:p>",
+        "DOI": "10.26653/2076-4650-2021-6-08",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              28
+            ]
+          ],
+          "date-time": "2022-03-28T20:50:22Z",
+          "timestamp": 1648500622000
+        },
+        "page": "92-111",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "IDENTIFICATION OF ECONOMIC SPECIALIZATION AND COOPERATION POTENTIAL OF THE REGIONS OF THE RUSSIAN FEDERATION"
+        ],
+        "prefix": "10.26653",
+        "author": [
+          {
+            "name": "10.26653/2076-4650-2021-6-08",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "A.M.",
+            "family": "Sitkovskiy",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "11196",
+        "published-online": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        },
+        "container-title": [
+          "Scientific Review. Series 1. Economics and Law"
+        ],
+        "original-title": [
+          "ВЫЯВЛЕНИЕ ЭКОНОМИЧЕСКОЙ СПЕЦИАЛИЗАЦИИ И ПОТЕНЦИАЛА КООПЕРАЦИИ СУБЪЕКТОВ РФ"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              28
+            ]
+          ],
+          "date-time": "2022-03-28T20:50:36Z",
+          "timestamp": 1648500636000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://elibrary.ru/item.asp?id=48126823"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "6",
+          "published-online": {
+            "date-parts": [
+              [
+                2021
+              ]
+            ]
+          },
+          "published-print": {
+            "date-parts": [
+              [
+                2021
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.26653/2076-4650-2021-6-08",
+        "ISSN": [
+          "2076-4650"
+        ],
+        "issn-type": [
+          {
+            "type": "print",
+            "value": "2076-4650"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              26
+            ]
+          ],
+          "date-time": "2025-12-26T07:08:00Z",
+          "timestamp": 1766732880167,
+          "version": "3.40.5"
+        },
+        "reference-count": 0,
+        "publisher": "The Russian Presidential Academy of National Economy and Public Administration",
+        "issue": "2",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "MI"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        },
+        "DOI": "10.22394/2304-3369-2021-2-102-119",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2021,
+              4,
+              30
+            ]
+          ],
+          "date-time": "2021-04-30T10:10:06Z",
+          "timestamp": 1619777406000
+        },
+        "page": "102-119",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory"
+        ],
+        "prefix": "10.22394",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "A.M.",
+            "family": "Sitkovskiy",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "Russian Presidential Academy of National Economy and Public Administration",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "9677",
+        "published-online": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        },
+        "container-title": [
+          "Management Issues"
+        ],
+        "original-title": [
+          "Моделирование многокритериальной оценки социо-эколого-экономического состояния и динамики территории"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              4,
+              30
+            ]
+          ],
+          "date-time": "2021-04-30T10:10:14Z",
+          "timestamp": 1619777414000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://journal-management.com/issue/2021/02/08"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-online": {
+            "date-parts": [
+              [
+                2021
+              ]
+            ]
+          },
+          "published-print": {
+            "date-parts": [
+              [
+                2021
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.22394/2304-3369-2021-2-102-119",
+        "ISSN": [
+          "2304-3369",
+          "2308-8842"
+        ],
+        "issn-type": [
+          {
+            "type": "print",
+            "value": "2304-3369"
+          },
+          {
+            "type": "electronic",
+            "value": "2308-8842"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        }
+      }
+    ],
+    "items-per-page": 100,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

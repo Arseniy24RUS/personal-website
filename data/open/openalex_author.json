@@ -1,0 +1,408 @@
+{
+  "id": "https://openalex.org/A5007601767",
+  "orcid": "https://orcid.org/0000-0002-8725-6580",
+  "display_name": "Arseniy Sitkovskiy",
+  "raw_author_names": [
+    "10.26653/2076-4650-2021-6-08",
+    "A. M. Sitkovskiy",
+    "A.M. Sitkovskiy",
+    "Arseniy M. Sitkovskiy",
+    "Arseniy Sitkovskiy",
+    "Арсений Михайлович Ситковский"
+  ],
+  "full_name": "10.26653/2076-4650-2021-6-08",
+  "works_count": 13,
+  "cited_by_count": 9,
+  "summary_stats": {
+    "2yr_mean_citedness": 0.5714285714285714,
+    "h_index": 2,
+    "i10_index": 0
+  },
+  "ids": {
+    "openalex": "https://openalex.org/A5007601767",
+    "orcid": "https://orcid.org/0000-0002-8725-6580"
+  },
+  "affiliations": [
+    {
+      "institution": {
+        "id": "https://openalex.org/I126527374",
+        "ror": "https://ror.org/02dn9h927",
+        "display_name": "Peoples' Friendship University of Russia",
+        "country_code": "RU",
+        "type": "education",
+        "lineage": [
+          "https://openalex.org/I126527374"
+        ]
+      },
+      "years": [
+        2025
+      ]
+    },
+    {
+      "institution": {
+        "id": "https://openalex.org/I1313323035",
+        "ror": "https://ror.org/05qrfxd25",
+        "display_name": "Russian Academy of Sciences",
+        "country_code": "RU",
+        "type": "government",
+        "lineage": [
+          "https://openalex.org/I1313323035"
+        ]
+      },
+      "years": [
+        2025
+      ]
+    },
+    {
+      "institution": {
+        "id": "https://openalex.org/I263417816",
+        "ror": "https://ror.org/04xnm9a92",
+        "display_name": "The Russian Presidential Academy of National Economy and Public Administration",
+        "country_code": "RU",
+        "type": "government",
+        "lineage": [
+          "https://openalex.org/I263417816"
+        ]
+      },
+      "years": [
+        2019,
+        2018,
+        2017
+      ]
+    },
+    {
+      "institution": {
+        "id": "https://openalex.org/I4210120395",
+        "ror": "https://ror.org/02jgyam08",
+        "display_name": "Max Planck Institute for Demographic Research",
+        "country_code": "DE",
+        "type": "facility",
+        "lineage": [
+          "https://openalex.org/I149899117",
+          "https://openalex.org/I4210120395"
+        ]
+      },
+      "years": [
+        2025
+      ]
+    },
+    {
+      "institution": {
+        "id": "https://openalex.org/I4210122195",
+        "ror": "https://ror.org/02mx1ea71",
+        "display_name": "Institute of Socio-Political Research",
+        "country_code": "RU",
+        "type": "facility",
+        "lineage": [
+          "https://openalex.org/I1313323035",
+          "https://openalex.org/I4210120228",
+          "https://openalex.org/I4210122195"
+        ]
+      },
+      "years": [
+        2025
+      ]
+    }
+  ],
+  "last_known_institutions": [
+    {
+      "id": "https://openalex.org/I126527374",
+      "ror": "https://ror.org/02dn9h927",
+      "display_name": "Peoples' Friendship University of Russia",
+      "country_code": "RU",
+      "type": "education",
+      "lineage": [
+        "https://openalex.org/I126527374"
+      ]
+    },
+    {
+      "id": "https://openalex.org/I1313323035",
+      "ror": "https://ror.org/05qrfxd25",
+      "display_name": "Russian Academy of Sciences",
+      "country_code": "RU",
+      "type": "government",
+      "lineage": [
+        "https://openalex.org/I1313323035"
+      ]
+    },
+    {
+      "id": "https://openalex.org/I4210120395",
+      "ror": "https://ror.org/02jgyam08",
+      "display_name": "Max Planck Institute for Demographic Research",
+      "country_code": "DE",
+      "type": "facility",
+      "lineage": [
+        "https://openalex.org/I149899117",
+        "https://openalex.org/I4210120395"
+      ]
+    },
+    {
+      "id": "https://openalex.org/I4210122195",
+      "ror": "https://ror.org/02mx1ea71",
+      "display_name": "Institute of Socio-Political Research",
+      "country_code": "RU",
+      "type": "facility",
+      "lineage": [
+        "https://openalex.org/I1313323035",
+        "https://openalex.org/I4210120228",
+        "https://openalex.org/I4210122195"
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "id": "https://openalex.org/T13618",
+      "display_name": "Regional Socio-Economic Development Trends",
+      "count": 10,
+      "subfield": {
+        "id": "https://openalex.org/subfields/3317",
+        "display_name": "Demography"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/33",
+        "display_name": "Social Sciences"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/2",
+        "display_name": "Social Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T14019",
+      "display_name": "Socioeconomic and Demographic Analysis",
+      "count": 5,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2308",
+        "display_name": "Management, Monitoring, Policy and Law"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/23",
+        "display_name": "Environmental Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T12935",
+      "display_name": "Healthcare Systems and Public Health",
+      "count": 2,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2713",
+        "display_name": "Epidemiology"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/27",
+        "display_name": "Medicine"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/4",
+        "display_name": "Health Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T13384",
+      "display_name": "Regional Economic Development and Innovation",
+      "count": 2,
+      "subfield": {
+        "id": "https://openalex.org/subfields/1408",
+        "display_name": "Strategy and Management"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/14",
+        "display_name": "Business, Management and Accounting"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/2",
+        "display_name": "Social Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T10349",
+      "display_name": "Migration and Labor Dynamics",
+      "count": 1,
+      "subfield": {
+        "id": "https://openalex.org/subfields/3312",
+        "display_name": "Sociology and Political Science"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/33",
+        "display_name": "Social Sciences"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/2",
+        "display_name": "Social Sciences"
+      }
+    }
+  ],
+  "topic_share": [
+    {
+      "id": "https://openalex.org/T14019",
+      "display_name": "Socioeconomic and Demographic Analysis",
+      "value": 0.0001421,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2308",
+        "display_name": "Management, Monitoring, Policy and Law"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/23",
+        "display_name": "Environmental Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T13618",
+      "display_name": "Regional Socio-Economic Development Trends",
+      "value": 6.49e-05,
+      "subfield": {
+        "id": "https://openalex.org/subfields/3317",
+        "display_name": "Demography"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/33",
+        "display_name": "Social Sciences"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/2",
+        "display_name": "Social Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T13432",
+      "display_name": "Environmental Sustainability and Technology",
+      "value": 3.38e-05,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2308",
+        "display_name": "Management, Monitoring, Policy and Law"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/23",
+        "display_name": "Environmental Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T13384",
+      "display_name": "Regional Economic Development and Innovation",
+      "value": 2.6e-05,
+      "subfield": {
+        "id": "https://openalex.org/subfields/1408",
+        "display_name": "Strategy and Management"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/14",
+        "display_name": "Business, Management and Accounting"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/2",
+        "display_name": "Social Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T13588",
+      "display_name": "Regional resilience and development",
+      "value": 2.5e-05,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2002",
+        "display_name": "Economics and Econometrics"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/20",
+        "display_name": "Economics, Econometrics and Finance"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/2",
+        "display_name": "Social Sciences"
+      }
+    }
+  ],
+  "x_concepts": [
+    {
+      "id": "17744445",
+      "wikidata": "https://www.wikidata.org/wiki/Q36442",
+      "display_name": "Political science",
+      "score": 0.5720423460006714
+    },
+    {
+      "id": "148383697",
+      "wikidata": "https://www.wikidata.org/wiki/Q1781695",
+      "display_name": "Regional science",
+      "score": 0.5432241559028625
+    },
+    {
+      "id": "205649164",
+      "wikidata": "https://www.wikidata.org/wiki/Q1071",
+      "display_name": "Geography",
+      "score": 0.5024999976158142
+    },
+    {
+      "id": "50522688",
+      "wikidata": "https://www.wikidata.org/wiki/Q189833",
+      "display_name": "Economic growth",
+      "score": 0.39480000734329224
+    },
+    {
+      "id": "41008148",
+      "wikidata": "https://www.wikidata.org/wiki/Q21198",
+      "display_name": "Computer science",
+      "score": 0.3778464198112488
+    }
+  ],
+  "counts_by_year": [
+    {
+      "year": 2017,
+      "works_count": 1,
+      "oa_works_count": 1,
+      "cited_by_count": 0
+    },
+    {
+      "year": 2018,
+      "works_count": 1,
+      "oa_works_count": 1,
+      "cited_by_count": 0
+    },
+    {
+      "year": 2019,
+      "works_count": 1,
+      "oa_works_count": 1,
+      "cited_by_count": 0
+    },
+    {
+      "year": 2021,
+      "works_count": 2,
+      "oa_works_count": 1,
+      "cited_by_count": 3
+    },
+    {
+      "year": 2023,
+      "works_count": 1,
+      "oa_works_count": 1,
+      "cited_by_count": 2
+    },
+    {
+      "year": 2025,
+      "works_count": 7,
+      "oa_works_count": 7,
+      "cited_by_count": 4
+    }
+  ],
+  "display_name_alternatives": [
+    "10.26653/2076-4650-2021-6-08",
+    "A. M. Sitkovskiy",
+    "A.M. Sitkovskiy",
+    "Arseniy M. Sitkovskiy",
+    "Arseniy Sitkovskiy",
+    "Арсений Михайлович Ситковский"
+  ],
+  "block_key": "10.26653/2076-4650-2021-6-08",
+  "works_api_url": "https://api.openalex.org/works?filter=author.id:A5007601767",
+  "updated_date": "2026-05-08T12:23:59",
+  "created_date": "2022-05-12T00:00:00"
+}
