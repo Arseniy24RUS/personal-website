@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""Build diplomas gallery assets from a ZIP archive uploaded to content/diplomas/.
+"""Build a static diplomas/certificates gallery from user-uploaded files.
 
-Expected input:
-  content/diplomas/*.zip
+Universal workflow for future scientist portfolios:
 
-Outputs:
-  assets/diplomas/thumbs/*.webp
-  assets/diplomas/full/*.webp
-  data/diplomas/gallery.json
+1. Put one or more ZIP archives with any file names into content/diplomas/.
+2. Optionally put standalone PDF/JPG/PNG/WebP files into content/diplomas/.
+3. Run GitHub Action "Build diplomas gallery" manually.
 
-PDF files are rendered by PyMuPDF using the first page. Images are processed by
-Pillow. The script is deterministic and safe for GitHub Pages static hosting.
+The script recursively extracts all ZIP archives, processes images and the first
+page of PDFs, creates lightweight thumbnails and full-screen WebP versions, and
+writes data/diplomas/gallery.json for diplomas.html.
 """
 from __future__ import annotations
 
 from pathlib import Path
 from datetime import datetime, timezone
+import hashlib
 import json
 import re
 import shutil
@@ -32,6 +32,7 @@ FULL = ROOT / 'assets' / 'diplomas' / 'full'
 OUT = ROOT / 'data' / 'diplomas' / 'gallery.json'
 IMAGE_EXTS = {'.jpg', '.jpeg', '.png', '.webp', '.tif', '.tiff', '.bmp'}
 PDF_EXTS = {'.pdf'}
+SUPPORTED_EXTS = IMAGE_EXTS | PDF_EXTS
 
 
 def slugify(value: str) -> str:
@@ -45,29 +46,64 @@ def slugify(value: str) -> str:
 
 
 def year_from_name(name: str):
-    m = re.search(r'(20\d{2}|19\d{2})', name)
-    return int(m.group(1)) if m else None
+    years = re.findall(r'(20\d{2}|19\d{2})', name)
+    return int(years[-1]) if years else None
 
 
 def title_from_name(path: Path) -> str:
     name = re.sub(r'[_-]+', ' ', path.stem)
     name = re.sub(r'\s+', ' ', name).strip()
-    return name[:1].upper() + name[1:]
+    return name[:1].upper() + name[1:] if name else 'Диплом / сертификат'
 
 
-def find_archive() -> Path:
-    zips = sorted(INPUT_DIR.glob('*.zip'))
-    if not zips:
-        raise FileNotFoundError('No ZIP archive found in content/diplomas/')
-    return zips[-1]
+def file_hash(path: Path) -> str:
+    h = hashlib.sha1()
+    with path.open('rb') as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b''):
+            h.update(chunk)
+    return h.hexdigest()[:10]
 
 
-def extract_archive(zip_path: Path):
-    if WORK.exists():
-        shutil.rmtree(WORK)
-    WORK.mkdir(parents=True)
-    with zipfile.ZipFile(zip_path) as zf:
-        zf.extractall(WORK)
+def reset_dir(path: Path):
+    if path.exists():
+        shutil.rmtree(path)
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def prepare_workdir():
+    reset_dir(WORK)
+    INPUT_DIR.mkdir(parents=True, exist_ok=True)
+    archives = sorted(INPUT_DIR.glob('*.zip'))
+    direct_dir = WORK / 'direct-files'
+    direct_dir.mkdir(parents=True, exist_ok=True)
+
+    for src in INPUT_DIR.rglob('*'):
+        if src.is_file() and src.suffix.lower() in SUPPORTED_EXTS:
+            dst = direct_dir / src.name
+            if dst.exists():
+                dst = direct_dir / f"{src.stem}-{file_hash(src)}{src.suffix}"
+            shutil.copy2(src, dst)
+
+    for idx, zip_path in enumerate(archives, start=1):
+        extract_to = WORK / f'archive-{idx:02d}-{slugify(zip_path.stem)}'
+        extract_to.mkdir(parents=True, exist_ok=True)
+        with zipfile.ZipFile(zip_path) as zf:
+            zf.extractall(extract_to)
+
+    return archives
+
+
+def collect_source_files():
+    files = []
+    for p in WORK.rglob('*'):
+        if p.is_file() and p.suffix.lower() in SUPPORTED_EXTS:
+            # Ignore macOS service files and temporary artefacts inside archives.
+            if '__MACOSX' in p.parts or p.name.startswith('._'):
+                continue
+            files.append(p)
+    # Newest first by inferred year. Unknown years go last. Stable title order inside a year.
+    files.sort(key=lambda p: (year_from_name(p.name) or -1, p.name.lower()), reverse=True)
+    return files
 
 
 def load_image(path: Path) -> Image.Image:
@@ -89,17 +125,14 @@ def resize_max(img: Image.Image, max_side: int) -> Image.Image:
 
 
 def main():
-    zip_path = find_archive()
-    extract_archive(zip_path)
-    THUMBS.mkdir(parents=True, exist_ok=True)
-    FULL.mkdir(parents=True, exist_ok=True)
-    OUT.parent.mkdir(parents=True, exist_ok=True)
+    archives = prepare_workdir()
+    files = collect_source_files()
+    if not archives and not files:
+        raise FileNotFoundError('No ZIP, PDF or image files found in content/diplomas/')
 
-    files = []
-    for p in WORK.rglob('*'):
-        if p.is_file() and p.suffix.lower() in IMAGE_EXTS | PDF_EXTS:
-            files.append(p)
-    files.sort(key=lambda p: (year_from_name(p.name) or 9999, p.name.lower()))
+    reset_dir(THUMBS)
+    reset_dir(FULL)
+    OUT.parent.mkdir(parents=True, exist_ok=True)
 
     items = []
     used = set()
@@ -107,7 +140,7 @@ def main():
         year = year_from_name(path.name)
         base = f"{year or 'nd'}-{slugify(path.stem)}"
         if base in used:
-            base = f"{base}-{idx}"
+            base = f"{base}-{file_hash(path)}"
         used.add(base)
         full_path = FULL / f"{base}.webp"
         thumb_path = THUMBS / f"{base}.webp"
@@ -117,7 +150,8 @@ def main():
             print(f'SKIP {path}: {exc}')
             continue
         resize_max(img, 1800).save(full_path, 'WEBP', quality=84, method=6)
-        resize_max(img, 520).save(thumb_path, 'WEBP', quality=76, method=6)
+        # Smaller thumbnails: the page now displays roughly twice as many items per screen.
+        resize_max(img, 340).save(thumb_path, 'WEBP', quality=74, method=6)
         items.append({
             'id': base,
             'title': title_from_name(path),
@@ -129,8 +163,14 @@ def main():
             'source_filename': path.name,
         })
 
-    OUT.write_text(json.dumps({'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(), 'count': len(items), 'items': items}, ensure_ascii=False, indent=2), encoding='utf-8')
-    print(f'Built diplomas gallery: {len(items)} items from {zip_path}')
+    OUT.write_text(json.dumps({
+        'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        'count': len(items),
+        'sort': 'year_desc_name_desc',
+        'input_archives': [str(p).replace('\\', '/') for p in archives],
+        'items': items,
+    }, ensure_ascii=False, indent=2), encoding='utf-8')
+    print(f'Built diplomas gallery: {len(items)} items from {len(archives)} archive(s) and/or direct files')
 
 
 if __name__ == '__main__':
