@@ -2,26 +2,57 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>СМИ и видео — Ситковский А.М.</title>
-  <meta name="description" content="Публикации в СМИ, видео и публичные выступления Арсения Михайловича Ситковского.">
+  <title>СМИ и публичные упоминания — Ситковский А.М.</title>
+  <meta name="description" content="Публикации в СМИ, публичные упоминания, интервью, конференционные программы и видео с участием Арсения Михайловича Ситковского.">
   <link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/additions.css"><script defer src="assets/site.js"></script>
   <script>
     function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-    function fmtDate(s){if(!s)return '';try{return new Date(s).toLocaleDateString(document.body.classList.contains('lang-en')?'en-US':'ru-RU')}catch(e){return s}}
+    function fmtDate(s){if(!s)return '';try{return new Date(s).toLocaleDateString(document.body.classList.contains('lang-en')?'en-US':'ru-RU',{year:'numeric',month:'long',day:'numeric'})}catch(e){return s}}
+    function isNavigationJunk(text){return /Публикации молодых ученых|Поиск Информация|Противодействие корруп|Основные сведения Структура|Новости Минобрнауки РФ|slick|bootstrap|font-awesome/i.test(String(text||''))}
+    function isGenericTitle(title){return /^(ФНИСЦ РАН|Росбалт|ДЕМ\.ИНФОРМ - первое демографическое информационное агентство России)$/i.test(String(title||'').trim())}
+    function knownDescription(r){
+      const u=String(r.url||'');
+      if(u.includes('admission.rudn.ru/staff/')) return 'Официальная страница РУДН с профессиональным профилем, публикациями и сведениями о преподавательской деятельности.';
+      if(u.includes('pers_about.html?id=2472')) return 'Официальная персональная страница с научной аффилиацией, контактами и сведениями о публикациях.';
+      if(u.includes('page_id=1195')) return 'Персональная страница со списком публикаций на сайте ФНИСЦ РАН.';
+      return '';
+    }
+    function cleanDescription(r){
+      let d=knownDescription(r) || String(r.description||'').replace(/\s+/g,' ').trim();
+      if(isNavigationJunk(d)) d=knownDescription(r) || '';
+      if(d.length>360) d=d.slice(0,357).trim()+'…';
+      return d;
+    }
+    function displayable(r){
+      const u=String(r.url||''), t=String(r.title||''), d=String(r.description||'');
+      if(!u) return false;
+      if(r.source==='institutional_site_scan' && isGenericTitle(t)) return false;
+      if(r.source==='institutional_site_scan' && isNavigationJunk(d) && !knownDescription(r)) return false;
+      if(/assets|static|\.css|\.js|\.png|\.jpg|\.svg|\.woff/i.test(u)) return false;
+      return true;
+    }
+    function sourceLabel(r){
+      const raw=String(r.source_name||r.domain||'');
+      if(raw==='deminform.ru') return 'ДЕМ.ИНФОРМ';
+      if(raw==='t.me') return 'Telegram';
+      if(raw==='sobaka.ru') return 'Sobaka.ru';
+      if(raw==='rosbalt.ru') return 'Росбалт';
+      if(raw==='demoscope.ru') return 'Демоскоп Weekly';
+      return raw;
+    }
     async function loadMedia(){
       let records=[];
       try{records=(await fetch('data/media/published.json',{cache:'no-store'}).then(r=>r.json())).records||[]}catch(e){}
+      records=records.filter(displayable);
       const box=document.getElementById('media-list');
-      const count=document.getElementById('media-count');
-      count.textContent=records.length;
-      if(!records.length){box.innerHTML='<div class="note ru">Пока автоматический мониторинг не нашёл опубликованных упоминаний или workflow ещё не был запущен после обновления алгоритма.</div><div class="note en">No published mentions yet, or the workflow has not been run after the latest algorithm update.</div>';return}
-      box.innerHTML=records.map(r=>`<article class="pub-row"><div><div class="pub-citation"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a></div><div class="meta">${esc(r.source_name||r.domain||'')} ${r.published_at?'· '+fmtDate(r.published_at):''} · confidence ${esc(r.confidence)}</div><p class="meta">${esc(r.description||'')}</p></div><aside class="pub-quality"><div class="metric-badges"><span class="badge">${esc(r.source||'media')}</span><span class="badge light">${esc(r.domain||'')}</span></div></aside></article>`).join('')
+      if(!records.length){box.innerHTML='<div class="note ru">Пока опубликованные упоминания не загружены. Попробуйте обновить страницу после завершения workflow.</div><div class="note en">Published mentions have not been loaded yet. Please refresh the page after the workflow finishes.</div>';return}
+      box.innerHTML=records.map(r=>{const desc=cleanDescription(r);return `<article class="media-card">${r.image?`<a class="media-image" href="${esc(r.url)}" target="_blank" rel="noopener"><img src="${esc(r.image)}" alt=""></a>`:''}<div class="media-body"><div class="media-source">${esc(sourceLabel(r))}${r.published_at?' · '+fmtDate(r.published_at):''}</div><h2><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title||sourceLabel(r))}</a></h2>${desc?`<p>${esc(desc)}</p>`:''}<a class="media-link" href="${esc(r.url)}" target="_blank" rel="noopener"><span class="ru">Открыть материал</span><span class="en">Open source</span></a></div></article>`}).join('')
     }
     document.addEventListener('DOMContentLoaded',loadMedia)
   </script>
 </head>
 <body><div class="wrap"><header data-header></header>
-<section class="hero"><h1 class="ru">Публикации в СМИ и видео</h1><h1 class="en">Media and video</h1><p class="ru">Раздел наполняется автоматически: известные URL, RSS-поиск, Telegram-каналы и sitemap-сканирование источников объединяются в единый список опубликованных упоминаний.</p><p class="en">This section is populated automatically: known URLs, RSS search, Telegram channels and sitemap scans are merged into a single list of published mentions.</p></section>
-<section class="card" style="margin-top:16px"><div class="stats" style="margin-bottom:14px"><div class="stat"><b id="media-count">0</b><span class="ru">найденных и опубликованных упоминаний</span><span class="en">found and published mentions</span></div><div class="stat"><b>0</b><span class="ru">ручных очередей проверки</span><span class="en">manual review queues</span></div></div><div id="media-list"></div></section>
-<section id="video" class="grid2"><article class="tile"><div class="placeholder">Video</div><div class="body"><h2 class="ru">Видео</h2><h2 class="en">Video</h2><p class="ru">Видеоматериалы будут добавляться тем же алгоритмом по Telegram, RSS и ручным seed-URL.</p><p class="en">Videos will be added by the same algorithm through Telegram, RSS and manual seed URLs.</p></div></article><article class="tile"><div class="placeholder">Sources</div><div class="body"><h2 class="ru">Источники мониторинга</h2><h2 class="en">Monitoring sources</h2><p class="ru">Конфигурация хранится в `config/media_sources.yml`: seed-URL, sitemap источников, Telegram-каналы, ключевые фразы и порог автопубликации.</p><p class="en">Configuration is stored in `config/media_sources.yml`: seed URLs, source sitemaps, Telegram channels, key phrases and auto-publishing threshold.</p><div class="actions"><a class="btn" href="data/media/harvest_report.json">Отчёт</a></div></div></article></section>
+<section class="hero"><h1 class="ru">СМИ и публичные упоминания</h1><h1 class="en">Media and public mentions</h1><p class="ru">Подборка материалов, интервью, новостей, конференционных программ, официальных профилей и публикаций, где можно узнать о моей профессиональной деятельности.</p><p class="en">A curated set of media articles, interviews, news items, conference programmes, official profiles and publications related to my professional work.</p></section>
+<section class="media-section"><div id="media-list" class="media-list"></div></section>
+<section id="video" class="grid2"><article class="tile"><div class="placeholder">Video</div><div class="body"><h2 class="ru">Видео</h2><h2 class="en">Video</h2><p class="ru">Сюда будут добавляться видеозаписи лекций, интервью и публичных выступлений.</p><p class="en">Video recordings of lectures, interviews and public talks will be added here.</p></div></article><article class="tile"><div class="placeholder">Archive</div><div class="body"><h2 class="ru">Архив упоминаний</h2><h2 class="en">Mentions archive</h2><p class="ru">Раздел обновляется автоматически по подтверждённому корпусу ссылок, RSS, Telegram и институциональным сайтам.</p><p class="en">The section is updated automatically from confirmed links, RSS, Telegram and institutional websites.</p></div></article></section>
 <footer class="footer"><span>Персональный сайт Ситковского А.М.</span><br><span>omnistat@yandex.ru</span></footer></div></body></html>
