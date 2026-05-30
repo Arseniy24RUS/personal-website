@@ -11,6 +11,8 @@ except Exception:
 OUT = Path('data/media')
 CFG = Path('config/media_sources.yml')
 OUT.mkdir(parents=True, exist_ok=True)
+STATIC_EXT = re.compile(r'\.(css|js|mjs|map|png|jpe?g|gif|svg|webp|ico|woff2?|ttf|eot|otf|pdf|docx?|xlsx?|pptx?|zip|rar|7z|mp3|mp4|avi|mov)(\?.*)?$', re.I)
+BLOCK_PATH = re.compile(r'/(assets|asset|static|image_resp|images|img|css|js|fonts?|vendor|slick|slyder|caorusel|bootstrap)(/|$)', re.I)
 
 def now():
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
@@ -36,10 +38,20 @@ def host(url):
     h = urlparse(url or '').netloc.lower()
     return h[4:] if h.startswith('www.') else h
 
+def is_static_url(url):
+    p = urlparse(url or '')
+    path = p.path or ''
+    return bool(STATIC_EXT.search(path) or BLOCK_PATH.search(path))
+
 def fetch(url):
+    if is_static_url(url):
+        return '', {'status':'skipped_static','url':url}
     try:
-        req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0 media-monitor/0.2','Accept':'text/html,*/*','Accept-Language':'ru-RU,ru;q=0.9,en;q=0.8'})
-        with urllib.request.urlopen(req, timeout=35) as r:
+        req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0 media-monitor/0.3','Accept':'text/html,application/xhtml+xml,*/*','Accept-Language':'ru-RU,ru;q=0.9,en;q=0.8'})
+        with urllib.request.urlopen(req, timeout=18) as r:
+            ctype = (r.headers.get('content-type') or '').lower()
+            if ctype and not any(x in ctype for x in ['text/html','application/xhtml','text/plain']):
+                return '', {'status':'skipped_content_type','url':url,'content_type':ctype}
             raw = r.read(); enc = r.headers.get_content_charset() or 'utf-8'
             return raw.decode(enc, errors='replace'), {'status':'ok','http_status':r.status,'url':url,'bytes':len(raw)}
     except Exception as e:
@@ -92,7 +104,7 @@ def links(html_text, base, allow, limit):
     out=[]
     for h in re.findall(r'href=["\']([^"\']+)', html_text, re.I):
         u = urljoin(base,h).split('#')[0]
-        if host(u) != host(base):
+        if host(u) != host(base) or is_static_url(u):
             continue
         if rx and not rx.search(u):
             continue
@@ -106,11 +118,11 @@ def institutional_scan(cfg, reports):
     found=[]
     for src in cfg.get('site_scan_sources') or []:
         frontier=list(src.get('start_urls') or []); seen=set(); allow=src.get('url_allow_regex')
-        max_pages=int(src.get('max_pages') or 80); max_depth=int(src.get('max_depth') or 1)
+        max_pages=min(int(src.get('max_pages') or 40), 60); max_depth=min(int(src.get('max_depth') or 1), 1)
         for _ in range(max_depth+1):
             nxt=[]
             for u in frontier:
-                if u in seen or len(seen)>=max_pages:
+                if u in seen or len(seen)>=max_pages or is_static_url(u):
                     continue
                 seen.add(u); h, rep = fetch(u); reports.append(rep)
                 if not h:
@@ -118,9 +130,9 @@ def institutional_scan(cfg, reports):
                 m = meta(h,u)
                 if score(m,cfg) >= float(cfg.get('auto_publish_threshold',0.75)):
                     found.append(rec(u,m,cfg,'institutional_site_scan',src.get('name')))
-                nxt.extend([x for x in links(h,u,allow,120) if x not in seen])
-                time.sleep(0.04)
-            frontier=nxt
+                nxt.extend([x for x in links(h,u,allow,60) if x not in seen])
+                time.sleep(0.02)
+            frontier=nxt[:max_pages]
     return found
 
 def dedupe(records):
