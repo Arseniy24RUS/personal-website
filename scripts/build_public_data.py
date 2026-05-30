@@ -123,7 +123,9 @@ def main():
     elib = load_elibrary_publications()
     scopus_metrics, scopus_works = load_scopus()
     canonical, admin_queue = merge_scopus(elib, scopus_works)
-    metrics = read_json(DATA / 'elibrary' / 'metrics.json', {})
+    elibrary_publication_metrics = read_json(DATA / 'elibrary' / 'metrics.json', {})
+    elibrary_profile_metrics = read_json(DATA / 'elibrary' / 'profile_metrics.json', {})
+    wos_profile_metrics = read_json(DATA / 'wos' / 'profile_metrics.json', {})
     public_profile = {
         'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         'name_ru': 'Ситковский Арсений Михайлович',
@@ -136,7 +138,9 @@ def main():
             'wos_researcher_id': 'AAG-1530-2021',
             'github': 'Arseniy24RUS'
         },
-        'elibrary_metrics': metrics,
+        'elibrary_metrics': elibrary_publication_metrics,
+        'elibrary_profile_metrics': elibrary_profile_metrics,
+        'wos_profile_metrics': wos_profile_metrics,
         'scopus_metrics': scopus_metrics,
         'canonical_publications_count': len(canonical),
         'scopus_enriched_publications_count': sum(1 for p in canonical if 'scopus' in p.get('sources', [])),
