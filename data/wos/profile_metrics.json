@@ -1,0 +1,33 @@
+{
+  "source": "wos_saved_html",
+  "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
+  "researcher_id": "AAG-1530-2021",
+  "author_name": "Arseniy Sitkovskiy",
+  "snapshot_generated_at": "2026-05-30T19:35:00Z",
+  "source_file_sha256": "57f8c20b467c19242acae9f831f04e1457990f0c7861b79dfa0b7c6d64a28f5e",
+  "summary": {
+    "h_index": 2,
+    "publications": 10,
+    "citations": 7,
+    "citing_articles": 7,
+    "citations_without_self": 4,
+    "citing_articles_without_self": 4,
+    "patent_citations": 0,
+    "citing_patents": 0,
+    "policy_citations": 0,
+    "citing_policy_documents": 0
+  },
+  "raw_blocks": [
+    {"values": ["2"], "descriptor": "H-Index", "full": "2 H-Index"},
+    {"values": ["10"], "descriptor": "публикации", "full": "10 публикации"},
+    {"values": ["7"], "descriptor": "Суммарное количество цитирований", "full": "7 Суммарное количество цитирований"},
+    {"values": ["7", "7"], "descriptor": "Цитирующие статьи", "full": "7 Цитирующие статьи"},
+    {"values": ["4"], "descriptor": "Суммарное количество цитирований", "full": "4 Суммарное количество цитирований без самоцитирования"},
+    {"values": ["4", "4"], "descriptor": "Цитирующие статьи", "full": "4 Цитирующие статьи без самоцитирования"},
+    {"values": ["0"], "descriptor": "Суммарное количество цитирований в патентах", "full": "0 Суммарное количество цитирований в патентах"},
+    {"values": ["0"], "descriptor": "Цитирующие патенты", "full": "0 Цитирующие патенты"},
+    {"values": ["0"], "descriptor": "Суммарное количество цитирований по каждой политике", "full": "0 Суммарное количество цитирований по каждой политике"},
+    {"values": ["0"], "descriptor": "Цитирующие политически документы", "full": "0 Цитирующие политические документы"}
+  ],
+  "parser_note": "Parsed from user-saved Web of Science researcher profile HTML; raw HTML is not committed because it contains session data."
+}
