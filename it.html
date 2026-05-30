@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ИТ-ресурсы — Ситковский А.М.</title>
+  <meta name="description" content="Интерактивные дашборды, карты, симуляторы и учебные веб-приложения Арсения Михайловича Ситковского.">
+  <link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/additions.css"><link rel="stylesheet" href="assets/it.css"><script defer src="assets/site.js"></script>
+  <script>
+    function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+    function localize(item, key){return item[key+'_'+(document.body.classList.contains('lang-en')?'en':'ru')]||item[key+'_ru']||item[key]||''}
+    async function loadIt(){
+      let items=[]; try{items=(await fetch('data/it/resources.json',{cache:'no-store'}).then(r=>r.json())).items||[]}catch(e){}
+      const box=document.getElementById('it-list');
+      if(!items.length){box.innerHTML='<div class="note ru">Раздел ИТ-ресурсов пока не загружен.</div><div class="note en">IT resources have not been loaded yet.</div>';return}
+      box.innerHTML=items.map(item=>`<article class="it-card"><a class="it-thumb" href="${esc(item.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(item.thumb)}" alt="${esc(localize(item,'title'))}"></a><div class="it-body"><div class="it-tags">${(item.tags||[]).slice(0,4).map(t=>`<span>${esc(t)}</span>`).join('')}</div><h2><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(localize(item,'title'))}</a></h2><p>${esc(localize(item,'description'))}</p><a class="it-link" href="${esc(item.url)}" target="_blank" rel="noopener"><span class="ru">Открыть ресурс</span><span class="en">Open resource</span></a></div></article>`).join('')
+      setLang(localStorage.getItem('lang') || 'ru');
+    }
+    document.addEventListener('DOMContentLoaded', loadIt);
+  </script>
+</head>
+<body><div class="wrap"><header data-header></header>
+<section class="hero"><h1 class="ru">ИТ-ресурсы</h1><h1 class="en">IT resources</h1><p class="ru">Интерактивные дашборды, карты, учебные веб-приложения и аналитические интерфейсы, разработанные для научных, образовательных и прикладных задач.</p><p class="en">Interactive dashboards, maps, educational web applications and analytical interfaces developed for research, teaching and applied tasks.</p></section>
+<section class="it-section"><div id="it-list" class="it-grid"></div></section>
+<footer class="footer"><span>Персональный сайт Ситковского А.М.</span><br><span>omnistat@yandex.ru</span></footer></div></body></html>
