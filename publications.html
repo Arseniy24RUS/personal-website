@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Научные публикации — Ситковский А.М.</title>
+  <meta name="description" content="Список научных публикаций Арсения Михайловича Ситковского по данным eLibrary/РИНЦ.">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>
+    function setLang(l){document.body.classList.toggle('lang-en',l==='en');localStorage.setItem('lang',l)}
+    function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+    function parseTSV(t){return t.trim().split(/\n/).filter(Boolean).map(line=>{const c=line.split('\t');return {n:c[0],year:c[1],cit:+c[2]||0,title:c[3],authors:c[4],venue:c[5],pages:c[6],url:c[7]}})}
+    let PUBS=[];
+    function render(){
+      const q=(document.getElementById('q').value||'').toLowerCase();
+      const y=document.getElementById('year').value;
+      let arr=PUBS.filter(p=>(!y||p.year===y)&&(!q||[p.title,p.authors,p.venue,p.year].join(' ').toLowerCase().includes(q)));
+      document.getElementById('count').textContent=arr.length;
+      document.getElementById('pubs').innerHTML=arr.map(p=>`<article class="pub"><span class="cit">${p.cit} цит.</span><h3><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a></h3><div class="meta">${esc(p.authors)}</div><div class="meta">${esc(p.year)}${p.venue?' · '+esc(p.venue):''}${p.pages?' · С. '+esc(p.pages):''}</div></article>`).join('');
+    }
+    addEventListener('DOMContentLoaded',async()=>{
+      setLang(localStorage.getItem('lang')||'ru');
+      const txt=await fetch('data/elibrary/publications.tsv',{cache:'no-store'}).then(r=>r.text());
+      PUBS=parseTSV(txt);
+      const years=[...new Set(PUBS.map(p=>p.year).filter(Boolean))].sort((a,b)=>b-a);
+      document.getElementById('year').innerHTML='<option value="">Все годы / All years</option>'+years.map(y=>`<option>${y}</option>`).join('');
+      document.getElementById('q').addEventListener('input',render);
+      document.getElementById('year').addEventListener('change',render);
+      render();
+    })
+  </script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Ситковский А.М.<small class="ru">научные публикации</small><small class="en">research publications</small></div>
+    <nav class="nav">
+      <a href="index.html" class="ru">Главная</a><a href="index.html" class="en">Home</a>
+      <a href="publications.html" class="ru">Публикации</a><a href="publications.html" class="en">Publications</a>
+      <button onclick="setLang('ru')">RU</button><button onclick="setLang('en')">EN</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 class="ru">Научные публикации</h1>
+    <h1 class="en">Research publications</h1>
+    <p class="ru">Список автоматически сформирован из сохранённого публичного HTML-снимка eLibrary/РИНЦ. Текущий snapshot содержит 58 публикаций и 262 цитирования РИНЦ; далее этот слой будет объединяться со Scopus, ORCID, OpenAlex и Crossref.</p>
+    <p class="en">The list is generated from a saved public eLibrary/RSCI HTML snapshot. The current snapshot contains 58 publications and 262 RSCI citations; the next layer will merge it with Scopus, ORCID, OpenAlex and Crossref.</p>
+  </section>
+
+  <section class="card" style="margin-top:16px">
+    <div class="stats" style="margin-bottom:14px">
+      <div class="stat"><b>58</b><span class="ru">публикаций в РИНЦ snapshot</span><span class="en">RSCI snapshot publications</span></div>
+      <div class="stat"><b>262</b><span class="ru">цитирования РИНЦ snapshot</span><span class="en">RSCI snapshot citations</span></div>
+      <div class="stat"><b>19</b><span class="ru">ядро РИНЦ</span><span class="en">Core RSCI</span></div>
+      <div class="stat"><b>34</b><span class="ru">журналы ВАК</span><span class="en">VAK-listed journals</span></div>
+    </div>
+    <div class="pubtools">
+      <input id="q" class="input" placeholder="Поиск по названию, автору, журналу / Search...">
+      <select id="year" class="input" style="max-width:240px"></select>
+      <span class="chip"><span class="ru">Найдено</span><span class="en">Found</span>: <b id="count">0</b></span>
+    </div>
+    <div id="pubs"></div>
+  </section>
+
+  <p class="footer ru">Источник: публичный список публикаций автора в eLibrary, сохранённый как HTML-снимок и преобразованный в TSV. Для записей без DOI/EDN следующим этапом нужна нормализация через Crossref/OpenAlex и ручная проверка.</p>
+  <p class="footer en">Source: public eLibrary author publication list saved as an HTML snapshot and transformed into TSV. Records without DOI/EDN require subsequent Crossref/OpenAlex enrichment and manual validation.</p>
+</div>
+</body>
+</html>
