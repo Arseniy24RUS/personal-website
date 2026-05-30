@@ -110,12 +110,12 @@ def write_tsv(publications):
     path = PUBLIC / 'publications.tsv'
     with path.open('w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f, delimiter='\t')
-        writer.writerow(['number','year','rinc_citations','scopus_citations','title','authors','venue','doi','url','sources'])
+        writer.writerow(['number','year','rinc_citations','scopus_citations','title','authors','venue','pages','doi','url','sources'])
         for p in publications:
             writer.writerow([
                 p.get('number'), p.get('year'), p.get('rinc_citations', 0),
                 (p.get('scopus') or {}).get('cited_by_count', ''),
-                p.get('title'), p.get('authors_raw'), p.get('venue'), p.get('doi', ''), p.get('url'), ','.join(p.get('sources', []))
+                p.get('title'), p.get('authors_raw'), p.get('venue'), p.get('pages', ''), p.get('doi', ''), p.get('url'), ','.join(p.get('sources', []))
             ])
 
 
