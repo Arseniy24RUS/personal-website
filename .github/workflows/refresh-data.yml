@@ -65,6 +65,16 @@ jobs:
           else
             echo "Media mentions harvester is missing; skipping RSS media search."
           fi
+      - name: Enhance media mention metadata and institutional scan
+        env:
+          PROFILE_YAML: config/profile.yml
+          MEDIA_SOURCES_YAML: config/media_sources.yml
+        run: |
+          if [ -f scripts/enhance_media_mentions.py ]; then
+            python scripts/enhance_media_mentions.py || true
+          else
+            echo "Media enhancer is missing; skipping metadata repair and institutional scan."
+          fi
       - name: Harvest eLibrary author profile metrics
         env:
           ELIBRARY_AUTHOR_ID: "1012909"
