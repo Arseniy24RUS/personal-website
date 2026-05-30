@@ -17,6 +17,7 @@ on:
           - "true"
           - "false"
   schedule:
+    # Weekly refresh: every Monday at 03:17 UTC. This is more frequent than the minimum monthly requirement.
     - cron: "17 3 * * 1"
 
 env:
@@ -45,6 +46,16 @@ jobs:
           else
             echo "Craftum asset mirroring skipped."
           fi
+      - name: Harvest open bibliographic sources
+        env:
+          PROFILE_YAML: config/profile.yml
+          OPENALEX_MAILTO: omnistat@yandex.ru
+        run: |
+          if [ -f scripts/harvest_open_sources.py ]; then
+            python scripts/harvest_open_sources.py || true
+          else
+            echo "Open sources harvester is missing; skipping ORCID/OpenAlex/Crossref."
+          fi
       - name: Harvest eLibrary author profile metrics
         env:
           ELIBRARY_AUTHOR_ID: "1012909"
@@ -57,18 +68,17 @@ jobs:
           else
             echo "eLibrary author profile harvester/parser is missing; using existing normalized metrics."
           fi
-      - name: Parse saved eLibrary publication snapshots
+      - name: Harvest eLibrary publication list
+        env:
+          ELIBRARY_AUTHOR_ID: "1012909"
+          ELIBRARY_ITEMS_URL: "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
+          ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
+          ELIBRARY_ITEMS_REPORT: data/elibrary/items_fetch_report.json
         run: |
-          mkdir -p data/processed
-          if [ -d data/snapshots/elibrary ] && [ -f scripts/parse_elibrary_author_items.py ]; then
-            latest=$(find data/snapshots/elibrary -name "*.html" | sort | tail -n 1)
-            if [ -n "$latest" ]; then
-              python scripts/parse_elibrary_author_items.py "$latest" --out data/processed/elibrary_publications.json
-            else
-              echo "No eLibrary HTML snapshots found."
-            fi
+          if [ -f scripts/harvest_elibrary_items.py ] && [ -f scripts/parse_elibrary_author_items.py ]; then
+            python scripts/harvest_elibrary_items.py || true
           else
-            echo "No eLibrary snapshots directory or parser script; using existing data/elibrary/publications.tsv."
+            echo "eLibrary items harvester/parser is missing; using existing data/elibrary/publications.tsv."
           fi
       - name: Harvest Scopus
         env:
@@ -89,6 +99,10 @@ jobs:
           else
             echo "No public data builder yet; skipping."
           fi
+      - name: Write refresh audit stamp
+        run: |
+          mkdir -p data/audit
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > data/audit/last_refresh_utc.txt
       - name: Commit data and mirrored assets
         run: |
           git config user.name "github-actions[bot]"
