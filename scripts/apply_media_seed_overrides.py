@@ -9,6 +9,7 @@ except Exception:
     yaml = None
 
 CFG = Path('config/media_sources.yml')
+CORPUS = Path('data/media/known_mentions_corpus.json')
 OUT = Path('data/media')
 QUEUE = Path('data/admin_queue')
 OUT.mkdir(parents=True, exist_ok=True)
@@ -33,14 +34,14 @@ def domain(url):
     return h[4:] if h.startswith('www.') else h
 
 def title_from_url(url):
-    slug = urlparse(url).path.strip('/').split('/')[-1]
+    slug = urlparse(url or '').path.strip('/').split('/')[-1]
     slug = re.sub(r'\.(pdf|html?|php)$', '', slug, flags=re.I)
     return re.sub(r'\s+', ' ', slug.replace('-', ' ').replace('_', ' ')).strip().capitalize() or url
 
 def rid(url, title):
     return hashlib.sha256((str(title)+'|'+str(url)).encode('utf-8')).hexdigest()[:16]
 
-def seed_record(seed):
+def norm_seed(seed):
     url = seed.get('url')
     title = seed.get('title') or title_from_url(url)
     return {
@@ -61,22 +62,36 @@ def seed_record(seed):
         'harvested_at': now(),
     }
 
-def main():
+def cfg_seed_records():
     cfg = read_cfg()
+    seeds = []
+    for seed in cfg.get('seed_urls') or []:
+        if seed.get('url') and seed.get('force_publish', False):
+            seeds.append(norm_seed(seed))
+    return seeds
+
+def corpus_seed_records():
+    payload = read_json(CORPUS, {})
+    seeds = []
+    for seed in payload.get('records') or []:
+        if seed.get('url'):
+            s = dict(seed)
+            s['force_publish'] = True
+            seeds.append(norm_seed(s))
+    return seeds
+
+def main():
     current = (read_json(OUT / 'published.json', {'records': []}).get('records') or [])
     by_url = {r.get('url'): r for r in current if r.get('url')}
     added = updated = 0
-    for seed in cfg.get('seed_urls') or []:
-        if not seed.get('url') or not seed.get('force_publish', False):
-            continue
-        rec = seed_record(seed)
+    seeds = cfg_seed_records() + corpus_seed_records()
+    for rec in seeds:
         if rec['url'] in by_url:
             old = by_url[rec['url']]
-            if rec.get('seed_metadata_locked'):
-                old.update({k: rec[k] for k in ['title','description','published_at','source_name','confidence','status','force_publish','seed_metadata_locked']})
-                if rec.get('image'):
-                    old['image'] = rec['image']
-                updated += 1
+            old.update({k: rec[k] for k in ['title','description','published_at','source_name','confidence','status','force_publish','seed_metadata_locked','source'] if rec.get(k) is not None})
+            if rec.get('image'):
+                old['image'] = rec['image']
+            updated += 1
         else:
             by_url[rec['url']] = rec
             added += 1
@@ -86,7 +101,7 @@ def main():
     (QUEUE / 'media_mentions.json').write_text('[]\n', encoding='utf-8')
     with (QUEUE / 'media_mentions.csv').open('w', encoding='utf-8-sig', newline='') as f:
         csv.writer(f).writerow(['id','confidence','title','source_name','domain','published_at','url','query'])
-    print(json.dumps({'seed_records_total': len([s for s in cfg.get('seed_urls') or [] if s.get('force_publish')]), 'added': added, 'updated': updated, 'published': len(records)}, ensure_ascii=False))
+    print(json.dumps({'seed_records_total': len(seeds), 'added': added, 'updated': updated, 'published': len(records)}, ensure_ascii=False))
 
 if __name__ == '__main__':
     main()
