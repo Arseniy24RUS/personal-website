@@ -56,6 +56,15 @@ jobs:
           else
             echo "Open sources harvester is missing; skipping ORCID/OpenAlex/Crossref."
           fi
+      - name: Harvest free media mentions
+        env:
+          PROFILE_YAML: config/profile.yml
+        run: |
+          if [ -f scripts/harvest_media_mentions.py ]; then
+            python scripts/harvest_media_mentions.py || true
+          else
+            echo "Media mentions harvester is missing; skipping RSS media search."
+          fi
       - name: Harvest eLibrary author profile metrics
         env:
           ELIBRARY_AUTHOR_ID: "1012909"
