@@ -4,28 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Научные публикации — Ситковский А.М.</title>
-  <meta name="description" content="Список научных публикаций Арсения Михайловича Ситковского по данным eLibrary/РИНЦ.">
+  <meta name="description" content="Список научных публикаций Арсения Михайловича Ситковского по данным eLibrary/РИНЦ и Scopus.">
   <link rel="stylesheet" href="assets/site.css">
   <script>
     function setLang(l){document.body.classList.toggle('lang-en',l==='en');localStorage.setItem('lang',l)}
     function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-    function parseTSV(t){return t.trim().split(/\n/).filter(Boolean).map(line=>{const c=line.split('\t');return {n:c[0],year:c[1],cit:+c[2]||0,title:c[3],authors:c[4],venue:c[5],pages:c[6],url:c[7]}})}
+    function parseTSV(t){const lines=t.trim().split(/\n/).filter(Boolean);return lines.slice(1).map(line=>{const c=line.split('\t');return {n:c[0],year:c[1],rinc:+c[2]||0,scopus:c[3],title:c[4],authors:c[5],venue:c[6],doi:c[7],url:c[8],sources:c[9]||''}})}
     let PUBS=[];
     function render(){
       const q=(document.getElementById('q').value||'').toLowerCase();
       const y=document.getElementById('year').value;
-      let arr=PUBS.filter(p=>(!y||p.year===y)&&(!q||[p.title,p.authors,p.venue,p.year].join(' ').toLowerCase().includes(q)));
+      const src=document.getElementById('src').value;
+      let arr=PUBS.filter(p=>(!y||p.year===y)&&(!src||p.sources.includes(src))&&(!q||[p.title,p.authors,p.venue,p.year,p.doi].join(' ').toLowerCase().includes(q)));
       document.getElementById('count').textContent=arr.length;
-      document.getElementById('pubs').innerHTML=arr.map(p=>`<article class="pub"><span class="cit">${p.cit} цит.</span><h3><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a></h3><div class="meta">${esc(p.authors)}</div><div class="meta">${esc(p.year)}${p.venue?' · '+esc(p.venue):''}${p.pages?' · С. '+esc(p.pages):''}</div></article>`).join('');
+      document.getElementById('pubs').innerHTML=arr.map(p=>`<article class="pub"><span class="cit">РИНЦ ${p.rinc}${p.scopus!==''?' · Scopus '+p.scopus:''}</span><h3><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a></h3><div class="meta">${esc(p.authors)}</div><div class="meta">${esc(p.year)}${p.venue?' · '+esc(p.venue):''}${p.doi?' · DOI: '+esc(p.doi):''}${p.sources?' · '+esc(p.sources):''}</div></article>`).join('');
     }
     addEventListener('DOMContentLoaded',async()=>{
       setLang(localStorage.getItem('lang')||'ru');
-      const txt=await fetch('data/elibrary/publications.tsv',{cache:'no-store'}).then(r=>r.text());
+      let txt;
+      try{txt=await fetch('data/public/publications.tsv',{cache:'no-store'}).then(r=>r.ok?r.text():Promise.reject())}catch(e){txt=await fetch('data/elibrary/publications.tsv',{cache:'no-store'}).then(r=>r.text());txt='number\tyear\trinc_citations\tscopus_citations\ttitle\tauthors\tvenue\tdoi\turl\tsources\n'+txt.split(/\n/).filter(Boolean).map(line=>{const c=line.split('\t');return [c[0],c[1],c[2],'',c[3],c[4],c[5],'',c[7],'elibrary'].join('\t')}).join('\n')}
       PUBS=parseTSV(txt);
       const years=[...new Set(PUBS.map(p=>p.year).filter(Boolean))].sort((a,b)=>b-a);
       document.getElementById('year').innerHTML='<option value="">Все годы / All years</option>'+years.map(y=>`<option>${y}</option>`).join('');
-      document.getElementById('q').addEventListener('input',render);
-      document.getElementById('year').addEventListener('change',render);
+      ['q','year','src'].forEach(id=>document.getElementById(id).addEventListener(id==='q'?'input':'change',render));
       render();
     })
   </script>
@@ -37,6 +38,9 @@
     <nav class="nav">
       <a href="index.html" class="ru">Главная</a><a href="index.html" class="en">Home</a>
       <a href="publications.html" class="ru">Публикации</a><a href="publications.html" class="en">Publications</a>
+      <a href="projects.html" class="ru">Проекты</a><a href="projects.html" class="en">Projects</a>
+      <a href="media.html" class="ru">СМИ и видео</a><a href="media.html" class="en">Media</a>
+      <a href="materials.html" class="ru">Фото и дипломы</a><a href="materials.html" class="en">Materials</a>
       <button onclick="setLang('ru')">RU</button><button onclick="setLang('en')">EN</button>
     </nav>
   </header>
@@ -44,27 +48,28 @@
   <section class="hero">
     <h1 class="ru">Научные публикации</h1>
     <h1 class="en">Research publications</h1>
-    <p class="ru">Список автоматически сформирован из сохранённого публичного HTML-снимка eLibrary/РИНЦ. Текущий snapshot содержит 58 публикаций и 262 цитирования РИНЦ; далее этот слой будет объединяться со Scopus, ORCID, OpenAlex и Crossref.</p>
-    <p class="en">The list is generated from a saved public eLibrary/RSCI HTML snapshot. The current snapshot contains 58 publications and 262 RSCI citations; the next layer will merge it with Scopus, ORCID, OpenAlex and Crossref.</p>
+    <p class="ru">Канонический список строится из eLibrary/РИНЦ и автоматически обогащается Scopus-данными: DOI, EID, цитированиями Scopus и open-access признаками.</p>
+    <p class="en">The canonical list is based on eLibrary/RSCI and is automatically enriched with Scopus data: DOI, EID, Scopus citations and open-access flags.</p>
   </section>
 
   <section class="card" style="margin-top:16px">
     <div class="stats" style="margin-bottom:14px">
       <div class="stat"><b>58</b><span class="ru">публикаций в РИНЦ snapshot</span><span class="en">RSCI snapshot publications</span></div>
       <div class="stat"><b>262</b><span class="ru">цитирования РИНЦ snapshot</span><span class="en">RSCI snapshot citations</span></div>
-      <div class="stat"><b>19</b><span class="ru">ядро РИНЦ</span><span class="en">Core RSCI</span></div>
-      <div class="stat"><b>34</b><span class="ru">журналы ВАК</span><span class="en">VAK-listed journals</span></div>
+      <div class="stat"><b>7</b><span class="ru">Scopus-записей сопоставлено</span><span class="en">Scopus records matched</span></div>
+      <div class="stat"><b>2</b><span class="ru">h-index Scopus по API-выгрузке</span><span class="en">Scopus h-index from API snapshot</span></div>
     </div>
     <div class="pubtools">
-      <input id="q" class="input" placeholder="Поиск по названию, автору, журналу / Search...">
-      <select id="year" class="input" style="max-width:240px"></select>
+      <input id="q" class="input" placeholder="Поиск по названию, автору, журналу, DOI / Search...">
+      <select id="year" class="input" style="max-width:220px"></select>
+      <select id="src" class="input" style="max-width:220px"><option value="">Все источники</option><option value="scopus">Scopus</option><option value="elibrary">eLibrary</option></select>
       <span class="chip"><span class="ru">Найдено</span><span class="en">Found</span>: <b id="count">0</b></span>
     </div>
     <div id="pubs"></div>
   </section>
 
-  <p class="footer ru">Источник: публичный список публикаций автора в eLibrary, сохранённый как HTML-снимок и преобразованный в TSV. Для записей без DOI/EDN следующим этапом нужна нормализация через Crossref/OpenAlex и ручная проверка.</p>
-  <p class="footer en">Source: public eLibrary author publication list saved as an HTML snapshot and transformed into TSV. Records without DOI/EDN require subsequent Crossref/OpenAlex enrichment and manual validation.</p>
+  <p class="footer ru">Источники: eLibrary/RINC snapshot, Scopus API snapshot, ручная карта сопоставления Scopus–eLibrary для русско-английских версий.</p>
+  <p class="footer en">Sources: eLibrary/RSCI snapshot, Scopus API snapshot, curated Scopus–eLibrary matching map for Russian–English versions.</p>
 </div>
 </body>
 </html>
