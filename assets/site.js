@@ -22,7 +22,7 @@ function installHeader(){
       <a href="media.html#video"><span class="ru">Видео</span><span class="en">Video</span></a>
       <a href="materials.html#photos"><span class="ru">Фото</span><span class="en">Photos</span></a>
       <a href="diplomas.html"><span class="ru">Дипломы</span><span class="en">Diplomas</span></a>
-      <a href="maps.html"><span class="ru">Карты</span><span class="en">Maps</span></a>
+      <a href="it.html"><span class="ru">ИТ-ресурсы</span><span class="en">IT resources</span></a>
       <a class="email-btn" href="mailto:omnistat@yandex.ru">omnistat@yandex.ru</a>
       <button class="lang-toggle" data-lang-toggle onclick="toggleLang()" aria-label="Switch language">EN</button>
     </nav>`;
