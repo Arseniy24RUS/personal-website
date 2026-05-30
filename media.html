@@ -1,32 +1,12 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>СМИ и видео — Ситковский А.М.</title>
   <meta name="description" content="Публикации в СМИ, видео и публичные выступления Арсения Михайловича Ситковского.">
-  <link rel="stylesheet" href="assets/site.css">
-  <script>function setLang(l){document.body.classList.toggle('lang-en',l==='en');localStorage.setItem('lang',l)};addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'ru'))</script>
+  <link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/additions.css"><script defer src="assets/site.js"></script>
 </head>
-<body>
-<div class="wrap">
-  <header class="top">
-    <div class="brand">Ситковский А.М.<small class="ru">СМИ, видео, публичные материалы</small><small class="en">media, video, public materials</small></div>
-    <nav class="nav">
-      <a href="index.html" class="ru">Главная</a><a href="index.html" class="en">Home</a>
-      <a href="publications.html" class="ru">Публикации</a><a href="publications.html" class="en">Publications</a>
-      <a href="projects.html" class="ru">Проекты</a><a href="projects.html" class="en">Projects</a>
-      <a href="media.html" class="ru">СМИ и видео</a><a href="media.html" class="en">Media</a>
-      <a href="materials.html" class="ru">Фото и дипломы</a><a href="materials.html" class="en">Materials</a>
-      <button onclick="setLang('ru')">RU</button><button onclick="setLang('en')">EN</button>
-    </nav>
-  </header>
-  <section class="hero"><h1 class="ru">СМИ и видео</h1><h1 class="en">Media and video</h1><p class="ru">Раздел подготовлен как рабочий контур: сюда будут автоматически попадать ссылки из URL-импорта и поисковых модулей. Пока включены заглушки для будущей очереди проверки.</p><p class="en">This section is prepared as a working circuit: URL imports and search modules will populate it automatically. It currently contains placeholders for the future review queue.</p></section>
-  <section class="grid2">
-    <article class="tile"><div class="placeholder">URL import</div><div class="body"><h2 class="ru">Импорт по ссылке</h2><h2 class="en">Import by URL</h2><p class="ru">Планируемая логика: вставляется ссылка на публикацию СМИ, интервью или видео; GitHub Actions извлекает title, источник, дату, описание и создаёт запись в очереди проверки.</p><p class="en">Planned logic: a media/interview/video URL is added; GitHub Actions extracts title, source, date and description, then creates a review-queue record.</p></div></article>
-    <article class="tile"><div class="placeholder">Search watch</div><div class="body"><h2 class="ru">Автоматический поиск упоминаний</h2><h2 class="en">Automatic mention search</h2><p class="ru">Для стабильного мониторинга нужен Google Programmable Search, SerpAPI, NewsAPI или набор RSS-источников. Без внешнего поискового API этот модуль будет работать только по ручным ссылкам.</p><p class="en">Stable monitoring requires Google Programmable Search, SerpAPI, NewsAPI or RSS source lists. Without an external search API, this module will work only with manually provided links.</p></div></article>
-  </section>
-  <p class="footer ru">Следующий этап: добавить `data/media/items.json`, URL-import workflow и GitHub Issue/CSV очередь проверки.</p><p class="footer en">Next step: add `data/media/items.json`, URL-import workflow and GitHub Issue/CSV review queue.</p>
-</div>
-</body>
-</html>
+<body><div class="wrap"><header data-header></header>
+<section class="hero"><h1 class="ru">Публикации в СМИ и видео</h1><h1 class="en">Media and video</h1><p class="ru">Раздел подготовлен для автоматического и ручного добавления ссылок на интервью, новости, экспертные комментарии и видеозаписи выступлений.</p><p class="en">This section is prepared for automatic and manual import of interviews, news items, expert comments and video recordings.</p></section>
+<section class="grid2"><article class="tile"><div class="placeholder">URL import</div><div class="body"><h2 class="ru">Импорт по ссылке</h2><h2 class="en">Import by URL</h2><p class="ru">Вставка URL через GitHub Issue создаёт кандидата для очереди проверки: источник, дата, заголовок и описание будут извлекаться автоматически.</p><p class="en">Submitting a URL through GitHub Issues creates a review candidate; source, date, title and description can be extracted automatically.</p><div class="actions"><a class="btn" href="admin.html">Добавить ссылку</a></div></div></article><article id="video" class="tile"><div class="placeholder">Video</div><div class="body"><h2 class="ru">Видео</h2><h2 class="en">Video</h2><p class="ru">Сюда будут добавляться записи лекций, интервью, экспертных сессий и публичных выступлений.</p><p class="en">Lectures, interviews, expert sessions and public talks will be added here.</p></div></article></section>
+<footer class="footer"><span>Персональный сайт Ситковского А.М.</span><br><span>omnistat@yandex.ru</span></footer></div></body></html>
