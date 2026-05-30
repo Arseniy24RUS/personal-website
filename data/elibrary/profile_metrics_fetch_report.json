@@ -1,9 +1,9 @@
 {
   "status": "ok",
   "http_status": 200,
-  "elapsed_sec": 3.006,
+  "elapsed_sec": 3.841,
   "content_length": 714,
   "url": "https://www.elibrary.ru/author_profile.asp?id=1012909",
-  "generated_at": "2026-05-30T19:53:52+00:00",
+  "generated_at": "2026-05-30T20:16:58+00:00",
   "used_source": "previous_normalized_json"
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T19:53:49+00:00",
+  "generated_at": "2026-05-30T20:16:54+00:00",
   "published": 14,
   "rejected_or_low_confidence": 25,
   "providers": [
@@ -13,13 +13,13 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27280",
-      "bytes": 47154
+      "bytes": 47155
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27274",
-      "bytes": 42604
+      "bytes": 42605
     },
     {
       "status": "ok",
@@ -61,7 +61,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/",
-      "bytes": 60211
+      "bytes": 60431
     },
     {
       "status": "ok",
@@ -153,9 +153,10 @@
       "bytes": 98900
     },
     {
-      "status": "error",
+      "status": "ok",
+      "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3270",
-      "error": "<HTTPError 456: 'Unrecoverable Error'>"
+      "bytes": 98771
     },
     {
       "status": "ok",
@@ -212,9 +213,10 @@
       "bytes": 46131
     },
     {
-      "status": "error",
+      "status": "ok",
+      "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3182",
-      "error": "<HTTPError 403: 'Forbidden'>"
+      "bytes": 36423
     },
     {
       "status": "ok",
@@ -609,7 +611,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://chel.ranepa.ru/novosti/",
-      "bytes": 158768
+      "bytes": 158760
     }
   ]
 }
