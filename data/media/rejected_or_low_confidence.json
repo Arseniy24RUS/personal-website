@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T18:56:54+00:00",
+  "generated_at": "2026-05-30T19:28:44+00:00",
   "records": [
     {
       "id": "c66a04e063daf880",
@@ -15,7 +15,7 @@
       "confidence": 0.25,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "b17eb08f05b98d4d",
@@ -31,39 +31,7 @@
       "confidence": 0.25,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
-    },
-    {
-      "id": "01bef29e5723ecb2",
-      "source": "google_news_rss",
-      "query": "\"Арсений Ситковский\"",
-      "title": "Критические отзывы граждан можно использовать для управления страной / Экономика - Независимая газета",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5Tb0ZlY1p2UmpNN1E4UHpuQm9sMzNHNXV6dnQ2VGRiaDdVcHVLYUNwX1dvd0tGUWpVcFNsdVFjb3o3VU16WEZiY3h2WWhNM3FILVltQkpIVXFFQms4bUhlS0lSSEhQU2s?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Независимая газета",
-      "published_at": "2025-12-24T08:00:00+00:00",
-      "description": "Критические отзывы граждан можно использовать для управления страной / Экономика    Независимая газета",
-      "image": null,
-      "confidence": 0.2,
-      "status": "low_confidence",
-      "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:47+00:00"
-    },
-    {
-      "id": "19c7d0194b912ddf",
-      "source": "google_news_rss",
-      "query": "\"Арсений Ситковский\"",
-      "title": "Образовательная миграция разделила страну на три неравные части / Экономика - Независимая газета",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1FdlA1NE5BZlBzNHFwRm1vTTd6OU9XMDhwZmVxNXowc1hkMTk4OFFENVViSThmamYzRDhiTlUwR0c0QnZaM2NPbTBIRTltc1g2dnp3Z05CRFZrWVpmNUdyS1VRZnpQdjJLVGM0?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Независимая газета",
-      "published_at": "2025-06-08T07:00:00+00:00",
-      "description": "Образовательная миграция разделила страну на три неравные части / Экономика    Независимая газета",
-      "image": null,
-      "confidence": 0.2,
-      "status": "low_confidence",
-      "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:47+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "ae3105d76529b809",
@@ -79,7 +47,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "15341b7844b2407c",
@@ -95,7 +63,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "8833368eeea28683",
@@ -111,7 +79,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "244eb019c7ed63a7",
@@ -127,7 +95,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "ebb8be6a537ee440",
@@ -143,7 +111,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "9e77ab8f648ecf2f",
@@ -159,7 +127,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "5f2366ec6658d628",
@@ -175,7 +143,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "b1103e0c9e5dfb55",
@@ -191,7 +159,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "f5332e7bb778b0fa",
@@ -207,7 +175,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "2602b6fc2e360567",
@@ -223,7 +191,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "f64f8dfb803ccb39",
@@ -239,7 +207,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "3e753da93a89d3f8",
@@ -255,7 +223,7 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "27e898dc5d7afbf6",
@@ -271,55 +239,39 @@
       "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
-      "id": "0fc9c5346cffe098",
-      "source": "google_news_rss",
-      "query": "\"Arseniy M. Sitkovskiy\"",
-      "title": "Age–sex heterogeneity among Russia’s indigenous small-numbered peoples: a census-based typology and the statistical core-region condition - Frontiers",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPcjhnUVVpU29YOG53SGFwRDZZd2E5VGhHYk9rWHJzSUN2MXNxbERDY1drcGFXYl95VTB5VnpQdFBiU2RaT2gtRWVfV2NLd1U5aUhOUG93T1B6aktJTmNqVV9aaHJSZkdwRndheWREQVFKYXBKdlQ3dlVKejZERS1uaGllakRldVlIRC1ZNXdCQWdKREQxczdz?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Frontiers",
-      "published_at": "2026-04-18T00:42:08+00:00",
-      "description": "Age–sex heterogeneity among Russia’s indigenous small-numbered peoples: a census-based typology and the statistical core-region condition    Frontiers",
-      "image": null,
-      "confidence": 0.0,
-      "status": "low_confidence",
-      "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:52+00:00"
-    },
-    {
-      "id": "b7f954fa265ddc20",
+      "id": "01bef29e5723ecb2",
       "source": "google_news_rss",
       "query": "\"Арсений Ситковский\"",
-      "title": "Очень скоро россиян моложе 35 лет останется лишь четверть населения — в 1990-м они составляли его половину. Что будет дальше? - Собака.ru — Журнал о людях в Петербурге",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1pSk9feksxTUJEOU0tVDU2b09KTldmR3pDUy1ZbkpaVWU4eERCZEd5RlhBME1UQ1FVcmwxaEdCTnBjWmMtMmxpd1pNcmJVT3Bx?oc=5",
+      "title": "Критические отзывы граждан можно использовать для управления страной / Экономика - Независимая газета",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5Tb0ZlY1p2UmpNN1E4UHpuQm9sMzNHNXV6dnQ2VGRiaDdVcHVLYUNwX1dvd0tGUWpVcFNsdVFjb3o3VU16WEZiY3h2WWhNM3FILVltQkpIVXFFQms4bUhlS0lSSEhQU2s?oc=5",
       "domain": "news.google.com",
-      "source_name": "Собака.ru — Журнал о людях в Петербурге",
-      "published_at": "2026-02-18T08:00:00+00:00",
-      "description": "Очень скоро россиян моложе 35 лет останется лишь четверть населения — в 1990-м они составляли его половину. Что будет дальше?    Собака.ru — Журнал о людях в Петербурге",
+      "source_name": "Независимая газета",
+      "published_at": "2025-12-24T08:00:00+00:00",
+      "description": "Критические отзывы граждан можно использовать для управления страной / Экономика    Независимая газета",
       "image": null,
-      "confidence": 0.0,
+      "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:47+00:00"
+      "harvested_at": "2026-05-30T19:18:14+00:00"
     },
     {
-      "id": "38507984d8afd6cb",
+      "id": "19c7d0194b912ddf",
       "source": "google_news_rss",
       "query": "\"Арсений Ситковский\"",
-      "title": "Геоданные и ГИС: методический семинар программы Цифровой кафедры - МГИМО",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPcWVlbjh5YWJZbEZuYVRvajd6WUFvNnpIZFJ3Y2x3UmZKbjJQYm9WQ19MYXRwVjRUR256QzVWS1FtdUFKX3RJVHN4eUhlMDZxS1UxOUdpWGtTRVdHdllFU3hYZXFOVV92MEhXWnItMGtDdFJ5OEFlQ3dOeHVHcDRVVA?oc=5",
+      "title": "Образовательная миграция разделила страну на три неравные части / Экономика - Независимая газета",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1FdlA1NE5BZlBzNHFwRm1vTTd6OU9XMDhwZmVxNXowc1hkMTk4OFFENVViSThmamYzRDhiTlUwR0c0QnZaM2NPbTBIRTltc1g2dnp3Z05CRFZrWVpmNUdyS1VRZnpQdjJLVGM0?oc=5",
       "domain": "news.google.com",
-      "source_name": "МГИМО",
-      "published_at": "2024-10-17T07:00:00+00:00",
-      "description": "Геоданные и ГИС: методический семинар программы Цифровой кафедры    МГИМО",
+      "source_name": "Независимая газета",
+      "published_at": "2025-06-08T07:00:00+00:00",
+      "description": "Образовательная миграция разделила страну на три неравные части / Экономика    Независимая газета",
       "image": null,
-      "confidence": 0.0,
+      "confidence": 0.2,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:47+00:00"
+      "harvested_at": "2026-05-30T19:18:14+00:00"
     },
     {
       "id": "d4cacb2a9c51e689",
@@ -335,7 +287,7 @@
       "confidence": 0.0,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "246574f31e507e5d",
@@ -351,7 +303,7 @@
       "confidence": 0.0,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "0e20af4524db683e",
@@ -367,7 +319,7 @@
       "confidence": 0.0,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "d12ff72e096e68b4",
@@ -383,7 +335,7 @@
       "confidence": 0.0,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
     },
     {
       "id": "4e1d259ee75fc92e",
@@ -399,7 +351,55 @@
       "confidence": 0.0,
       "status": "low_confidence",
       "force_publish": false,
-      "harvested_at": "2026-05-30T18:56:53+00:00"
+      "harvested_at": "2026-05-30T19:18:19+00:00"
+    },
+    {
+      "id": "0fc9c5346cffe098",
+      "source": "google_news_rss",
+      "query": "\"Arseniy M. Sitkovskiy\"",
+      "title": "Age–sex heterogeneity among Russia’s indigenous small-numbered peoples: a census-based typology and the statistical core-region condition - Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPcjhnUVVpU29YOG53SGFwRDZZd2E5VGhHYk9rWHJzSUN2MXNxbERDY1drcGFXYl95VTB5VnpQdFBiU2RaT2gtRWVfV2NLd1U5aUhOUG93T1B6aktJTmNqVV9aaHJSZkdwRndheWREQVFKYXBKdlQ3dlVKejZERS1uaGllakRldVlIRC1ZNXdCQWdKREQxczdz?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Frontiers",
+      "published_at": "2026-04-18T00:42:08+00:00",
+      "description": "Age–sex heterogeneity among Russia’s indigenous small-numbered peoples: a census-based typology and the statistical core-region condition    Frontiers",
+      "image": null,
+      "confidence": 0.0,
+      "status": "low_confidence",
+      "force_publish": false,
+      "harvested_at": "2026-05-30T19:18:18+00:00"
+    },
+    {
+      "id": "b7f954fa265ddc20",
+      "source": "google_news_rss",
+      "query": "\"Арсений Ситковский\"",
+      "title": "Очень скоро россиян моложе 35 лет останется лишь четверть населения — в 1990-м они составляли его половину. Что будет дальше? - Собака.ru — Журнал о людях в Петербурге",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1pSk9feksxTUJEOU0tVDU2b09KTldmR3pDUy1ZbkpaVWU4eERCZEd5RlhBME1UQ1FVcmwxaEdCTnBjWmMtMmxpd1pNcmJVT3Bx?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Собака.ru — Журнал о людях в Петербурге",
+      "published_at": "2026-02-18T08:00:00+00:00",
+      "description": "Очень скоро россиян моложе 35 лет останется лишь четверть населения — в 1990-м они составляли его половину. Что будет дальше?    Собака.ru — Журнал о людях в Петербурге",
+      "image": null,
+      "confidence": 0.0,
+      "status": "low_confidence",
+      "force_publish": false,
+      "harvested_at": "2026-05-30T19:18:14+00:00"
+    },
+    {
+      "id": "38507984d8afd6cb",
+      "source": "google_news_rss",
+      "query": "\"Арсений Ситковский\"",
+      "title": "Геоданные и ГИС: методический семинар программы Цифровой кафедры - МГИМО",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPcWVlbjh5YWJZbEZuYVRvajd6WUFvNnpIZFJ3Y2x3UmZKbjJQYm9WQ19MYXRwVjRUR256QzVWS1FtdUFKX3RJVHN4eUhlMDZxS1UxOUdpWGtTRVdHdllFU3hYZXFOVV92MEhXWnItMGtDdFJ5OEFlQ3dOeHVHcDRVVA?oc=5",
+      "domain": "news.google.com",
+      "source_name": "МГИМО",
+      "published_at": "2024-10-17T07:00:00+00:00",
+      "description": "Геоданные и ГИС: методический семинар программы Цифровой кафедры    МГИМО",
+      "image": null,
+      "confidence": 0.0,
+      "status": "low_confidence",
+      "force_publish": false,
+      "harvested_at": "2026-05-30T19:18:14+00:00"
     }
   ]
 }
