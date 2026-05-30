@@ -70,6 +70,13 @@ jobs:
           else
             echo "Scopus harvester or key is not configured; skipping."
           fi
+      - name: Generate derived public data
+        run: |
+          if [ -f scripts/build_public_data.py ]; then
+            python scripts/build_public_data.py || true
+          else
+            echo "No public data builder yet; skipping."
+          fi
       - name: Commit data and mirrored assets
         run: |
           git config user.name "github-actions[bot]"
