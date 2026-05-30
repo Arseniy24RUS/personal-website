@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фото, дипломы и материалы — Ситковский А.М.</title>
+  <meta name="description" content="Фото, дипломы, сертификаты, книги и дополнительные материалы Арсения Михайловича Ситковского.">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>function setLang(l){document.body.classList.toggle('lang-en',l==='en');localStorage.setItem('lang',l)};addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'ru'))</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Ситковский А.М.<small class="ru">фото, дипломы, книги</small><small class="en">photos, diplomas, books</small></div>
+    <nav class="nav">
+      <a href="index.html" class="ru">Главная</a><a href="index.html" class="en">Home</a>
+      <a href="publications.html" class="ru">Публикации</a><a href="publications.html" class="en">Publications</a>
+      <a href="projects.html" class="ru">Проекты</a><a href="projects.html" class="en">Projects</a>
+      <a href="media.html" class="ru">СМИ и видео</a><a href="media.html" class="en">Media</a>
+      <a href="materials.html" class="ru">Фото и дипломы</a><a href="materials.html" class="en">Materials</a>
+      <button onclick="setLang('ru')">RU</button><button onclick="setLang('en')">EN</button>
+    </nav>
+  </header>
+  <section class="hero"><h1 class="ru">Фото, дипломы и материалы</h1><h1 class="en">Photos, diplomas and materials</h1><p class="ru">В старом Craftum-сайте разделы «Фото» и «Дипломы» почти не содержали реальных материалов: были пустые блоки и stock-изображения конструктора. Поэтому здесь подготовлен чистый контур для будущей загрузки.</p><p class="en">The old Craftum website did not contain substantive real materials in the photos/diplomas sections: those pages were either empty or filled with stock images. This page prepares a clean structure for future uploads.</p></section>
+  <section class="grid3">
+    <article class="tile"><div class="placeholder">PDF / image preview</div><div class="body"><h2 class="ru">Дипломы и сертификаты</h2><h2 class="en">Diplomas and certificates</h2><p class="ru">Планируемая логика: файл PDF/JPG/PNG кладётся в `content/diplomas/`; workflow создаёт мини-превью и карточку без ручного заполнения метаданных.</p><p class="en">Planned logic: a PDF/JPG/PNG file is placed into `content/diplomas/`; the workflow creates a preview and a card without manual metadata entry.</p></div></article>
+    <article class="tile"><div class="placeholder">Photo gallery</div><div class="body"><h2 class="ru">Фотографии</h2><h2 class="en">Photos</h2><p class="ru">Фотогалерея будет наполняться изображениями из `content/photos/`; названия файлов будут использоваться как первичные подписи.</p><p class="en">The photo gallery will be populated from `content/photos/`; filenames will be used as initial captions.</p></div></article>
+    <article class="tile"><img src="https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/a3d4293c-75bd-430e-b696-59227ed701f3.jpeg" alt="Города будущего"><div class="body"><h2 class="ru">Книги и главы</h2><h2 class="en">Books and chapters</h2><p class="ru">Из старого сайта перенесена обложка коллективной монографии «Города будущего…» и связанная с ней глава о пространственном сжатии территорий.</p><p class="en">The cover of the collective monograph “Cities of the Future…” and the related chapter on spatial shrinkage have been transferred from the old site.</p><div class="actions"><a class="btn" href="publications.html">Публикации</a></div></div></article>
+  </section>
+  <p class="footer ru">Следующий этап: загрузить реальные дипломы, сертификаты и фотографии в репозиторий; stock-изображения Craftum не переносились.</p><p class="footer en">Next step: upload real diplomas, certificates and photos to the repository; Craftum stock images were not transferred.</p>
+</div>
+</body>
+</html>
