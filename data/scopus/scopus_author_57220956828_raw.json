@@ -12,7 +12,7 @@
       "view": "ENHANCED"
     },
     "_headers": {
-      "Date": "Sat, 30 May 2026 18:16:58 GMT",
+      "Date": "Sat, 30 May 2026 18:56:57 GMT",
       "Content-Type": "application/json;charset=UTF-8",
       "Content-Length": "167",
       "Connection": "close",
@@ -21,17 +21,17 @@
       "tdm-reservation": "1",
       "Vary": "Access-Control-Request-Headers",
       "X-ELS-APIKey": "0b32c254dc4bd46076fd480238bc47f7",
-      "X-ELS-ReqId": "3d85394db3cba12c",
+      "X-ELS-ReqId": "4443959ca2980099",
       "X-ELS-ResourceVersion": "default",
       "X-ELS-Status": "AUTHORIZATION_ERROR - The requestor is not authorized to access the requested view or fields of the resource",
-      "X-ELS-TransId": "3d85394db3cba12c",
+      "X-ELS-TransId": "4443959ca2980099",
       "X-RateLimit-Limit": "5000",
       "X-RateLimit-Remaining": "5000",
       "X-RateLimit-Reset": "1780746288",
-      "set-cookie": "__cf_bm=jqAWM8uMar.D46PhqYdNDqW7ehieyhIQZem.kQFTClw-1780165018.7339432-1.0.1.1-WXws_sOFo3jiKeuodfywS4za9sCJIc6QNhJ0ZQ.qrE2NhpfSkzsVxElpYEf2ioZnmd8vv81WPts9dGMCu3uQO0jvs_zGlqTEt9u9YEj2HCAVkhOSxDfrR3tCtR4TDrLe; HttpOnly; SameSite=None; Secure; Path=/; Domain=elsevier.com; Expires=Sat, 30 May 2026 18:46:58 GMT",
+      "set-cookie": "__cf_bm=TRRAvqJWsqW8XFgIATq7s2WLeYjzr6jtjdBu7NSgjSw-1780167417.6752913-1.0.1.1-nqntpxXm0u4iIWX89eC32sOZp3dveTqY9MnVFFqLPKR8yAgNi4RnD4LJ0HkFbboBjlLYcxgOiQLWy0ueyr5EPW747NKgvuhgzby4V_YvYLXdb_K.CmWE80wBK_LrvcY9; HttpOnly; SameSite=None; Secure; Path=/; Domain=elsevier.com; Expires=Sat, 30 May 2026 19:26:57 GMT",
       "cf-cache-status": "DYNAMIC",
       "Server": "cloudflare",
-      "CF-RAY": "a03fbba71c5070a5-IAD"
+      "CF-RAY": "a03ff6387fc666e9-DFW"
     }
   },
   "search_first_payload": {
