@@ -1,7 +1,7 @@
 {
   "meta": {
     "count": 13,
-    "db_response_time_ms": 28,
+    "db_response_time_ms": 15,
     "page": 1,
     "per_page": 200,
     "groups_count": null,
@@ -419,9 +419,9 @@
       },
       "sustainable_development_goals": [
         {
+          "display_name": "Reduced inequalities",
           "id": "https://metadata.un.org/sdg/10",
-          "score": 0.6855306625366211,
-          "display_name": "Reduced inequalities"
+          "score": 0.6855306625366211
         }
       ],
       "awards": [],
@@ -6939,9 +6939,9 @@
       },
       "sustainable_development_goals": [
         {
+          "display_name": "Reduced inequalities",
           "id": "https://metadata.un.org/sdg/10",
-          "score": 0.47999998927116394,
-          "display_name": "Reduced inequalities"
+          "score": 0.47999998927116394
         }
       ],
       "awards": [],
@@ -7428,9 +7428,9 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
+          "display_name": "Partnerships for the goals",
           "id": "https://metadata.un.org/sdg/17",
-          "score": 0.5600000023841858,
-          "display_name": "Partnerships for the goals"
+          "score": 0.5600000023841858
         }
       ],
       "awards": [],
@@ -10882,9 +10882,9 @@
       },
       "sustainable_development_goals": [
         {
+          "display_name": "Reduced inequalities",
           "id": "https://metadata.un.org/sdg/10",
-          "score": 0.5199999809265137,
-          "display_name": "Reduced inequalities"
+          "score": 0.5199999809265137
         }
       ],
       "awards": [],
