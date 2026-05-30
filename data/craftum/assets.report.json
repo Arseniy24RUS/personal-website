@@ -1,0 +1,155 @@
+[
+  {
+    "kind": "image",
+    "source": "craftum_projects",
+    "local": "assets/craftum/support-settlements.png",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/3cdbd46f-007e-446d-8c17-e53839e8d660.png",
+    "status": "downloaded",
+    "sha256": "e81dc0f4f67a29a96ed47a4f40ae35a087212023b008cbf450d16b2afbb201bd",
+    "size": 510554
+  },
+  {
+    "kind": "pdf",
+    "source": "craftum_projects",
+    "local": "assets/craftum/support-settlements-methodology.pdf",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/395ee6e8-6b86-4b5c-a4a1-35bfbb89c563.pdf",
+    "status": "downloaded",
+    "sha256": "ca38e09e662c55e5dfdb17119e858444eafcbe0a54887d96c0d87aafe4f596ee",
+    "size": 2655816
+  },
+  {
+    "kind": "image",
+    "source": "craftum_projects",
+    "local": "assets/craftum/rsf-24-28-01314.png",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/3a9ad0de-6199-4b4e-8034-6523d9c0066d.png",
+    "status": "downloaded",
+    "sha256": "44e17abad7780d713ebca11e3dc866b4b093ac12096a771708042faf6a9d1736",
+    "size": 726403
+  },
+  {
+    "kind": "image",
+    "source": "craftum_projects",
+    "local": "assets/craftum/chuvashia-settlement-system.png",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/2037b473-687d-4fd6-8277-dddd517e4136.png",
+    "status": "downloaded",
+    "sha256": "eb36fef632fe8f823488179b183b4cacb4af3b975c1011e98b075c833cfdba22",
+    "size": 262508
+  },
+  {
+    "kind": "pdf",
+    "source": "craftum_projects",
+    "local": "assets/craftum/chuvashia-settlement-system.pdf",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/4deeae25-5d06-409c-8642-60145a3eac43.pdf",
+    "status": "downloaded",
+    "sha256": "6400fd27b63d7a71b6c08d088a639af30867c3c46bde404cd1276d486616acd4",
+    "size": 7556139
+  },
+  {
+    "kind": "image",
+    "source": "craftum_projects",
+    "local": "assets/craftum/varna.webp",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/b0b72b9c-cc43-4ffc-b691-3c04c7de3304.webp",
+    "status": "downloaded",
+    "sha256": "3c241fb029b320f85a4fa30f5c763195463b8737e03634b4a92aaf68b0fd0b01",
+    "size": 164470
+  },
+  {
+    "kind": "pdf",
+    "source": "craftum_projects",
+    "local": "assets/craftum/varna-strategy.pdf",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/ac579ba8-2551-4ed6-93a7-6e21b3fb1395.pdf",
+    "status": "downloaded",
+    "sha256": "3cf694d0ec58d7573455403498bd01417e11e30d94918438f9ced9891de507b6",
+    "size": 2709079
+  },
+  {
+    "kind": "pdf",
+    "source": "craftum_projects",
+    "local": "assets/craftum/verkhny-ufaley-strategy.pdf",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/672059aa-2aad-4816-8f32-4606abd025ae.pdf",
+    "status": "downloaded",
+    "sha256": "c13a4eb7b9666ee3957024a80bce4723bbd5a0f119422abcb92e03d91fd4c4fd",
+    "size": 2222877
+  },
+  {
+    "kind": "image",
+    "source": "craftum_projects",
+    "local": "assets/craftum/troitsky.webp",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/b31e4b35-2005-44b1-b41b-c6371de81d5c.webp",
+    "status": "downloaded",
+    "sha256": "0ebab7b67fc4667b5a786de8ff636892ddfe235e24a48cdb08f44eab68baea79",
+    "size": 51716
+  },
+  {
+    "kind": "pdf",
+    "source": "craftum_projects",
+    "local": "assets/craftum/troitsky-strategy.pdf",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/b9f212fe-79f6-4d1c-b2ce-8a454d77bde3.pdf",
+    "status": "downloaded",
+    "sha256": "851f6a2193e1da88da6781b8811b909af89ab67c507cead49ee3608a1fc9a7e7",
+    "size": 5715914
+  },
+  {
+    "kind": "image",
+    "source": "craftum_projects",
+    "local": "assets/craftum/karabash.webp",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/97bbbf13-07d5-4e93-87b7-8548d0337395.webp",
+    "status": "downloaded",
+    "sha256": "9a55bd51f69490eba50e47f701d65fe7dd1cf827b0a6435bf275efabcbf0f494",
+    "size": 58536
+  },
+  {
+    "kind": "pdf",
+    "source": "craftum_projects",
+    "local": "assets/craftum/karabash-strategy.pdf",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/6181da01-0abf-4bdc-b2bf-8c2d9748cddc.pdf",
+    "status": "downloaded",
+    "sha256": "7d61c55f473ca0efb751c5cec53ace87a7e9699b2f28dbe48d980c89e9ef4bb8",
+    "size": 4107684
+  },
+  {
+    "kind": "image",
+    "source": "craftum_projects",
+    "local": "assets/craftum/rfbr-19-010-00964.webp",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/5eba7acd-3ee7-4ce6-b717-29de3aeb9f83.webp",
+    "status": "downloaded",
+    "sha256": "9884b92d34244003e000ec5edf8e2ce9f886fbdd38dd8b9a9ed7d6cff2031d33",
+    "size": 28658
+  },
+  {
+    "kind": "pdf",
+    "source": "craftum_projects",
+    "local": "assets/craftum/rfbr-19-010-00964.pdf",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/46987a7e-4f6e-434a-bf39-ddb5a2f0aae8.pdf",
+    "status": "downloaded",
+    "sha256": "874217130796eb196b90a4f7f2fa0136cc0600f3f0d54abfd316d9ea45fb2da7",
+    "size": 3566082
+  },
+  {
+    "kind": "image",
+    "source": "craftum_projects",
+    "local": "assets/craftum/uysky.webp",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/e6b69da4-6021-4d8a-9de1-9f0f7eaacf8b.webp",
+    "status": "downloaded",
+    "sha256": "964d43905c1de58280e976094ba8cbc0defb9393dc14d74aec06b19c26ca3035",
+    "size": 109230
+  },
+  {
+    "kind": "pdf",
+    "source": "craftum_projects",
+    "local": "assets/craftum/uysky-strategy.pdf",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/7b3a190c-04cb-4438-896c-d509ecf51eeb.pdf",
+    "status": "downloaded",
+    "sha256": "a872e1b8d5c0a7f938a20192f19ebe7b67e888d0ed31ad1a768de80ff628a1bb",
+    "size": 100944
+  },
+  {
+    "kind": "image",
+    "source": "craftum_publications",
+    "local": "assets/craftum/cities-of-the-future.jpeg",
+    "url": "https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/a3d4293c-75bd-430e-b696-59227ed701f3.jpeg",
+    "status": "downloaded",
+    "sha256": "e8ea86815baeccadf7a75c8e7c0ddc7790092a50bdff0b1547d985a2921e334d",
+    "size": 366030
+  }
+]

@@ -1,0 +1,360 @@
+{
+  "author_payload": {
+    "service-error": {
+      "status": {
+        "statusCode": "AUTHORIZATION_ERROR",
+        "statusText": "The requestor is not authorized to access the requested view or fields of the resource"
+      }
+    },
+    "_http_status": 401,
+    "_url_path": "/content/author/author_id/57220956828",
+    "_params": {
+      "view": "ENHANCED"
+    },
+    "_headers": {
+      "Date": "Sat, 30 May 2026 14:08:53 GMT",
+      "Content-Type": "application/json;charset=UTF-8",
+      "Content-Length": "167",
+      "Connection": "close",
+      "allow": "GET",
+      "tdm-policy": "https://www.elsevier.com/tdm/tdmrep-policy.json",
+      "tdm-reservation": "1",
+      "Vary": "Access-Control-Request-Headers",
+      "X-ELS-APIKey": "0b32c254dc4bd46076fd480238bc47f7",
+      "X-ELS-ReqId": "790bf64d10b6abf8",
+      "X-ELS-ResourceVersion": "default",
+      "X-ELS-Status": "AUTHORIZATION_ERROR - The requestor is not authorized to access the requested view or fields of the resource",
+      "X-ELS-TransId": "790bf64d10b6abf8",
+      "X-RateLimit-Limit": "5000",
+      "X-RateLimit-Remaining": "5000",
+      "X-RateLimit-Reset": "1780746288",
+      "set-cookie": "__cf_bm=4jKOZotZmMY52EiObKCy7Frnfchc7FAx9F4q.qOg87E-1780150132.8691642-1.0.1.1-7eCII7ZULExGT3d8vv3skLHX2jLSstPJY8uC8odWLwgYN6OKhDEvbM2_iqUakm5bF9_GLX9qIYDUXUjWSxMm8.YF0Z1CicaVTHIQxiN3BvDXUNXlsSt_mWx0pwsfZ6dQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=elsevier.com; Expires=Sat, 30 May 2026 14:38:53 GMT",
+      "cf-cache-status": "DYNAMIC",
+      "Server": "cloudflare",
+      "CF-RAY": "a03e503a6eb3316b-DFW"
+    }
+  },
+  "search_first_payload": {
+    "search-results": {
+      "opensearch:totalResults": "7",
+      "opensearch:startIndex": "0",
+      "opensearch:itemsPerPage": "7",
+      "opensearch:Query": {
+        "@role": "request",
+        "@searchTerms": "AU-ID(57220956828)",
+        "@startPage": "0"
+      },
+      "link": [
+        {
+          "@_fa": "true",
+          "@ref": "self",
+          "@href": "https://api.elsevier.com/content/search/scopus?start=0&count=25&query=AU-ID%2857220956828%29&view=STANDARD&field=dc%3Atitle%2Cdc%3Acreator%2Cprism%3ApublicationName%2Cprism%3AcoverDate%2Cprism%3Adoi%2Ccitedby-count%2Ceid%2Cdc%3Aidentifier%2Cprism%3AaggregationType%2CsubtypeDescription%2Copenaccess",
+          "@type": "application/json"
+        },
+        {
+          "@_fa": "true",
+          "@ref": "first",
+          "@href": "https://api.elsevier.com/content/search/scopus?start=0&count=25&query=AU-ID%2857220956828%29&view=STANDARD&field=dc%3Atitle%2Cdc%3Acreator%2Cprism%3ApublicationName%2Cprism%3AcoverDate%2Cprism%3Adoi%2Ccitedby-count%2Ceid%2Cdc%3Aidentifier%2Cprism%3AaggregationType%2CsubtypeDescription%2Copenaccess",
+          "@type": "application/json"
+        }
+      ],
+      "entry": [
+        {
+          "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105026678596",
+          "dc:identifier": "SCOPUS_ID:105026678596",
+          "eid": "2-s2.0-105026678596",
+          "dc:title": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities",
+          "dc:creator": "Rostovskaya T.K.",
+          "prism:publicationName": "Obrazovanie I Nauka",
+          "prism:coverDate": "2026-01-01",
+          "prism:doi": "10.17853/1994-5639-2026-1-33-64",
+          "citedby-count": "0",
+          "prism:aggregationType": "Journal",
+          "subtype": "ar",
+          "subtypeDescription": "Article",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherfullgold"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Gold"
+              }
+            ]
+          }
+        },
+        {
+          "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105021702108",
+          "dc:identifier": "SCOPUS_ID:105021702108",
+          "eid": "2-s2.0-105021702108",
+          "dc:title": "THE ATTITUDES OF FOREIGN STUDENTS TO THEIR FURTHER LIFE AND CAREER IN RUSSIA",
+          "dc:creator": "Rostovskaya T.K.",
+          "prism:publicationName": "Problemy Sotsial Noi Gigieny Zdravookhraneniia I Istorii Meditsiny",
+          "prism:coverDate": "2025-12-15",
+          "prism:doi": "10.32687/0869-866X-2025-33-5-1280-1285",
+          "citedby-count": "0",
+          "prism:aggregationType": "Journal",
+          "subtype": "ar",
+          "subtypeDescription": "Article",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherhybridgold"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Hybrid Gold"
+              }
+            ]
+          }
+        },
+        {
+          "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105024117741",
+          "dc:identifier": "SCOPUS_ID:105024117741",
+          "eid": "2-s2.0-105024117741",
+          "dc:title": "Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”",
+          "dc:creator": "Rostovskaya T.K.",
+          "prism:publicationName": "New Research of Tuva",
+          "prism:coverDate": "2025-12-01",
+          "prism:doi": "10.25178/nit.2025.4.13",
+          "citedby-count": "0",
+          "prism:aggregationType": "Journal",
+          "subtype": "ar",
+          "subtypeDescription": "Article",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherfullgold"
+              },
+              {
+                "$": "repository"
+              },
+              {
+                "$": "repositoryam"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Gold"
+              },
+              {
+                "$": "Green"
+              }
+            ]
+          }
+        },
+        {
+          "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105008183052",
+          "dc:identifier": "SCOPUS_ID:105008183052",
+          "eid": "2-s2.0-105008183052",
+          "dc:title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+          "dc:creator": "Sitkovskiy A.M.",
+          "prism:publicationName": "Obrazovanie I Nauka",
+          "prism:coverDate": "2025-01-01",
+          "prism:doi": "10.17853/1994-5639-2025-6-149-179",
+          "citedby-count": "1",
+          "prism:aggregationType": "Journal",
+          "subtype": "ar",
+          "subtypeDescription": "Article",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherfullgold"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Gold"
+              }
+            ]
+          }
+        },
+        {
+          "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105007238835",
+          "dc:identifier": "SCOPUS_ID:105007238835",
+          "eid": "2-s2.0-105007238835",
+          "dc:title": "The settlement system of the Republic of Tuva: central places",
+          "dc:creator": "Sitkovskiy A.M.",
+          "prism:publicationName": "New Research of Tuva",
+          "prism:coverDate": "2025-01-01",
+          "prism:doi": "10.25178/nit.2025.2.4",
+          "citedby-count": "0",
+          "prism:aggregationType": "Journal",
+          "subtype": "ar",
+          "subtypeDescription": "Article",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherfullgold"
+              },
+              {
+                "$": "repository"
+              },
+              {
+                "$": "repositoryam"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Gold"
+              },
+              {
+                "$": "Green"
+              }
+            ]
+          }
+        },
+        {
+          "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85205435011",
+          "dc:identifier": "SCOPUS_ID:85205435011",
+          "eid": "2-s2.0-85205435011",
+          "dc:title": "Inter-regional educational migrations in Russia in 2017–2019: gender and spatial aspects",
+          "dc:creator": "Bezverbny V.A.",
+          "prism:publicationName": "New Research of Tuva",
+          "prism:coverDate": "2024-01-01",
+          "prism:doi": "10.25178/nit.2024.3.13",
+          "citedby-count": "3",
+          "prism:aggregationType": "Journal",
+          "subtype": "ar",
+          "subtypeDescription": "Article",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherfullgold"
+              },
+              {
+                "$": "repository"
+              },
+              {
+                "$": "repositoryam"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Gold"
+              },
+              {
+                "$": "Green"
+              }
+            ]
+          }
+        },
+        {
+          "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85097958022",
+          "dc:identifier": "SCOPUS_ID:85097958022",
+          "eid": "2-s2.0-85097958022",
+          "dc:title": "Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals",
+          "dc:creator": "Gordeev S.",
+          "prism:publicationName": "E3s Web of Conferences",
+          "prism:coverDate": "2020-12-14",
+          "prism:doi": "10.1051/e3sconf/202021707021",
+          "citedby-count": "2",
+          "prism:aggregationType": "Conference Proceeding",
+          "subtype": "cp",
+          "subtypeDescription": "Conference Paper",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherfullgold"
+              },
+              {
+                "$": "repository"
+              },
+              {
+                "$": "repositoryam"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Gold"
+              },
+              {
+                "$": "Green"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

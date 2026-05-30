@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-05-30T14:08:53+00:00",
+  "name_ru": "Ситковский Арсений Михайлович",
+  "name_en": "Arseniy M. Sitkovskiy",
+  "identifiers": {
+    "elibrary_authorid": "1012909",
+    "elibrary_spin": "9559-1803",
+    "orcid": "0000-0002-8725-6580",
+    "scopus_author_id": "57220956828",
+    "wos_researcher_id": "AAG-1530-2021",
+    "github": "Arseniy24RUS"
+  },
+  "elibrary_metrics": {
+    "source": "saved_elibrary_author_items_html",
+    "snapshot_date": "2026-05-30",
+    "authorid": "1012909",
+    "author_name": "Ситковский Арсений Михайлович",
+    "total_found": 58,
+    "total_rinc_citations": 262,
+    "shown_from": 1,
+    "shown_to": 58,
+    "category_counts": {
+      "публикации, включенные в РИНЦ": 58,
+      "публикации, включенные в ядро РИНЦ": 19,
+      "статьи в журналах, включенных в Белый список (уровень 1)": 4,
+      "статьи в журналах, включенных в Белый список (уровень 2)": 2,
+      "статьи в журналах, включенных в Белый список (уровень 3)": 6,
+      "статьи в журналах, включенных в Белый список (уровень 4)": 2,
+      "статьи в журналах, входящих в RSCI": 6,
+      "статьи в журналах, входящих в Scopus (квартиль 1)": 4,
+      "статьи в журналах, входящих в Scopus (квартиль 2)": 0,
+      "статьи в журналах, входящих в Scopus (квартиль 3)": 5,
+      "статьи в журналах, входящих в Scopus (квартиль 4)": 1,
+      "статьи в журналах, входящих в Web of Science (квартиль 1)": 0,
+      "статьи в журналах, входящих в Web of Science (квартиль 2)": 4,
+      "статьи в журналах, входящих в Web of Science (квартиль 3)": 0,
+      "статьи в журналах, входящих в Web of Science (квартиль 4)": 2,
+      "статьи в журналах, входящих в Web of Science (нет квартиля)": 0,
+      "статьи в российских журналах, включенных в перечень ВАК": 34,
+      "статьи в российских журналах, включенных в перечень ВАК (категория 1)": 15,
+      "статьи в российских журналах, включенных в перечень ВАК (категория 2)": 13,
+      "статьи в российских журналах, включенных в перечень ВАК (категория 3)": 1
+    },
+    "role_counts": {
+      "автор": 60
+    },
+    "parser_note": "Parsed from user-saved public eLibrary author_items HTML; no password/session data stored."
+  },
+  "scopus_metrics": {
+    "source": "scopus_api",
+    "generated_at": "2026-05-30T14:08:53+00:00",
+    "scopus_author_id": "57220956828",
+    "author_profile_status": 401,
+    "search_status": 200,
+    "profile": {},
+    "works_count_from_search": 7,
+    "citation_sum_from_search": 6,
+    "h_index_recomputed_from_retrieved_works": 2,
+    "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available."
+  },
+  "admin_queue_size": 5
+}
