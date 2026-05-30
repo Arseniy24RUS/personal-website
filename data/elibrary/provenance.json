@@ -1,0 +1,7 @@
+{
+  "input_file": "Ситковский Арсений Михайлович - Список публикаций.html",
+  "sha256": "d10e65ee39d954b5ef7e4747f445c9cb4b0c2f5333afaf4f145991d7d7f0e86b",
+  "parsed_at": "2026-05-30T00:00:00Z",
+  "parser": "scripts/parse_elibrary_author_items.py",
+  "source_url": "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
+}
