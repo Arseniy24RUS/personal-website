@@ -6,52 +6,130 @@
   <title>Ситковский Арсений Михайлович — персональный сайт</title>
   <meta name="description" content="Персональный сайт Арсения Михайловича Ситковского: демография, экономическая география, публикации, проекты и научные идентификаторы.">
   <link rel="stylesheet" href="assets/site.css">
-  <script>function setLang(l){document.body.classList.toggle('lang-en',l==='en');localStorage.setItem('lang',l)};addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'ru'))</script>
+  <link rel="stylesheet" href="assets/additions.css">
+  <script defer src="assets/site.js"></script>
 </head>
 <body class="home">
 <div class="wrap">
-  <header class="top">
-    <div class="brand">Ситковский А.М.</div>
-    <nav class="nav">
-      <a href="projects.html">Проекты</a>
-      <a href="publications.html">Статьи</a>
-      <a href="materials.html">Книги</a>
-      <a href="media.html">Публикации</a>
-      <a href="media.html">Видео</a>
-      <a href="materials.html">Фото</a>
-      <a href="materials.html">Дипломы</a>
-      <a href="metrics.html">Карты</a>
-      <a class="email-btn" href="mailto:omnistat@yandex.ru">omnistat@yandex.ru</a>
-    </nav>
-  </header>
+  <header data-header></header>
 
   <section class="hero">
     <img class="hero-portrait" src="assets/craftum/portrait-library.jpeg" onerror="this.onerror=null;this.src='https://274418.selcdn.ru/cv08300-33250f0d-0664-43fc-9dbf-9d89738d114e/uploads/414908/1ce55438-c984-4a9c-9e9b-76f601ed94fc.jpeg'" alt="Ситковский Арсений Михайлович">
     <div>
       <h1>СИТКОВСКИЙ<br>АРСЕНИЙ<br>МИХАЙЛОВИЧ</h1>
-      <p class="ru">Научный сотрудник, демограф и экономгеограф. Исследую пространственную демографию, трансформацию системы расселения, демографическое прогнозирование, ГИС-инструменты мониторинга и цифровые аналитические платформы.</p>
-      <p class="en">Research fellow in demography and economic geography. My work focuses on spatial demography, settlement-system transformation, demographic forecasting, GIS-based monitoring and digital analytical platforms.</p>
+      <p class="ru">Демограф, экономгеограф, исследователь пространственного развития и цифровых ГИС-инструментов мониторинга. Работаю на стыке академической демографии, региональной экономики, стратегического планирования и прикладной геоаналитики.</p>
+      <p class="en">Demographer, economic geographer and researcher of spatial development and digital GIS-based monitoring. My work connects academic demography, regional economics, strategic planning and applied geoanalytics.</p>
     </div>
   </section>
 
-  <div class="grid">
-    <main class="card">
-      <h2 class="ru">Биография</h2><h2 class="en">Biography</h2>
-      <p class="ru">С сентября 2022 г. работаю научным сотрудником в Институте социальной демографии ФНИСЦ РАН. С октября 2024 г. также работаю младшим научным сотрудником ИСЯМКиМ РУДН и ассистентом кафедры государственного и муниципального управления РУДН.</p>
-      <p class="en">Since September 2022, I have been working as a research fellow at the Institute of Social Demography, FCTAS RAS. Since October 2024, I have also worked at RUDN University as a junior research fellow and assistant lecturer.</p>
-      <p class="ru">Веду авторские курсы «Введение в специальность Государственное и муниципальное управление», «Пространственная демография» и «Геоданные и геоинформационные системы».</p>
-      <p class="en">I teach author-designed courses in state and municipal administration, spatial demography, geodata and geographic information systems.</p>
-      <p class="ru">В 2022 году совместно с Минсельхозом РФ разработал методику формирования системы опорных населённых пунктов, утверждённую Распоряжением Правительства РФ от 23 декабря 2022 г. № 4132-р.</p>
-      <p class="en">In 2022, together with the Ministry of Agriculture of the Russian Federation, I developed a methodology for forming a system of supporting settlements, approved by Government Order No. 4132-r.</p>
-    </main>
-    <aside class="card">
-      <h2 class="ru">Наукометрия</h2><h2 class="en">Scientometrics</h2>
-      <div class="stats"><div class="stat"><b>58</b><span class="ru">публикаций в РИНЦ snapshot</span><span class="en">RSCI snapshot publications</span></div><div class="stat"><b>262</b><span class="ru">цитирования РИНЦ snapshot</span><span class="en">RSCI snapshot citations</span></div><div class="stat"><b>19</b><span class="ru">ядро РИНЦ</span><span class="en">Core RSCI</span></div><div class="stat"><b>34</b><span class="ru">журналы ВАК</span><span class="en">VAK-listed journals</span></div></div>
-      <h3 class="ru">Идентификаторы</h3><h3 class="en">Identifiers</h3>
-      <div class="chips"><span class="chip">РИНЦ AuthorID: 1012909</span><span class="chip">SPIN: 9559-1803</span><span class="chip"><a href="https://orcid.org/0000-0002-8725-6580">ORCID</a></span><span class="chip"><a href="https://www.webofscience.com/wos/author/record/AAG-1530-2021">WoS</a></span><span class="chip">Scopus: 57220956828</span><span class="chip"><a href="https://github.com/Arseniy24RUS">GitHub</a></span></div>
-    </aside>
-  </div>
-  <footer class="footer"><span>Персональный сайт Ситковского А.М.</span><span>omnistat@yandex.ru</span></footer>
+  <section class="profile-hero">
+    <h1 class="ru">Профессиональный профиль</h1>
+    <h1 class="en">Professional profile</h1>
+    <p class="ru">Научный сотрудник Института социальной демографии ФНИСЦ РАН, младший научный сотрудник и преподаватель РУДН. Автор методики формирования системы опорных населённых пунктов, участник грантов РФФИ, РНФ и РУДН, разработчик муниципальных стратегий пространственного и социально-экономического развития.</p>
+    <p class="en">Research fellow at the Institute of Social Demography, FCTAS RAS, and researcher/lecturer at RUDN University. Author of the methodology for identifying support settlements, participant in RFBR, RSF and RUDN research grants, and contributor to municipal spatial and socio-economic development strategies.</p>
+  </section>
+
+  <section class="bio-section">
+    <div class="bio-grid">
+      <div class="bio-label ru">Образование</div><div class="bio-label en">Education</div>
+      <div class="bio-content">
+        <ul class="bio-list ru">
+          <li>2018 — бакалавриат РАНХиГС, 38.03.04 «Государственное и муниципальное управление», диплом с отличием.</li>
+          <li>2020 — магистратура РАНХиГС, 38.04.04 «Государственное и муниципальное управление», диплом с отличием.</li>
+          <li>2021–2022 — профессиональная переподготовка Master of Public Policy: «Управление проектами пространственного развития».</li>
+          <li>2025 — профессиональная переподготовка «Демография» в ФНИСЦ РАН.</li>
+        </ul>
+        <ul class="bio-list en">
+          <li>2018 — Bachelor’s degree with honours, RANEPA, State and Municipal Administration.</li>
+          <li>2020 — Master’s degree with honours, RANEPA, State and Municipal Administration.</li>
+          <li>2021–2022 — professional retraining programme Master of Public Policy: Management of Spatial Development Projects.</li>
+          <li>2025 — professional retraining in Demography at FCTAS RAS.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bio-section">
+    <div class="bio-grid">
+      <div class="bio-label ru">Карьера</div><div class="bio-label en">Career</div>
+      <div class="bio-content timeline">
+        <div class="timeline-item"><div class="timeline-year">2026–</div><div><span class="ru">Младший научный сотрудник Центра изучения рождаемости, брачности и семьи Института социальной демографии ФНИСЦ РАН. </span><span class="en">Junior Research Fellow, Centre for Fertility, Marriage and Family Studies, Institute of Social Demography, FCTAS RAS. </span><a href="https://www.fnisc.ru/pers_about.html?id=2472">ФНИСЦ РАН / FCTAS RAS</a></div></div>
+        <div class="timeline-item"><div class="timeline-year">2024–</div><div><span class="ru">Ассистент кафедры государственного и муниципального управления РУДН; младший научный сотрудник ИСЯМКиМ РУДН. </span><span class="en">Assistant Lecturer, Department of State and Municipal Administration, RUDN University; Junior Research Fellow at RUDN University. </span><a href="https://admission.rudn.ru/staff/86110487-4a8f-11f0-b545-00155d0c0d4a/">РУДН / RUDN</a></div></div>
+        <div class="timeline-item"><div class="timeline-year">2022–2025</div><div><span class="ru">Младший научный сотрудник отдела геоурбанистики и пространственной демографии Института демографических исследований ФНИСЦ РАН.</span><span class="en">Junior Research Fellow, Department of Geourbanistics and Spatial Demography, Institute for Demographic Research, FCTAS RAS.</span></div></div>
+        <div class="timeline-item"><div class="timeline-year">2020</div><div><span class="ru">Ведущий специалист-эксперт Экспертно-аналитического управления Правительства Челябинской области.</span><span class="en">Leading specialist-expert at the Expert and Analytical Directorate of the Government of Chelyabinsk Oblast.</span></div></div>
+        <div class="timeline-item"><div class="timeline-year">2018–2020</div><div><span class="ru">Референт и аналитик лаборатории «Модели пространственного развития» Челябинского филиала РАНХиГС.</span><span class="en">Assistant and analyst at the “Models of Spatial Development” laboratory, Chelyabinsk branch of RANEPA.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bio-section">
+    <div class="bio-grid">
+      <div class="bio-label ru">Преподавание</div><div class="bio-label en">Teaching</div>
+      <div class="bio-content">
+        <ul class="bio-list ru">
+          <li>Автор курса лекций «Введение в специальность Государственное и муниципальное управление» для бакалавров РУДН.</li>
+          <li>Соавтор курса «Пространственная демография» для магистрантов кафедры территориального планирования им. В.Л. Глазычева РАНХиГС.</li>
+          <li>Автор онлайн-курса Stepik «EverGIS: создай свою карту с нуля».</li>
+          <li>Преподаватель модулей ДПО по демографической экспертизе, демографическим базам данных, ГИС, геоаналитике и пространственному демографическому анализу.</li>
+        </ul>
+        <ul class="bio-list en">
+          <li>Author of the lecture course “Introduction to State and Municipal Administration” for RUDN undergraduate students.</li>
+          <li>Co-author of the “Spatial Demography” course for master’s students at RANEPA.</li>
+          <li>Author of the Stepik online course “EverGIS: create your own map from scratch”.</li>
+          <li>Lecturer in professional development modules on demographic expertise, demographic databases, GIS, geoanalytics and spatial demographic analysis.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bio-section">
+    <div class="bio-grid">
+      <div class="bio-label ru">Гранты и НИР</div><div class="bio-label en">Grants and R&D</div>
+      <div class="bio-content">
+        <ul class="bio-list ru">
+          <li>РФФИ 19-010-00964 «Моделирование и визуализация сценариев пространственного развития трансграничного макрорегиона на примере Урала и Северного Казахстана».</li>
+          <li>РФФИ 21-011-31803 «Государственная политика России по развитию крупных агломераций в условиях демографического сжатия: сценарии и вызовы».</li>
+          <li>РНФ 24-28-01314 «Репродуктивная преемственность поколений...».</li>
+          <li>РНФ 25-78-30004 «Цифровая демографическая обсерватория...».</li>
+          <li>Гранты РУДН 056128-0-000 и 056127-0-000 по тематике демографической безопасности и пространственного развития.</li>
+          <li>Участие в 10 НИР, зарегистрированных в ЕГИСУ НИОКТР.</li>
+        </ul>
+        <ul class="bio-list en">
+          <li>RFBR 19-010-00964 on modelling and visualising spatial development scenarios of a cross-border macroregion.</li>
+          <li>RFBR 21-011-31803 on Russian agglomeration policy under demographic shrinkage.</li>
+          <li>RSF 24-28-01314 on intergenerational reproductive continuity and large families.</li>
+          <li>RSF 25-78-30004 “Digital Demographic Observatory”.</li>
+          <li>RUDN grants 056128-0-000 and 056127-0-000 on demographic security and spatial development.</li>
+          <li>Participant in 10 R&D projects registered in the national R&D information system.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bio-section">
+    <div class="bio-grid">
+      <div class="bio-label ru">Прикладные результаты</div><div class="bio-label en">Applied results</div>
+      <div class="bio-content">
+        <p class="ru">Автор методики формирования системы опорных населённых пунктов, утверждённой распоряжением Правительства РФ от 23 декабря 2022 г. № 4132-р и используемой Министерством сельского хозяйства Российской Федерации. Один из разработчиков пяти действующих стратегий социально-экономического и пространственного развития муниципалитетов Челябинской области.</p>
+        <p class="en">Author of the methodology for forming a system of support settlements, approved by Government Order No. 4132-r and used by the Ministry of Agriculture of the Russian Federation. Contributor to five active municipal spatial and socio-economic development strategies in Chelyabinsk Oblast.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bio-section">
+    <div class="bio-grid">
+      <div class="bio-label ru">Научные идентификаторы</div><div class="bio-label en">Research identifiers</div>
+      <div class="bio-content ids-grid">
+        <div class="id-card"><a href="https://www.elibrary.ru/author_profile.asp?id=1012909">РИНЦ: AuthorID 1012909 · SPIN 9559-1803</a></div>
+        <div class="id-card"><a href="https://orcid.org/0000-0002-8725-6580">ORCID Id: 0000-0002-8725-6580</a></div>
+        <div class="id-card"><a href="https://www.webofscience.com/wos/author/record/AAG-1530-2021">Web of Science ResearcherId: AAG-1530-2021</a></div>
+        <div class="id-card"><a href="http://www.scopus.com/inward/authorDetails.url?authorID=57220956828&partnerID=MN8TOARS">Scopus Author Id: 57220956828</a></div>
+        <div class="id-card"><a href="https://github.com/Arseniy24RUS">GitHub: Arseniy24RUS</a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><span>Персональный сайт Ситковского А.М.</span><br><span>omnistat@yandex.ru</span></footer>
 </div>
 </body>
 </html>
