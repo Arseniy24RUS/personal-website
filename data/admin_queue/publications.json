@@ -1233,8 +1233,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "pdf": false,
-          "grobid_xml": false
+          "grobid_xml": false,
+          "pdf": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -2687,8 +2687,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "pdf": false,
-          "grobid_xml": false
+          "grobid_xml": false,
+          "pdf": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -3601,16 +3601,16 @@
         },
         "sustainable_development_goals": [
           {
+            "id": "https://metadata.un.org/sdg/10",
             "score": 0.5199999809265137,
-            "display_name": "Reduced inequalities",
-            "id": "https://metadata.un.org/sdg/10"
+            "display_name": "Reduced inequalities"
           }
         ],
         "awards": [],
         "funders": [],
         "has_content": {
-          "pdf": false,
-          "grobid_xml": false
+          "grobid_xml": false,
+          "pdf": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
