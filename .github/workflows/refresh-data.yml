@@ -45,7 +45,19 @@ jobs:
           else
             echo "Craftum asset mirroring skipped."
           fi
-      - name: Parse saved eLibrary snapshots
+      - name: Harvest eLibrary author profile metrics
+        env:
+          ELIBRARY_AUTHOR_ID: "1012909"
+          ELIBRARY_PROFILE_URL: "https://www.elibrary.ru/author_profile.asp?id=1012909"
+          ELIBRARY_PROFILE_OUT: data/elibrary/profile_metrics.json
+          ELIBRARY_PROFILE_REPORT: data/elibrary/profile_metrics_fetch_report.json
+        run: |
+          if [ -f scripts/harvest_elibrary_profile.py ] && [ -f scripts/parse_elibrary_author_profile.py ]; then
+            python scripts/harvest_elibrary_profile.py || true
+          else
+            echo "eLibrary author profile harvester/parser is missing; using existing normalized metrics."
+          fi
+      - name: Parse saved eLibrary publication snapshots
         run: |
           mkdir -p data/processed
           if [ -d data/snapshots/elibrary ] && [ -f scripts/parse_elibrary_author_items.py ]; then
