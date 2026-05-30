@@ -31,9 +31,14 @@ def load_elibrary_publications():
         for r in reader:
             if len(r) < 8:
                 continue
+            item = None
+            if r[7] and 'id=' in r[7]:
+                m = re.search(r'id=(\d+)', r[7])
+                item = m.group(1) if m else None
             rows.append({
                 'source': 'elibrary_rinc_tsv',
                 'number': int(r[0]) if r[0].isdigit() else None,
+                'elibrary_item_id': item,
                 'year': int(r[1]) if r[1].isdigit() else None,
                 'rinc_citations': int(r[2]) if r[2].isdigit() else 0,
                 'title': r[3],
@@ -41,6 +46,7 @@ def load_elibrary_publications():
                 'venue': r[5] or None,
                 'pages': r[6] or None,
                 'url': r[7] or None,
+                'sources': ['elibrary'],
             })
     return rows
 
@@ -56,30 +62,67 @@ def norm_title(s):
     return re.sub(r'[^a-zа-я0-9]+', ' ', (s or '').lower()).strip()
 
 
-def build_admin_queue(elib, scopus_works):
-    existing = {norm_title(p.get('title')) for p in elib if p.get('title')}
+def merge_scopus(elib, scopus_works):
+    curated = read_json(DATA / 'curation' / 'scopus_elibrary_map.json', {})
+    by_item = {str(p.get('elibrary_item_id')): p for p in elib if p.get('elibrary_item_id')}
+    by_title = {norm_title(p.get('title')): p for p in elib if p.get('title')}
     queue = []
+
     for w in scopus_works or []:
-        title = w.get('title') or ''
-        nt = norm_title(title)
-        if not nt:
-            continue
-        if nt not in existing:
+        eid = w.get('eid')
+        target = None
+        match = curated.get(eid or '')
+        if match:
+            target = by_item.get(str(match.get('elibrary_item_id')))
+        if target is None:
+            target = by_title.get(norm_title(w.get('title')))
+        if target is not None:
+            target.setdefault('sources', ['elibrary'])
+            if 'scopus' not in target['sources']:
+                target['sources'].append('scopus')
+            target['scopus'] = {
+                'eid': w.get('eid'),
+                'scopus_id': w.get('scopus_id'),
+                'doi': w.get('doi'),
+                'title': w.get('title'),
+                'source_title': w.get('journal_or_source'),
+                'cover_date': w.get('cover_date'),
+                'cited_by_count': w.get('cited_by_count'),
+                'subtype': w.get('subtype'),
+                'openaccess': w.get('openaccess'),
+                'match_type': (match or {}).get('match_type', 'normalized_title_match'),
+            }
+            if w.get('doi') and not target.get('doi'):
+                target['doi'] = w.get('doi')
+        else:
             queue.append({
                 'id': 'scopus_' + (w.get('eid') or str(len(queue)+1)).replace(':', '_'),
                 'entity_type': 'publication',
                 'action': 'review_scopus_publication',
                 'confidence': 0.72,
-                'reason': 'Scopus work was not matched exactly to eLibrary title snapshot',
+                'reason': 'Scopus work was not matched to eLibrary snapshot or curated map',
                 'candidate': w,
             })
-    return queue
+    return elib, queue
+
+
+def write_tsv(publications):
+    path = PUBLIC / 'publications.tsv'
+    with path.open('w', encoding='utf-8', newline='') as f:
+        writer = csv.writer(f, delimiter='\t')
+        writer.writerow(['number','year','rinc_citations','scopus_citations','title','authors','venue','doi','url','sources'])
+        for p in publications:
+            writer.writerow([
+                p.get('number'), p.get('year'), p.get('rinc_citations', 0),
+                (p.get('scopus') or {}).get('cited_by_count', ''),
+                p.get('title'), p.get('authors_raw'), p.get('venue'), p.get('doi', ''), p.get('url'), ','.join(p.get('sources', []))
+            ])
 
 
 def main():
     elib = load_elibrary_publications()
     scopus_metrics, scopus_works = load_scopus()
-    admin_queue = build_admin_queue(elib, scopus_works)
+    canonical, admin_queue = merge_scopus(elib, scopus_works)
     metrics = read_json(DATA / 'elibrary' / 'metrics.json', {})
     public_profile = {
         'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
@@ -95,13 +138,16 @@ def main():
         },
         'elibrary_metrics': metrics,
         'scopus_metrics': scopus_metrics,
+        'canonical_publications_count': len(canonical),
+        'scopus_enriched_publications_count': sum(1 for p in canonical if 'scopus' in p.get('sources', [])),
         'admin_queue_size': len(admin_queue),
     }
     (PUBLIC / 'profile.json').write_text(json.dumps(public_profile, ensure_ascii=False, indent=2), encoding='utf-8')
-    (PUBLIC / 'publications.json').write_text(json.dumps(elib, ensure_ascii=False, indent=2), encoding='utf-8')
+    (PUBLIC / 'publications.json').write_text(json.dumps(canonical, ensure_ascii=False, indent=2), encoding='utf-8')
+    write_tsv(canonical)
     (DATA / 'admin_queue').mkdir(parents=True, exist_ok=True)
     (DATA / 'admin_queue' / 'publications.json').write_text(json.dumps(admin_queue, ensure_ascii=False, indent=2), encoding='utf-8')
-    print(f'Built public data: {len(elib)} eLibrary publications, {len(scopus_works or [])} Scopus works, {len(admin_queue)} queue items')
+    print(f'Built public data: {len(canonical)} canonical publications, {len(scopus_works or [])} Scopus works, {len(admin_queue)} queue items')
 
 
 if __name__ == '__main__':
