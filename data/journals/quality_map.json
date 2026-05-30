@@ -1,0 +1,20 @@
+{
+  "Образование и наука": {"white_list_2025":"1","scopus":true,"scopus_snip_quartile":"Q3","scopus_sjr_quartile":"Q3","wos_core":true,"wos_jif_quartile":"Q4","rsci":false,"issn":"2310-5828|1994-5639","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Женщина в российском обществе": {"white_list_2025":"2","scopus":true,"scopus_snip_quartile":"Q2","scopus_sjr_quartile":"Q3","wos_core":false,"rsci":false,"issn":"2500-221X|1992-2892","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Problems of Social Hygiene, Public Health and History of Medicine": {"white_list_2025":"1","scopus":true,"scopus_sjr_quartile":"Q4","wos_core":false,"rsci":true,"issn":"0869-866X|2412-2106","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Новые исследования Тувы": {"white_list_2023":"1","scopus":true,"scopus_snip_quartile":"Q1","scopus_sjr_quartile":"TOP-10%","wos_core":true,"wos_jif_quartile":"Q2","rsci":false,"issn":"2079-8482","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Экономические и социальные перемены: факты, тенденции, прогноз": {"white_list_2025":"1","scopus":false,"wos_core":true,"wos_jif_quartile":"Q4","rsci":false,"issn":"2312-9824|2307-0331|1998-0698|2312-9816","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Frontiers in Political Science": {"white_list_2023":"3","scopus":true,"scopus_snip_quartile":"Q1","scopus_sjr_quartile":"Q1","wos_core":true,"wos_jif_quartile":"Q2","rsci":false,"issn":"2673-3145","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление": {"white_list_2025":"3","scopus":false,"wos_core":false,"rsci":false,"issn":"2312-8313|2411-1228","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Информационное общество": {"white_list_2025":"2","scopus":false,"wos_core":false,"rsci":true,"issn":"1606-1330|1605-9921","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Уровень жизни населения регионов России": {"white_list_2025":"2","scopus":false,"wos_core":false,"rsci":true,"issn":"1999-9836|2713-3397","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "ДЕМИС. Демографические исследования": {"white_list_2025":"2","scopus":false,"wos_core":false,"rsci":false,"issn":"2782-2303|2782-229X","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Вопросы управления": {"white_list_2025":"2","scopus":false,"wos_core":false,"rsci":false,"issn":"2304-3369|2308-8842","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Вопросы истории": {"white_list_2023":"3","scopus":false,"wos_core":false,"rsci":false,"issn":"1938-2561|0042-8779","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Вестник Российской академии наук": {"white_list_2025":"1","scopus":false,"wos_core":false,"rsci":true,"issn":"0869-5873","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Вестник Нижегородского университета им. Н.И. Лобачевского. Серия: Социальные науки": {"white_list_2025":"2","scopus":false,"wos_core":false,"rsci":false,"issn":"1811-5942","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Научный результат. Социология и управление": {"white_list_2025":"2","scopus":false,"wos_core":false,"rsci":true,"issn":"2408-9338","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Социум и власть": {"white_list_2025":"3","scopus":false,"wos_core":false,"rsci":false,"issn":"1996-0522|2949-0731","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Вестник Южно-Российского государственного технического университета (НПИ). Серия: Социально-экономические науки": {"white_list_2025":"3","scopus":false,"wos_core":false,"rsci":false,"issn":"2075-2067","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"},
+  "Вестник Челябинского государственного университета": {"white_list_2025":"4","scopus":false,"wos_core":false,"rsci":false,"issn":"1994-2796|2782-4829","source":"SCOPUS_WOS_RSCI_2025-2026_IF_SNIP_SJR 2024.xlsx"}
+}
