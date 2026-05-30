@@ -11,6 +11,11 @@ on:
   schedule:
     - cron: "17 3 * * 1"
 
+# GitHub will switch JavaScript actions from Node.js 20 to Node.js 24 by default.
+# Opt in now to remove the Node.js 20 deprecation warning and surface compatibility problems early.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: write
   issues: write
