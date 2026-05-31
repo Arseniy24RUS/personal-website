@@ -75,6 +75,13 @@ jobs:
           else
             echo "Media enhancer is missing; skipping metadata repair and institutional scan."
           fi
+      - name: Normalize append-only media snapshot
+        run: |
+          if [ -f scripts/normalize_media_snapshot.py ]; then
+            python scripts/normalize_media_snapshot.py --normalize-only || true
+          else
+            echo "Media snapshot normalizer is missing; skipping post-processing."
+          fi
       - name: Harvest eLibrary author profile metrics
         env:
           ELIBRARY_AUTHOR_ID: "1012909"
