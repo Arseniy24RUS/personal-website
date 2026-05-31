@@ -91,7 +91,7 @@ jobs:
           ELIBRARY_PROXY_URL: ${{ secrets.ELIBRARY_PROXY_URL }}
         run: |
           if [ -f scripts/harvest_elibrary_profile.py ] && [ -f scripts/parse_elibrary_author_profile.py ]; then
-            python scripts/harvest_elibrary_profile.py
+            python scripts/harvest_elibrary_profile.py || true
           else
             echo "eLibrary author profile harvester/parser is missing; using existing normalized metrics."
           fi
@@ -104,7 +104,7 @@ jobs:
           ELIBRARY_PROXY_URL: ${{ secrets.ELIBRARY_PROXY_URL }}
         run: |
           if [ -f scripts/harvest_elibrary_items.py ] && [ -f scripts/parse_elibrary_author_items.py ]; then
-            python scripts/harvest_elibrary_items.py
+            python scripts/harvest_elibrary_items.py || true
           else
             echo "eLibrary items harvester/parser is missing; using existing data/elibrary/publications.tsv."
           fi
