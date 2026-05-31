@@ -38,7 +38,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 pyyaml rapidfuzz
+          pip install requests beautifulsoup4 pyyaml rapidfuzz argostranslate
       - name: Mirror Craftum assets
         run: |
           if [ "${{ inputs.mirror_craftum_assets || 'true' }}" = "true" ] && [ -f scripts/mirror_craftum_assets.py ]; then
@@ -126,6 +126,13 @@ jobs:
             python scripts/build_public_data.py || true
           else
             echo "No public data builder yet; skipping."
+          fi
+      - name: Translate publication titles to English
+        run: |
+          if [ -f scripts/translate_publication_titles.py ]; then
+            python scripts/translate_publication_titles.py || true
+          else
+            echo "Publication-title translation script is missing; skipping."
           fi
       - name: Write refresh audit stamp
         run: |
