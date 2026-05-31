@@ -6,13 +6,16 @@
   <meta name="description" content="Интерактивные дашборды, карты, симуляторы и учебные веб-приложения Арсения Михайловича Ситковского.">
   <link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/additions.css"><link rel="stylesheet" href="assets/it.css"><script defer src="assets/site.js"></script>
   <script>
+    const TAG_EN={'ГИС':'GIS','населённые пункты':'settlements','прогноз':'forecast','демография':'demography','субъекты РФ':'Russian regions','трудовые ресурсы':'labour resources','отрасли':'industries','регионы':'regions','корреляции':'correlations','байесовский анализ':'Bayesian analysis','аналитика':'analytics','симулятор':'simulator','госуправление':'public administration','бюджет':'budget','обучение':'teaching','карта России':'map of Russia','пазл':'puzzle','профориентация':'career guidance','госслужба':'civil service','тест':'test','социально-экономические данные':'socio-economic data','система расселения':'settlement system','ОКР':'supporting framework','пространственный анализ':'spatial analysis','картограмма':'cartogram'};
     function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-    function localize(item, key){return item[key+'_'+(document.body.classList.contains('lang-en')?'en':'ru')]||item[key+'_ru']||item[key]||''}
+    function isEn(){return document.documentElement.classList.contains('lang-en')||document.body.classList.contains('lang-en')}
+    function localize(item, key){return item[key+'_'+(isEn()?'en':'ru')]||item[key+'_ru']||item[key]||''}
+    function tagLabel(t){return isEn()?(TAG_EN[t]||t):t}
     async function loadIt(){
       let items=[]; try{items=(await fetch('data/it/resources.json',{cache:'no-store'}).then(r=>r.json())).items||[]}catch(e){}
       const box=document.getElementById('it-list');
       if(!items.length){box.innerHTML='<div class="note ru">Раздел ресурсов пока не загружен.</div><div class="note en">Resources have not been loaded yet.</div>';return}
-      box.innerHTML=items.map(item=>`<article class="it-card"><a class="it-thumb" href="${esc(item.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(item.thumb)}" alt="${esc(localize(item,'title'))}"></a><div class="it-body"><div class="it-tags">${(item.tags||[]).slice(0,4).map(t=>`<span>${esc(t)}</span>`).join('')}</div><h2><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(localize(item,'title'))}</a></h2><p>${esc(localize(item,'description'))}</p><a class="it-link" href="${esc(item.url)}" target="_blank" rel="noopener"><span class="ru">Открыть ресурс</span><span class="en">Open resource</span></a></div></article>`).join('')
+      box.innerHTML=items.map(item=>`<article class="it-card"><a class="it-thumb" href="${esc(item.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(item.thumb)}" alt="${esc(localize(item,'title'))}"></a><div class="it-body"><div class="it-tags">${(item.tags||[]).slice(0,4).map(t=>`<span>${esc(tagLabel(t))}</span>`).join('')}</div><h2><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(localize(item,'title'))}</a></h2><p>${esc(localize(item,'description'))}</p><a class="it-link" href="${esc(item.url)}" target="_blank" rel="noopener"><span class="ru">Открыть ресурс</span><span class="en">Open resource</span></a></div></article>`).join('')
 
     }
     document.addEventListener('DOMContentLoaded', loadIt);
