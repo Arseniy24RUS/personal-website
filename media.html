@@ -2,23 +2,26 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>СМИ и публичные упоминания — Ситковский А.М.</title>
-  <meta name="description" content="Публикации в СМИ, публичные упоминания, интервью, конференционные программы и видео с участием Арсения Михайловича Ситковского.">
+  <title>СМИ — Ситковский А.М.</title>
+  <meta name="description" content="Материалы СМИ, публичные упоминания, интервью, конференционные программы и официальные профили Арсения Михайловича Ситковского.">
   <link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/additions.css"><script defer src="assets/site.js"></script>
   <script>
     function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-    function fmtDate(s){if(!s)return '';try{return new Date(s).toLocaleDateString(document.body.classList.contains('lang-en')?'en-US':'ru-RU',{year:'numeric',month:'long',day:'numeric'})}catch(e){return s}}
+    function lang(){return document.body.classList.contains('lang-en')?'en':'ru'}
+    function pick(r,key){const l=lang();return r[`${key}_${l}`]||r[key]||r[`${key}_ru`]||r[`${key}_en`]||''}
+    function fmtDate(s){if(!s)return '';try{return new Date(s).toLocaleDateString(lang()==='en'?'en-US':'ru-RU',{year:'numeric',month:'long',day:'numeric'})}catch(e){return s}}
     function isNavigationJunk(text){return /Публикации молодых ученых|Поиск Информация|Противодействие корруп|Основные сведения Структура|Новости Минобрнауки РФ|slick|bootstrap|font-awesome/i.test(String(text||''))}
     function isGenericTitle(title){return /^(ФНИСЦ РАН|Росбалт|ДЕМ\.ИНФОРМ - первое демографическое информационное агентство России)$/i.test(String(title||'').trim())}
     function knownDescription(r){
       const u=String(r.url||'');
-      if(u.includes('admission.rudn.ru/staff/')) return 'Официальная страница РУДН с профессиональным профилем, публикациями и сведениями о преподавательской деятельности.';
-      if(u.includes('pers_about.html?id=2472')) return 'Официальная персональная страница с научной аффилиацией, контактами и сведениями о публикациях.';
-      if(u.includes('page_id=1195')) return 'Персональная страница со списком публикаций на сайте ФНИСЦ РАН.';
+      const en=lang()==='en';
+      if(u.includes('admission.rudn.ru/staff/')) return en?'Official RUDN University staff page with profile, publications and teaching information.':'Официальная страница РУДН с профессиональным профилем, публикациями и сведениями о преподавательской деятельности.';
+      if(u.includes('pers_about.html?id=2472')) return en?'Official personal page with academic affiliation, contacts and publication details.':'Официальная персональная страница с научной аффилиацией, контактами и сведениями о публикациях.';
+      if(u.includes('page_id=1195')) return en?'Personal page with a publication list on the FCTAS RAS website.':'Персональная страница со списком публикаций на сайте ФНИСЦ РАН.';
       return '';
     }
     function cleanDescription(r){
-      let d=knownDescription(r) || String(r.description||'').replace(/\s+/g,' ').trim();
+      let d=knownDescription(r) || String(pick(r,'description')).replace(/\s+/g,' ').trim();
       if(isNavigationJunk(d)) d=knownDescription(r) || '';
       if(d.length>360) d=d.slice(0,357).trim()+'…';
       return d;
@@ -33,26 +36,30 @@
     }
     function sourceLabel(r){
       const raw=String(r.source_name||r.domain||'');
-      if(raw==='deminform.ru') return 'ДЕМ.ИНФОРМ';
+      if(raw==='deminform.ru') return lang()==='en'?'DEM.INFORM':'ДЕМ.ИНФОРМ';
       if(raw==='t.me') return 'Telegram';
       if(raw==='sobaka.ru') return 'Sobaka.ru';
-      if(raw==='rosbalt.ru') return 'Росбалт';
-      if(raw==='demoscope.ru') return 'Демоскоп Weekly';
+      if(raw==='rosbalt.ru') return lang()==='en'?'Rosbalt':'Росбалт';
+      if(raw==='demoscope.ru') return 'Demoscope Weekly';
       return raw;
     }
-    async function loadMedia(){
-      let records=[];
-      try{records=(await fetch('data/media/published.json',{cache:'no-store'}).then(r=>r.json())).records||[]}catch(e){}
-      records=records.filter(displayable);
+    let MEDIA_RECORDS=[];
+    function renderMedia(){
+      const records=MEDIA_RECORDS.filter(displayable);
       const box=document.getElementById('media-list');
       if(!records.length){box.innerHTML='<div class="note ru">Пока опубликованные упоминания не загружены. Попробуйте обновить страницу после завершения workflow.</div><div class="note en">Published mentions have not been loaded yet. Please refresh the page after the workflow finishes.</div>';return}
-      box.innerHTML=records.map(r=>{const desc=cleanDescription(r);return `<article class="media-card">${r.image?`<a class="media-image" href="${esc(r.url)}" target="_blank" rel="noopener"><img src="${esc(r.image)}" alt=""></a>`:''}<div class="media-body"><div class="media-source">${esc(sourceLabel(r))}${r.published_at?' · '+fmtDate(r.published_at):''}</div><h2><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title||sourceLabel(r))}</a></h2>${desc?`<p>${esc(desc)}</p>`:''}<a class="media-link" href="${esc(r.url)}" target="_blank" rel="noopener"><span class="ru">Открыть материал</span><span class="en">Open source</span></a></div></article>`}).join('')
+      box.innerHTML=records.map(r=>{const desc=cleanDescription(r);const title=pick(r,'title')||sourceLabel(r);const image=r.image?`<a class="media-image" href="${esc(r.url)}" target="_blank" rel="noopener"><img src="${esc(r.image)}" alt=""></a>`:'';return `<article class="media-card ${r.image?'has-image':'no-image'}">${image}<div class="media-body"><div class="media-source">${esc(sourceLabel(r))}${r.published_at?' · '+fmtDate(r.published_at):''}</div><h2><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(title)}</a></h2>${desc?`<p>${esc(desc)}</p>`:''}<a class="media-link" href="${esc(r.url)}" target="_blank" rel="noopener"><span class="ru">Открыть материал</span><span class="en">Open source</span></a></div></article>`}).join('')
+    }
+    async function loadMedia(){
+      try{MEDIA_RECORDS=(await fetch('data/media/published.json',{cache:'no-store'}).then(r=>r.json())).records||[]}catch(e){MEDIA_RECORDS=[]}
+      renderMedia();
     }
     document.addEventListener('DOMContentLoaded',loadMedia)
+    window.addEventListener('site:languagechange',renderMedia)
+
   </script>
 </head>
 <body><div class="wrap"><header data-header></header>
-<section class="hero"><h1 class="ru">СМИ и публичные упоминания</h1><h1 class="en">Media and public mentions</h1><p class="ru">Подборка материалов, интервью, новостей, конференционных программ, официальных профилей и публикаций, где можно узнать о моей профессиональной деятельности.</p><p class="en">A curated set of media articles, interviews, news items, conference programmes, official profiles and publications related to my professional work.</p></section>
+<section class="hero"><h1 class="ru">СМИ</h1><h1 class="en">Media</h1><p class="ru">Подборка материалов, интервью, новостей, конференционных программ, официальных профилей и публикаций, где можно узнать о моей профессиональной деятельности.</p><p class="en">A curated set of media articles, interviews, news items, conference programmes, official profiles and publications related to my professional work.</p></section>
 <section class="media-section"><div id="media-list" class="media-list"></div></section>
-<section id="video" class="grid2"><article class="tile"><div class="placeholder">Video</div><div class="body"><h2 class="ru">Видео</h2><h2 class="en">Video</h2><p class="ru">Сюда будут добавляться видеозаписи лекций, интервью и публичных выступлений.</p><p class="en">Video recordings of lectures, interviews and public talks will be added here.</p></div></article><article class="tile"><div class="placeholder">Archive</div><div class="body"><h2 class="ru">Архив упоминаний</h2><h2 class="en">Mentions archive</h2><p class="ru">Раздел обновляется автоматически по подтверждённому корпусу ссылок, RSS, Telegram и институциональным сайтам.</p><p class="en">The section is updated automatically from confirmed links, RSS, Telegram and institutional websites.</p></div></article></section>
 <footer class="footer"><span>Персональный сайт Ситковского А.М.</span><br><span>omnistat@yandex.ru</span></footer></div></body></html>

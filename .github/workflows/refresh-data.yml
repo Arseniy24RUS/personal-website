@@ -81,9 +81,10 @@ jobs:
           ELIBRARY_PROFILE_URL: "https://www.elibrary.ru/author_profile.asp?id=1012909"
           ELIBRARY_PROFILE_OUT: data/elibrary/profile_metrics.json
           ELIBRARY_PROFILE_REPORT: data/elibrary/profile_metrics_fetch_report.json
+          ELIBRARY_PROXY_URL: ${{ secrets.ELIBRARY_PROXY_URL }}
         run: |
           if [ -f scripts/harvest_elibrary_profile.py ] && [ -f scripts/parse_elibrary_author_profile.py ]; then
-            python scripts/harvest_elibrary_profile.py || true
+            python scripts/harvest_elibrary_profile.py
           else
             echo "eLibrary author profile harvester/parser is missing; using existing normalized metrics."
           fi
@@ -93,9 +94,10 @@ jobs:
           ELIBRARY_ITEMS_URL: "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
           ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
           ELIBRARY_ITEMS_REPORT: data/elibrary/items_fetch_report.json
+          ELIBRARY_PROXY_URL: ${{ secrets.ELIBRARY_PROXY_URL }}
         run: |
           if [ -f scripts/harvest_elibrary_items.py ] && [ -f scripts/parse_elibrary_author_items.py ]; then
-            python scripts/harvest_elibrary_items.py || true
+            python scripts/harvest_elibrary_items.py
           else
             echo "eLibrary items harvester/parser is missing; using existing data/elibrary/publications.tsv."
           fi
