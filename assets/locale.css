@@ -1,0 +1,5 @@
+.en{display:none}
+html.lang-en .ru{display:none}
+html.lang-en .en{display:block}
+html.lang-en span.en,html.lang-en a.en,html.lang-en small.en,html.lang-en button.en{display:inline}
+html.lang-en div.en,html.lang-en h1.en,html.lang-en h2.en,html.lang-en h3.en,html.lang-en p.en,html.lang-en li.en{display:block}
