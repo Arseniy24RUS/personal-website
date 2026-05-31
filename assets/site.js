@@ -18,8 +18,8 @@ const PAGE_META = {
     en: {title: 'Research articles — Arseniy M. Sitkovskiy', description: 'Research publications by Arseniy M. Sitkovskiy based on eLibrary/RSCI, Scopus, WoS and journal quality references.'}
   },
   'media.html': {
-    ru: {title: 'СМИ — Ситковский А.М.', description: 'Материалы СМИ, публичные упоминания, интервью, конференционные программы и официальные профили Арсения Михайловича Ситковского.'},
-    en: {title: 'Media — Arseniy M. Sitkovskiy', description: 'Media articles, public mentions, interviews, conference programmes and official profiles related to Arseniy M. Sitkovskiy.'}
+    ru: {title: 'СМИ — Ситковский А.М.', description: 'Материалы СМИ, публичные упоминания, интервью и аналитические публикации Арсения Михайловича Ситковского.'},
+    en: {title: 'Media — Arseniy M. Sitkovskiy', description: 'Media articles, public mentions, interviews and analytical publications related to Arseniy M. Sitkovskiy.'}
   },
   'it.html': {
     ru: {title: 'Ресурсы — Ситковский А.М.', description: 'Интерактивные дашборды, карты, симуляторы и учебные веб-приложения Арсения Михайловича Ситковского.'},
@@ -48,11 +48,17 @@ function pageKey(){
   return name || 'index.html';
 }
 
-function preferredLang(){
-  const saved = localStorage.getItem('lang');
-  if(saved === 'ru' || saved === 'en') return saved;
+function browserPreferredLang(){
   const langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
   return langs.some(lang => String(lang).toLowerCase().startsWith('ru')) ? 'ru' : 'en';
+}
+
+function preferredLang(){
+  try{
+    const saved = localStorage.getItem('lang');
+    if(saved === 'ru' || saved === 'en') return saved;
+  }catch(e){}
+  return browserPreferredLang();
 }
 
 function updatePageMeta(lang){
@@ -65,9 +71,10 @@ function updatePageMeta(lang){
 
 function setLang(lang){
   const normalized = lang === 'ru' ? 'ru' : 'en';
-  document.body.classList.toggle('lang-en', normalized === 'en');
   document.documentElement.lang = normalized;
-  localStorage.setItem('lang', normalized);
+  document.documentElement.classList.toggle('lang-en', normalized === 'en');
+  document.body.classList.toggle('lang-en', normalized === 'en');
+  try{ localStorage.setItem('lang', normalized); }catch(e){}
   updatePageMeta(normalized);
   document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
     btn.textContent = normalized === 'en' ? 'RU' : 'EN';
@@ -76,7 +83,7 @@ function setLang(lang){
   window.dispatchEvent(new CustomEvent('site:languagechange', {detail: {lang: normalized}}));
 }
 
-function toggleLang(){ setLang(document.body.classList.contains('lang-en') ? 'ru' : 'en'); }
+function toggleLang(){ setLang((document.documentElement.classList.contains('lang-en') || document.body.classList.contains('lang-en')) ? 'ru' : 'en'); }
 
 function installHeader(){
   const header = document.querySelector('[data-header]');
