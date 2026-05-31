@@ -22,7 +22,8 @@ BLOCKED = [
 
 JUNK = re.compile(
     r'Публикации молодых ученых|Поиск Информация|Противодействие корруп|'
-    r'Основные сведения Структура|Новости Минобрнауки РФ|slick|bootstrap|font-awesome',
+    r'Основные сведения Структура|Новости Минобрнауки РФ|slick|bootstrap|font-awesome|'
+    r'ДЕМ\.ИНФОРМ - первое демографическое информационное агентство России Главная',
     re.I,
 )
 
@@ -64,10 +65,30 @@ def now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
+def records_from_text(text: str) -> list[dict]:
+    try:
+        payload = json.loads(text)
+        return payload.get('records') or []
+    except Exception:
+        return []
+
+
 def read_records(path: Path) -> list[dict]:
     try:
-        payload = json.loads(path.read_text(encoding='utf-8'))
-        return payload.get('records') or []
+        return records_from_text(path.read_text(encoding='utf-8'))
+    except Exception:
+        return []
+
+
+def read_head_records(path: Path) -> list[dict]:
+    """Recover the committed snapshot even after a harvester has overwritten files."""
+    try:
+        raw = subprocess.check_output(
+            ['git', 'show', f'HEAD:{path.as_posix()}'],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        )
+        return records_from_text(raw)
     except Exception:
         return []
 
@@ -129,8 +150,14 @@ def merge(*groups: list[dict]) -> list[dict]:
 
 def normalize(before: list[dict] | None = None) -> None:
     before = before or []
-    published = merge(before, read_records(PUBLISHED))
-    rejected = merge(read_records(REJECTED))
+    published = merge(
+        before,
+        read_head_records(PUBLISHED),
+        read_head_records(NEWS),
+        read_records(PUBLISHED),
+        read_records(NEWS),
+    )
+    rejected = merge(read_head_records(REJECTED), read_records(REJECTED))
     write_records(PUBLISHED, published)
     write_records(NEWS, published)
     write_records(REJECTED, rejected)
