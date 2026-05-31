@@ -29,6 +29,41 @@ def nd(doi):
     if not doi: return None
     return re.sub(r'^https?://(dx\.)?doi\.org/','',str(doi).strip().lower()) or None
 
+def has_cyrillic(s):
+    return bool(re.search(r'[А-Яа-яЁё]', s or ''))
+
+def has_latin(s):
+    return bool(re.search(r'[A-Za-z]', s or ''))
+
+def set_lang_field(p, base, value, prefer=None):
+    value = (value or '').strip() if isinstance(value, str) else value
+    if not value:
+        return
+    lang = prefer
+    if lang not in ('ru', 'en'):
+        lang = 'ru' if has_cyrillic(value) else 'en' if has_latin(value) else None
+    if lang:
+        p.setdefault(f'{base}_{lang}', value)
+    p.setdefault(base, value)
+
+def enrich_localized_fields(p):
+    set_lang_field(p, 'title', p.get('title'))
+    set_lang_field(p, 'venue', p.get('venue'))
+    sc = p.get('scopus') or {}
+    if sc.get('title'):
+        set_lang_field(p, 'title', sc.get('title'), 'en')
+    if sc.get('journal_or_source') or sc.get('source_title'):
+        set_lang_field(p, 'venue', sc.get('journal_or_source') or sc.get('source_title'), 'en')
+    for r in p.get('open_sources') or []:
+        title = r.get('title')
+        if title:
+            set_lang_field(p, 'title', title)
+        venue = r.get('venue')
+        if venue:
+            set_lang_field(p, 'venue', venue)
+    p.setdefault('title_ru', p.get('title'))
+    p.setdefault('venue_ru', p.get('venue'))
+
 def addsrc(p, s):
     p.setdefault('sources', ['elibrary'])
     if s and s not in p['sources']:
@@ -38,14 +73,18 @@ def load_elib():
     j = DATA/'processed/elibrary_publications.json'
     if j.exists():
         rows = read_json(j, [])
-        for p in rows: p.setdefault('sources', ['elibrary'])
+        for p in rows:
+            p.setdefault('sources', ['elibrary'])
+            enrich_localized_fields(p)
         return rows
     rows=[]; t=DATA/'elibrary/publications.tsv'
     if not t.exists(): return rows
     for r in csv.reader(t.open(encoding='utf-8'), delimiter='\t'):
         if len(r)<8: continue
         m = re.search(r'id=(\d+)', r[7] or '')
-        rows.append({'source':'elibrary_rinc_tsv','number':int(r[0]) if r[0].isdigit() else None,'elibrary_item_id':m.group(1) if m else None,'year':int(r[1]) if r[1].isdigit() else None,'rinc_citations':int(r[2]) if r[2].isdigit() else 0,'title':r[3],'authors_raw':r[4],'venue':r[5] or None,'pages':r[6] or None,'doi':None,'url':r[7] or None,'sources':['elibrary']})
+        rec={'source':'elibrary_rinc_tsv','number':int(r[0]) if r[0].isdigit() else None,'elibrary_item_id':m.group(1) if m else None,'year':int(r[1]) if r[1].isdigit() else None,'rinc_citations':int(r[2]) if r[2].isdigit() else 0,'title':r[3],'authors_raw':r[4],'venue':r[5] or None,'pages':r[6] or None,'doi':None,'url':r[7] or None,'sources':['elibrary']}
+        enrich_localized_fields(rec)
+        rows.append(rec)
     return rows
 
 def indexes(records):
@@ -64,9 +103,11 @@ def merge_scopus(canon, works):
         if target:
             addsrc(target,'scopus'); target['scopus']=w
             if doi and not target.get('doi'): target['doi']=doi
+            set_lang_field(target, 'title', w.get('title'), 'en')
+            set_lang_field(target, 'venue', w.get('journal_or_source') or w.get('source_title'), 'en')
         else:
             rec={'source':'scopus_api_auto','number':None,'elibrary_item_id':None,'year':int(str(w.get('year') or w.get('cover_date') or '')[:4]) if str(w.get('year') or w.get('cover_date') or '')[:4].isdigit() else None,'rinc_citations':0,'title':w.get('title'),'authors_raw':w.get('creator') or '','venue':w.get('journal_or_source') or w.get('source_title'),'pages':None,'doi':doi,'url':w.get('url') or (f"https://www.scopus.com/record/display.uri?eid={eid}" if eid else None),'sources':['scopus'],'scopus':w,'auto_accept_reason':'author-scoped Scopus AU-ID record'}
-            canon.append(rec); added+=1
+            enrich_localized_fields(rec); canon.append(rec); added+=1
     return added
 
 def merge_open(canon, records):
@@ -84,18 +125,23 @@ def merge_open(canon, records):
             addsrc(target, src); target.setdefault('open_sources',[]).append(r)
             if doi and not target.get('doi'): target['doi']=doi
             if r.get('venue') and not target.get('venue'): target['venue']=r.get('venue')
+            set_lang_field(target, 'title', r.get('title'))
+            set_lang_field(target, 'venue', r.get('venue'))
             enriched+=1
         else:
             rec={'source':src+'_auto','number':None,'elibrary_item_id':None,'year':int(r.get('year')) if str(r.get('year') or '').isdigit() else None,'rinc_citations':0,'title':r.get('title'),'authors_raw':'','venue':r.get('venue'),'pages':None,'doi':doi,'url':r.get('url') or r.get('landing_page_url'),'sources':[src],'open_sources':[r],'auto_accept_reason':'author-scoped ORCID/OpenAlex/Crossref record'}
-            canon.append(rec); added+=1
+            enrich_localized_fields(rec); canon.append(rec); added+=1
             if doi: by_doi[doi]=rec
             if title: by_title[title]=rec; by_ty[(title,str(rec.get('year') or ''))]=rec
     return enriched, added
 
 def write_tsv(pubs):
     with (PUBLIC/'publications.tsv').open('w',encoding='utf-8',newline='') as f:
-        w=csv.writer(f,delimiter='\t'); w.writerow(['number','year','rinc_citations','scopus_citations','title','authors','venue','pages','doi','url','sources'])
-        for p in pubs: w.writerow([p.get('number'),p.get('year'),p.get('rinc_citations',0),(p.get('scopus') or {}).get('cited_by_count',''),p.get('title'),p.get('authors_raw'),p.get('venue'),p.get('pages',''),p.get('doi',''),p.get('url'),','.join(p.get('sources',[]))])
+        w=csv.writer(f,delimiter='\t',lineterminator='\n')
+        w.writerow(['number','year','rinc_citations','scopus_citations','title','title_ru','title_en','authors','venue','venue_ru','venue_en','pages','doi','url','sources'])
+        for p in pubs:
+            enrich_localized_fields(p)
+            w.writerow([p.get('number'),p.get('year'),p.get('rinc_citations',0),(p.get('scopus') or {}).get('cited_by_count',''),p.get('title'),p.get('title_ru',''),p.get('title_en',''),p.get('authors_raw'),p.get('venue'),p.get('venue_ru',''),p.get('venue_en',''),p.get('pages',''),p.get('doi',''),p.get('url'),','.join(p.get('sources',[]))])
 
 def empty_queue():
     q=DATA/'admin_queue'; q.mkdir(parents=True, exist_ok=True)
@@ -109,6 +155,8 @@ def main():
     open_records=(read_json(DATA/'open/open_publications.json', {}) or {}).get('records', [])
     open_enriched, open_added = merge_open(canon, open_records)
     public_profile={'generated_at':datetime.now(timezone.utc).replace(microsecond=0).isoformat(),'name_ru':prof.get('display_name_ru',''),'name_en':prof.get('display_name_en',''),'identifiers':ids,'elibrary_metrics':read_json(DATA/'elibrary/metrics.json',{}),'elibrary_profile_metrics':read_json(DATA/'elibrary/profile_metrics.json',{}),'wos_profile_metrics':read_json(DATA/'wos/profile_metrics.json',{}),'scopus_metrics':scopus_metrics,'open_sources_report':read_json(DATA/'open/harvest_report.json',{}),'canonical_publications_count':len(canon),'scopus_enriched_publications_count':sum(1 for p in canon if 'scopus' in p.get('sources',[])),'scopus_auto_added_publications_count':scopus_added,'open_sources_records_count':len(open_records),'open_sources_enriched_publications_count':open_enriched,'open_sources_auto_added_publications_count':open_added,'admin_queue_size':0}
+    for p in canon:
+        enrich_localized_fields(p)
     (PUBLIC/'profile.json').write_text(json.dumps(public_profile,ensure_ascii=False,indent=2),encoding='utf-8')
     (PUBLIC/'publications.json').write_text(json.dumps(canon,ensure_ascii=False,indent=2),encoding='utf-8')
     write_tsv(canon); empty_queue()

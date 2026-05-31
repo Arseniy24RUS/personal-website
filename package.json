@@ -1,0 +1,13 @@
+{
+  "name": "personal-website",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "python3 -m http.server 4173",
+    "test:e2e": "playwright test",
+    "test:e2e:mobile": "playwright test tests/e2e/mobile.spec.ts --project=mobile-chrome"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0"
+  }
+}

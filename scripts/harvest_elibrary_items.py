@@ -47,9 +47,13 @@ def fetch_live() -> tuple[str | None, dict]:
         "Referer": "https://www.elibrary.ru/",
     }
     req = urllib.request.Request(URL, headers=headers, method="GET")
+    opener = urllib.request.build_opener()
+    proxy_url = os.environ.get("ELIBRARY_PROXY_URL")
+    if proxy_url:
+        opener = urllib.request.build_opener(urllib.request.ProxyHandler({"http": proxy_url, "https": proxy_url}))
     started = time.time()
     try:
-        with urllib.request.urlopen(req, timeout=45) as resp:
+        with opener.open(req, timeout=45) as resp:
             raw = resp.read()
             enc = resp.headers.get_content_charset() or "utf-8"
             return raw.decode(enc, errors="replace"), {
@@ -95,6 +99,9 @@ def main() -> int:
 
     html, report = fetch_live()
     report["generated_at"] = now()
+
+    if html:
+        report["html_fingerprint"] = {"has_author_items": "author_items" in html, "has_rows": "arw" in html, "has_suspicious_ip_text": "подозр" in html.lower() or "suspicious" in html.lower()}
 
     if html and "author_items" in html and "arw" in html:
         stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")

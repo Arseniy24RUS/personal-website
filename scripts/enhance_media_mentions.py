@@ -34,6 +34,23 @@ def read_cfg():
 def clean(s):
     return re.sub(r'\s+', ' ', html.unescape(s or '')).strip()
 
+
+def detect_lang(text):
+    return 'ru' if re.search(r'[А-Яа-яЁё]', text or '') else 'en' if re.search(r'[A-Za-z]', text or '') else None
+
+def localized_record_fields(title, description):
+    title = clean(title)
+    description = clean(description)
+    fields = {'title': title, 'description': description}
+    t_lang = detect_lang(title)
+    d_lang = detect_lang(description)
+    if t_lang:
+        fields[f'title_{t_lang}'] = title
+    if d_lang:
+        fields[f'description_{d_lang}'] = description
+    fields['language'] = t_lang or d_lang or 'und'
+    return fields
+
 def host(url):
     h = urlparse(url or '').netloc.lower()
     return h[4:] if h.startswith('www.') else h
@@ -97,7 +114,9 @@ def rid(url, title):
 
 def rec(url, m, cfg, source, source_name=None, force=False):
     c = 1.0 if force else score(m,cfg)
-    return {'id':rid(url,m['title']),'source':source,'query':None,'title':m['title'],'url':url,'domain':host(url),'source_name':source_name or host(url),'published_at':None,'description':m.get('description') or '','image':m.get('image'),'confidence':c,'status':'published' if c>=float(cfg.get('auto_publish_threshold',0.75)) else 'low_confidence','force_publish':bool(force),'harvested_at':now()}
+    record={'id':rid(url,m['title']),'source':source,'query':None,'url':url,'domain':host(url),'source_name':source_name or host(url),'published_at':None,'image':m.get('image'),'confidence':c,'status':'published' if c>=float(cfg.get('auto_publish_threshold',0.75)) else 'low_confidence','force_publish':bool(force),'harvested_at':now()}
+    record.update(localized_record_fields(m.get('title') or '', m.get('description') or ''))
+    return record
 
 def links(html_text, base, allow, limit):
     rx = re.compile(allow) if allow else None
@@ -152,7 +171,8 @@ def main():
         h, rep = fetch(r.get('url')); reports.append(rep)
         if h:
             m=meta(h,r.get('url'))
-            r.update({'title':m['title'], 'description':m['description'], 'image':m.get('image') or r.get('image')})
+            r.update(localized_record_fields(m.get('title') or '', m.get('description') or ''))
+            r.update({'image':m.get('image') or r.get('image')})
         enhanced.append(r)
     found=institutional_scan(cfg,reports)
     all_pub=dedupe(enhanced+found)

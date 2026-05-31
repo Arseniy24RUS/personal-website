@@ -82,6 +82,23 @@ def now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
+
+def detect_lang(text):
+    return 'ru' if re.search(r'[А-Яа-яЁё]', text or '') else 'en' if re.search(r'[A-Za-z]', text or '') else None
+
+def localized_record_fields(title, description):
+    title = html.unescape(title or '').strip()
+    description = html.unescape(description or '').strip()
+    fields = {'title': title, 'description': description}
+    t_lang = detect_lang(title)
+    d_lang = detect_lang(description)
+    if t_lang:
+        fields[f'title_{t_lang}'] = title
+    if d_lang:
+        fields[f'description_{d_lang}'] = description
+    fields['language'] = t_lang or d_lang or 'und'
+    return fields
+
 def read_yaml(path: Path) -> dict:
     if yaml is None or not path.exists():
         return {}
@@ -245,22 +262,22 @@ def make_record(url: str, *, source: str, cfg: dict, force_publish=False, query=
 def build_record(url, source, title, desc, cfg, *, text='', image=None, force_publish=False, query=None, source_name=None):
     conf = score_record(text or desc, title, url, cfg, force_publish=force_publish)
     rec_id = hashlib.sha256((title + '|' + url).encode('utf-8')).hexdigest()[:16]
-    return {
+    record = {
         'id': rec_id,
         'source': source,
         'query': query,
-        'title': html.unescape(title or '').strip(),
         'url': url,
         'domain': domain_of(url),
         'source_name': source_name or domain_of(url),
         'published_at': None,
-        'description': html.unescape(desc or '').strip(),
         'image': image,
         'confidence': conf,
         'status': 'published' if conf >= float(cfg.get('auto_publish_threshold', 0.75)) else 'low_confidence',
         'force_publish': bool(force_publish),
         'harvested_at': now(),
     }
+    record.update(localized_record_fields(title, desc))
+    return record
 
 
 def rss_url(query: str, lang='ru', country='RU') -> str:
