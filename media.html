@@ -3,52 +3,79 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>СМИ — Ситковский А.М.</title>
-  <meta name="description" content="Материалы СМИ, публичные упоминания, интервью, конференционные программы и официальные профили Арсения Михайловича Ситковского.">
+  <meta name="description" content="Материалы СМИ, публичные упоминания, интервью и аналитические публикации Арсения Михайловича Ситковского.">
   <link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/additions.css"><script defer src="assets/site.js"></script>
   <script>
+    const URL_OVERRIDES={
+      'https://www.rosbalt.ru/news/2026-01-31/obschestvo-superzrelosti-my-stremitelno-stareem-5543743':{
+        title_ru:'Общество суперзрелости: мы стремительно стареем',
+        title_en:'A super-mature society: we are ageing rapidly',
+        description_ru:'Материал «Росбалта» о демографическом старении, изменении возрастной структуры населения и социальных последствиях этих процессов.',
+        description_en:'A Rosbalt article on population ageing, shifts in the age structure and the social consequences of these processes.'
+      },
+      'https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit':{
+        title_ru:'Демографическое чудо Израиля: можем повторить?',
+        title_en:'Israel’s demographic miracle: can it be replicated?',
+        description_ru:'Аналитический материал ДЕМ.ИНФОРМ о факторах высокой рождаемости в Израиле и применимости отдельных демографических практик в России.',
+        description_en:'A DEM.INFORM analytical article on the drivers of high fertility in Israel and the applicability of selected demographic practices in Russia.'
+      },
+      'https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi':{
+        title_ru:'Семейная ипотека 2024: инфраструктурное обеспечение многодетной семьи',
+        title_en:'Family mortgage 2024: infrastructure support for large families',
+        description_ru:'Аналитический материал ДЕМ.ИНФОРМ о семейной ипотеке, инфраструктурной обеспеченности и пространственных условиях жизни многодетных семей.',
+        description_en:'A DEM.INFORM analytical article on family mortgages, infrastructure provision and spatial living conditions for large families.'
+      },
+      'https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda':{
+        title_ru:'Урбанизация против рождаемости: стратегия пространственного развития России до 2030 года',
+        title_en:'Urbanisation versus fertility: Russia’s spatial development strategy to 2030',
+        description_ru:'Аналитический материал ДЕМ.ИНФОРМ о взаимосвязи урбанизации, пространственного развития и демографической динамики.',
+        description_en:'A DEM.INFORM analytical article on the links between urbanisation, spatial development and demographic dynamics.'
+      },
+      'https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii':{
+        title_ru:'Влияние государственной политики агломерирования на долгосрочные тенденции изменения численности населения России',
+        title_en:'The effect of agglomeration policy on long-term population trends in Russia',
+        description_ru:'Аналитический материал ДЕМ.ИНФОРМ о долгосрочных демографических последствиях политики агломерирования и пространственной концентрации населения.',
+        description_en:'A DEM.INFORM analytical article on the long-term demographic consequences of agglomeration policy and spatial population concentration.'
+      }
+    };
+    const BLOCKED_MEDIA_URL_PATTERNS=[
+      /admission\.rudn\.ru\/staff\/86110487-4a8f-11f0-b545-00155d0c0d4a/i,
+      /fnisc\.ru\/pers_about\.html\?id=2472/i,
+      /fnisc\.ru\/index\.php\?page_id=(44|2366|2483)/i
+    ];
     function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-    function lang(){return document.body.classList.contains('lang-en')?'en':'ru'}
-    function pick(r,key){const l=lang();return r[`${key}_${l}`]||r[key]||r[`${key}_ru`]||r[`${key}_en`]||''}
+    function lang(){return document.documentElement.classList.contains('lang-en')||document.body.classList.contains('lang-en')?'en':'ru'}
+    function normalizeUrl(u){try{const x=new URL(String(u||''));return x.origin+x.pathname+(x.search||'')}catch(e){return String(u||'').split('#')[0].replace(/\/$/,'')}}
+    function overrideFor(r){const u=normalizeUrl(r.url);return URL_OVERRIDES[u]||URL_OVERRIDES[u.replace(/\/$/,'')]||null}
+    function pick(r,key){const l=lang();const o=overrideFor(r);return (o&&((o[`${key}_${l}`]||o[key])||o[`${key}_ru`]||o[`${key}_en`]))||r[`${key}_${l}`]||r[key]||r[`${key}_ru`]||r[`${key}_en`]||''}
     function fmtDate(s){if(!s)return '';try{return new Date(s).toLocaleDateString(lang()==='en'?'en-US':'ru-RU',{year:'numeric',month:'long',day:'numeric'})}catch(e){return s}}
-    function isNavigationJunk(text){return /Публикации молодых ученых|Поиск Информация|Противодействие корруп|Основные сведения Структура|Новости Минобрнауки РФ|slick|bootstrap|font-awesome/i.test(String(text||''))}
+    function isNavigationJunk(text){return /Публикации молодых ученых|Поиск Информация|Противодействие корруп|Основные сведения Структура|Новости Минобрнауки РФ|slick|bootstrap|font-awesome|ДЕМ\.ИНФОРМ - первое демографическое информационное агентство России Главная/i.test(String(text||''))}
     function isGenericTitle(title){return /^(ФНИСЦ РАН|Росбалт|ДЕМ\.ИНФОРМ - первое демографическое информационное агентство России)$/i.test(String(title||'').trim())}
-    function knownDescription(r){
-      const u=String(r.url||'');
-      const en=lang()==='en';
-      if(u.includes('admission.rudn.ru/staff/')) return en?'Official RUDN University staff page with profile, publications and teaching information.':'Официальная страница РУДН с профессиональным профилем, публикациями и сведениями о преподавательской деятельности.';
-      if(u.includes('pers_about.html?id=2472')) return en?'Official personal page with academic affiliation, contacts and publication details.':'Официальная персональная страница с научной аффилиацией, контактами и сведениями о публикациях.';
-      if(u.includes('page_id=1195')) return en?'Personal page with a publication list on the FCTAS RAS website.':'Персональная страница со списком публикаций на сайте ФНИСЦ РАН.';
-      return '';
-    }
-    function cleanDescription(r){
-      let d=knownDescription(r) || String(pick(r,'description')).replace(/\s+/g,' ').trim();
-      if(isNavigationJunk(d)) d=knownDescription(r) || '';
-      if(d.length>360) d=d.slice(0,357).trim()+'…';
-      return d;
-    }
+    function isBlockedInstitutionalProfile(r){const u=normalizeUrl(r.url);return BLOCKED_MEDIA_URL_PATTERNS.some(rx=>rx.test(u))}
+    function cleanDescription(r){let d=String(pick(r,'description')).replace(/\s+/g,' ').trim();if(isNavigationJunk(d)&&!overrideFor(r))d='';if(d.length>360)d=d.slice(0,357).trim()+'…';return d}
     function displayable(r){
-      const u=String(r.url||''), t=String(r.title||''), d=String(r.description||'');
-      if(!u) return false;
-      if(r.source==='institutional_site_scan' && isGenericTitle(t)) return false;
-      if(r.source==='institutional_site_scan' && isNavigationJunk(d) && !knownDescription(r)) return false;
-      if(/assets|static|\.css|\.js|\.png|\.jpg|\.svg|\.woff/i.test(u)) return false;
+      const u=normalizeUrl(r.url), t=String(pick(r,'title')||r.title||''), d=String(pick(r,'description')||r.description||'');
+      if(!u||isBlockedInstitutionalProfile(r))return false;
+      if(/assets|static|\.css|\.js|\.png|\.jpg|\.jpeg|\.svg|\.woff|\.webp/i.test(u))return false;
+      if(r.source==='institutional_site_scan'&&(isGenericTitle(t)||isNavigationJunk(d)))return false;
+      if(!t&&!d&&!r.image)return false;
       return true;
     }
     function sourceLabel(r){
       const raw=String(r.source_name||r.domain||'');
-      if(raw==='deminform.ru') return lang()==='en'?'DEM.INFORM':'ДЕМ.ИНФОРМ';
-      if(raw==='t.me') return 'Telegram';
-      if(raw==='sobaka.ru') return 'Sobaka.ru';
-      if(raw==='rosbalt.ru') return lang()==='en'?'Rosbalt':'Росбалт';
-      if(raw==='demoscope.ru') return 'Demoscope Weekly';
+      if(raw==='deminform.ru')return lang()==='en'?'DEM.INFORM':'ДЕМ.ИНФОРМ';
+      if(raw==='t.me')return 'Telegram';
+      if(raw==='sobaka.ru')return 'Sobaka.ru';
+      if(raw==='rosbalt.ru')return lang()==='en'?'Rosbalt':'Росбалт';
+      if(raw==='demoscope.ru')return 'Demoscope Weekly';
       return raw;
     }
     let MEDIA_RECORDS=[];
     function renderMedia(){
       const records=MEDIA_RECORDS.filter(displayable);
       const box=document.getElementById('media-list');
-      if(!records.length){box.innerHTML='<div class="note ru">Пока опубликованные упоминания не загружены. Попробуйте обновить страницу после завершения workflow.</div><div class="note en">Published mentions have not been loaded yet. Please refresh the page after the workflow finishes.</div>';return}
-      box.innerHTML=records.map(r=>{const desc=cleanDescription(r);const title=pick(r,'title')||sourceLabel(r);const image=r.image?`<a class="media-image" href="${esc(r.url)}" target="_blank" rel="noopener"><img src="${esc(r.image)}" alt=""></a>`:'';return `<article class="media-card ${r.image?'has-image':'no-image'}">${image}<div class="media-body"><div class="media-source">${esc(sourceLabel(r))}${r.published_at?' · '+fmtDate(r.published_at):''}</div><h2><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(title)}</a></h2>${desc?`<p>${esc(desc)}</p>`:''}<a class="media-link" href="${esc(r.url)}" target="_blank" rel="noopener"><span class="ru">Открыть материал</span><span class="en">Open source</span></a></div></article>`}).join('')
+      if(!records.length){box.innerHTML='<div class="note ru">Пока опубликованные упоминания не загружены. Попробуйте обновить страницу после завершения workflow.</div><div class="note en">Published media mentions have not been loaded yet. Please refresh the page after the workflow finishes.</div>';return}
+      box.innerHTML=records.map(r=>{const desc=cleanDescription(r);const title=pick(r,'title')||sourceLabel(r);const image=r.image?`<a class="media-image" href="${esc(r.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(r.image)}" alt=""></a>`:'';return `<article class="media-card ${r.image?'has-image':'no-image'}">${image}<div class="media-body"><div class="media-source">${esc(sourceLabel(r))}${r.published_at?' · '+fmtDate(r.published_at):''}</div><h2><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(title)}</a></h2>${desc?`<p>${esc(desc)}</p>`:''}<a class="media-link" href="${esc(r.url)}" target="_blank" rel="noopener"><span class="ru">Открыть материал</span><span class="en">Open material</span></a></div></article>`}).join('')
     }
     async function loadMedia(){
       try{MEDIA_RECORDS=(await fetch('data/media/published.json',{cache:'no-store'}).then(r=>r.json())).records||[]}catch(e){MEDIA_RECORDS=[]}
@@ -56,10 +83,9 @@
     }
     document.addEventListener('DOMContentLoaded',loadMedia)
     window.addEventListener('site:languagechange',renderMedia)
-
   </script>
 </head>
 <body><div class="wrap"><header data-header></header>
-<section class="hero"><h1 class="ru">СМИ</h1><h1 class="en">Media</h1><p class="ru">Подборка материалов, интервью, новостей, конференционных программ, официальных профилей и публикаций, где можно узнать о моей профессиональной деятельности.</p><p class="en">A curated set of media articles, interviews, news items, conference programmes, official profiles and publications related to my professional work.</p></section>
+<section class="hero"><h1 class="ru">СМИ</h1><h1 class="en">Media</h1><p class="ru">Подборка материалов СМИ, интервью, новостей и аналитических публикаций, где можно узнать о моей профессиональной деятельности.</p><p class="en">A curated set of media articles, interviews, news items and analytical publications related to my professional work.</p></section>
 <section class="media-section"><div id="media-list" class="media-list"></div></section>
 <footer class="footer"><span>Персональный сайт Ситковского А.М.</span><br><span>omnistat@yandex.ru</span></footer></div></body></html>
