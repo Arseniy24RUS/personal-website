@@ -71,14 +71,12 @@ jobs:
           if [ -f elibrary_probe.html ]; then
             BYTES=$(wc -c < elibrary_probe.html | tr -d ' ')
             echo "eLibrary response bytes: $BYTES"
-            python - <<'PY'
-from pathlib import Path
-text = Path('elibrary_probe.html').read_text(encoding='utf-8', errors='replace') if Path('elibrary_probe.html').exists() else ''
-print('has_metrics=', 'ОБЩИЕ ПОКАЗАТЕЛИ' in text)
-print('has_h_index=', 'Индекс Хирша' in text)
-print('has_suspicious_ip_text=', ('подозр' in text.lower()) or ('suspicious' in text.lower()) or ('ip_blocked' in text.lower()))
-print('title_excerpt=', text[:220].replace('\n',' ')[:220])
-PY
+            if grep -q 'ОБЩИЕ ПОКАЗАТЕЛИ' elibrary_probe.html; then echo "has_metrics=True"; else echo "has_metrics=False"; fi
+            if grep -q 'Индекс Хирша' elibrary_probe.html; then echo "has_h_index=True"; else echo "has_h_index=False"; fi
+            if grep -Eiq 'ip_blocked|подозр|suspicious' elibrary_probe.html; then echo "has_suspicious_ip_text=True"; else echo "has_suspicious_ip_text=False"; fi
+            printf 'title_excerpt='
+            head -c 220 elibrary_probe.html | tr '\n' ' ' || true
+            printf '\n'
           fi
 
           if [ -f openvpn.pid ]; then
