@@ -6,13 +6,20 @@ mechanism, but eLibrary can return a short intermediate loading page before the
 real author profile/list appears. This script uses headless Chromium through
 Playwright, waits for the real markers and then saves the same normalized JSON
 outputs as the ordinary harvesters.
+
+The author publication list is tried through several legitimate navigation
+patterns: links discovered on the author profile, a minimal public
+``author_items.asp?authorid=...`` URL, and the configured URL. This avoids
+relying on one deep URL that can trigger an intermediate anti-robot page.
 """
 from __future__ import annotations
 
 from pathlib import Path
 from datetime import datetime, timezone
+from urllib.parse import urljoin
 import json
 import os
+import re
 import sys
 import time
 
@@ -28,6 +35,7 @@ ITEMS_OUT = Path(os.environ.get('ELIBRARY_ITEMS_OUT', 'data/processed/elibrary_p
 PROFILE_SNAPSHOT_DIR = Path(os.environ.get('ELIBRARY_PROFILE_SNAPSHOT_DIR', 'data/snapshots/elibrary/profile'))
 ITEMS_SNAPSHOT_DIR = Path(os.environ.get('ELIBRARY_ITEMS_SNAPSHOT_DIR', 'data/snapshots/elibrary/items'))
 REPORT = Path(os.environ.get('ELIBRARY_BROWSER_REPORT', 'data/elibrary/browser_fetch_report.json'))
+DEBUG_DIR = Path(os.environ.get('ELIBRARY_DEBUG_DIR', 'artifacts/elibrary_debug'))
 WAIT_SEC = int(os.environ.get('ELIBRARY_BROWSER_WAIT_SEC', '95'))
 
 
@@ -68,17 +76,29 @@ def fingerprint(html: str, url: str = '') -> dict:
         'has_suspicious_ip_text': 'подозр' in lowered or 'suspicious' in lowered or 'ip_blocked' in lowered,
         'has_cookie_text': 'cookie' in lowered or 'cookies' in lowered,
         'has_captcha_text': has_captcha(html, url),
-        'excerpt': html[:700].replace('\n', ' '),
+        'excerpt': html[:900].replace('\n', ' '),
     }
 
 
-def wait_for_real_page(page, url: str, kind: str) -> tuple[str, dict]:
-    started = time.time()
-    report = {'url': url, 'kind': kind, 'status': 'started'}
+def save_debug(page, html: str, name: str) -> dict:
+    DEBUG_DIR.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+    base = DEBUG_DIR / f'{stamp}_{name}'
+    html_path = base.with_suffix('.html')
+    png_path = base.with_suffix('.png')
+    html_path.write_text(html or '', encoding='utf-8')
+    screenshot_ok = False
     try:
-        page.goto(url, wait_until='domcontentloaded', timeout=max(WAIT_SEC, 45) * 1000)
-    except Exception as exc:
-        report['goto_error'] = repr(exc)
+        page.screenshot(path=str(png_path), full_page=True)
+        screenshot_ok = True
+    except Exception:
+        pass
+    return {'html_path': str(html_path), 'screenshot_path': str(png_path) if screenshot_ok else None}
+
+
+def wait_current_page(page, kind: str, *, started: float | None = None) -> tuple[str, dict]:
+    started = started or time.time()
+    report = {'kind': kind, 'status': 'started'}
     last_html = ''
     deadline = time.time() + WAIT_SEC
     while time.time() < deadline:
@@ -121,6 +141,77 @@ def wait_for_real_page(page, url: str, kind: str) -> tuple[str, dict]:
     return last_html, report
 
 
+def load_page(page, url: str, kind: str, *, referer: str | None = None) -> tuple[str, dict]:
+    started = time.time()
+    report = {'url': url, 'kind': kind, 'status': 'started'}
+    try:
+        page.goto(url, wait_until='domcontentloaded', timeout=max(WAIT_SEC, 45) * 1000, referer=referer)
+    except TypeError:
+        # Older Playwright versions do not expose referer in Python; the normal
+        # context still keeps cookies and the target can be loaded directly.
+        try:
+            page.goto(url, wait_until='domcontentloaded', timeout=max(WAIT_SEC, 45) * 1000)
+        except Exception as exc:
+            report['goto_error'] = repr(exc)
+    except Exception as exc:
+        report['goto_error'] = repr(exc)
+    html, wait_report = wait_current_page(page, kind, started=started)
+    report.update(wait_report)
+    report.setdefault('url', url)
+    return html, report
+
+
+def author_item_candidates(profile_page) -> list[dict]:
+    candidates: list[dict] = []
+    seen: set[str] = set()
+
+    def add(url: str, source: str, text: str = '') -> None:
+        if not url:
+            return
+        absolute = urljoin('https://www.elibrary.ru/', url)
+        if absolute in seen:
+            return
+        seen.add(absolute)
+        candidates.append({'url': absolute, 'source': source, 'text': text[:120]})
+
+    try:
+        links = profile_page.eval_on_selector_all(
+            'a[href*="author_items.asp"]',
+            "els => els.map(a => ({href: a.getAttribute('href') || '', text: a.innerText || ''}))",
+        )
+        for link in links:
+            add(link.get('href') or '', 'profile_link', link.get('text') or '')
+    except Exception:
+        pass
+
+    add(f'https://www.elibrary.ru/author_items.asp?authorid={AUTHOR_ID}', 'minimal_authorid')
+    add(f'https://www.elibrary.ru/author_items.asp?authorid={AUTHOR_ID}&pubrole=100', 'authorid_pubrole')
+    add(f'https://www.elibrary.ru/author_items.asp?authorid={AUTHOR_ID}&pubrole=100&pubcat=risc', 'authorid_pubrole_pubcat')
+    add(ITEMS_URL, 'configured_url')
+    return candidates
+
+
+def fetch_items(context, profile_page, report: dict) -> tuple[str, dict]:
+    attempts = []
+    last_html = ''
+    selected_report = {'status': 'not_attempted'}
+    for candidate in author_item_candidates(profile_page):
+        page = context.new_page()
+        html, attempt_report = load_page(page, candidate['url'], 'items', referer=PROFILE_URL)
+        attempt_report['candidate_source'] = candidate['source']
+        attempt_report['candidate_text'] = candidate.get('text', '')
+        attempts.append(attempt_report)
+        last_html = html
+        selected_report = attempt_report
+        if has_markers(html, 'items'):
+            attempt_report['selected'] = True
+            report['items_attempts'] = attempts
+            return html, attempt_report
+        page.close()
+    report['items_attempts'] = attempts
+    return last_html, selected_report
+
+
 def main() -> int:
     try:
         from playwright.sync_api import sync_playwright  # type: ignore
@@ -149,7 +240,7 @@ def main() -> int:
         except Exception as exc:
             report['preflight_error'] = repr(exc)
 
-        profile_html, profile_report = wait_for_real_page(page, PROFILE_URL, 'profile')
+        profile_html, profile_report = load_page(page, PROFILE_URL, 'profile', referer='https://www.elibrary.ru/')
         report['pages']['profile'] = profile_report
         if has_markers(profile_html, 'profile'):
             stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
@@ -161,8 +252,10 @@ def main() -> int:
             report['pages']['profile']['used_source'] = 'browser_live_elibrary'
             report['pages']['profile']['snapshot_path'] = str(snapshot)
             ok_profile = True
+        else:
+            report['pages']['profile']['debug'] = save_debug(page, profile_html, 'profile_unready')
 
-        items_html, items_report = wait_for_real_page(page, ITEMS_URL, 'items')
+        items_html, items_report = fetch_items(context, page, report)
         report['pages']['items'] = items_report
         if has_markers(items_html, 'items'):
             stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
@@ -175,13 +268,21 @@ def main() -> int:
             report['pages']['items']['snapshot_path'] = str(snapshot)
             report['pages']['items']['parsed_records'] = len(data)
             ok_items = True
+        else:
+            debug_page = context.new_page()
+            try:
+                debug_page.goto(items_report.get('final_url') or ITEMS_URL, wait_until='domcontentloaded', timeout=45000)
+            except Exception:
+                pass
+            report['pages']['items']['debug'] = save_debug(debug_page, items_html, 'items_unready')
+            debug_page.close()
         context.close()
         browser.close()
 
     if ok_profile and ok_items:
         report['status'] = 'ok'
         exit_code = 0
-    elif ok_profile and report.get('pages', {}).get('items', {}).get('status') == 'captcha':
+    elif ok_profile and any(attempt.get('status') == 'captcha' for attempt in report.get('items_attempts', [])):
         report['status'] = 'profile_ok_items_captcha'
         exit_code = 2
     else:
