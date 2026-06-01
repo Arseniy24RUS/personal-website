@@ -50,12 +50,24 @@ def has_markers(html: str, kind: str) -> bool:
     return all(marker in html for marker in markers_for(kind))
 
 
-def fingerprint(html: str) -> dict:
+def has_captcha(html: str, url: str = '') -> bool:
+    lowered = (html or '').lower()
+    return (
+        'page_captcha' in (url or '').lower()
+        or 'тест тьюринга' in lowered
+        or 'recaptcha' in lowered
+        or 'g-recaptcha' in lowered
+        or 'www.google.com/recaptcha' in lowered
+    )
+
+
+def fingerprint(html: str, url: str = '') -> dict:
     lowered = html.lower()
     return {
         'content_length': len(html.encode('utf-8', errors='replace')),
         'has_suspicious_ip_text': 'подозр' in lowered or 'suspicious' in lowered or 'ip_blocked' in lowered,
         'has_cookie_text': 'cookie' in lowered or 'cookies' in lowered,
+        'has_captcha_text': has_captcha(html, url),
         'excerpt': html[:700].replace('\n', ' '),
     }
 
@@ -71,17 +83,25 @@ def wait_for_real_page(page, url: str, kind: str) -> tuple[str, dict]:
     deadline = time.time() + WAIT_SEC
     while time.time() < deadline:
         try:
-            # eLibrary often shows a short loader first; allow client-side JS and
-            # redirects to finish. Reload once if the loader persists too long.
             page.wait_for_timeout(2000)
             last_html = page.content()
+            current_url = getattr(page, 'url', '')
             if has_markers(last_html, kind):
                 report.update({
                     'status': 'ready',
                     'elapsed_sec': round(time.time() - started, 3),
-                    'final_url': page.url,
+                    'final_url': current_url,
                     'title': page.title(),
-                    'fingerprint': fingerprint(last_html),
+                    'fingerprint': fingerprint(last_html, current_url),
+                })
+                return last_html, report
+            if has_captcha(last_html, current_url):
+                report.update({
+                    'status': 'captcha',
+                    'elapsed_sec': round(time.time() - started, 3),
+                    'final_url': current_url,
+                    'title': page.title(),
+                    'fingerprint': fingerprint(last_html, current_url),
                 })
                 return last_html, report
             if 20 < time.time() - started < 24:
@@ -91,11 +111,12 @@ def wait_for_real_page(page, url: str, kind: str) -> tuple[str, dict]:
                     report.setdefault('reload_errors', []).append(repr(exc))
         except Exception as exc:
             report.setdefault('loop_errors', []).append(repr(exc))
+    final_url = getattr(page, 'url', '')
     report.update({
         'status': 'timeout_or_unready',
         'elapsed_sec': round(time.time() - started, 3),
-        'final_url': getattr(page, 'url', ''),
-        'fingerprint': fingerprint(last_html or ''),
+        'final_url': final_url,
+        'fingerprint': fingerprint(last_html or '', final_url),
     })
     return last_html, report
 
@@ -157,10 +178,18 @@ def main() -> int:
         context.close()
         browser.close()
 
-    report['status'] = 'ok' if ok_profile and ok_items else 'partial_or_failed'
+    if ok_profile and ok_items:
+        report['status'] = 'ok'
+        exit_code = 0
+    elif ok_profile and report.get('pages', {}).get('items', {}).get('status') == 'captcha':
+        report['status'] = 'profile_ok_items_captcha'
+        exit_code = 2
+    else:
+        report['status'] = 'partial_or_failed'
+        exit_code = 2
     write_json(REPORT, report)
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if ok_profile and ok_items else 2
+    return exit_code
 
 
 if __name__ == '__main__':
