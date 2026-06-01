@@ -1,9 +1,14 @@
 {
-  "generated_at": "2026-05-31T19:12:44+00:00",
+  "generated_at": "2026-06-01T08:51:11+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
-    "scopus_author_id": "57220956828"
+    "elibrary_authorid": "1012909",
+    "elibrary_spin": "9559-1803",
+    "orcid": "0000-0002-8725-6580",
+    "scopus_author_id": "57220956828",
+    "wos_researcher_id": "AAG-1530-2021",
+    "github_username": "Arseniy24RUS"
   },
   "elibrary_metrics": {
     "source": "saved_elibrary_author_items_html",
@@ -465,7 +470,7 @@
   },
   "scopus_metrics": {
     "source": "scopus_api",
-    "generated_at": "2026-05-30T20:17:03+00:00",
+    "generated_at": "2026-06-01T08:51:11+00:00",
     "scopus_author_id": "57220956828",
     "author_profile_status": 401,
     "search_status": 200,
@@ -476,7 +481,7 @@
     "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available."
   },
   "open_sources_report": {
-    "generated_at": "2026-05-30T20:11:29+00:00",
+    "generated_at": "2026-06-01T08:45:12+00:00",
     "providers": {
       "orcid": {
         "status": "ok",

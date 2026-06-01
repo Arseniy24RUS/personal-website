@@ -1,161 +1,161 @@
 {
-  "generated_at": "2026-05-30T20:12:39+00:00",
+  "generated_at": "2026-06-01T08:46:18+00:00",
   "published": 9,
-  "rejected_or_low_confidence": 25,
+  "rejected_or_low_confidence": 22,
   "providers": [
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.demoscope.ru/weekly/2025/01081/gazeta03.php",
       "bytes": 20248,
-      "elapsed_sec": 2.456
+      "elapsed_sec": 1.386
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27280",
       "bytes": 47154,
-      "elapsed_sec": 0.83
+      "elapsed_sec": 0.471
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27274",
-      "bytes": 42607,
-      "elapsed_sec": 0.712
+      "bytes": 42606,
+      "elapsed_sec": 0.469
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rosbalt.ru/news/2026-01-31/obschestvo-superzrelosti-my-stremitelno-stareem-5543743",
       "bytes": 13602,
-      "elapsed_sec": 0.664
+      "elapsed_sec": 0.392
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.sobaka.ru/city/society/210740",
-      "bytes": 201468,
-      "elapsed_sec": 0.923
+      "bytes": 201902,
+      "elapsed_sec": 0.852
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii",
-      "bytes": 136251,
-      "elapsed_sec": 1.839
+      "bytes": 135557,
+      "elapsed_sec": 1.18
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda",
-      "bytes": 110749,
-      "elapsed_sec": 1.786
+      "bytes": 110055,
+      "elapsed_sec": 1.065
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi",
-      "bytes": 140752,
-      "elapsed_sec": 1.888
+      "bytes": 140058,
+      "elapsed_sec": 1.091
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit",
-      "bytes": 126483,
-      "elapsed_sec": 1.849
+      "bytes": 125789,
+      "elapsed_sec": 1.14
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9+%D0%90%D1%80%D1%81%D0%B5%D0%BD%D0%B8%D0%B9%22&hl=ru&gl=RU&ceid=RU%3Aru",
       "bytes": 1265,
-      "elapsed_sec": 0.271
+      "elapsed_sec": 0.247
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9+%D0%90%D1%80%D1%81%D0%B5%D0%BD%D0%B8%D0%B9%22&hl=en&gl=US&ceid=US%3Aen",
       "bytes": 1241,
-      "elapsed_sec": 0.351
+      "elapsed_sec": 0.349
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9+%D0%90.%D0%9C.%22&hl=ru&gl=RU&ceid=RU%3Aru",
       "bytes": 1229,
-      "elapsed_sec": 0.264
+      "elapsed_sec": 0.273
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9+%D0%90.%D0%9C.%22&hl=en&gl=US&ceid=US%3Aen",
       "bytes": 1205,
-      "elapsed_sec": 0.357
+      "elapsed_sec": 0.315
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22%D0%90%D1%80%D1%81%D0%B5%D0%BD%D0%B8%D0%B9+%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&hl=ru&gl=RU&ceid=RU%3Aru",
       "bytes": 6249,
-      "elapsed_sec": 0.337
+      "elapsed_sec": 0.264
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22%D0%90%D1%80%D1%81%D0%B5%D0%BD%D0%B8%D0%B9+%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%22&hl=en&gl=US&ceid=US%3Aen",
       "bytes": 1241,
-      "elapsed_sec": 0.386
+      "elapsed_sec": 0.295
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9+%D0%90%D1%80%D1%81%D0%B5%D0%BD%D0%B8%D0%B9+%D0%9C%D0%B8%D1%85%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D0%B8%D1%87%22&hl=ru&gl=RU&ceid=RU%3Aru",
       "bytes": 1347,
-      "elapsed_sec": 0.27
+      "elapsed_sec": 0.227
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9+%D0%90%D1%80%D1%81%D0%B5%D0%BD%D0%B8%D0%B9+%D0%9C%D0%B8%D1%85%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D0%B8%D1%87%22&hl=en&gl=US&ceid=US%3Aen",
       "bytes": 1323,
-      "elapsed_sec": 0.409
+      "elapsed_sec": 0.306
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22Arseniy+Sitkovskiy%22&hl=ru&gl=RU&ceid=RU%3Aru",
       "bytes": 4932,
-      "elapsed_sec": 0.265
+      "elapsed_sec": 0.219
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22Arseniy+Sitkovskiy%22&hl=en&gl=US&ceid=US%3Aen",
       "bytes": 1139,
-      "elapsed_sec": 0.482
+      "elapsed_sec": 0.287
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22Arseniy+M.+Sitkovskiy%22&hl=ru&gl=RU&ceid=RU%3Aru",
       "bytes": 1169,
-      "elapsed_sec": 0.295
+      "elapsed_sec": 0.221
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://news.google.com/rss/search?q=%22Arseniy+M.+Sitkovskiy%22&hl=en&gl=US&ceid=US%3Aen",
       "bytes": 2469,
-      "elapsed_sec": 0.384
+      "elapsed_sec": 0.312
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/s/tolk_tolk",
-      "bytes": 169178,
-      "elapsed_sec": 0.99
+      "bytes": 142398,
+      "elapsed_sec": 0.749
     },
     {
       "status": "http_error",
@@ -168,7 +168,7 @@
       "http_status": 200,
       "url": "https://www.sobaka.ru/sitemap.xml",
       "bytes": 1883,
-      "elapsed_sec": 0.357
+      "elapsed_sec": 0.179
     },
     {
       "status": "error",

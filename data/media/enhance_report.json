@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-30T20:16:54+00:00",
-  "published": 14,
-  "rejected_or_low_confidence": 25,
+  "generated_at": "2026-06-01T08:50:15+00:00",
+  "published": 9,
+  "rejected_or_low_confidence": 22,
   "providers": [
     {
       "status": "ok",
@@ -13,13 +13,13 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27280",
-      "bytes": 47155
+      "bytes": 47154
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27274",
-      "bytes": 42605
+      "bytes": 42606
     },
     {
       "status": "ok",
@@ -31,43 +31,37 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.sobaka.ru/city/society/210740",
-      "bytes": 201468
+      "bytes": 201902
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii",
-      "bytes": 136251
+      "bytes": 135557
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda",
-      "bytes": 110749
+      "bytes": 110055
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi",
-      "bytes": 140752
+      "bytes": 140058
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit",
-      "bytes": 126483
+      "bytes": 125789
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/",
-      "bytes": 60431
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.fnisc.ru/pers_about.html?id=2472",
-      "bytes": 67436
+      "bytes": 59890
     },
     {
       "status": "ok",
@@ -114,7 +108,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3214",
-      "bytes": 18127
+      "bytes": 18033
     },
     {
       "status": "ok",
@@ -139,12 +133,6 @@
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=46",
       "bytes": 56257
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.fnisc.ru/index.php?page_id=44",
-      "bytes": 238300
     },
     {
       "status": "ok",
@@ -293,12 +281,6 @@
     {
       "status": "ok",
       "http_status": 200,
-      "url": "https://www.fnisc.ru/index.php?page_id=2366",
-      "bytes": 252994
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2561",
       "bytes": 145550
     },
@@ -317,14 +299,32 @@
     {
       "status": "ok",
       "http_status": 200,
-      "url": "https://www.fnisc.ru/index.php?page_id=2483",
-      "bytes": 77592
+      "url": "https://www.fnisc.ru/index.php?page_id=2485",
+      "bytes": 48549
     },
     {
       "status": "ok",
       "http_status": 200,
-      "url": "https://www.fnisc.ru/index.php?page_id=2485",
-      "bytes": 48549
+      "url": "https://www.fnisc.ru/index.php?page_id=2486",
+      "bytes": 73317
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.fnisc.ru/index.php?page_id=3046",
+      "bytes": 46794
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.fnisc.ru/index.php?page_id=3047",
+      "bytes": 46489
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.fnisc.ru/index.php?page_id=3244",
+      "bytes": 46244
     },
     {
       "status": "error",
@@ -334,20 +334,14 @@
     {
       "status": "ok",
       "http_status": 200,
-      "url": "https://admission.rudn.ru/staff/86110487-4a8f-11f0-b545-00155d0c0d4a/",
-      "bytes": 29112
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
       "url": "https://www.rudn.ru/",
-      "bytes": 291043
+      "bytes": 291059
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/media",
-      "bytes": 269604
+      "bytes": 269948
     },
     {
       "status": "ok",
@@ -359,7 +353,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education",
-      "bytes": 250654
+      "bytes": 250738
     },
     {
       "status": "ok",
@@ -377,7 +371,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/schedule",
-      "bytes": 223942
+      "bytes": 223678
     },
     {
       "status": "ok",
@@ -461,7 +455,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/conferences",
-      "bytes": 284632
+      "bytes": 263416
     },
     {
       "status": "ok",
@@ -485,7 +479,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/research-institutes",
-      "bytes": 265930
+      "bytes": 265684
     },
     {
       "status": "ok",
@@ -604,6 +598,12 @@
     {
       "status": "ok",
       "http_status": 200,
+      "url": "https://www.rudn.ru/science/dad/konkurs",
+      "bytes": 238899
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
       "url": "https://chel.ranepa.ru/",
       "bytes": 158671
     },
@@ -611,7 +611,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://chel.ranepa.ru/novosti/",
-      "bytes": 158760
+      "bytes": 158768
     }
   ]
 }

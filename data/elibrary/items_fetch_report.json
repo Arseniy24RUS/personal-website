@@ -1,10 +1,15 @@
 {
   "status": "ok",
   "http_status": 200,
-  "elapsed_sec": 3.63,
+  "elapsed_sec": 8.216,
   "content_length": 714,
   "url": "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc",
-  "generated_at": "2026-05-30T20:17:02+00:00",
+  "generated_at": "2026-06-01T08:51:09+00:00",
+  "html_fingerprint": {
+    "has_author_items": false,
+    "has_rows": false,
+    "has_suspicious_ip_text": false
+  },
   "used_source": "none",
   "error": "No live eLibrary items, no saved HTML snapshot, and no previous normalized JSON."
 }
