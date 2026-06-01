@@ -6,9 +6,8 @@ on:
     branches: [ main ]
     paths:
       - ".github/workflows/test-elibrary-openvpn.yml"
-      - "scripts/elibrary_fetch.py"
-      - "scripts/test_elibrary_fetch.py"
       - "scripts/harvest_elibrary_browser.py"
+      - "scripts/test_elibrary_authors_route.py"
 
 permissions:
   contents: read
@@ -44,12 +43,10 @@ jobs:
           echo "OpenVPN config decoded. Remote line is redacted."
           sed -n 's/^remote .*/remote [redacted] [redacted]/p' elibrary-home.ovpn
 
-      - name: Connect through home OpenVPN and run browser eLibrary probe
+      - name: Connect through home OpenVPN and run authors-only route
         shell: bash
         env:
           ELIBRARY_BROWSER_WAIT_SEC: "130"
-          # Force diagnostic to avoid a cold direct profile URL first. The manual route starts from authors.asp.
-          ELIBRARY_PROFILE_URL: "https://www.elibrary.ru/authors.asp"
         run: |
           set +e
           IP_BEFORE=$(curl -fsS --max-time 20 https://api.ipify.org || true)
@@ -79,7 +76,7 @@ jobs:
           echo "Public IP after VPN: ${IP_AFTER:-not available}"
 
           PROBE_STATUS=0
-          python scripts/harvest_elibrary_browser.py || PROBE_STATUS=$?
+          python scripts/test_elibrary_authors_route.py || PROBE_STATUS=$?
           if [ -s data/processed/elibrary_publications.json ]; then
             echo "Publication-list JSON was produced; treating diagnostic as successful."
             PROBE_STATUS=0
@@ -97,7 +94,7 @@ jobs:
             exit 2
           fi
           if [ "$PROBE_STATUS" != "0" ]; then
-            echo "Browser eLibrary probe failed with status $PROBE_STATUS. See browser_fetch_report.json in uploaded artifact."
+            echo "Authors-only eLibrary route failed with status $PROBE_STATUS. See browser_fetch_report.json in uploaded artifact."
             exit "$PROBE_STATUS"
           fi
           exit 0
@@ -111,7 +108,6 @@ jobs:
             data/elibrary/browser_fetch_report.json
             data/processed/elibrary_publications.json
             artifacts/elibrary_debug/**
-            data/snapshots/elibrary/profile/*_browser.html
-            data/snapshots/elibrary/items/*_browser.html
+            data/snapshots/elibrary/items/*_authors_route.html
           if-no-files-found: ignore
           retention-days: 7
