@@ -7,12 +7,14 @@ import urllib.error
 import urllib.request
 
 DEFAULT_PREFLIGHT_URL = 'https://elibrary.ru/defaultx.asp'
-DEFAULT_TIMEOUT = 45
+DEFAULT_TIMEOUT = 75
 DEFAULT_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36 personal-website-harvester/0.1',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Accept-Language': 'ru-RU,ru;q=0.9,en;q=0.8',
-    'Referer': 'https://elibrary.ru/',
+    'User-Agent': os.environ.get('ELIBRARY_USER_AGENT', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36'),
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+    'Accept-Language': 'ru,en;q=0.9',
+    'Cache-Control': 'max-age=0',
+    'Connection': 'close',
+    'Upgrade-Insecure-Requests': '1',
 }
 
 
@@ -27,6 +29,7 @@ def build_opener() -> tuple[urllib.request.OpenerDirector, CookieJar]:
 
 def fetch_once(opener: urllib.request.OpenerDirector, url: str, *, referer: str | None = None, timeout: int = DEFAULT_TIMEOUT) -> tuple[str | None, dict]:
     headers = dict(DEFAULT_HEADERS)
+    headers['Host'] = urllib.request.urlparse(url).netloc
     if referer:
         headers['Referer'] = referer
     extra_cookie = os.environ.get('ELIBRARY_COOKIE')
@@ -60,6 +63,7 @@ def fetch_once(opener: urllib.request.OpenerDirector, url: str, *, referer: str 
             'status': 'error',
             'elapsed_sec': round(time.time() - started, 3),
             'url': url,
+            'error_type': type(exc).__name__,
             'error': repr(exc),
         }
 
@@ -68,17 +72,12 @@ def fetch_elibrary_page(url: str) -> tuple[str | None, dict]:
     opener, jar = build_opener()
     preflight_url = os.environ.get('ELIBRARY_PREFLIGHT_URL', DEFAULT_PREFLIGHT_URL)
     preflight_text, preflight_report = fetch_once(opener, preflight_url, referer='https://elibrary.ru/')
-    text, target_report = fetch_once(opener, url, referer=preflight_url)
-    target_report['preflight'] = {
-        'status': preflight_report.get('status'),
-        'http_status': preflight_report.get('http_status'),
-        'content_length': preflight_report.get('content_length'),
-        'final_url': preflight_report.get('final_url'),
-        'cookies_after_preflight': len(jar),
-        'has_cookie_warning_text': bool(preflight_text and ('cookie' in preflight_text.lower() or 'cookies' in preflight_text.lower())),
-    }
+    text, target_report = fetch_once(opener, url, referer=os.environ.get('ELIBRARY_REFERER', preflight_url))
+    target_report['preflight'] = preflight_report
     target_report['cookies_count'] = len(jar)
     target_report['manual_cookie_present'] = bool(os.environ.get('ELIBRARY_COOKIE'))
+    if preflight_text:
+        target_report['preflight_fingerprint'] = {'content_length': len(preflight_text.encode('utf-8', errors='replace')), 'excerpt': preflight_text[:700].replace('\n', ' ')}
     if text:
         lowered = text.lower()
         target_report['html_fingerprint'] = {
