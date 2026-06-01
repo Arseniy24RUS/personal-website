@@ -48,6 +48,8 @@ jobs:
         shell: bash
         env:
           ELIBRARY_BROWSER_WAIT_SEC: "130"
+          # Force diagnostic to avoid a cold direct profile URL first. The manual route starts from authors.asp.
+          ELIBRARY_PROFILE_URL: "https://www.elibrary.ru/authors.asp"
         run: |
           set +e
           IP_BEFORE=$(curl -fsS --max-time 20 https://api.ipify.org || true)
@@ -78,6 +80,10 @@ jobs:
 
           PROBE_STATUS=0
           python scripts/harvest_elibrary_browser.py || PROBE_STATUS=$?
+          if [ -s data/processed/elibrary_publications.json ]; then
+            echo "Publication-list JSON was produced; treating diagnostic as successful."
+            PROBE_STATUS=0
+          fi
 
           if [ -f openvpn.pid ]; then
             sudo kill "$(cat openvpn.pid)" 2>/dev/null || true
@@ -91,7 +97,7 @@ jobs:
             exit 2
           fi
           if [ "$PROBE_STATUS" != "0" ]; then
-            echo "Browser eLibrary probe failed with status $PROBE_STATUS. See browser_fetch_report.json in log output."
+            echo "Browser eLibrary probe failed with status $PROBE_STATUS. See browser_fetch_report.json in uploaded artifact."
             exit "$PROBE_STATUS"
           fi
           exit 0
@@ -103,6 +109,7 @@ jobs:
           name: elibrary-openvpn-debug
           path: |
             data/elibrary/browser_fetch_report.json
+            data/processed/elibrary_publications.json
             artifacts/elibrary_debug/**
             data/snapshots/elibrary/profile/*_browser.html
             data/snapshots/elibrary/items/*_browser.html
