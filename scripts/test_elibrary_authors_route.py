@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 import json
+import os
 import sys
 
 sys.path.insert(0, 'scripts')
@@ -15,12 +16,16 @@ def main() -> int:
     h.ITEMS_SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
     report = {'generated_at': h.now(), 'route': 'authors_search_only', 'pages': {}}
     ok = False
+    headless = os.environ.get('ELIBRARY_BROWSER_HEADLESS', 'true').lower() not in {'0', 'false', 'no'}
+    ua = os.environ.get('ELIBRARY_USER_AGENT', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36')
+    report['headless'] = headless
+    report['user_agent_family'] = 'YaBrowser/Chrome-like'
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True, args=['--disable-dev-shm-usage', '--no-sandbox'])
+        browser = p.chromium.launch(headless=headless, args=['--disable-dev-shm-usage', '--no-sandbox'])
         context = browser.new_context(
             locale='ru-RU',
             timezone_id='Europe/Moscow',
-            user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+            user_agent=ua,
             viewport={'width': 1366, 'height': 900},
         )
         html, page_report = h.fetch_items_via_authors_search(context, report)
