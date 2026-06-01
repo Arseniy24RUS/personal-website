@@ -2,6 +2,10 @@ name: Test eLibrary OpenVPN
 
 on:
   workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - ".github/workflows/test-elibrary-openvpn.yml"
 
 permissions:
   contents: read
