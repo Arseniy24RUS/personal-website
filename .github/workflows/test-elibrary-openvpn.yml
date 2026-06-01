@@ -58,6 +58,8 @@ jobs:
           ELIBRARY_ITEMS_REPORT: data/elibrary/items_fetch_report.json
         run: |
           set +e
+          rm -f data/processed/elibrary_publications.json data/elibrary/items_fetch_report.json data/elibrary/browser_fetch_report.json
+          rm -rf artifacts/elibrary_debug
           IP_BEFORE=$(curl -fsS --max-time 20 https://api.ipify.org || true)
           echo "Public IP before VPN: ${IP_BEFORE:-not available}"
 
@@ -96,8 +98,25 @@ jobs:
             xvfb-run -a python scripts/test_elibrary_authors_route.py || PROBE_STATUS=$?
           fi
           if [ -s data/processed/elibrary_publications.json ]; then
-            echo "Publication-list JSON was produced; diagnostic is successful."
-            PROBE_STATUS=0
+            RECORDS=$(python - <<'PY'
+import json
+from pathlib import Path
+p=Path('data/processed/elibrary_publications.json')
+try:
+    data=json.loads(p.read_text(encoding='utf-8'))
+    print(len(data) if isinstance(data,list) else 0)
+except Exception:
+    print(0)
+PY
+)
+            echo "Publication-list JSON records: $RECORDS"
+            if [ "$RECORDS" -ge 50 ]; then
+              echo "Publication-list JSON was produced from this run; diagnostic is successful."
+              PROBE_STATUS=0
+            else
+              echo "Publication-list JSON has too few records; diagnostic is not yet successful."
+              PROBE_STATUS=2
+            fi
           fi
 
           if [ -f openvpn.pid ]; then
