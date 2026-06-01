@@ -8,6 +8,7 @@ on:
       - ".github/workflows/test-elibrary-openvpn.yml"
       - "scripts/harvest_elibrary_browser.py"
       - "scripts/test_elibrary_authors_route.py"
+      - "scripts/test_elibrary_har_route.py"
       - "scripts/harvest_elibrary_items.py"
       - "scripts/elibrary_fetch.py"
 
@@ -94,7 +95,11 @@ jobs:
             echo "ELIBRARY_COOKIE is not set; skipping cookie-aware HTTP route."
           fi
           if [ ! -s data/processed/elibrary_publications.json ]; then
-            echo "No publication JSON yet; trying browser authors-route in headed Chromium under Xvfb."
+            echo "No publication JSON yet; trying HAR-matched authors POST + popup route in headed Chromium under Xvfb."
+            xvfb-run -a python scripts/test_elibrary_har_route.py || PROBE_STATUS=$?
+          fi
+          if [ ! -s data/processed/elibrary_publications.json ]; then
+            echo "No publication JSON yet; trying older browser authors-route as fallback."
             xvfb-run -a python scripts/test_elibrary_authors_route.py || PROBE_STATUS=$?
           fi
           if [ -s data/processed/elibrary_publications.json ]; then
@@ -137,5 +142,6 @@ jobs:
             data/processed/elibrary_publications.json
             artifacts/elibrary_debug/**
             data/snapshots/elibrary/items/*_authors_route.html
+            data/snapshots/elibrary/items/*_popup.html
           if-no-files-found: ignore
           retention-days: 7
