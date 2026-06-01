@@ -1,0 +1,95 @@
+name: Test eLibrary OpenVPN
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-openvpn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install OpenVPN client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openvpn curl iproute2
+
+      - name: Decode OpenVPN config from GitHub Secret
+        env:
+          ELIBRARY_OPENVPN_CONFIG_B64: ${{ secrets.ELIBRARY_OPENVPN_CONFIG_B64 }}
+        run: |
+          if [ -z "$ELIBRARY_OPENVPN_CONFIG_B64" ]; then
+            echo "Secret ELIBRARY_OPENVPN_CONFIG_B64 is not set."
+            exit 1
+          fi
+          umask 077
+          printf '%s' "$ELIBRARY_OPENVPN_CONFIG_B64" | base64 --decode > elibrary-home.ovpn
+          echo "OpenVPN config decoded. Remote line is redacted."
+          sed -n 's/^remote .*/remote [redacted] [redacted]/p' elibrary-home.ovpn
+
+      - name: Connect through home OpenVPN and test eLibrary
+        shell: bash
+        run: |
+          set +e
+          IP_BEFORE=$(curl -fsS --max-time 20 https://api.ipify.org || true)
+          echo "Public IP before VPN: ${IP_BEFORE:-not available}"
+
+          sudo openvpn \
+            --config elibrary-home.ovpn \
+            --data-ciphers-fallback AES-128-CBC \
+            --allow-compression yes \
+            --daemon \
+            --writepid openvpn.pid \
+            --log openvpn.log
+
+          echo "Waiting for tun0..."
+          for i in $(seq 1 60); do
+            if ip link show tun0 >/dev/null 2>&1; then
+              echo "tun0 is up"
+              break
+            fi
+            sleep 2
+          done
+
+          echo "Routes after VPN connection:"
+          ip route || true
+
+          IP_AFTER=$(curl -fsS --max-time 30 https://api.ipify.org || true)
+          echo "Public IP after VPN: ${IP_AFTER:-not available}"
+
+          echo "Testing eLibrary author profile over current route..."
+          HTTP_CODE=$(curl -L -sS --max-time 45 -o elibrary_probe.html -w '%{http_code}' 'https://www.elibrary.ru/author_profile.asp?id=1012909' || true)
+          echo "eLibrary HTTP code: ${HTTP_CODE:-request_failed}"
+          if [ -f elibrary_probe.html ]; then
+            BYTES=$(wc -c < elibrary_probe.html | tr -d ' ')
+            echo "eLibrary response bytes: $BYTES"
+            python - <<'PY'
+from pathlib import Path
+text = Path('elibrary_probe.html').read_text(encoding='utf-8', errors='replace') if Path('elibrary_probe.html').exists() else ''
+print('has_metrics=', 'ОБЩИЕ ПОКАЗАТЕЛИ' in text)
+print('has_h_index=', 'Индекс Хирша' in text)
+print('has_suspicious_ip_text=', ('подозр' in text.lower()) or ('suspicious' in text.lower()) or ('ip_blocked' in text.lower()))
+print('title_excerpt=', text[:220].replace('\n',' ')[:220])
+PY
+          fi
+
+          if [ -f openvpn.pid ]; then
+            sudo kill "$(cat openvpn.pid)" 2>/dev/null || true
+          fi
+
+          echo "OpenVPN log tail:"
+          sudo tail -n 160 openvpn.log || true
+
+          if [ -z "$IP_AFTER" ] || [ "$IP_AFTER" = "$IP_BEFORE" ]; then
+            echo "VPN did not change public IP. Check TP-Link Client Access: choose Internet and Home Network, and check port/DDNS/CG-NAT."
+            exit 2
+          fi
+          if grep -qiE 'ip_blocked|подозр|suspicious' elibrary_probe.html 2>/dev/null; then
+            echo "eLibrary still returned an IP block page over VPN."
+            exit 3
+          fi
+          exit 0
