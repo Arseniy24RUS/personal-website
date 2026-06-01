@@ -6,6 +6,8 @@ on:
     branches: [ main ]
     paths:
       - ".github/workflows/test-elibrary-openvpn.yml"
+      - "scripts/elibrary_fetch.py"
+      - "scripts/test_elibrary_fetch.py"
 
 permissions:
   contents: read
@@ -35,7 +37,7 @@ jobs:
           echo "OpenVPN config decoded. Remote line is redacted."
           sed -n 's/^remote .*/remote [redacted] [redacted]/p' elibrary-home.ovpn
 
-      - name: Connect through home OpenVPN and test eLibrary
+      - name: Connect through home OpenVPN and run cookie-aware eLibrary probe
         shell: bash
         run: |
           set +e
@@ -65,19 +67,8 @@ jobs:
           IP_AFTER=$(curl -fsS --max-time 30 https://api.ipify.org || true)
           echo "Public IP after VPN: ${IP_AFTER:-not available}"
 
-          echo "Testing eLibrary author profile over current route..."
-          HTTP_CODE=$(curl -L -sS --max-time 45 -o elibrary_probe.html -w '%{http_code}' 'https://www.elibrary.ru/author_profile.asp?id=1012909' || true)
-          echo "eLibrary HTTP code: ${HTTP_CODE:-request_failed}"
-          if [ -f elibrary_probe.html ]; then
-            BYTES=$(wc -c < elibrary_probe.html | tr -d ' ')
-            echo "eLibrary response bytes: $BYTES"
-            if grep -q 'ОБЩИЕ ПОКАЗАТЕЛИ' elibrary_probe.html; then echo "has_metrics=True"; else echo "has_metrics=False"; fi
-            if grep -q 'Индекс Хирша' elibrary_probe.html; then echo "has_h_index=True"; else echo "has_h_index=False"; fi
-            if grep -Eiq 'ip_blocked|подозр|suspicious' elibrary_probe.html; then echo "has_suspicious_ip_text=True"; else echo "has_suspicious_ip_text=False"; fi
-            printf 'title_excerpt='
-            head -c 220 elibrary_probe.html | tr '\n' ' ' || true
-            printf '\n'
-          fi
+          PROBE_STATUS=0
+          python scripts/test_elibrary_fetch.py || PROBE_STATUS=$?
 
           if [ -f openvpn.pid ]; then
             sudo kill "$(cat openvpn.pid)" 2>/dev/null || true
@@ -90,8 +81,8 @@ jobs:
             echo "VPN did not change public IP. Check TP-Link Client Access: choose Internet and Home Network, and check port/DDNS/CG-NAT."
             exit 2
           fi
-          if grep -qiE 'ip_blocked|подозр|suspicious' elibrary_probe.html 2>/dev/null; then
-            echo "eLibrary still returned an IP block page over VPN."
-            exit 3
+          if [ "$PROBE_STATUS" != "0" ]; then
+            echo "Cookie-aware eLibrary probe failed with status $PROBE_STATUS. See JSON report above."
+            exit "$PROBE_STATUS"
           fi
           exit 0
