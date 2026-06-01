@@ -7,7 +7,6 @@ import json
 import os
 import re
 import sys
-import urllib.parse
 
 sys.path.insert(0, 'scripts')
 from parse_elibrary_author_items import parse_elibrary_author_items  # noqa: E402
@@ -39,7 +38,8 @@ def cookie_objects(header: str) -> list[dict]:
         if '=' not in part:
             continue
         name, value = part.split('=', 1)
-        name = name.strip(); value = value.strip()
+        name = name.strip()
+        value = value.strip()
         if not name:
             continue
         for domain in ['.elibrary.ru', 'www.elibrary.ru', 'elibrary.ru']:
@@ -57,39 +57,46 @@ def challenge(html: str, url: str) -> bool:
 
 
 def page_info(page, html: str) -> dict:
-    return {'url': page.url, 'title': page.title(), 'bytes': len((html or '').encode('utf-8', 'replace')), 'has_items': is_items(html or ''), 'has_challenge': challenge(html or '', page.url), 'excerpt': (html or '')[:900].replace('\n', ' ')}
+    return {
+        'url': page.url,
+        'title': page.title(),
+        'bytes': len((html or '').encode('utf-8', 'replace')),
+        'has_items': is_items(html or ''),
+        'has_challenge': challenge(html or '', page.url),
+        'excerpt': (html or '')[:900].replace('\n', ' '),
+    }
 
 
 def debug(page, html: str, name: str) -> dict:
     DEBUG_DIR.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
     base = DEBUG_DIR / f'{stamp}_{name}'
-    hp = base.with_suffix('.html')
-    sp = base.with_suffix('.png')
-    hp.write_text(html or '', encoding='utf-8')
-    ok = False
+    html_path = base.with_suffix('.html')
+    png_path = base.with_suffix('.png')
+    html_path.write_text(html or '', encoding='utf-8')
+    screenshot_ok = False
     try:
-        page.screenshot(path=str(sp), full_page=True)
-        ok = True
+        page.screenshot(path=str(png_path), full_page=True)
+        screenshot_ok = True
     except Exception:
         pass
-    return {'html_path': str(hp), 'screenshot_path': str(sp) if ok else None}
+    return {'html_path': str(html_path), 'screenshot_path': str(png_path) if screenshot_ok else None}
 
 
 def wait_items(page) -> tuple[str, dict]:
-    end = page.context._timeout_settings.timeout() or WAIT_MS
-    # Avoid using private timeout value if Playwright changes it.
-    deadline = WAIT_MS
     elapsed = 0
     html = ''
-    while elapsed < deadline:
+    while elapsed < WAIT_MS:
         page.wait_for_timeout(2000)
         elapsed += 2000
         html = page.content()
         if is_items(html) or challenge(html, page.url):
-            info = page_info(page, html); info['elapsed_ms'] = elapsed
+            info = page_info(page, html)
+            info['elapsed_ms'] = elapsed
             return html, info
-    info = page_info(page, html); info['elapsed_ms'] = elapsed; info['status'] = 'timeout'
+    info = page_info(page, html)
+    info['elapsed_ms'] = elapsed
+    info['status'] = 'timeout'
     return html, info
 
 
@@ -135,7 +142,15 @@ def main() -> int:
     with sync_playwright() as p:
         headless = os.environ.get('ELIBRARY_BROWSER_HEADLESS', 'true').lower() not in {'0', 'false', 'no'}
         ua = os.environ.get('ELIBRARY_USER_AGENT', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36')
-        browser = p.chromium.launch(headless=headless, args=['--disable-dev-shm-usage', '--no-sandbox'])
+        channel = os.environ.get('ELIBRARY_BROWSER_CHANNEL') or None
+        launch_args = {'headless': headless, 'args': ['--disable-dev-shm-usage', '--no-sandbox']}
+        if channel:
+            launch_args['channel'] = channel
+            # System Chrome/Edge channels do not need Playwright's bundled Chromium args.
+            launch_args['args'] = []
+        report['headless'] = headless
+        report['browser_channel'] = channel or 'playwright-chromium'
+        browser = p.chromium.launch(**launch_args)
         context = browser.new_context(locale='ru-RU', timezone_id='Europe/Moscow', user_agent=ua, viewport={'width': 1366, 'height': 900})
         cookies = cookie_objects(os.environ.get('ELIBRARY_COOKIE', ''))
         if cookies:
@@ -145,12 +160,12 @@ def main() -> int:
         fill_and_submit_authors(page, report)
         html = page.content()
         if not challenge(html, page.url):
-            loc = page.locator(f'a[href*="author_items.asp"][href*="{AUTHOR_ID}"]').first()
+            locator = page.locator(f'a[href*="author_items.asp"][href*="{AUTHOR_ID}"]').first()
             report['author_items_link_count'] = page.locator(f'a[href*="author_items.asp"][href*="{AUTHOR_ID}"]').count()
             if report['author_items_link_count']:
                 try:
                     with context.expect_page(timeout=7000) as popup_info:
-                        loc.click(timeout=15000)
+                        locator.click(timeout=15000)
                     target = popup_info.value
                     target.wait_for_load_state('domcontentloaded', timeout=60000)
                     report['opened_as'] = 'popup'
@@ -178,7 +193,8 @@ def main() -> int:
                 report['no_link_debug'] = debug(page, html, 'authors_no_items_link')
         else:
             report['initial_challenge_debug'] = debug(page, html, 'authors_route_challenge')
-        context.close(); browser.close()
+        context.close()
+        browser.close()
     report['status'] = 'ok' if ok else 'not_ready'
     write_json(REPORT, report)
     print(json.dumps(report, ensure_ascii=False, indent=2))
