@@ -32,6 +32,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install beautifulsoup4 playwright
           python -m playwright install --with-deps chromium
+          python -m playwright install chrome || true
+          google-chrome --version || true
 
       - name: Decode OpenVPN config from GitHub Secret
         env:
@@ -51,6 +53,7 @@ jobs:
         env:
           ELIBRARY_BROWSER_WAIT_SEC: "130"
           ELIBRARY_BROWSER_HEADLESS: "false"
+          ELIBRARY_BROWSER_CHANNEL: "chrome"
           ELIBRARY_USER_AGENT: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36"
           ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
           ELIBRARY_AUTHOR_ID: "1012909"
@@ -95,7 +98,7 @@ jobs:
             echo "ELIBRARY_COOKIE is not set; skipping cookie-aware HTTP route."
           fi
           if [ ! -s data/processed/elibrary_publications.json ]; then
-            echo "No publication JSON yet; trying HAR-matched authors POST + popup route in headed Chromium under Xvfb."
+            echo "No publication JSON yet; trying HAR-matched authors POST + popup route in system Chrome under Xvfb."
             xvfb-run -a python scripts/test_elibrary_har_route.py || PROBE_STATUS=$?
           fi
           if [ ! -s data/processed/elibrary_publications.json ]; then
