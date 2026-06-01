@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
 """Fetch and parse public eLibrary author publication list.
 
-The script is designed for a reusable static-first scientist portfolio.
-It tries to fetch the public eLibrary author_items page and parse it. If live
-fetching is blocked, it falls back to the latest saved HTML snapshot or leaves
-previous normalized data intact.
-
-Outputs:
-  data/processed/elibrary_publications.json
-  data/elibrary/items_fetch_report.json
-  data/snapshots/elibrary/items/*.html when live fetch succeeds
+The script first tries a cookie-aware live fetch. In GitHub Actions it can be
+routed through the repository OpenVPN step or through ELIBRARY_PROXY_URL. If the
+live page is not usable, it falls back to the latest saved HTML snapshot or the
+previous normalized JSON so the public site never loses publications because of
+a transient eLibrary block.
 """
 from __future__ import annotations
 
@@ -18,12 +14,10 @@ from datetime import datetime, timezone
 import json
 import os
 import sys
-import time
-import urllib.request
-import urllib.error
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from parse_elibrary_author_items import parse_elibrary_author_items  # noqa: E402
+from elibrary_fetch import fetch_elibrary_page  # noqa: E402
 
 AUTHOR_ID = os.environ.get("ELIBRARY_AUTHOR_ID", "1012909")
 URL = os.environ.get(
@@ -40,45 +34,7 @@ def now() -> str:
 
 
 def fetch_live() -> tuple[str | None, dict]:
-    headers = {
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36 personal-website-harvester/0.1",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8",
-        "Referer": "https://www.elibrary.ru/",
-    }
-    req = urllib.request.Request(URL, headers=headers, method="GET")
-    opener = urllib.request.build_opener()
-    proxy_url = os.environ.get("ELIBRARY_PROXY_URL")
-    if proxy_url:
-        opener = urllib.request.build_opener(urllib.request.ProxyHandler({"http": proxy_url, "https": proxy_url}))
-    started = time.time()
-    try:
-        with opener.open(req, timeout=45) as resp:
-            raw = resp.read()
-            enc = resp.headers.get_content_charset() or "utf-8"
-            return raw.decode(enc, errors="replace"), {
-                "status": "ok",
-                "http_status": resp.status,
-                "elapsed_sec": round(time.time() - started, 3),
-                "content_length": len(raw),
-                "url": URL,
-            }
-    except urllib.error.HTTPError as exc:
-        body = exc.read().decode("utf-8", errors="replace")[:1200]
-        return None, {
-            "status": "http_error",
-            "http_status": exc.code,
-            "elapsed_sec": round(time.time() - started, 3),
-            "url": URL,
-            "error_excerpt": body,
-        }
-    except Exception as exc:
-        return None, {
-            "status": "error",
-            "elapsed_sec": round(time.time() - started, 3),
-            "url": URL,
-            "error": repr(exc),
-        }
+    return fetch_elibrary_page(URL)
 
 
 def latest_snapshot() -> Path | None:
@@ -101,7 +57,14 @@ def main() -> int:
     report["generated_at"] = now()
 
     if html:
-        report["html_fingerprint"] = {"has_author_items": "author_items" in html, "has_rows": "arw" in html, "has_suspicious_ip_text": "подозр" in html.lower() or "suspicious" in html.lower()}
+        lowered = html.lower()
+        report["html_fingerprint"] = {
+            **(report.get("html_fingerprint") or {}),
+            "has_author_items": "author_items" in html,
+            "has_rows": "arw" in html,
+            "has_suspicious_ip_text": "подозр" in lowered or "suspicious" in lowered or "ip_blocked" in lowered,
+            "has_cookie_text": "cookie" in lowered or "cookies" in lowered,
+        }
 
     if html and "author_items" in html and "arw" in html:
         stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
