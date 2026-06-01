@@ -126,6 +126,7 @@ jobs:
       - name: Harvest eLibrary through browser
         env:
           ELIBRARY_AUTHOR_ID: "1012909"
+          ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
           ELIBRARY_PROFILE_URL: "https://www.elibrary.ru/author_profile.asp?id=1012909"
           ELIBRARY_ITEMS_URL: "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
           ELIBRARY_PROFILE_OUT: data/elibrary/profile_metrics.json
@@ -141,6 +142,7 @@ jobs:
       - name: Harvest eLibrary author profile metrics
         env:
           ELIBRARY_AUTHOR_ID: "1012909"
+          ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
           ELIBRARY_PROFILE_URL: "https://www.elibrary.ru/author_profile.asp?id=1012909"
           ELIBRARY_PROFILE_OUT: data/elibrary/profile_metrics.json
           ELIBRARY_PROFILE_REPORT: data/elibrary/profile_metrics_fetch_report.json
@@ -154,6 +156,7 @@ jobs:
       - name: Harvest eLibrary publication list
         env:
           ELIBRARY_AUTHOR_ID: "1012909"
+          ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
           ELIBRARY_ITEMS_URL: "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
           ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
           ELIBRARY_ITEMS_REPORT: data/elibrary/items_fetch_report.json
