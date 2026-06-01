@@ -42,7 +42,10 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 pyyaml rapidfuzz argostranslate
+          pip install requests beautifulsoup4 pyyaml rapidfuzz argostranslate playwright
+      - name: Install Chromium for eLibrary browser fetch
+        run: |
+          python -m playwright install --with-deps chromium
       - name: Mirror Craftum assets
         run: |
           if [ "${{ inputs.mirror_craftum_assets || 'true' }}" = "true" ] && [ -f scripts/mirror_craftum_assets.py ]; then
@@ -119,6 +122,21 @@ jobs:
           else
             echo "OpenVPN did not change public IP; continuing with fallback logic."
             sudo tail -n 120 openvpn.log || true
+          fi
+      - name: Harvest eLibrary through browser
+        env:
+          ELIBRARY_AUTHOR_ID: "1012909"
+          ELIBRARY_PROFILE_URL: "https://www.elibrary.ru/author_profile.asp?id=1012909"
+          ELIBRARY_ITEMS_URL: "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
+          ELIBRARY_PROFILE_OUT: data/elibrary/profile_metrics.json
+          ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
+          ELIBRARY_BROWSER_REPORT: data/elibrary/browser_fetch_report.json
+          ELIBRARY_BROWSER_WAIT_SEC: "130"
+        run: |
+          if [ -f scripts/harvest_elibrary_browser.py ]; then
+            python scripts/harvest_elibrary_browser.py || true
+          else
+            echo "Browser eLibrary harvester is missing; using ordinary fetchers."
           fi
       - name: Harvest eLibrary author profile metrics
         env:
