@@ -8,6 +8,8 @@ on:
       - ".github/workflows/test-elibrary-openvpn.yml"
       - "scripts/harvest_elibrary_browser.py"
       - "scripts/test_elibrary_authors_route.py"
+      - "scripts/harvest_elibrary_items.py"
+      - "scripts/elibrary_fetch.py"
 
 permissions:
   contents: read
@@ -43,10 +45,15 @@ jobs:
           echo "OpenVPN config decoded. Remote line is redacted."
           sed -n 's/^remote .*/remote [redacted] [redacted]/p' elibrary-home.ovpn
 
-      - name: Connect through home OpenVPN and run authors-only route
+      - name: Connect through home OpenVPN and test eLibrary routes
         shell: bash
         env:
           ELIBRARY_BROWSER_WAIT_SEC: "130"
+          ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
+          ELIBRARY_AUTHOR_ID: "1012909"
+          ELIBRARY_ITEMS_URL: "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
+          ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
+          ELIBRARY_ITEMS_REPORT: data/elibrary/items_fetch_report.json
         run: |
           set +e
           IP_BEFORE=$(curl -fsS --max-time 20 https://api.ipify.org || true)
@@ -76,9 +83,18 @@ jobs:
           echo "Public IP after VPN: ${IP_AFTER:-not available}"
 
           PROBE_STATUS=0
-          python scripts/test_elibrary_authors_route.py || PROBE_STATUS=$?
+          if [ -n "$ELIBRARY_COOKIE" ]; then
+            echo "ELIBRARY_COOKIE is set; trying cookie-aware HTTP harvester first."
+            python scripts/harvest_elibrary_items.py || true
+          else
+            echo "ELIBRARY_COOKIE is not set; skipping cookie-aware HTTP route."
+          fi
+          if [ ! -s data/processed/elibrary_publications.json ]; then
+            echo "No publication JSON yet; trying browser authors-route."
+            python scripts/test_elibrary_authors_route.py || PROBE_STATUS=$?
+          fi
           if [ -s data/processed/elibrary_publications.json ]; then
-            echo "Publication-list JSON was produced; treating diagnostic as successful."
+            echo "Publication-list JSON was produced; diagnostic is successful."
             PROBE_STATUS=0
           fi
 
@@ -94,7 +110,7 @@ jobs:
             exit 2
           fi
           if [ "$PROBE_STATUS" != "0" ]; then
-            echo "Authors-only eLibrary route failed with status $PROBE_STATUS. See browser_fetch_report.json in uploaded artifact."
+            echo "Both eLibrary routes failed with status $PROBE_STATUS. See uploaded artifacts."
             exit "$PROBE_STATUS"
           fi
           exit 0
@@ -106,6 +122,7 @@ jobs:
           name: elibrary-openvpn-debug
           path: |
             data/elibrary/browser_fetch_report.json
+            data/elibrary/items_fetch_report.json
             data/processed/elibrary_publications.json
             artifacts/elibrary_debug/**
             data/snapshots/elibrary/items/*_authors_route.html
