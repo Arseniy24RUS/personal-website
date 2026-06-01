@@ -51,7 +51,7 @@ jobs:
           ELIBRARY_BROWSER_WAIT_SEC: "130"
           ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
           ELIBRARY_AUTHOR_ID: "1012909"
-          ELIBRARY_ITEMS_URL: "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
+          ELIBRARY_ITEMS_URL: "https://elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
           ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
           ELIBRARY_ITEMS_REPORT: data/elibrary/items_fetch_report.json
         run: |
