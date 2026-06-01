@@ -6,15 +6,13 @@ import time
 import urllib.error
 import urllib.request
 
-DEFAULT_PREFLIGHT_URL = 'https://www.elibrary.ru/defaultx.asp'
+DEFAULT_PREFLIGHT_URL = 'https://elibrary.ru/defaultx.asp'
 DEFAULT_TIMEOUT = 45
 DEFAULT_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36 personal-website-harvester/0.1',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
-    'Cache-Control': 'no-cache',
-    'Pragma': 'no-cache',
-    'Connection': 'close',
+    'Accept-Language': 'ru-RU,ru;q=0.9,en;q=0.8',
+    'Referer': 'https://elibrary.ru/',
 }
 
 
@@ -69,7 +67,7 @@ def fetch_once(opener: urllib.request.OpenerDirector, url: str, *, referer: str 
 def fetch_elibrary_page(url: str) -> tuple[str | None, dict]:
     opener, jar = build_opener()
     preflight_url = os.environ.get('ELIBRARY_PREFLIGHT_URL', DEFAULT_PREFLIGHT_URL)
-    preflight_text, preflight_report = fetch_once(opener, preflight_url, referer='https://www.elibrary.ru/')
+    preflight_text, preflight_report = fetch_once(opener, preflight_url, referer='https://elibrary.ru/')
     text, target_report = fetch_once(opener, url, referer=preflight_url)
     target_report['preflight'] = {
         'status': preflight_report.get('status'),
@@ -80,12 +78,16 @@ def fetch_elibrary_page(url: str) -> tuple[str | None, dict]:
         'has_cookie_warning_text': bool(preflight_text and ('cookie' in preflight_text.lower() or 'cookies' in preflight_text.lower())),
     }
     target_report['cookies_count'] = len(jar)
+    target_report['manual_cookie_present'] = bool(os.environ.get('ELIBRARY_COOKIE'))
     if text:
         lowered = text.lower()
         target_report['html_fingerprint'] = {
+            'has_author_items': 'author_items' in text,
+            'has_rows': 'arw' in text,
             'has_suspicious_ip_text': 'подозр' in lowered or 'suspicious' in lowered or 'ip_blocked' in lowered,
+            'has_turing_test': 'тест тьюринга' in lowered or 'page_captcha' in lowered or 'recaptcha' in lowered,
             'has_cookie_text': 'cookie' in lowered or 'cookies' in lowered,
             'content_length': len(text.encode('utf-8', errors='replace')),
-            'excerpt': text[:500].replace('\n', ' '),
+            'excerpt': text[:900].replace('\n', ' '),
         }
     return text, target_report
