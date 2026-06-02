@@ -43,48 +43,38 @@ def has_latin(s):
 
 
 def as_number(v):
-    if isinstance(v, (int, float)):
-        return v
-    if isinstance(v, dict):
-        return as_number(v.get('value') if v.get('value') is not None else v.get('raw'))
-    if v is None:
-        return None
-    text = str(v).replace('\xa0',' ').replace(',', '.')
-    m = re.search(r'-?\d+(?:\.\d+)?', text)
-    if not m:
-        return None
+    if isinstance(v, (int, float)): return v
+    if isinstance(v, dict): return as_number(v.get('value') if v.get('value') is not None else v.get('raw'))
+    if v is None: return None
+    m = re.search(r'-?\d+(?:\.\d+)?', str(v).replace('\xa0',' ').replace(',', '.'))
+    if not m: return None
     num = float(m.group(0))
     return int(num) if num.is_integer() else num
 
 
 def metric_value(mapping, *labels):
-    if not isinstance(mapping, dict):
-        return None
+    if not isinstance(mapping, dict): return None
     for label in labels:
         if label in mapping:
             v = as_number(mapping[label])
-            if v is not None:
-                return v
+            if v is not None: return v
     lowered = {str(k).lower(): v for k, v in mapping.items()}
     for label in labels:
         key = str(label).lower()
         for k, v in lowered.items():
             if key in k:
                 n = as_number(v)
-                if n is not None:
-                    return n
+                if n is not None: return n
     return None
 
 
 def set_lang_field(p, base, value, prefer=None):
     value = (value or '').strip() if isinstance(value, str) else value
-    if not value:
-        return
+    if not value: return
     lang = prefer
     if lang not in ('ru', 'en'):
         lang = 'ru' if has_cyrillic(value) else 'en' if has_latin(value) else None
-    if lang:
-        p.setdefault(f'{base}_{lang}', value)
+    if lang: p.setdefault(f'{base}_{lang}', value)
     p.setdefault(base, value)
 
 
@@ -92,25 +82,21 @@ def enrich_localized_fields(p):
     set_lang_field(p, 'title', p.get('title'))
     set_lang_field(p, 'venue', p.get('venue'))
     sc = p.get('scopus') or {}
-    if sc.get('title'):
-        set_lang_field(p, 'title', sc.get('title'), 'en')
+    if sc.get('title'): set_lang_field(p, 'title', sc.get('title'), 'en')
     if sc.get('journal_or_source') or sc.get('source_title'):
         set_lang_field(p, 'venue', sc.get('journal_or_source') or sc.get('source_title'), 'en')
     for r in p.get('open_sources') or []:
-        title = r.get('title')
-        if title:
-            set_lang_field(p, 'title', title)
-        venue = r.get('venue')
-        if venue:
-            set_lang_field(p, 'venue', venue)
+        if r.get('title'): set_lang_field(p, 'title', r.get('title'))
+        if r.get('venue'): set_lang_field(p, 'venue', r.get('venue'))
+    for r in p.get('wos_records') or []:
+        if r.get('title_en') or r.get('title'): set_lang_field(p, 'title', r.get('title_en') or r.get('title'), 'en')
     p.setdefault('title_ru', p.get('title'))
     p.setdefault('venue_ru', p.get('venue'))
 
 
 def addsrc(p, s):
     p.setdefault('sources', ['elibrary'])
-    if s and s not in p['sources']:
-        p['sources'].append(s)
+    if s and s not in p['sources']: p['sources'].append(s)
 
 
 def load_elib():
@@ -127,8 +113,7 @@ def load_elib():
         if len(r)<8: continue
         m = re.search(r'id=(\d+)', r[7] or '')
         rec={'source':'elibrary_rinc_tsv','number':int(r[0]) if r[0].isdigit() else None,'elibrary_item_id':m.group(1) if m else None,'year':int(r[1]) if r[1].isdigit() else None,'rinc_citations':int(r[2]) if r[2].isdigit() else 0,'title':r[3],'authors_raw':r[4],'venue':r[5] or None,'pages':r[6] or None,'doi':None,'url':r[7] or None,'sources':['elibrary']}
-        enrich_localized_fields(rec)
-        rows.append(rec)
+        enrich_localized_fields(rec); rows.append(rec)
     return rows
 
 
@@ -183,40 +168,36 @@ def merge_open(canon, records):
     return enriched, added
 
 
+def merge_wos(canon, records):
+    by_item, by_title, by_ty, by_doi = indexes(canon)
+    enriched=added=0
+    for r in records or []:
+        doi=nd(r.get('doi')); title=nt(r.get('title_en') or r.get('title')); target=None
+        if doi: target=by_doi.get(doi)
+        if target is None: target=by_ty.get((title, str(r.get('year') or ''))) or by_title.get(title)
+        if target:
+            addsrc(target, 'wos'); target.setdefault('wos_records', []).append(r)
+            if doi and not target.get('doi'): target['doi']=doi
+            set_lang_field(target, 'title', r.get('title_en') or r.get('title'), 'en')
+            enriched+=1
+        else:
+            rec={'source':'wos_free_view_auto','number':None,'elibrary_item_id':None,'year':r.get('year'),'rinc_citations':0,'title':r.get('title_en') or r.get('title'),'authors_raw':'','venue':None,'pages':None,'doi':doi,'url':r.get('url'),'sources':['wos'],'wos_records':[r],'auto_accept_reason':'author-scoped Web of Science ResearcherID record'}
+            enrich_localized_fields(rec); canon.append(rec); added+=1
+            if doi: by_doi[doi]=rec
+            if title: by_title[title]=rec; by_ty[(title,str(rec.get('year') or ''))]=rec
+    return enriched, added
+
+
 def build_scientometrics(canon, elib_profile, scopus_metrics, wos_profile):
     gm = (elib_profile or {}).get('general_metrics') or {}
     wos_summary = (wos_profile or {}).get('summary') or {}
     sm = scopus_metrics or {}
     data = {
-        'rinc': {
-            'label_ru': 'РИНЦ', 'label_en': 'RSCI', 'source': 'eLibrary/РИНЦ',
-            'publications': metric_value(gm, 'Число публикаций в РИНЦ') or sum(1 for p in canon if 'elibrary' in p.get('sources', [])),
-            'citations': metric_value(gm, 'Число цитирований из публикаций, входящих в РИНЦ'),
-            'h_index': metric_value(gm, 'Индекс Хирша по публикациям в РИНЦ') or metric_value(gm, 'Индекс Хирша по всем публикациям'),
-        },
-        'scopus': {
-            'label_ru': 'Scopus', 'label_en': 'Scopus', 'source': 'Scopus API/search snapshot',
-            'publications': as_number(sm.get('documents_count')) or as_number(sm.get('document_count')) or as_number(sm.get('works_count_from_search')),
-            'citations': as_number(sm.get('cited_by_count')) or as_number(sm.get('citation_count')) or as_number(sm.get('citation_sum_from_search')),
-            'h_index': as_number(sm.get('h_index')) or as_number(sm.get('h_index_recomputed_from_retrieved_works')),
-        },
-        'wos': {
-            'label_ru': 'Web of Science', 'label_en': 'Web of Science', 'source': 'Web of Science Researcher Profile',
-            'publications': as_number(wos_summary.get('publications')),
-            'citations': as_number(wos_summary.get('citations')),
-            'h_index': as_number(wos_summary.get('h_index')),
-        }
+        'rinc': {'label_ru': 'РИНЦ', 'label_en': 'RSCI', 'source': 'eLibrary/РИНЦ', 'publications': metric_value(gm, 'Число публикаций в РИНЦ') or sum(1 for p in canon if 'elibrary' in p.get('sources', [])), 'citations': metric_value(gm, 'Число цитирований из публикаций, входящих в РИНЦ'), 'h_index': metric_value(gm, 'Индекс Хирша по публикациям в РИНЦ') or metric_value(gm, 'Индекс Хирша по всем публикациям')},
+        'scopus': {'label_ru': 'Scopus', 'label_en': 'Scopus', 'source': 'Scopus API/search snapshot', 'publications': as_number(sm.get('documents_count')) or as_number(sm.get('document_count')) or as_number(sm.get('works_count_from_search')), 'citations': as_number(sm.get('cited_by_count')) or as_number(sm.get('citation_count')) or as_number(sm.get('citation_sum_from_search')), 'h_index': as_number(sm.get('h_index')) or as_number(sm.get('h_index_recomputed_from_retrieved_works'))},
+        'wos': {'label_ru': 'Web of Science', 'label_en': 'Web of Science', 'source': 'Web of Science Researcher Profile', 'publications': as_number(wos_summary.get('publications')), 'citations': as_number(wos_summary.get('citations')), 'h_index': as_number(wos_summary.get('h_index'))}
     }
-    return {
-        'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
-        'columns': ['rinc', 'scopus', 'wos'],
-        'rows': [
-            {'key': 'publications', 'label_ru': 'Количество публикаций', 'label_en': 'Publications'},
-            {'key': 'citations', 'label_ru': 'Количество цитирований', 'label_en': 'Citations'},
-            {'key': 'h_index', 'label_ru': 'H-индекс (Хирш)', 'label_en': 'H-index'},
-        ],
-        'sources': data,
-    }
+    return {'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(), 'columns': ['rinc', 'scopus', 'wos'], 'rows': [{'key': 'publications', 'label_ru': 'Количество публикаций', 'label_en': 'Publications'}, {'key': 'citations', 'label_ru': 'Количество цитирований', 'label_en': 'Citations'}, {'key': 'h_index', 'label_ru': 'H-индекс (Хирш)', 'label_en': 'H-index'}], 'sources': data}
 
 
 def write_tsv(pubs):
@@ -240,12 +221,13 @@ def main():
     scopus_added=merge_scopus(canon, scopus_works)
     open_records=(read_json(DATA/'open/open_publications.json', {}) or {}).get('records', [])
     open_enriched, open_added = merge_open(canon, open_records)
-    elib_profile = read_json(DATA/'elibrary/profile_metrics.json',{})
     wos_profile = read_json(DATA/'wos/profile_metrics.json',{})
-    for p in canon:
-        enrich_localized_fields(p)
+    wos_records = (wos_profile or {}).get('records', [])
+    wos_enriched, wos_added = merge_wos(canon, wos_records)
+    elib_profile = read_json(DATA/'elibrary/profile_metrics.json',{})
+    for p in canon: enrich_localized_fields(p)
     scientometrics = build_scientometrics(canon, elib_profile, scopus_metrics, wos_profile)
-    public_profile={'generated_at':datetime.now(timezone.utc).replace(microsecond=0).isoformat(),'name_ru':prof.get('display_name_ru',''),'name_en':prof.get('display_name_en',''),'identifiers':ids,'elibrary_metrics':read_json(DATA/'elibrary/metrics.json',{}),'elibrary_profile_metrics':elib_profile,'wos_profile_metrics':wos_profile,'scopus_metrics':scopus_metrics,'scientometrics':scientometrics,'open_sources_report':read_json(DATA/'open/harvest_report.json',{}),'canonical_publications_count':len(canon),'scopus_enriched_publications_count':sum(1 for p in canon if 'scopus' in p.get('sources',[])),'scopus_auto_added_publications_count':scopus_added,'open_sources_records_count':len(open_records),'open_sources_enriched_publications_count':open_enriched,'open_sources_auto_added_publications_count':open_added,'admin_queue_size':0}
+    public_profile={'generated_at':datetime.now(timezone.utc).replace(microsecond=0).isoformat(),'name_ru':prof.get('display_name_ru',''),'name_en':prof.get('display_name_en',''),'identifiers':ids,'elibrary_metrics':read_json(DATA/'elibrary/metrics.json',{}),'elibrary_profile_metrics':elib_profile,'wos_profile_metrics':wos_profile,'scopus_metrics':scopus_metrics,'scientometrics':scientometrics,'open_sources_report':read_json(DATA/'open/harvest_report.json',{}),'canonical_publications_count':len(canon),'scopus_enriched_publications_count':sum(1 for p in canon if 'scopus' in p.get('sources',[])),'scopus_auto_added_publications_count':scopus_added,'open_sources_records_count':len(open_records),'open_sources_enriched_publications_count':open_enriched,'open_sources_auto_added_publications_count':open_added,'wos_records_count':len(wos_records),'wos_enriched_publications_count':wos_enriched,'wos_auto_added_publications_count':wos_added,'admin_queue_size':0}
     (PUBLIC/'profile.json').write_text(json.dumps(public_profile,ensure_ascii=False,indent=2),encoding='utf-8')
     (PUBLIC/'publications.json').write_text(json.dumps(canon,ensure_ascii=False,indent=2),encoding='utf-8')
     write_tsv(canon); empty_queue()
