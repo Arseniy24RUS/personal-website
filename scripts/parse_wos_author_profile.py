@@ -27,13 +27,10 @@ def now() -> str:
 def parse_summary_items(soup: BeautifulSoup) -> dict:
     out: dict[str, dict] = {}
     for item in soup.select('.summary-item'):
-        count = item.select_one('.summary-count')
-        label = item.select_one('.summary-label')
-        if not count or not label:
-            continue
-        key = clean(label.get_text(' '))
-        raw = clean(count.get_text(' '))
-        if key:
+        strings = [clean(s) for s in item.stripped_strings if clean(s)]
+        if len(strings) >= 2:
+            raw = strings[0]
+            key = ' '.join(strings[1:])
             out[key] = {'raw': raw, 'value': int_value(raw)}
     return out
 
@@ -41,15 +38,11 @@ def parse_summary_items(soup: BeautifulSoup) -> dict:
 def parse_core_metrics(soup: BeautifulSoup) -> dict:
     out: dict[str, dict] = {}
     for block in soup.select('.wat-author-metric-inline-block'):
-        value = block.select_one('.wat-author-metric')
-        label = block.select_one('.wat-author-metric-descriptor')
-        sub = block.select_one('.wat-author-metric-sub-descriptor')
-        if not value or not label:
-            continue
-        key = clean(label.get_text(' '))
-        raw = clean(value.get_text(' '))
-        if key:
-            out[key] = {'raw': raw, 'value': int_value(raw), 'descriptor': key, 'sub_descriptor': clean(sub.get_text(' ')) if sub else ''}
+        strings = [clean(s) for s in block.stripped_strings if clean(s)]
+        if len(strings) >= 2:
+            raw = strings[0]
+            key = ' '.join(strings[1:])
+            out[key] = {'raw': raw, 'value': int_value(raw), 'descriptor': key}
     return out
 
 
@@ -88,6 +81,23 @@ def first_text(record, selectors: list[str]) -> str:
     return ''
 
 
+def extract_year(record, parts: list[str]):
+    pub = record.select_one('.jcr-and-pub-info-section')
+    if pub:
+        text = clean(pub.get_text(' '))
+        m = re.search(r'\b((?:19|20)\d{2})\b', text)
+        if m:
+            return int(m.group(1))
+    # Fallback: ignore obvious title fragments such as “2017-2019” when possible.
+    for p in parts:
+        if len(p) > 120:
+            continue
+        m = re.search(r'\b((?:19|20)\d{2})\b', p)
+        if m:
+            return int(m.group(1))
+    return None
+
+
 def parse_record(record) -> dict:
     text_lines = [clean(x) for x in record.get_text('\n').split('\n')]
     parts = [x for x in text_lines if x]
@@ -95,12 +105,7 @@ def parse_record(record) -> dict:
     if not title:
         candidates = [p for p in parts if len(p) > 18 and not p.isdigit() and p.lower() not in {'article', 'review', 'proceedings paper'}]
         title = candidates[0] if candidates else ''
-    year = None
-    for p in parts:
-        m = re.search(r'\b((?:19|20)\d{2})\b', p)
-        if m:
-            year = int(m.group(1))
-            break
+    year = extract_year(record, parts)
     doi = None
     joined = ' '.join(parts)
     m = re.search(r'10\.\d{4,9}/[^\s]+', joined, flags=re.I)
@@ -117,7 +122,18 @@ def parse_record(record) -> dict:
             record_id = 'WOS:' + id_match.group(1)
     metadata_raw = clean(' | '.join(parts[:80]))
     fp = hashlib.sha256('|'.join([title.lower(), str(year or ''), doi or '']).encode('utf-8')).hexdigest()[:16]
-    return {'source': 'web_of_science_free_view_author_profile', 'wos_uid': record_id, 'title': title, 'title_en': title if title and not re.search(r'[А-Яа-яЁё]', title) else '', 'year': year, 'doi': doi, 'url': url, 'metadata_raw': metadata_raw, 'dedupe_fingerprint': fp, 'sources': ['wos']}
+    return {
+        'source': 'web_of_science_free_view_author_profile',
+        'wos_uid': record_id,
+        'title': title,
+        'title_en': title if title and not re.search(r'[А-Яа-яЁё]', title) else '',
+        'year': year,
+        'doi': doi,
+        'url': url,
+        'metadata_raw': metadata_raw,
+        'dedupe_fingerprint': fp,
+        'sources': ['wos'],
+    }
 
 
 def parse_wos_author_profile_html(html: str, researcher_id: str = 'AAG-1530-2021') -> dict:
@@ -130,7 +146,18 @@ def parse_wos_author_profile_html(html: str, researcher_id: str = 'AAG-1530-2021
             records.append(parsed)
     summary_metrics = parse_summary_items(soup)
     core_metrics = parse_core_metrics(soup)
-    return {'source': 'web_of_science_free_view_author_profile', 'source_url': f'https://www.webofscience.com/wos/author/record/{researcher_id}', 'researcher_id': researcher_id, 'generated_at': now(), 'page_title': title, 'summary': normalized_summary(summary_metrics, core_metrics), 'summary_metrics': summary_metrics, 'core_collection_metrics': core_metrics, 'records_count_on_page': len(records), 'records': records}
+    return {
+        'source': 'web_of_science_free_view_author_profile',
+        'source_url': f'https://www.webofscience.com/wos/author/record/{researcher_id}',
+        'researcher_id': researcher_id,
+        'generated_at': now(),
+        'page_title': title,
+        'summary': normalized_summary(summary_metrics, core_metrics),
+        'summary_metrics': summary_metrics,
+        'core_collection_metrics': core_metrics,
+        'records_count_on_page': len(records),
+        'records': records,
+    }
 
 
 def parse_file(path: str, researcher_id: str = 'AAG-1530-2021') -> dict:
