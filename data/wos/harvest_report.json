@@ -1,0 +1,9 @@
+{
+  "status": "timeout_or_unready",
+  "url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
+  "final_url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=USW2EC0BEBnHc46lxyGHxtJPUOF6a",
+  "title": "Web of Science",
+  "content_length": 256862,
+  "generated_at": "2026-06-02T13:41:59+00:00",
+  "used_source": "previous_normalized_json"
+}

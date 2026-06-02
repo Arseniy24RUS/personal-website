@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-01T08:51:11+00:00",
+  "generated_at": "2026-06-02T13:40:25+00:00",
   "author_headers": {
     "Content-Type": "application/json;charset=UTF-8",
     "X-ELS-APIKey": "0b32c254dc4bd46076fd480238bc47f7",
-    "X-ELS-ReqId": "fc86a46adcea11b7",
+    "X-ELS-ReqId": "a049782250b139ba",
     "X-ELS-ResourceVersion": "default",
     "X-ELS-Status": "AUTHORIZATION_ERROR - The requestor is not authorized to access the requested view or fields of the resource",
-    "X-ELS-TransId": "fc86a46adcea11b7",
+    "X-ELS-TransId": "a049782250b139ba",
     "X-RateLimit-Limit": "5000",
     "X-RateLimit-Remaining": "5000",
     "X-RateLimit-Reset": "1780746288"
@@ -15,12 +15,12 @@
     {
       "Content-Type": "application/json;charset=UTF-8",
       "X-ELS-APIKey": "0b32c254dc4bd46076fd480238bc47f7",
-      "X-ELS-ReqId": "ca2a24c33cc8d092",
+      "X-ELS-ReqId": "20760abf96fe1eaf",
       "X-ELS-ResourceVersion": "default",
       "X-ELS-Status": "OK",
-      "X-ELS-TransId": "ca2a24c33cc8d092",
+      "X-ELS-TransId": "20760abf96fe1eaf",
       "X-RateLimit-Limit": "20000",
-      "X-RateLimit-Remaining": "19990",
+      "X-RateLimit-Remaining": "19989",
       "X-RateLimit-Reset": "1780746288"
     }
   ],
@@ -37,7 +37,7 @@
       "view": "ENHANCED"
     },
     "_headers": {
-      "Date": "Mon, 01 Jun 2026 08:51:10 GMT",
+      "Date": "Tue, 02 Jun 2026 13:40:24 GMT",
       "Content-Type": "application/json;charset=UTF-8",
       "Content-Length": "167",
       "Connection": "close",
@@ -46,17 +46,17 @@
       "tdm-reservation": "1",
       "Vary": "Access-Control-Request-Headers",
       "X-ELS-APIKey": "0b32c254dc4bd46076fd480238bc47f7",
-      "X-ELS-ReqId": "fc86a46adcea11b7",
+      "X-ELS-ReqId": "a049782250b139ba",
       "X-ELS-ResourceVersion": "default",
       "X-ELS-Status": "AUTHORIZATION_ERROR - The requestor is not authorized to access the requested view or fields of the resource",
-      "X-ELS-TransId": "fc86a46adcea11b7",
+      "X-ELS-TransId": "a049782250b139ba",
       "X-RateLimit-Limit": "5000",
       "X-RateLimit-Remaining": "5000",
       "X-RateLimit-Reset": "1780746288",
-      "set-cookie": "__cf_bm=Dl3BwCnl2FvbjCIuDQO.wFGG02LLLrSLvL6gYpBU9II-1780303870.2607698-1.0.1.1-C8aLsWUb13RUGGajyDZ1ql3BmjFC44N.CNxFxv2ca9JdmDBh52N5dqLj1RwVGQJyhuDWDPc0wh9ts5hD3ley5RS852sOL4MZo.wqOIJvsfPLQyfYe4D.UlwsFlMFhIsi; HttpOnly; SameSite=None; Secure; Path=/; Domain=elsevier.com; Expires=Mon, 01 Jun 2026 09:21:10 GMT",
+      "set-cookie": "__cf_bm=UJnNs1nWPQ7K249GXmInCpPBFTewZcRNqA7F_9yT8GA-1780407624.5894523-1.0.1.1-lIt1rQLlbREVHaSrwM95tFVuwVb7Vxnp.tu7nmy8ksEu.Csc8weJOuPMs3D029tfbhuxV48TsFB0ZNGrVmbnZ6QE0eHPa1c6DwaS5PPWwnjDOyvVkSd4PKV2TEvXmIfq; HttpOnly; SameSite=None; Secure; Path=/; Domain=elsevier.com; Expires=Tue, 02 Jun 2026 14:10:24 GMT",
       "cf-cache-status": "DYNAMIC",
       "Server": "cloudflare",
-      "CF-RAY": "a04cf99519eb7ff3-IAD"
+      "CF-RAY": "a056dea5ace3e60c-IAD"
     }
   },
   "search_error": null

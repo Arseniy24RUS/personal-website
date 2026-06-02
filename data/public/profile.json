@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T08:51:11+00:00",
+  "generated_at": "2026-06-02T13:41:59+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
@@ -470,7 +470,7 @@
   },
   "scopus_metrics": {
     "source": "scopus_api",
-    "generated_at": "2026-06-01T08:51:11+00:00",
+    "generated_at": "2026-06-02T13:40:25+00:00",
     "scopus_author_id": "57220956828",
     "author_profile_status": 401,
     "search_status": 200,
@@ -480,8 +480,59 @@
     "h_index_recomputed_from_retrieved_works": 2,
     "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available."
   },
+  "scientometrics": {
+    "generated_at": "2026-06-02T13:41:59+00:00",
+    "columns": [
+      "rinc",
+      "scopus",
+      "wos"
+    ],
+    "rows": [
+      {
+        "key": "publications",
+        "label_ru": "Количество публикаций",
+        "label_en": "Publications"
+      },
+      {
+        "key": "citations",
+        "label_ru": "Количество цитирований",
+        "label_en": "Citations"
+      },
+      {
+        "key": "h_index",
+        "label_ru": "H-индекс (Хирш)",
+        "label_en": "H-index"
+      }
+    ],
+    "sources": {
+      "rinc": {
+        "label_ru": "РИНЦ",
+        "label_en": "RSCI",
+        "source": "eLibrary/РИНЦ",
+        "publications": 58,
+        "citations": 302,
+        "h_index": 10
+      },
+      "scopus": {
+        "label_ru": "Scopus",
+        "label_en": "Scopus",
+        "source": "Scopus API/search snapshot",
+        "publications": 7,
+        "citations": 6,
+        "h_index": 2
+      },
+      "wos": {
+        "label_ru": "Web of Science",
+        "label_en": "Web of Science",
+        "source": "Web of Science Researcher Profile",
+        "publications": 10,
+        "citations": 7,
+        "h_index": 2
+      }
+    }
+  },
   "open_sources_report": {
-    "generated_at": "2026-06-01T08:45:12+00:00",
+    "generated_at": "2026-06-02T13:15:15+00:00",
     "providers": {
       "orcid": {
         "status": "ok",
@@ -507,11 +558,14 @@
     "records_total_before_dedupe": 42,
     "records_total_after_dedupe": 18
   },
-  "canonical_publications_count": 58,
+  "canonical_publications_count": 20,
   "scopus_enriched_publications_count": 7,
-  "scopus_auto_added_publications_count": 0,
+  "scopus_auto_added_publications_count": 6,
   "open_sources_records_count": 18,
-  "open_sources_enriched_publications_count": 18,
-  "open_sources_auto_added_publications_count": 0,
+  "open_sources_enriched_publications_count": 6,
+  "open_sources_auto_added_publications_count": 12,
+  "wos_records_count": 0,
+  "wos_enriched_publications_count": 0,
+  "wos_auto_added_publications_count": 0,
   "admin_queue_size": 0
 }

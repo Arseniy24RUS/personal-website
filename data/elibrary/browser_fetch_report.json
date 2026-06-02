@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-06-02T13:19:47+00:00",
+  "route": "authors_search_route",
+  "min_records": 50,
+  "pages": {
+    "items": {
+      "source": "authors_search_path",
+      "authors_url": "https://www.elibrary.ru/authors.asp",
+      "search_name": "Ситковский Арсений Михайлович",
+      "status": "error",
+      "error": "TimeoutError('Page.goto: Timeout 130000ms exceeded.\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
+      "elapsed_sec": 1226.768,
+      "fingerprint": {
+        "content_length": 0,
+        "has_suspicious_ip_text": false,
+        "has_cookie_text": false,
+        "has_captcha_text": false,
+        "excerpt": ""
+      },
+      "debug": {
+        "html_path": "artifacts/elibrary_debug/20260602T134019Z_authors_search_error.html",
+        "screenshot_path": "artifacts/elibrary_debug/20260602T134019Z_authors_search_error.png"
+      },
+      "debug_final": {
+        "html_path": "artifacts/elibrary_debug/20260602T134020Z_authors_route_items_not_ready.html",
+        "screenshot_path": "artifacts/elibrary_debug/20260602T134020Z_authors_route_items_not_ready.png"
+      }
+    }
+  },
+  "headless": false,
+  "manual_cookie_present": true,
+  "cookies_injected_count": 21,
+  "cookies_injected_names": [
+    "SCookieGUID",
+    "SUserID",
+    "__utma",
+    "__utmz",
+    "_ym_d",
+    "_ym_isad",
+    "_ym_uid"
+  ],
+  "authors_search_path": {
+    "source": "authors_search_path",
+    "authors_url": "https://www.elibrary.ru/authors.asp",
+    "search_name": "Ситковский Арсений Михайлович",
+    "status": "error",
+    "error": "TimeoutError('Page.goto: Timeout 130000ms exceeded.\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
+    "elapsed_sec": 1226.768,
+    "fingerprint": {
+      "content_length": 0,
+      "has_suspicious_ip_text": false,
+      "has_cookie_text": false,
+      "has_captcha_text": false,
+      "excerpt": ""
+    },
+    "debug": {
+      "html_path": "artifacts/elibrary_debug/20260602T134019Z_authors_search_error.html",
+      "screenshot_path": "artifacts/elibrary_debug/20260602T134019Z_authors_search_error.png"
+    },
+    "debug_final": {
+      "html_path": "artifacts/elibrary_debug/20260602T134020Z_authors_route_items_not_ready.html",
+      "screenshot_path": "artifacts/elibrary_debug/20260602T134020Z_authors_route_items_not_ready.png"
+    }
+  },
+  "status": "not_ready"
+}

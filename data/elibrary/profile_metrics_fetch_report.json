@@ -1,14 +1,18 @@
 {
-  "status": "ok",
-  "http_status": 200,
-  "elapsed_sec": 45.23,
-  "content_length": 714,
+  "status": "error",
+  "elapsed_sec": 1.378,
   "url": "https://www.elibrary.ru/author_profile.asp?id=1012909",
-  "generated_at": "2026-06-01T08:51:01+00:00",
-  "html_fingerprint": {
-    "has_metrics": false,
-    "has_h_index": false,
-    "has_suspicious_ip_text": false
+  "error_type": "URLError",
+  "error": "URLError(ConnectionResetError(104, 'Connection reset by peer'))",
+  "preflight": {
+    "status": "error",
+    "elapsed_sec": 0.44,
+    "url": "https://elibrary.ru/defaultx.asp",
+    "error_type": "URLError",
+    "error": "URLError(ConnectionResetError(104, 'Connection reset by peer'))"
   },
+  "cookies_count": 0,
+  "manual_cookie_present": true,
+  "generated_at": "2026-06-02T13:40:23+00:00",
   "used_source": "previous_normalized_json"
 }

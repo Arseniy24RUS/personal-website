@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T08:51:30+00:00",
+  "generated_at": "2026-06-02T13:42:07+00:00",
   "items": {
     "elibrary:89181881": {
       "title_ru": "ФОРМИРОВАНИЕ ТЕХНОЛОГИЙ РЕШЕНИЯ ЖИЛИЩНЫХ ПРОБЛЕМ СЕМЬИ В РАМКАХ ДЕМОГРАФИЧЕСКОЙ ПОЛИТИКИ: ПРОБЛЕМЫ И ПЕРСПЕКТИВЫ",
@@ -303,6 +303,30 @@
       "title_en_source": "argos_translate_ru_en",
       "created_at": "2026-06-01T08:51:30+00:00",
       "updated_at": "2026-06-01T08:51:30+00:00",
+      "review_status": "machine"
+    },
+    "sha256:a1acd943ab563e67": {
+      "title_ru": "Методика и практика формирования многоуровневой системы центров социальных услуг (Methodology and Practice of Forming a Multi-Level System of Centers of Social Services)",
+      "title_en": "Methodology and Practice of Forming a Multi-Level System of Centers of Social Services",
+      "title_en_source": "argos_translate_ru_en",
+      "created_at": "2026-06-02T13:42:06+00:00",
+      "updated_at": "2026-06-02T13:42:06+00:00",
+      "review_status": "machine"
+    },
+    "sha256:819e0ea37d0d1586": {
+      "title_ru": "Демографический фактор в обеспечении устойчивого развития мегаполиса (Demographic Factor in Ensuring Sustainable Development of the Megacity)",
+      "title_en": "Demographic Factor in Ensuring Sustainable Development of the Megacity",
+      "title_en_source": "argos_translate_ru_en",
+      "created_at": "2026-06-02T13:42:07+00:00",
+      "updated_at": "2026-06-02T13:42:07+00:00",
+      "review_status": "machine"
+    },
+    "sha256:56bc21d4cabd9ef1": {
+      "title_ru": "Демографическая Политика Российской Федерации (Demographic Policy of the Russian Federation)",
+      "title_en": "Demographic Policy of the Russian Federation (Demographic Policy of the Russian Federation)",
+      "title_en_source": "argos_translate_ru_en",
+      "created_at": "2026-06-02T13:42:07+00:00",
+      "updated_at": "2026-06-02T13:42:07+00:00",
       "review_status": "machine"
     }
   },
