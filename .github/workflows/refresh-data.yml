@@ -17,7 +17,6 @@ on:
           - "true"
           - "false"
   schedule:
-    # Weekly refresh: every Monday at 03:17 UTC. This is more frequent than the minimum monthly requirement.
     - cron: "17 3 * * 1"
 
 env:
@@ -38,12 +37,12 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y openvpn curl iproute2
+          sudo apt-get install -y openvpn curl iproute2 xvfb
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4 pyyaml rapidfuzz argostranslate playwright
-      - name: Install Chromium for eLibrary browser fetch
+      - name: Install Chromium for browser-backed data fetchers
         run: |
           python -m playwright install --with-deps chromium
       - name: Mirror Craftum assets
@@ -123,21 +122,20 @@ jobs:
             echo "OpenVPN did not change public IP; continuing with fallback logic."
             sudo tail -n 120 openvpn.log || true
           fi
-      - name: Harvest eLibrary through browser
+      - name: Harvest eLibrary publication list through confirmed authors route
         env:
           ELIBRARY_AUTHOR_ID: "1012909"
           ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
-          ELIBRARY_PROFILE_URL: "https://www.elibrary.ru/author_profile.asp?id=1012909"
-          ELIBRARY_ITEMS_URL: "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
-          ELIBRARY_PROFILE_OUT: data/elibrary/profile_metrics.json
           ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
           ELIBRARY_BROWSER_REPORT: data/elibrary/browser_fetch_report.json
           ELIBRARY_BROWSER_WAIT_SEC: "130"
+          ELIBRARY_BROWSER_HEADLESS: "false"
+          ELIBRARY_USER_AGENT: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36"
         run: |
-          if [ -f scripts/harvest_elibrary_browser.py ]; then
-            python scripts/harvest_elibrary_browser.py || true
+          if [ -f scripts/harvest_elibrary_authors_route.py ]; then
+            xvfb-run -a python scripts/harvest_elibrary_authors_route.py || true
           else
-            echo "Browser eLibrary harvester is missing; using ordinary fetchers."
+            echo "Production eLibrary authors-route harvester is missing; skipping browser route."
           fi
       - name: Harvest eLibrary author profile metrics
         env:
@@ -153,11 +151,11 @@ jobs:
           else
             echo "eLibrary author profile harvester/parser is missing; using existing normalized metrics."
           fi
-      - name: Harvest eLibrary publication list
+      - name: Harvest eLibrary publication list fallback
         env:
           ELIBRARY_AUTHOR_ID: "1012909"
           ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
-          ELIBRARY_ITEMS_URL: "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
+          ELIBRARY_ITEMS_URL: "https://elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
           ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
           ELIBRARY_ITEMS_REPORT: data/elibrary/items_fetch_report.json
           ELIBRARY_PROXY_URL: ${{ secrets.ELIBRARY_PROXY_URL }}
@@ -189,6 +187,19 @@ jobs:
             python scripts/harvest_scopus.py || true
           else
             echo "Scopus harvester or key is not configured; skipping."
+          fi
+      - name: Harvest Web of Science free-view author profile
+        env:
+          WOS_RESEARCHER_ID: "AAG-1530-2021"
+          WOS_PROFILE_URL: "https://www.webofscience.com/wos/author/record/AAG-1530-2021"
+          WOS_PROFILE_OUT: data/wos/profile_metrics.json
+          WOS_HARVEST_REPORT: data/wos/harvest_report.json
+          WOS_BROWSER_WAIT_SEC: "90"
+        run: |
+          if [ -f scripts/harvest_wos_author_profile.py ]; then
+            python scripts/harvest_wos_author_profile.py || true
+          else
+            echo "Web of Science free-view harvester is missing; using existing WOS snapshot/data."
           fi
       - name: Generate derived public data
         run: |
