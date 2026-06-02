@@ -87,6 +87,8 @@ jobs:
           WOS_MIN_RECORDS: "10"
           WOS_BROWSER_HEADLESS: "false"
           WOS_BROWSER_CHANNEL: "chrome"
+          WOS_COOKIE: ${{ secrets.WOS_COOKIE }}
+          WOS_STORAGE_STATE_B64: ${{ secrets.WOS_STORAGE_STATE_B64 }}
         run: |
           xvfb-run -a python scripts/test_wos_profile_live.py
       - name: Disconnect home OpenVPN route
