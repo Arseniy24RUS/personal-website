@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T13:19:47+00:00",
+  "generated_at": "2026-06-02T19:46:41+00:00",
   "route": "authors_search_route",
   "min_records": 50,
   "pages": {
@@ -7,24 +7,251 @@
       "source": "authors_search_path",
       "authors_url": "https://www.elibrary.ru/authors.asp",
       "search_name": "Ситковский Арсений Михайлович",
-      "status": "error",
-      "error": "TimeoutError('Page.goto: Timeout 130000ms exceeded.\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
-      "elapsed_sec": 1226.768,
+      "status": "ready",
+      "fill_author_search": {
+        "ok": true,
+        "name": "surname",
+        "id": "surname",
+        "inputs": 4,
+        "score": 120,
+        "row": "   \t\t\nSPIN-код:\nORCID:\nResearcherID:\nScopus Author ID:\nArXiv Author ID:\nРИНЦ Author ID:\n\t\t   Фамилия: \t\t  Персональный идентификатор автора: \n\n\t\t\nSPIN-код:\nORCID:\nResearcherID:\nScopus Author ID:\nArXiv Author ID:\nРИНЦ Author ID:\n\t\t",
+        "attrs": "surname surname   inputt",
+        "outerHTML": "<input type=\"text\" id=\"surname\" name=\"surname\" value=\"Ситковский Арсений Михайлович\" style=\"width:198px\" class=\"inputt\" onkeypress=\"submit_enter(event)\">"
+      },
+      "click_author_search": {
+        "ok": true,
+        "submitted_form": true
+      },
+      "elapsed_sec": 18.952,
+      "final_url": "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc",
+      "result_links_total": 57,
+      "result_links_sample": [
+        {
+          "href": "/defaultx.asp",
+          "onclick": "",
+          "text": "",
+          "row": "",
+          "items_url": ""
+        },
+        {
+          "href": "/defaultx.asp",
+          "onclick": "",
+          "text": "",
+          "row": "",
+          "items_url": ""
+        },
+        {
+          "href": "/querybox.asp?scope=newquery",
+          "onclick": "",
+          "text": "Расширенный поиск",
+          "row": "Расширенный поиск",
+          "items_url": ""
+        },
+        {
+          "href": "/neural_search.asp",
+          "onclick": "",
+          "text": "Нейропоиск",
+          "row": "Нейропоиск",
+          "items_url": ""
+        },
+        {
+          "href": "#",
+          "onclick": "return show_hide_password(this);",
+          "text": "",
+          "row": "",
+          "items_url": ""
+        },
+        {
+          "href": "/access_terms.asp",
+          "onclick": "",
+          "text": "Правила доступа",
+          "row": "\tПравила доступа",
+          "items_url": ""
+        },
+        {
+          "href": "/author_info.asp?isnew=1&rpage=https%3A%2F%2Fwww%2Eelibrary%2Eru%2Fauthors%2Easp%3Fselid%3D%26orgname%3D%26codetype%3DSPIN%26rubriccode%3D%26sortorder%3D2%26orgadminid%3D%26countryid%3D%26authors%5Fall%3D%26townid%3D%26p",
+          "onclick": "",
+          "text": "Регистрация",
+          "row": "\tРегистрация",
+          "items_url": ""
+        },
+        {
+          "href": "/pass_request.asp",
+          "onclick": "",
+          "text": "Забыли пароль?",
+          "row": "\tЗабыли пароль?",
+          "items_url": ""
+        },
+        {
+          "href": "javascript:sso_orgs()",
+          "onclick": "",
+          "text": "Вход через Вашу организацию",
+          "row": "\tВход через Вашу организацию",
+          "items_url": ""
+        },
+        {
+          "href": "/titles.asp",
+          "onclick": "",
+          "text": "ЖУРНАЛЫ",
+          "row": "\tЖУРНАЛЫ",
+          "items_url": ""
+        },
+        {
+          "href": "/books.asp",
+          "onclick": "",
+          "text": "КНИГИ",
+          "row": "\tКНИГИ",
+          "items_url": ""
+        },
+        {
+          "href": "/patents.asp",
+          "onclick": "",
+          "text": "ПАТЕНТЫ",
+          "row": "\tПАТЕНТЫ",
+          "items_url": ""
+        },
+        {
+          "href": "/querybox.asp",
+          "onclick": "",
+          "text": "ПОИСК",
+          "row": "\tПОИСК",
+          "items_url": ""
+        },
+        {
+          "href": "/authors.asp",
+          "onclick": "",
+          "text": "АВТОРЫ",
+          "row": "\tАВТОРЫ",
+          "items_url": ""
+        },
+        {
+          "href": "/orgs.asp",
+          "onclick": "",
+          "text": "ОРГАНИЗАЦИИ",
+          "row": "\tОРГАНИЗАЦИИ",
+          "items_url": ""
+        },
+        {
+          "href": "/keywords.asp",
+          "onclick": "",
+          "text": "КЛЮЧЕВЫЕ СЛОВА",
+          "row": "\tКЛЮЧЕВЫЕ СЛОВА",
+          "items_url": ""
+        },
+        {
+          "href": "/rubrics.asp",
+          "onclick": "",
+          "text": "РУБРИКАТОР",
+          "row": "\tРУБРИКАТОР",
+          "items_url": ""
+        },
+        {
+          "href": "/region_compare.asp",
+          "onclick": "",
+          "text": "РЕГИОНЫ",
+          "row": "\tРЕГИОНЫ",
+          "items_url": ""
+        },
+        {
+          "href": "/defaultx.asp",
+          "onclick": "",
+          "text": "Начальная страница",
+          "row": "\tНачальная страница",
+          "items_url": ""
+        },
+        {
+          "href": "/project_user_office.asp",
+          "onclick": "",
+          "text": "Личный кабинет",
+          "row": "Личный кабинет",
+          "items_url": ""
+        },
+        {
+          "href": "javascript:end_session()",
+          "onclick": "",
+          "text": "Закрыть сессию",
+          "row": "Закрыть сессию",
+          "items_url": ""
+        },
+        {
+          "href": "mailto:support@elibrary.ru",
+          "onclick": "",
+          "text": "support@elibrary.ru",
+          "row": "\n+7 (495) 544-2494 доб. 1\nsupport@elibrary.ru",
+          "items_url": ""
+        },
+        {
+          "href": "mailto:publish@elibrary.ru",
+          "onclick": "",
+          "text": "publish@elibrary.ru",
+          "row": "\n+7 (495) 544-2494 доб. 2\npublish@elibrary.ru",
+          "items_url": ""
+        },
+        {
+          "href": "mailto:book@elibrary.ru",
+          "onclick": "",
+          "text": "book@elibrary.ru",
+          "row": "\n+7 (495) 544-2494 доб. 3\nbook@elibrary.ru",
+          "items_url": ""
+        },
+        {
+          "href": "mailto:info@sciencespace.ru",
+          "onclick": "",
+          "text": "info@sciencespace.ru",
+          "row": "\n+7 (495) 544-2494 доб. 4\ninfo@sciencespace.ru",
+          "items_url": ""
+        },
+        {
+          "href": "mailto:org@scienceindex.ru",
+          "onclick": "",
+          "text": "org@scienceindex.ru",
+          "row": "\n+7 (495) 544-2494 доб. 4\norg@scienceindex.ru",
+          "items_url": ""
+        },
+        {
+          "href": "mailto:api@elibrary.ru",
+          "onclick": "",
+          "text": "api@elibrary.ru",
+          "row": "\n+7 (495) 544-2494 доб. 4\napi@elibrary.ru",
+          "items_url": ""
+        },
+        {
+          "href": "mailto:sales.team@elibrary.ru",
+          "onclick": "",
+          "text": "sales.team@elibrary.ru",
+          "row": "\n+7 (495) 544-2494 доб. 6\nsales.team@elibrary.ru",
+          "items_url": ""
+        },
+        {
+          "href": "mailto:conf@elibrary.ru",
+          "onclick": "",
+          "text": "conf@elibrary.ru",
+          "row": "\n+7 (495) 544-2494 доб. 7\nconf@elibrary.ru",
+          "items_url": ""
+        },
+        {
+          "href": "/contact_new.asp",
+          "onclick": "",
+          "text": "117246, г. Москва,\nНаучный проезд, д. 14А, стр. 3, таунхаус 1",
+          "row": "\n117246, г. Москва,\nНаучный проезд, д. 14А, стр. 3, таунхаус 1",
+          "items_url": ""
+        }
+      ],
+      "selected_author_items_url": "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc",
+      "selected_author_items_text": "58",
+      "selected_author_row": "1.\n\n\t\n\tСитковский  Арсений  Михайлович*\nФедеральный научно-исследовательский социологический центр РАН (Москва)\t\n58\n\t\n302\n\t\n10",
+      "click_items_link_error": "TypeError(\"'Locator' object is not callable\")",
+      "kind": "items",
+      "title": "Ситковский Арсений Михайлович - Список публикаций",
       "fingerprint": {
-        "content_length": 0,
+        "content_length": 157379,
         "has_suspicious_ip_text": false,
         "has_cookie_text": false,
         "has_captcha_text": false,
-        "excerpt": ""
+        "excerpt": "<!DOCTYPE html><html><head> <meta name=\"robots\" content=\"noindex,nofollow\"> <title>Ситковский Арсений Михайлович - Список публикаций</title>  <script type=\"text/javascript\" src=\"/jquery.min.js\"></script> <script type=\"text/javascript\" src=\"/jquery.tools.min.js\"></script> <script type=\"text/javascript\" src=\"/fancybox/jquery.fancybox-1.3.4.pack.js\"></script> <script type=\"text/javascript\" src=\"/fancybox/jquery.easydrag.js\"></script> <script type=\"text/javascript\" src=\"/elibrary1.js\"></script> <script type=\"text/javascript\" src=\"/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script> <link rel=\"stylesheet\" href=\"/fancybox/jquery.fancybox-1.3.4.css\" type=\"text/css\" media=\"screen\"> <link rel=\"stylesheet\" href=\"/style_sm.css\" type=\"text/css\" media=\"screen\">  <script language=\"JavaScript\">  but_blue_hover=new Image(); but_blue_hover.src=\"/images/but_blue_hover.png\"; but_red_hover=new Image("
       },
-      "debug": {
-        "html_path": "artifacts/elibrary_debug/20260602T134019Z_authors_search_error.html",
-        "screenshot_path": "artifacts/elibrary_debug/20260602T134019Z_authors_search_error.png"
-      },
-      "debug_final": {
-        "html_path": "artifacts/elibrary_debug/20260602T134020Z_authors_route_items_not_ready.html",
-        "screenshot_path": "artifacts/elibrary_debug/20260602T134020Z_authors_route_items_not_ready.png"
-      }
+      "snapshot_path": "data/snapshots/elibrary/items/author_items_1012909_20260602T194701Z_authors_route.html",
+      "parsed_records": 58
     }
   },
   "headless": false,
@@ -43,24 +270,251 @@
     "source": "authors_search_path",
     "authors_url": "https://www.elibrary.ru/authors.asp",
     "search_name": "Ситковский Арсений Михайлович",
-    "status": "error",
-    "error": "TimeoutError('Page.goto: Timeout 130000ms exceeded.\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
-    "elapsed_sec": 1226.768,
+    "status": "ready",
+    "fill_author_search": {
+      "ok": true,
+      "name": "surname",
+      "id": "surname",
+      "inputs": 4,
+      "score": 120,
+      "row": "   \t\t\nSPIN-код:\nORCID:\nResearcherID:\nScopus Author ID:\nArXiv Author ID:\nРИНЦ Author ID:\n\t\t   Фамилия: \t\t  Персональный идентификатор автора: \n\n\t\t\nSPIN-код:\nORCID:\nResearcherID:\nScopus Author ID:\nArXiv Author ID:\nРИНЦ Author ID:\n\t\t",
+      "attrs": "surname surname   inputt",
+      "outerHTML": "<input type=\"text\" id=\"surname\" name=\"surname\" value=\"Ситковский Арсений Михайлович\" style=\"width:198px\" class=\"inputt\" onkeypress=\"submit_enter(event)\">"
+    },
+    "click_author_search": {
+      "ok": true,
+      "submitted_form": true
+    },
+    "elapsed_sec": 18.952,
+    "final_url": "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc",
+    "result_links_total": 57,
+    "result_links_sample": [
+      {
+        "href": "/defaultx.asp",
+        "onclick": "",
+        "text": "",
+        "row": "",
+        "items_url": ""
+      },
+      {
+        "href": "/defaultx.asp",
+        "onclick": "",
+        "text": "",
+        "row": "",
+        "items_url": ""
+      },
+      {
+        "href": "/querybox.asp?scope=newquery",
+        "onclick": "",
+        "text": "Расширенный поиск",
+        "row": "Расширенный поиск",
+        "items_url": ""
+      },
+      {
+        "href": "/neural_search.asp",
+        "onclick": "",
+        "text": "Нейропоиск",
+        "row": "Нейропоиск",
+        "items_url": ""
+      },
+      {
+        "href": "#",
+        "onclick": "return show_hide_password(this);",
+        "text": "",
+        "row": "",
+        "items_url": ""
+      },
+      {
+        "href": "/access_terms.asp",
+        "onclick": "",
+        "text": "Правила доступа",
+        "row": "\tПравила доступа",
+        "items_url": ""
+      },
+      {
+        "href": "/author_info.asp?isnew=1&rpage=https%3A%2F%2Fwww%2Eelibrary%2Eru%2Fauthors%2Easp%3Fselid%3D%26orgname%3D%26codetype%3DSPIN%26rubriccode%3D%26sortorder%3D2%26orgadminid%3D%26countryid%3D%26authors%5Fall%3D%26townid%3D%26p",
+        "onclick": "",
+        "text": "Регистрация",
+        "row": "\tРегистрация",
+        "items_url": ""
+      },
+      {
+        "href": "/pass_request.asp",
+        "onclick": "",
+        "text": "Забыли пароль?",
+        "row": "\tЗабыли пароль?",
+        "items_url": ""
+      },
+      {
+        "href": "javascript:sso_orgs()",
+        "onclick": "",
+        "text": "Вход через Вашу организацию",
+        "row": "\tВход через Вашу организацию",
+        "items_url": ""
+      },
+      {
+        "href": "/titles.asp",
+        "onclick": "",
+        "text": "ЖУРНАЛЫ",
+        "row": "\tЖУРНАЛЫ",
+        "items_url": ""
+      },
+      {
+        "href": "/books.asp",
+        "onclick": "",
+        "text": "КНИГИ",
+        "row": "\tКНИГИ",
+        "items_url": ""
+      },
+      {
+        "href": "/patents.asp",
+        "onclick": "",
+        "text": "ПАТЕНТЫ",
+        "row": "\tПАТЕНТЫ",
+        "items_url": ""
+      },
+      {
+        "href": "/querybox.asp",
+        "onclick": "",
+        "text": "ПОИСК",
+        "row": "\tПОИСК",
+        "items_url": ""
+      },
+      {
+        "href": "/authors.asp",
+        "onclick": "",
+        "text": "АВТОРЫ",
+        "row": "\tАВТОРЫ",
+        "items_url": ""
+      },
+      {
+        "href": "/orgs.asp",
+        "onclick": "",
+        "text": "ОРГАНИЗАЦИИ",
+        "row": "\tОРГАНИЗАЦИИ",
+        "items_url": ""
+      },
+      {
+        "href": "/keywords.asp",
+        "onclick": "",
+        "text": "КЛЮЧЕВЫЕ СЛОВА",
+        "row": "\tКЛЮЧЕВЫЕ СЛОВА",
+        "items_url": ""
+      },
+      {
+        "href": "/rubrics.asp",
+        "onclick": "",
+        "text": "РУБРИКАТОР",
+        "row": "\tРУБРИКАТОР",
+        "items_url": ""
+      },
+      {
+        "href": "/region_compare.asp",
+        "onclick": "",
+        "text": "РЕГИОНЫ",
+        "row": "\tРЕГИОНЫ",
+        "items_url": ""
+      },
+      {
+        "href": "/defaultx.asp",
+        "onclick": "",
+        "text": "Начальная страница",
+        "row": "\tНачальная страница",
+        "items_url": ""
+      },
+      {
+        "href": "/project_user_office.asp",
+        "onclick": "",
+        "text": "Личный кабинет",
+        "row": "Личный кабинет",
+        "items_url": ""
+      },
+      {
+        "href": "javascript:end_session()",
+        "onclick": "",
+        "text": "Закрыть сессию",
+        "row": "Закрыть сессию",
+        "items_url": ""
+      },
+      {
+        "href": "mailto:support@elibrary.ru",
+        "onclick": "",
+        "text": "support@elibrary.ru",
+        "row": "\n+7 (495) 544-2494 доб. 1\nsupport@elibrary.ru",
+        "items_url": ""
+      },
+      {
+        "href": "mailto:publish@elibrary.ru",
+        "onclick": "",
+        "text": "publish@elibrary.ru",
+        "row": "\n+7 (495) 544-2494 доб. 2\npublish@elibrary.ru",
+        "items_url": ""
+      },
+      {
+        "href": "mailto:book@elibrary.ru",
+        "onclick": "",
+        "text": "book@elibrary.ru",
+        "row": "\n+7 (495) 544-2494 доб. 3\nbook@elibrary.ru",
+        "items_url": ""
+      },
+      {
+        "href": "mailto:info@sciencespace.ru",
+        "onclick": "",
+        "text": "info@sciencespace.ru",
+        "row": "\n+7 (495) 544-2494 доб. 4\ninfo@sciencespace.ru",
+        "items_url": ""
+      },
+      {
+        "href": "mailto:org@scienceindex.ru",
+        "onclick": "",
+        "text": "org@scienceindex.ru",
+        "row": "\n+7 (495) 544-2494 доб. 4\norg@scienceindex.ru",
+        "items_url": ""
+      },
+      {
+        "href": "mailto:api@elibrary.ru",
+        "onclick": "",
+        "text": "api@elibrary.ru",
+        "row": "\n+7 (495) 544-2494 доб. 4\napi@elibrary.ru",
+        "items_url": ""
+      },
+      {
+        "href": "mailto:sales.team@elibrary.ru",
+        "onclick": "",
+        "text": "sales.team@elibrary.ru",
+        "row": "\n+7 (495) 544-2494 доб. 6\nsales.team@elibrary.ru",
+        "items_url": ""
+      },
+      {
+        "href": "mailto:conf@elibrary.ru",
+        "onclick": "",
+        "text": "conf@elibrary.ru",
+        "row": "\n+7 (495) 544-2494 доб. 7\nconf@elibrary.ru",
+        "items_url": ""
+      },
+      {
+        "href": "/contact_new.asp",
+        "onclick": "",
+        "text": "117246, г. Москва,\nНаучный проезд, д. 14А, стр. 3, таунхаус 1",
+        "row": "\n117246, г. Москва,\nНаучный проезд, д. 14А, стр. 3, таунхаус 1",
+        "items_url": ""
+      }
+    ],
+    "selected_author_items_url": "https://www.elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc",
+    "selected_author_items_text": "58",
+    "selected_author_row": "1.\n\n\t\n\tСитковский  Арсений  Михайлович*\nФедеральный научно-исследовательский социологический центр РАН (Москва)\t\n58\n\t\n302\n\t\n10",
+    "click_items_link_error": "TypeError(\"'Locator' object is not callable\")",
+    "kind": "items",
+    "title": "Ситковский Арсений Михайлович - Список публикаций",
     "fingerprint": {
-      "content_length": 0,
+      "content_length": 157379,
       "has_suspicious_ip_text": false,
       "has_cookie_text": false,
       "has_captcha_text": false,
-      "excerpt": ""
+      "excerpt": "<!DOCTYPE html><html><head> <meta name=\"robots\" content=\"noindex,nofollow\"> <title>Ситковский Арсений Михайлович - Список публикаций</title>  <script type=\"text/javascript\" src=\"/jquery.min.js\"></script> <script type=\"text/javascript\" src=\"/jquery.tools.min.js\"></script> <script type=\"text/javascript\" src=\"/fancybox/jquery.fancybox-1.3.4.pack.js\"></script> <script type=\"text/javascript\" src=\"/fancybox/jquery.easydrag.js\"></script> <script type=\"text/javascript\" src=\"/elibrary1.js\"></script> <script type=\"text/javascript\" src=\"/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script> <link rel=\"stylesheet\" href=\"/fancybox/jquery.fancybox-1.3.4.css\" type=\"text/css\" media=\"screen\"> <link rel=\"stylesheet\" href=\"/style_sm.css\" type=\"text/css\" media=\"screen\">  <script language=\"JavaScript\">  but_blue_hover=new Image(); but_blue_hover.src=\"/images/but_blue_hover.png\"; but_red_hover=new Image("
     },
-    "debug": {
-      "html_path": "artifacts/elibrary_debug/20260602T134019Z_authors_search_error.html",
-      "screenshot_path": "artifacts/elibrary_debug/20260602T134019Z_authors_search_error.png"
-    },
-    "debug_final": {
-      "html_path": "artifacts/elibrary_debug/20260602T134020Z_authors_route_items_not_ready.html",
-      "screenshot_path": "artifacts/elibrary_debug/20260602T134020Z_authors_route_items_not_ready.png"
-    }
+    "snapshot_path": "data/snapshots/elibrary/items/author_items_1012909_20260602T194701Z_authors_route.html",
+    "parsed_records": 58
   },
-  "status": "not_ready"
+  "status": "ok"
 }

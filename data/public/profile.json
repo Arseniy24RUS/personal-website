@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T13:41:59+00:00",
+  "generated_at": "2026-06-02T19:48:39+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
@@ -47,14 +47,31 @@
     "parser_note": "Parsed from user-saved public eLibrary author_items HTML; no password/session data stored."
   },
   "elibrary_profile_metrics": {
-    "source": "elibrary_author_profile_saved_html",
+    "source": "elibrary_author_profile",
     "source_url": "https://www.elibrary.ru/author_profile.asp?id=1012909",
     "authorid": "1012909",
     "spin": "9559-1803",
     "author_name": "Ситковский Арсений Михайлович",
-    "snapshot_generated_at": "2026-05-30T19:34:59Z",
-    "source_file_sha256": "2c018b52d4d8188d33ff7674c0c3edb250d25240ca421bf8532947ee92f9baf9",
+    "snapshot_generated_at": "2026-06-02T19:47:04+00:00",
+    "source_file_sha256": null,
     "elibrary_updated_at": "29.05.2026",
+    "summary": {
+      "publications_elibrary": 60,
+      "publications_rinc": 58,
+      "publications_core_rinc": 19,
+      "citations_elibrary": 320,
+      "citations_rinc": 302,
+      "citations_core_rinc": 52,
+      "h_index_elibrary": 10,
+      "h_index_rinc": 10,
+      "h_index_core_rinc": 3,
+      "h_index_without_self_citations": 8,
+      "h_index_core_without_self_citations": 2,
+      "h_index_journal_articles": 7,
+      "first_publication_year": 2017,
+      "coauthors_count": 123,
+      "core_rinc_percentile": 18
+    },
     "general_metrics": {
       "Число публикаций на elibrary.ru": {
         "raw": "60",
@@ -354,24 +371,7 @@
         "period": "2017-2021",
         "publications": 22
       }
-    ],
-    "summary": {
-      "publications_elibrary": 60,
-      "publications_rinc": 58,
-      "publications_core_rinc": 19,
-      "citations_elibrary": 320,
-      "citations_rinc": 302,
-      "citations_core_rinc": 52,
-      "h_index_elibrary": 10,
-      "h_index_rinc": 10,
-      "h_index_core_rinc": 3,
-      "h_index_without_self_citations": 8,
-      "h_index_core_without_self_citations": 2,
-      "h_index_journal_articles": 7,
-      "first_publication_year": 2017,
-      "core_rinc_percentile": 18,
-      "coauthors_count": 123
-    }
+    ]
   },
   "wos_profile_metrics": {
     "source": "wos_saved_html",
@@ -470,7 +470,7 @@
   },
   "scopus_metrics": {
     "source": "scopus_api",
-    "generated_at": "2026-06-02T13:40:25+00:00",
+    "generated_at": "2026-06-02T19:47:06+00:00",
     "scopus_author_id": "57220956828",
     "author_profile_status": 401,
     "search_status": 200,
@@ -481,7 +481,7 @@
     "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available."
   },
   "scientometrics": {
-    "generated_at": "2026-06-02T13:41:59+00:00",
+    "generated_at": "2026-06-02T19:48:39+00:00",
     "columns": [
       "rinc",
       "scopus",
@@ -532,7 +532,7 @@
     }
   },
   "open_sources_report": {
-    "generated_at": "2026-06-02T13:15:15+00:00",
+    "generated_at": "2026-06-02T19:40:24+00:00",
     "providers": {
       "orcid": {
         "status": "ok",
@@ -558,12 +558,12 @@
     "records_total_before_dedupe": 42,
     "records_total_after_dedupe": 18
   },
-  "canonical_publications_count": 20,
+  "canonical_publications_count": 58,
   "scopus_enriched_publications_count": 7,
-  "scopus_auto_added_publications_count": 6,
+  "scopus_auto_added_publications_count": 0,
   "open_sources_records_count": 18,
-  "open_sources_enriched_publications_count": 6,
-  "open_sources_auto_added_publications_count": 12,
+  "open_sources_enriched_publications_count": 18,
+  "open_sources_auto_added_publications_count": 0,
   "wos_records_count": 0,
   "wos_enriched_publications_count": 0,
   "wos_auto_added_publications_count": 0,

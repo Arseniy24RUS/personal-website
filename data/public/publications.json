@@ -153,6 +153,84 @@
           "path": "/0000-0002-8725-6580/work/202525133",
           "display-index": "1"
         }
+      },
+      {
+        "source": "orcid_public_api",
+        "orcid": "0000-0002-8725-6580",
+        "title": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities",
+        "year": 2026,
+        "doi": "10.17853/1994-5639-2026-1-33-64",
+        "type": "journal-article",
+        "url": "https://doi.org/10.17853/1994-5639-2026-1-33-64",
+        "put_code": 202525133,
+        "raw": {
+          "put-code": 202525133,
+          "created-date": {
+            "value": 1768479836642
+          },
+          "last-modified-date": {
+            "value": 1768479836642
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.17853/1994-5639-2026-1-33-64",
+                "external-id-normalized": {
+                  "value": "10.17853/1994-5639-2026-1-33-64",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2026"
+            },
+            "month": {
+              "value": "01"
+            },
+            "day": {
+              "value": "01"
+            }
+          },
+          "journal-title": {
+            "value": "The Education and science journal"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/202525133",
+          "display-index": "1"
+        }
       }
     ],
     "title_en_source": "scopus",
@@ -178,23 +256,311 @@
       "elibrary"
     ],
     "title_en": "Forming technological solutions of housing family problems in the from demographic policy: problems and perspectives",
+    "title_en_source": "existing_latin"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 3,
+    "elibrary_item_id": "90401152",
+    "url": "https://www.elibrary.ru/item.asp?id=90401152",
+    "title": "ДЕМОГРАФИЧЕСКАЯ ТИПОЛОГИЯ КОРЕННЫХ МАЛОЧИСЛЕННЫХ НАРОДОВ РОССИИ: КЛАСТЕРНЫЙ АНАЛИЗ ВОЗРАСТНОЙ СТРУКТУРЫ",
+    "title_ru": "ДЕМОГРАФИЧЕСКАЯ ТИПОЛОГИЯ КОРЕННЫХ МАЛОЧИСЛЕННЫХ НАРОДОВ РОССИИ: КЛАСТЕРНЫЙ АНАЛИЗ ВОЗРАСТНОЙ СТРУКТУРЫ",
+    "authors_raw": "Накисбаев Д.В., Ситковский А.М.",
+    "venue": "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление",
+    "venue_ru": "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление",
+    "year": 2026,
+    "pages": "86-95",
+    "doi": "10.22363/2312-8313-2026-13-1-86-95",
+    "metadata_raw": "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление . 2026. Т. 13. № 1 . С. 86-95.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "fdf63ff96d949f05",
+    "sources": [
+      "elibrary",
+      "orcid_public_api"
+    ],
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "orcid": "0000-0002-8725-6580",
+        "title": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure",
+        "year": 2026,
+        "doi": "10.22363/2312-8313-2026-13-1-86-95",
+        "type": "journal-article",
+        "url": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
+        "put_code": 211318940,
+        "raw": {
+          "put-code": 211318940,
+          "created-date": {
+            "value": 1775836949690
+          },
+          "last-modified-date": {
+            "value": 1775836949690
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.22363/2312-8313-2026-13-1-86-95",
+                "external-id-normalized": {
+                  "value": "10.22363/2312-8313-2026-13-1-86-95",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2026"
+            },
+            "month": {
+              "value": "04"
+            },
+            "day": {
+              "value": "10"
+            }
+          },
+          "journal-title": {
+            "value": "RUDN Journal of Public Administration"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/211318940",
+          "display-index": "1"
+        }
+      }
+    ],
+    "title_en": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure",
+    "title_en_source": "orcid_public_api",
+    "venue_en": "RUDN Journal of Public Administration",
+    "venue_en_source": "orcid_public_api"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 4,
+    "elibrary_item_id": "80640587",
+    "url": "https://www.elibrary.ru/item.asp?id=80640587",
+    "title": "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ РОССИИ: СТАНОВЛЕНИЕ И ЭВОЛЮЦИЯ НАУЧНОЙ ШКОЛЫ Л. Л. РЫБАКОВСКОГО",
+    "title_ru": "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ РОССИИ: СТАНОВЛЕНИЕ И ЭВОЛЮЦИЯ НАУЧНОЙ ШКОЛЫ Л. Л. РЫБАКОВСКОГО",
+    "authors_raw": "Ростовская Т.К., Рязанцев С.В., Архангельский В.Н., Воробьева О.Д., Гришанова А.Г., Безруков И.С., Иванова А.Е., Сигарева Е.П., Топилин А.В., Чернышев К.А., Фадеева Т.А., Рыбальченко С.И., Ситковский А.М., Мотрич Е.Л., Фаузер В.В., Хасаев Г.Р., Азимов А.Д., Злотников А.Г., Тихонова Л.Е.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2025,
+    "pages": null,
+    "doi": null,
+    "metadata_raw": "Ярославль, 2025.",
+    "rinc_citations": 5,
+    "dedupe_fingerprint": "2dd81613294bdfd0",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Demographic development of Russia: the formation and evolution of the scientific school of L. L. Rybakov",
     "title_en_source": "argos_translate_ru_en"
   },
   {
-    "source": "scopus_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
+    "source": "elibrary_rinc_saved_html",
+    "number": 5,
+    "elibrary_item_id": "82280485",
+    "url": "https://www.elibrary.ru/item.asp?id=82280485",
+    "title": "ДЕМОГРАФИЧЕСКОЕ САМОЧУВСТВИЕ РЕГИОНОВ РОССИИ. НАЦИОНАЛЬНЫЙ ДЕМОГРАФИЧЕСКИЙ ДОКЛАД - 2024",
+    "title_ru": "ДЕМОГРАФИЧЕСКОЕ САМОЧУВСТВИЕ РЕГИОНОВ РОССИИ. НАЦИОНАЛЬНЫЙ ДЕМОГРАФИЧЕСКИЙ ДОКЛАД - 2024",
+    "authors_raw": "Ростовская Т.К., Шабунова А.А., Архангельский В.Н., Ахметова Г.Ф., Багирова А.П., Белозеров В.С., Валиахметов Р.М., Васильева Е.Н., Васильев Е.С., Григоричев К.В., Грицких Н.В., Егорова Н.Ю., Емельянова Н.В., Ершова Г.Н., Зимовина Е.П., Ильдарханова Ч.И., Калачикова О.Н., Колесов А.А., Комарова Т.М., Комлева Р.Н. и др.",
+    "venue": null,
+    "venue_ru": null,
     "year": 2025,
-    "rinc_citations": 0,
-    "title": "THE ATTITUDES OF FOREIGN STUDENTS TO THEIR FURTHER LIFE AND CAREER IN RUSSIA",
-    "authors_raw": "Rostovskaya T.K.",
-    "venue": "Problemy Sotsial Noi Gigieny Zdravookhraneniia I Istorii Meditsiny",
     "pages": null,
-    "doi": "10.32687/0869-866x-2025-33-5-1280-1285",
-    "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-105021702108",
+    "doi": null,
+    "metadata_raw": "Москва, Вологда, 2025.",
+    "rinc_citations": 18,
+    "dedupe_fingerprint": "248dc58342acce5c",
     "sources": [
+      "elibrary"
+    ],
+    "title_en": "Demographic self-feeling of regions of Russia. National Demographic Report - 2024",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 6,
+    "elibrary_item_id": "82935261",
+    "url": "https://www.elibrary.ru/item.asp?id=82935261",
+    "title": "УСТОЙЧИВОСТЬ РОССИЙСКОГО ГОСУДАРСТВА И ОБЩЕСТВА В УСЛОВИЯХ УКРЕПЛЕНИЯ ТРАДИЦИОННЫХ ЦЕННОСТЕЙ И СТАНОВЛЕНИЯ МНОГОПОЛЯРНОГО МИРА. СОЦИАЛЬНАЯ И СОЦИАЛЬНО-ПОЛИТИЧЕСКАЯ СИТУАЦИЯ",
+    "title_ru": "УСТОЙЧИВОСТЬ РОССИЙСКОГО ГОСУДАРСТВА И ОБЩЕСТВА В УСЛОВИЯХ УКРЕПЛЕНИЯ ТРАДИЦИОННЫХ ЦЕННОСТЕЙ И СТАНОВЛЕНИЯ МНОГОПОЛЯРНОГО МИРА. СОЦИАЛЬНАЯ И СОЦИАЛЬНО-ПОЛИТИЧЕСКАЯ СИТУАЦИЯ",
+    "authors_raw": "Барановская Т.В., Безвербный В.А., Березина Н.В., Великая Н.М., Голосеева А.А., Гребняк О.В., Гуселетов Б.П., Дибирова А.П., Дождиков А.В., Ильичева Л.Е., Ильичева М.В., Ирсетская Е.А., Карепова С.Г., Левашов В.К., Лиханова Т.Ю., Мерзликин Н.В., Мчедлова Е.М., Назаров М.М., Накисбаев Д.В., Насриддинов Т.Г. и др.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2025,
+    "pages": null,
+    "doi": null,
+    "metadata_raw": "Москва, 2025.",
+    "rinc_citations": 3,
+    "dedupe_fingerprint": "059488b9751640fe",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "The stability of the Russian state and society under the conditions of consolidation of traditional values and the formation of a multipolar world. Social and Social Political Situation",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 7,
+    "elibrary_item_id": "83120230",
+    "url": "https://www.elibrary.ru/item.asp?id=83120230",
+    "title": "РЕПРОДУКТИВНЫЕ УСТАНОВКИ НАСЕЛЕНИЯ Г. СЕВАСТОПОЛЯ И УСЛОВИЯ, ВЛИЯЮЩИЕ НА РОЖДАЕМОСТЬ",
+    "title_ru": "РЕПРОДУКТИВНЫЕ УСТАНОВКИ НАСЕЛЕНИЯ Г. СЕВАСТОПОЛЯ И УСЛОВИЯ, ВЛИЯЮЩИЕ НА РОЖДАЕМОСТЬ",
+    "authors_raw": "Ростовская Т.К., Васильева Е.Н., Кучмаева О.В., Ситковский А.М.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2025,
+    "pages": null,
+    "doi": null,
+    "metadata_raw": "Свидетельство о регистрации базы данных RU 2025623948, 22.09.2025. Заявка № 2025623271 от 26.08.2025.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "1742da56f32ae510",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Reproductive regulations of the population of Sevastopol and conditions affecting birth",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 8,
+    "elibrary_item_id": "89267026",
+    "url": "https://www.elibrary.ru/item.asp?id=89267026",
+    "title": "КОРРЕЛЯЦИОННЫЙ АНАЛИЗ СОЦИАЛЬНОЭКОНОМИЧЕСКИХ ФАКТОРОВ ДЕМОГРАФИЧЕСКИХ ИЗМЕНЕНИЙ",
+    "title_ru": "КОРРЕЛЯЦИОННЫЙ АНАЛИЗ СОЦИАЛЬНОЭКОНОМИЧЕСКИХ ФАКТОРОВ ДЕМОГРАФИЧЕСКИХ ИЗМЕНЕНИЙ",
+    "authors_raw": "Ситковский А.М.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2025,
+    "pages": "169-170",
+    "doi": null,
+    "metadata_raw": "В сборнике: VI Всероссийский демографический форум с международным участием. Сборник материалов. Вологда, 2025. С. 169-170.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "2c4d6b7d806d7b33",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Correlational Analysis of Social and Economic Factors of Demographic Change",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 9,
+    "elibrary_item_id": "83193628",
+    "url": "https://www.elibrary.ru/item.asp?id=83193628",
+    "title": "ЦИФРОВЫЕ ТЕХНОЛОГИИ В ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ ДЕМОГРАФА",
+    "title_ru": "ЦИФРОВЫЕ ТЕХНОЛОГИИ В ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ ДЕМОГРАФА",
+    "authors_raw": "Ростовская Т.К., Ситковский А.М.",
+    "venue": "Информационное общество",
+    "venue_ru": "Информационное общество",
+    "year": 2025,
+    "pages": "116-123",
+    "doi": null,
+    "metadata_raw": "Информационное общество . 2025. № 5 . С. 116-123.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "00ba17719fdf2ebc",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Digital Technologies in the Professional Activity of the Demograph",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 10,
+    "elibrary_item_id": "88811236",
+    "url": "https://www.elibrary.ru/item.asp?id=88811236",
+    "title": "ЦИФРОВАЯ ДЕМОГРАФИЯ: СОВРЕМЕННЫЕ МЕТОДЫ ИССЛЕДОВАНИЯ ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ",
+    "title_ru": "ЦИФРОВАЯ ДЕМОГРАФИЯ: СОВРЕМЕННЫЕ МЕТОДЫ ИССЛЕДОВАНИЯ ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ",
+    "authors_raw": "Безвербный В.А., Погребняк Е.В., Шевчуков С.П., Ситковский А.М.",
+    "venue": "Информационное общество",
+    "venue_ru": "Информационное общество",
+    "year": 2025,
+    "pages": "121-128",
+    "doi": null,
+    "metadata_raw": "Информационное общество . 2025. № 6 . С. 121-128.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "5a935f3e4cf11720",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Digital Demographics: Modern Methods of Studying Demographic Processes",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 11,
+    "elibrary_item_id": "82376416",
+    "url": "https://www.elibrary.ru/item.asp?id=82376416",
+    "title": "МНОГОДЕТНАЯ МНОГОПОКОЛЕННАЯ СЕМЬЯ КАК КЛЮЧЕВОЙ РЕСУРС НОВОЙ ДОЛГОСРОЧНОЙ СТРАТЕГИИ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ РОССИИ",
+    "title_ru": "МНОГОДЕТНАЯ МНОГОПОКОЛЕННАЯ СЕМЬЯ КАК КЛЮЧЕВОЙ РЕСУРС НОВОЙ ДОЛГОСРОЧНОЙ СТРАТЕГИИ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ РОССИИ",
+    "authors_raw": "Ростовская Т.К., Ситковский А.М.",
+    "venue": "Вестник Российской академии наук",
+    "venue_ru": "Вестник Российской академии наук",
+    "year": 2025,
+    "pages": "63-74",
+    "doi": null,
+    "metadata_raw": "Вестник Российской академии наук . 2025. № 4 . С. 63-74.",
+    "rinc_citations": 7,
+    "dedupe_fingerprint": "addb493ce7bcd300",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Multi-generational family as a key resource for a new long-term strategy for Russia’s demographic development",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 12,
+    "elibrary_item_id": "83174967",
+    "url": "https://www.elibrary.ru/item.asp?id=83174967",
+    "title": "THE ATTITUDES OF FOREIGN STUDENTS TO THEIR FURTHER LIFE AND CAREER IN RUSSIA",
+    "title_ru": "THE ATTITUDES OF FOREIGN STUDENTS TO THEIR FURTHER LIFE AND CAREER IN RUSSIA",
+    "authors_raw": "Rostovskaya T.K., Sitkovskiy A.M.",
+    "venue": "Problems of Social Hygiene, Public Health and History of Medicine",
+    "venue_ru": "Problems of Social Hygiene, Public Health and History of Medicine",
+    "year": 2025,
+    "pages": "1280-1285",
+    "doi": "10.32687/0869-866x-2025-33-5-1280-1285",
+    "metadata_raw": "Problems of Social Hygiene, Public Health and History of Medicine . 2025. Т. 33. № 5 . С. 1280-1285.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "d78142ac2078e055",
+    "sources": [
+      "elibrary",
       "scopus"
     ],
+    "title_en": "The attitudes of foreign students to their further life and career in russia",
+    "venue_en": "Problemy Sotsial Noi Gigieny Zdravookhraneniia I Istorii Meditsiny",
     "scopus": {
       "source": "scopus_api",
       "eid": "2-s2.0-105021702108",
@@ -248,114 +614,46 @@
         }
       }
     },
-    "auto_accept_reason": "author-scoped Scopus AU-ID record",
-    "title_en": "The attitudes of foreign students to their further life and career in russia",
-    "venue_en": "Problemy Sotsial Noi Gigieny Zdravookhraneniia I Istorii Meditsiny",
-    "title_ru": "THE ATTITUDES OF FOREIGN STUDENTS TO THEIR FURTHER LIFE AND CAREER IN RUSSIA",
-    "venue_ru": "Problemy Sotsial Noi Gigieny Zdravookhraneniia I Istorii Meditsiny",
     "title_en_source": "scopus",
     "venue_en_source": "scopus"
   },
   {
-    "source": "scopus_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
+    "source": "elibrary_rinc_saved_html",
+    "number": 13,
+    "elibrary_item_id": "83896667",
+    "url": "https://www.elibrary.ru/item.asp?id=83896667",
+    "title": "ВЗАИМОСВЯЗИ ДЕМОГРАФИЧЕСКИХ И СОЦИАЛЬНО-ЭКОНОМИЧЕСКИХ ПОКАЗАТЕЛЕЙ РАЗВИТИЯ РЕГИОНОВ РОССИИ",
+    "title_ru": "ВЗАИМОСВЯЗИ ДЕМОГРАФИЧЕСКИХ И СОЦИАЛЬНО-ЭКОНОМИЧЕСКИХ ПОКАЗАТЕЛЕЙ РАЗВИТИЯ РЕГИОНОВ РОССИИ",
+    "authors_raw": "Безвербный В.А., Ростовская Т.К., Ситковский А.М., Рославцев С.В.",
+    "venue": "Уровень жизни населения регионов России",
+    "venue_ru": "Уровень жизни населения регионов России",
     "year": 2025,
-    "rinc_citations": 0,
-    "title": "Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”",
-    "authors_raw": "Rostovskaya T.K.",
-    "venue": "New Research of Tuva",
-    "pages": null,
-    "doi": "10.25178/nit.2025.4.13",
-    "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-105024117741",
+    "pages": "602-617",
+    "doi": "10.52180/1999-9836_2025_21_4_8_602_617",
+    "metadata_raw": "Уровень жизни населения регионов России . 2025. Т. 21. № 4 . С. 602-617.",
+    "rinc_citations": 4,
+    "dedupe_fingerprint": "41919311581fea7e",
     "sources": [
-      "scopus",
+      "elibrary",
       "orcid_public_api"
     ],
-    "scopus": {
-      "source": "scopus_api",
-      "eid": "2-s2.0-105024117741",
-      "scopus_id": "105024117741",
-      "title": "Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”",
-      "creator": "Rostovskaya T.K.",
-      "journal_or_source": "New Research of Tuva",
-      "cover_date": "2025-12-01",
-      "year": "2025",
-      "doi": "10.25178/nit.2025.4.13",
-      "cited_by_count": 0,
-      "aggregation_type": "Journal",
-      "subtype": "Article",
-      "openaccess": "1",
-      "url": null,
-      "raw": {
-        "@_fa": "true",
-        "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105024117741",
-        "dc:identifier": "SCOPUS_ID:105024117741",
-        "eid": "2-s2.0-105024117741",
-        "dc:title": "Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”",
-        "dc:creator": "Rostovskaya T.K.",
-        "prism:publicationName": "New Research of Tuva",
-        "prism:coverDate": "2025-12-01",
-        "prism:doi": "10.25178/nit.2025.4.13",
-        "citedby-count": "0",
-        "prism:aggregationType": "Journal",
-        "subtype": "ar",
-        "subtypeDescription": "Article",
-        "openaccess": "1",
-        "openaccessFlag": true,
-        "freetoread": {
-          "value": [
-            {
-              "$": "all"
-            },
-            {
-              "$": "publisherfullgold"
-            },
-            {
-              "$": "repository"
-            },
-            {
-              "$": "repositoryam"
-            }
-          ]
-        },
-        "freetoreadLabel": {
-          "value": [
-            {
-              "$": "All Open Access"
-            },
-            {
-              "$": "Gold"
-            },
-            {
-              "$": "Green"
-            }
-          ]
-        }
-      }
-    },
-    "auto_accept_reason": "author-scoped Scopus AU-ID record",
-    "title_en": "Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”",
-    "venue_en": "New Research of Tuva",
-    "title_ru": "Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”",
-    "venue_ru": "New Research of Tuva",
     "open_sources": [
       {
         "source": "orcid_public_api",
         "orcid": "0000-0002-8725-6580",
-        "title": "Методология и практика проведения демографической экспертизы на примере региональной программы «Повышение рождаемости в Республике Тыва на период 2023–2025 годов»",
+        "title": "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia",
         "year": 2025,
-        "doi": "10.25178/nit.2025.4.13",
+        "doi": "10.52180/1999-9836_2025_21_4_8_602_617",
         "type": "journal-article",
-        "url": "https://doi.org/10.25178/nit.2025.4.13",
-        "put_code": 198410443,
+        "url": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617",
+        "put_code": 198817695,
         "raw": {
-          "put-code": 198410443,
+          "put-code": 198817695,
           "created-date": {
-            "value": 1764588056839
+            "value": 1764932715522
           },
           "last-modified-date": {
-            "value": 1764588056839
+            "value": 1764932715522
           },
           "source": {
             "source-orcid": null,
@@ -373,7 +671,7 @@
           },
           "title": {
             "title": {
-              "value": "Методология и практика проведения демографической экспертизы на примере региональной программы «Повышение рождаемости в Республике Тыва на период 2023–2025 годов»"
+              "value": "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia"
             },
             "subtitle": null,
             "translated-title": null
@@ -382,59 +680,62 @@
             "external-id": [
               {
                 "external-id-type": "doi",
-                "external-id-value": "10.25178/nit.2025.4.13",
+                "external-id-value": "10.52180/1999-9836_2025_21_4_8_602_617",
                 "external-id-normalized": {
-                  "value": "10.25178/nit.2025.4.13",
+                  "value": "10.52180/1999-9836_2025_21_4_8_602_617",
                   "transient": true
                 },
                 "external-id-normalized-error": null,
                 "external-id-url": {
-                  "value": "https://doi.org/10.25178/nit.2025.4.13"
+                  "value": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617"
                 },
                 "external-id-relationship": "self"
               }
             ]
           },
           "url": {
-            "value": "https://doi.org/10.25178/nit.2025.4.13"
+            "value": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617"
           },
           "type": "journal-article",
           "publication-date": {
             "year": {
               "value": "2025"
             },
-            "month": {
-              "value": "12"
-            },
-            "day": {
-              "value": "01"
-            }
+            "month": null,
+            "day": null
           },
           "journal-title": {
-            "value": "The New Research of Tuva"
+            "value": "Living Standards of the Population in the Regions of Russia"
           },
           "visibility": "public",
-          "path": "/0000-0002-8725-6580/work/198410443",
+          "path": "/0000-0002-8725-6580/work/198817695",
           "display-index": "1"
         }
       }
     ],
-    "title_en_source": "scopus",
-    "venue_en_source": "scopus"
+    "title_en": "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia",
+    "title_en_source": "orcid_public_api",
+    "venue_en": "Living Standards of the Population in the Regions of Russia",
+    "venue_en_source": "orcid_public_api"
   },
   {
-    "source": "scopus_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
+    "source": "elibrary_rinc_saved_html",
+    "number": 14,
+    "elibrary_item_id": "82678054",
+    "url": "https://www.elibrary.ru/item.asp?id=82678054",
+    "title": "ВНУТРИРОССИЙСКАЯ ОБРАЗОВАТЕЛЬНАЯ МИГРАЦИЯ МОЛОДЕЖИ: ПРИВЛЕКАТЕЛЬНОСТЬ РЕГИОНОВ ДЛЯ ПОЛУЧЕНИЯ ВЫСШЕГО ОБРАЗОВАНИЯ",
+    "title_ru": "ВНУТРИРОССИЙСКАЯ ОБРАЗОВАТЕЛЬНАЯ МИГРАЦИЯ МОЛОДЕЖИ: ПРИВЛЕКАТЕЛЬНОСТЬ РЕГИОНОВ ДЛЯ ПОЛУЧЕНИЯ ВЫСШЕГО ОБРАЗОВАНИЯ",
+    "authors_raw": "Ситковский А.М., Дождиков А.В.",
+    "venue": "Образование и наука",
+    "venue_ru": "Образование и наука",
     "year": 2025,
-    "rinc_citations": 0,
-    "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
-    "authors_raw": "Sitkovskiy A.M.",
-    "venue": "Obrazovanie I Nauka",
-    "pages": null,
+    "pages": "149-179",
     "doi": "10.17853/1994-5639-2025-6-149-179",
-    "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-105008183052",
+    "metadata_raw": "Образование и наука . 2025. Т. 27. № 6 . С. 149-179.",
+    "rinc_citations": 5,
+    "dedupe_fingerprint": "58ad60face9469ed",
     "sources": [
+      "elibrary",
       "scopus",
       "orcid_public_api"
     ],
@@ -491,11 +792,8 @@
         }
       }
     },
-    "auto_accept_reason": "author-scoped Scopus AU-ID record",
     "title_en": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
     "venue_en": "Obrazovanie I Nauka",
-    "title_ru": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
-    "venue_ru": "Obrazovanie I Nauka",
     "open_sources": [
       {
         "source": "orcid_public_api",
@@ -580,18 +878,133 @@
     "venue_en_source": "scopus"
   },
   {
-    "source": "scopus_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
+    "source": "elibrary_rinc_saved_html",
+    "number": 15,
+    "elibrary_item_id": "88812395",
+    "url": "https://www.elibrary.ru/item.asp?id=88812395",
+    "title": "МОЛОДЁЖЬ КАК РЕСУРС РАЗВИТИЯ РОССИЙСКИХ РЕГИОНОВ: ГОСУДАРСТВЕННЫЕ И КОРПОРАТИВНЫЕ СТРАТЕГИИ",
+    "title_ru": "МОЛОДЁЖЬ КАК РЕСУРС РАЗВИТИЯ РОССИЙСКИХ РЕГИОНОВ: ГОСУДАРСТВЕННЫЕ И КОРПОРАТИВНЫЕ СТРАТЕГИИ",
+    "authors_raw": "Нечаева С.В., Богданова Д.В., Ситковский А.М.",
+    "venue": "Социум и власть",
+    "venue_ru": "Социум и власть",
     "year": 2025,
+    "pages": "122-138",
+    "doi": null,
+    "metadata_raw": "Социум и власть . 2025. Т. 22. № 4 . С. 122-138.",
     "rinc_citations": 0,
-    "title": "The settlement system of the Republic of Tuva: central places",
-    "authors_raw": "Sitkovskiy A.M.",
-    "venue": "New Research of Tuva",
-    "pages": null,
-    "doi": "10.25178/nit.2025.2.4",
-    "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-105007238835",
+    "dedupe_fingerprint": "6c348dccce8e4c7d",
     "sources": [
+      "elibrary"
+    ],
+    "title_en": "Youth as Development Resources of Russian Regions: State and Corporate Strategies",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 16,
+    "elibrary_item_id": "82921380",
+    "url": "https://www.elibrary.ru/item.asp?id=82921380",
+    "title": "РЕПРОДУКТИВИСТИКА В ТРУДАХ УРАЛЬСКИХ ДЕМОГРАФОВ",
+    "title_ru": "РЕПРОДУКТИВИСТИКА В ТРУДАХ УРАЛЬСКИХ ДЕМОГРАФОВ",
+    "authors_raw": "Ростовская Т.К., Бедрина Е.Б., Ситковский А.М.",
+    "venue": "Женщина в российском обществе",
+    "venue_ru": "Женщина в российском обществе",
+    "year": 2025,
+    "pages": "68-80",
+    "doi": null,
+    "metadata_raw": "Женщина в российском обществе . 2025. № 3 . С. 68-80.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "2340cb41f705a868",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Reproductive Studies in the Works of Ural Demographers",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 17,
+    "elibrary_item_id": "87233267",
+    "url": "https://www.elibrary.ru/item.asp?id=87233267",
+    "title": "ЦИФРОВАЯ ДЕМОГРАФИЧЕСКАЯ ОБСЕРВАТОРИЯ: НОВЫЕ ПОДХОДЫ К МОНИТОРИНГУ МИГРАЦИОННЫХ ПОТОКОВ",
+    "title_ru": "ЦИФРОВАЯ ДЕМОГРАФИЧЕСКАЯ ОБСЕРВАТОРИЯ: НОВЫЕ ПОДХОДЫ К МОНИТОРИНГУ МИГРАЦИОННЫХ ПОТОКОВ",
+    "authors_raw": "Безвербный В.А., Ситковский А.М., Ростовская Т.К., Чернышев К.А., Мирязов Т.Р.",
+    "venue": "Женщина в российском обществе",
+    "venue_ru": "Женщина в российском обществе",
+    "year": 2025,
+    "pages": "102-114",
+    "doi": null,
+    "metadata_raw": "Женщина в российском обществе . 2025. № 4 . С. 102-114.",
+    "rinc_citations": 1,
+    "dedupe_fingerprint": "f046f50fa09045f1",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Digital Demographic Observatory: New Approaches to Monitoring Migration Flows",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 18,
+    "elibrary_item_id": "82579805",
+    "url": "https://www.elibrary.ru/item.asp?id=82579805",
+    "title": "ДЕМОГРАФИЧЕСКИЕ РЕСУРСЫ РОССИИ: ВАРИАТИВНОСТЬ ПОДХОДОВ И ОЦЕНОК",
+    "title_ru": "ДЕМОГРАФИЧЕСКИЕ РЕСУРСЫ РОССИИ: ВАРИАТИВНОСТЬ ПОДХОДОВ И ОЦЕНОК",
+    "authors_raw": "Ростовская Т.К., Ситковский А.М.",
+    "venue": "Экономические и социальные перемены: факты, тенденции, прогноз",
+    "venue_ru": "Экономические и социальные перемены: факты, тенденции, прогноз",
+    "year": 2025,
+    "pages": "183-202",
+    "doi": null,
+    "metadata_raw": "Экономические и социальные перемены: факты, тенденции, прогноз . 2025. Т. 18. № 3 . С. 183-202.",
+    "rinc_citations": 5,
+    "dedupe_fingerprint": "e344883e06272cb3",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Russia’s Demographic Resources: Variability in Approaches and Evaluations",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 19,
+    "elibrary_item_id": "88778278",
+    "url": "https://www.elibrary.ru/item.asp?id=88778278",
+    "title": "ВЛИЯНИЕ АГЛОМЕРАЦИОННОГО ЭФФЕКТА НА ДЕМОГРАФИЧЕСКУЮ ПОЛИТИКУ ТЕРРИТОРИЙ",
+    "title_ru": "ВЛИЯНИЕ АГЛОМЕРАЦИОННОГО ЭФФЕКТА НА ДЕМОГРАФИЧЕСКУЮ ПОЛИТИКУ ТЕРРИТОРИЙ",
+    "authors_raw": "Ситковский А.М., Райсих А.Э., Гладкий А.С., Безвербная Н.А.",
+    "venue": "Экономические и социальные перемены: факты, тенденции, прогноз",
+    "venue_ru": "Экономические и социальные перемены: факты, тенденции, прогноз",
+    "year": 2025,
+    "pages": "90-109",
+    "doi": null,
+    "metadata_raw": "Экономические и социальные перемены: факты, тенденции, прогноз . 2025. Т. 18. № 6 . С. 90-109.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "568e73e9e25c6aa2",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Influence of the Aglomeration Effect on the Demographic Politics of Territories",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 20,
+    "elibrary_item_id": "82491287",
+    "url": "https://www.elibrary.ru/item.asp?id=82491287",
+    "title": "СИСТЕМА РАССЕЛЕНИЯ РЕСПУБЛИКИ ТЫВА: ОПОРНЫЕ НАСЕЛЁННЫЕ ПУНКТЫ",
+    "title_ru": "СИСТЕМА РАССЕЛЕНИЯ РЕСПУБЛИКИ ТЫВА: ОПОРНЫЕ НАСЕЛЁННЫЕ ПУНКТЫ",
+    "authors_raw": "Ситковский А.М., Деловарова Л.Ф.",
+    "venue": "Новые исследования Тувы",
+    "venue_ru": "Новые исследования Тувы",
+    "year": 2025,
+    "pages": "70-91",
+    "doi": "10.25178/nit.2025.2.4",
+    "metadata_raw": "Новые исследования Тувы . 2025. № 2 . С. 70-91.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "8787a11d6c0aee7d",
+    "sources": [
+      "elibrary",
       "scopus",
       "orcid_public_api"
     ],
@@ -657,11 +1070,8 @@
         }
       }
     },
-    "auto_accept_reason": "author-scoped Scopus AU-ID record",
     "title_en": "The settlement system of the Republic of Tuva: central places",
     "venue_en": "New Research of Tuva",
-    "title_ru": "The settlement system of the Republic of Tuva: central places",
-    "venue_ru": "New Research of Tuva",
     "open_sources": [
       {
         "source": "orcid_public_api",
@@ -746,18 +1156,657 @@
     "venue_en_source": "scopus"
   },
   {
-    "source": "scopus_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2024,
+    "source": "elibrary_rinc_saved_html",
+    "number": 21,
+    "elibrary_item_id": "85423263",
+    "url": "https://www.elibrary.ru/item.asp?id=85423263",
+    "title": "МЕТОДОЛОГИЯ И ПРАКТИКА ПРОВЕДЕНИЯ ДЕМОГРАФИЧЕСКОЙ ЭКСПЕРТИЗЫ НА ПРИМЕРЕ РЕГИОНАЛЬНОЙ ПРОГРАММЫ \"ПОВЫШЕНИЕ РОЖДАЕМОСТИ В РЕСПУБЛИКЕ ТЫВА НА ПЕРИОД 2023-2025 ГОДОВ\"",
+    "title_ru": "МЕТОДОЛОГИЯ И ПРАКТИКА ПРОВЕДЕНИЯ ДЕМОГРАФИЧЕСКОЙ ЭКСПЕРТИЗЫ НА ПРИМЕРЕ РЕГИОНАЛЬНОЙ ПРОГРАММЫ \"ПОВЫШЕНИЕ РОЖДАЕМОСТИ В РЕСПУБЛИКЕ ТЫВА НА ПЕРИОД 2023-2025 ГОДОВ\"",
+    "authors_raw": "Ростовская Т.К., Ситковский А.М., Гишкаева Л.Н.",
+    "venue": "Новые исследования Тувы",
+    "venue_ru": "Новые исследования Тувы",
+    "year": 2025,
+    "pages": "233-253",
+    "doi": "10.25178/nit.2025.4.13",
+    "metadata_raw": "Новые исследования Тувы . 2025. № 4 . С. 233-253.",
     "rinc_citations": 0,
-    "title": "Inter-regional educational migrations in Russia in 2017–2019: gender and spatial aspects",
-    "authors_raw": "Bezverbny V.A.",
-    "venue": "New Research of Tuva",
-    "pages": null,
-    "doi": "10.25178/nit.2024.3.13",
-    "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-85205435011",
+    "dedupe_fingerprint": "409efe2a904a8be1",
     "sources": [
+      "elibrary",
+      "scopus",
+      "orcid_public_api"
+    ],
+    "scopus": {
+      "source": "scopus_api",
+      "eid": "2-s2.0-105024117741",
+      "scopus_id": "105024117741",
+      "title": "Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”",
+      "creator": "Rostovskaya T.K.",
+      "journal_or_source": "New Research of Tuva",
+      "cover_date": "2025-12-01",
+      "year": "2025",
+      "doi": "10.25178/nit.2025.4.13",
+      "cited_by_count": 0,
+      "aggregation_type": "Journal",
+      "subtype": "Article",
+      "openaccess": "1",
+      "url": null,
+      "raw": {
+        "@_fa": "true",
+        "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105024117741",
+        "dc:identifier": "SCOPUS_ID:105024117741",
+        "eid": "2-s2.0-105024117741",
+        "dc:title": "Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”",
+        "dc:creator": "Rostovskaya T.K.",
+        "prism:publicationName": "New Research of Tuva",
+        "prism:coverDate": "2025-12-01",
+        "prism:doi": "10.25178/nit.2025.4.13",
+        "citedby-count": "0",
+        "prism:aggregationType": "Journal",
+        "subtype": "ar",
+        "subtypeDescription": "Article",
+        "openaccess": "1",
+        "openaccessFlag": true,
+        "freetoread": {
+          "value": [
+            {
+              "$": "all"
+            },
+            {
+              "$": "publisherfullgold"
+            },
+            {
+              "$": "repository"
+            },
+            {
+              "$": "repositoryam"
+            }
+          ]
+        },
+        "freetoreadLabel": {
+          "value": [
+            {
+              "$": "All Open Access"
+            },
+            {
+              "$": "Gold"
+            },
+            {
+              "$": "Green"
+            }
+          ]
+        }
+      }
+    },
+    "title_en": "Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”",
+    "venue_en": "New Research of Tuva",
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "orcid": "0000-0002-8725-6580",
+        "title": "Методология и практика проведения демографической экспертизы на примере региональной программы «Повышение рождаемости в Республике Тыва на период 2023–2025 годов»",
+        "year": 2025,
+        "doi": "10.25178/nit.2025.4.13",
+        "type": "journal-article",
+        "url": "https://doi.org/10.25178/nit.2025.4.13",
+        "put_code": 198410443,
+        "raw": {
+          "put-code": 198410443,
+          "created-date": {
+            "value": 1764588056839
+          },
+          "last-modified-date": {
+            "value": 1764588056839
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Методология и практика проведения демографической экспертизы на примере региональной программы «Повышение рождаемости в Республике Тыва на период 2023–2025 годов»"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.25178/nit.2025.4.13",
+                "external-id-normalized": {
+                  "value": "10.25178/nit.2025.4.13",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.25178/nit.2025.4.13"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.25178/nit.2025.4.13"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "12"
+            },
+            "day": {
+              "value": "01"
+            }
+          },
+          "journal-title": {
+            "value": "The New Research of Tuva"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/198410443",
+          "display-index": "1"
+        }
+      }
+    ],
+    "title_en_source": "scopus",
+    "venue_en_source": "scopus"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 22,
+    "elibrary_item_id": "83217146",
+    "url": "https://www.elibrary.ru/item.asp?id=83217146",
+    "title": "ГОСУДАРСТВЕННАЯ СЕМЕЙНО-ДЕМОГРАФИЧЕСКАЯ ПОЛИТИКА: ОБЗОР АКТУАЛЬНЫХ ИССЛЕДОВАНИЙ И ПРАКТИК",
+    "title_ru": "ГОСУДАРСТВЕННАЯ СЕМЕЙНО-ДЕМОГРАФИЧЕСКАЯ ПОЛИТИКА: ОБЗОР АКТУАЛЬНЫХ ИССЛЕДОВАНИЙ И ПРАКТИК",
+    "authors_raw": "Ростовская Т.К., Ситковский А.М.",
+    "venue": "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление",
+    "venue_ru": "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление",
+    "year": 2025,
+    "pages": "319-327",
+    "doi": "10.22363/2312-8313-2025-12-3-319-327",
+    "metadata_raw": "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление . 2025. Т. 12. № 3 . С. 319-327.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "e30afe7f9194bc7b",
+    "sources": [
+      "elibrary",
+      "orcid_public_api"
+    ],
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "orcid": "0000-0002-8725-6580",
+        "title": "State demographic and family policy: an overview of current research and practices",
+        "year": 2025,
+        "doi": "10.22363/2312-8313-2025-12-3-319-327",
+        "type": "journal-article",
+        "url": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
+        "put_code": 195820218,
+        "raw": {
+          "put-code": 195820218,
+          "created-date": {
+            "value": 1762108164049
+          },
+          "last-modified-date": {
+            "value": 1762108164049
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "State demographic and family policy: an overview of current research and practices"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.22363/2312-8313-2025-12-3-319-327",
+                "external-id-normalized": {
+                  "value": "10.22363/2312-8313-2025-12-3-319-327",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "11"
+            },
+            "day": {
+              "value": "01"
+            }
+          },
+          "journal-title": {
+            "value": "RUDN Journal of Public Administration"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/195820218",
+          "display-index": "1"
+        }
+      }
+    ],
+    "title_en": "State demographic and family policy: an overview of current research and practices",
+    "title_en_source": "orcid_public_api",
+    "venue_en": "RUDN Journal of Public Administration",
+    "venue_en_source": "orcid_public_api"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 23,
+    "elibrary_item_id": "83217152",
+    "url": "https://www.elibrary.ru/item.asp?id=83217152",
+    "title": "ВЛИЯНИЕ ГОСУДАРСТВЕННОЙ ПОЛИТИКИ АГЛОМЕРИРОВАНИЯ НА ДОЛГОСРОЧНЫЕ ТЕНДЕНЦИИ ИЗМЕНЕНИЯ ЧИСЛЕННОСТИ НАСЕЛЕНИЯ РОССИИ",
+    "title_ru": "ВЛИЯНИЕ ГОСУДАРСТВЕННОЙ ПОЛИТИКИ АГЛОМЕРИРОВАНИЯ НА ДОЛГОСРОЧНЫЕ ТЕНДЕНЦИИ ИЗМЕНЕНИЯ ЧИСЛЕННОСТИ НАСЕЛЕНИЯ РОССИИ",
+    "authors_raw": "Ситковский А.М.",
+    "venue": "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление",
+    "venue_ru": "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление",
+    "year": 2025,
+    "pages": "375-385",
+    "doi": "10.22363/2312-8313-2025-12-3-375-385",
+    "metadata_raw": "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление . 2025. Т. 12. № 3 . С. 375-385.",
+    "rinc_citations": 1,
+    "dedupe_fingerprint": "7d41f4757ddfd95b",
+    "sources": [
+      "elibrary",
+      "orcid_public_api"
+    ],
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "orcid": "0000-0002-8725-6580",
+        "title": "The impact of state agglomeration policy on long-term trends of population changes in Russia",
+        "year": 2025,
+        "doi": "10.22363/2312-8313-2025-12-3-375-385",
+        "type": "journal-article",
+        "url": "https://doi.org/10.22363/2312-8313-2025-12-3-375-385",
+        "put_code": 195820219,
+        "raw": {
+          "put-code": 195820219,
+          "created-date": {
+            "value": 1762108164209
+          },
+          "last-modified-date": {
+            "value": 1762108164209
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "The impact of state agglomeration policy on long-term trends of population changes in Russia"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.22363/2312-8313-2025-12-3-375-385",
+                "external-id-normalized": {
+                  "value": "10.22363/2312-8313-2025-12-3-375-385",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.22363/2312-8313-2025-12-3-375-385"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.22363/2312-8313-2025-12-3-375-385"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "11"
+            },
+            "day": {
+              "value": "01"
+            }
+          },
+          "journal-title": {
+            "value": "RUDN Journal of Public Administration"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/195820219",
+          "display-index": "1"
+        }
+      }
+    ],
+    "title_en": "The impact of state agglomeration policy on long-term trends of population changes in Russia",
+    "title_en_source": "orcid_public_api",
+    "venue_en": "RUDN Journal of Public Administration",
+    "venue_en_source": "orcid_public_api"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 24,
+    "elibrary_item_id": "88751490",
+    "url": "https://www.elibrary.ru/item.asp?id=88751490",
+    "title": "СОЦИОЛОГИЧЕСКАЯ ДИАГНОСТИКА НЕУДОВЛЕТВОРЁННОСТИ НАСЕЛЕНИЯ КАК ИНСТРУМЕНТ УПРАВЛЕНИЯ РАЗВИТИЕМ ТЕРРИТОРИЙ",
+    "title_ru": "СОЦИОЛОГИЧЕСКАЯ ДИАГНОСТИКА НЕУДОВЛЕТВОРЁННОСТИ НАСЕЛЕНИЯ КАК ИНСТРУМЕНТ УПРАВЛЕНИЯ РАЗВИТИЕМ ТЕРРИТОРИЙ",
+    "authors_raw": "Ситковский А.М., Ростовская Т.К.",
+    "venue": "Научный результат. Социология и управление",
+    "venue_ru": "Научный результат. Социология и управление",
+    "year": 2025,
+    "pages": "242-259",
+    "doi": "10.18413/2408-9338-2025-11-4-1-4",
+    "metadata_raw": "Научный результат. Социология и управление . 2025. Т. 11. № 4 . С. 242-259.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "41a007210647f0a6",
+    "sources": [
+      "elibrary",
+      "orcid_public_api"
+    ],
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "orcid": "0000-0002-8725-6580",
+        "title": "Sociological diagnostics of population dissatisfaction as a tool for managing territorial development",
+        "year": 2025,
+        "doi": "10.18413/2408-9338-2025-11-4-1-4",
+        "type": "journal-article",
+        "url": "https://doi.org/10.18413/2408-9338-2025-11-4-1-4",
+        "put_code": 208228256,
+        "raw": {
+          "put-code": 208228256,
+          "created-date": {
+            "value": 1773315521751
+          },
+          "last-modified-date": {
+            "value": 1773315521751
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Sociological diagnostics of population dissatisfaction as a tool for managing territorial development"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.18413/2408-9338-2025-11-4-1-4",
+                "external-id-normalized": {
+                  "value": "10.18413/2408-9338-2025-11-4-1-4",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.18413/2408-9338-2025-11-4-1-4"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.18413/2408-9338-2025-11-4-1-4"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "12"
+            },
+            "day": {
+              "value": "30"
+            }
+          },
+          "journal-title": {
+            "value": "Research Result Sociology and Management"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/208228256",
+          "display-index": "1"
+        }
+      }
+    ],
+    "title_en": "Sociological diagnostics of population dissatisfaction as a tool for managing territorial development",
+    "title_en_source": "orcid_public_api",
+    "venue_en": "Research Result Sociology and Management",
+    "venue_en_source": "orcid_public_api"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 25,
+    "elibrary_item_id": "88766941",
+    "url": "https://www.elibrary.ru/item.asp?id=88766941",
+    "title": "МЕТОДОЛОГИЧЕСКИЕ АСПЕКТЫ ПРОВЕДЕНИЯ ДЕМОГРАФИЧЕСКОЙ ЭКСПЕРТИЗЫ ПРОЕКТОВ И РАБОТ",
+    "title_ru": "МЕТОДОЛОГИЧЕСКИЕ АСПЕКТЫ ПРОВЕДЕНИЯ ДЕМОГРАФИЧЕСКОЙ ЭКСПЕРТИЗЫ ПРОЕКТОВ И РАБОТ",
+    "authors_raw": "Ситковский А.М., Мирязов Т.Р.",
+    "venue": "ДЕМИС. Демографические исследования",
+    "venue_ru": "ДЕМИС. Демографические исследования",
+    "year": 2025,
+    "pages": "188-215",
+    "doi": "10.19181/demis.2025.5.4.11",
+    "metadata_raw": "ДЕМИС. Демографические исследования . 2025. Т. 5. № 4 . С. 188-215.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "89fd29fe20d215b1",
+    "sources": [
+      "elibrary",
+      "orcid_public_api"
+    ],
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "orcid": "0000-0002-8725-6580",
+        "title": "Methodological Aspects of Demographic Expertise of Projects and Works",
+        "year": 2025,
+        "doi": "10.19181/demis.2025.5.4.11",
+        "type": "journal-article",
+        "url": "https://doi.org/10.19181/demis.2025.5.4.11",
+        "put_code": 200970214,
+        "raw": {
+          "put-code": 200970214,
+          "created-date": {
+            "value": 1767031802834
+          },
+          "last-modified-date": {
+            "value": 1767031802834
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Methodological Aspects of Demographic Expertise of Projects and Works"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.19181/demis.2025.5.4.11",
+                "external-id-normalized": {
+                  "value": "10.19181/demis.2025.5.4.11",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.19181/demis.2025.5.4.11"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.19181/demis.2025.5.4.11"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": {
+              "value": "12"
+            },
+            "day": {
+              "value": "29"
+            }
+          },
+          "journal-title": {
+            "value": "DEMIS. Demographic Research"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/200970214",
+          "display-index": "1"
+        }
+      }
+    ],
+    "title_en": "Methodological Aspects of Demographic Expertise of Projects and Works",
+    "title_en_source": "orcid_public_api",
+    "venue_en": "DEMIS. Demographic Research",
+    "venue_en_source": "orcid_public_api"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 26,
+    "elibrary_item_id": "88139507",
+    "url": "https://www.elibrary.ru/item.asp?id=88139507",
+    "title": "THE IMPACT OF POPULATION DENSITY ON THE SOCIO-ECONOMIC DEVELOPMENT OF RUSSIAN REGIONS: FROM CORRELATION PORTRAITS TO THE CLUSTER-DIFFERENTIATED DENSITY GOVERNANCE",
+    "title_ru": "THE IMPACT OF POPULATION DENSITY ON THE SOCIO-ECONOMIC DEVELOPMENT OF RUSSIAN REGIONS: FROM CORRELATION PORTRAITS TO THE CLUSTER-DIFFERENTIATED DENSITY GOVERNANCE",
+    "authors_raw": "Bezverbny V., Rostovskaya T., Sitkovsky A., Roslavtsev S.",
+    "venue": "Frontiers in Political Science",
+    "venue_ru": "Frontiers in Political Science",
+    "year": 2025,
+    "pages": "1715504",
+    "doi": null,
+    "metadata_raw": "Frontiers in Political Science . 2025. Т. 7. С. 1715504.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "94de25b9d60208a4",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "The impact of population density on the socio-economic development of russian regions: from correlation portraits to the cluster-differentiated density governance",
+    "venue_en": "Frontiers in Political Science",
+    "title_en_source": "existing_latin",
+    "venue_en_source": "existing_latin"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 27,
+    "elibrary_item_id": "62766619",
+    "url": "https://www.elibrary.ru/item.asp?id=62766619",
+    "title": "РЕСУРСЫ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ: К ВОПРОСУ ОБ УНИФИКАЦИИ ПОНЯТИЙ В ДЕМОГРАФИЧЕСКИХ ИССЛЕДОВАНИЯХ",
+    "title_ru": "РЕСУРСЫ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ: К ВОПРОСУ ОБ УНИФИКАЦИИ ПОНЯТИЙ В ДЕМОГРАФИЧЕСКИХ ИССЛЕДОВАНИЯХ",
+    "authors_raw": "Ростовская Т.К., Ситковский А.М.",
+    "venue": "Экономические и социальные перемены: факты, тенденции, прогноз",
+    "venue_ru": "Экономические и социальные перемены: факты, тенденции, прогноз",
+    "year": 2024,
+    "pages": "178-200",
+    "doi": null,
+    "metadata_raw": "Экономические и социальные перемены: факты, тенденции, прогноз . 2024. Т. 17. № 1 . С. 178-200.",
+    "rinc_citations": 22,
+    "dedupe_fingerprint": "eb00ba5f977054de",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Resources for Demographic Development: Towards the Unification of Concepts in Demographic Research",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 28,
+    "elibrary_item_id": "72083389",
+    "url": "https://www.elibrary.ru/item.asp?id=72083389",
+    "title": "ОБРАЗОВАТЕЛЬНЫЕ МЕЖРЕГИОНАЛЬНЫЕ МИГРАЦИИ В РОССИИ В 2017-2019 ГГ.: ГЕНДЕРНЫЕ И ПРОСТРАНСТВЕННЫЕ АСПЕКТЫ",
+    "title_ru": "ОБРАЗОВАТЕЛЬНЫЕ МЕЖРЕГИОНАЛЬНЫЕ МИГРАЦИИ В РОССИИ В 2017-2019 ГГ.: ГЕНДЕРНЫЕ И ПРОСТРАНСТВЕННЫЕ АСПЕКТЫ",
+    "authors_raw": "Безвербный В.А., Микрюков Н.Ю., Ситковский А.М.",
+    "venue": "Новые исследования Тувы",
+    "venue_ru": "Новые исследования Тувы",
+    "year": 2024,
+    "pages": "226-239",
+    "doi": "10.25178/nit.2024.3.13",
+    "metadata_raw": "Новые исследования Тувы . 2024. № 3 . С. 226-239.",
+    "rinc_citations": 8,
+    "dedupe_fingerprint": "b2d5a1c5020a3cc3",
+    "sources": [
+      "elibrary",
       "scopus",
       "orcid_public_api"
     ],
@@ -823,11 +1872,8 @@
         }
       }
     },
-    "auto_accept_reason": "author-scoped Scopus AU-ID record",
     "title_en": "Inter-regional educational migrations in Russia in 2017–2019: gender and spatial aspects",
     "venue_en": "New Research of Tuva",
-    "title_ru": "Inter-regional educational migrations in Russia in 2017–2019: gender and spatial aspects",
-    "venue_ru": "New Research of Tuva",
     "open_sources": [
       {
         "source": "orcid_public_api",
@@ -912,21 +1958,638 @@
     "venue_en_source": "scopus"
   },
   {
-    "source": "scopus_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2020,
-    "rinc_citations": 0,
-    "title": "Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals",
-    "authors_raw": "Gordeev S.",
-    "venue": "E3s Web of Conferences",
-    "pages": null,
-    "doi": "10.1051/e3sconf/202021707021",
-    "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-85097958022",
+    "source": "elibrary_rinc_saved_html",
+    "number": 29,
+    "elibrary_item_id": "54756601",
+    "url": "https://www.elibrary.ru/item.asp?id=54756601",
+    "title": "ИСПОЛЬЗОВАНИЕ ВЕКТОРНЫХ ОЦЕНОК И ГРАФОАНАЛИТИЧЕСКИХ МЕТОДОВ В ИССЛЕДОВАНИИ ДЕМОГРАФИЧЕСКОГО ПОВЕДЕНИЯ НАСЕЛЕНИЯ РЕГИОНА",
+    "title_ru": "ИСПОЛЬЗОВАНИЕ ВЕКТОРНЫХ ОЦЕНОК И ГРАФОАНАЛИТИЧЕСКИХ МЕТОДОВ В ИССЛЕДОВАНИИ ДЕМОГРАФИЧЕСКОГО ПОВЕДЕНИЯ НАСЕЛЕНИЯ РЕГИОНА",
+    "authors_raw": "Ситковский А.М., Козлова О.А.",
+    "venue": "Вестник Нижегородского университета им. Н.И. Лобачевского. Серия: Социальные науки",
+    "venue_ru": "Вестник Нижегородского университета им. Н.И. Лобачевского. Серия: Социальные науки",
+    "year": 2023,
+    "pages": "44-55",
+    "doi": null,
+    "metadata_raw": "Вестник Нижегородского университета им. Н.И. Лобачевского. Серия: Социальные науки . 2023. № 3 (71) . С. 44-55.",
+    "rinc_citations": 8,
+    "dedupe_fingerprint": "8ff2a5b19f31c0e6",
     "sources": [
+      "elibrary"
+    ],
+    "title_en": "Use of Vector Assessments and Grafoanalytic Methods in the Study of the Demographic Behavior of the Region’s Population",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 30,
+    "elibrary_item_id": "54485757",
+    "url": "https://www.elibrary.ru/item.asp?id=54485757",
+    "title": "ОСОБЕННОСТИ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ КОРЕННЫХ МАЛОЧИСЛЕННЫХ НАРОДОВ СЕВЕРА ХМАО В ПЕРИОД 20022022 ГГ",
+    "title_ru": "ОСОБЕННОСТИ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ КОРЕННЫХ МАЛОЧИСЛЕННЫХ НАРОДОВ СЕВЕРА ХМАО В ПЕРИОД 20022022 ГГ",
+    "authors_raw": "Ростовская Т.К., Плеханова Л.В., Ситковский А.М.",
+    "venue": "Вопросы истории",
+    "venue_ru": "Вопросы истории",
+    "year": 2023,
+    "pages": "172-187",
+    "doi": null,
+    "metadata_raw": "Вопросы истории . 2023. № 9-1 . С. 172-187.",
+    "rinc_citations": 5,
+    "dedupe_fingerprint": "5c76ced8179dcb36",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Features of the Demographic Development of the Indigenous Small Peoples of North Khmao in the Period 2002-2022",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 31,
+    "elibrary_item_id": "54305933",
+    "url": "https://www.elibrary.ru/item.asp?id=54305933",
+    "title": "СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИЕ АСПЕКТЫ ОПРЕДЕЛЕНИЯ ОПОРНОГО КАРКАСА РАССЕЛЕНИЯ",
+    "title_ru": "СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИЕ АСПЕКТЫ ОПРЕДЕЛЕНИЯ ОПОРНОГО КАРКАСА РАССЕЛЕНИЯ",
+    "authors_raw": "Козлова О.А., Ситковский А.М.",
+    "venue": "Вестник Южно-Российского государственного технического университета (НПИ). Серия: Социально-экономические науки",
+    "venue_ru": "Вестник Южно-Российского государственного технического университета (НПИ). Серия: Социально-экономические науки",
+    "year": 2023,
+    "pages": "118-133",
+    "doi": null,
+    "metadata_raw": "Вестник Южно-Российского государственного технического университета (НПИ). Серия: Социально-экономические науки . 2023. Т. 16. № 4 . С. 118-133.",
+    "rinc_citations": 4,
+    "dedupe_fingerprint": "c98316796b68ea53",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Social and Demographic Aspects of the Definition of the Resettlement Framework",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 32,
+    "elibrary_item_id": "54353108",
+    "url": "https://www.elibrary.ru/item.asp?id=54353108",
+    "title": "МЕТОДИЧЕСКИЙ ПОДХОД К АНАЛИЗУ СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИХ ФАКТОРОВ ФОРМИРОВАНИЯ ОПОРНОГО КАРКАСА РАССЕЛЕНИЯ",
+    "title_ru": "МЕТОДИЧЕСКИЙ ПОДХОД К АНАЛИЗУ СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИХ ФАКТОРОВ ФОРМИРОВАНИЯ ОПОРНОГО КАРКАСА РАССЕЛЕНИЯ",
+    "authors_raw": "Козлова О.А., Ситковский А.М.",
+    "venue": "Вопросы управления",
+    "venue_ru": "Вопросы управления",
+    "year": 2023,
+    "pages": "33-52",
+    "doi": "10.22394/2304-3369-2023-4-33-52",
+    "metadata_raw": "Вопросы управления . 2023. № 4 (83) . С. 33-52.",
+    "rinc_citations": 5,
+    "dedupe_fingerprint": "1ea1b99c17a65875",
+    "sources": [
+      "elibrary",
+      "orcid_public_api"
+    ],
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "orcid": "0000-0002-8725-6580",
+        "title": "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern",
+        "year": 2023,
+        "doi": "10.22394/2304-3369-2023-4-33-52",
+        "type": "journal-article",
+        "url": "https://doi.org/10.22394/2304-3369-2023-4-33-52",
+        "put_code": 141480365,
+        "raw": {
+          "put-code": 141480365,
+          "created-date": {
+            "value": 1693471227716
+          },
+          "last-modified-date": {
+            "value": 1693471227716
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.22394/2304-3369-2023-4-33-52",
+                "external-id-normalized": {
+                  "value": "10.22394/2304-3369-2023-4-33-52",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.22394/2304-3369-2023-4-33-52"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.22394/2304-3369-2023-4-33-52"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2023"
+            },
+            "month": null,
+            "day": null
+          },
+          "journal-title": {
+            "value": "Management Issues"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/141480365",
+          "display-index": "0"
+        }
+      }
+    ],
+    "title_en": "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern",
+    "title_en_source": "orcid_public_api",
+    "venue_en": "Management Issues",
+    "venue_en_source": "orcid_public_api"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 33,
+    "elibrary_item_id": "49832359",
+    "url": "https://www.elibrary.ru/item.asp?id=49832359",
+    "title": "ПОЛОВОЗРАСТНАЯ ПИРАМИДА МИГРАЦИОННОГО САЛЬДО КАК ИНСТРУМЕНТ УГЛУБЛЕННОГО АНАЛИЗА МИГРАЦИОННЫХПРОЦЕССОВ",
+    "title_ru": "ПОЛОВОЗРАСТНАЯ ПИРАМИДА МИГРАЦИОННОГО САЛЬДО КАК ИНСТРУМЕНТ УГЛУБЛЕННОГО АНАЛИЗА МИГРАЦИОННЫХПРОЦЕССОВ",
+    "authors_raw": "Ситковский А.М.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2022,
+    "pages": "91-92",
+    "doi": null,
+    "metadata_raw": "В сборнике: IV Всероссийский демографический форум с международным участием. Сборник тезисов форума. Отв. редактор Т.К. Ростовская. Москва, 2022. С. 91-92.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "722bf6bf79e405f5",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "The Sexual Age Pyramid of Migration Soldo as an Instrument of In-depth Analysis of Migration Processes",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 34,
+    "elibrary_item_id": "50094227",
+    "url": "https://www.elibrary.ru/item.asp?id=50094227",
+    "title": "СИСТЕМА РАССЕЛЕНИЯ ЧУВАШСКОЙ РЕСПУБЛИКИ: ЧЕБОКСАРСКАЯ АГЛОМЕРАЦИЯ",
+    "title_ru": "СИСТЕМА РАССЕЛЕНИЯ ЧУВАШСКОЙ РЕСПУБЛИКИ: ЧЕБОКСАРСКАЯ АГЛОМЕРАЦИЯ",
+    "authors_raw": "Ситковский А.М.",
+    "venue": "Вестник Южно-Российского государственного технического университета (НПИ). Серия: Социально-экономические науки",
+    "venue_ru": "Вестник Южно-Российского государственного технического университета (НПИ). Серия: Социально-экономические науки",
+    "year": 2022,
+    "pages": "189-203",
+    "doi": null,
+    "metadata_raw": "Вестник Южно-Российского государственного технического университета (НПИ). Серия: Социально-экономические науки . 2022. Т. 15. № 6 . С. 189-203.",
+    "rinc_citations": 7,
+    "dedupe_fingerprint": "0d65ca49ecb4e9df",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Settlement system of Chuvash Republic: Cheboksar agglomeration",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 35,
+    "elibrary_item_id": "48075389",
+    "url": "https://www.elibrary.ru/item.asp?id=48075389",
+    "title": "ГОРОДА БУДУЩЕГО: ПРОСТРАНСТВЕННОЕ РАЗВИТИЕ, СОУЧАСТВУЮЩЕЕ УПРАВЛЕНИЕ И ТВОРЧЕСКИЕ ИНДУСТРИИ",
+    "title_ru": "ГОРОДА БУДУЩЕГО: ПРОСТРАНСТВЕННОЕ РАЗВИТИЕ, СОУЧАСТВУЮЩЕЕ УПРАВЛЕНИЕ И ТВОРЧЕСКИЕ ИНДУСТРИИ",
+    "authors_raw": "Безвербный В.А., Белкин С.В., Блинов Г.Н., Бойко Д.О., Гарнага А.Ф., Жирков О.А., Зеленцова Е.В., Иванова К.А., Ивановская Н.Е., Климкович Е.В., Королева Д.О., Маркварт Э., Мартынова Я.А., Моисеев Ю.М., Орлова О.Н., Полещук М.Н., Пушкарева Т.В., Самойлова Н.А., Синицына И.А., Ситковский А.М. и др.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2021,
+    "pages": null,
+    "doi": null,
+    "metadata_raw": "Москва, 2021.",
+    "rinc_citations": 4,
+    "dedupe_fingerprint": "3eca897efa4c444d",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Cities of the Future: Spacious Development, Participatory Management and Creative Industries",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 36,
+    "elibrary_item_id": "48271056",
+    "url": "https://www.elibrary.ru/item.asp?id=48271056",
+    "title": "ПРОСТРАНСТВЕННОЕ СЖАТИЕ ТЕРРИТОРИЙ РОССИЙСКОЙ ФЕДЕРАЦИИ: ПОНЯТИЕ, КРИТЕРИИ, СИСТЕМА ПОКАЗАТЕЛЕЙ",
+    "title_ru": "ПРОСТРАНСТВЕННОЕ СЖАТИЕ ТЕРРИТОРИЙ РОССИЙСКОЙ ФЕДЕРАЦИИ: ПОНЯТИЕ, КРИТЕРИИ, СИСТЕМА ПОКАЗАТЕЛЕЙ",
+    "authors_raw": "Маркварт Э., Безвербный В.А., Ситковский А.М.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2021,
+    "pages": "63-93",
+    "doi": null,
+    "metadata_raw": "В книге: Города будущего: пространственное развитие, соучаствующее управление и творческие индустрии. Безвербный В.А., Белкин С.В., Блинов Г.Н., Бойко Д.О., Гарнага А.Ф., Жирков О.А., Зеленцова Е.В., Иванова К.А., Ивановская Н.Е., Климкович Е.В., Королева Д.О., Маркварт Э., Мартынова Я.А., Моисеев Ю.М., Орлова О.Н., Полещук М.Н., Пушкарева Т.В., Самойлова Н.А., Синицына И.А., Ситковский А.М. и др. Москва, 2021. С. 63-93.",
+    "rinc_citations": 22,
+    "dedupe_fingerprint": "3736aa250dcb758d",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Spatial compression of the territories of the Russian Federation: concept, criteria, system of indicators",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 37,
+    "elibrary_item_id": "45763932",
+    "url": "https://www.elibrary.ru/item.asp?id=45763932",
+    "title": "МНОГОУРОВНЕВЫЕ МОДЕЛИ ТРАНСФОРМАЦИИ СОЦИАЛЬНОГО ПРОСТРАНСТВА ЕВРАЗИЙСКОГО МАКРОРЕГИОНА: НА ПРИМЕРЕ УРАЛА",
+    "title_ru": "МНОГОУРОВНЕВЫЕ МОДЕЛИ ТРАНСФОРМАЦИИ СОЦИАЛЬНОГО ПРОСТРАНСТВА ЕВРАЗИЙСКОГО МАКРОРЕГИОНА: НА ПРИМЕРЕ УРАЛА",
+    "authors_raw": "Гордеев С.С., Зырянов С.Г., Ситковский А.М.",
+    "venue": "Вестник Челябинского государственного университета",
+    "venue_ru": "Вестник Челябинского государственного университета",
+    "year": 2021,
+    "pages": "106-114",
+    "doi": null,
+    "metadata_raw": "Вестник Челябинского государственного университета . 2021. № 3 (449) . С. 106-114.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "8272e0e1c7cdf192",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Multilevel Models of Transformation of the Social Space of the Eurasian Macroregion: on the Example of the Ural",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 38,
+    "elibrary_item_id": "48333690",
+    "url": "https://www.elibrary.ru/item.asp?id=48333690",
+    "title": "МНОГОМЕРНАЯ ТИПОЛОГИЗАЦИЯ СУБЪЕКТОВ РФ НА ОСНОВЕ СОЦИАЛЬНО-ЭКОНОМИЧЕСКИХ И ПРИРОДНО-КЛИМАТИЧЕСКИХ ХАРАКТЕРИСТИ",
+    "title_ru": "МНОГОМЕРНАЯ ТИПОЛОГИЗАЦИЯ СУБЪЕКТОВ РФ НА ОСНОВЕ СОЦИАЛЬНО-ЭКОНОМИЧЕСКИХ И ПРИРОДНО-КЛИМАТИЧЕСКИХ ХАРАКТЕРИСТИ",
+    "authors_raw": "Ситковский А.М.",
+    "venue": "Сегодня и завтра Российской экономики",
+    "venue_ru": "Сегодня и завтра Российской экономики",
+    "year": 2021,
+    "pages": "43-61",
+    "doi": null,
+    "metadata_raw": "Сегодня и завтра Российской экономики . 2021. № 103-104 . С. 43-61.",
+    "rinc_citations": 6,
+    "dedupe_fingerprint": "809571a7882fbdac",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Multidimensional typology of subjects of the Russian Federation on the basis of socio-economic and natural-climatic characteristics",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 39,
+    "elibrary_item_id": "48126823",
+    "url": "https://www.elibrary.ru/item.asp?id=48126823",
+    "title": "ВЫЯВЛЕНИЕ ЭКОНОМИЧЕСКОЙ СПЕЦИАЛИЗАЦИИ И ПОТЕНЦИАЛА КООПЕРАЦИИ СУБЪЕКТОВ РФ",
+    "title_ru": "ВЫЯВЛЕНИЕ ЭКОНОМИЧЕСКОЙ СПЕЦИАЛИЗАЦИИ И ПОТЕНЦИАЛА КООПЕРАЦИИ СУБЪЕКТОВ РФ",
+    "authors_raw": "Ситковский А.М.",
+    "venue": "Научное обозрение. Серия 1: Экономика и право",
+    "venue_ru": "Научное обозрение. Серия 1: Экономика и право",
+    "year": 2021,
+    "pages": "92-111",
+    "doi": "10.26653/2076-4650-2021-6-08",
+    "metadata_raw": "Научное обозрение. Серия 1: Экономика и право . 2021. № 6 . С. 92-111.",
+    "rinc_citations": 2,
+    "dedupe_fingerprint": "b71b03779c42f4e3",
+    "sources": [
+      "elibrary",
+      "orcid_public_api"
+    ],
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "orcid": "0000-0002-8725-6580",
+        "title": "IDENTIFICATION OF ECONOMIC SPECIALIZATION AND COOPERATION POTENTIAL OF THE REGIONS OF THE RUSSIAN FEDERATION",
+        "year": 2021,
+        "doi": "10.26653/2076-4650-2021-6-08",
+        "type": "journal-article",
+        "url": "https://doi.org/10.26653/2076-4650-2021-6-08",
+        "put_code": 110567882,
+        "raw": {
+          "put-code": 110567882,
+          "created-date": {
+            "value": 1648596003541
+          },
+          "last-modified-date": {
+            "value": 1654213107566
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "IDENTIFICATION OF ECONOMIC SPECIALIZATION AND COOPERATION POTENTIAL OF THE REGIONS OF THE RUSSIAN FEDERATION"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.26653/2076-4650-2021-6-08",
+                "external-id-normalized": {
+                  "value": "10.26653/2076-4650-2021-6-08",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.26653/2076-4650-2021-6-08"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.26653/2076-4650-2021-6-08"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2021"
+            },
+            "month": null,
+            "day": null
+          },
+          "journal-title": {
+            "value": "Scientific Review. Series 1. Economics and Law"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/110567882",
+          "display-index": "0"
+        }
+      }
+    ],
+    "title_en": "Identification of economic specialization and cooperation potential of the regions of the russian federation",
+    "title_en_source": "orcid_public_api",
+    "venue_en": "Scientific Review. Series 1. Economics and Law",
+    "venue_en_source": "orcid_public_api"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 40,
+    "elibrary_item_id": "45651388",
+    "url": "https://www.elibrary.ru/item.asp?id=45651388",
+    "title": "МОДЕЛИРОВАНИЕ МНОГОКРИТЕРИАЛЬНОЙ ОЦЕНКИ СОЦИО-ЭКОЛОГО-ЭКОНОМИЧЕСКОГО СОСТОЯНИЯ И ДИНАМИКИ ТЕРРИТОРИИ",
+    "title_ru": "МОДЕЛИРОВАНИЕ МНОГОКРИТЕРИАЛЬНОЙ ОЦЕНКИ СОЦИО-ЭКОЛОГО-ЭКОНОМИЧЕСКОГО СОСТОЯНИЯ И ДИНАМИКИ ТЕРРИТОРИИ",
+    "authors_raw": "Ситковский А.М.",
+    "venue": "Вопросы управления",
+    "venue_ru": "Вопросы управления",
+    "year": 2021,
+    "pages": "102-119",
+    "doi": "10.22394/2304-3369-2021-2-102-119",
+    "metadata_raw": "Вопросы управления . 2021. № 2 (69) . С. 102-119.",
+    "rinc_citations": 13,
+    "dedupe_fingerprint": "8fa4022d53cba9b3",
+    "sources": [
+      "elibrary",
+      "orcid_public_api"
+    ],
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "orcid": "0000-0002-8725-6580",
+        "title": "Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory",
+        "year": 2021,
+        "doi": "10.22394/2304-3369-2021-2-102-119",
+        "type": "journal-article",
+        "url": "https://doi.org/10.22394/2304-3369-2021-2-102-119",
+        "put_code": 93095276,
+        "raw": {
+          "put-code": 93095276,
+          "created-date": {
+            "value": 1619782021299
+          },
+          "last-modified-date": {
+            "value": 1654061923988
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.22394/2304-3369-2021-2-102-119",
+                "external-id-normalized": {
+                  "value": "10.22394/2304-3369-2021-2-102-119",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.22394/2304-3369-2021-2-102-119"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.22394/2304-3369-2021-2-102-119"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2021"
+            },
+            "month": null,
+            "day": null
+          },
+          "journal-title": {
+            "value": "Management Issues"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/93095276",
+          "display-index": "0"
+        }
+      }
+    ],
+    "title_en": "Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory",
+    "title_en_source": "orcid_public_api",
+    "venue_en": "Management Issues",
+    "venue_en_source": "orcid_public_api"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 41,
+    "elibrary_item_id": "43996074",
+    "url": "https://www.elibrary.ru/item.asp?id=43996074",
+    "title": "THE TRANSFORMATION OF SOCIAL AND CULTURAL SPACE IN THE CONTEXT OF THE DEVELOPMENT OF TRANSPORT CORRIDORS",
+    "title_ru": "THE TRANSFORMATION OF SOCIAL AND CULTURAL SPACE IN THE CONTEXT OF THE DEVELOPMENT OF TRANSPORT CORRIDORS",
+    "authors_raw": "Gordeev S., Zyryanov S., Sitkovskiy A.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2020,
+    "pages": "111-118",
+    "doi": null,
+    "metadata_raw": "В сборнике: Culture, Personality, Society in the Conditions of Digitalization: Methodology and Experience of Empirical Research. XXIII International Conference named after professor L.N. Kogan. Yekaterinburg, 2020. С. 111-118.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "4682e5ee518dc06f",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "The transformation of social and cultural space in the context of the development of transport corridors",
+    "title_en_source": "existing_latin"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 42,
+    "elibrary_item_id": "44238615",
+    "url": "https://www.elibrary.ru/item.asp?id=44238615",
+    "title": "«ЭФФЕКТ КОЛЕИ» И ТРАНСФОРМАЦИЯ СОЦИАЛЬНОГО ПРОСТРАНСТВА ЕВРАЗИЙСКОГО МАКРОРЕГИОНА: НА ПРИМЕРЕ УРАЛА",
+    "title_ru": "«ЭФФЕКТ КОЛЕИ» И ТРАНСФОРМАЦИЯ СОЦИАЛЬНОГО ПРОСТРАНСТВА ЕВРАЗИЙСКОГО МАКРОРЕГИОНА: НА ПРИМЕРЕ УРАЛА",
+    "authors_raw": "Гордеев С.С., Ситковский А.М.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2020,
+    "pages": "222-223",
+    "doi": null,
+    "metadata_raw": "В сборнике: Конкурентоспособность и развитие социально-экономических систем. Сборник аннотаций докладов IV Международной научной конференции памяти академика А.И. Татаркина. Под редакцией В.И. Бархатова, Д.А. Плетнева, О.В. Брижак, Г.П. Журавлевой. 2020. С. 222-223.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "b4947f53ad19ec0a",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "\"The RELIGION EFFECT\" And Transformation of the Social Space of the Eurasian Macroregion: for the example of the Urals",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 43,
+    "elibrary_item_id": "48727518",
+    "url": "https://www.elibrary.ru/item.asp?id=48727518",
+    "title": "“PATH DEPENDENCE”: THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
+    "title_ru": "“PATH DEPENDENCE”: THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
+    "authors_raw": "Gordeev S., Sitkovskiy A.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2020,
+    "pages": "120-128",
+    "doi": null,
+    "metadata_raw": "В сборнике: Competitiveness and the Development of Socio-Economic Systems. Proceedings of the IV International Scientific Conference, dedicated to the memory of Alexander Tatarkin. Series: European Proceedings of Social and Behavioural Sciences. Chelyabinsk, 2020. С. 120-128.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "3adcac2daa085839",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "“path dependence”: the transformation of the social space of the eurasian macroregion",
+    "title_en_source": "existing_latin"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 44,
+    "elibrary_item_id": "44505904",
+    "url": "https://www.elibrary.ru/item.asp?id=44505904",
+    "title": "ПРИОРИТЕТЫ КАЧЕСТВА ЖИЗНИ В НОРМАЛИЗАЦИИ СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ ТЕРРИТОРИЙ",
+    "title_ru": "ПРИОРИТЕТЫ КАЧЕСТВА ЖИЗНИ В НОРМАЛИЗАЦИИ СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ ТЕРРИТОРИЙ",
+    "authors_raw": "Гордеев С.С., Зырянов С.Г., Ситковский А.М.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2020,
+    "pages": "129-135",
+    "doi": null,
+    "metadata_raw": "В сборнике: Институты развития человеческого потенциала в условиях современных вызовов. сборник статей XI Уральского демографического форума: в 2-х томах. Институт экономики Уральского отделения Российской Академии Наук. 2020. С. 129-135.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "22d536b71ef457d1",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Priorities of quality of life in the normalization of social and demographic processes of territories",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 45,
+    "elibrary_item_id": "44548233",
+    "url": "https://www.elibrary.ru/item.asp?id=44548233",
+    "title": "ПРОСТРАНСТВЕННАЯ ДИФФЕРЕНЦИАЦИЯ МИГРАЦИОННЫХ ПРОЦЕССОВ В КОНТЕКСТЕ ЛОКАЛЬНОГО ЭКОНОМИЧЕСКОГО КРИЗИСА НА ПРИМЕРЕ ЧЕЛЯБИНСКОЙ ОБЛАСТИ",
+    "title_ru": "ПРОСТРАНСТВЕННАЯ ДИФФЕРЕНЦИАЦИЯ МИГРАЦИОННЫХ ПРОЦЕССОВ В КОНТЕКСТЕ ЛОКАЛЬНОГО ЭКОНОМИЧЕСКОГО КРИЗИСА НА ПРИМЕРЕ ЧЕЛЯБИНСКОЙ ОБЛАСТИ",
+    "authors_raw": "Ситковский А.М.",
+    "venue": "Актуальные вопросы современной экономики",
+    "venue_ru": "Актуальные вопросы современной экономики",
+    "year": 2020,
+    "pages": "165-171",
+    "doi": null,
+    "metadata_raw": "Актуальные вопросы современной экономики . 2020. № 11 . С. 165-171.",
+    "rinc_citations": 2,
+    "dedupe_fingerprint": "f4214b9107d0829a",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Spatial Differentiation of Migration Processes in the Context of Local Economic Crisis in the Example of the Chelyabinsk Region",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 46,
+    "elibrary_item_id": "45066549",
+    "url": "https://www.elibrary.ru/item.asp?id=45066549",
+    "title": "VISUALIZATION IN MODELS OF TRANSFORMATION OF SOCIAL SPACE OF THE EURASIAN MACROREGION: THE EXAMPLE OF THE URALS",
+    "title_ru": "VISUALIZATION IN MODELS OF TRANSFORMATION OF SOCIAL SPACE OF THE EURASIAN MACROREGION: THE EXAMPLE OF THE URALS",
+    "authors_raw": "Gordeev S., Zyryanov S., Sitkovskiy A.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2020,
+    "pages": "07021",
+    "doi": "10.1051/e3sconf/202021707021",
+    "metadata_raw": "В сборнике: E3S Web of Conferences. Сер. \"International Scientific and Practical Conference \"Environmental Risks and Safety in Mechanical Engineering\", ERSME 2020\" 2020. С. 07021.",
+    "rinc_citations": 3,
+    "dedupe_fingerprint": "71793156ff5cf075",
+    "sources": [
+      "elibrary",
       "scopus",
       "orcid_public_api"
     ],
+    "title_en": "Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals",
     "scopus": {
       "source": "scopus_api",
       "eid": "2-s2.0-85097958022",
@@ -989,11 +2652,7 @@
         }
       }
     },
-    "auto_accept_reason": "author-scoped Scopus AU-ID record",
-    "title_en": "Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals",
     "venue_en": "E3s Web of Conferences",
-    "title_ru": "Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals",
-    "venue_ru": "E3s Web of Conferences",
     "open_sources": [
       {
         "source": "orcid_public_api",
@@ -1100,929 +2759,155 @@
     "venue_en_source": "scopus"
   },
   {
-    "source": "orcid_public_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2026,
-    "rinc_citations": 0,
-    "title": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure",
-    "authors_raw": "",
+    "source": "elibrary_rinc_saved_html",
+    "number": 47,
+    "elibrary_item_id": "42493918",
+    "url": "https://www.elibrary.ru/item.asp?id=42493918",
+    "title": "CHANGING THE STRUCTURE OF THE WORKING-AGE POPULATION PROJECTED BY THE COHORT COMPONENT METHOD (ON THE EXAMPLE OF A MEGACITY)",
+    "title_ru": "CHANGING THE STRUCTURE OF THE WORKING-AGE POPULATION PROJECTED BY THE COHORT COMPONENT METHOD (ON THE EXAMPLE OF A MEGACITY)",
+    "authors_raw": "Sitkovskiy A.M.",
     "venue": null,
-    "pages": null,
-    "doi": "10.22363/2312-8313-2026-13-1-86-95",
-    "url": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
-    "sources": [
-      "orcid_public_api"
-    ],
-    "open_sources": [
-      {
-        "source": "orcid_public_api",
-        "orcid": "0000-0002-8725-6580",
-        "title": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure",
-        "year": 2026,
-        "doi": "10.22363/2312-8313-2026-13-1-86-95",
-        "type": "journal-article",
-        "url": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
-        "put_code": 211318940,
-        "raw": {
-          "put-code": 211318940,
-          "created-date": {
-            "value": 1775836949690
-          },
-          "last-modified-date": {
-            "value": 1775836949690
-          },
-          "source": {
-            "source-orcid": null,
-            "source-client-id": {
-              "uri": "https://orcid.org/client/0000-0001-9884-1913",
-              "path": "0000-0001-9884-1913",
-              "host": "orcid.org"
-            },
-            "source-name": {
-              "value": "Crossref"
-            },
-            "assertion-origin-orcid": null,
-            "assertion-origin-client-id": null,
-            "assertion-origin-name": null
-          },
-          "title": {
-            "title": {
-              "value": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure"
-            },
-            "subtitle": null,
-            "translated-title": null
-          },
-          "external-ids": {
-            "external-id": [
-              {
-                "external-id-type": "doi",
-                "external-id-value": "10.22363/2312-8313-2026-13-1-86-95",
-                "external-id-normalized": {
-                  "value": "10.22363/2312-8313-2026-13-1-86-95",
-                  "transient": true
-                },
-                "external-id-normalized-error": null,
-                "external-id-url": {
-                  "value": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95"
-                },
-                "external-id-relationship": "self"
-              }
-            ]
-          },
-          "url": {
-            "value": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95"
-          },
-          "type": "journal-article",
-          "publication-date": {
-            "year": {
-              "value": "2026"
-            },
-            "month": {
-              "value": "04"
-            },
-            "day": {
-              "value": "10"
-            }
-          },
-          "journal-title": {
-            "value": "RUDN Journal of Public Administration"
-          },
-          "visibility": "public",
-          "path": "/0000-0002-8725-6580/work/211318940",
-          "display-index": "1"
-        }
-      }
-    ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_en": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure",
-    "title_ru": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure",
     "venue_ru": null,
-    "title_en_source": "orcid_public_api",
-    "venue_en": "RUDN Journal of Public Administration",
-    "venue_en_source": "orcid_public_api"
-  },
-  {
-    "source": "orcid_public_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2025,
-    "rinc_citations": 0,
-    "title": "Sociological diagnostics of population dissatisfaction as a tool for managing territorial development",
-    "authors_raw": "",
-    "venue": null,
-    "pages": null,
-    "doi": "10.18413/2408-9338-2025-11-4-1-4",
-    "url": "https://doi.org/10.18413/2408-9338-2025-11-4-1-4",
-    "sources": [
-      "orcid_public_api"
-    ],
-    "open_sources": [
-      {
-        "source": "orcid_public_api",
-        "orcid": "0000-0002-8725-6580",
-        "title": "Sociological diagnostics of population dissatisfaction as a tool for managing territorial development",
-        "year": 2025,
-        "doi": "10.18413/2408-9338-2025-11-4-1-4",
-        "type": "journal-article",
-        "url": "https://doi.org/10.18413/2408-9338-2025-11-4-1-4",
-        "put_code": 208228256,
-        "raw": {
-          "put-code": 208228256,
-          "created-date": {
-            "value": 1773315521751
-          },
-          "last-modified-date": {
-            "value": 1773315521751
-          },
-          "source": {
-            "source-orcid": null,
-            "source-client-id": {
-              "uri": "https://orcid.org/client/0000-0001-9884-1913",
-              "path": "0000-0001-9884-1913",
-              "host": "orcid.org"
-            },
-            "source-name": {
-              "value": "Crossref"
-            },
-            "assertion-origin-orcid": null,
-            "assertion-origin-client-id": null,
-            "assertion-origin-name": null
-          },
-          "title": {
-            "title": {
-              "value": "Sociological diagnostics of population dissatisfaction as a tool for managing territorial development"
-            },
-            "subtitle": null,
-            "translated-title": null
-          },
-          "external-ids": {
-            "external-id": [
-              {
-                "external-id-type": "doi",
-                "external-id-value": "10.18413/2408-9338-2025-11-4-1-4",
-                "external-id-normalized": {
-                  "value": "10.18413/2408-9338-2025-11-4-1-4",
-                  "transient": true
-                },
-                "external-id-normalized-error": null,
-                "external-id-url": {
-                  "value": "https://doi.org/10.18413/2408-9338-2025-11-4-1-4"
-                },
-                "external-id-relationship": "self"
-              }
-            ]
-          },
-          "url": {
-            "value": "https://doi.org/10.18413/2408-9338-2025-11-4-1-4"
-          },
-          "type": "journal-article",
-          "publication-date": {
-            "year": {
-              "value": "2025"
-            },
-            "month": {
-              "value": "12"
-            },
-            "day": {
-              "value": "30"
-            }
-          },
-          "journal-title": {
-            "value": "Research Result Sociology and Management"
-          },
-          "visibility": "public",
-          "path": "/0000-0002-8725-6580/work/208228256",
-          "display-index": "1"
-        }
-      }
-    ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_en": "Sociological diagnostics of population dissatisfaction as a tool for managing territorial development",
-    "title_ru": "Sociological diagnostics of population dissatisfaction as a tool for managing territorial development",
-    "venue_ru": null,
-    "title_en_source": "orcid_public_api",
-    "venue_en": "Research Result Sociology and Management",
-    "venue_en_source": "orcid_public_api"
-  },
-  {
-    "source": "orcid_public_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2025,
-    "rinc_citations": 0,
-    "title": "Methodological Aspects of Demographic Expertise of Projects and Works",
-    "authors_raw": "",
-    "venue": null,
-    "pages": null,
-    "doi": "10.19181/demis.2025.5.4.11",
-    "url": "https://doi.org/10.19181/demis.2025.5.4.11",
-    "sources": [
-      "orcid_public_api"
-    ],
-    "open_sources": [
-      {
-        "source": "orcid_public_api",
-        "orcid": "0000-0002-8725-6580",
-        "title": "Methodological Aspects of Demographic Expertise of Projects and Works",
-        "year": 2025,
-        "doi": "10.19181/demis.2025.5.4.11",
-        "type": "journal-article",
-        "url": "https://doi.org/10.19181/demis.2025.5.4.11",
-        "put_code": 200970214,
-        "raw": {
-          "put-code": 200970214,
-          "created-date": {
-            "value": 1767031802834
-          },
-          "last-modified-date": {
-            "value": 1767031802834
-          },
-          "source": {
-            "source-orcid": null,
-            "source-client-id": {
-              "uri": "https://orcid.org/client/0000-0001-9884-1913",
-              "path": "0000-0001-9884-1913",
-              "host": "orcid.org"
-            },
-            "source-name": {
-              "value": "Crossref"
-            },
-            "assertion-origin-orcid": null,
-            "assertion-origin-client-id": null,
-            "assertion-origin-name": null
-          },
-          "title": {
-            "title": {
-              "value": "Methodological Aspects of Demographic Expertise of Projects and Works"
-            },
-            "subtitle": null,
-            "translated-title": null
-          },
-          "external-ids": {
-            "external-id": [
-              {
-                "external-id-type": "doi",
-                "external-id-value": "10.19181/demis.2025.5.4.11",
-                "external-id-normalized": {
-                  "value": "10.19181/demis.2025.5.4.11",
-                  "transient": true
-                },
-                "external-id-normalized-error": null,
-                "external-id-url": {
-                  "value": "https://doi.org/10.19181/demis.2025.5.4.11"
-                },
-                "external-id-relationship": "self"
-              }
-            ]
-          },
-          "url": {
-            "value": "https://doi.org/10.19181/demis.2025.5.4.11"
-          },
-          "type": "journal-article",
-          "publication-date": {
-            "year": {
-              "value": "2025"
-            },
-            "month": {
-              "value": "12"
-            },
-            "day": {
-              "value": "29"
-            }
-          },
-          "journal-title": {
-            "value": "DEMIS. Demographic Research"
-          },
-          "visibility": "public",
-          "path": "/0000-0002-8725-6580/work/200970214",
-          "display-index": "1"
-        }
-      }
-    ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_en": "Methodological Aspects of Demographic Expertise of Projects and Works",
-    "title_ru": "Methodological Aspects of Demographic Expertise of Projects and Works",
-    "venue_ru": null,
-    "title_en_source": "orcid_public_api",
-    "venue_en": "DEMIS. Demographic Research",
-    "venue_en_source": "orcid_public_api"
-  },
-  {
-    "source": "orcid_public_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2025,
-    "rinc_citations": 0,
-    "title": "State demographic and family policy: an overview of current research and practices",
-    "authors_raw": "",
-    "venue": null,
-    "pages": null,
-    "doi": "10.22363/2312-8313-2025-12-3-319-327",
-    "url": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
-    "sources": [
-      "orcid_public_api"
-    ],
-    "open_sources": [
-      {
-        "source": "orcid_public_api",
-        "orcid": "0000-0002-8725-6580",
-        "title": "State demographic and family policy: an overview of current research and practices",
-        "year": 2025,
-        "doi": "10.22363/2312-8313-2025-12-3-319-327",
-        "type": "journal-article",
-        "url": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
-        "put_code": 195820218,
-        "raw": {
-          "put-code": 195820218,
-          "created-date": {
-            "value": 1762108164049
-          },
-          "last-modified-date": {
-            "value": 1762108164049
-          },
-          "source": {
-            "source-orcid": null,
-            "source-client-id": {
-              "uri": "https://orcid.org/client/0000-0001-9884-1913",
-              "path": "0000-0001-9884-1913",
-              "host": "orcid.org"
-            },
-            "source-name": {
-              "value": "Crossref"
-            },
-            "assertion-origin-orcid": null,
-            "assertion-origin-client-id": null,
-            "assertion-origin-name": null
-          },
-          "title": {
-            "title": {
-              "value": "State demographic and family policy: an overview of current research and practices"
-            },
-            "subtitle": null,
-            "translated-title": null
-          },
-          "external-ids": {
-            "external-id": [
-              {
-                "external-id-type": "doi",
-                "external-id-value": "10.22363/2312-8313-2025-12-3-319-327",
-                "external-id-normalized": {
-                  "value": "10.22363/2312-8313-2025-12-3-319-327",
-                  "transient": true
-                },
-                "external-id-normalized-error": null,
-                "external-id-url": {
-                  "value": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327"
-                },
-                "external-id-relationship": "self"
-              }
-            ]
-          },
-          "url": {
-            "value": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327"
-          },
-          "type": "journal-article",
-          "publication-date": {
-            "year": {
-              "value": "2025"
-            },
-            "month": {
-              "value": "11"
-            },
-            "day": {
-              "value": "01"
-            }
-          },
-          "journal-title": {
-            "value": "RUDN Journal of Public Administration"
-          },
-          "visibility": "public",
-          "path": "/0000-0002-8725-6580/work/195820218",
-          "display-index": "1"
-        }
-      }
-    ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_en": "State demographic and family policy: an overview of current research and practices",
-    "title_ru": "State demographic and family policy: an overview of current research and practices",
-    "venue_ru": null,
-    "title_en_source": "orcid_public_api",
-    "venue_en": "RUDN Journal of Public Administration",
-    "venue_en_source": "orcid_public_api"
-  },
-  {
-    "source": "orcid_public_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2025,
-    "rinc_citations": 0,
-    "title": "The impact of state agglomeration policy on long-term trends of population changes in Russia",
-    "authors_raw": "",
-    "venue": null,
-    "pages": null,
-    "doi": "10.22363/2312-8313-2025-12-3-375-385",
-    "url": "https://doi.org/10.22363/2312-8313-2025-12-3-375-385",
-    "sources": [
-      "orcid_public_api"
-    ],
-    "open_sources": [
-      {
-        "source": "orcid_public_api",
-        "orcid": "0000-0002-8725-6580",
-        "title": "The impact of state agglomeration policy on long-term trends of population changes in Russia",
-        "year": 2025,
-        "doi": "10.22363/2312-8313-2025-12-3-375-385",
-        "type": "journal-article",
-        "url": "https://doi.org/10.22363/2312-8313-2025-12-3-375-385",
-        "put_code": 195820219,
-        "raw": {
-          "put-code": 195820219,
-          "created-date": {
-            "value": 1762108164209
-          },
-          "last-modified-date": {
-            "value": 1762108164209
-          },
-          "source": {
-            "source-orcid": null,
-            "source-client-id": {
-              "uri": "https://orcid.org/client/0000-0001-9884-1913",
-              "path": "0000-0001-9884-1913",
-              "host": "orcid.org"
-            },
-            "source-name": {
-              "value": "Crossref"
-            },
-            "assertion-origin-orcid": null,
-            "assertion-origin-client-id": null,
-            "assertion-origin-name": null
-          },
-          "title": {
-            "title": {
-              "value": "The impact of state agglomeration policy on long-term trends of population changes in Russia"
-            },
-            "subtitle": null,
-            "translated-title": null
-          },
-          "external-ids": {
-            "external-id": [
-              {
-                "external-id-type": "doi",
-                "external-id-value": "10.22363/2312-8313-2025-12-3-375-385",
-                "external-id-normalized": {
-                  "value": "10.22363/2312-8313-2025-12-3-375-385",
-                  "transient": true
-                },
-                "external-id-normalized-error": null,
-                "external-id-url": {
-                  "value": "https://doi.org/10.22363/2312-8313-2025-12-3-375-385"
-                },
-                "external-id-relationship": "self"
-              }
-            ]
-          },
-          "url": {
-            "value": "https://doi.org/10.22363/2312-8313-2025-12-3-375-385"
-          },
-          "type": "journal-article",
-          "publication-date": {
-            "year": {
-              "value": "2025"
-            },
-            "month": {
-              "value": "11"
-            },
-            "day": {
-              "value": "01"
-            }
-          },
-          "journal-title": {
-            "value": "RUDN Journal of Public Administration"
-          },
-          "visibility": "public",
-          "path": "/0000-0002-8725-6580/work/195820219",
-          "display-index": "1"
-        }
-      }
-    ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_en": "The impact of state agglomeration policy on long-term trends of population changes in Russia",
-    "title_ru": "The impact of state agglomeration policy on long-term trends of population changes in Russia",
-    "venue_ru": null,
-    "title_en_source": "orcid_public_api",
-    "venue_en": "RUDN Journal of Public Administration",
-    "venue_en_source": "orcid_public_api"
-  },
-  {
-    "source": "orcid_public_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2025,
-    "rinc_citations": 0,
-    "title": "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia",
-    "authors_raw": "",
-    "venue": null,
-    "pages": null,
-    "doi": "10.52180/1999-9836_2025_21_4_8_602_617",
-    "url": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617",
-    "sources": [
-      "orcid_public_api"
-    ],
-    "open_sources": [
-      {
-        "source": "orcid_public_api",
-        "orcid": "0000-0002-8725-6580",
-        "title": "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia",
-        "year": 2025,
-        "doi": "10.52180/1999-9836_2025_21_4_8_602_617",
-        "type": "journal-article",
-        "url": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617",
-        "put_code": 198817695,
-        "raw": {
-          "put-code": 198817695,
-          "created-date": {
-            "value": 1764932715522
-          },
-          "last-modified-date": {
-            "value": 1764932715522
-          },
-          "source": {
-            "source-orcid": null,
-            "source-client-id": {
-              "uri": "https://orcid.org/client/0000-0001-9884-1913",
-              "path": "0000-0001-9884-1913",
-              "host": "orcid.org"
-            },
-            "source-name": {
-              "value": "Crossref"
-            },
-            "assertion-origin-orcid": null,
-            "assertion-origin-client-id": null,
-            "assertion-origin-name": null
-          },
-          "title": {
-            "title": {
-              "value": "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia"
-            },
-            "subtitle": null,
-            "translated-title": null
-          },
-          "external-ids": {
-            "external-id": [
-              {
-                "external-id-type": "doi",
-                "external-id-value": "10.52180/1999-9836_2025_21_4_8_602_617",
-                "external-id-normalized": {
-                  "value": "10.52180/1999-9836_2025_21_4_8_602_617",
-                  "transient": true
-                },
-                "external-id-normalized-error": null,
-                "external-id-url": {
-                  "value": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617"
-                },
-                "external-id-relationship": "self"
-              }
-            ]
-          },
-          "url": {
-            "value": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617"
-          },
-          "type": "journal-article",
-          "publication-date": {
-            "year": {
-              "value": "2025"
-            },
-            "month": null,
-            "day": null
-          },
-          "journal-title": {
-            "value": "Living Standards of the Population in the Regions of Russia"
-          },
-          "visibility": "public",
-          "path": "/0000-0002-8725-6580/work/198817695",
-          "display-index": "1"
-        }
-      }
-    ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_en": "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia",
-    "title_ru": "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia",
-    "venue_ru": null,
-    "title_en_source": "orcid_public_api",
-    "venue_en": "Living Standards of the Population in the Regions of Russia",
-    "venue_en_source": "orcid_public_api"
-  },
-  {
-    "source": "orcid_public_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2023,
-    "rinc_citations": 0,
-    "title": "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern",
-    "authors_raw": "",
-    "venue": null,
-    "pages": null,
-    "doi": "10.22394/2304-3369-2023-4-33-52",
-    "url": "https://doi.org/10.22394/2304-3369-2023-4-33-52",
-    "sources": [
-      "orcid_public_api"
-    ],
-    "open_sources": [
-      {
-        "source": "orcid_public_api",
-        "orcid": "0000-0002-8725-6580",
-        "title": "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern",
-        "year": 2023,
-        "doi": "10.22394/2304-3369-2023-4-33-52",
-        "type": "journal-article",
-        "url": "https://doi.org/10.22394/2304-3369-2023-4-33-52",
-        "put_code": 141480365,
-        "raw": {
-          "put-code": 141480365,
-          "created-date": {
-            "value": 1693471227716
-          },
-          "last-modified-date": {
-            "value": 1693471227716
-          },
-          "source": {
-            "source-orcid": null,
-            "source-client-id": {
-              "uri": "https://orcid.org/client/0000-0001-9884-1913",
-              "path": "0000-0001-9884-1913",
-              "host": "orcid.org"
-            },
-            "source-name": {
-              "value": "Crossref"
-            },
-            "assertion-origin-orcid": null,
-            "assertion-origin-client-id": null,
-            "assertion-origin-name": null
-          },
-          "title": {
-            "title": {
-              "value": "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern"
-            },
-            "subtitle": null,
-            "translated-title": null
-          },
-          "external-ids": {
-            "external-id": [
-              {
-                "external-id-type": "doi",
-                "external-id-value": "10.22394/2304-3369-2023-4-33-52",
-                "external-id-normalized": {
-                  "value": "10.22394/2304-3369-2023-4-33-52",
-                  "transient": true
-                },
-                "external-id-normalized-error": null,
-                "external-id-url": {
-                  "value": "https://doi.org/10.22394/2304-3369-2023-4-33-52"
-                },
-                "external-id-relationship": "self"
-              }
-            ]
-          },
-          "url": {
-            "value": "https://doi.org/10.22394/2304-3369-2023-4-33-52"
-          },
-          "type": "journal-article",
-          "publication-date": {
-            "year": {
-              "value": "2023"
-            },
-            "month": null,
-            "day": null
-          },
-          "journal-title": {
-            "value": "Management Issues"
-          },
-          "visibility": "public",
-          "path": "/0000-0002-8725-6580/work/141480365",
-          "display-index": "0"
-        }
-      }
-    ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_en": "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern",
-    "title_ru": "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern",
-    "venue_ru": null,
-    "title_en_source": "orcid_public_api",
-    "venue_en": "Management Issues",
-    "venue_en_source": "orcid_public_api"
-  },
-  {
-    "source": "orcid_public_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2021,
-    "rinc_citations": 0,
-    "title": "IDENTIFICATION OF ECONOMIC SPECIALIZATION AND COOPERATION POTENTIAL OF THE REGIONS OF THE RUSSIAN FEDERATION",
-    "authors_raw": "",
-    "venue": null,
-    "pages": null,
-    "doi": "10.26653/2076-4650-2021-6-08",
-    "url": "https://doi.org/10.26653/2076-4650-2021-6-08",
-    "sources": [
-      "orcid_public_api"
-    ],
-    "open_sources": [
-      {
-        "source": "orcid_public_api",
-        "orcid": "0000-0002-8725-6580",
-        "title": "IDENTIFICATION OF ECONOMIC SPECIALIZATION AND COOPERATION POTENTIAL OF THE REGIONS OF THE RUSSIAN FEDERATION",
-        "year": 2021,
-        "doi": "10.26653/2076-4650-2021-6-08",
-        "type": "journal-article",
-        "url": "https://doi.org/10.26653/2076-4650-2021-6-08",
-        "put_code": 110567882,
-        "raw": {
-          "put-code": 110567882,
-          "created-date": {
-            "value": 1648596003541
-          },
-          "last-modified-date": {
-            "value": 1654213107566
-          },
-          "source": {
-            "source-orcid": null,
-            "source-client-id": {
-              "uri": "https://orcid.org/client/0000-0001-9884-1913",
-              "path": "0000-0001-9884-1913",
-              "host": "orcid.org"
-            },
-            "source-name": {
-              "value": "Crossref"
-            },
-            "assertion-origin-orcid": null,
-            "assertion-origin-client-id": null,
-            "assertion-origin-name": null
-          },
-          "title": {
-            "title": {
-              "value": "IDENTIFICATION OF ECONOMIC SPECIALIZATION AND COOPERATION POTENTIAL OF THE REGIONS OF THE RUSSIAN FEDERATION"
-            },
-            "subtitle": null,
-            "translated-title": null
-          },
-          "external-ids": {
-            "external-id": [
-              {
-                "external-id-type": "doi",
-                "external-id-value": "10.26653/2076-4650-2021-6-08",
-                "external-id-normalized": {
-                  "value": "10.26653/2076-4650-2021-6-08",
-                  "transient": true
-                },
-                "external-id-normalized-error": null,
-                "external-id-url": {
-                  "value": "https://doi.org/10.26653/2076-4650-2021-6-08"
-                },
-                "external-id-relationship": "self"
-              }
-            ]
-          },
-          "url": {
-            "value": "https://doi.org/10.26653/2076-4650-2021-6-08"
-          },
-          "type": "journal-article",
-          "publication-date": {
-            "year": {
-              "value": "2021"
-            },
-            "month": null,
-            "day": null
-          },
-          "journal-title": {
-            "value": "Scientific Review. Series 1. Economics and Law"
-          },
-          "visibility": "public",
-          "path": "/0000-0002-8725-6580/work/110567882",
-          "display-index": "0"
-        }
-      }
-    ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_en": "Identification of economic specialization and cooperation potential of the regions of the russian federation",
-    "title_ru": "IDENTIFICATION OF ECONOMIC SPECIALIZATION AND COOPERATION POTENTIAL OF THE REGIONS OF THE RUSSIAN FEDERATION",
-    "venue_ru": null,
-    "title_en_source": "orcid_public_api",
-    "venue_en": "Scientific Review. Series 1. Economics and Law",
-    "venue_en_source": "orcid_public_api"
-  },
-  {
-    "source": "orcid_public_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2021,
-    "rinc_citations": 0,
-    "title": "Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory",
-    "authors_raw": "",
-    "venue": null,
-    "pages": null,
-    "doi": "10.22394/2304-3369-2021-2-102-119",
-    "url": "https://doi.org/10.22394/2304-3369-2021-2-102-119",
-    "sources": [
-      "orcid_public_api"
-    ],
-    "open_sources": [
-      {
-        "source": "orcid_public_api",
-        "orcid": "0000-0002-8725-6580",
-        "title": "Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory",
-        "year": 2021,
-        "doi": "10.22394/2304-3369-2021-2-102-119",
-        "type": "journal-article",
-        "url": "https://doi.org/10.22394/2304-3369-2021-2-102-119",
-        "put_code": 93095276,
-        "raw": {
-          "put-code": 93095276,
-          "created-date": {
-            "value": 1619782021299
-          },
-          "last-modified-date": {
-            "value": 1654061923988
-          },
-          "source": {
-            "source-orcid": null,
-            "source-client-id": {
-              "uri": "https://orcid.org/client/0000-0001-9884-1913",
-              "path": "0000-0001-9884-1913",
-              "host": "orcid.org"
-            },
-            "source-name": {
-              "value": "Crossref"
-            },
-            "assertion-origin-orcid": null,
-            "assertion-origin-client-id": null,
-            "assertion-origin-name": null
-          },
-          "title": {
-            "title": {
-              "value": "Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory"
-            },
-            "subtitle": null,
-            "translated-title": null
-          },
-          "external-ids": {
-            "external-id": [
-              {
-                "external-id-type": "doi",
-                "external-id-value": "10.22394/2304-3369-2021-2-102-119",
-                "external-id-normalized": {
-                  "value": "10.22394/2304-3369-2021-2-102-119",
-                  "transient": true
-                },
-                "external-id-normalized-error": null,
-                "external-id-url": {
-                  "value": "https://doi.org/10.22394/2304-3369-2021-2-102-119"
-                },
-                "external-id-relationship": "self"
-              }
-            ]
-          },
-          "url": {
-            "value": "https://doi.org/10.22394/2304-3369-2021-2-102-119"
-          },
-          "type": "journal-article",
-          "publication-date": {
-            "year": {
-              "value": "2021"
-            },
-            "month": null,
-            "day": null
-          },
-          "journal-title": {
-            "value": "Management Issues"
-          },
-          "visibility": "public",
-          "path": "/0000-0002-8725-6580/work/93095276",
-          "display-index": "0"
-        }
-      }
-    ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_en": "Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory",
-    "title_ru": "Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory",
-    "venue_ru": null,
-    "title_en_source": "orcid_public_api",
-    "venue_en": "Management Issues",
-    "venue_en_source": "orcid_public_api"
-  },
-  {
-    "source": "openalex_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
     "year": 2019,
-    "rinc_citations": 0,
-    "title": "Методика и практика формирования многоуровневой системы центров социальных услуг (Methodology and Practice of Forming a Multi-Level System of Centers of Social Services)",
-    "authors_raw": "",
-    "venue": "SSRN Electronic Journal",
-    "pages": null,
+    "pages": "260-269",
     "doi": null,
-    "url": "https://openalex.org/W3191794798",
+    "metadata_raw": "В сборнике: Актуальные вопросы гуманитарных и общественных наук. сборник научных трудов Всероссийской научно-практической конференции с международным участием. 2019. С. 260-269.",
+    "rinc_citations": 14,
+    "dedupe_fingerprint": "46b3006e3903d142",
     "sources": [
+      "elibrary"
+    ],
+    "title_en": "Changing the structure of the working-age population projected by the cohort component method (on the example of a megacity)",
+    "title_en_source": "existing_latin"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 48,
+    "elibrary_item_id": "42325217",
+    "url": "https://www.elibrary.ru/item.asp?id=42325217",
+    "title": "ВЗАИМОСВЯЗЬ ЭКОНОМИЧЕСКИХ И ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ МАЛОГО МОНОГОРОДА УРАЛА",
+    "title_ru": "ВЗАИМОСВЯЗЬ ЭКОНОМИЧЕСКИХ И ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ МАЛОГО МОНОГОРОДА УРАЛА",
+    "authors_raw": "Ситковский А.М.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2019,
+    "pages": "27-31",
+    "doi": null,
+    "metadata_raw": "В сборнике: Актуальные вопросы устойчивого развития России в исследованиях студентов: управленческий, правовой и социально-экономический аспекты. Материалы XVII Всероссийской студенческой научно-практической конференции. В 2-х частях. Ответственный редактор С.В. Нечаева. 2019. С. 27-31.",
+    "rinc_citations": 10,
+    "dedupe_fingerprint": "db61420745b9796c",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Interrelationships between economic and demographic processes of the Ural small city",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 49,
+    "elibrary_item_id": "42325239",
+    "url": "https://www.elibrary.ru/item.asp?id=42325239",
+    "title": "ОБНОВЛЕНИЕ МЕТОДИК И ИНСТРУМЕНТАРИЯ ДЛЯ ПОДГОТОВКИ ПРОГРАММ ПРОСТРАНСТВЕННОГО РАЗВИТИЯ МУНИЦИПАЛЬНЫХ ОБРАЗОВАНИЙ",
+    "title_ru": "ОБНОВЛЕНИЕ МЕТОДИК И ИНСТРУМЕНТАРИЯ ДЛЯ ПОДГОТОВКИ ПРОГРАММ ПРОСТРАНСТВЕННОГО РАЗВИТИЯ МУНИЦИПАЛЬНЫХ ОБРАЗОВАНИЙ",
+    "authors_raw": "Ситковский А.М., Ситковская С.М.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2019,
+    "pages": "91-96",
+    "doi": null,
+    "metadata_raw": "В сборнике: Актуальные вопросы устойчивого развития России в исследованиях студентов: управленческий, правовой и социально-экономический аспекты. Материалы XVII Всероссийской студенческой научно-практической конференции. В 2-х частях. Ответственный редактор С.В. Нечаева. 2019. С. 91-96.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "5fa21971aec48c4a",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Updating Methodologies and Instructions for the Development of Municipal Education Programmes",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 50,
+    "elibrary_item_id": "41509538",
+    "url": "https://www.elibrary.ru/item.asp?id=41509538",
+    "title": "ОЦЕНКИ КАЧЕСТВА ЖИЗНИ И СОЦИАЛЬНЫХ ПРИОРИТЕТОВ РАЗВИТИЯ ТЕРРИТОРИЙ",
+    "title_ru": "ОЦЕНКИ КАЧЕСТВА ЖИЗНИ И СОЦИАЛЬНЫХ ПРИОРИТЕТОВ РАЗВИТИЯ ТЕРРИТОРИЙ",
+    "authors_raw": "Гордеев С.С., Зырянов С.Г., Ситковский А.М.",
+    "venue": "Вестник Челябинского государственного университета",
+    "venue_ru": "Вестник Челябинского государственного университета",
+    "year": 2019,
+    "pages": "38-47",
+    "doi": null,
+    "metadata_raw": "Вестник Челябинского государственного университета . 2019. № 11 (433) . С. 38-47.",
+    "rinc_citations": 21,
+    "dedupe_fingerprint": "54b0bf1a3deeb827",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Quality of Life and Social Priorities for the Development of Territories",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 51,
+    "elibrary_item_id": "42358409",
+    "url": "https://www.elibrary.ru/item.asp?id=42358409",
+    "title": "МЕТОДИЧЕСКИЕ АСПЕКТЫ РАЗВИТИЯ МАЛЫХ ЦЕНТРОВ СОЦИАЛЬНЫХ УСЛУГ МУНИЦИПАЛЬНОГО ОБРАЗОВАНИЯ",
+    "title_ru": "МЕТОДИЧЕСКИЕ АСПЕКТЫ РАЗВИТИЯ МАЛЫХ ЦЕНТРОВ СОЦИАЛЬНЫХ УСЛУГ МУНИЦИПАЛЬНОГО ОБРАЗОВАНИЯ",
+    "authors_raw": "Ситковский А.М.",
+    "venue": "Муниципалитет: экономика и управление",
+    "venue_ru": "Муниципалитет: экономика и управление",
+    "year": 2019,
+    "pages": "31-39",
+    "doi": null,
+    "metadata_raw": "Муниципалитет: экономика и управление . 2019. № 4 (29) . С. 31-39.",
+    "rinc_citations": 12,
+    "dedupe_fingerprint": "fcbc9f74d1f2e725",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Methodological Aspects for the Development of Small Social Services Centers in Municipal Education",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 52,
+    "elibrary_item_id": "42358410",
+    "url": "https://www.elibrary.ru/item.asp?id=42358410",
+    "title": "\"ЭФФЕКТ КОЛЕИ\" В ПРОСТРАНСТВЕННОМ МЕЖМУНИЦИПАЛЬНОМ РАЗВИТИИ",
+    "title_ru": "\"ЭФФЕКТ КОЛЕИ\" В ПРОСТРАНСТВЕННОМ МЕЖМУНИЦИПАЛЬНОМ РАЗВИТИИ",
+    "authors_raw": "Гордеев С.С., Зырянов С.Г., Ситковский А.М.",
+    "venue": "Муниципалитет: экономика и управление",
+    "venue_ru": "Муниципалитет: экономика и управление",
+    "year": 2019,
+    "pages": "40-55",
+    "doi": null,
+    "metadata_raw": "Муниципалитет: экономика и управление . 2019. № 4 (29) . С. 40-55.",
+    "rinc_citations": 14,
+    "dedupe_fingerprint": "e2090412ef6977f4",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "The Efficiency of the Ring in Interstate Development",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 53,
+    "elibrary_item_id": "42445903",
+    "url": "https://www.elibrary.ru/item.asp?id=42445903",
+    "title": "МЕТОДИКА И ПРАКТИКА ФОРМИРОВАНИЯ МНОГОУРОВНЕВОЙ СИСТЕМЫ ЦЕНТРОВ СОЦИАЛЬНЫХ УСЛУГ",
+    "title_ru": "МЕТОДИКА И ПРАКТИКА ФОРМИРОВАНИЯ МНОГОУРОВНЕВОЙ СИСТЕМЫ ЦЕНТРОВ СОЦИАЛЬНЫХ УСЛУГ",
+    "authors_raw": "Ситковский А.М.",
+    "venue": "Научный ежегодник Центра анализа и прогнозирования",
+    "venue_ru": "Научный ежегодник Центра анализа и прогнозирования",
+    "year": 2019,
+    "pages": "48-62",
+    "doi": null,
+    "metadata_raw": "Научный ежегодник Центра анализа и прогнозирования . 2019. № 1 (3) . С. 48-62.",
+    "rinc_citations": 8,
+    "dedupe_fingerprint": "9acf6b6a7ed4dead",
+    "sources": [
+      "elibrary",
       "openalex_api"
     ],
     "open_sources": [
@@ -3489,27 +4374,51 @@
         }
       }
     ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_ru": "Методика и практика формирования многоуровневой системы центров социальных услуг (Methodology and Practice of Forming a Multi-Level System of Centers of Social Services)",
     "venue_en": "SSRN Electronic Journal",
-    "venue_ru": "SSRN Electronic Journal",
-    "title_en": "Methodology and Practice of Forming a Multi-Level System of Centers of Social Services",
+    "title_en": "Methods and Practices of Forming a Multilevel System of Social Services Centers",
     "title_en_source": "argos_translate_ru_en",
     "venue_en_source": "openalex_api"
   },
   {
-    "source": "openalex_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
+    "source": "elibrary_rinc_saved_html",
+    "number": 54,
+    "elibrary_item_id": "36888017",
+    "url": "https://www.elibrary.ru/item.asp?id=36888017",
+    "title": "НЕКОТОРЫЕ ПАРАДОКСЫ СОВРЕМЕННЫХ ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ",
+    "title_ru": "НЕКОТОРЫЕ ПАРАДОКСЫ СОВРЕМЕННЫХ ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ",
+    "authors_raw": "Ситковский А.М., Лобастов А.А.",
+    "venue": null,
+    "venue_ru": null,
     "year": 2018,
-    "rinc_citations": 0,
-    "title": "Демографический фактор в обеспечении устойчивого развития мегаполиса (Demographic Factor in Ensuring Sustainable Development of the Megacity)",
-    "authors_raw": "",
-    "venue": "SSRN Electronic Journal",
-    "pages": null,
+    "pages": "70-74",
     "doi": null,
-    "url": "https://openalex.org/W3187712357",
+    "metadata_raw": "В сборнике: Актуальные вопросы устойчивого развития России в исследованиях студентов: управленческий, правовой и социально-экономический аспекты. Материалы XVI Всероссийской студенческой научно-практической конференции. В 2-х частях. Ответственный редактор С.В. Нечаева. 2018. С. 70-74.",
+    "rinc_citations": 9,
+    "dedupe_fingerprint": "efe2d6c56dd8fbbc",
     "sources": [
+      "elibrary"
+    ],
+    "title_en": "Some Paradoxes of Modern Demographic Processes",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 55,
+    "elibrary_item_id": "36808832",
+    "url": "https://www.elibrary.ru/item.asp?id=36808832",
+    "title": "ДЕМОГРАФИЧЕСКИЙ ФАКТОР В ОБЕСПЕЧЕНИИ УСТОЙЧИВОГО РАЗВИТИЯ МЕГАПОЛИСА",
+    "title_ru": "ДЕМОГРАФИЧЕСКИЙ ФАКТОР В ОБЕСПЕЧЕНИИ УСТОЙЧИВОГО РАЗВИТИЯ МЕГАПОЛИСА",
+    "authors_raw": "Ситковский А.М.",
+    "venue": "Научный ежегодник Центра анализа и прогнозирования",
+    "venue_ru": "Научный ежегодник Центра анализа и прогнозирования",
+    "year": 2018,
+    "pages": "81-87",
+    "doi": null,
+    "metadata_raw": "Научный ежегодник Центра анализа и прогнозирования . 2018. № 1 (2) . С. 81-87.",
+    "rinc_citations": 13,
+    "dedupe_fingerprint": "d0d9ab520875ad57",
+    "sources": [
+      "elibrary",
       "openalex_api"
     ],
     "open_sources": [
@@ -4481,27 +5390,29 @@
         }
       }
     ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_ru": "Демографический фактор в обеспечении устойчивого развития мегаполиса (Demographic Factor in Ensuring Sustainable Development of the Megacity)",
     "venue_en": "SSRN Electronic Journal",
-    "venue_ru": "SSRN Electronic Journal",
-    "title_en": "Demographic Factor in Ensuring Sustainable Development of the Megacity",
+    "title_en": "Demographic Factor in Ensuring Sustainable Development of Megapolis",
     "title_en_source": "argos_translate_ru_en",
     "venue_en_source": "openalex_api"
   },
   {
-    "source": "openalex_api_auto",
-    "number": null,
-    "elibrary_item_id": null,
-    "year": 2017,
-    "rinc_citations": 0,
-    "title": "Демографическая Политика Российской Федерации (Demographic Policy of the Russian Federation)",
-    "authors_raw": "",
+    "source": "elibrary_rinc_saved_html",
+    "number": 56,
+    "elibrary_item_id": "34954854",
+    "url": "https://www.elibrary.ru/item.asp?id=34954854",
+    "title": "ДЕМОГРАФИЧЕСКАЯ ПОЛИТИКА РОССИЙСКОЙ ФЕДЕРАЦИИ",
+    "title_ru": "ДЕМОГРАФИЧЕСКАЯ ПОЛИТИКА РОССИЙСКОЙ ФЕДЕРАЦИИ",
+    "authors_raw": "Лобастов А.А., Ситковский А.М.",
     "venue": "SSRN Electronic Journal",
-    "pages": null,
+    "venue_ru": null,
+    "year": 2017,
+    "pages": "279-281",
     "doi": null,
-    "url": "https://openalex.org/W3182071828",
+    "metadata_raw": "В сборнике: Актуальные вопросы развития России в исследованиях студентов: управленческий, правовой и социально-экономический аспекты. Материалы XV Всероссийской научно-практической конференции. Ответственный редактор С.В. Нечаева. 2017. С. 279-281.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "ef0ff3591d699967",
     "sources": [
+      "elibrary",
       "openalex_api"
     ],
     "open_sources": [
@@ -4909,8 +5820,8 @@
           },
           "sustainable_development_goals": [
             {
-              "display_name": "Reduced inequalities",
               "id": "https://metadata.un.org/sdg/10",
+              "display_name": "Reduced inequalities",
               "score": 0.5199999809265137
             }
           ],
@@ -5146,12 +6057,53 @@
         }
       }
     ],
-    "auto_accept_reason": "author-scoped ORCID/OpenAlex/Crossref record",
-    "title_ru": "Демографическая Политика Российской Федерации (Demographic Policy of the Russian Federation)",
     "venue_en": "SSRN Electronic Journal",
-    "venue_ru": "SSRN Electronic Journal",
-    "title_en": "Demographic Policy of the Russian Federation (Demographic Policy of the Russian Federation)",
+    "title_en": "Demographic Policy of the Russian Federation",
     "title_en_source": "argos_translate_ru_en",
     "venue_en_source": "openalex_api"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 57,
+    "elibrary_item_id": "34954475",
+    "url": "https://www.elibrary.ru/item.asp?id=34954475",
+    "title": "СОХРАНЕНИЕ РЕПРОДУКТИВНОГО ЗДОРОВЬЯ КАК ОДНО ИЗ УСЛОВИЙ УВЕЛИЧЕНИЯ СРЕДНЕЙ ОЖИДАЕМОЙ ПРОДОЛЖИТЕЛЬНОСТИ ЖИЗНИ ЖЕНЩИН",
+    "title_ru": "СОХРАНЕНИЕ РЕПРОДУКТИВНОГО ЗДОРОВЬЯ КАК ОДНО ИЗ УСЛОВИЙ УВЕЛИЧЕНИЯ СРЕДНЕЙ ОЖИДАЕМОЙ ПРОДОЛЖИТЕЛЬНОСТИ ЖИЗНИ ЖЕНЩИН",
+    "authors_raw": "Ситковский А.М.",
+    "venue": null,
+    "venue_ru": null,
+    "year": 2017,
+    "pages": "290-293",
+    "doi": null,
+    "metadata_raw": "В сборнике: Актуальные вопросы развития России в исследованиях студентов: управленческий, правовой и социально-экономический аспекты. Материалы XV Всероссийской научно-практической конференции. Ответственный редактор С.В. Нечаева. 2017. С. 290-293.",
+    "rinc_citations": 1,
+    "dedupe_fingerprint": "75c9e387e40d7b10",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "Preservation of reproductive health as one of the conditions for increasing the average expected life expectancy of women",
+    "title_en_source": "argos_translate_ru_en"
+  },
+  {
+    "source": "elibrary_rinc_saved_html",
+    "number": 58,
+    "elibrary_item_id": "30111055",
+    "url": "https://www.elibrary.ru/item.asp?id=30111055",
+    "title": "ОСНОВА ЗДОРОВЬЯ ЧЕЛОВЕКА – РЕПРОДУКТИВНОЕ ЗДОРОВЬЕ",
+    "title_ru": "ОСНОВА ЗДОРОВЬЯ ЧЕЛОВЕКА – РЕПРОДУКТИВНОЕ ЗДОРОВЬЕ",
+    "authors_raw": "Ситковский А.М.",
+    "venue": "Семья и демографические исследования",
+    "venue_ru": "Семья и демографические исследования",
+    "year": 2017,
+    "pages": "без номера",
+    "doi": null,
+    "metadata_raw": "Семья и демографические исследования . 2017. № 8 . С. без номера.",
+    "rinc_citations": 1,
+    "dedupe_fingerprint": "ceb269b240e51856",
+    "sources": [
+      "elibrary"
+    ],
+    "title_en": "The basis of human health – reproductive health",
+    "title_en_source": "argos_translate_ru_en"
   }
 ]
