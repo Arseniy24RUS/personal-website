@@ -58,6 +58,30 @@ def parse_core_metrics(soup: BeautifulSoup) -> dict:
     return out
 
 
+def metric_value(mapping: dict, *labels):
+    for label in labels:
+        if label in mapping and mapping[label].get('value') is not None:
+            return mapping[label]['value']
+    lowered = {k.lower(): v for k, v in mapping.items()}
+    for label in labels:
+        needle = label.lower()
+        for key, value in lowered.items():
+            if needle in key and value.get('value') is not None:
+                return value['value']
+    return None
+
+
+def normalized_summary(summary_metrics: dict, core_metrics: dict) -> dict:
+    return {
+        'publications': metric_value(core_metrics, 'Publications') or metric_value(summary_metrics, 'Web of Science Core Collection publications', 'Publications indexed in Web of Science'),
+        'citations': metric_value(core_metrics, 'Sum of Times Cited'),
+        'h_index': metric_value(core_metrics, 'H-Index', 'H-index'),
+        'total_documents': metric_value(summary_metrics, 'Total documents'),
+        'indexed_publications': metric_value(summary_metrics, 'Publications indexed in Web of Science'),
+        'core_collection_publications': metric_value(summary_metrics, 'Web of Science Core Collection publications'),
+    }
+
+
 def parse_record(record) -> dict:
     text_lines = [clean(x) for x in record.get_text('\n').split('\n')]
     parts = [x for x in text_lines if x]
@@ -66,7 +90,6 @@ def parse_record(record) -> dict:
     if title_el:
         title = clean(title_el.get_text(' '))
     if not title:
-        # Most WoS records begin with: number, document type, title, authors...
         candidates = [p for p in parts if len(p) > 18 and not p.isdigit()]
         title = candidates[1] if len(candidates) > 1 and candidates[0].lower() in {'article', 'review', 'proceedings paper'} else (candidates[0] if candidates else '')
     year = None
@@ -113,14 +136,17 @@ def parse_wos_author_profile_html(html: str, researcher_id: str = 'AAG-1530-2021
         parsed = parse_record(rec)
         if parsed.get('title'):
             records.append(parsed)
+    summary_metrics = parse_summary_items(soup)
+    core_metrics = parse_core_metrics(soup)
     payload = {
         'source': 'web_of_science_free_view_author_profile',
         'source_url': f'https://www.webofscience.com/wos/author/record/{researcher_id}',
         'researcher_id': researcher_id,
         'generated_at': now(),
         'page_title': title,
-        'summary_metrics': parse_summary_items(soup),
-        'core_collection_metrics': parse_core_metrics(soup),
+        'summary': normalized_summary(summary_metrics, core_metrics),
+        'summary_metrics': summary_metrics,
+        'core_collection_metrics': core_metrics,
         'records_count_on_page': len(records),
         'records': records,
     }
