@@ -9,6 +9,8 @@ import sys
 sys.path.insert(0, 'scripts')
 import harvest_elibrary_browser as h  # noqa: E402
 
+MIN_RECORDS = int(os.environ.get('ELIBRARY_MIN_RECORDS', '50'))
+
 
 def cookies_from_header(header: str) -> list[dict]:
     cookies = []
@@ -29,7 +31,7 @@ def main() -> int:
     from playwright.sync_api import sync_playwright
 
     h.ITEMS_SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
-    report = {'generated_at': h.now(), 'route': 'authors_search_route', 'pages': {}}
+    report = {'generated_at': h.now(), 'route': 'authors_search_route', 'min_records': MIN_RECORDS, 'pages': {}}
     ok = False
     headless = os.environ.get('ELIBRARY_BROWSER_HEADLESS', 'true').lower() not in {'0', 'false', 'no'}
     ua = os.environ.get('ELIBRARY_USER_AGENT', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36')
@@ -51,10 +53,13 @@ def main() -> int:
             snapshot = h.ITEMS_SNAPSHOT_DIR / f'author_items_{h.AUTHOR_ID}_{stamp}_authors_route.html'
             snapshot.write_text(html, encoding='utf-8')
             data = h.parse_elibrary_author_items(str(snapshot))
-            h.write_json(h.ITEMS_OUT, data)
             report['pages']['items']['snapshot_path'] = str(snapshot)
             report['pages']['items']['parsed_records'] = len(data)
-            ok = bool(data)
+            if len(data) >= MIN_RECORDS:
+                h.write_json(h.ITEMS_OUT, data)
+                ok = True
+            else:
+                report['pages']['items']['error'] = f'Parsed only {len(data)} records; expected at least {MIN_RECORDS}. Output JSON was not overwritten.'
         else:
             debug_page = context.new_page()
             try:
