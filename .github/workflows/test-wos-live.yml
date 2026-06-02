@@ -92,6 +92,7 @@ jobs:
       - name: Disconnect home OpenVPN route
         if: always()
         run: |
+          mkdir -p artifacts/wos_debug
           if [ -f openvpn.pid ]; then
             sudo kill "$(cat openvpn.pid)" 2>/dev/null || true
             echo "Home OpenVPN route stopped."
@@ -99,6 +100,8 @@ jobs:
           if [ -f openvpn.log ]; then
             echo "OpenVPN log tail:"
             sudo tail -n 120 openvpn.log || true
+            sudo cp openvpn.log artifacts/wos_debug/openvpn.log || true
+            sudo chown "$USER:$USER" artifacts/wos_debug/openvpn.log || true
           fi
       - name: Upload Web of Science debug artifacts
         if: always()
@@ -110,6 +113,5 @@ jobs:
             data/wos/live_test_report.json
             artifacts/wos_debug/**
             data/snapshots/wos/*_live_test.html
-            openvpn.log
           if-no-files-found: ignore
           retention-days: 7
