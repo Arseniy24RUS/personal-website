@@ -61,6 +61,15 @@ function preferredLang(){
   return browserPreferredLang();
 }
 
+function installFavicon(){
+  if(document.querySelector('link[rel~="icon"]')) return;
+  const icon = document.createElement('link');
+  icon.rel = 'icon';
+  icon.type = 'image/svg+xml';
+  icon.href = 'assets/favicon.svg';
+  document.head.appendChild(icon);
+}
+
 function updatePageMeta(lang){
   const meta = (PAGE_META[pageKey()] || PAGE_META['index.html'] || {})[lang];
   if(!meta) return;
@@ -119,6 +128,7 @@ function installFooter(){
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  installFavicon();
   installHeader();
   installFooter();
   setLang(preferredLang());
