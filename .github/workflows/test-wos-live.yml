@@ -1,0 +1,57 @@
+name: Test Web of Science live profile
+
+on:
+  workflow_dispatch:
+    inputs:
+      researcher_id:
+        description: "Web of Science ResearcherID"
+        required: false
+        default: "AAG-1530-2021"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  test-wos-live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install browser dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4 playwright
+          python -m playwright install --with-deps chromium
+          python -m playwright install chrome || true
+          google-chrome --version || true
+      - name: Run Web of Science live profile diagnostic
+        env:
+          WOS_RESEARCHER_ID: ${{ inputs.researcher_id || 'AAG-1530-2021' }}
+          WOS_PROFILE_URL: https://www.webofscience.com/wos/author/record/${{ inputs.researcher_id || 'AAG-1530-2021' }}
+          WOS_PROFILE_OUT: data/wos/profile_metrics_live_test.json
+          WOS_HARVEST_REPORT: data/wos/live_test_report.json
+          WOS_TEST_ARTIFACT_DIR: artifacts/wos_debug
+          WOS_BROWSER_WAIT_SEC: "180"
+          WOS_MIN_RECORDS: "10"
+          WOS_BROWSER_HEADLESS: "false"
+          WOS_BROWSER_CHANNEL: "chrome"
+        run: |
+          xvfb-run -a python scripts/test_wos_profile_live.py
+      - name: Upload Web of Science debug artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wos-live-debug
+          path: |
+            data/wos/profile_metrics_live_test.json
+            data/wos/live_test_report.json
+            artifacts/wos_debug/**
+            data/snapshots/wos/*_live_test.html
+          if-no-files-found: ignore
+          retention-days: 7
