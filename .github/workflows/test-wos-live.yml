@@ -8,6 +8,14 @@ on:
         required: false
         default: "AAG-1530-2021"
         type: string
+      use_home_openvpn:
+        description: "Route WoS test through the home OpenVPN profile used for eLibrary"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
 
 permissions:
   contents: read
@@ -15,21 +23,59 @@ permissions:
 jobs:
   test-wos-live:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install browser dependencies
+      - name: Install browser and network dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb
+          sudo apt-get install -y openvpn curl iproute2 xvfb
           python -m pip install --upgrade pip
           pip install beautifulsoup4 playwright
           python -m playwright install --with-deps chromium
           python -m playwright install chrome || true
           google-chrome --version || true
+      - name: Connect through home OpenVPN route
+        if: ${{ inputs.use_home_openvpn != 'false' }}
+        env:
+          HOME_OPENVPN_CONFIG_B64: ${{ secrets.ELIBRARY_OPENVPN_CONFIG_B64 }}
+        run: |
+          set +e
+          if [ -z "$HOME_OPENVPN_CONFIG_B64" ]; then
+            echo "Secret ELIBRARY_OPENVPN_CONFIG_B64 is not set; running WoS test without home VPN."
+            exit 0
+          fi
+          umask 077
+          printf '%s' "$HOME_OPENVPN_CONFIG_B64" | base64 --decode > home-openvpn.ovpn
+          IP_BEFORE=$(curl -fsS --max-time 20 https://api.ipify.org || true)
+          echo "Public IP before home VPN: ${IP_BEFORE:-not available}"
+          sudo openvpn \
+            --config home-openvpn.ovpn \
+            --data-ciphers-fallback AES-128-CBC \
+            --allow-compression yes \
+            --daemon \
+            --writepid openvpn.pid \
+            --log openvpn.log
+          for i in $(seq 1 60); do
+            if ip link show tun0 >/dev/null 2>&1; then
+              echo "Home VPN tun0 is up"
+              break
+            fi
+            sleep 2
+          done
+          echo "Routes after home VPN connection:"
+          ip route || true
+          IP_AFTER=$(curl -fsS --max-time 30 https://api.ipify.org || true)
+          echo "Public IP after home VPN: ${IP_AFTER:-not available}"
+          if [ -n "$IP_AFTER" ] && [ "$IP_AFTER" != "$IP_BEFORE" ]; then
+            echo "WOS_HOME_OPENVPN_ACTIVE=1" >> "$GITHUB_ENV"
+          else
+            echo "Home OpenVPN did not change public IP; continuing diagnostic without failing setup."
+            sudo tail -n 120 openvpn.log || true
+          fi
       - name: Run Web of Science live profile diagnostic
         env:
           WOS_RESEARCHER_ID: ${{ inputs.researcher_id || 'AAG-1530-2021' }}
@@ -43,6 +89,17 @@ jobs:
           WOS_BROWSER_CHANNEL: "chrome"
         run: |
           xvfb-run -a python scripts/test_wos_profile_live.py
+      - name: Disconnect home OpenVPN route
+        if: always()
+        run: |
+          if [ -f openvpn.pid ]; then
+            sudo kill "$(cat openvpn.pid)" 2>/dev/null || true
+            echo "Home OpenVPN route stopped."
+          fi
+          if [ -f openvpn.log ]; then
+            echo "OpenVPN log tail:"
+            sudo tail -n 120 openvpn.log || true
+          fi
       - name: Upload Web of Science debug artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -53,5 +110,6 @@ jobs:
             data/wos/live_test_report.json
             artifacts/wos_debug/**
             data/snapshots/wos/*_live_test.html
+            openvpn.log
           if-no-files-found: ignore
           retention-days: 7
