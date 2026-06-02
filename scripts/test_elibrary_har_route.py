@@ -57,14 +57,7 @@ def challenge(html: str, url: str) -> bool:
 
 
 def page_info(page, html: str) -> dict:
-    return {
-        'url': page.url,
-        'title': page.title(),
-        'bytes': len((html or '').encode('utf-8', 'replace')),
-        'has_items': is_items(html or ''),
-        'has_challenge': challenge(html or '', page.url),
-        'excerpt': (html or '')[:900].replace('\n', ' '),
-    }
+    return {'url': page.url, 'title': page.title(), 'bytes': len((html or '').encode('utf-8', 'replace')), 'has_items': is_items(html or ''), 'has_challenge': challenge(html or '', page.url), 'excerpt': (html or '')[:900].replace('\n', ' ')}
 
 
 def debug(page, html: str, name: str) -> dict:
@@ -146,7 +139,6 @@ def main() -> int:
         launch_args = {'headless': headless, 'args': ['--disable-dev-shm-usage', '--no-sandbox']}
         if channel:
             launch_args['channel'] = channel
-            # System Chrome/Edge channels do not need Playwright's bundled Chromium args.
             launch_args['args'] = []
         report['headless'] = headless
         report['browser_channel'] = channel or 'playwright-chromium'
@@ -160,12 +152,13 @@ def main() -> int:
         fill_and_submit_authors(page, report)
         html = page.content()
         if not challenge(html, page.url):
-            locator = page.locator(f'a[href*="author_items.asp"][href*="{AUTHOR_ID}"]').first()
-            report['author_items_link_count'] = page.locator(f'a[href*="author_items.asp"][href*="{AUTHOR_ID}"]').count()
+            items_locator = page.locator(f'a[href*="author_items.asp"][href*="{AUTHOR_ID}"]')
+            report['author_items_link_count'] = items_locator.count()
             if report['author_items_link_count']:
+                link = items_locator.first
                 try:
                     with context.expect_page(timeout=7000) as popup_info:
-                        locator.click(timeout=15000)
+                        link.click(timeout=15000)
                     target = popup_info.value
                     target.wait_for_load_state('domcontentloaded', timeout=60000)
                     report['opened_as'] = 'popup'
