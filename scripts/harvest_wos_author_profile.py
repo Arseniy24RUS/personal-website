@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from datetime import datetime, timezone
+import base64
 import json
 import os
 import sys
@@ -15,7 +16,10 @@ URL = os.environ.get('WOS_PROFILE_URL', f'https://www.webofscience.com/wos/autho
 OUT = Path(os.environ.get('WOS_PROFILE_OUT', 'data/wos/profile_metrics.json'))
 REPORT = Path(os.environ.get('WOS_HARVEST_REPORT', 'data/wos/harvest_report.json'))
 SNAPSHOT_DIR = Path(os.environ.get('WOS_SNAPSHOT_DIR', 'data/snapshots/wos'))
+ARTIFACT_DIR = Path(os.environ.get('WOS_ARTIFACT_DIR', 'artifacts/wos_live'))
 WAIT_SEC = int(os.environ.get('WOS_BROWSER_WAIT_SEC', '120'))
+WOS_COOKIE = os.environ.get('WOS_COOKIE', '').strip()
+WOS_STORAGE_STATE_B64 = os.environ.get('WOS_STORAGE_STATE_B64', '').strip()
 
 
 def now() -> str:
@@ -25,6 +29,12 @@ def now() -> str:
 def write_json(path: Path, payload) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
+
+
+def write_text(path: Path, text: str) -> str:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding='utf-8', errors='replace')
+    return str(path)
 
 
 def latest_snapshot() -> Path | None:
@@ -49,18 +59,94 @@ def normalized_count(data: dict) -> int:
     return int(((data.get('summary') or {}).get('publications')) or 0)
 
 
+def cookie_header_to_playwright(raw: str) -> list[dict]:
+    cookies = []
+    domains = ['.webofscience.com', 'www.webofscience.com', '.webofknowledge.com', 'www.webofknowledge.com', '.clarivate.com']
+    for chunk in raw.split(';'):
+        if '=' not in chunk:
+            continue
+        name, value = chunk.split('=', 1)
+        name = name.strip()
+        value = value.strip()
+        if not name:
+            continue
+        for domain in domains:
+            cookies.append({
+                'name': name,
+                'value': value,
+                'domain': domain,
+                'path': '/',
+                'secure': True,
+                'sameSite': 'Lax',
+            })
+    return cookies
+
+
+def storage_state_path_from_secret(report: dict) -> str | None:
+    if not WOS_STORAGE_STATE_B64:
+        return None
+    try:
+        ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
+        state_path = ARTIFACT_DIR / 'wos_input_storage_state.json'
+        decoded = base64.b64decode(WOS_STORAGE_STATE_B64).decode('utf-8')
+        json.loads(decoded)
+        write_text(state_path, decoded)
+        report.setdefault('input_state', {})['storage_state_secret_present'] = True
+        report['input_state']['storage_state_path'] = str(state_path)
+        return str(state_path)
+    except Exception as exc:
+        report.setdefault('input_state', {})['storage_state_error'] = repr(exc)
+        return None
+
+
 def fetch_live() -> tuple[str | None, dict]:
     try:
         from playwright.sync_api import sync_playwright  # type: ignore
     except Exception as exc:
         return None, {'status': 'playwright_import_failed', 'error': repr(exc)}
     headless = os.environ.get('WOS_BROWSER_HEADLESS', 'true').lower() not in {'0', 'false', 'no'}
+    channel = os.environ.get('WOS_BROWSER_CHANNEL', '').strip() or None
     ua = os.environ.get('WOS_USER_AGENT', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36')
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=headless, args=['--disable-dev-shm-usage', '--no-sandbox'])
-        context = browser.new_context(locale='en-US', timezone_id='Europe/Moscow', user_agent=ua, viewport={'width': 1440, 'height': 1100})
+        launch_kwargs = {'headless': headless, 'args': ['--disable-dev-shm-usage', '--no-sandbox']}
+        if channel:
+            launch_kwargs['channel'] = channel
+        report = {
+            'status': 'started',
+            'url': URL,
+            'headless': headless,
+            'channel': channel,
+            'input_state': {
+                'cookie_secret_present': bool(WOS_COOKIE),
+                'storage_state_secret_present': bool(WOS_STORAGE_STATE_B64),
+            },
+        }
+        try:
+            browser = p.chromium.launch(**launch_kwargs)
+        except Exception as exc:
+            report['browser_launch_error'] = repr(exc)
+            launch_kwargs.pop('channel', None)
+            browser = p.chromium.launch(**launch_kwargs)
+            report['channel_fallback'] = 'bundled_chromium'
+        state_path = storage_state_path_from_secret(report)
+        context_kwargs = {
+            'locale': 'en-US',
+            'timezone_id': 'Europe/Moscow',
+            'user_agent': ua,
+            'viewport': {'width': 1440, 'height': 1100},
+        }
+        if state_path:
+            context_kwargs['storage_state'] = state_path
+        context = browser.new_context(**context_kwargs)
+        if WOS_COOKIE:
+            try:
+                cookies = cookie_header_to_playwright(WOS_COOKIE)
+                context.add_cookies(cookies)
+                report['input_state']['cookie_names'] = sorted({c['name'] for c in cookies})
+                report['input_state']['cookie_domains_count'] = len(cookies)
+            except Exception as exc:
+                report['input_state']['cookie_add_error'] = repr(exc)
         page = context.new_page()
-        report = {'status': 'started', 'url': URL, 'headless': headless}
         try:
             page.goto(URL, wait_until='domcontentloaded', timeout=max(WAIT_SEC, 45) * 1000)
             elapsed = 0
@@ -73,8 +159,12 @@ def fetch_live() -> tuple[str | None, dict]:
                 except Exception:
                     pass
                 html = page.content()
-                if has_wos_payload(html):
-                    report.update({'status': 'ok', 'elapsed_sec': elapsed, 'final_url': page.url, 'title': page.title(), 'content_length': len(html.encode('utf-8', errors='replace'))})
+                candidate = parse_wos_author_profile_html(html, RESEARCHER_ID)
+                candidate_count = normalized_count(candidate)
+                if candidate_count:
+                    report['candidate_records_or_publications'] = candidate_count
+                if has_wos_payload(html) and candidate_count >= 1:
+                    report.update({'status': 'ok', 'elapsed_sec': elapsed, 'final_url': page.url, 'title': page.title(), 'content_length': len(html.encode('utf-8', errors='replace')), 'candidate_records_or_publications': candidate_count})
                     context.close(); browser.close()
                     return html, report
             report.update({'status': 'timeout_or_unready', 'final_url': page.url, 'title': page.title(), 'content_length': len(html.encode('utf-8', errors='replace'))})
@@ -95,6 +185,7 @@ def main() -> int:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
     previous = json.loads(OUT.read_text(encoding='utf-8')) if OUT.exists() else None
     previous_count = normalized_count(previous or {})
     html, report = fetch_live()
@@ -135,7 +226,7 @@ def main() -> int:
     write_json(OUT, data)
     report['written_records_or_publications'] = normalized_count(data)
     write_json(REPORT, report)
-    print(json.dumps({'out': str(OUT), 'used_source': report.get('used_source'), 'records_or_publications': normalized_count(data)}, ensure_ascii=False, indent=2))
+    print(json.dumps({'out': str(OUT), 'used_source': report.get('used_source'), 'records_or_publications': normalized_count(data), 'input_state': report.get('input_state')}, ensure_ascii=False, indent=2))
     return 0
 
 
