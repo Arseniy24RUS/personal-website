@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-06-03T20:08:53+00:00",
+  "stats": {
+    "records": 58,
+    "titles_fixed": 58,
+    "elibrary_detail_fields_added": 48,
+    "metadata_fields_added": 72,
+    "gost_built": 58,
+    "apa_built": 58,
+    "crossref_cache_hit": 0,
+    "crossref_fetched": 18,
+    "crossref_failed": 2
+  }
+}

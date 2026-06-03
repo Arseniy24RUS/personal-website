@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T14:54:11+00:00",
+  "generated_at": "2026-06-03T19:51:48+00:00",
   "route": "authors_search_route",
   "min_records": 50,
   "pages": {
@@ -8,8 +8,8 @@
       "authors_url": "https://www.elibrary.ru/authors.asp",
       "search_name": "Ситковский Арсений Михайлович",
       "status": "error",
-      "error": "Error('Page.goto: net::ERR_TOO_MANY_REDIRECTS at https://www.elibrary.ru/authors.asp\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
-      "elapsed_sec": 15.386,
+      "error": "TimeoutError('Page.goto: Timeout 130000ms exceeded.\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
+      "elapsed_sec": 644.053,
       "fingerprint": {
         "content_length": 0,
         "has_suspicious_ip_text": false,
@@ -18,12 +18,12 @@
         "excerpt": ""
       },
       "debug": {
-        "html_path": "artifacts/elibrary_debug/20260603T145429Z_authors_search_error.html",
-        "screenshot_path": "artifacts/elibrary_debug/20260603T145429Z_authors_search_error.png"
+        "html_path": "artifacts/elibrary_debug/20260603T200233Z_authors_search_error.html",
+        "screenshot_path": "artifacts/elibrary_debug/20260603T200233Z_authors_search_error.png"
       },
       "debug_final": {
-        "html_path": "artifacts/elibrary_debug/20260603T145429Z_authors_route_items_not_ready.html",
-        "screenshot_path": "artifacts/elibrary_debug/20260603T145429Z_authors_route_items_not_ready.png"
+        "html_path": "artifacts/elibrary_debug/20260603T200233Z_authors_route_items_not_ready.html",
+        "screenshot_path": "artifacts/elibrary_debug/20260603T200233Z_authors_route_items_not_ready.png"
       }
     }
   },
@@ -44,8 +44,8 @@
     "authors_url": "https://www.elibrary.ru/authors.asp",
     "search_name": "Ситковский Арсений Михайлович",
     "status": "error",
-    "error": "Error('Page.goto: net::ERR_TOO_MANY_REDIRECTS at https://www.elibrary.ru/authors.asp\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
-    "elapsed_sec": 15.386,
+    "error": "TimeoutError('Page.goto: Timeout 130000ms exceeded.\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
+    "elapsed_sec": 644.053,
     "fingerprint": {
       "content_length": 0,
       "has_suspicious_ip_text": false,
@@ -54,12 +54,12 @@
       "excerpt": ""
     },
     "debug": {
-      "html_path": "artifacts/elibrary_debug/20260603T145429Z_authors_search_error.html",
-      "screenshot_path": "artifacts/elibrary_debug/20260603T145429Z_authors_search_error.png"
+      "html_path": "artifacts/elibrary_debug/20260603T200233Z_authors_search_error.html",
+      "screenshot_path": "artifacts/elibrary_debug/20260603T200233Z_authors_search_error.png"
     },
     "debug_final": {
-      "html_path": "artifacts/elibrary_debug/20260603T145429Z_authors_route_items_not_ready.html",
-      "screenshot_path": "artifacts/elibrary_debug/20260603T145429Z_authors_route_items_not_ready.png"
+      "html_path": "artifacts/elibrary_debug/20260603T200233Z_authors_route_items_not_ready.html",
+      "screenshot_path": "artifacts/elibrary_debug/20260603T200233Z_authors_route_items_not_ready.png"
     }
   },
   "status": "not_ready"
