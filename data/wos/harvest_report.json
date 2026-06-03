@@ -1,12 +1,31 @@
 {
-  "status": "timeout_or_unready",
+  "status": "ok",
   "url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-  "headless": true,
-  "final_url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=USW2EC0F5AMOUpwzlexNeAVp5gYik",
-  "title": "Web of Science",
-  "content_length": 268510,
-  "generated_at": "2026-06-02T19:48:39+00:00",
+  "headless": false,
+  "channel": "chrome",
+  "input_state": {
+    "cookie_secret_present": true,
+    "storage_state_secret_present": true,
+    "storage_state_path": "artifacts/wos_live/wos_input_storage_state.json",
+    "cookie_names": [
+      "WOSSID",
+      "__cf_bm",
+      "_sp_id.840c",
+      "_sp_ses.840c",
+      "dotmatics.elementalKey",
+      "group",
+      "sessionid"
+    ],
+    "cookie_domains_count": 35
+  },
+  "candidate_records_or_publications": 10,
+  "elapsed_sec": 3,
+  "final_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
+  "title": "Arseniy Sitkovskiy - Web of Science Researcher Profile",
+  "content_length": 482984,
+  "generated_at": "2026-06-03T14:54:55+00:00",
   "previous_records_or_publications": 10,
-  "used_source": "previous_normalized_json",
+  "used_source": "live_wos_free_view",
+  "snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260603T145455Z.html",
   "written_records_or_publications": 10
 }

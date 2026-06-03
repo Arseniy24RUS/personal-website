@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T19:48:39+00:00",
+  "generated_at": "2026-06-03T14:54:56+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
@@ -52,8 +52,8 @@
     "authorid": "1012909",
     "spin": "9559-1803",
     "author_name": "Ситковский Арсений Михайлович",
-    "snapshot_generated_at": "2026-06-02T19:47:04+00:00",
-    "source_file_sha256": null,
+    "snapshot_generated_at": "2026-06-03T14:54:46+00:00",
+    "source_file_sha256": "b235d703822e184ced0e767c02c9de8659cb6c29f467fcdbe1b988dbedba2592",
     "elibrary_updated_at": "29.05.2026",
     "summary": {
       "publications_elibrary": 60,
@@ -374,103 +374,115 @@
     ]
   },
   "wos_profile_metrics": {
-    "source": "wos_saved_html",
+    "source": "web_of_science_free_view_author_profile",
     "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
     "researcher_id": "AAG-1530-2021",
-    "author_name": "Arseniy Sitkovskiy",
-    "snapshot_generated_at": "2026-05-30T19:35:00Z",
-    "source_file_sha256": "57f8c20b467c19242acae9f831f04e1457990f0c7861b79dfa0b7c6d64a28f5e",
+    "generated_at": "2026-06-03T14:54:55+00:00",
+    "page_title": "Arseniy Sitkovskiy - Web of Science Researcher Profile",
     "summary": {
-      "h_index": 2,
       "publications": 10,
       "citations": 7,
-      "citing_articles": 7,
-      "citations_without_self": 4,
-      "citing_articles_without_self": 4,
-      "patent_citations": 0,
-      "citing_patents": 0,
-      "policy_citations": 0,
-      "citing_policy_documents": 0
+      "h_index": 2,
+      "total_documents": 25,
+      "indexed_publications": 17,
+      "core_collection_publications": 10
     },
-    "raw_blocks": [
-      {
-        "values": [
-          "2"
-        ],
-        "descriptor": "H-Index",
-        "full": "2 H-Index"
+    "summary_metrics": {
+      "Total documents": {
+        "raw": "25",
+        "value": 25
       },
-      {
-        "values": [
-          "10"
-        ],
-        "descriptor": "публикации",
-        "full": "10 публикации"
+      "Publications indexed in Web of Science": {
+        "raw": "17",
+        "value": 17
       },
-      {
-        "values": [
-          "7"
-        ],
-        "descriptor": "Суммарное количество цитирований",
-        "full": "7 Суммарное количество цитирований"
+      "Web of Science Core Collection publications": {
+        "raw": "10",
+        "value": 10
       },
-      {
-        "values": [
-          "7",
-          "7"
-        ],
-        "descriptor": "Цитирующие статьи",
-        "full": "7 Цитирующие статьи"
+      "Preprints": {
+        "raw": "0",
+        "value": 0
       },
-      {
-        "values": [
-          "4"
-        ],
-        "descriptor": "Суммарное количество цитирований",
-        "full": "4 Суммарное количество цитирований без самоцитирования"
+      "Dissertations or Theses": {
+        "raw": "0",
+        "value": 0
       },
-      {
-        "values": [
-          "4",
-          "4"
-        ],
-        "descriptor": "Цитирующие статьи",
-        "full": "4 Цитирующие статьи без самоцитирования"
+      "Non-indexed publications": {
+        "raw": "8",
+        "value": 8
       },
-      {
-        "values": [
-          "0"
-        ],
-        "descriptor": "Суммарное количество цитирований в патентах",
-        "full": "0 Суммарное количество цитирований в патентах"
+      "Verified peer reviews": {
+        "raw": "0",
+        "value": 0
       },
-      {
-        "values": [
-          "0"
-        ],
-        "descriptor": "Цитирующие патенты",
-        "full": "0 Цитирующие патенты"
+      "Verified editor records": {
+        "raw": "0",
+        "value": 0
       },
-      {
-        "values": [
-          "0"
-        ],
-        "descriptor": "Суммарное количество цитирований по каждой политике",
-        "full": "0 Суммарное количество цитирований по каждой политике"
-      },
-      {
-        "values": [
-          "0"
-        ],
-        "descriptor": "Цитирующие политически документы",
-        "full": "0 Цитирующие политические документы"
+      "Awarded grants": {
+        "raw": "0",
+        "value": 0
       }
-    ],
-    "parser_note": "Parsed from user-saved Web of Science researcher profile HTML; raw HTML is not committed because it contains session data."
+    },
+    "core_collection_metrics": {
+      "H-Index": {
+        "raw": "2",
+        "value": 2,
+        "descriptor": "H-Index"
+      },
+      "Publications": {
+        "raw": "10",
+        "value": 10,
+        "descriptor": "Publications"
+      },
+      "Sum of Times Cited": {
+        "raw": "7",
+        "value": 7,
+        "descriptor": "Sum of Times Cited"
+      },
+      "Citing Articles": {
+        "raw": "7",
+        "value": 7,
+        "descriptor": "Citing Articles"
+      },
+      "Sum of Times Cited without self-citations": {
+        "raw": "4",
+        "value": 4,
+        "descriptor": "Sum of Times Cited without self-citations"
+      },
+      "Citing Articles without self-citations": {
+        "raw": "4",
+        "value": 4,
+        "descriptor": "Citing Articles without self-citations"
+      },
+      "Sum of Times Cited by Patents": {
+        "raw": "0",
+        "value": 0,
+        "descriptor": "Sum of Times Cited by Patents"
+      },
+      "Citing Patents": {
+        "raw": "0",
+        "value": 0,
+        "descriptor": "Citing Patents"
+      },
+      "Sum of Times Cited by Policy": {
+        "raw": "0",
+        "value": 0,
+        "descriptor": "Sum of Times Cited by Policy"
+      },
+      "Citing Policy Documents": {
+        "raw": "0",
+        "value": 0,
+        "descriptor": "Citing Policy Documents"
+      }
+    },
+    "records_count_on_page": 0,
+    "records": []
   },
   "scopus_metrics": {
     "source": "scopus_api",
-    "generated_at": "2026-06-02T19:47:06+00:00",
+    "generated_at": "2026-06-03T14:54:56+00:00",
     "scopus_author_id": "57220956828",
     "author_profile_status": 401,
     "search_status": 200,
@@ -481,7 +493,7 @@
     "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available."
   },
   "scientometrics": {
-    "generated_at": "2026-06-02T19:48:39+00:00",
+    "generated_at": "2026-06-03T14:54:56+00:00",
     "columns": [
       "rinc",
       "scopus",
@@ -532,7 +544,7 @@
     }
   },
   "open_sources_report": {
-    "generated_at": "2026-06-02T19:40:24+00:00",
+    "generated_at": "2026-06-03T14:49:34+00:00",
     "providers": {
       "orcid": {
         "status": "ok",

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-02T19:48:39+00:00",
+  "generated_at": "2026-06-03T14:54:56+00:00",
   "stats": {
-    "official": 21,
-    "cached_machine_translation": 37,
+    "official": 58,
+    "cached_machine_translation": 0,
     "new_machine_translation": 0,
     "unresolved": 0,
     "venue_enriched": 20

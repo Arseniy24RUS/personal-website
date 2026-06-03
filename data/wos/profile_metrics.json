@@ -2,7 +2,7 @@
   "source": "web_of_science_free_view_author_profile",
   "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
   "researcher_id": "AAG-1530-2021",
-  "generated_at": "2026-06-03T10:44:51+00:00",
+  "generated_at": "2026-06-03T14:54:55+00:00",
   "page_title": "Arseniy Sitkovskiy - Web of Science Researcher Profile",
   "summary": {
     "publications": 10,
@@ -62,11 +62,21 @@
       "descriptor": "Publications"
     },
     "Sum of Times Cited": {
+      "raw": "7",
+      "value": 7,
+      "descriptor": "Sum of Times Cited"
+    },
+    "Citing Articles": {
+      "raw": "7",
+      "value": 7,
+      "descriptor": "Citing Articles"
+    },
+    "Sum of Times Cited without self-citations": {
       "raw": "4",
       "value": 4,
       "descriptor": "Sum of Times Cited without self-citations"
     },
-    "Citing Articles": {
+    "Citing Articles without self-citations": {
       "raw": "4",
       "value": 4,
       "descriptor": "Citing Articles without self-citations"
@@ -92,148 +102,6 @@
       "descriptor": "Citing Policy Documents"
     }
   },
-  "records_count_on_page": 10,
-  "records": [
-    {
-      "source": "web_of_science_free_view_author_profile",
-      "wos_uid": "WOS:001705010300002",
-      "title": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
-      "title_en": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
-      "year": 2026,
-      "doi": null,
-      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
-      "metadata_raw": "1 | Article | Comparative content analysis of master's and doctoral programmes in demography at world-class universities | Rostovskaya, TK | and | Sitkovskiy, AM | Jan 2026 | arrow_back | Journal information | clear | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | Publisher name | RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV | Journal Impact Factor ™ | Journal Impact Factor Summary | JCR Category | Category Quartile | EDUCATION & EDUCATIONAL RESEARCH | in ESCI edition | Q4 | Source: Journal Citation Reports | Go to Journal Citation Reports | open_in_new | If you have access to Journal Citation Reports ™ through your institution's subscription, you can view the latest Journal Impact Factor ™ and additional metrics to better understand a journal's content and audience. | Journal Citation Indicator ™ | 2024 | 0.31 | 2023 | 0.37 | Journal Citation Indicator Summary | JCI Category | Category Rank | Category Quartile | The Journal Citation Indicator is a measure of the average Category Normalized Citation Impact (CNCI) of citable items (articles and reviews) published by a journal over a recent three year period. It is used to help you evaluate journals based on other metrics besides the Journal Impact Factor (JIF). | Go to Journal Citation Indicator | open_in_new | Interested in reviewing for this journal? | Add this journal to your reviewer interest list. | Add Journal | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE",
-      "dedupe_fingerprint": "0cb24b75d7b9bcc4",
-      "sources": [
-        "wos"
-      ]
-    },
-    {
-      "source": "web_of_science_free_view_author_profile",
-      "wos_uid": "WOS:001643513900001",
-      "title": "The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance",
-      "title_en": "The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance",
-      "year": 2025,
-      "doi": null,
-      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001643513900001",
-      "metadata_raw": "2 | Article | The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance | Bezverbny, V | ; | Rostovskaya, T | ; | (...); | Roslavtsev, S | Dec 8 2025 | arrow_back | Journal information | clear | FRONTIERS IN POLITICAL SCIENCE | Publisher name | FRONTIERS MEDIA SA | Journal Impact Factor ™ | Journal Impact Factor Summary | JCR Category | Category Quartile | INTERNATIONAL RELATIONS | in ESCI edition | Q2 | POLITICAL SCIENCE | in ESCI edition | Q2 | Source: Journal Citation Reports | Go to Journal Citation Reports | open_in_new | If you have access to Journal Citation Reports ™ through your institution's subscription, you can view the latest Journal Impact Factor ™ and additional metrics to better understand a journal's content and audience. | Journal Citation Indicator ™ | 2024 | 1.02 | 2023 | 0.93 | Journal Citation Indicator Summary | JCI Category | Category Rank | Category Quartile | The Journal Citation Indicator is a measure of the average Category Normalized Citation Impact (CNCI) of citable items (articles and reviews) published by a journal over a recent three year period. It is used to help you evaluate journals based on other metrics besides the Journal Impact Factor (JIF).",
-      "dedupe_fingerprint": "0f61e43b0da9b093",
-      "sources": [
-        "wos"
-      ]
-    },
-    {
-      "source": "web_of_science_free_view_author_profile",
-      "wos_uid": "WOS:001504467400006",
-      "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
-      "title_en": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
-      "year": 2025,
-      "doi": null,
-      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006",
-      "metadata_raw": "3 | Article | Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education | Sitkovskiy, AM | and | Dozhdikov, AV | Jun 2025 | arrow_back | Journal information | clear | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | Publisher name | RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV | Journal Impact Factor ™ | Journal Impact Factor Summary | JCR Category | Category Quartile | EDUCATION & EDUCATIONAL RESEARCH | in ESCI edition | Q4 | Source: Journal Citation Reports | Go to Journal Citation Reports | open_in_new | If you have access to Journal Citation Reports ™ through your institution's subscription, you can view the latest Journal Impact Factor ™ and additional metrics to better understand a journal's content and audience. | Journal Citation Indicator ™ | 2024 | 0.31 | 2023 | 0.37 | Journal Citation Indicator Summary | JCI Category | Category Rank | Category Quartile | The Journal Citation Indicator is a measure of the average Category Normalized Citation Impact (CNCI) of citable items (articles and reviews) published by a journal over a recent three year period. It is used to help you evaluate journals based on other metrics besides the Journal Impact Factor (JIF). | Go to Journal Citation Indicator | open_in_new | Interested in reviewing for this journal? | Add this journal to your reviewer interest list. | Add Journal | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE",
-      "dedupe_fingerprint": "403ccbd4322b5708",
-      "sources": [
-        "wos"
-      ]
-    },
-    {
-      "source": "web_of_science_free_view_author_profile",
-      "wos_uid": "WOS:001679486900004",
-      "title": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
-      "title_en": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
-      "year": 2025,
-      "doi": null,
-      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004",
-      "metadata_raw": "4 | Article | The Influence of the Agglomeration Effect on the Demographic Policy of Territories | Sitkovskiy, AM | ; | Raisikh, AE | ; | (...); | Bezverbnaya, NA | 2025 | arrow_back | Journal information | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Publisher name | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Journal Impact Factor Summary | JCR Category | Category Quartile | ECONOMICS | in ESCI edition | Q4 | REGIONAL & URBAN PLANNING | in ESCI edition | Q4 | Source: Journal Citation Reports | Go to Journal Citation Reports | open_in_new | If you have access to Journal Citation Reports ™ through your institution's subscription, you can view the latest Journal Impact Factor ™ and additional metrics to better understand a journal's content and audience. | Journal Citation Indicator ™ | 2024 | 0.29 | 2023 | 0.4 | Journal Citation Indicator Summary | JCI Category | Category Rank | Category Quartile | The Journal Citation Indicator is a measure of the average Category Normalized Citation Impact (CNCI) of citable items (articles and reviews) published by a journal over a recent three year period. It is used to evaluate journals based on other metrics besides the Journal Impact Factor (JIF).",
-      "dedupe_fingerprint": "9aa91861a84927ae",
-      "sources": [
-        "wos"
-      ]
-    },
-    {
-      "source": "web_of_science_free_view_author_profile",
-      "wos_uid": "WOS:001633673200001",
-      "title": "Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\"",
-      "title_en": "Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\"",
-      "year": 2023,
-      "doi": null,
-      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001",
-      "metadata_raw": "5 | Article | Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\" | Rostovskaya, TK | ; | Sitkovskiy, AM | and | Gishkaeva, LN | 2025 | arrow_back | Journal information | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Publisher name | CH K LAMAZHAA | Journal Impact Factor ™ | Journal Impact Factor Summary | JCR Category | Category Quartile | SOCIAL SCIENCES, INTERDISCIPLINARY | in ESCI edition | Q2 | Source: Journal Citation Reports | Go to Journal Citation Reports | open_in_new | If you have access to Journal Citation Reports ™ through your institution's subscription, you can view the latest Journal Impact Factor ™ and additional metrics to better understand a journal's content and audience. | Journal Citation Indicator ™ | 2024 | 0.62 | 2023 | 0.62 | Journal Citation Indicator Summary | JCI Category | Category Rank | Category Quartile | The Journal Citation Indicator is a measure of the average Category Normalized Citation Impact (CNCI) of citable items (articles and reviews) published by a journal over a recent three year period. It is used to help you evaluate journals based on other metrics besides the Journal Impact Factor (JIF).",
-      "dedupe_fingerprint": "7a5e9ca2e0f1b015",
-      "sources": [
-        "wos"
-      ]
-    },
-    {
-      "source": "web_of_science_free_view_author_profile",
-      "wos_uid": "WOS:001555353700010",
-      "title": "Demographic Resources of Russia: Variability of Approaches and Assessments",
-      "title_en": "Demographic Resources of Russia: Variability of Approaches and Assessments",
-      "year": 2025,
-      "doi": null,
-      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010",
-      "metadata_raw": "6 | Article | Demographic Resources of Russia: Variability of Approaches and Assessments | Rostovskaya, TK | and | Sitkovskiy, AM | 2025 | arrow_back | Journal information | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Publisher name | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Journal Impact Factor Summary | JCR Category | Category Quartile | ECONOMICS | in ESCI edition | Q4 | REGIONAL & URBAN PLANNING | in ESCI edition | Q4 | Source: Journal Citation Reports | Go to Journal Citation Reports | open_in_new | If you have access to Journal Citation Reports ™ through your institution's subscription, you can view the latest Journal Impact Factor ™ and additional metrics to better understand a journal's content and audience. | Journal Citation Indicator ™ | 2024 | 0.29 | 2023 | 0.4 | Journal Citation Indicator Summary | JCI Category | Category Rank | Category Quartile | The Journal Citation Indicator is a measure of the average Category Normalized Citation Impact (CNCI) of citable items (articles and reviews) published by a journal over a recent three year period. It is used to evaluate journals based on other metrics besides the Journal Impact Factor (JIF).",
-      "dedupe_fingerprint": "5b053ebfdd42ed19",
-      "sources": [
-        "wos"
-      ]
-    },
-    {
-      "source": "web_of_science_free_view_author_profile",
-      "wos_uid": "WOS:001508911200001",
-      "title": "The settlement system of the Republic of Tuva: central places",
-      "title_en": "The settlement system of the Republic of Tuva: central places",
-      "year": 2025,
-      "doi": null,
-      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001",
-      "metadata_raw": "7 | Article | The settlement system of the Republic of Tuva: central places | Sitkovskiy, AM | and | Delovarova, LF | 2025 | arrow_back | Journal information | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Publisher name | CH K LAMAZHAA | Journal Impact Factor ™ | Journal Impact Factor Summary | JCR Category | Category Quartile | SOCIAL SCIENCES, INTERDISCIPLINARY | in ESCI edition | Q2 | Source: Journal Citation Reports | Go to Journal Citation Reports | open_in_new | If you have access to Journal Citation Reports ™ through your institution's subscription, you can view the latest Journal Impact Factor ™ and additional metrics to better understand a journal's content and audience. | Journal Citation Indicator ™ | 2024 | 0.62 | 2023 | 0.62 | Journal Citation Indicator Summary | JCI Category | Category Rank | Category Quartile | The Journal Citation Indicator is a measure of the average Category Normalized Citation Impact (CNCI) of citable items (articles and reviews) published by a journal over a recent three year period. It is used to help you evaluate journals based on other metrics besides the Journal Impact Factor (JIF). | Go to Journal Citation Indicator",
-      "dedupe_fingerprint": "99db814c32521060",
-      "sources": [
-        "wos"
-      ]
-    },
-    {
-      "source": "web_of_science_free_view_author_profile",
-      "wos_uid": "WOS:001331184300001",
-      "title": "Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects",
-      "title_en": "Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects",
-      "year": 2017,
-      "doi": null,
-      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001",
-      "metadata_raw": "8 | Article | Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects | Bezverbny, VA | ; | Mikryukov, NY | and | Sitkovskiy, AM | 2024 | arrow_back | Journal information | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Publisher name | CH K LAMAZHAA | Journal Impact Factor ™ | Journal Impact Factor Summary | JCR Category | Category Quartile | SOCIAL SCIENCES, INTERDISCIPLINARY | in ESCI edition | Q2 | Source: Journal Citation Reports | Go to Journal Citation Reports | open_in_new | If you have access to Journal Citation Reports ™ through your institution's subscription, you can view the latest Journal Impact Factor ™ and additional metrics to better understand a journal's content and audience. | Journal Citation Indicator ™ | 2024 | 0.62 | 2023 | 0.62 | Journal Citation Indicator Summary | JCI Category | Category Rank | Category Quartile | The Journal Citation Indicator is a measure of the average Category Normalized Citation Impact (CNCI) of citable items (articles and reviews) published by a journal over a recent three year period. It is used to help you evaluate journals based on other metrics besides the Journal Impact Factor (JIF).",
-      "dedupe_fingerprint": "4323d50b39f3b084",
-      "sources": [
-        "wos"
-      ]
-    },
-    {
-      "source": "web_of_science_free_view_author_profile",
-      "wos_uid": "WOS:001186327000001",
-      "title": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
-      "title_en": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
-      "year": 2024,
-      "doi": null,
-      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001",
-      "metadata_raw": "9 | Article | Demographic Development Resources: On the Unification of Concepts in Demographic Research | Rostovskaya, TK | and | Sitkovskiy, AM | 2024 | arrow_back | Journal information | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Publisher name | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Journal Impact Factor Summary | JCR Category | Category Quartile | ECONOMICS | in ESCI edition | Q4 | REGIONAL & URBAN PLANNING | in ESCI edition | Q4 | Source: Journal Citation Reports | Go to Journal Citation Reports | open_in_new | If you have access to Journal Citation Reports ™ through your institution's subscription, you can view the latest Journal Impact Factor ™ and additional metrics to better understand a journal's content and audience. | Journal Citation Indicator ™ | 2024 | 0.29 | 2023 | 0.4 | Journal Citation Indicator Summary | JCI Category | Category Rank | Category Quartile | The Journal Citation Indicator is a measure of the average Category Normalized Citation Impact (CNCI) of citable items (articles and reviews) published by a journal over a recent three year period. It is used to evaluate journals based on other metrics besides the Journal Impact Factor (JIF).",
-      "dedupe_fingerprint": "7726b3e016bd43f2",
-      "sources": [
-        "wos"
-      ]
-    },
-    {
-      "source": "web_of_science_free_view_author_profile",
-      "wos_uid": "WOS:000773381800013",
-      "title": "\"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
-      "title_en": "\"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
-      "year": 2021,
-      "doi": null,
-      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:000773381800013",
-      "metadata_raw": "10 | Proceedings Paper | \"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION | Gordeev, S | and | Sitkovskiy, A | 4th International Scientific Conference on Competitiveness and the Development of Socio-Economic Systems dedicated to the Memory of Alexander Tatarkin (CDSES) | 2021 | COMPETITIVENESS AND THE DEVELOPMENT OF SOCIO-ECONOMIC SYSTEMS | 105 | , pp.120-128 | The article discusses the issues of updating the foundations of the toolkit methodology associated with spatial development research. These issues are related to structural changes in the economy and inevitably affect various aspects of spatial development. Further, these changes predetermine the | Free Full Text From Publisher | for \"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION | 0 | References",
-      "dedupe_fingerprint": "3d94a9360d0ac511",
-      "sources": [
-        "wos"
-      ]
-    }
-  ],
-  "used_source": "manual_working_browser_html"
+  "records_count_on_page": 0,
+  "records": []
 }
