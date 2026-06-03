@@ -42,9 +42,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4 pyyaml rapidfuzz argostranslate playwright
-      - name: Install Chromium for browser-backed data fetchers
+      - name: Install browsers for browser-backed data fetchers
         run: |
           python -m playwright install --with-deps chromium
+          python -m playwright install chrome || true
+          google-chrome --version || true
       - name: Mirror Craftum assets
         run: |
           if [ "${{ inputs.mirror_craftum_assets || 'true' }}" = "true" ] && [ -f scripts/mirror_craftum_assets.py ]; then
@@ -88,20 +90,20 @@ jobs:
           else
             echo "Media snapshot normalizer is missing; skipping post-processing."
           fi
-      - name: Connect eLibrary OpenVPN route
+      - name: Connect home OpenVPN route for eLibrary and WoS
         env:
           ELIBRARY_OPENVPN_CONFIG_B64: ${{ secrets.ELIBRARY_OPENVPN_CONFIG_B64 }}
         run: |
           if [ -z "$ELIBRARY_OPENVPN_CONFIG_B64" ]; then
-            echo "ELIBRARY_OPENVPN_CONFIG_B64 is not set; eLibrary will use the normal runner route or ELIBRARY_PROXY_URL."
+            echo "ELIBRARY_OPENVPN_CONFIG_B64 is not set; eLibrary/WoS will use the normal runner route or fallback data."
             exit 0
           fi
           umask 077
-          printf '%s' "$ELIBRARY_OPENVPN_CONFIG_B64" | base64 --decode > elibrary-home.ovpn
+          printf '%s' "$ELIBRARY_OPENVPN_CONFIG_B64" | base64 --decode > home-openvpn.ovpn
           IP_BEFORE=$(curl -fsS --max-time 20 https://api.ipify.org || true)
-          echo "Public IP before eLibrary VPN: ${IP_BEFORE:-not available}"
+          echo "Public IP before home VPN: ${IP_BEFORE:-not available}"
           sudo openvpn \
-            --config elibrary-home.ovpn \
+            --config home-openvpn.ovpn \
             --data-ciphers-fallback AES-128-CBC \
             --allow-compression yes \
             --daemon \
@@ -109,15 +111,16 @@ jobs:
             --log openvpn.log
           for i in $(seq 1 60); do
             if ip link show tun0 >/dev/null 2>&1; then
-              echo "eLibrary VPN tun0 is up"
+              echo "Home VPN tun0 is up"
               break
             fi
             sleep 2
           done
           IP_AFTER=$(curl -fsS --max-time 30 https://api.ipify.org || true)
-          echo "Public IP after eLibrary VPN: ${IP_AFTER:-not available}"
+          echo "Public IP after home VPN: ${IP_AFTER:-not available}"
           if [ -n "$IP_AFTER" ] && [ "$IP_AFTER" != "$IP_BEFORE" ]; then
             echo "ELIBRARY_OPENVPN_ACTIVE=1" >> "$GITHUB_ENV"
+            echo "WOS_HOME_OPENVPN_ACTIVE=1" >> "$GITHUB_ENV"
           else
             echo "OpenVPN did not change public IP; continuing with fallback logic."
             sudo tail -n 120 openvpn.log || true
@@ -165,12 +168,29 @@ jobs:
           else
             echo "eLibrary items harvester/parser is missing; using existing data/elibrary/publications.tsv."
           fi
-      - name: Disconnect eLibrary OpenVPN route
+      - name: Harvest Web of Science free-view author profile
+        env:
+          WOS_RESEARCHER_ID: "AAG-1530-2021"
+          WOS_PROFILE_URL: "https://www.webofscience.com/wos/author/record/AAG-1530-2021"
+          WOS_PROFILE_OUT: data/wos/profile_metrics.json
+          WOS_HARVEST_REPORT: data/wos/harvest_report.json
+          WOS_BROWSER_WAIT_SEC: "180"
+          WOS_BROWSER_HEADLESS: "false"
+          WOS_BROWSER_CHANNEL: "chrome"
+          WOS_COOKIE: ${{ secrets.WOS_COOKIE }}
+          WOS_STORAGE_STATE_B64: ${{ secrets.WOS_STORAGE_STATE_B64 }}
+        run: |
+          if [ -f scripts/harvest_wos_author_profile.py ]; then
+            xvfb-run -a python scripts/harvest_wos_author_profile.py || true
+          else
+            echo "Web of Science free-view harvester is missing; using existing WOS snapshot/data."
+          fi
+      - name: Disconnect home OpenVPN route
         if: always()
         run: |
           if [ -f openvpn.pid ]; then
             sudo kill "$(cat openvpn.pid)" 2>/dev/null || true
-            echo "eLibrary OpenVPN route stopped."
+            echo "Home OpenVPN route stopped."
           fi
           if [ -f openvpn.log ]; then
             echo "OpenVPN log tail:"
@@ -187,19 +207,6 @@ jobs:
             python scripts/harvest_scopus.py || true
           else
             echo "Scopus harvester or key is not configured; skipping."
-          fi
-      - name: Harvest Web of Science free-view author profile
-        env:
-          WOS_RESEARCHER_ID: "AAG-1530-2021"
-          WOS_PROFILE_URL: "https://www.webofscience.com/wos/author/record/AAG-1530-2021"
-          WOS_PROFILE_OUT: data/wos/profile_metrics.json
-          WOS_HARVEST_REPORT: data/wos/harvest_report.json
-          WOS_BROWSER_WAIT_SEC: "90"
-        run: |
-          if [ -f scripts/harvest_wos_author_profile.py ]; then
-            python scripts/harvest_wos_author_profile.py || true
-          else
-            echo "Web of Science free-view harvester is missing; using existing WOS snapshot/data."
           fi
       - name: Generate derived public data
         run: |
