@@ -168,6 +168,18 @@ jobs:
           else
             echo "eLibrary items harvester/parser is missing; using existing data/elibrary/publications.tsv."
           fi
+      - name: Harvest eLibrary item pages for full references
+        env:
+          ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
+          ELIBRARY_USER_AGENT: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36"
+          ELIBRARY_ITEM_DETAILS_LIMIT: "25"
+          ELIBRARY_ITEM_DETAILS_DELAY_SEC: "1.5"
+        run: |
+          if [ -f scripts/harvest_elibrary_item_details.py ]; then
+            python scripts/harvest_elibrary_item_details.py || true
+          else
+            echo "eLibrary item detail harvester is missing; using list-page metadata only."
+          fi
       - name: Harvest Web of Science free-view author profile
         env:
           WOS_RESEARCHER_ID: "AAG-1530-2021"
@@ -221,6 +233,15 @@ jobs:
             python scripts/translate_publication_titles.py || true
           else
             echo "Publication-title translation script is missing; skipping."
+          fi
+      - name: Enrich publication metadata and references
+        env:
+          CROSSREF_MAILTO: omnistat@yandex.ru
+        run: |
+          if [ -f scripts/enrich_publication_metadata.py ]; then
+            python scripts/enrich_publication_metadata.py || true
+          else
+            echo "Publication metadata enricher is missing; skipping GOST/APA reference enrichment."
           fi
       - name: Write refresh audit stamp
         run: |
