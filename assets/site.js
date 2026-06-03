@@ -61,13 +61,34 @@ function preferredLang(){
   return browserPreferredLang();
 }
 
+function faviconHref(){
+  return new URL('assets/favicon.svg?v=20260603', document.baseURI).href;
+}
+
 function installFavicon(){
-  if(document.querySelector('link[rel~="icon"]')) return;
+  const href = faviconHref();
+  document.querySelectorAll('link[rel~="icon"], link[rel="shortcut icon"]').forEach(el => el.remove());
   const icon = document.createElement('link');
   icon.rel = 'icon';
   icon.type = 'image/svg+xml';
-  icon.href = 'assets/favicon.svg';
+  icon.href = href;
   document.head.appendChild(icon);
+  const shortcut = document.createElement('link');
+  shortcut.rel = 'shortcut icon';
+  shortcut.href = href;
+  document.head.appendChild(shortcut);
+}
+
+function installVisualFixes(){
+  if(document.getElementById('site-visual-fixes')) return;
+  const style = document.createElement('style');
+  style.id = 'site-visual-fixes';
+  style.textContent = `
+    .social-links a{overflow:hidden;isolation:isolate;}
+    .social-links a:hover{background:#4b4b4b!important;transform:translateY(-2px);}
+    .social-links img{width:28px!important;height:28px!important;display:block!important;object-fit:contain!important;object-position:center!important;}
+  `;
+  document.head.appendChild(style);
 }
 
 function updatePageMeta(lang){
@@ -121,14 +142,18 @@ function installFooter(){
         <a class="footer-email" href="mailto:omnistat@yandex.ru">omnistat@yandex.ru</a>
       </div>
       <div class="social-links" aria-label="Social links">
-        <a href="https://vk.com/arseniy24gamer" target="_blank" rel="noopener noreferrer" aria-label="VK"><img src="assets/social/vk.svg" alt="" aria-hidden="true"></a>
-        <a href="https://t.me/omnistat" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="assets/social/telegram.svg" alt="" aria-hidden="true"></a>
+        <a href="https://vk.com/arseniy24gamer" target="_blank" rel="noopener noreferrer" aria-label="VK"><img src="assets/social/vk.svg?v=20260603" alt="" aria-hidden="true"></a>
+        <a href="https://t.me/omnistat" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="assets/social/telegram.svg?v=20260603" alt="" aria-hidden="true"></a>
       </div>
     </div>`;
 }
 
+installFavicon();
+installVisualFixes();
+
 document.addEventListener('DOMContentLoaded', () => {
   installFavicon();
+  installVisualFixes();
   installHeader();
   installFooter();
   setLang(preferredLang());
