@@ -1,42 +1,8 @@
 {
-  "generated_at": "2026-06-04T16:05:11+00:00",
+  "generated_at": "2026-06-04T18:47:09+00:00",
+  "strategy": "dom_first",
   "previous_records": 10,
   "previous_records_or_publications": 10,
-  "direct_wosnx": {
-    "route": "direct_wosnx_run_query_search_har_compatible",
-    "input_state": {
-      "cookie_secret_present": true,
-      "storage_state_secret_present": true
-    },
-    "storage_search_id": "465949a9-53a5-4428-9443-a2bb2204c097-01b74a20b8",
-    "storage_search_hits": {
-      "searched": 0,
-      "available": 10,
-      "found": 10
-    },
-    "storage_search_display_name": "Arseniy Sitkovskiy",
-    "cookies_from_storage_count": 9,
-    "cookies_from_secret_header_count": 18,
-    "bootstrap_status": 200,
-    "bootstrap_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-    "bootstrap_bytes": 2661,
-    "bootstrap_snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260604T160512Z_direct_bootstrap.html",
-    "sid_present": true,
-    "request_count": 10,
-    "request_display_name": "Arseniy Sitkovskiy",
-    "request_author_id": "AAG-1530-2021",
-    "request_has_search_id": false,
-    "request_body_bytes": 635,
-    "status_code": 200,
-    "content_type": "application/x-ndjson",
-    "bytes": 60,
-    "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.sessionNotFound\"]}\n",
-    "ndjson_path": "artifacts/wos_live/wos_run_query_search_20260604T160512Z.ndjson",
-    "records": 0,
-    "records_or_publications": 0,
-    "search_info": {},
-    "status": "api_without_records"
-  },
   "browser": {
     "route": "browser_dom_first_then_wosnx",
     "url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
@@ -55,7 +21,7 @@
       ],
       "cookie_domains_count": 35
     },
-    "initial_app_record_wait": "TimeoutError('Page.wait_for_selector: Timeout 20000ms exceeded.\\nCall log:\\n  - waiting for locator(\"app-record\") to be visible\\n    - waiting for\" https://www.webofknowledge.com/?mode=Nextgen&action=transfer&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&DestApp=UA&DestParams=\" navigation to finish...\\n    - waiting for\" https://access.clarivate.com/login?app=wos&detectSession=true&referrer=path%3D%252Fwos%252Fauthor%252Frecord%252FAAG-1530-2021%26detectSessionComplete%3Dtrue%26mode%3DNextgen%26action%3Dtransfer%26De…\" navigation to finish...\\n    - navigated to \"https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0D73K7iC4qOQCth6Jn2Jx…\"\\n')",
+    "initial_app_record_wait": "TimeoutError('Page.wait_for_selector: Timeout 20000ms exceeded.\\nCall log:\\n  - waiting for locator(\"app-record\") to be visible\\n    - waiting for\" https://www.webofknowledge.com/?mode=Nextgen&action=transfer&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&DestApp=UA&DestParams=\" navigation to finish...\\n    - navigated to \"https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0B2Dl0Uim9UI74eOgt0BN…\"\\n')",
     "candidate_dom_records": 0,
     "candidate_dom_records_or_publications": 0,
     "status": "no_records",
@@ -207,13 +173,46 @@
         "records_or_publications": 0
       }
     ],
-    "final_url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0D73K7iC4qOQCth6Jn2JxRy",
+    "final_url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0B2Dl0Uim9UI74eOgt0BNaV",
     "content_length": 265235
   },
+  "direct_wosnx": {
+    "route": "direct_wosnx_run_query_search_har_compatible",
+    "input_state": {
+      "cookie_secret_present": true,
+      "storage_state_secret_present": true
+    },
+    "storage_search_id": "465949a9-53a5-4428-9443-a2bb2204c097-01b74a20b8",
+    "storage_search_hits": {
+      "searched": 0,
+      "available": 10,
+      "found": 10
+    },
+    "storage_search_display_name": "Arseniy Sitkovskiy",
+    "cookies_from_storage_count": 9,
+    "cookies_from_secret_header_count": 18,
+    "bootstrap_status": 200,
+    "bootstrap_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
+    "bootstrap_bytes": 2661,
+    "bootstrap_snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260604T185059Z_direct_bootstrap.html",
+    "sid_present": true,
+    "request_count": 10,
+    "request_display_name": "Arseniy Sitkovskiy",
+    "request_author_id": "AAG-1530-2021",
+    "request_has_search_id": false,
+    "request_body_bytes": 635,
+    "status_code": 200,
+    "content_type": "application/x-ndjson",
+    "bytes": 60,
+    "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.sessionNotFound\"]}\n",
+    "ndjson_path": "artifacts/wos_live/wos_run_query_search_20260604T185100Z.ndjson",
+    "records": 0,
+    "records_or_publications": 0,
+    "search_info": {},
+    "status": "api_without_records"
+  },
+  "snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260603T145455Z.html",
   "used_source": "saved_snapshot",
-  "snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260604T160512Z_direct_bootstrap.html",
-  "candidate_records": 0,
-  "candidate_records_or_publications": 0,
   "warning": "Live WoS payload had fewer records than previous normalized data; previous records were preserved while fresh metrics were kept.",
   "written_records": 10,
   "written_records_or_publications": 10

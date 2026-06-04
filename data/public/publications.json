@@ -804,15 +804,16 @@
     "title_en_source": "existing_latin",
     "title_ru_original": "КОРРЕЛЯЦИОННЫЙ АНАЛИЗ СОЦИАЛЬНОЭКОНОМИЧЕСКИХ ФАКТОРОВ ДЕМОГРАФИЧЕСКИХ ИЗМЕНЕНИЙ",
     "title_ru_display": "Корреляционный анализ социальноэкономических факторов демографических изменений",
-    "gost_ru": "Ситковский А.М. Корреляционный анализ социальноэкономических факторов демографических изменений. // Ы. — 2025. — С. 169–170. — URL: https://www.elibrary.ru/item.asp?id=89267026.",
-    "apa_en": "Sitkovskii, A. M. (2025). Correlational Analysis of Social and Economic Factors of Demographic Change. Y, 169–170. https://www.elibrary.ru/item.asp?id=89267026",
+    "gost_ru": "Ситковский А.М. Корреляционный анализ социальноэкономических факторов демографических изменений. // Ы. — 2025. — Т. . — С. 169–170. — URL: https://www.elibrary.ru/item.asp?id=89267026.",
+    "apa_en": "Sitkovskii, A. M. (2025). Correlational Analysis of Social and Economic Factors of Demographic Change. Y, ., 169–170. https://www.elibrary.ru/item.asp?id=89267026",
     "publisher": "Вологодский научный центр РАН",
     "elibrary_item_detail": {
       "venue": "Ы",
       "publisher": "Вологодский научный центр РАН",
       "year": "2025",
       "pages": "169-170"
-    }
+    },
+    "volume": "."
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -889,8 +890,9 @@
       "issue": "6",
       "pages": "121-128"
     },
-    "gost_ru": "Безвербный В.А., Погребняк Е.В., Шевчуков С.П., Ситковский А.М. Цифровая демография: современные методы исследования демографических процессов. // Информационное общество. — 2025. — № 6. — С. 121–128. — DOI: 10.52605/16059921_2025_06_121.",
-    "apa_en": "Bezverbnyi, V. A., Pogrebnyak, E. V., Shevchukov, S. P., & Sitkovskii, A. M. (2025). Digital Demographics: Modern Methods of Studying Demographic Processes. Informatsionnoe obshchestvo, (6), 121–128. https://doi.org/10.52605/16059921_2025_06_121"
+    "gost_ru": "Безвербный В.А., Погребняк Е.В., Шевчуков С.П., Ситковский А.М. Цифровая демография: современные методы исследования демографических процессов. // Информационное общество. — 2025. — Т. . — № 6. — С. 121–128. — DOI: 10.52605/16059921_2025_06_121.",
+    "apa_en": "Bezverbnyi, V. A., Pogrebnyak, E. V., Shevchukov, S. P., & Sitkovskii, A. M. (2025). Digital Demographics: Modern Methods of Studying Demographic Processes. Informatsionnoe obshchestvo, .(6), 121–128. https://doi.org/10.52605/16059921_2025_06_121",
+    "volume": "."
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -7485,8 +7487,8 @@
           "awards": [],
           "funders": [],
           "has_content": {
-            "grobid_xml": false,
-            "pdf": false
+            "pdf": false,
+            "grobid_xml": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
@@ -9957,8 +9959,8 @@
           "awards": [],
           "funders": [],
           "has_content": {
-            "grobid_xml": false,
-            "pdf": false
+            "pdf": false,
+            "grobid_xml": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
@@ -11536,16 +11538,16 @@
           },
           "sustainable_development_goals": [
             {
-              "score": 0.5199999809265137,
               "display_name": "Reduced inequalities",
-              "id": "https://metadata.un.org/sdg/10"
+              "id": "https://metadata.un.org/sdg/10",
+              "score": 0.5199999809265137
             }
           ],
           "awards": [],
           "funders": [],
           "has_content": {
-            "grobid_xml": false,
-            "pdf": false
+            "pdf": false,
+            "grobid_xml": false
           },
           "content_urls": null,
           "referenced_works_count": 0,

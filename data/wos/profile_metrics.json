@@ -2,15 +2,15 @@
   "source": "web_of_science_free_view_author_profile",
   "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
   "researcher_id": "AAG-1530-2021",
-  "generated_at": "2026-06-04T16:08:55+00:00",
-  "page_title": "Web of Science",
+  "generated_at": "2026-06-04T18:51:00+00:00",
+  "page_title": "Arseniy Sitkovskiy - Web of Science Researcher Profile",
   "summary": {
-    "publications": null,
-    "citations": null,
-    "h_index": null,
-    "total_documents": null,
-    "indexed_publications": null,
-    "core_collection_publications": null
+    "publications": 10,
+    "citations": 7,
+    "h_index": 2,
+    "total_documents": 25,
+    "indexed_publications": 17,
+    "core_collection_publications": 10
   },
   "summary_metrics": {
     "Total documents": {
@@ -25,9 +25,29 @@
       "raw": "10",
       "value": 10
     },
+    "Preprints": {
+      "raw": "0",
+      "value": 0
+    },
+    "Dissertations or Theses": {
+      "raw": "0",
+      "value": 0
+    },
     "Non-indexed publications": {
       "raw": "8",
       "value": 8
+    },
+    "Verified peer reviews": {
+      "raw": "0",
+      "value": 0
+    },
+    "Verified editor records": {
+      "raw": "0",
+      "value": 0
+    },
+    "Awarded grants": {
+      "raw": "0",
+      "value": 0
     }
   },
   "core_collection_metrics": {
@@ -60,6 +80,26 @@
       "raw": "4",
       "value": 4,
       "descriptor": "Citing Articles without self-citations"
+    },
+    "Sum of Times Cited by Patents": {
+      "raw": "0",
+      "value": 0,
+      "descriptor": "Sum of Times Cited by Patents"
+    },
+    "Citing Patents": {
+      "raw": "0",
+      "value": 0,
+      "descriptor": "Citing Patents"
+    },
+    "Sum of Times Cited by Policy": {
+      "raw": "0",
+      "value": 0,
+      "descriptor": "Sum of Times Cited by Policy"
+    },
+    "Citing Policy Documents": {
+      "raw": "0",
+      "value": 0,
+      "descriptor": "Citing Policy Documents"
     }
   },
   "records_count_on_page": 10,

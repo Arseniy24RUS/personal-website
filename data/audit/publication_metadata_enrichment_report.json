@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-04T16:08:57+00:00",
+  "generated_at": "2026-06-04T18:51:01+00:00",
   "stats": {
     "records": 66,
     "titles_fixed": 0,
-    "elibrary_detail_fields_added": 0,
+    "elibrary_detail_fields_added": 2,
     "metadata_fields_added": 0,
     "gost_built": 66,
     "apa_built": 66,

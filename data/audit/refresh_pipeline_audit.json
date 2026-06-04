@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-06-04T18:51:01+00:00",
+  "status": "ok",
+  "checks": {
+    "publications_count": 66,
+    "canonical_publications_count": 66,
+    "source_counts": {
+      "elibrary": 58,
+      "scopus": 7,
+      "wos": 10,
+      "open": 15
+    },
+    "wos_records_count": 10,
+    "wos_public_profile_records_count": 10,
+    "wos_enriched_publications_count": 10,
+    "wos_auto_added_publications_count": 0,
+    "wos_metrics": {
+      "publications": 10,
+      "citations": 7,
+      "h_index": 2
+    },
+    "elibrary_browser_status": "not_ready",
+    "reference_enrichment_stats": {
+      "records": 66,
+      "titles_fixed": 0,
+      "elibrary_detail_fields_added": 2,
+      "metadata_fields_added": 0,
+      "gost_built": 66,
+      "apa_built": 66,
+      "crossref_cache_hit": 25,
+      "crossref_fetched": 0,
+      "crossref_failed": 0
+    }
+  },
+  "warnings": [
+    {
+      "code": "wos_live_fallback_used",
+      "message": "Live WoS harvest was weak, but preserved records are available.",
+      "details": [
+        {
+          "section": "browser",
+          "route": "browser_dom_first_then_wosnx",
+          "status": "no_records",
+          "excerpt": ""
+        },
+        {
+          "section": "direct_wosnx",
+          "route": "direct_wosnx_run_query_search_har_compatible",
+          "status": "api_without_records",
+          "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.sessionNotFound\"]}"
+        }
+      ]
+    },
+    {
+      "code": "bad_reference_text_detected",
+      "count": 9,
+      "sample": [
+        "Формирование технологий решения жилищных проблем семьи в рамках демографической политики: проблемы и перспективы",
+        "Демографическое развитие России: становление и эволюция научной школы Л. Л. Рыбаковского",
+        "Демографическое самочувствие регионов России. национальный демографический доклад — 2024",
+        "Устойчивость российского государства и общества в условиях укрепления традиционных ценностей и становления многополярного мира. социальная и социально — политическая ситуация",
+        "Репродуктивные установки населения г. Севастополя и условия, влияющие на рождаемость",
+        "Корреляционный анализ социальноэкономических факторов демографических изменений",
+        "Цифровые технологии в профессиональной деятельности демографа",
+        "Репродуктивистика в трудах уральских демографов",
+        "Половозрастная пирамида миграционного сальдо как инструмент углубленного анализа миграционныхпроцессов"
+      ]
+    }
+  ],
+  "issues": []
+}

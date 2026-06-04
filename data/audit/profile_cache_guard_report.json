@@ -1,0 +1,13 @@
+{
+  "expected_identifiers": {
+    "elibrary_authorid": "1012909",
+    "elibrary_spin": "9559-1803",
+    "orcid": "0000-0002-8725-6580",
+    "scopus_author_id": "57220956828",
+    "wos_researcher_id": "AAG-1530-2021",
+    "github_username": "Arseniy24RUS"
+  },
+  "removed": [],
+  "skipped": [],
+  "errors": []
+}
