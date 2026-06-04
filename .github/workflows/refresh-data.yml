@@ -202,7 +202,9 @@ jobs:
           WOS_COOKIE: ${{ secrets.WOS_COOKIE }}
           WOS_STORAGE_STATE_B64: ${{ secrets.WOS_STORAGE_STATE_B64 }}
         run: |
-          if [ -f scripts/harvest_wos_author_profile_production.py ]; then
+          if [ -f scripts/harvest_wos_author_profile_dom_first.py ]; then
+            xvfb-run -a python scripts/harvest_wos_author_profile_dom_first.py || true
+          elif [ -f scripts/harvest_wos_author_profile_production.py ]; then
             xvfb-run -a python scripts/harvest_wos_author_profile_production.py || true
           elif [ -f scripts/harvest_wos_author_profile.py ]; then
             xvfb-run -a python scripts/harvest_wos_author_profile.py || true
