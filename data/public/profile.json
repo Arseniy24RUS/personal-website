@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T12:14:55+00:00",
+  "generated_at": "2026-06-04T15:18:28+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
@@ -52,7 +52,7 @@
     "authorid": "1012909",
     "spin": "9559-1803",
     "author_name": "Ситковский Арсений Михайлович",
-    "snapshot_generated_at": "2026-06-04T12:09:54+00:00",
+    "snapshot_generated_at": "2026-06-04T15:13:55+00:00",
     "source_file_sha256": "b235d703822e184ced0e767c02c9de8659cb6c29f467fcdbe1b988dbedba2592",
     "elibrary_updated_at": "29.05.2026",
     "summary": {
@@ -377,7 +377,7 @@
     "source": "web_of_science_free_view_author_profile",
     "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
     "researcher_id": "AAG-1530-2021",
-    "generated_at": "2026-06-04T12:14:54+00:00",
+    "generated_at": "2026-06-04T15:18:26+00:00",
     "page_title": "Web of Science",
     "summary": {
       "publications": null,
@@ -400,29 +400,9 @@
         "raw": "10",
         "value": 10
       },
-      "Preprints": {
-        "raw": "0",
-        "value": 0
-      },
-      "Dissertations or Theses": {
-        "raw": "0",
-        "value": 0
-      },
       "Non-indexed publications": {
         "raw": "8",
         "value": 8
-      },
-      "Verified peer reviews": {
-        "raw": "0",
-        "value": 0
-      },
-      "Verified editor records": {
-        "raw": "0",
-        "value": 0
-      },
-      "Awarded grants": {
-        "raw": "0",
-        "value": 0
       }
     },
     "core_collection_metrics": {
@@ -455,34 +435,236 @@
         "raw": "4",
         "value": 4,
         "descriptor": "Citing Articles without self-citations"
-      },
-      "Sum of Times Cited by Patents": {
-        "raw": "0",
-        "value": 0,
-        "descriptor": "Sum of Times Cited by Patents"
-      },
-      "Citing Patents": {
-        "raw": "0",
-        "value": 0,
-        "descriptor": "Citing Patents"
-      },
-      "Sum of Times Cited by Policy": {
-        "raw": "0",
-        "value": 0,
-        "descriptor": "Sum of Times Cited by Policy"
-      },
-      "Citing Policy Documents": {
-        "raw": "0",
-        "value": 0,
-        "descriptor": "Citing Policy Documents"
       }
     },
-    "records_count_on_page": 0,
-    "records": []
+    "records_count_on_page": 10,
+    "records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001705010300002",
+        "position": 1,
+        "document_type": "Article",
+        "title": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
+        "title_en": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
+        "authors_raw": "Rostovskaya, TK and Sitkovskiy, AM",
+        "venue": "OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE",
+        "venue_en": "OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE",
+        "publisher": "RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV",
+        "year": 2026,
+        "volume": "28",
+        "issue": "1",
+        "pages": "33-64",
+        "doi": null,
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
+        "dedupe_fingerprint": "260c00ca0ca1b704",
+        "sources": [
+          "wos"
+        ]
+      },
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001643513900001",
+        "position": 2,
+        "document_type": "Article",
+        "title": "The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance",
+        "title_en": "The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance",
+        "authors_raw": "Bezverbny, V ; Rostovskaya, T ; (...); Roslavtsev, S",
+        "venue": "FRONTIERS IN POLITICAL SCIENCE",
+        "venue_en": "FRONTIERS IN POLITICAL SCIENCE",
+        "publisher": "FRONTIERS MEDIA SA",
+        "year": 2025,
+        "volume": "7",
+        "issue": null,
+        "pages": null,
+        "doi": null,
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001643513900001",
+        "dedupe_fingerprint": "37492320529d23f6",
+        "sources": [
+          "wos"
+        ]
+      },
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001504467400006",
+        "position": 3,
+        "document_type": "Article",
+        "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+        "title_en": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+        "authors_raw": "Sitkovskiy, AM and Dozhdikov, AV",
+        "venue": "OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE",
+        "venue_en": "OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE",
+        "publisher": "RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV",
+        "year": 2025,
+        "volume": "27",
+        "issue": "6",
+        "pages": "149-179",
+        "doi": null,
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006",
+        "dedupe_fingerprint": "c1dbcbc6033e9767",
+        "sources": [
+          "wos"
+        ]
+      },
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001679486900004",
+        "position": 4,
+        "document_type": "Article",
+        "title": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
+        "title_en": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
+        "authors_raw": "Sitkovskiy, AM ; Raisikh, AE ; (...); Bezverbnaya, NA",
+        "venue": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "venue_en": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "publisher": "INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS",
+        "year": 2025,
+        "volume": "18",
+        "issue": "6",
+        "pages": "90-109",
+        "doi": null,
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004",
+        "dedupe_fingerprint": "6916a7362204b95c",
+        "sources": [
+          "wos"
+        ]
+      },
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001633673200001",
+        "position": 5,
+        "document_type": "Article",
+        "title": "Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\"",
+        "title_en": "Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\"",
+        "authors_raw": "Rostovskaya, TK ; Sitkovskiy, AM and Gishkaeva, LN",
+        "venue": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "venue_en": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "publisher": "CH K LAMAZHAA",
+        "year": 2025,
+        "volume": null,
+        "issue": "4",
+        "pages": "233-253",
+        "doi": null,
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001",
+        "dedupe_fingerprint": "e1cadb326aba0857",
+        "sources": [
+          "wos"
+        ]
+      },
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001555353700010",
+        "position": 6,
+        "document_type": "Article",
+        "title": "Demographic Resources of Russia: Variability of Approaches and Assessments",
+        "title_en": "Demographic Resources of Russia: Variability of Approaches and Assessments",
+        "authors_raw": "Rostovskaya, TK and Sitkovskiy, AM",
+        "venue": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "venue_en": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "publisher": "INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS",
+        "year": 2025,
+        "volume": "18",
+        "issue": "3",
+        "pages": "183-202",
+        "doi": null,
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010",
+        "dedupe_fingerprint": "cedfa5f82e69128a",
+        "sources": [
+          "wos"
+        ]
+      },
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001508911200001",
+        "position": 7,
+        "document_type": "Article",
+        "title": "The settlement system of the Republic of Tuva: central places",
+        "title_en": "The settlement system of the Republic of Tuva: central places",
+        "authors_raw": "Sitkovskiy, AM and Delovarova, LF",
+        "venue": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "venue_en": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "publisher": "CH K LAMAZHAA",
+        "year": 2025,
+        "volume": null,
+        "issue": "2",
+        "pages": "70-91",
+        "doi": null,
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001",
+        "dedupe_fingerprint": "ccb4f8962953567f",
+        "sources": [
+          "wos"
+        ]
+      },
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001331184300001",
+        "position": 8,
+        "document_type": "Article",
+        "title": "Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects",
+        "title_en": "Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects",
+        "authors_raw": "Bezverbny, VA ; Mikryukov, NY and Sitkovskiy, AM",
+        "venue": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "venue_en": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "publisher": "CH K LAMAZHAA",
+        "year": 2024,
+        "volume": null,
+        "issue": "3",
+        "pages": "226-239",
+        "doi": null,
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001",
+        "dedupe_fingerprint": "3afa3efd22c8b75c",
+        "sources": [
+          "wos"
+        ]
+      },
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001186327000001",
+        "position": 9,
+        "document_type": "Article",
+        "title": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
+        "title_en": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
+        "authors_raw": "Rostovskaya, TK and Sitkovskiy, AM",
+        "venue": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "venue_en": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "publisher": "INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS",
+        "year": 2024,
+        "volume": "17",
+        "issue": "1",
+        "pages": "178-200",
+        "doi": null,
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001",
+        "dedupe_fingerprint": "1e4db15b8571e214",
+        "sources": [
+          "wos"
+        ]
+      },
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:000773381800013",
+        "position": 10,
+        "document_type": "Proceedings Paper",
+        "title": "\"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
+        "title_en": "\"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
+        "authors_raw": "Gordeev, S and Sitkovskiy, A",
+        "venue": "COMPETITIVENESS AND THE DEVELOPMENT OF SOCIO-ECONOMIC SYSTEMS",
+        "venue_en": "COMPETITIVENESS AND THE DEVELOPMENT OF SOCIO-ECONOMIC SYSTEMS",
+        "publisher": null,
+        "year": 2021,
+        "volume": "105",
+        "issue": null,
+        "pages": "120-128",
+        "doi": null,
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:000773381800013",
+        "dedupe_fingerprint": "b8be076729284a92",
+        "sources": [
+          "wos"
+        ]
+      }
+    ],
+    "records_preserved_from_previous": true
   },
   "scopus_metrics": {
     "source": "scopus_api",
-    "generated_at": "2026-06-04T12:14:55+00:00",
+    "generated_at": "2026-06-04T15:18:27+00:00",
     "scopus_author_id": "57220956828",
     "author_profile_status": 401,
     "search_status": 200,
@@ -493,7 +675,7 @@
     "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available."
   },
   "scientometrics": {
-    "generated_at": "2026-06-04T12:14:55+00:00",
+    "generated_at": "2026-06-04T15:18:28+00:00",
     "columns": [
       "rinc",
       "scopus",
@@ -537,14 +719,14 @@
         "label_ru": "Web of Science",
         "label_en": "Web of Science",
         "source": "Web of Science Researcher Profile",
-        "publications": null,
-        "citations": null,
-        "h_index": null
+        "publications": 10,
+        "citations": 7,
+        "h_index": 2
       }
     }
   },
   "open_sources_report": {
-    "generated_at": "2026-06-04T12:03:25+00:00",
+    "generated_at": "2026-06-04T15:09:25+00:00",
     "providers": {
       "orcid": {
         "status": "ok",
@@ -570,20 +752,20 @@
     "records_total_before_dedupe": 42,
     "records_total_after_dedupe": 18
   },
-  "canonical_publications_count": 58,
+  "canonical_publications_count": 66,
   "scopus_enriched_publications_count": 7,
   "scopus_auto_added_publications_count": 0,
   "open_sources_records_count": 18,
   "open_sources_enriched_publications_count": 18,
   "open_sources_auto_added_publications_count": 0,
-  "wos_records_count": 0,
-  "wos_enriched_publications_count": 0,
+  "wos_records_count": 10,
+  "wos_enriched_publications_count": 10,
   "wos_auto_added_publications_count": 0,
   "admin_queue_size": 0,
   "wos_public_merge_report": {
-    "generated_at": "2026-06-04T12:14:55+00:00",
-    "records_seen": 0,
-    "enriched": 0,
+    "generated_at": "2026-06-04T15:18:28+00:00",
+    "records_seen": 10,
+    "enriched": 10,
     "added": 0,
     "changed_fields": 0
   }

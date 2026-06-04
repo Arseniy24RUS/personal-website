@@ -1,10 +1,61 @@
 {
-  "generated_at": "2026-06-04T12:14:55+00:00",
-  "records_seen": 0,
-  "publications_after_merge": 58,
-  "enriched": 0,
+  "generated_at": "2026-06-04T15:18:28+00:00",
+  "records_seen": 10,
+  "publications_after_merge": 66,
+  "enriched": 10,
   "added": 0,
   "changed_fields": 0,
-  "matched_sample": [],
+  "matched_sample": [
+    {
+      "title": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
+      "doi": null,
+      "wos_uid": "WOS:001705010300002"
+    },
+    {
+      "title": "The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance",
+      "doi": null,
+      "wos_uid": "WOS:001643513900001"
+    },
+    {
+      "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+      "doi": null,
+      "wos_uid": "WOS:001504467400006"
+    },
+    {
+      "title": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
+      "doi": null,
+      "wos_uid": "WOS:001679486900004"
+    },
+    {
+      "title": "Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\"",
+      "doi": null,
+      "wos_uid": "WOS:001633673200001"
+    },
+    {
+      "title": "Demographic Resources of Russia: Variability of Approaches and Assessments",
+      "doi": null,
+      "wos_uid": "WOS:001555353700010"
+    },
+    {
+      "title": "The settlement system of the Republic of Tuva: central places",
+      "doi": null,
+      "wos_uid": "WOS:001508911200001"
+    },
+    {
+      "title": "Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects",
+      "doi": null,
+      "wos_uid": "WOS:001331184300001"
+    },
+    {
+      "title": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
+      "doi": null,
+      "wos_uid": "WOS:001186327000001"
+    },
+    {
+      "title": "\"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
+      "doi": null,
+      "wos_uid": "WOS:000773381800013"
+    }
+  ],
   "auto_added": []
 }

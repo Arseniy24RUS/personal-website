@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-04T12:11:23+00:00",
-  "previous_records": 0,
-  "previous_records_or_publications": 0,
+  "generated_at": "2026-06-04T15:15:05+00:00",
+  "previous_records": 10,
+  "previous_records_or_publications": 10,
   "direct_wosnx": {
     "route": "direct_wosnx_run_query_search_har_compatible",
     "input_state": {
@@ -20,7 +20,7 @@
     "bootstrap_status": 200,
     "bootstrap_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
     "bootstrap_bytes": 2661,
-    "bootstrap_snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260604T121124Z_direct_bootstrap.html",
+    "bootstrap_snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260604T151506Z_direct_bootstrap.html",
     "sid_present": true,
     "request_count": 10,
     "request_display_name": "Arseniy Sitkovskiy",
@@ -31,9 +31,9 @@
     "content_type": "application/x-ndjson",
     "bytes": 60,
     "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.sessionNotFound\"]}\n",
-    "ndjson_path": "artifacts/wos_live/wos_run_query_search_20260604T121124Z.ndjson",
+    "ndjson_path": "artifacts/wos_live/wos_run_query_search_20260604T151506Z.ndjson",
     "records": 0,
-    "records_or_publications": 0,
+    "records_or_publications": 10,
     "search_info": {},
     "status": "api_without_records"
   },
@@ -69,7 +69,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 150,
@@ -81,7 +81,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 153,
@@ -93,7 +93,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 156,
@@ -105,7 +105,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 159,
@@ -117,7 +117,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 162,
@@ -129,7 +129,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 165,
@@ -141,7 +141,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 168,
@@ -153,7 +153,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 171,
@@ -165,7 +165,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 174,
@@ -177,7 +177,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 177,
@@ -189,7 +189,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 180,
@@ -201,16 +201,17 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       }
     ],
-    "final_url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0D97NwSGwG0C3V3KbJ7irEf",
-    "content_length": 128577
+    "final_url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0B2DaljIuBrfA6xflLqG06D",
+    "content_length": 128918
   },
   "used_source": "saved_snapshot",
-  "snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260604T121124Z_direct_bootstrap.html",
+  "snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260604T151506Z_direct_bootstrap.html",
   "candidate_records": 0,
   "candidate_records_or_publications": 0,
-  "written_records": 0,
-  "written_records_or_publications": 0
+  "warning": "Live WoS payload had fewer records than previous normalized data; previous records were preserved while fresh metrics were kept.",
+  "written_records": 10,
+  "written_records_or_publications": 10
 }
