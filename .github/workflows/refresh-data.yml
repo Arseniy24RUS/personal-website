@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       scopus_author_id:
-        description: "Optional Scopus Author ID override"
+        description: "Optional Scopus Author ID override; leave empty to use config/profile.yml"
         required: false
-        default: "57220956828"
+        default: ""
         type: string
       mirror_craftum_assets:
         description: "Download/mirror Craftum assets into repository"
@@ -46,6 +46,19 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4 pyyaml rapidfuzz argostranslate playwright
+      - name: Load profile identifiers
+        env:
+          PROFILE_YAML: config/profile.yml
+        run: |
+          if [ -f scripts/export_profile_env.py ]; then
+            python scripts/export_profile_env.py
+          else
+            echo "scripts/export_profile_env.py is missing; using script defaults where available."
+          fi
+          if [ -n "${{ inputs.scopus_author_id }}" ]; then
+            echo "SCOPUS_AUTHOR_ID=${{ inputs.scopus_author_id }}" >> "$GITHUB_ENV"
+            echo "Scopus Author ID overridden from workflow input."
+          fi
       - name: Install browsers for browser-backed data fetchers
         run: |
           python -m playwright install --with-deps chromium
@@ -131,7 +144,6 @@ jobs:
           fi
       - name: Harvest eLibrary publication list through confirmed authors route
         env:
-          ELIBRARY_AUTHOR_ID: "1012909"
           ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
           ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
           ELIBRARY_BROWSER_REPORT: data/elibrary/browser_fetch_report.json
@@ -146,9 +158,7 @@ jobs:
           fi
       - name: Harvest eLibrary author profile metrics
         env:
-          ELIBRARY_AUTHOR_ID: "1012909"
           ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
-          ELIBRARY_PROFILE_URL: "https://www.elibrary.ru/author_profile.asp?id=1012909"
           ELIBRARY_PROFILE_OUT: data/elibrary/profile_metrics.json
           ELIBRARY_PROFILE_REPORT: data/elibrary/profile_metrics_fetch_report.json
           ELIBRARY_PROXY_URL: ${{ secrets.ELIBRARY_PROXY_URL }}
@@ -160,9 +170,7 @@ jobs:
           fi
       - name: Harvest eLibrary publication list fallback
         env:
-          ELIBRARY_AUTHOR_ID: "1012909"
           ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
-          ELIBRARY_ITEMS_URL: "https://elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc"
           ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
           ELIBRARY_ITEMS_REPORT: data/elibrary/items_fetch_report.json
           ELIBRARY_PROXY_URL: ${{ secrets.ELIBRARY_PROXY_URL }}
@@ -186,8 +194,6 @@ jobs:
           fi
       - name: Harvest Web of Science free-view author profile
         env:
-          WOS_RESEARCHER_ID: "AAG-1530-2021"
-          WOS_PROFILE_URL: "https://www.webofscience.com/wos/author/record/AAG-1530-2021"
           WOS_PROFILE_OUT: data/wos/profile_metrics.json
           WOS_HARVEST_REPORT: data/wos/harvest_report.json
           WOS_BROWSER_WAIT_SEC: "180"
@@ -220,7 +226,6 @@ jobs:
         env:
           SCOPUS_API_KEY: ${{ secrets.SCOPUS_API_KEY }}
           SCOPUS_INST_TOKEN: ${{ secrets.SCOPUS_INST_TOKEN }}
-          SCOPUS_AUTHOR_ID: ${{ inputs.scopus_author_id || '57220956828' }}
           SCOPUS_OUT_DIR: data/scopus
         run: |
           if [ -f scripts/harvest_scopus.py ] && [ -n "$SCOPUS_API_KEY" ]; then
