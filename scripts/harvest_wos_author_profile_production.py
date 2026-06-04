@@ -1,23 +1,25 @@
 #!/usr/bin/env python3
 """Production wrapper for the Web of Science harvester.
 
-This wrapper keeps the browser fallback from harvest_wos_author_profile.py, but
-replaces only the direct WOSNX request with a version that mirrors the successful
-browser HAR more closely:
-- reuse the saved author-publications search from storage_state;
-- remove the transient localStorage search id from the request body;
-- request 10 records, matching Free View;
-- load cookies into a requests cookie jar instead of freezing a Cookie header;
-- keep WOSSID aligned with the SID used in the WOSNX URL.
+The base harvester keeps persistence and fallbacks. This wrapper hardens the WoS
+records route in two ways:
+1. It sends a direct WOSNX request that mirrors the successful browser HAR.
+2. If that direct request fails with an expired SID, it opens the profile in
+   Playwright and runs the WOSNX request inside the live browser context, using
+   the fresh SID and cookies created by the page itself.
 """
 from __future__ import annotations
 
-from pathlib import Path
 from urllib.parse import quote
 import json
 import os
 
 import harvest_wos_author_profile as base
+
+USER_AGENT = os.environ.get(
+    'WOS_USER_AGENT',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36',
+)
 
 
 def add_storage_cookies(session, state) -> int:
@@ -49,7 +51,6 @@ def add_cookie_header(session, raw: str) -> int:
         value = value.strip()
         if not name:
             continue
-        # Do not overwrite WOSSID from storage_state; it is paired with wos_sid.
         if name == 'WOSSID' and any(c.name == 'WOSSID' for c in session.cookies):
             continue
         for domain in ('www.webofscience.com', 'webofscience.com', 'www.webofknowledge.com'):
@@ -58,20 +59,33 @@ def add_cookie_header(session, raw: str) -> int:
     return count
 
 
-def run_query_body(state):
+def cleaned_search_from_storage(state):
     search, hits, search_id = base.search_state_from_storage(state)
     if search:
         search = dict(search)
         search.pop('id', None)
-    else:
-        search = {
-            'mode': 'author_publications',
-            'database': 'WOS',
-            'authorId': {'type': 'rid', 'value': base.RESEARCHER_ID},
-            'display': {'key': 'author', 'icon': 'author', 'params': {'name': os.environ.get('WOS_AUTHOR_DISPLAY_NAME', '') or base.RESEARCHER_ID}},
-            'searchOptions': {'collections': ['WOS'], 'publonCollections': [], 'nonIndexed': False},
-            'analyzeConfig': 'profiles',
-        }
+    return search, hits, search_id
+
+
+def fallback_search():
+    return {
+        'mode': 'author_publications',
+        'database': 'WOS',
+        'authorId': {'type': 'rid', 'value': base.RESEARCHER_ID},
+        'display': {'key': 'author', 'icon': 'author', 'params': {'name': os.environ.get('WOS_AUTHOR_DISPLAY_NAME', '') or base.RESEARCHER_ID}},
+        'searchOptions': {'collections': ['WOS'], 'publonCollections': [], 'nonIndexed': False},
+        'analyzeConfig': 'profiles',
+    }
+
+
+def run_query_body(state=None, search_override=None, hits_override=None):
+    search, hits, _search_id = cleaned_search_from_storage(state)
+    if search_override:
+        search = dict(search_override)
+        search.pop('id', None)
+        hits = hits_override or hits
+    if not search:
+        search = fallback_search()
     try:
         available = int((hits or {}).get('available') or (hits or {}).get('found') or 0)
     except Exception:
@@ -100,10 +114,7 @@ def run_query_body(state):
 def direct_wosnx(previous):
     report = {
         'route': 'direct_wosnx_run_query_search_har_compatible',
-        'input_state': {
-            'cookie_secret_present': bool(base.WOS_COOKIE),
-            'storage_state_secret_present': bool(base.WOS_STORAGE_STATE_B64),
-        },
+        'input_state': {'cookie_secret_present': bool(base.WOS_COOKIE), 'storage_state_secret_present': bool(base.WOS_STORAGE_STATE_B64)},
     }
     try:
         import requests
@@ -112,7 +123,7 @@ def direct_wosnx(previous):
         return None, report
 
     state = base.storage_state_from_secret()
-    search, hits, search_id = base.search_state_from_storage(state)
+    search, hits, search_id = cleaned_search_from_storage(state)
     if search_id:
         report['storage_search_id'] = search_id
         report['storage_search_hits'] = hits or {}
@@ -120,7 +131,7 @@ def direct_wosnx(previous):
 
     session = requests.Session()
     session.headers.update({
-        'User-Agent': os.environ.get('WOS_USER_AGENT', base.USER_AGENT if hasattr(base, 'USER_AGENT') else 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36'),
+        'User-Agent': USER_AGENT,
         'Accept': 'application/x-ndjson',
         'Accept-Language': 'ru,en;q=0.9',
         'Origin': 'https://www.webofscience.com',
@@ -161,10 +172,9 @@ def direct_wosnx(previous):
     report['request_author_id'] = (((body.get('search') or {}).get('authorId') or {}).get('value') if isinstance((body.get('search') or {}).get('authorId'), dict) else None)
     report['request_has_search_id'] = 'id' in (body.get('search') or {})
     report['request_body_bytes'] = len(body_text.encode('utf-8'))
-    api_url = f'https://www.webofscience.com/api/wosnx/core/runQuerySearch?SID={quote(sid, safe="")}'
 
     try:
-        response = session.post(api_url, data=body_text, timeout=60)
+        response = session.post(f'https://www.webofscience.com/api/wosnx/core/runQuerySearch?SID={quote(sid, safe="")}', data=body_text, timeout=60)
         text = response.text or ''
         report['status_code'] = response.status_code
         report['content_type'] = response.headers.get('content-type', '')
@@ -188,9 +198,178 @@ def direct_wosnx(previous):
         return None, report
 
 
+def cookie_header_to_playwright(raw: str) -> list[dict]:
+    cookies = []
+    for chunk in (raw or '').split(';'):
+        if '=' not in chunk:
+            continue
+        name, value = chunk.split('=', 1)
+        name = name.strip()
+        value = value.strip()
+        if not name:
+            continue
+        for domain in ['.webofscience.com', 'www.webofscience.com', '.webofknowledge.com', 'www.webofknowledge.com', '.clarivate.com']:
+            cookies.append({'name': name, 'value': value, 'domain': domain, 'path': '/', 'secure': True, 'sameSite': 'Lax'})
+    return cookies
+
+
+def extract_browser_state(page):
+    return page.evaluate(
+        """({rid}) => {
+          const result = {url: location.href, sid: null, sessionDataSid: null, search: null, hits: null, searchId: null};
+          try { result.sessionDataSid = window.sessionData?.BasicProperties?.SID || window.sessionData?.Products?.Portal?.ProductProperties?.SID || null; } catch(e) {}
+          try { result.sid = new URL(location.href).searchParams.get('SID') || result.sessionDataSid || JSON.parse(localStorage.getItem('wos_sid') || 'null'); } catch(e) { result.sid = result.sessionDataSid; }
+          let best = null;
+          for (let i = 0; i < localStorage.length; i++) {
+            const name = localStorage.key(i);
+            if (!name || !name.startsWith('wos_search_') || name.startsWith('wos_search_hits_')) continue;
+            try {
+              const search = JSON.parse(localStorage.getItem(name));
+              if (!search || !search.authorId || search.authorId.value !== rid) continue;
+              const id = search.id || name.replace('wos_search_', '');
+              let hits = {};
+              try { hits = JSON.parse(localStorage.getItem('wos_search_hits_' + id) || '{}'); } catch(e) {}
+              const available = Number(hits.available || hits.found || 0);
+              if (!best || available > best.available) best = {available, search, hits, id};
+            } catch(e) {}
+          }
+          if (best) { result.search = best.search; result.hits = best.hits; result.searchId = best.id; }
+          return result;
+        }""",
+        {'rid': base.RESEARCHER_ID},
+    )
+
+
+def browser_wosnx(previous):
+    try:
+        from playwright.sync_api import sync_playwright  # type: ignore
+    except Exception as exc:
+        return None, {'status': 'playwright_import_failed', 'error': repr(exc)}, None
+
+    report = {
+        'route': 'browser_context_wosnx_fetch',
+        'url': base.URL,
+        'input_state': {'cookie_secret_present': bool(base.WOS_COOKIE), 'storage_state_secret_present': bool(base.WOS_STORAGE_STATE_B64)},
+    }
+    api_reports = []
+    headless = os.environ.get('WOS_BROWSER_HEADLESS', 'false').lower() not in {'0', 'false', 'no'}
+    channel = os.environ.get('WOS_BROWSER_CHANNEL', 'chrome').strip() or None
+
+    with sync_playwright() as p:
+        launch_kwargs = {'headless': headless, 'args': ['--disable-dev-shm-usage', '--no-sandbox']}
+        if channel:
+            launch_kwargs['channel'] = channel
+        try:
+            browser = p.chromium.launch(**launch_kwargs)
+        except Exception as exc:
+            report['browser_launch_error'] = repr(exc)
+            launch_kwargs.pop('channel', None)
+            browser = p.chromium.launch(**launch_kwargs)
+            report['channel_fallback'] = 'bundled_chromium'
+
+        context_kwargs = {'locale': 'en-US', 'timezone_id': 'Europe/Moscow', 'user_agent': USER_AGENT, 'viewport': {'width': 1440, 'height': 1100}}
+        state_path = base.storage_state_path_from_secret(report)
+        if state_path:
+            context_kwargs['storage_state'] = state_path
+        context = browser.new_context(**context_kwargs)
+        if base.WOS_COOKIE:
+            try:
+                cookies = cookie_header_to_playwright(base.WOS_COOKIE)
+                context.add_cookies(cookies)
+                report['input_state']['cookie_names'] = sorted({c['name'] for c in cookies})
+                report['input_state']['cookie_domains_count'] = len(cookies)
+            except Exception as exc:
+                report['input_state']['cookie_add_error'] = repr(exc)
+
+        page = context.new_page()
+        try:
+            page.goto(base.URL, wait_until='domcontentloaded', timeout=max(base.WAIT_SEC, 45) * 1000)
+            html = ''
+            best_data = None
+            for elapsed in range(0, base.WAIT_SEC + 1, 3):
+                if elapsed:
+                    page.wait_for_timeout(3000)
+                try:
+                    page.mouse.wheel(0, 900)
+                except Exception:
+                    pass
+                state_info = extract_browser_state(page)
+                sid = state_info.get('sid')
+                if sid:
+                    try:
+                        context.add_cookies([
+                            {'name': 'WOSSID', 'value': sid, 'domain': 'www.webofscience.com', 'path': '/', 'secure': True, 'sameSite': 'Lax'},
+                            {'name': 'WOSSID', 'value': sid, 'domain': '.webofscience.com', 'path': '/', 'secure': True, 'sameSite': 'Lax'},
+                        ])
+                    except Exception:
+                        pass
+                body = run_query_body(None, state_info.get('search'), state_info.get('hits'))
+                if sid:
+                    try:
+                        fetch_result = page.evaluate(
+                            """async ({sid, body}) => {
+                              const res = await fetch('/api/wosnx/core/runQuerySearch?SID=' + encodeURIComponent(sid), {
+                                method: 'POST',
+                                credentials: 'include',
+                                headers: {'Accept': 'application/x-ndjson', 'Content-Type': 'text/plain;charset=UTF-8'},
+                                body: JSON.stringify(body)
+                              });
+                              return {status: res.status, contentType: res.headers.get('content-type') || '', text: await res.text()};
+                            }""",
+                            {'sid': sid, 'body': body},
+                        )
+                        text = fetch_result.get('text') or ''
+                        item = {
+                            'elapsed_sec': elapsed,
+                            'sid_present': True,
+                            'search_id': state_info.get('searchId'),
+                            'request_count': (body.get('retrieve') or {}).get('count'),
+                            'status': fetch_result.get('status'),
+                            'content_type': fetch_result.get('contentType'),
+                            'bytes': len(text.encode('utf-8', errors='replace')),
+                            'excerpt': text[:800],
+                        }
+                        data = base.carry_forward_metrics(base.parse_wosnx_ndjson(text, base.RESEARCHER_ID), previous)
+                        item['records'] = base.records_count(data)
+                        item['records_or_publications'] = base.normalized_count(data)
+                        api_reports.append(item)
+                        if base.records_count(data):
+                            best_data = data
+                            break
+                    except Exception as exc:
+                        api_reports.append({'elapsed_sec': elapsed, 'sid_present': True, 'error': repr(exc)})
+                if not html:
+                    try:
+                        html = page.content()
+                    except Exception:
+                        html = ''
+            if not html:
+                try:
+                    html = page.content()
+                except Exception:
+                    html = ''
+            if best_data:
+                report.update({'status': 'ok', 'records': base.records_count(best_data), 'records_or_publications': base.normalized_count(best_data), 'api_reports': api_reports[-12:], 'final_url': page.url})
+                context.close(); browser.close()
+                return html, report, best_data
+            html_candidate = base.carry_forward_metrics(base.parse_wos_author_profile_html(html, base.RESEARCHER_ID), previous) if html else None
+            report.update({'status': 'no_records', 'candidate_records': base.records_count(html_candidate), 'candidate_records_or_publications': base.normalized_count(html_candidate), 'api_reports': api_reports[-12:], 'final_url': page.url, 'content_length': len(html.encode('utf-8', errors='replace'))})
+            context.close(); browser.close()
+            return html, report, html_candidate
+        except Exception as exc:
+            try:
+                html = page.content()
+            except Exception:
+                html = ''
+            report.update({'status': 'error', 'error': repr(exc), 'api_reports': api_reports[-12:]})
+            context.close(); browser.close()
+            return html or None, report, None
+
+
 def main() -> int:
     base.run_query_body = run_query_body
     base.fetch_direct_wosnx = direct_wosnx
+    base.fetch_live_browser = browser_wosnx
     return base.main()
 
 
