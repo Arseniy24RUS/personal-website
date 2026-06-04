@@ -6,10 +6,12 @@ WoS Free View can render the author profile records directly into the page as
 1. open the public Researcher Profile page in a real browser context;
 2. wait for the rendered `app-record` DOM;
 3. parse those records directly from page.content();
-4. only then fall back to the WOSNX endpoint diagnostics.
+4. only then fall back to the WOSNX endpoint diagnostics;
+5. never overwrite stronger previous WoS records with a weak/empty live result.
 """
 from __future__ import annotations
 
+from pathlib import Path
 import os
 
 import harvest_wos_author_profile_production as prod
@@ -124,8 +126,8 @@ def browser_dom_first(previous):
                         context.close(); browser.close()
                         return html, report, dom_data
 
-                # Fallback diagnostic: use the live page to make the WOSNX call with
-                # its fresh SID/cookies. This is not the primary path anymore.
+                # Diagnostic fallback only: use the live page to make the WOSNX call
+                # with its current SID/cookies. The primary source remains the DOM.
                 try:
                     state_info = prod.extract_browser_state(page)
                     sid = state_info.get('sid')
@@ -187,15 +189,117 @@ def browser_dom_first(previous):
         except Exception as exc:
             html = safe_page_content(page)
             candidate = base.carry_forward_metrics(base.parse_wos_author_profile_html(html, base.RESEARCHER_ID), previous) if html else None
-            report.update({'status': 'error', 'error': repr(exc), 'records': prod.records_count(candidate), 'records_or_publications': prod.normalized_count(candidate), 'api_reports': api_reports[-12:]})
+            report.update({
+                'status': 'error',
+                'error': repr(exc),
+                'records': prod.records_count(candidate),
+                'records_or_publications': prod.normalized_count(candidate),
+                'api_reports': api_reports[-12:],
+            })
             context.close(); browser.close()
             return html or None, report, candidate
 
 
+def save_valid_snapshot(html: str | None, subroute: str, report: dict) -> None:
+    if not html or not base.has_wos_payload(html):
+        return
+    data = base.parse_wos_author_profile_html(html, base.RESEARCHER_ID)
+    # Avoid saving weak transfer/session pages as the latest snapshot: they contain
+    # window.sessionData but no records/metrics and can mask older good snapshots.
+    if not prod.records_count(data) and not prod.normalized_count(data):
+        report.setdefault('skipped_snapshots', []).append({'subroute': subroute, 'reason': 'weak_html_without_records_or_metrics'})
+        return
+    base.SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+    path = base.SNAPSHOT_DIR / f'author_profile_{base.RESEARCHER_ID}_{base.stamp()}_{subroute}.html'
+    path.write_text(html, encoding='utf-8', errors='replace')
+    report['snapshot_path'] = str(path)
+
+
+def best_saved_snapshot(previous, report: dict):
+    if not base.SNAPSHOT_DIR.exists():
+        return None
+    skipped = []
+    for snapshot in sorted(base.SNAPSHOT_DIR.glob(f'author_profile_{base.RESEARCHER_ID}_*.html'), reverse=True):
+        try:
+            data = base.carry_forward_metrics(base.parse_file(str(snapshot), base.RESEARCHER_ID), previous)
+            if prod.records_count(data) or prod.normalized_count(data):
+                report['snapshot_path'] = str(snapshot)
+                return data
+            skipped.append(str(snapshot))
+        except Exception:
+            skipped.append(str(snapshot))
+    if skipped:
+        report['skipped_empty_snapshots_sample'] = skipped[:8]
+    return None
+
+
+def write_result(data, report: dict) -> int:
+    base.write_json(base.OUT, data)
+    report['written_records'] = prod.records_count(data)
+    report['written_records_or_publications'] = prod.normalized_count(data)
+    base.write_json(base.REPORT, report)
+    print(base.json.dumps({
+        'out': str(base.OUT),
+        'used_source': report.get('used_source'),
+        'records': prod.records_count(data),
+        'records_or_publications': prod.normalized_count(data),
+        'input_state': ((report.get('browser') or {}).get('input_state') or (report.get('direct_wosnx') or {}).get('input_state')),
+    }, ensure_ascii=False, indent=2))
+    return 0
+
+
 def main() -> int:
-    prod.base.fetch_live_browser = browser_dom_first
-    prod.browser_wosnx = browser_dom_first
-    return prod.main()
+    base.OUT.parent.mkdir(parents=True, exist_ok=True)
+    base.REPORT.parent.mkdir(parents=True, exist_ok=True)
+    base.SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+    base.ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
+
+    previous = base.read_json(base.OUT, None)
+    report: dict = {
+        'generated_at': base.now(),
+        'strategy': 'dom_first',
+        'previous_records': prod.records_count(previous),
+        'previous_records_or_publications': prod.normalized_count(previous),
+    }
+
+    html, browser_report, live_data = browser_dom_first(previous)
+    report['browser'] = browser_report
+
+    data = None
+    if live_data and prod.records_count(live_data):
+        report['used_source'] = live_data.get('source') or 'live_wos_rendered_dom_or_browser_context'
+        save_valid_snapshot(html, browser_report.get('used_subroute') or 'dom_first', report)
+        data = prod.preserve_best_records(live_data, previous, report)
+    else:
+        # Direct WOSNX is now a secondary diagnostic/fallback. It should never run
+        # before the DOM route, because the visible profile page is the primary source.
+        direct_data, direct_report = prod.direct_wosnx(previous)
+        report['direct_wosnx'] = direct_report
+        if direct_data and prod.records_count(direct_data):
+            report['used_source'] = 'direct_wosnx_run_query_search'
+            data = prod.preserve_best_records(direct_data, previous, report)
+        elif html and base.has_wos_payload(html):
+            candidate = base.carry_forward_metrics(base.parse_wos_author_profile_html(html, base.RESEARCHER_ID), previous)
+            report['used_source'] = 'live_wos_dom_metrics_only'
+            report['candidate_records'] = prod.records_count(candidate)
+            report['candidate_records_or_publications'] = prod.normalized_count(candidate)
+            save_valid_snapshot(html, 'dom_metrics_only', report)
+            data = prod.preserve_best_records(candidate, previous, report)
+        else:
+            candidate = best_saved_snapshot(previous, report)
+            if candidate:
+                report['used_source'] = 'saved_snapshot'
+                data = prod.preserve_best_records(candidate, previous, report)
+            elif previous:
+                report['used_source'] = 'previous_normalized_json'
+                data = previous
+            else:
+                report['used_source'] = 'none'
+                report['error'] = 'No live Web of Science DOM records, no WOSNX records, no saved valid snapshot and no previous normalized JSON.'
+                base.write_json(base.REPORT, report)
+                return 1
+
+    return write_result(data, report)
 
 
 if __name__ == '__main__':
