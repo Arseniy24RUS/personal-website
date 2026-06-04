@@ -227,6 +227,13 @@ jobs:
           else
             echo "No public data builder yet; skipping."
           fi
+      - name: Merge Web of Science records into public data
+        run: |
+          if [ -f scripts/merge_wos_records_into_public_data.py ]; then
+            python scripts/merge_wos_records_into_public_data.py || true
+          else
+            echo "WoS public merge script is missing; skipping WoS record merge."
+          fi
       - name: Translate publication titles to English
         run: |
           if [ -f scripts/translate_publication_titles.py ]; then
