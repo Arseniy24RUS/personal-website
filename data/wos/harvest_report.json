@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T18:47:09+00:00",
+  "generated_at": "2026-06-04T20:11:53+00:00",
   "strategy": "dom_first",
   "previous_records": 10,
   "previous_records_or_publications": 10,
@@ -21,7 +21,7 @@
       ],
       "cookie_domains_count": 35
     },
-    "initial_app_record_wait": "TimeoutError('Page.wait_for_selector: Timeout 20000ms exceeded.\\nCall log:\\n  - waiting for locator(\"app-record\") to be visible\\n    - waiting for\" https://www.webofknowledge.com/?mode=Nextgen&action=transfer&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&DestApp=UA&DestParams=\" navigation to finish...\\n    - navigated to \"https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0B2Dl0Uim9UI74eOgt0BN…\"\\n')",
+    "initial_app_record_wait": "TimeoutError('Page.wait_for_selector: Timeout 20000ms exceeded.\\nCall log:\\n  - waiting for locator(\"app-record\") to be visible\\n')",
     "candidate_dom_records": 0,
     "candidate_dom_records_or_publications": 0,
     "status": "no_records",
@@ -38,7 +38,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 150,
@@ -50,7 +50,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 153,
@@ -62,7 +62,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 156,
@@ -74,7 +74,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 159,
@@ -86,7 +86,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 162,
@@ -98,7 +98,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 165,
@@ -110,7 +110,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 168,
@@ -122,7 +122,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 171,
@@ -134,7 +134,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 174,
@@ -146,7 +146,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 177,
@@ -158,7 +158,7 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       },
       {
         "elapsed_sec": 180,
@@ -170,10 +170,10 @@
         "bytes": 72,
         "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.passiveVerificationRequired\"]}\n",
         "records": 0,
-        "records_or_publications": 0
+        "records_or_publications": 10
       }
     ],
-    "final_url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0B2Dl0Uim9UI74eOgt0BNaV",
+    "final_url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0EFAOx861OnAvJSLPhjWhS3",
     "content_length": 265235
   },
   "direct_wosnx": {
@@ -194,7 +194,7 @@
     "bootstrap_status": 200,
     "bootstrap_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
     "bootstrap_bytes": 2661,
-    "bootstrap_snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260604T185059Z_direct_bootstrap.html",
+    "bootstrap_snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260604T201535Z_direct_bootstrap.html",
     "sid_present": true,
     "request_count": 10,
     "request_display_name": "Arseniy Sitkovskiy",
@@ -205,9 +205,9 @@
     "content_type": "application/x-ndjson",
     "bytes": 60,
     "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.sessionNotFound\"]}\n",
-    "ndjson_path": "artifacts/wos_live/wos_run_query_search_20260604T185100Z.ndjson",
+    "ndjson_path": "artifacts/wos_live/wos_run_query_search_20260604T201536Z.ndjson",
     "records": 0,
-    "records_or_publications": 0,
+    "records_or_publications": 10,
     "search_info": {},
     "status": "api_without_records"
   },

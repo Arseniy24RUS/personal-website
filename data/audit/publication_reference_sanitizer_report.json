@@ -1,0 +1,326 @@
+{
+  "records": 66,
+  "changed_records": 16,
+  "field_changes": 41,
+  "bad_references_before": 9,
+  "bad_references_after": 0,
+  "samples": [
+    {
+      "title": "Формирование технологий решения жилищных проблем семьи в рамках демографической политики: проблемы и перспективы",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "К",
+          "reason": "invalid_volume"
+        },
+        {
+          "field": "gost_ru",
+          "old": "Ростовская Т.К., Васильева Е.Н., Ситковский А.М. Формирование технологий решения жилищных проблем семьи в рамках демографической политики: проблемы и перспективы. // Женщина в российском обществе. — 2026. — Т. К. — № 1. — С. 32–48. — DOI: 10.21064/winrs.2026.1.3.",
+          "reason": "bad_reference_text"
+        },
+        {
+          "field": "apa_en",
+          "old": "Rostovskaya, T. K., Vasileva, E. N., & Sitkovskii, A. M. (2026). Forming technological solutions of housing family problems in the from demographic policy: problems and perspectives. Woman in russian society, К(1), 32–48. https://doi.org/10.21064/winrs.2026.1.3",
+          "reason": "bad_reference_text"
+        }
+      ],
+      "gost_ru": "Ростовская Т.К., Васильева Е.Н., Ситковский А.М. Формирование технологий решения жилищных проблем семьи в рамках демографической политики: проблемы и перспективы. // Женщина в российском обществе. — 2026. — № 1. — С. 32–48. — DOI: 10.21064/winrs.2026.1.3.",
+      "apa_en": "Rostovskaya, T. K., Vasileva, E. N., & Sitkovskii, A. M. (2026). Forming technological solutions of housing family problems in the from demographic policy: problems and perspectives. Woman in russian society, (1), 32–48. https://doi.org/10.21064/winrs.2026.1.3"
+    },
+    {
+      "title": "Демографическое развитие России: становление и эволюция научной школы Л. Л. Рыбаковского",
+      "changes": [
+        {
+          "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "venue_ru",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "volume",
+          "old": "К",
+          "reason": "invalid_volume"
+        },
+        {
+          "field": "gost_ru",
+          "old": "Ростовская Т.К., Рязанцев С.В., Архангельский В.Н., Воробьева О.Д., Гришанова А.Г., Безруков И.С., Иванова А.Е., Сигарева Е.П., Топилин А.В., Чернышев К.А., Фадеева Т.А., Рыбальченко С.И., Ситковский А.М., Мотрич Е.Л., Фаузер В.В., Хасаев Г.Р., Азимов А.Д., Злотников А.Г., Тихонова Л.Е. Демографическое развитие России: становление и эволюция научной школы Л. Л. Рыбаковского. // Ы. — 2025. — Т. К. — URL: https://www.elibrary.ru/item.asp?id=80640587.",
+          "reason": "bad_reference_text"
+        },
+        {
+          "field": "apa_en",
+          "old": "Rostovskaya, T. K., Ryazantsev, S. V., Arkhangelskii, V. N., Vorobeva, O. D., Grishanova, A. G., Bezrukov, I. S., Ivanova, A. E., Sigareva, E. P., Topilin, A. V., Chernyshev, K. A., Fadeeva, T. A., Rybalchenko, S. I., Sitkovskii, A. M., Motrich, E. L., Fauzer, V. V., Khasaev, G. R., Azimov, A. D., Zlotnikov, A. G., & Tikhonova, L. E. (2025). Demographic development of Russia: the formation and evolution of the scientific school of L. L. Rybakov. Y, К. https://www.elibrary.ru/item.asp?id=80640587",
+          "reason": "bad_reference_text"
+        }
+      ],
+      "gost_ru": "Ростовская Т.К., Рязанцев С.В., Архангельский В.Н., Воробьева О.Д., Гришанова А.Г., Безруков И.С., Иванова А.Е., Сигарева Е.П., Топилин А.В., Чернышев К.А., Фадеева Т.А., Рыбальченко С.И., Ситковский А.М., Мотрич Е.Л., Фаузер В.В., Хасаев Г.Р., Азимов А.Д., Злотников А.Г., Тихонова Л.Е. Демографическое развитие России: становление и эволюция научной школы Л. Л. Рыбаковского. // издана при поддержке АНО «Институт научно-общественной экспертизы». — 2025. — URL: https://www.elibrary.ru/item.asp?id=80640587.",
+      "apa_en": "Rostovskaya, T. K., Ryazantsev, S. V., Arkhangelskii, V. N., Vorobeva, O. D., Grishanova, A. G., Bezrukov, I. S., Ivanova, A. E., Sigareva, E. P., Topilin, A. V., Chernyshev, K. A., Fadeeva, T. A., Rybalchenko, S. I., Sitkovskii, A. M., Motrich, E. L., Fauzer, V. V., Khasaev, G. R., Azimov, A. D., Zlotnikov, A. G., & Tikhonova, L. E. (2025). Demographic development of Russia: the formation and evolution of the scientific school of L. L. Rybakov. Filigran. https://www.elibrary.ru/item.asp?id=80640587"
+    },
+    {
+      "title": "Демографическое самочувствие регионов России. национальный демографический доклад — 2024",
+      "changes": [
+        {
+          "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "venue_ru",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "volume",
+          "old": "К",
+          "reason": "invalid_volume"
+        },
+        {
+          "field": "gost_ru",
+          "old": "Ростовская Т.К., Шабунова А.А., Архангельский В.Н., Ахметова Г.Ф., Багирова А.П., Белозеров В.С., Валиахметов Р.М., Васильева Е.Н., Васильев Е.С., Григоричев К.В., Грицких Н.В., Егорова Н.Ю., Емельянова Н.В., Ершова Г.Н., Зимовина Е.П., Ильдарханова Ч.И., Калачикова О.Н., Колесов А.А., Комарова Т.М., Комлева Р.Н. и др. Демографическое самочувствие регионов России. национальный демографический доклад — 2024. // Ы. — 2025. — Т. К. — С. 8. — URL: https://www.elibrary.ru/item.asp?id=82280485.",
+          "reason": "bad_reference_text"
+        },
+        {
+          "field": "apa_en",
+          "old": "Rostovskaya, T. K. et al. (2025). Demographic self-feeling of regions of Russia. National Demographic Report - 2024. Y, К, 8. https://www.elibrary.ru/item.asp?id=82280485",
+          "reason": "bad_reference_text"
+        }
+      ],
+      "gost_ru": "Ростовская Т.К., Шабунова А.А., Архангельский В.Н., Ахметова Г.Ф., Багирова А.П., Белозеров В.С., Валиахметов Р.М., Васильева Е.Н., Васильев Е.С., Григоричев К.В., Грицких Н.В., Егорова Н.Ю., Емельянова Н.В., Ершова Г.Н., Зимовина Е.П., Ильдарханова Ч.И., Калачикова О.Н., Колесов А.А., Комарова Т.М., Комлева Р.Н. и др. Демографическое самочувствие регионов России. национальный демографический доклад — 2024. — Вологодский научный центр Российской академии наук. — 2025. — С. 8. — URL: https://www.elibrary.ru/item.asp?id=82280485.",
+      "apa_en": "Rostovskaya, T. K. et al. (2025). Demographic self-feeling of regions of Russia. National Demographic Report - 2024. Vologodskii nauchnyi tsentr Rossiiskoi akademii nauk, 8. https://www.elibrary.ru/item.asp?id=82280485"
+    },
+    {
+      "title": "Устойчивость российского государства и общества в условиях укрепления традиционных ценностей и становления многополярного мира. социальная и социально — политическая ситуация",
+      "changes": [
+        {
+          "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "venue_ru",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "volume",
+          "old": "сложившейся социокультурной и демографической реальности. Монография адресована исследователям, аналитикам, преподавателям, аспирантам, студентам, специализирующимся на изучении социально-политических и социокультурных процессов, политикам и управленцам, организаторам избирательных кампаний.",
+          "reason": "invalid_volume"
+        },
+        {
+          "field": "gost_ru",
+          "old": "Барановская Т.В., Безвербный В.А., Березина Н.В., Великая Н.М., Голосеева А.А., Гребняк О.В., Гуселетов Б.П., Дибирова А.П., Дождиков А.В., Ильичева Л.Е., Ильичева М.В., Ирсетская Е.А., Карепова С.Г., Левашов В.К., Лиханова Т.Ю., Мерзликин Н.В., Мчедлова Е.М., Назаров М.М., Накисбаев Д.В., Насриддинов Т.Г. и др. Устойчивость российского государства и общества в условиях укрепления традиционных ценностей и становления многополярного мира. социальная и социально — политическая ситуация. // Ы. — 2025. — Т. сложившейся социокультурной и демографической реальности. Монография адресована исследователям, аналитикам, преподавателям, аспирантам, студентам, специализирующимся на изучении социально-политических и социокультурных процессов, политикам и управленцам, организаторам избирательных кампаний. — DOI: 10.19181/monogr.978-5-89697-443-7.2025.",
+          "reason": "bad_reference_text"
+        }
+      ],
+      "gost_ru": "Барановская Т.В., Безвербный В.А., Березина Н.В., Великая Н.М., Голосеева А.А., Гребняк О.В., Гуселетов Б.П., Дибирова А.П., Дождиков А.В., Ильичева Л.Е., Ильичева М.В., Ирсетская Е.А., Карепова С.Г., Левашов В.К., Лиханова Т.Ю., Мерзликин Н.В., Мчедлова Е.М., Назаров М.М., Накисбаев Д.В., Насриддинов Т.Г. и др. Устойчивость российского государства и общества в условиях укрепления традиционных ценностей и становления многополярного мира. социальная и социально — политическая ситуация. — Федеральный научно-исследовательский социологический центр Российской академии наук. — 2025. — DOI: 10.19181/monogr.978-5-89697-443-7.2025.",
+      "apa_en": "Baranovskaya, T. V. et al. (2025). The stability of the Russian state and society under the conditions of consolidation of traditional values and the formation of a multipolar world. Social and Social Political Situation. Federalnyi nauchno-issledovatelskii sotsiologicheskii tsentr Rossiiskoi akademii nauk. https://doi.org/10.19181/monogr.978-5-89697-443-7.2025"
+    },
+    {
+      "title": "Репродуктивные установки населения г. Севастополя и условия, влияющие на рождаемость",
+      "changes": [
+        {
+          "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "venue_ru",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "volume",
+          "old": "К",
+          "reason": "invalid_volume"
+        },
+        {
+          "field": "gost_ru",
+          "old": "Ростовская Т.К., Васильева Е.Н., Кучмаева О.В., Ситковский А.М. Репродуктивные установки населения г. Севастополя и условия, влияющие на рождаемость. // Ы. — 2025. — Т. К. — № 2025623271. — URL: https://www.elibrary.ru/item.asp?id=83120230.",
+          "reason": "bad_reference_text"
+        },
+        {
+          "field": "apa_en",
+          "old": "Rostovskaya, T. K., Vasileva, E. N., Kuchmaeva, O. V., & Sitkovskii, A. M. (2025). Reproductive regulations of the population of Sevastopol and conditions affecting birth. Y, К(2025623271). https://www.elibrary.ru/item.asp?id=83120230",
+          "reason": "bad_reference_text"
+        }
+      ],
+      "gost_ru": "Ростовская Т.К., Васильева Е.Н., Кучмаева О.В., Ситковский А.М. Репродуктивные установки населения г. Севастополя и условия, влияющие на рождаемость. — ств:. — 2025. — № 2025623271. — URL: https://www.elibrary.ru/item.asp?id=83120230.",
+      "apa_en": "Rostovskaya, T. K., Vasileva, E. N., Kuchmaeva, O. V., & Sitkovskii, A. M. (2025). Reproductive regulations of the population of Sevastopol and conditions affecting birth. stv:, (2025623271). https://www.elibrary.ru/item.asp?id=83120230"
+    },
+    {
+      "title": "Корреляционный анализ социальноэкономических факторов демографических изменений",
+      "changes": [
+        {
+          "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "venue_ru",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "volume",
+          "old": ".",
+          "reason": "invalid_volume"
+        },
+        {
+          "field": "gost_ru",
+          "old": "Ситковский А.М. Корреляционный анализ социальноэкономических факторов демографических изменений. // Ы. — 2025. — Т. . — С. 169–170. — URL: https://www.elibrary.ru/item.asp?id=89267026.",
+          "reason": "bad_reference_text"
+        }
+      ],
+      "gost_ru": "Ситковский А.М. Корреляционный анализ социальноэкономических факторов демографических изменений. — Вологодский научный центр РАН. — 2025. — С. 169–170. — URL: https://www.elibrary.ru/item.asp?id=89267026.",
+      "apa_en": "Sitkovskii, A. M. (2025). Correlational Analysis of Social and Economic Factors of Demographic Change. Vologodskii nauchnyi tsentr RAN, 169–170. https://www.elibrary.ru/item.asp?id=89267026"
+    },
+    {
+      "title": "Цифровые технологии в профессиональной деятельности демографа",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "К",
+          "reason": "invalid_volume"
+        },
+        {
+          "field": "gost_ru",
+          "old": "Ростовская Т.К., Ситковский А.М. Цифровые технологии в профессиональной деятельности демографа. // Информационное общество. — 2025. — Т. К. — № 5. — С. 116–123. — DOI: 10.52605/16059921_2025_05_116.",
+          "reason": "bad_reference_text"
+        },
+        {
+          "field": "apa_en",
+          "old": "Rostovskaya, T. K. & Sitkovskii, A. M. (2025). Digital Technologies in the Professional Activity of the Demograph. Informatsionnoe obshchestvo, К(5), 116–123. https://doi.org/10.52605/16059921_2025_05_116",
+          "reason": "bad_reference_text"
+        }
+      ],
+      "gost_ru": "Ростовская Т.К., Ситковский А.М. Цифровые технологии в профессиональной деятельности демографа. // Информационное общество. — 2025. — № 5. — С. 116–123. — DOI: 10.52605/16059921_2025_05_116.",
+      "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2025). Digital Technologies in the Professional Activity of the Demograph. Informatsionnoe obshchestvo, (5), 116–123. https://doi.org/10.52605/16059921_2025_05_116"
+    },
+    {
+      "title": "Цифровая демография: современные методы исследования демографических процессов",
+      "changes": [
+        {
+          "field": "volume",
+          "old": ".",
+          "reason": "invalid_volume"
+        }
+      ],
+      "gost_ru": "Безвербный В.А., Погребняк Е.В., Шевчуков С.П., Ситковский А.М. Цифровая демография: современные методы исследования демографических процессов. // Информационное общество. — 2025. — № 6. — С. 121–128. — DOI: 10.52605/16059921_2025_06_121.",
+      "apa_en": "Bezverbnyi, V. A., Pogrebnyak, E. V., Shevchukov, S. P., & Sitkovskii, A. M. (2025). Digital Demographics: Modern Methods of Studying Demographic Processes. Informatsionnoe obshchestvo, (6), 121–128. https://doi.org/10.52605/16059921_2025_06_121"
+    },
+    {
+      "title": "Многодетная многопоколенная семья как ключевой ресурс новой долгосрочной стратегии демографического развития России",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "на роль семьи и рождаемости как ключевых ресурсов движения населения и достижения демографической стабильности. Проведён анализ новейших нормативных правовых актов, включая Указы Президента РФ, нацпроект “Семья” и “Стратегию действий по реализации семейной и демографической политики, поддержке многодетности в Российской Федерации до 2036 года”, рассмотрены основные направления поддержки семьи, стимулирования рождаемости и укрепления многопоколенных семей. Проанализированы численность и состав многодетных семей по итогам переписей населения 1970, 1979, 1989, 2002, 2010 и 2020 гг. Рассмотрены институциональные механизмы поддержки многодетных семей, включая финансовые и инфраструктурные меры, а также барьеры и вызовы, препятствующие распространению многодетности. Авторы анализируют роль стратегических документов применительно к демографическому развитию, формированию благоприятной среды для многодетных семей, отмечая их значимость в преодолении демографического кризиса.",
+          "reason": "invalid_volume"
+        }
+      ],
+      "gost_ru": "Ростовская Т.К., Ситковский А.М. Многодетная многопоколенная семья как ключевой ресурс новой долгосрочной стратегии демографического развития России. // Вестник Российской академии наук. — 2025. — № 4. — С. 63–74. — DOI: 10.7868/s3034520025040127.",
+      "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2025). Multi-generational family as a key resource for a new long-term strategy for Russia’s demographic development. Vestnik Rossiiskoi akademii nauk, (4), 63–74. https://doi.org/10.7868/s3034520025040127"
+    },
+    {
+      "title": "Репродуктивистика в трудах уральских демографов",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "К",
+          "reason": "invalid_volume"
+        },
+        {
+          "field": "gost_ru",
+          "old": "Ростовская Т.К., Бедрина Е.Б., Ситковский А.М. Репродуктивистика в трудах уральских демографов. // Женщина в российском обществе. — 2025. — Т. К. — № 3. — С. 68–80. — DOI: 10.21064/winrs.2025.3.5.",
+          "reason": "bad_reference_text"
+        },
+        {
+          "field": "apa_en",
+          "old": "Rostovskaya, T. K., Bedrina, E. B., & Sitkovskii, A. M. (2025). Reproductive Studies in the Works of Ural Demographers. Woman in russian society, К(3), 68–80. https://doi.org/10.21064/winrs.2025.3.5",
+          "reason": "bad_reference_text"
+        }
+      ],
+      "gost_ru": "Ростовская Т.К., Бедрина Е.Б., Ситковский А.М. Репродуктивистика в трудах уральских демографов. // Женщина в российском обществе. — 2025. — № 3. — С. 68–80. — DOI: 10.21064/winrs.2025.3.5.",
+      "apa_en": "Rostovskaya, T. K., Bedrina, E. B., & Sitkovskii, A. M. (2025). Reproductive Studies in the Works of Ural Demographers. Woman in russian society, (3), 68–80. https://doi.org/10.21064/winrs.2025.3.5"
+    },
+    {
+      "title": "Цифровая демографическая обсерватория: новые подходы к мониторингу миграционных потоков",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "на восточные регионы. Выявлены устойчивые диспропорции миграционных потоков: центростремительная миграция приводит к оттоку населения из Сибири и Дальнего Востока и усилению концентрации в центральной и южной частях страны. Использование ГИС-технологий, цифровых следов и методов обработки больших данных позволяет существенно повысить пространственную детализацию и оперативность мониторинга. Сделан вывод о целесообразности внедрения цифровых демографических платформ для регулярного анализа миграционной динамики и поддержки стратегического планирования регионального развития.",
+          "reason": "invalid_volume"
+        }
+      ],
+      "gost_ru": "Безвербный В.А., Ситковский А.М., Ростовская Т.К., Чернышев К.А., Мирязов Т.Р. Цифровая демографическая обсерватория: новые подходы к мониторингу миграционных потоков. // Женщина в российском обществе. — 2025. — № 4. — С. 102–114. — DOI: 10.21064/winrs.2025.4.7.",
+      "apa_en": "Bezverbnyi, V. A., Sitkovskii, A. M., Rostovskaya, T. K., Chernyshev, K. A., & Miryazov, T. R. (2025). Digital Demographic Observatory: New Approaches to Monitoring Migration Flows. Woman in russian society, (4), 102–114. https://doi.org/10.21064/winrs.2025.4.7"
+    },
+    {
+      "title": "Система расселения Республики Тыва: опорные населённые пункты",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "для принятия обоснованных управленческих решений по формированию приоритетов в финансировании и модернизации узловых центров.",
+          "reason": "invalid_volume"
+        }
+      ],
+      "gost_ru": "Ситковский А.М., Деловарова Л.Ф. Система расселения Республики Тыва: опорные населённые пункты. // Новые исследования Тувы. — 2025. — № 2. — С. 70–91. — DOI: 10.25178/nit.2025.2.4.",
+      "apa_en": "Sitkovskii, A. M. & Delovarova, L. F. (2025). The settlement system of the Republic of Tuva: central places. New Research of Tuva, (2), 70–91. https://doi.org/10.25178/nit.2025.2.4"
+    },
+    {
+      "title": "Методология и практика проведения демографической экспертизы на примере региональной программы \"повышение рождаемости в Республике Тыва на период 2023 — 2025 годов\"",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "реализации программы). В результате показано, что меры программы в Туве способны повысить рождаемость примерно на 8-10% по сравнению с базовым трендом, а численность населения к 2045 году может увеличиться на 20 тыс. чел. по сравнению с вариантом без реализации программы. Также выявлены успешные практики и проблемные аспекты программы, даны экспертные рекомендации по её совершенствованию. Результаты исследования демонстрируют значительный потенциал предложенной методики как эффективного инструмента анализа и повышения качества региональных программ демографического развития, позволяющего минимизировать риски принятия недостаточно обоснованных управленческих решений.",
+          "reason": "invalid_volume"
+        }
+      ],
+      "gost_ru": "Ростовская Т.К., Ситковский А.М., Гишкаева Л.Н. Методология и практика проведения демографической экспертизы на примере региональной программы \"повышение рождаемости в Республике Тыва на период 2023 — 2025 годов\". // Новые исследования Тувы. — 2025. — № 4. — С. 233–253. — DOI: 10.25178/nit.2025.4.13.",
+      "apa_en": "Rostovskaya, T. K., Sitkovskii, A. M., & Gishkaeva, L. N. (2025). Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”. New Research of Tuva, (4), 233–253. https://doi.org/10.25178/nit.2025.4.13"
+    },
+    {
+      "title": "Половозрастная пирамида миграционного сальдо как инструмент углубленного анализа миграционныхпроцессов",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "К",
+          "reason": "invalid_volume"
+        },
+        {
+          "field": "gost_ru",
+          "old": "Ситковский А.М. Половозрастная пирамида миграционного сальдо как инструмент углубленного анализа миграционныхпроцессов. — 2022. — Т. К. — С. 91–92. — URL: https://www.elibrary.ru/item.asp?id=49832359.",
+          "reason": "bad_reference_text"
+        }
+      ],
+      "gost_ru": "Ситковский А.М. Половозрастная пирамида миграционного сальдо как инструмент углубленного анализа миграционныхпроцессов. — 2022. — С. 91–92. — URL: https://www.elibrary.ru/item.asp?id=49832359.",
+      "apa_en": "Sitkovskii, A. M. (2022). The Sexual Age Pyramid of Migration Soldo as an Instrument of In-depth Analysis of Migration Processes. https://www.elibrary.ru/item.asp?id=49832359"
+    },
+    {
+      "title": "Пространственное сжатие территорий Российской Федерации: понятие, критерии, система показателей",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "В",
+          "reason": "invalid_volume"
+        }
+      ],
+      "gost_ru": "Маркварт Э., Безвербный В.А., Ситковский А.М. Пространственное сжатие территорий Российской Федерации: понятие, критерии, система показателей. — 2021. — С. 63–93. — URL: https://www.elibrary.ru/item.asp?id=48271056.",
+      "apa_en": "Markvart E., Bezverbnyi, V. A., & Sitkovskii, A. M. (2021). Spatial compression of the territories of the Russian Federation: concept, criteria, system of indicators. https://www.elibrary.ru/item.asp?id=48271056"
+    },
+    {
+      "title": "Основа здоровья человека — репродуктивное здоровье",
+      "changes": [
+        {
+          "field": "pages",
+          "old": "без номера",
+          "reason": "invalid_pages"
+        }
+      ],
+      "gost_ru": "Ситковский А.М. Основа здоровья человека — репродуктивное здоровье. // Семья и демографические исследования. — 2017. — № 8. — URL: https://www.elibrary.ru/item.asp?id=30111055.",
+      "apa_en": "Sitkovskii, A. M. (2017). The basis of human health – reproductive health. Semya i demograficheskie issledovaniya, (8). https://www.elibrary.ru/item.asp?id=30111055"
+    }
+  ]
+}

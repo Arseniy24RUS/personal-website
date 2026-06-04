@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T18:45:46+00:00",
+  "generated_at": "2026-06-04T20:10:37+00:00",
   "records_seen": 58,
   "candidates": 58,
   "fetched": 12,
@@ -16,34 +16,16 @@
       "item_id": "89181881",
       "url": "https://www.elibrary.ru/item.asp?id=89181881",
       "title": "ФОРМИРОВАНИЕ ТЕХНОЛОГИЙ РЕШЕНИЯ ЖИЛИЩНЫХ ПРОБЛЕМ СЕМЬИ В РАМКАХ ДЕМОГРАФИЧЕСКОЙ ПОЛИТИКИ: ПРОБЛЕМЫ И ПЕРСПЕКТИВЫ",
-      "status_code": 200,
-      "bytes": 73960,
-      "parsed_keys": [
-        "doi",
-        "issn",
-        "issue",
-        "pages",
-        "publisher",
-        "venue",
-        "volume",
-        "year"
-      ]
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
     },
     {
       "item_id": "90401152",
       "url": "https://www.elibrary.ru/item.asp?id=90401152",
       "title": "ДЕМОГРАФИЧЕСКАЯ ТИПОЛОГИЯ КОРЕННЫХ МАЛОЧИСЛЕННЫХ НАРОДОВ РОССИИ: КЛАСТЕРНЫЙ АНАЛИЗ ВОЗРАСТНОЙ СТРУКТУРЫ",
       "status_code": 200,
-      "bytes": 76798,
+      "bytes": 1161,
       "parsed_keys": [
-        "doi",
-        "issn",
-        "issue",
-        "pages",
-        "publisher",
-        "venue",
-        "volume",
-        "year"
+        "volume"
       ]
     },
     {
@@ -56,22 +38,17 @@
       "item_id": "82280485",
       "url": "https://www.elibrary.ru/item.asp?id=82280485",
       "title": "ДЕМОГРАФИЧЕСКОЕ САМОЧУВСТВИЕ РЕГИОНОВ РОССИИ. НАЦИОНАЛЬНЫЙ ДЕМОГРАФИЧЕСКИЙ ДОКЛАД - 2024",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+      "status_code": 200,
+      "bytes": 1161,
+      "parsed_keys": [
+        "volume"
+      ]
     },
     {
       "item_id": "82935261",
       "url": "https://www.elibrary.ru/item.asp?id=82935261",
       "title": "УСТОЙЧИВОСТЬ РОССИЙСКОГО ГОСУДАРСТВА И ОБЩЕСТВА В УСЛОВИЯХ УКРЕПЛЕНИЯ ТРАДИЦИОННЫХ ЦЕННОСТЕЙ И СТАНОВЛЕНИЯ МНОГОПОЛЯРНОГО МИРА. СОЦИАЛЬНАЯ И СОЦИАЛЬНО-ПОЛИТИЧЕСКАЯ СИТУАЦИЯ",
-      "status_code": 200,
-      "bytes": 104037,
-      "parsed_keys": [
-        "doi",
-        "isbn",
-        "publisher",
-        "venue",
-        "volume",
-        "year"
-      ]
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
     },
     {
       "item_id": "83120230",
@@ -109,21 +86,13 @@
       "item_id": "82376416",
       "url": "https://www.elibrary.ru/item.asp?id=82376416",
       "title": "МНОГОДЕТНАЯ МНОГОПОКОЛЕННАЯ СЕМЬЯ КАК КЛЮЧЕВОЙ РЕСУРС НОВОЙ ДОЛГОСРОЧНОЙ СТРАТЕГИИ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ РОССИИ",
-      "status_code": 200,
-      "bytes": 1161,
-      "parsed_keys": [
-        "volume"
-      ]
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
     },
     {
       "item_id": "83174967",
       "url": "https://www.elibrary.ru/item.asp?id=83174967",
       "title": "THE ATTITUDES OF FOREIGN STUDENTS TO THEIR FURTHER LIFE AND CAREER IN RUSSIA",
-      "status_code": 200,
-      "bytes": 1161,
-      "parsed_keys": [
-        "volume"
-      ]
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
     },
     {
       "item_id": "83896667",
@@ -149,11 +118,7 @@
       "item_id": "88812395",
       "url": "https://www.elibrary.ru/item.asp?id=88812395",
       "title": "МОЛОДЁЖЬ КАК РЕСУРС РАЗВИТИЯ РОССИЙСКИХ РЕГИОНОВ: ГОСУДАРСТВЕННЫЕ И КОРПОРАТИВНЫЕ СТРАТЕГИИ",
-      "status_code": 200,
-      "bytes": 1161,
-      "parsed_keys": [
-        "volume"
-      ]
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
     },
     {
       "item_id": "82921380",
@@ -171,12 +136,6 @@
       "item_id": "82579805",
       "url": "https://www.elibrary.ru/item.asp?id=82579805",
       "title": "ДЕМОГРАФИЧЕСКИЕ РЕСУРСЫ РОССИИ: ВАРИАТИВНОСТЬ ПОДХОДОВ И ОЦЕНОК",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
-    },
-    {
-      "item_id": "88778278",
-      "url": "https://www.elibrary.ru/item.asp?id=88778278",
-      "title": "ВЛИЯНИЕ АГЛОМЕРАЦИОННОГО ЭФФЕКТА НА ДЕМОГРАФИЧЕСКУЮ ПОЛИТИКУ ТЕРРИТОРИЙ",
       "status_code": 200,
       "bytes": 1161,
       "parsed_keys": [
@@ -184,10 +143,20 @@
       ]
     },
     {
+      "item_id": "88778278",
+      "url": "https://www.elibrary.ru/item.asp?id=88778278",
+      "title": "ВЛИЯНИЕ АГЛОМЕРАЦИОННОГО ЭФФЕКТА НА ДЕМОГРАФИЧЕСКУЮ ПОЛИТИКУ ТЕРРИТОРИЙ",
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+    },
+    {
       "item_id": "82491287",
       "url": "https://www.elibrary.ru/item.asp?id=82491287",
       "title": "СИСТЕМА РАССЕЛЕНИЯ РЕСПУБЛИКИ ТЫВА: ОПОРНЫЕ НАСЕЛЁННЫЕ ПУНКТЫ",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+      "status_code": 200,
+      "bytes": 1161,
+      "parsed_keys": [
+        "volume"
+      ]
     },
     {
       "item_id": "85423263",
@@ -203,19 +172,31 @@
       "item_id": "83217146",
       "url": "https://www.elibrary.ru/item.asp?id=83217146",
       "title": "ГОСУДАРСТВЕННАЯ СЕМЕЙНО-ДЕМОГРАФИЧЕСКАЯ ПОЛИТИКА: ОБЗОР АКТУАЛЬНЫХ ИССЛЕДОВАНИЙ И ПРАКТИК",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+      "status_code": 200,
+      "bytes": 1161,
+      "parsed_keys": [
+        "volume"
+      ]
     },
     {
       "item_id": "83217152",
       "url": "https://www.elibrary.ru/item.asp?id=83217152",
       "title": "ВЛИЯНИЕ ГОСУДАРСТВЕННОЙ ПОЛИТИКИ АГЛОМЕРИРОВАНИЯ НА ДОЛГОСРОЧНЫЕ ТЕНДЕНЦИИ ИЗМЕНЕНИЯ ЧИСЛЕННОСТИ НАСЕЛЕНИЯ РОССИИ",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+      "status_code": 200,
+      "bytes": 1161,
+      "parsed_keys": [
+        "volume"
+      ]
     },
     {
       "item_id": "88751490",
       "url": "https://www.elibrary.ru/item.asp?id=88751490",
       "title": "СОЦИОЛОГИЧЕСКАЯ ДИАГНОСТИКА НЕУДОВЛЕТВОРЁННОСТИ НАСЕЛЕНИЯ КАК ИНСТРУМЕНТ УПРАВЛЕНИЯ РАЗВИТИЕМ ТЕРРИТОРИЙ",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+      "status_code": 200,
+      "bytes": 1161,
+      "parsed_keys": [
+        "volume"
+      ]
     },
     {
       "item_id": "88766941",

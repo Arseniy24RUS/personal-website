@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-04T18:43:42+00:00",
+  "generated_at": "2026-06-04T20:08:56+00:00",
   "published": 9,
-  "rejected_or_low_confidence": 16,
+  "rejected_or_low_confidence": 17,
   "providers": [
     {
       "status": "ok",
@@ -13,13 +13,13 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27280",
-      "bytes": 47153
+      "bytes": 47154
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27274",
-      "bytes": 42606
+      "bytes": 42607
     },
     {
       "status": "ok",
@@ -37,31 +37,31 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii",
-      "bytes": 137361
+      "bytes": 137368
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda",
-      "bytes": 111859
+      "bytes": 111866
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi",
-      "bytes": 141564
+      "bytes": 141571
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit",
-      "bytes": 127593
+      "bytes": 127600
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/",
-      "bytes": 59991
+      "bytes": 60325
     },
     {
       "status": "ok",
@@ -611,7 +611,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://chel.ranepa.ru/novosti/",
-      "bytes": 158764
+      "bytes": 158768
     }
   ]
 }
