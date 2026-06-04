@@ -276,6 +276,15 @@ jobs:
           else
             echo "Publication metadata enricher is missing; skipping GOST/APA reference enrichment."
           fi
+      - name: Sanitize generated publication references
+        run: |
+          if [ -f scripts/sanitize_publication_references.py ]; then
+            python scripts/sanitize_publication_references.py || true
+          else
+            echo "Publication reference sanitizer is missing; skipping sanitizer."
+          fi
+          echo "Publication reference sanitizer report:"
+          cat data/audit/publication_reference_sanitizer_report.json || true
       - name: Audit refreshed data pipeline
         run: |
           if [ -f scripts/audit_refresh_pipeline.py ]; then
