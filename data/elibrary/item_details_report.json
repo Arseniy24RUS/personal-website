@@ -1,40 +1,23 @@
 {
-  "generated_at": "2026-06-04T01:42:12+00:00",
+  "generated_at": "2026-06-04T08:59:20+00:00",
   "records_seen": 58,
   "candidates": 58,
-  "fetched": 12,
-  "failed": 13,
+  "fetched": 13,
+  "failed": 12,
   "skipped_due_limit": 33,
   "items": [
     {
       "item_id": "88771337",
       "url": "https://www.elibrary.ru/item.asp?id=88771337",
       "title": "СРАВНИТЕЛЬНЫЙ КОНТЕНТ-АНАЛИЗ МАГИСТЕРСКИХ И ДОКТОРСКИХ ПРОГРАММ В СФЕРЕ ДЕМОГРАФИИ УНИВЕРСИТЕТОВ МИРОВОГО УРОВНЯ",
-      "status_code": 200,
-      "bytes": 84239,
-      "parsed_keys": [
-        "doi",
-        "issn",
-        "issue",
-        "pages",
-        "publisher",
-        "venue",
-        "volume",
-        "year"
-      ]
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
     },
     {
       "item_id": "89181881",
       "url": "https://www.elibrary.ru/item.asp?id=89181881",
       "title": "ФОРМИРОВАНИЕ ТЕХНОЛОГИЙ РЕШЕНИЯ ЖИЛИЩНЫХ ПРОБЛЕМ СЕМЬИ В РАМКАХ ДЕМОГРАФИЧЕСКОЙ ПОЛИТИКИ: ПРОБЛЕМЫ И ПЕРСПЕКТИВЫ",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
-    },
-    {
-      "item_id": "90401152",
-      "url": "https://www.elibrary.ru/item.asp?id=90401152",
-      "title": "ДЕМОГРАФИЧЕСКАЯ ТИПОЛОГИЯ КОРЕННЫХ МАЛОЧИСЛЕННЫХ НАРОДОВ РОССИИ: КЛАСТЕРНЫЙ АНАЛИЗ ВОЗРАСТНОЙ СТРУКТУРЫ",
       "status_code": 200,
-      "bytes": 76621,
+      "bytes": 74019,
       "parsed_keys": [
         "doi",
         "issn",
@@ -45,6 +28,12 @@
         "volume",
         "year"
       ]
+    },
+    {
+      "item_id": "90401152",
+      "url": "https://www.elibrary.ru/item.asp?id=90401152",
+      "title": "ДЕМОГРАФИЧЕСКАЯ ТИПОЛОГИЯ КОРЕННЫХ МАЛОЧИСЛЕННЫХ НАРОДОВ РОССИИ: КЛАСТЕРНЫЙ АНАЛИЗ ВОЗРАСТНОЙ СТРУКТУРЫ",
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
     },
     {
       "item_id": "80640587",
@@ -62,70 +51,34 @@
       "item_id": "82935261",
       "url": "https://www.elibrary.ru/item.asp?id=82935261",
       "title": "УСТОЙЧИВОСТЬ РОССИЙСКОГО ГОСУДАРСТВА И ОБЩЕСТВА В УСЛОВИЯХ УКРЕПЛЕНИЯ ТРАДИЦИОННЫХ ЦЕННОСТЕЙ И СТАНОВЛЕНИЯ МНОГОПОЛЯРНОГО МИРА. СОЦИАЛЬНАЯ И СОЦИАЛЬНО-ПОЛИТИЧЕСКАЯ СИТУАЦИЯ",
-      "status_code": 200,
-      "bytes": 104037,
-      "parsed_keys": [
-        "doi",
-        "isbn",
-        "publisher",
-        "venue",
-        "volume",
-        "year"
-      ]
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
     },
     {
       "item_id": "83120230",
       "url": "https://www.elibrary.ru/item.asp?id=83120230",
       "title": "РЕПРОДУКТИВНЫЕ УСТАНОВКИ НАСЕЛЕНИЯ Г. СЕВАСТОПОЛЯ И УСЛОВИЯ, ВЛИЯЮЩИЕ НА РОЖДАЕМОСТЬ",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+      "status_code": 200,
+      "bytes": 65506,
+      "parsed_keys": [
+        "issue",
+        "publisher",
+        "venue",
+        "volume",
+        "year"
+      ]
     },
     {
       "item_id": "89267026",
       "url": "https://www.elibrary.ru/item.asp?id=89267026",
       "title": "КОРРЕЛЯЦИОННЫЙ АНАЛИЗ СОЦИАЛЬНОЭКОНОМИЧЕСКИХ ФАКТОРОВ ДЕМОГРАФИЧЕСКИХ ИЗМЕНЕНИЙ",
-      "status_code": 200,
-      "bytes": 63136,
-      "parsed_keys": [
-        "pages",
-        "publisher",
-        "venue",
-        "year"
-      ]
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
     },
     {
       "item_id": "83193628",
       "url": "https://www.elibrary.ru/item.asp?id=83193628",
       "title": "ЦИФРОВЫЕ ТЕХНОЛОГИИ В ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ ДЕМОГРАФА",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
-    },
-    {
-      "item_id": "88811236",
-      "url": "https://www.elibrary.ru/item.asp?id=88811236",
-      "title": "ЦИФРОВАЯ ДЕМОГРАФИЯ: СОВРЕМЕННЫЕ МЕТОДЫ ИССЛЕДОВАНИЯ ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ",
       "status_code": 200,
-      "bytes": 77935,
-      "parsed_keys": [
-        "doi",
-        "issn",
-        "issue",
-        "pages",
-        "publisher",
-        "venue",
-        "year"
-      ]
-    },
-    {
-      "item_id": "82376416",
-      "url": "https://www.elibrary.ru/item.asp?id=82376416",
-      "title": "МНОГОДЕТНАЯ МНОГОПОКОЛЕННАЯ СЕМЬЯ КАК КЛЮЧЕВОЙ РЕСУРС НОВОЙ ДОЛГОСРОЧНОЙ СТРАТЕГИИ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ РОССИИ",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
-    },
-    {
-      "item_id": "83174967",
-      "url": "https://www.elibrary.ru/item.asp?id=83174967",
-      "title": "THE ATTITUDES OF FOREIGN STUDENTS TO THEIR FURTHER LIFE AND CAREER IN RUSSIA",
-      "status_code": 200,
-      "bytes": 79878,
+      "bytes": 72470,
       "parsed_keys": [
         "doi",
         "issn",
@@ -138,10 +91,50 @@
       ]
     },
     {
+      "item_id": "88811236",
+      "url": "https://www.elibrary.ru/item.asp?id=88811236",
+      "title": "ЦИФРОВАЯ ДЕМОГРАФИЯ: СОВРЕМЕННЫЕ МЕТОДЫ ИССЛЕДОВАНИЯ ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ",
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+    },
+    {
+      "item_id": "82376416",
+      "url": "https://www.elibrary.ru/item.asp?id=82376416",
+      "title": "МНОГОДЕТНАЯ МНОГОПОКОЛЕННАЯ СЕМЬЯ КАК КЛЮЧЕВОЙ РЕСУРС НОВОЙ ДОЛГОСРОЧНОЙ СТРАТЕГИИ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ РОССИИ",
+      "status_code": 200,
+      "bytes": 73566,
+      "parsed_keys": [
+        "doi",
+        "issn",
+        "issue",
+        "pages",
+        "publisher",
+        "venue",
+        "volume",
+        "year"
+      ]
+    },
+    {
+      "item_id": "83174967",
+      "url": "https://www.elibrary.ru/item.asp?id=83174967",
+      "title": "THE ATTITUDES OF FOREIGN STUDENTS TO THEIR FURTHER LIFE AND CAREER IN RUSSIA",
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+    },
+    {
       "item_id": "83896667",
       "url": "https://www.elibrary.ru/item.asp?id=83896667",
       "title": "ВЗАИМОСВЯЗИ ДЕМОГРАФИЧЕСКИХ И СОЦИАЛЬНО-ЭКОНОМИЧЕСКИХ ПОКАЗАТЕЛЕЙ РАЗВИТИЯ РЕГИОНОВ РОССИИ",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+      "status_code": 200,
+      "bytes": 92057,
+      "parsed_keys": [
+        "doi",
+        "issn",
+        "issue",
+        "pages",
+        "publisher",
+        "venue",
+        "volume",
+        "year"
+      ]
     },
     {
       "item_id": "82678054",
@@ -180,7 +173,18 @@
       "item_id": "82921380",
       "url": "https://www.elibrary.ru/item.asp?id=82921380",
       "title": "РЕПРОДУКТИВИСТИКА В ТРУДАХ УРАЛЬСКИХ ДЕМОГРАФОВ",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+      "status_code": 200,
+      "bytes": 77401,
+      "parsed_keys": [
+        "doi",
+        "issn",
+        "issue",
+        "pages",
+        "publisher",
+        "venue",
+        "volume",
+        "year"
+      ]
     },
     {
       "item_id": "87233267",
@@ -192,25 +196,20 @@
       "item_id": "82579805",
       "url": "https://www.elibrary.ru/item.asp?id=82579805",
       "title": "ДЕМОГРАФИЧЕСКИЕ РЕСУРСЫ РОССИИ: ВАРИАТИВНОСТЬ ПОДХОДОВ И ОЦЕНОК",
-      "status_code": 200,
-      "bytes": 75958,
-      "parsed_keys": [
-        "doi",
-        "issn",
-        "issue",
-        "pages",
-        "publisher",
-        "venue",
-        "volume",
-        "year"
-      ]
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
     },
     {
       "item_id": "88778278",
       "url": "https://www.elibrary.ru/item.asp?id=88778278",
       "title": "ВЛИЯНИЕ АГЛОМЕРАЦИОННОГО ЭФФЕКТА НА ДЕМОГРАФИЧЕСКУЮ ПОЛИТИКУ ТЕРРИТОРИЙ",
+      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+    },
+    {
+      "item_id": "82491287",
+      "url": "https://www.elibrary.ru/item.asp?id=82491287",
+      "title": "СИСТЕМА РАССЕЛЕНИЯ РЕСПУБЛИКИ ТЫВА: ОПОРНЫЕ НАСЕЛЁННЫЕ ПУНКТЫ",
       "status_code": 200,
-      "bytes": 77870,
+      "bytes": 79308,
       "parsed_keys": [
         "doi",
         "issn",
@@ -223,23 +222,28 @@
       ]
     },
     {
-      "item_id": "82491287",
-      "url": "https://www.elibrary.ru/item.asp?id=82491287",
-      "title": "СИСТЕМА РАССЕЛЕНИЯ РЕСПУБЛИКИ ТЫВА: ОПОРНЫЕ НАСЕЛЁННЫЕ ПУНКТЫ",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
-    },
-    {
       "item_id": "85423263",
       "url": "https://www.elibrary.ru/item.asp?id=85423263",
       "title": "МЕТОДОЛОГИЯ И ПРАКТИКА ПРОВЕДЕНИЯ ДЕМОГРАФИЧЕСКОЙ ЭКСПЕРТИЗЫ НА ПРИМЕРЕ РЕГИОНАЛЬНОЙ ПРОГРАММЫ \"ПОВЫШЕНИЕ РОЖДАЕМОСТИ В РЕСПУБЛИКЕ ТЫВА НА ПЕРИОД 2023-2025 ГОДОВ\"",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+      "status_code": 200,
+      "bytes": 84129,
+      "parsed_keys": [
+        "doi",
+        "issn",
+        "issue",
+        "pages",
+        "publisher",
+        "venue",
+        "volume",
+        "year"
+      ]
     },
     {
       "item_id": "83217146",
       "url": "https://www.elibrary.ru/item.asp?id=83217146",
       "title": "ГОСУДАРСТВЕННАЯ СЕМЕЙНО-ДЕМОГРАФИЧЕСКАЯ ПОЛИТИКА: ОБЗОР АКТУАЛЬНЫХ ИССЛЕДОВАНИЙ И ПРАКТИК",
       "status_code": 200,
-      "bytes": 73749,
+      "bytes": 73926,
       "parsed_keys": [
         "doi",
         "issn",
@@ -278,7 +282,18 @@
       "item_id": "88766941",
       "url": "https://www.elibrary.ru/item.asp?id=88766941",
       "title": "МЕТОДОЛОГИЧЕСКИЕ АСПЕКТЫ ПРОВЕДЕНИЯ ДЕМОГРАФИЧЕСКОЙ ЭКСПЕРТИЗЫ ПРОЕКТОВ И РАБОТ",
-      "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer')))"
+      "status_code": 200,
+      "bytes": 83406,
+      "parsed_keys": [
+        "doi",
+        "issn",
+        "issue",
+        "pages",
+        "publisher",
+        "venue",
+        "volume",
+        "year"
+      ]
     }
   ]
 }

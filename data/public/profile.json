@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T01:47:29+00:00",
+  "generated_at": "2026-06-04T09:03:40+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
@@ -52,7 +52,7 @@
     "authorid": "1012909",
     "spin": "9559-1803",
     "author_name": "Ситковский Арсений Михайлович",
-    "snapshot_generated_at": "2026-06-04T01:42:10+00:00",
+    "snapshot_generated_at": "2026-06-04T08:59:18+00:00",
     "source_file_sha256": "b235d703822e184ced0e767c02c9de8659cb6c29f467fcdbe1b988dbedba2592",
     "elibrary_updated_at": "29.05.2026",
     "summary": {
@@ -377,15 +377,15 @@
     "source": "web_of_science_free_view_author_profile",
     "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
     "researcher_id": "AAG-1530-2021",
-    "generated_at": "2026-06-04T01:47:27+00:00",
-    "page_title": "Arseniy Sitkovskiy - Web of Science Researcher Profile",
+    "generated_at": "2026-06-04T09:03:38+00:00",
+    "page_title": "Web of Science",
     "summary": {
-      "publications": 10,
-      "citations": 7,
-      "h_index": 2,
-      "total_documents": 25,
-      "indexed_publications": 17,
-      "core_collection_publications": 10
+      "publications": null,
+      "citations": null,
+      "h_index": null,
+      "total_documents": null,
+      "indexed_publications": null,
+      "core_collection_publications": null
     },
     "summary_metrics": {
       "Total documents": {
@@ -482,7 +482,7 @@
   },
   "scopus_metrics": {
     "source": "scopus_api",
-    "generated_at": "2026-06-04T01:47:28+00:00",
+    "generated_at": "2026-06-04T09:03:40+00:00",
     "scopus_author_id": "57220956828",
     "author_profile_status": 401,
     "search_status": 200,
@@ -493,7 +493,7 @@
     "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available."
   },
   "scientometrics": {
-    "generated_at": "2026-06-04T01:47:29+00:00",
+    "generated_at": "2026-06-04T09:03:40+00:00",
     "columns": [
       "rinc",
       "scopus",
@@ -537,14 +537,14 @@
         "label_ru": "Web of Science",
         "label_en": "Web of Science",
         "source": "Web of Science Researcher Profile",
-        "publications": 10,
-        "citations": 7,
-        "h_index": 2
+        "publications": null,
+        "citations": null,
+        "h_index": null
       }
     }
   },
   "open_sources_report": {
-    "generated_at": "2026-06-04T01:36:14+00:00",
+    "generated_at": "2026-06-04T08:54:37+00:00",
     "providers": {
       "orcid": {
         "status": "ok",
@@ -581,7 +581,7 @@
   "wos_auto_added_publications_count": 0,
   "admin_queue_size": 0,
   "wos_public_merge_report": {
-    "generated_at": "2026-06-04T01:47:29+00:00",
+    "generated_at": "2026-06-04T09:03:40+00:00",
     "records_seen": 0,
     "enriched": 0,
     "added": 0,

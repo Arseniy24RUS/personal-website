@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T01:47:30+00:00",
+  "generated_at": "2026-06-04T09:03:41+00:00",
   "items": {
     "10.17853/1994-5639-2026-1-33-64": {
       "fetched_at": "2026-06-03T20:08:47+00:00",
@@ -462,6 +462,51 @@
         ],
         "isbn": null,
         "url": "https://doi.org/10.15838/esc.2025.6.102.4"
+      }
+    },
+    "10.7868/s3034520025040127": {
+      "fetched_at": "2026-06-04T09:03:40+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.7868/s3034520025040127",
+        "type": "journal-article",
+        "title": "LARGE MULTI-GENERATION FAMILY AS A KEY RESOURCE OF THE NEW LONG-TERM STRATEGY FOR DEMOGRAPHIC DEVELOPMENT OF RUSSIA",
+        "subtitle": null,
+        "container_title": "Вестник Российской академии наук / Herald of the Russian Academy of Sciences",
+        "publisher": "Akademizdatcenter Nauka",
+        "volume": null,
+        "issue": "4",
+        "page": "63",
+        "year": 2025,
+        "issn": [
+          "3034-5200"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.7868/s3034520025040127"
+      }
+    },
+    "10.21064/winrs.2025.3.5": {
+      "fetched_at": "2026-06-04T09:03:41+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.21064/winrs.2025.3.5",
+        "type": "journal-article",
+        "title": "Reproductivism in the works of Ural demographers",
+        "subtitle": null,
+        "container_title": "Woman in russian society",
+        "publisher": "Ivanovo State University",
+        "volume": null,
+        "issue": "3",
+        "page": "68–80",
+        "year": 2025,
+        "issn": [
+          "1992-2892",
+          "2500-221X"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.21064/winrs.2025.3.5"
       }
     }
   },

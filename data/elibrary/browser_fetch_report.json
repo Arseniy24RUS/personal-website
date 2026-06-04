@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T01:40:22+00:00",
+  "generated_at": "2026-06-04T08:59:03+00:00",
   "route": "authors_search_route",
   "min_records": 50,
   "pages": {
@@ -9,7 +9,7 @@
       "search_name": "Ситковский Арсений Михайлович",
       "status": "error",
       "error": "Error('Page.goto: net::ERR_TOO_MANY_REDIRECTS at https://www.elibrary.ru/authors.asp\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
-      "elapsed_sec": 93.955,
+      "elapsed_sec": 4.009,
       "fingerprint": {
         "content_length": 0,
         "has_suspicious_ip_text": false,
@@ -18,12 +18,12 @@
         "excerpt": ""
       },
       "debug": {
-        "html_path": "artifacts/elibrary_debug/20260604T014200Z_authors_search_error.html",
-        "screenshot_path": "artifacts/elibrary_debug/20260604T014200Z_authors_search_error.png"
+        "html_path": "artifacts/elibrary_debug/20260604T085909Z_authors_search_error.html",
+        "screenshot_path": "artifacts/elibrary_debug/20260604T085909Z_authors_search_error.png"
       },
       "debug_final": {
-        "html_path": "artifacts/elibrary_debug/20260604T014200Z_authors_route_items_not_ready.html",
-        "screenshot_path": "artifacts/elibrary_debug/20260604T014200Z_authors_route_items_not_ready.png"
+        "html_path": "artifacts/elibrary_debug/20260604T085910Z_authors_route_items_not_ready.html",
+        "screenshot_path": "artifacts/elibrary_debug/20260604T085910Z_authors_route_items_not_ready.png"
       }
     }
   },
@@ -45,7 +45,7 @@
     "search_name": "Ситковский Арсений Михайлович",
     "status": "error",
     "error": "Error('Page.goto: net::ERR_TOO_MANY_REDIRECTS at https://www.elibrary.ru/authors.asp\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
-    "elapsed_sec": 93.955,
+    "elapsed_sec": 4.009,
     "fingerprint": {
       "content_length": 0,
       "has_suspicious_ip_text": false,
@@ -54,12 +54,12 @@
       "excerpt": ""
     },
     "debug": {
-      "html_path": "artifacts/elibrary_debug/20260604T014200Z_authors_search_error.html",
-      "screenshot_path": "artifacts/elibrary_debug/20260604T014200Z_authors_search_error.png"
+      "html_path": "artifacts/elibrary_debug/20260604T085909Z_authors_search_error.html",
+      "screenshot_path": "artifacts/elibrary_debug/20260604T085909Z_authors_search_error.png"
     },
     "debug_final": {
-      "html_path": "artifacts/elibrary_debug/20260604T014200Z_authors_route_items_not_ready.html",
-      "screenshot_path": "artifacts/elibrary_debug/20260604T014200Z_authors_route_items_not_ready.png"
+      "html_path": "artifacts/elibrary_debug/20260604T085910Z_authors_route_items_not_ready.html",
+      "screenshot_path": "artifacts/elibrary_debug/20260604T085910Z_authors_route_items_not_ready.png"
     }
   },
   "status": "not_ready"
