@@ -1,0 +1,83 @@
+name: Test WoS DOM harvester
+
+on:
+  workflow_dispatch:
+    inputs:
+      wos_researcher_id:
+        description: "Optional WoS ResearcherID override"
+        required: false
+        default: ""
+        type: string
+      wait_seconds:
+        description: "DOM wait time in seconds"
+        required: false
+        default: "240"
+        type: string
+
+concurrency:
+  group: test-wos-dom-harvester
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test-wos-dom:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 pyyaml playwright
+          python -m playwright install --with-deps chromium
+          python -m playwright install chrome || true
+          google-chrome --version || true
+      - name: Load profile identifiers
+        env:
+          PROFILE_YAML: config/profile.yml
+        run: |
+          python scripts/export_profile_env.py
+          if [ -n "${{ inputs.wos_researcher_id }}" ]; then
+            echo "WOS_RESEARCHER_ID=${{ inputs.wos_researcher_id }}" >> "$GITHUB_ENV"
+            echo "WOS_PROFILE_URL=https://www.webofscience.com/wos/author/record/${{ inputs.wos_researcher_id }}" >> "$GITHUB_ENV"
+          fi
+      - name: Run isolated WoS DOM test
+        env:
+          WOS_PROFILE_OUT: data/wos/profile_metrics.json
+          WOS_HARVEST_REPORT: data/wos/harvest_report.json
+          WOS_BROWSER_WAIT_SEC: ${{ inputs.wait_seconds }}
+          WOS_DOM_WAIT_SEC: ${{ inputs.wait_seconds }}
+          WOS_BROWSER_HEADLESS: "false"
+          WOS_BROWSER_CHANNEL: "chrome"
+        run: |
+          mkdir -p artifacts/wos_live data/wos
+          xvfb-run -a python scripts/harvest_wos_author_profile_dom_first.py || true
+          echo "===== WoS harvest report ====="
+          cat data/wos/harvest_report.json || true
+          echo "===== Normalized WoS record count ====="
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('data/wos/profile_metrics.json')
+          data = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+          print({
+              'records': len(data.get('records') or []),
+              'records_count_on_page': data.get('records_count_on_page'),
+              'source': data.get('source')
+          })
+          PY
+      - name: Upload WoS diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wos-dom-test-diagnostics
+          path: |
+            data/wos/profile_metrics.json
+            data/wos/harvest_report.json
+            artifacts/wos_live/**
+          if-no-files-found: warn
+          retention-days: 7
