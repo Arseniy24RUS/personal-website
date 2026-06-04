@@ -8,15 +8,16 @@ import argparse
 import hashlib
 import json
 import re
+from typing import Any
 
 
-def clean(value: str | None) -> str:
-    return re.sub(r'\s+', ' ', (value or '').replace('\xa0', ' ')).strip()
+def clean(value: Any) -> str:
+    return re.sub(r'\s+', ' ', str(value or '').replace('\xa0', ' ')).strip()
 
 
-def int_value(value: str | None):
-    text = clean(value)
-    m = re.search(r'-?\d+', text.replace(',', ''))
+def int_value(value: Any):
+    text = clean(value).replace(',', '')
+    m = re.search(r'-?\d+', text)
     return int(m.group(0)) if m else None
 
 
@@ -48,13 +49,13 @@ def parse_core_metrics(soup: BeautifulSoup) -> dict:
 
 def metric_value(mapping: dict, *labels):
     for label in labels:
-        if label in mapping and mapping[label].get('value') is not None:
+        if label in mapping and isinstance(mapping[label], dict) and mapping[label].get('value') is not None:
             return mapping[label]['value']
-    lowered = {k.lower(): v for k, v in mapping.items()}
+    lowered = {str(k).lower(): v for k, v in mapping.items()}
     for label in labels:
-        needle = label.lower()
+        needle = str(label).lower()
         for key, value in lowered.items():
-            if needle in key and value.get('value') is not None:
+            if needle in key and isinstance(value, dict) and value.get('value') is not None:
                 return value['value']
     return None
 
@@ -81,53 +82,217 @@ def first_text(record, selectors: list[str]) -> str:
     return ''
 
 
+def first_nested_title(raw: dict, section: str, lang: str = 'en') -> str:
+    try:
+        values = (((raw.get('titles') or {}).get(section) or {}).get(lang) or [])
+        if values:
+            return clean(values[0].get('title'))
+    except Exception:
+        pass
+    return ''
+
+
+def identifiers_dict(raw: dict) -> dict[str, str]:
+    out: dict[str, str] = {}
+    for item in raw.get('identifiers') or []:
+        if isinstance(item, dict) and item.get('type') and item.get('value'):
+            out[str(item['type']).lower()] = clean(item['value'])
+    return out
+
+
+def normalize_doi(value: Any) -> str | None:
+    doi = clean(value)
+    doi = re.sub(r'^https?://(dx\.)?doi\.org/', '', doi, flags=re.I).strip()
+    doi = doi.rstrip('.,;').lower()
+    return doi or None
+
+
+def normalize_pages(value: Any) -> str | None:
+    text = clean(value)
+    text = re.sub(r'^[,;]?\s*pp?\.\s*', '', text, flags=re.I)
+    text = text.replace('—', '-').replace('–', '-')
+    text = re.sub(r'\s*-\s*', '-', text).strip(' ,.;')
+    return text or None
+
+
+def extract_year_from_text(value: Any):
+    m = re.search(r'\b((?:19|20)\d{2})\b', clean(value))
+    return int(m.group(1)) if m else None
+
+
+def parse_wosnx_record(raw: dict, position: int | None = None) -> dict:
+    pub = raw.get('pub_info') or {}
+    ids = identifiers_dict(raw)
+    title = first_nested_title(raw, 'item')
+    venue = first_nested_title(raw, 'source')
+    venue_abbrev = first_nested_title(raw, 'source_abbrev')
+    doi = normalize_doi(raw.get('doi') or ids.get('doi'))
+    wos_uid = clean(raw.get('colluid') or raw.get('ut') or ((raw.get('id') or {}).get('value') if isinstance(raw.get('id'), dict) else '')) or None
+    url = f'https://www.webofscience.com/wos/woscc/full-record/{wos_uid}' if wos_uid else None
+    author_items = (((raw.get('names') or {}).get('author') or {}).get('en') or [])
+    authors = []
+    for a in author_items:
+        if not isinstance(a, dict):
+            continue
+        authors.append(clean(a.get('wos_standard') or ' '.join(x for x in [a.get('last_name'), a.get('first_name')] if x)))
+    pages = normalize_pages(pub.get('page_no'))
+    if not pages and (pub.get('begin') or pub.get('end')):
+        pages = normalize_pages('-'.join(x for x in [clean(pub.get('begin')), clean(pub.get('end'))] if x))
+    citation_counts = ((raw.get('citation_related') or {}).get('counts') or {}) if isinstance(raw.get('citation_related'), dict) else {}
+    wos_citations = citation_counts.get('WOSCC') if isinstance(citation_counts, dict) else None
+    all_citations = citation_counts.get('ALLDB') if isinstance(citation_counts, dict) else None
+    fp = hashlib.sha256('|'.join([title.lower(), str(pub.get('pubyear') or ''), doi or wos_uid or '']).encode('utf-8')).hexdigest()[:16]
+    return {
+        'source': 'web_of_science_free_view_author_profile',
+        'wos_uid': wos_uid,
+        'position': position,
+        'document_type': (raw.get('doctypes') or [None])[0],
+        'title': title,
+        'title_en': title if title and not re.search(r'[А-Яа-яЁё]', title) else '',
+        'authors_raw': ', '.join(a for a in authors if a),
+        'venue': venue,
+        'venue_en': venue,
+        'venue_abbrev': venue_abbrev,
+        'year': int(pub.get('pubyear')) if str(pub.get('pubyear') or '').isdigit() else extract_year_from_text(pub.get('pubdate') or pub.get('coverdate')),
+        'publication_date': clean(pub.get('sortdate') or pub.get('pubdate') or pub.get('coverdate')) or None,
+        'volume': clean(pub.get('vol')) or None,
+        'issue': clean(pub.get('issue')).strip('()') or None,
+        'pages': pages,
+        'page_count': int(pub.get('page_count')) if str(pub.get('page_count') or '').isdigit() else None,
+        'article_number': ids.get('art_no'),
+        'doi': doi,
+        'issn': ids.get('issn'),
+        'eissn': ids.get('eissn'),
+        'isbn': ids.get('isbn') or ids.get('eisbn'),
+        'url': url,
+        'wos_citations': wos_citations,
+        'all_database_citations': all_citations,
+        'references_count': raw.get('ref_count'),
+        'pubtype': pub.get('pubtype'),
+        'metadata_raw': clean(' | '.join(str(x) for x in [title, ', '.join(authors), venue, pub.get('pubdate'), pub.get('vol'), pub.get('issue'), pages, doi] if x)),
+        'dedupe_fingerprint': fp,
+        'sources': ['wos'],
+    }
+
+
+def parse_wosnx_ndjson(text: str, researcher_id: str = 'AAG-1530-2021') -> dict:
+    records_payload: dict[str, dict] = {}
+    search_info: dict = {}
+    analyze: dict = {}
+    jcr: dict = {}
+    for line in (text or '').splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            obj = json.loads(line)
+        except Exception:
+            continue
+        key = obj.get('key')
+        payload = obj.get('payload')
+        if key == 'searchInfo' and isinstance(payload, dict):
+            search_info = payload
+        elif key == 'records' and isinstance(payload, dict):
+            records_payload.update(payload)
+        elif key == 'analyze' and isinstance(payload, dict):
+            analyze = payload
+        elif key == 'jcr' and isinstance(payload, dict):
+            jcr = payload
+    parsed_records = []
+    for key in sorted(records_payload, key=lambda x: int(x) if str(x).isdigit() else 999999):
+        raw = records_payload[key]
+        if isinstance(raw, dict):
+            rec = parse_wosnx_record(raw, int(key) if str(key).isdigit() else None)
+            if rec.get('title'):
+                parsed_records.append(rec)
+    return {
+        'source': 'web_of_science_wosnx_run_query_search',
+        'researcher_id': researcher_id,
+        'generated_at': now(),
+        'search_info': search_info,
+        'records_count_on_page': len(parsed_records),
+        'records': parsed_records,
+        'analyze': analyze,
+        'jcr': jcr,
+    }
+
+
 def extract_year(record, parts: list[str]):
-    pub = record.select_one('.jcr-and-pub-info-section')
-    if pub:
-        text = clean(pub.get_text(' '))
-        m = re.search(r'\b((?:19|20)\d{2})\b', text)
-        if m:
-            return int(m.group(1))
-    # Fallback: ignore obvious title fragments such as “2017-2019” when possible.
+    pubdate = first_text(record, ['[data-ta="summary-record-pubdate"]', '[name="pubdate"]'])
+    y = extract_year_from_text(pubdate)
+    if y:
+        return y
     for p in parts:
         if len(p) > 120:
             continue
-        m = re.search(r'\b((?:19|20)\d{2})\b', p)
-        if m:
-            return int(m.group(1))
+        y = extract_year_from_text(p)
+        if y:
+            return y
     return None
 
 
 def parse_record(record) -> dict:
     text_lines = [clean(x) for x in record.get_text('\n').split('\n')]
     parts = [x for x in text_lines if x]
-    title = first_text(record, ['app-summary-title a', 'app-summary-title .title', '.title-link', 'h3 a'])
+    title_el = record.select_one('app-summary-title a[data-ta="summary-record-title-link"], app-summary-title a, a.title-link')
+    title = clean(title_el.get_text(' ')) if title_el else first_text(record, ['app-summary-title .title', '.title-link', 'h3 a'])
     if not title:
         candidates = [p for p in parts if len(p) > 18 and not p.isdigit() and p.lower() not in {'article', 'review', 'proceedings paper'}]
         title = candidates[0] if candidates else ''
     year = extract_year(record, parts)
     doi = None
     joined = ' '.join(parts)
-    m = re.search(r'10\.\d{4,9}/[^\s]+', joined, flags=re.I)
+    m = re.search(r'10\.\d{4,9}/[^\s<>,;"\']+', joined, flags=re.I)
     if m:
-        doi = m.group(0).rstrip('.,;')
+        doi = normalize_doi(m.group(0))
     record_id = None
-    link = record.find('a', href=True)
     url = None
+    link = title_el or record.find('a', href=True)
     if link:
-        href = link['href']
+        href = link.get('href') or ''
         url = href if href.startswith('http') else 'https://www.webofscience.com' + href
         id_match = re.search(r'WOS:([A-Z0-9]+)', href)
         if id_match:
             record_id = 'WOS:' + id_match.group(1)
-    metadata_raw = clean(' | '.join(parts[:80]))
-    fp = hashlib.sha256('|'.join([title.lower(), str(year or ''), doi or '']).encode('utf-8')).hexdigest()[:16]
+    authors = first_text(record, ['app-summary-authors'])
+    venue = first_text(record, ['.summary-source-title', '[data-ta^="jcrSidenav"][data-ta$="main-header"]'])
+    if not venue and 'Journal information' in parts:
+        idx = parts.index('Journal information')
+        for candidate in parts[idx + 1:idx + 6]:
+            if candidate.lower() not in {'clear', 'publisher name'} and len(candidate) > 4:
+                venue = candidate
+                break
+    publisher = ''
+    if 'Publisher name' in parts:
+        idx = parts.index('Publisher name')
+        if idx + 1 < len(parts):
+            publisher = parts[idx + 1]
+    volume = first_text(record, ['[data-ta="Summary-vol"]']) or None
+    issue = first_text(record, ['[data-ta="Summary-issue"]']) or None
+    if issue:
+        issue = issue.strip('()')
+    pages = normalize_pages(first_text(record, ['[data-ta="Summary-page-no"]']))
+    if not pages:
+        pm = re.search(r'pp\.\s*([0-9]+\s*[-–—]\s*[0-9]+|[0-9]+)', joined, flags=re.I)
+        if pm:
+            pages = normalize_pages(pm.group(1))
+    doc_type = first_text(record, ['.doctype-container .data-label', '.summary-blueBox.data-label']) or (parts[1] if len(parts) > 1 else None)
+    metadata_raw = clean(' | '.join(parts[:100]))
+    fp = hashlib.sha256('|'.join([title.lower(), str(year or ''), doi or record_id or '']).encode('utf-8')).hexdigest()[:16]
     return {
         'source': 'web_of_science_free_view_author_profile',
         'wos_uid': record_id,
+        'document_type': doc_type,
         'title': title,
         'title_en': title if title and not re.search(r'[А-Яа-яЁё]', title) else '',
+        'authors_raw': authors,
+        'venue': venue,
+        'venue_en': venue,
+        'publisher': publisher or None,
         'year': year,
+        'volume': volume,
+        'issue': issue,
+        'pages': pages,
         'doi': doi,
         'url': url,
         'metadata_raw': metadata_raw,
