@@ -2,11 +2,13 @@
 """Production wrapper for the Web of Science harvester.
 
 The base harvester keeps persistence and fallbacks. This wrapper hardens the WoS
-records route in two ways:
+records route in three ways:
 1. It sends a direct WOSNX request that mirrors the successful browser HAR.
 2. If that direct request fails with an expired SID, it opens the profile in
    Playwright and runs the WOSNX request inside the live browser context, using
    the fresh SID and cookies created by the page itself.
+3. It prevents a weak/empty WoS response from overwriting previously known
+   metrics or records.
 """
 from __future__ import annotations
 
@@ -20,6 +22,75 @@ USER_AGENT = os.environ.get(
     'WOS_USER_AGENT',
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36',
 )
+
+
+def records_count(data) -> int:
+    records = (data or {}).get('records') if isinstance(data, dict) else None
+    return len(records) if isinstance(records, list) else 0
+
+
+def _metric_value(data, section: str, *labels) -> int:
+    mapping = (data or {}).get(section) if isinstance(data, dict) else None
+    if not isinstance(mapping, dict):
+        return 0
+    for label in labels:
+        item = mapping.get(label)
+        if isinstance(item, dict) and item.get('value') not in (None, ''):
+            try:
+                return int(item.get('value'))
+            except Exception:
+                pass
+    lowered = {str(k).lower(): v for k, v in mapping.items()}
+    for label in labels:
+        needle = str(label).lower()
+        for key, item in lowered.items():
+            if needle in key and isinstance(item, dict) and item.get('value') not in (None, ''):
+                try:
+                    return int(item.get('value'))
+                except Exception:
+                    pass
+    return 0
+
+
+def summary_publications(data) -> int:
+    if not isinstance(data, dict):
+        return 0
+    for value in [
+        ((data.get('summary') or {}).get('publications') if isinstance(data.get('summary'), dict) else None),
+        data.get('records_count_on_page'),
+        _metric_value(data, 'core_collection_metrics', 'Publications'),
+        _metric_value(data, 'summary_metrics', 'Web of Science Core Collection publications', 'Publications indexed in Web of Science'),
+    ]:
+        try:
+            if value not in (None, ''):
+                return int(value)
+        except Exception:
+            pass
+    return 0
+
+
+def normalized_count(data) -> int:
+    return max(records_count(data), summary_publications(data))
+
+
+def preserve_best_records(candidate, previous, report):
+    if not candidate:
+        return previous
+    prev_records = records_count(previous)
+    cand_records = records_count(candidate)
+    prev_strength = normalized_count(previous)
+    cand_strength = normalized_count(candidate)
+    if prev_records and cand_records < prev_records:
+        merged = dict(candidate)
+        merged['records'] = previous.get('records') or []
+        merged['records_count_on_page'] = len(merged['records'])
+        merged['records_preserved_from_previous'] = True
+        report['warning'] = 'Live WoS payload had fewer records than previous normalized data; previous records were preserved while fresh metrics were kept.'
+        return merged
+    if prev_strength and cand_strength < prev_strength:
+        report['warning'] = 'Live WoS payload was weaker than previous normalized data; previous WoS data was kept.'
+        return previous
+    return candidate
 
 
 def add_storage_cookies(session, state) -> int:
@@ -188,11 +259,11 @@ def direct_wosnx(previous):
             report['status'] = 'api_http_error'
             return None, report
         data = base.carry_forward_metrics(base.parse_wosnx_ndjson(text, base.RESEARCHER_ID), previous)
-        report['records'] = base.records_count(data)
-        report['records_or_publications'] = base.normalized_count(data)
+        report['records'] = records_count(data)
+        report['records_or_publications'] = normalized_count(data)
         report['search_info'] = data.get('search_info') or {}
-        report['status'] = 'ok' if base.records_count(data) else 'api_without_records'
-        return data if base.records_count(data) else None, report
+        report['status'] = 'ok' if records_count(data) else 'api_without_records'
+        return data if records_count(data) else None, report
     except Exception as exc:
         report.update({'status': 'api_error', 'error': repr(exc)})
         return None, report
@@ -295,22 +366,13 @@ def browser_wosnx(previous):
                     pass
                 state_info = extract_browser_state(page)
                 sid = state_info.get('sid')
-                if sid:
-                    try:
-                        context.add_cookies([
-                            {'name': 'WOSSID', 'value': sid, 'domain': 'www.webofscience.com', 'path': '/', 'secure': True, 'sameSite': 'Lax'},
-                            {'name': 'WOSSID', 'value': sid, 'domain': '.webofscience.com', 'path': '/', 'secure': True, 'sameSite': 'Lax'},
-                        ])
-                    except Exception:
-                        pass
                 body = run_query_body(None, state_info.get('search'), state_info.get('hits'))
                 if sid:
                     try:
                         fetch_result = page.evaluate(
                             """async ({sid, body}) => {
                               const res = await fetch('/api/wosnx/core/runQuerySearch?SID=' + encodeURIComponent(sid), {
-                                method: 'POST',
-                                credentials: 'include',
+                                method: 'POST', credentials: 'include',
                                 headers: {'Accept': 'application/x-ndjson', 'Content-Type': 'text/plain;charset=UTF-8'},
                                 body: JSON.stringify(body)
                               });
@@ -330,10 +392,10 @@ def browser_wosnx(previous):
                             'excerpt': text[:800],
                         }
                         data = base.carry_forward_metrics(base.parse_wosnx_ndjson(text, base.RESEARCHER_ID), previous)
-                        item['records'] = base.records_count(data)
-                        item['records_or_publications'] = base.normalized_count(data)
+                        item['records'] = records_count(data)
+                        item['records_or_publications'] = normalized_count(data)
                         api_reports.append(item)
-                        if base.records_count(data):
+                        if records_count(data):
                             best_data = data
                             break
                     except Exception as exc:
@@ -349,11 +411,11 @@ def browser_wosnx(previous):
                 except Exception:
                     html = ''
             if best_data:
-                report.update({'status': 'ok', 'records': base.records_count(best_data), 'records_or_publications': base.normalized_count(best_data), 'api_reports': api_reports[-12:], 'final_url': page.url})
+                report.update({'status': 'ok', 'records': records_count(best_data), 'records_or_publications': normalized_count(best_data), 'api_reports': api_reports[-12:], 'final_url': page.url})
                 context.close(); browser.close()
                 return html, report, best_data
             html_candidate = base.carry_forward_metrics(base.parse_wos_author_profile_html(html, base.RESEARCHER_ID), previous) if html else None
-            report.update({'status': 'no_records', 'candidate_records': base.records_count(html_candidate), 'candidate_records_or_publications': base.normalized_count(html_candidate), 'api_reports': api_reports[-12:], 'final_url': page.url, 'content_length': len(html.encode('utf-8', errors='replace'))})
+            report.update({'status': 'no_records', 'candidate_records': records_count(html_candidate), 'candidate_records_or_publications': normalized_count(html_candidate), 'api_reports': api_reports[-12:], 'final_url': page.url, 'content_length': len(html.encode('utf-8', errors='replace'))})
             context.close(); browser.close()
             return html, report, html_candidate
         except Exception as exc:
@@ -367,6 +429,10 @@ def browser_wosnx(previous):
 
 
 def main() -> int:
+    base.records_count = records_count
+    base.summary_publications = summary_publications
+    base.normalized_count = normalized_count
+    base.preserve_best_records = preserve_best_records
     base.run_query_body = run_query_body
     base.fetch_direct_wosnx = direct_wosnx
     base.fetch_live_browser = browser_wosnx
