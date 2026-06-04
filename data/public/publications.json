@@ -565,7 +565,7 @@
     "title": "Демографическое развитие России: становление и эволюция научной школы Л. Л. Рыбаковского",
     "title_ru": "Демографическое развитие России: становление и эволюция научной школы Л. Л. Рыбаковского",
     "authors_raw": "Ростовская Т.К., Рязанцев С.В., Архангельский В.Н., Воробьева О.Д., Гришанова А.Г., Безруков И.С., Иванова А.Е., Сигарева Е.П., Топилин А.В., Чернышев К.А., Фадеева Т.А., Рыбальченко С.И., Ситковский А.М., Мотрич Е.Л., Фаузер В.В., Хасаев Г.Р., Азимов А.Д., Злотников А.Г., Тихонова Л.Е.",
-    "venue": null,
+    "venue": "Ы",
     "venue_ru": null,
     "year": 2025,
     "pages": null,
@@ -580,8 +580,20 @@
     "title_en_source": "existing_latin",
     "title_ru_original": "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ РОССИИ: СТАНОВЛЕНИЕ И ЭВОЛЮЦИЯ НАУЧНОЙ ШКОЛЫ Л. Л. РЫБАКОВСКОГО",
     "title_ru_display": "Демографическое развитие России: становление и эволюция научной школы Л. Л. Рыбаковского",
-    "gost_ru": "Ростовская Т.К., Рязанцев С.В., Архангельский В.Н., Воробьева О.Д., Гришанова А.Г., Безруков И.С., Иванова А.Е., Сигарева Е.П., Топилин А.В., Чернышев К.А., Фадеева Т.А., Рыбальченко С.И., Ситковский А.М., Мотрич Е.Л., Фаузер В.В., Хасаев Г.Р., Азимов А.Д., Злотников А.Г., Тихонова Л.Е. Демографическое развитие России: становление и эволюция научной школы Л. Л. Рыбаковского. — 2025. — URL: https://www.elibrary.ru/item.asp?id=80640587.",
-    "apa_en": "Rostovskaya, T. K., Ryazantsev, S. V., Arkhangelskii, V. N., Vorobeva, O. D., Grishanova, A. G., Bezrukov, I. S., Ivanova, A. E., Sigareva, E. P., Topilin, A. V., Chernyshev, K. A., Fadeeva, T. A., Rybalchenko, S. I., Sitkovskii, A. M., Motrich, E. L., Fauzer, V. V., Khasaev, G. R., Azimov, A. D., Zlotnikov, A. G., & Tikhonova, L. E. (2025). Demographic development of Russia: the formation and evolution of the scientific school of L. L. Rybakov. https://www.elibrary.ru/item.asp?id=80640587"
+    "gost_ru": "Ростовская Т.К., Рязанцев С.В., Архангельский В.Н., Воробьева О.Д., Гришанова А.Г., Безруков И.С., Иванова А.Е., Сигарева Е.П., Топилин А.В., Чернышев К.А., Фадеева Т.А., Рыбальченко С.И., Ситковский А.М., Мотрич Е.Л., Фаузер В.В., Хасаев Г.Р., Азимов А.Д., Злотников А.Г., Тихонова Л.Е. Демографическое развитие России: становление и эволюция научной школы Л. Л. Рыбаковского. // Ы. — 2025. — Т. К. — URL: https://www.elibrary.ru/item.asp?id=80640587.",
+    "apa_en": "Rostovskaya, T. K., Ryazantsev, S. V., Arkhangelskii, V. N., Vorobeva, O. D., Grishanova, A. G., Bezrukov, I. S., Ivanova, A. E., Sigareva, E. P., Topilin, A. V., Chernyshev, K. A., Fadeeva, T. A., Rybalchenko, S. I., Sitkovskii, A. M., Motrich, E. L., Fauzer, V. V., Khasaev, G. R., Azimov, A. D., Zlotnikov, A. G., & Tikhonova, L. E. (2025). Demographic development of Russia: the formation and evolution of the scientific school of L. L. Rybakov. Y, К. https://www.elibrary.ru/item.asp?id=80640587",
+    "publisher": "Филигрань",
+    "book_title": "издана при поддержке АНО «Институт научно-общественной экспертизы».",
+    "volume": "К",
+    "isbn": "978-5-605-32838-4",
+    "elibrary_item_detail": {
+      "isbn": "978-5-605-32838-4",
+      "venue": "Ы",
+      "book_title": "издана при поддержке АНО «Институт научно-общественной экспертизы».",
+      "publisher": "Филигрань",
+      "year": "издания:",
+      "volume": "К"
+    }
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -1647,7 +1659,7 @@
     },
     "publication_type": "journal-article",
     "venue_en": "Woman in russian society",
-    "venue_en_source": "crossref_api"
+    "venue_en_source": "existing_latin"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -11010,8 +11022,8 @@
           },
           "sustainable_development_goals": [
             {
-              "id": "https://metadata.un.org/sdg/10",
               "display_name": "Reduced inequalities",
+              "id": "https://metadata.un.org/sdg/10",
               "score": 0.5199999809265137
             }
           ],
