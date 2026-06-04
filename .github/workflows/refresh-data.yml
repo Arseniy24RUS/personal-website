@@ -265,6 +265,13 @@ jobs:
           else
             echo "Publication metadata enricher is missing; skipping GOST/APA reference enrichment."
           fi
+      - name: Audit refreshed data pipeline
+        run: |
+          if [ -f scripts/audit_refresh_pipeline.py ]; then
+            python scripts/audit_refresh_pipeline.py || true
+          else
+            echo "Refresh pipeline audit script is missing; skipping audit."
+          fi
       - name: Write refresh audit stamp
         run: |
           mkdir -p data/audit
