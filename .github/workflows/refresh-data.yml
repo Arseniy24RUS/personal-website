@@ -59,6 +59,17 @@ jobs:
             echo "SCOPUS_AUTHOR_ID=${{ inputs.scopus_author_id }}" >> "$GITHUB_ENV"
             echo "Scopus Author ID overridden from workflow input."
           fi
+      - name: Guard cached data for current profile
+        env:
+          PROFILE_YAML: config/profile.yml
+        run: |
+          if [ -f scripts/guard_profile_cache.py ]; then
+            python scripts/guard_profile_cache.py || true
+          else
+            echo "Profile cache guard is missing; continuing with existing cache."
+          fi
+          echo "Profile cache guard report:"
+          cat data/audit/profile_cache_guard_report.json || true
       - name: Install browsers for browser-backed data fetchers
         run: |
           python -m playwright install --with-deps chromium
