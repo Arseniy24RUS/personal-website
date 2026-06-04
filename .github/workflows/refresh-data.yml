@@ -272,6 +272,8 @@ jobs:
           else
             echo "Refresh pipeline audit script is missing; skipping audit."
           fi
+          echo "Refresh pipeline audit report:"
+          cat data/audit/refresh_pipeline_audit.json || true
       - name: Write refresh audit stamp
         run: |
           mkdir -p data/audit
