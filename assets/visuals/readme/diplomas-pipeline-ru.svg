@@ -1,0 +1,41 @@
+﻿<svg font-family="Arial, Helvetica, sans-serif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-labelledby="title desc">
+  <title id="title">Пайплайн галереи дипломов и сертификатов</title>
+  <desc id="desc">Сырые ZIP-архивы и файлы превращаются в адаптивный визуальный коллаж на GitHub Pages.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111111"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" fill="#f4f4f2"/>
+  <text x="56" y="72.0" font-size="34" font-weight="900" fill="#171717" text-anchor="start">Пайплайн галереи дипломов и сертификатов</text>
+  <text x="56" y="108.0" font-size="18" font-weight="400" fill="#55575c" text-anchor="start">Сырые ZIP-архивы и файлы превращаются в адаптивный визуальный коллаж на GitHub Pages.</text>
+  
+    <rect x="56" y="210" width="230" height="300" rx="8" fill="#dcebf7" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="80" y="246.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Вход</text>
+    <text x="80" y="280.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">ZIP-архивы</text>
+<text x="80" y="301.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">отдельные PDF</text>
+<text x="80" y="323.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">JPEG / PNG / WebP</text>
+<text x="80" y="344.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">любые имена файлов</text>
+    
+    <rect x="348" y="180" width="260" height="360" rx="8" fill="#fff1c7" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="372" y="216.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Обработка</text>
+    <text x="372" y="250.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">рекурсивная распаковка ZIP</text>
+<text x="372" y="271.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">рендер первой страницы PDF</text>
+<text x="372" y="293.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">учёт EXIF у изображений</text>
+<text x="372" y="314.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">устойчивые hash и slug</text>
+    
+    <rect x="670" y="180" width="250" height="360" rx="8" fill="#dff1e5" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="694" y="216.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Результат</text>
+    <text x="694" y="250.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">полноэкранные WebP</text>
+<text x="694" y="271.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">лёгкие миниатюры</text>
+<text x="694" y="293.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">gallery.json</text>
+<text x="694" y="314.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">год и название</text>
+    
+    <rect x="982" y="210" width="220" height="300" rx="8" fill="#f5dfdf" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="1006" y="246.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Модуль сайта</text>
+    <text x="1006" y="280.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">masonry-коллаж</text>
+<text x="1006" y="301.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">фильтр по годам</text>
+<text x="1006" y="323.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">полноэкранное окно</text>
+<text x="1006" y="344.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">ссылка на скачивание</text>
+    <path d="M286 360 C 317.0 360, 317.0 360, 348 360" fill="none" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/><path d="M608 360 C 639.0 360, 639.0 360, 670 360" fill="none" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/><path d="M920 360 C 951.0 360, 951.0 360, 982 360" fill="none" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/>
+</svg>

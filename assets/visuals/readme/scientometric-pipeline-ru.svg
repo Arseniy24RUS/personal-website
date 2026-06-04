@@ -1,0 +1,45 @@
+﻿<svg font-family="Arial, Helvetica, sans-serif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-labelledby="title desc">
+  <title id="title">Наукометрический пайплайн</title>
+  <desc id="desc">Исследовательские идентификаторы превращаются в нормализованные публикации, метрики и готовые ссылки.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111111"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" fill="#f4f4f2"/>
+  <text x="56" y="72.0" font-size="34" font-weight="900" fill="#171717" text-anchor="start">Наукометрический пайплайн</text>
+  <text x="56" y="108.0" font-size="18" font-weight="400" fill="#55575c" text-anchor="start">Исследовательские идентификаторы превращаются в нормализованные публикации, метрики и готовые ссылки.</text>
+  
+    <rect x="56" y="180" width="250" height="360" rx="8" fill="#e8e2f2" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="80" y="216.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Идентификаторы</text>
+    <text x="80" y="250.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">ORCID</text>
+<text x="80" y="271.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">Scopus Author ID</text>
+<text x="80" y="293.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">WoS Researcher ID</text>
+<text x="80" y="314.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">eLibrary AuthorID / SPIN</text>
+<text x="80" y="336.4" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">публичный GitHub-профиль</text>
+    
+    <rect x="362" y="150" width="270" height="420" rx="8" fill="#dcebf7" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="386" y="186.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Сбор данных</text>
+    <text x="386" y="220.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">открытые API: ORCID, OpenAlex, Crossref</text>
+<text x="386" y="241.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">Scopus API через secrets</text>
+<text x="386" y="263.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">WoS browser/API fallback</text>
+<text x="386" y="284.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">маршрут eLibrary/РИНЦ</text>
+<text x="386" y="306.4" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">отчёты по источникам</text>
+    
+    <rect x="688" y="150" width="270" height="420" rx="8" fill="#fff1c7" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="712" y="186.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Нормализация</text>
+    <text x="712" y="220.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">дедупликация DOI/title/year</text>
+<text x="712" y="241.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">объединение записей и метрик</text>
+<text x="712" y="263.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">обогащение ссылок</text>
+<text x="712" y="284.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">перевод названий</text>
+<text x="712" y="306.4" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">сохранение сильных snapshot</text>
+    
+    <rect x="1014" y="180" width="220" height="360" rx="8" fill="#dff1e5" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="1038" y="216.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Публикация</text>
+    <text x="1038" y="250.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">data/public/profile.json</text>
+<text x="1038" y="271.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">data/public/publications.json</text>
+<text x="1038" y="293.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">страница публикаций</text>
+<text x="1038" y="314.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">страница метрик</text>
+<text x="1038" y="336.4" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">без ключей в браузере</text>
+    <path d="M306 360 C 334.0 360, 334.0 360, 362 360" fill="none" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/><path d="M632 360 C 660.0 360, 660.0 360, 688 360" fill="none" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/><path d="M958 360 C 986.0 360, 986.0 360, 1014 360" fill="none" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/>
+</svg>

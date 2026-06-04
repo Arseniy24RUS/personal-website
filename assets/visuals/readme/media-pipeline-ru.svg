@@ -1,0 +1,41 @@
+﻿<svg font-family="Arial, Helvetica, sans-serif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-labelledby="title desc">
+  <title id="title">Пайплайн медиа-мониторинга и карточек</title>
+  <desc id="desc">Публичные упоминания находятся, оцениваются, обогащаются и выводятся как двуязычные карточки СМИ.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111111"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="720" fill="#f4f4f2"/>
+  <text x="56" y="72.0" font-size="34" font-weight="900" fill="#171717" text-anchor="start">Пайплайн медиа-мониторинга и карточек</text>
+  <text x="56" y="108.0" font-size="18" font-weight="400" fill="#55575c" text-anchor="start">Публичные упоминания находятся, оцениваются, обогащаются и выводятся как двуязычные карточки СМИ.</text>
+  
+    <rect x="56" y="190" width="250" height="340" rx="8" fill="#dcebf7" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="80" y="226.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Поиск</text>
+    <text x="80" y="260.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">подтверждённые seed URL</text>
+<text x="80" y="281.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">Google News RSS-запросы</text>
+<text x="80" y="303.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">сканирование sitemap</text>
+<text x="80" y="324.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">публичные страницы Telegram</text>
+    
+    <rect x="362" y="160" width="270" height="400" rx="8" fill="#fff1c7" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="386" y="196.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Отбор</text>
+    <text x="386" y="230.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">термины идентичности и контекста</text>
+<text x="386" y="251.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">фильтры доменов</text>
+<text x="386" y="273.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">confidence score</text>
+<text x="386" y="294.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">низкоуверенная корзина</text>
+    
+    <rect x="688" y="160" width="270" height="400" rx="8" fill="#dff1e5" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="712" y="196.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Обогащение</text>
+    <text x="712" y="230.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">OpenGraph metadata</text>
+<text x="712" y="251.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">ручные title overrides</text>
+<text x="712" y="273.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">изображения и source labels</text>
+<text x="712" y="294.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">published media JSON</text>
+    
+    <rect x="1014" y="190" width="220" height="340" rx="8" fill="#f5dfdf" stroke="#bfc2c7" stroke-width="1.5"/>
+    <text x="1038" y="226.0" font-size="22" font-weight="800" fill="#171717" text-anchor="start">Карточки сайта</text>
+    <text x="1038" y="260.0" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">изображение-миниатюра</text>
+<text x="1038" y="281.6" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">заголовок и описание</text>
+<text x="1038" y="303.2" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">источник и дата</text>
+<text x="1038" y="324.8" font-size="16" font-weight="400" fill="#55575c" text-anchor="start">ссылка на материал</text>
+    <path d="M306 360 C 334.0 360, 334.0 360, 362 360" fill="none" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/><path d="M632 360 C 660.0 360, 660.0 360, 688 360" fill="none" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/><path d="M958 360 C 986.0 360, 986.0 360, 1014 360" fill="none" stroke="#111111" stroke-width="3" marker-end="url(#arrow)"/>
+</svg>
