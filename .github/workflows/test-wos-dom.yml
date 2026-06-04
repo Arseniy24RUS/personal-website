@@ -18,6 +18,9 @@ concurrency:
   group: test-wos-dom-harvester
   cancel-in-progress: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: read
 
@@ -53,6 +56,8 @@ jobs:
           WOS_DOM_WAIT_SEC: ${{ inputs.wait_seconds }}
           WOS_BROWSER_HEADLESS: "false"
           WOS_BROWSER_CHANNEL: "chrome"
+          WOS_COOKIE: ${{ secrets.WOS_COOKIE }}
+          WOS_STORAGE_STATE_B64: ${{ secrets.WOS_STORAGE_STATE_B64 }}
         run: |
           mkdir -p artifacts/wos_live data/wos
           xvfb-run -a python scripts/harvest_wos_author_profile_dom_first.py || true
