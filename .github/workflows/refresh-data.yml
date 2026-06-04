@@ -19,6 +19,10 @@ on:
   schedule:
     - cron: "17 3 * * 1"
 
+concurrency:
+  group: refresh-scientist-portfolio-data
+  cancel-in-progress: false
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -199,6 +203,8 @@ jobs:
           else
             echo "Web of Science free-view harvester is missing; using existing WOS snapshot/data."
           fi
+          echo "Web of Science harvest report:"
+          cat data/wos/harvest_report.json || true
       - name: Disconnect home OpenVPN route
         if: always()
         run: |
@@ -260,10 +266,19 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin main || true
           git add data/ assets/craftum/ || true
           if git diff --cached --quiet; then
             echo "No data changes."
           else
             git commit -m "chore: refresh portfolio data and assets"
+            for attempt in 1 2 3; do
+              if git push; then
+                exit 0
+              fi
+              echo "Push attempt ${attempt} failed; rebasing on origin/main and retrying."
+              git pull --rebase --autostash origin main || true
+              sleep 3
+            done
             git push
           fi
