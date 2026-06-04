@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-03T20:08:46+00:00",
+  "generated_at": "2026-06-04T01:47:29+00:00",
   "stats": {
     "official": 58,
     "cached_machine_translation": 0,
     "new_machine_translation": 0,
     "unresolved": 0,
-    "venue_enriched": 20
+    "venue_enriched": 21
   },
   "argos_status": "not_initialized",
   "source_priority": [

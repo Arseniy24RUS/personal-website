@@ -1,19 +1,19 @@
 {
-  "status": "error",
-  "elapsed_sec": 75.638,
+  "status": "http_error",
+  "http_status": 302,
+  "elapsed_sec": 8.813,
   "url": "https://www.elibrary.ru/author_profile.asp?id=1012909",
-  "error_type": "TimeoutError",
-  "error": "TimeoutError('The read operation timed out')",
+  "error_excerpt": "<head><title>Object moved</title></head>\n<body><h1>Object Moved</h1>This object may be found <a HREF=\"defaultx.asp\">here</a>.</body>\n",
   "preflight": {
     "status": "error",
-    "elapsed_sec": 0.427,
+    "elapsed_sec": 0.715,
     "url": "https://elibrary.ru/defaultx.asp",
     "error_type": "URLError",
     "error": "URLError(ConnectionResetError(104, 'Connection reset by peer'))"
   },
-  "cookies_count": 0,
+  "cookies_count": 1,
   "manual_cookie_present": true,
-  "generated_at": "2026-06-03T20:03:50+00:00",
+  "generated_at": "2026-06-04T01:42:10+00:00",
   "used_source": "saved_snapshot",
   "snapshot_path": "data/snapshots/elibrary/profile/author_profile_1012909_20260602T194704Z.html"
 }

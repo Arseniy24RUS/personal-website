@@ -261,7 +261,18 @@
     "publisher": "Russian State Vocational Pedagogical University",
     "publication_type": "journal-article",
     "gost_ru": "Ростовская Т.К., Ситковский А.М. Сравнительный контент — анализ магистерских и докторских программ в сфере демографии университетов мирового уровня. // Образование и наука. — 2026. — Т. 28. — № 1. — С. 33–64. — DOI: 10.17853/1994-5639-2026-1-33-64.",
-    "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2026). Comparative content analysis of master’s and doctoral programmes in demography at world-class universities. Obrazovanie I Nauka, 28(1), 33–64. https://doi.org/10.17853/1994-5639-2026-1-33-64"
+    "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2026). Comparative content analysis of master’s and doctoral programmes in demography at world-class universities. Obrazovanie I Nauka, 28(1), 33–64. https://doi.org/10.17853/1994-5639-2026-1-33-64",
+    "issn": "1994-5639",
+    "elibrary_item_detail": {
+      "doi": "10.17853/1994-5639-2026-1-33-64",
+      "issn": "1994-5639",
+      "venue": "Ы",
+      "publisher": "ств:",
+      "year": "2026",
+      "volume": "28",
+      "issue": "1",
+      "pages": "33-64"
+    }
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -321,7 +332,7 @@
     },
     "publication_type": "journal-article",
     "venue_en": "Woman in russian society",
-    "venue_en_source": "crossref_api",
+    "venue_en_source": "existing_latin",
     "gost_ru": "Ростовская Т.К., Васильева Е.Н., Ситковский А.М. Формирование технологий решения жилищных проблем семьи в рамках демографической политики: проблемы и перспективы. // Женщина в российском обществе. — 2026. — Т. К. — № 1. — С. 32–48. — DOI: 10.21064/winrs.2026.1.3.",
     "apa_en": "Rostovskaya, T. K., Vasileva, E. N., & Sitkovskii, A. M. (2026). Forming technological solutions of housing family problems in the from demographic policy: problems and perspectives. Woman in russian society, К(1), 32–48. https://doi.org/10.21064/winrs.2026.1.3"
   },
@@ -533,7 +544,18 @@
     "publisher": "Peoples' Friendship University of Russia",
     "publication_type": "journal-article",
     "gost_ru": "Накисбаев Д.В., Ситковский А.М. Демографическая типология коренных малочисленных народов России: кластерный анализ возрастной структуры. // Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление. — 2026. — Т. 13. — № 1. — С. 86–95. — DOI: 10.22363/2312-8313-2026-13-1-86-95.",
-    "apa_en": "Nakisbaev, D. V. & Sitkovskii, A. M. (2026). Demographic typology of indigenous peoples of Russia: cluster analysis of age structure. RUDN Journal of Public Administration, 13(1), 86–95. https://doi.org/10.22363/2312-8313-2026-13-1-86-95"
+    "apa_en": "Nakisbaev, D. V. & Sitkovskii, A. M. (2026). Demographic typology of indigenous peoples of Russia: cluster analysis of age structure. RUDN Journal of Public Administration, 13(1), 86–95. https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
+    "issn": "2312-8313",
+    "elibrary_item_detail": {
+      "doi": "10.22363/2312-8313-2026-13-1-86-95",
+      "issn": "2312-8313",
+      "venue": "Ы",
+      "publisher": "ств:",
+      "year": "2026",
+      "volume": "13",
+      "issue": "1",
+      "pages": "86-95"
+    }
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -606,11 +628,11 @@
     "title": "Устойчивость российского государства и общества в условиях укрепления традиционных ценностей и становления многополярного мира. социальная и социально — политическая ситуация",
     "title_ru": "Устойчивость российского государства и общества в условиях укрепления традиционных ценностей и становления многополярного мира. социальная и социально — политическая ситуация",
     "authors_raw": "Барановская Т.В., Безвербный В.А., Березина Н.В., Великая Н.М., Голосеева А.А., Гребняк О.В., Гуселетов Б.П., Дибирова А.П., Дождиков А.В., Ильичева Л.Е., Ильичева М.В., Ирсетская Е.А., Карепова С.Г., Левашов В.К., Лиханова Т.Ю., Мерзликин Н.В., Мчедлова Е.М., Назаров М.М., Накисбаев Д.В., Насриддинов Т.Г. и др.",
-    "venue": null,
+    "venue": "Ы",
     "venue_ru": null,
     "year": 2025,
     "pages": null,
-    "doi": null,
+    "doi": "10.19181/monogr.978-5-89697-443-7.2025",
     "metadata_raw": "Москва, 2025.",
     "rinc_citations": 3,
     "dedupe_fingerprint": "059488b9751640fe",
@@ -621,8 +643,38 @@
     "title_en_source": "existing_latin",
     "title_ru_original": "УСТОЙЧИВОСТЬ РОССИЙСКОГО ГОСУДАРСТВА И ОБЩЕСТВА В УСЛОВИЯХ УКРЕПЛЕНИЯ ТРАДИЦИОННЫХ ЦЕННОСТЕЙ И СТАНОВЛЕНИЯ МНОГОПОЛЯРНОГО МИРА. СОЦИАЛЬНАЯ И СОЦИАЛЬНО-ПОЛИТИЧЕСКАЯ СИТУАЦИЯ",
     "title_ru_display": "Устойчивость российского государства и общества в условиях укрепления традиционных ценностей и становления многополярного мира. социальная и социально — политическая ситуация",
-    "gost_ru": "Барановская Т.В., Безвербный В.А., Березина Н.В., Великая Н.М., Голосеева А.А., Гребняк О.В., Гуселетов Б.П., Дибирова А.П., Дождиков А.В., Ильичева Л.Е., Ильичева М.В., Ирсетская Е.А., Карепова С.Г., Левашов В.К., Лиханова Т.Ю., Мерзликин Н.В., Мчедлова Е.М., Назаров М.М., Накисбаев Д.В., Насриддинов Т.Г. и др. Устойчивость российского государства и общества в условиях укрепления традиционных ценностей и становления многополярного мира. социальная и социально — политическая ситуация. — 2025. — URL: https://www.elibrary.ru/item.asp?id=82935261.",
-    "apa_en": "Baranovskaya, T. V. et al. (2025). The stability of the Russian state and society under the conditions of consolidation of traditional values and the formation of a multipolar world. Social and Social Political Situation. https://www.elibrary.ru/item.asp?id=82935261"
+    "gost_ru": "Барановская Т.В., Безвербный В.А., Березина Н.В., Великая Н.М., Голосеева А.А., Гребняк О.В., Гуселетов Б.П., Дибирова А.П., Дождиков А.В., Ильичева Л.Е., Ильичева М.В., Ирсетская Е.А., Карепова С.Г., Левашов В.К., Лиханова Т.Ю., Мерзликин Н.В., Мчедлова Е.М., Назаров М.М., Накисбаев Д.В., Насриддинов Т.Г. и др. Устойчивость российского государства и общества в условиях укрепления традиционных ценностей и становления многополярного мира. социальная и социально — политическая ситуация. // Ы. — 2025. — Т. сложившейся социокультурной и демографической реальности. Монография адресована исследователям, аналитикам, преподавателям, аспирантам, студентам, специализирующимся на изучении социально-политических и социокультурных процессов, политикам и управленцам, организаторам избирательных кампаний. — DOI: 10.19181/monogr.978-5-89697-443-7.2025.",
+    "apa_en": "Baranovskaya, T. V. et al. (2025). The stability of the Russian state and society under the conditions of consolidation of traditional values and the formation of a multipolar world. Social and Social Political Situation. Y, сложившейся социокультурной и демографической реальности. Монография адресована исследователям, аналитикам, преподавателям, аспирантам, студентам, специализирующимся на изучении социально-политических и социокультурных процессов, политикам и управленцам, организаторам избирательных кампаний.. https://doi.org/10.19181/monogr.978-5-89697-443-7.2025",
+    "publisher": "Федеральный научно-исследовательский социологический центр Российской академии наук",
+    "volume": "сложившейся социокультурной и демографической реальности. Монография адресована исследователям, аналитикам, преподавателям, аспирантам, студентам, специализирующимся на изучении социально-политических и социокультурных процессов, политикам и управленцам, организаторам избирательных кампаний.",
+    "isbn": "978-5-89697-443-7",
+    "elibrary_item_detail": {
+      "doi": "10.19181/monogr.978-5-89697-443-7.2025",
+      "isbn": "978-5-89697-443-7",
+      "venue": "Ы",
+      "publisher": "Федеральный научно-исследовательский социологический центр Российской академии наук",
+      "year": "издания:",
+      "volume": "сложившейся социокультурной и демографической реальности. Монография адресована исследователям, аналитикам, преподавателям, аспирантам, студентам, специализирующимся на изучении социально-политических и социокультурных процессов, политикам и управленцам, организаторам избирательных кампаний."
+    },
+    "crossref_metadata": {
+      "source": "crossref_api",
+      "doi": "10.19181/monogr.978-5-89697-443-7.2025",
+      "type": "edited-book",
+      "title": "Sustainability of the Russian state and society in the context of strengthening traditional values and the emergence of a multipolar world. Social and socio-political situation",
+      "subtitle": null,
+      "container_title": null,
+      "publisher": "Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences, Moscow, Russian Federation",
+      "volume": null,
+      "issue": null,
+      "page": "",
+      "year": 2025,
+      "issn": null,
+      "isbn": [
+        "9785896974437"
+      ],
+      "url": "https://doi.org/10.19181/monogr.978-5-89697-443-7.2025"
+    },
+    "publication_type": "edited-book"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -659,7 +711,7 @@
     "title": "Корреляционный анализ социальноэкономических факторов демографических изменений",
     "title_ru": "Корреляционный анализ социальноэкономических факторов демографических изменений",
     "authors_raw": "Ситковский А.М.",
-    "venue": null,
+    "venue": "Ы",
     "venue_ru": null,
     "year": 2025,
     "pages": "169-170",
@@ -674,8 +726,15 @@
     "title_en_source": "existing_latin",
     "title_ru_original": "КОРРЕЛЯЦИОННЫЙ АНАЛИЗ СОЦИАЛЬНОЭКОНОМИЧЕСКИХ ФАКТОРОВ ДЕМОГРАФИЧЕСКИХ ИЗМЕНЕНИЙ",
     "title_ru_display": "Корреляционный анализ социальноэкономических факторов демографических изменений",
-    "gost_ru": "Ситковский А.М. Корреляционный анализ социальноэкономических факторов демографических изменений. — 2025. — С. 169–170. — URL: https://www.elibrary.ru/item.asp?id=89267026.",
-    "apa_en": "Sitkovskii, A. M. (2025). Correlational Analysis of Social and Economic Factors of Demographic Change. https://www.elibrary.ru/item.asp?id=89267026"
+    "gost_ru": "Ситковский А.М. Корреляционный анализ социальноэкономических факторов демографических изменений. // Ы. — 2025. — С. 169–170. — URL: https://www.elibrary.ru/item.asp?id=89267026.",
+    "apa_en": "Sitkovskii, A. M. (2025). Correlational Analysis of Social and Economic Factors of Demographic Change. Y, 169–170. https://www.elibrary.ru/item.asp?id=89267026",
+    "publisher": "Вологодский научный центр РАН",
+    "elibrary_item_detail": {
+      "venue": "Ы",
+      "publisher": "Вологодский научный центр РАН",
+      "year": "2025",
+      "pages": "169-170"
+    }
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -1373,7 +1432,18 @@
     "publisher": "Russian State Vocational Pedagogical University",
     "publication_type": "journal-article",
     "gost_ru": "Ситковский А.М., Дождиков А.В. Внутрироссийская образовательная миграция молодежи: привлекательность регионов для получения высшего образования. // Образование и наука. — 2025. — Т. 27. — № 6. — С. 149–179. — DOI: 10.17853/1994-5639-2025-6-149-179.",
-    "apa_en": "Sitkovskii, A. M. & Dozhdikov, A. V. (2025). Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education. Obrazovanie I Nauka, 27(6), 149–179. https://doi.org/10.17853/1994-5639-2025-6-149-179"
+    "apa_en": "Sitkovskii, A. M. & Dozhdikov, A. V. (2025). Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education. Obrazovanie I Nauka, 27(6), 149–179. https://doi.org/10.17853/1994-5639-2025-6-149-179",
+    "issn": "1994-5639",
+    "elibrary_item_detail": {
+      "doi": "10.17853/1994-5639-2025-6-149-179",
+      "issn": "1994-5639",
+      "venue": "Ы",
+      "publisher": "ств:",
+      "year": "2025",
+      "volume": "27",
+      "issue": "6",
+      "pages": "149-179"
+    }
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -1540,7 +1610,7 @@
     "venue_ru": "Экономические и социальные перемены: факты, тенденции, прогноз",
     "year": 2025,
     "pages": "90-109",
-    "doi": null,
+    "doi": "10.15838/esc.2025.6.102.4",
     "metadata_raw": "Экономические и социальные перемены: факты, тенденции, прогноз . 2025. Т. 18. № 6 . С. 90-109.",
     "rinc_citations": 0,
     "dedupe_fingerprint": "568e73e9e25c6aa2",
@@ -1553,8 +1623,40 @@
     "title_ru_display": "Влияние агломерационного эффекта на демографическую политику территорий",
     "volume": "18",
     "issue": "6",
-    "gost_ru": "Ситковский А.М., Райсих А.Э., Гладкий А.С., Безвербная Н.А. Влияние агломерационного эффекта на демографическую политику территорий. // Экономические и социальные перемены: факты, тенденции, прогноз. — 2025. — Т. 18. — № 6. — С. 90–109. — URL: https://www.elibrary.ru/item.asp?id=88778278.",
-    "apa_en": "Sitkovskii, A. M., Raisikh, A. E., Gladkii, A. S., & Bezverbnaya, N. A. (2025). Influence of the Aglomeration Effect on the Demographic Politics of Territories. Ekonomicheskie i sotsialnye peremeny: fakty, tendentsii, prognoz, 18(6), 90–109. https://www.elibrary.ru/item.asp?id=88778278"
+    "gost_ru": "Ситковский А.М., Райсих А.Э., Гладкий А.С., Безвербная Н.А. Влияние агломерационного эффекта на демографическую политику территорий. // Экономические и социальные перемены: факты, тенденции, прогноз. — 2025. — Т. 18. — № 6. — С. 90–109. — DOI: 10.15838/esc.2025.6.102.4.",
+    "apa_en": "Sitkovskii, A. M., Raisikh, A. E., Gladkii, A. S., & Bezverbnaya, N. A. (2025). Influence of the Aglomeration Effect on the Demographic Politics of Territories. Ekonomicheskie i sotsialnye peremeny: fakty, tendentsii, prognoz, 18(6), 90–109. https://doi.org/10.15838/esc.2025.6.102.4",
+    "publisher": "ств:",
+    "issn": "1998-0698",
+    "elibrary_item_detail": {
+      "doi": "10.15838/esc.2025.6.102.4",
+      "issn": "1998-0698",
+      "venue": "Ы",
+      "publisher": "ств:",
+      "year": "2025",
+      "volume": "18",
+      "issue": "6",
+      "pages": "90-109"
+    },
+    "crossref_metadata": {
+      "source": "crossref_api",
+      "doi": "10.15838/esc.2025.6.102.4",
+      "type": "journal-article",
+      "title": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
+      "subtitle": null,
+      "container_title": "Economic and Social Changes: Facts, Trends, Forecast / Экономические и социальные перемены: факты, тенденции, прогноз",
+      "publisher": "Vologda Research Center of the RAS",
+      "volume": null,
+      "issue": "6 (102)",
+      "page": "",
+      "year": 2025,
+      "issn": [
+        "2307-0331",
+        "2312-9824"
+      ],
+      "isbn": null,
+      "url": "https://doi.org/10.15838/esc.2025.6.102.4"
+    },
+    "publication_type": "journal-article"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -2318,7 +2420,18 @@
     "publisher": "Peoples' Friendship University of Russia",
     "publication_type": "journal-article",
     "gost_ru": "Ростовская Т.К., Ситковский А.М. Государственная семейно — демографическая политика: обзор актуальных исследований и практик. // Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление. — 2025. — Т. 12. — № 3. — С. 319–327. — DOI: 10.22363/2312-8313-2025-12-3-319-327.",
-    "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2025). State demographic and family policy: an overview of current research and practices. RUDN Journal of Public Administration, 12(3), 319–327. https://doi.org/10.22363/2312-8313-2025-12-3-319-327"
+    "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2025). State demographic and family policy: an overview of current research and practices. RUDN Journal of Public Administration, 12(3), 319–327. https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
+    "issn": "2312-8313",
+    "elibrary_item_detail": {
+      "doi": "10.22363/2312-8313-2025-12-3-319-327",
+      "issn": "2312-8313",
+      "venue": "Ы",
+      "publisher": "ств:",
+      "year": "2025",
+      "volume": "12",
+      "issue": "3",
+      "pages": "319-327"
+    }
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -6712,8 +6825,8 @@
           "awards": [],
           "funders": [],
           "has_content": {
-            "pdf": false,
-            "grobid_xml": false
+            "grobid_xml": false,
+            "pdf": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
@@ -9184,8 +9297,8 @@
           "awards": [],
           "funders": [],
           "has_content": {
-            "pdf": false,
-            "grobid_xml": false
+            "grobid_xml": false,
+            "pdf": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
@@ -10764,15 +10877,15 @@
           "sustainable_development_goals": [
             {
               "display_name": "Reduced inequalities",
-              "score": 0.5199999809265137,
-              "id": "https://metadata.un.org/sdg/10"
+              "id": "https://metadata.un.org/sdg/10",
+              "score": 0.5199999809265137
             }
           ],
           "awards": [],
           "funders": [],
           "has_content": {
-            "pdf": false,
-            "grobid_xml": false
+            "grobid_xml": false,
+            "pdf": false
           },
           "content_urls": null,
           "referenced_works_count": 0,

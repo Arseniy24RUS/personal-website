@@ -18,13 +18,17 @@
     ],
     "cookie_domains_count": 35
   },
-  "final_url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0F7AJ5B8FTXGTvR0nxQ9ooU",
+  "candidate_records": 0,
+  "candidate_records_or_publications": 10,
+  "final_url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0FA09QjfBvjAoo7V2eQHIIM",
   "title": "Web of Science",
   "content_length": 265235,
-  "generated_at": "2026-06-03T20:08:44+00:00",
+  "api_reports": [],
+  "generated_at": "2026-06-04T01:47:27+00:00",
+  "previous_records": 0,
   "previous_records_or_publications": 10,
   "used_source": "saved_snapshot",
   "snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260603T145455Z.html",
-  "candidate_records_or_publications": 10,
+  "written_records": 0,
   "written_records_or_publications": 10
 }
