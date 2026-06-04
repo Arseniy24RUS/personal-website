@@ -4,6 +4,7 @@ from __future__ import annotations
 from pathlib import Path
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone
+from urllib.parse import unquote, urlparse, parse_qs
 import argparse
 import hashlib
 import json
@@ -23,6 +24,44 @@ def int_value(value: Any):
 
 def now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def normalize_doi(value: Any) -> str | None:
+    doi = clean(value)
+    doi = re.sub(r'^https?://(dx\.)?doi\.org/', '', doi, flags=re.I).strip()
+    doi = unquote(doi).rstrip('.,;').lower()
+    return doi or None
+
+
+def extract_doi(value: Any) -> str | None:
+    text = unquote(clean(value))
+    m = re.search(r'10\.\d{4,9}/[^\s<>,;"\'\)\]]+', text, flags=re.I)
+    if m:
+        return normalize_doi(m.group(0))
+    return None
+
+
+def doi_from_href(href: str) -> str | None:
+    if not href:
+        return None
+    decoded = unquote(href)
+    doi = extract_doi(decoded)
+    if doi:
+        return doi
+    try:
+        qs = parse_qs(urlparse(href).query)
+        for key in ['KeyAID', 'DestDOI', 'doi', 'DOI']:
+            for value in qs.get(key, []):
+                doi = extract_doi(value)
+                if doi:
+                    return doi
+        for value in qs.get('DestURL', []):
+            doi = extract_doi(value)
+            if doi:
+                return doi
+    except Exception:
+        pass
+    return None
 
 
 def parse_summary_items(soup: BeautifulSoup) -> dict:
@@ -98,13 +137,6 @@ def identifiers_dict(raw: dict) -> dict[str, str]:
         if isinstance(item, dict) and item.get('type') and item.get('value'):
             out[str(item['type']).lower()] = clean(item['value'])
     return out
-
-
-def normalize_doi(value: Any) -> str | None:
-    doi = clean(value)
-    doi = re.sub(r'^https?://(dx\.)?doi\.org/', '', doi, flags=re.I).strip()
-    doi = doi.rstrip('.,;').lower()
-    return doi or None
 
 
 def normalize_pages(value: Any) -> str | None:
@@ -240,20 +272,22 @@ def parse_record(record) -> dict:
         candidates = [p for p in parts if len(p) > 18 and not p.isdigit() and p.lower() not in {'article', 'review', 'proceedings paper'}]
         title = candidates[0] if candidates else ''
     year = extract_year(record, parts)
-    doi = None
     joined = ' '.join(parts)
-    m = re.search(r'10\.\d{4,9}/[^\s<>,;"\']+', joined, flags=re.I)
-    if m:
-        doi = normalize_doi(m.group(0))
+    doi = extract_doi(joined)
     record_id = None
     url = None
-    link = title_el or record.find('a', href=True)
-    if link:
-        href = link.get('href') or ''
+    title_link = title_el or record.find('a', href=True)
+    if title_link:
+        href = title_link.get('href') or ''
         url = href if href.startswith('http') else 'https://www.webofscience.com' + href
         id_match = re.search(r'WOS:([A-Z0-9]+)', href)
         if id_match:
             record_id = 'WOS:' + id_match.group(1)
+    if not doi:
+        for link in record.find_all('a', href=True):
+            doi = doi_from_href(link.get('href') or '')
+            if doi:
+                break
     authors = first_text(record, ['app-summary-authors'])
     venue = first_text(record, ['.summary-source-title', '[data-ta^="jcrSidenav"][data-ta$="main-header"]'])
     if not venue and 'Journal information' in parts:
