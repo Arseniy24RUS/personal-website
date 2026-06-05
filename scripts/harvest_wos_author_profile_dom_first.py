@@ -3,8 +3,9 @@
 
 The primary source is the rendered Web of Science profile page. The harvester:
 1. opens the public author profile;
-2. forces the stable `/author_profile_page/claimed` route if WoS leaves the
-   browser on the transient Nextgen/transfer URL;
+2. if WoS leaves the browser on a transient Nextgen/transfer URL, returns to the
+   public `/wos/author/record/<ResearcherID>` route rather than the fragile
+   deep `/author_profile_page/claimed` route;
 3. waits for rendered `app-record` nodes and parses them from page.content();
 4. saves a screenshot and a redacted HTML diagnostic when live DOM records are
    not available;
@@ -22,10 +23,15 @@ import harvest_wos_author_profile_production as prod
 base = prod.base
 USER_AGENT = prod.USER_AGENT
 DOM_WAIT_SEC = int(os.environ.get('WOS_DOM_WAIT_SEC', str(max(base.WAIT_SEC, 180))))
-CLAIMED_URL = os.environ.get(
-    'WOS_CLAIMED_PROFILE_URL',
-    f'https://www.webofscience.com/wos/author/record/{base.RESEARCHER_ID}/author_profile_page/claimed',
+PUBLIC_PROFILE_URL = os.environ.get(
+    'WOS_STABLE_PROFILE_URL',
+    f'https://www.webofscience.com/wos/author/record/{base.RESEARCHER_ID}',
 )
+# Optional only: the latest diagnostics show that directly forcing the claimed
+# deep route can render "This page doesn't exist" in GitHub Actions. Therefore it
+# is no longer used by default.
+OPTIONAL_CLAIMED_URL = os.environ.get('WOS_CLAIMED_PROFILE_URL', '').strip()
+ROUTE_CANDIDATES = [PUBLIC_PROFILE_URL] + ([OPTIONAL_CLAIMED_URL] if OPTIONAL_CLAIMED_URL else [])
 
 
 def safe_page_content(page) -> str:
@@ -49,7 +55,7 @@ def redacted_html(html: str | None) -> str:
         flags=re.S,
     )
     text = re.sub(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[REDACTED_EMAIL]', text)
-    text = re.sub(r'EUW[A-Za-z0-9]{8,}', '[REDACTED_SID]', text)
+    text = re.sub(r'[A-Z]{2,3}\d[A-Z0-9]{20,}', '[REDACTED_SID]', text)
     return text
 
 
@@ -82,6 +88,7 @@ def selector_counts(page) -> dict:
         'app_author_profile': 'app-author-profile',
         'spinner': 'mat-progress-spinner, .cdx-spinner, .wat-spinner',
         'cookie_banner': '#onetrust-banner-sdk',
+        'free_view_dialog': 'mat-dialog-container, .cdk-overlay-container',
     }
     out = {}
     for key, selector in selectors.items():
@@ -92,11 +99,16 @@ def selector_counts(page) -> dict:
     return out
 
 
-def body_text_sample(page) -> str:
+def body_text_sample(page, limit: int = 1600) -> str:
     try:
-        return re.sub(r'\s+', ' ', page.locator('body').inner_text(timeout=3000))[:1600]
+        return re.sub(r'\s+', ' ', page.locator('body').inner_text(timeout=3000))[:limit]
     except Exception:
         return ''
+
+
+def page_is_not_found(page) -> bool:
+    sample = body_text_sample(page, 800).lower()
+    return "this page doesn't exist" in sample or 'this page does not exist' in sample
 
 
 def save_diagnostics(page, html: str | None, report: dict, label: str) -> None:
@@ -126,26 +138,52 @@ def save_diagnostics(page, html: str | None, report: dict, label: str) -> None:
     report.setdefault('diagnostic_artifacts', []).append(payload)
 
 
-def dismiss_cookie_banner(page, report: dict) -> None:
-    for selector in ['#onetrust-accept-btn-handler', 'button:has-text("Accept All")', 'button:has-text("Accept all")']:
+def click_optional(page, selectors: list[str], report: dict, key: str) -> None:
+    for selector in selectors:
         try:
-            button = page.locator(selector).first
-            if button.count() and button.is_visible(timeout=1000):
-                button.click(timeout=2000)
-                report['cookie_banner_clicked'] = selector
+            target = page.locator(selector).first
+            if target.count() and target.is_visible(timeout=1000):
+                target.click(timeout=2500)
+                report[key] = selector
                 return
         except Exception:
             pass
 
 
-def force_claimed_route_if_needed(page, report: dict, reason: str) -> None:
+def dismiss_overlays(page, report: dict) -> None:
+    click_optional(
+        page,
+        ['#onetrust-accept-btn-handler', 'button:has-text("Accept All")', 'button:has-text("Accept all")'],
+        report,
+        'cookie_banner_clicked',
+    )
+    click_optional(
+        page,
+        ['button:has-text("Got it")', 'button:has-text("Got It")', 'button:has-text("OK")'],
+        report,
+        'free_view_dialog_clicked',
+    )
+
+
+def navigate_candidate(page, report: dict, reason: str, candidate_url: str | None = None) -> None:
+    target = candidate_url or ROUTE_CANDIDATES[0]
     current = page.url
-    if is_transfer_url(current) or '/author/record/' not in current or reason == 'force':
-        report.setdefault('route_forcing', []).append({'reason': reason, 'from': current, 'to': CLAIMED_URL})
-        try:
-            page.goto(CLAIMED_URL, wait_until='domcontentloaded', timeout=max(base.WAIT_SEC, 60) * 1000)
-        except Exception as exc:
-            report.setdefault('route_forcing_errors', []).append({'reason': reason, 'error': repr(exc), 'current_url': page.url})
+    report.setdefault('route_forcing', []).append({'reason': reason, 'from': current, 'to': target})
+    try:
+        page.goto(target, wait_until='domcontentloaded', timeout=max(base.WAIT_SEC, 60) * 1000)
+        dismiss_overlays(page, report)
+    except Exception as exc:
+        report.setdefault('route_forcing_errors', []).append({'reason': reason, 'target': target, 'error': repr(exc), 'current_url': page.url})
+
+
+def recover_route_if_needed(page, report: dict, reason: str) -> None:
+    # Do not force a fragile deep route by default. The successful saved page URL
+    # is /wos/author/record/<RID>; the claimed route is only tried when explicitly
+    # supplied through WOS_CLAIMED_PROFILE_URL.
+    if is_transfer_url(page.url) or '/author/record/' not in page.url or page_is_not_found(page):
+        navigate_candidate(page, report, reason, ROUTE_CANDIDATES[0])
+    if page_is_not_found(page) and len(ROUTE_CANDIDATES) > 1:
+        navigate_candidate(page, report, reason + '_optional_claimed', ROUTE_CANDIDATES[1])
 
 
 def browser_dom_first(previous):
@@ -155,9 +193,10 @@ def browser_dom_first(previous):
         return None, {'status': 'playwright_import_failed', 'error': repr(exc)}, None
 
     report = {
-        'route': 'browser_dom_first_claimed_route',
+        'route': 'browser_dom_first_public_profile_route',
         'url': base.URL,
-        'claimed_url': CLAIMED_URL,
+        'public_profile_url': PUBLIC_PROFILE_URL,
+        'optional_claimed_url': OPTIONAL_CLAIMED_URL or None,
         'dom_wait_sec': DOM_WAIT_SEC,
         'input_state': {
             'cookie_secret_present': bool(base.WOS_COOKIE),
@@ -202,21 +241,22 @@ def browser_dom_first(previous):
         page = context.new_page()
         try:
             page.goto(base.URL, wait_until='domcontentloaded', timeout=max(base.WAIT_SEC, 60) * 1000)
-            dismiss_cookie_banner(page, report)
-            force_claimed_route_if_needed(page, report, 'after_initial_goto')
+            dismiss_overlays(page, report)
+            recover_route_if_needed(page, report, 'after_initial_goto')
             try:
                 page.wait_for_selector('app-record', timeout=45000)
             except Exception as exc:
                 report['initial_app_record_wait'] = repr(exc)
-                force_claimed_route_if_needed(page, report, 'after_initial_app_record_timeout')
+                recover_route_if_needed(page, report, 'after_initial_app_record_timeout')
 
             html = ''
             best_dom = None
             for elapsed in range(0, DOM_WAIT_SEC + 1, 5):
                 if elapsed:
                     page.wait_for_timeout(5000)
-                if elapsed in {0, 15, 30, 60} and is_transfer_url(page.url):
-                    force_claimed_route_if_needed(page, report, f'transfer_url_at_{elapsed}s')
+                if elapsed in {0, 15, 30, 60, 120}:
+                    recover_route_if_needed(page, report, f'periodic_route_check_{elapsed}s')
+                dismiss_overlays(page, report)
                 try:
                     page.mouse.wheel(0, 1400)
                 except Exception:
@@ -229,17 +269,19 @@ def browser_dom_first(previous):
                 html = safe_page_content(page)
                 dom_data = base.carry_forward_metrics(base.parse_wos_author_profile_html(html, base.RESEARCHER_ID), previous) if html else None
                 dom_records = prod.records_count(dom_data)
-                counts = selector_counts(page)
+                sample = body_text_sample(page, 700)
                 item = {
                     'elapsed_sec': elapsed,
                     'url': page.url,
-                    'selector_counts': counts,
+                    'selector_counts': selector_counts(page),
+                    'not_found': "This page doesn't exist" in sample,
                     'parsed_records': dom_records,
                     'parsed_records_or_publications': prod.normalized_count(dom_data),
                     'content_length': len((html or '').encode('utf-8', errors='replace')),
+                    'body_text_sample': sample,
                 }
                 progress.append(item)
-                report['dom_progress_tail'] = progress[-12:]
+                report['dom_progress_tail'] = progress[-8:]
                 report['candidate_dom_records'] = dom_records
                 report['candidate_dom_records_or_publications'] = prod.normalized_count(dom_data)
                 if dom_records:
@@ -254,7 +296,7 @@ def browser_dom_first(previous):
                         'final_url': page.url,
                         'title': page.title(),
                         'content_length': len(html.encode('utf-8', errors='replace')),
-                        'dom_progress_tail': progress[-12:],
+                        'dom_progress_tail': progress[-8:],
                     })
                     save_diagnostics(page, html, report, 'success_dom_records')
                     context.close(); browser.close()
@@ -266,7 +308,7 @@ def browser_dom_first(previous):
                 'records_or_publications': prod.normalized_count(best_dom),
                 'final_url': page.url,
                 'content_length': len((html or '').encode('utf-8', errors='replace')),
-                'dom_progress_tail': progress[-12:],
+                'dom_progress_tail': progress[-8:],
             })
             save_diagnostics(page, html, report, 'failure_no_dom_records')
             context.close(); browser.close()
@@ -279,7 +321,7 @@ def browser_dom_first(previous):
                 'error': repr(exc),
                 'records': prod.records_count(candidate),
                 'records_or_publications': prod.normalized_count(candidate),
-                'dom_progress_tail': progress[-12:],
+                'dom_progress_tail': progress[-8:],
             })
             try:
                 save_diagnostics(page, html, report, 'error')
@@ -344,7 +386,7 @@ def main() -> int:
     previous = base.read_json(base.OUT, None)
     report: dict = {
         'generated_at': base.now(),
-        'strategy': 'dom_first_claimed_route',
+        'strategy': 'dom_first_public_profile_route',
         'previous_records': prod.records_count(previous),
         'previous_records_or_publications': prod.normalized_count(previous),
     }
