@@ -13,6 +13,14 @@ on:
         required: false
         default: "240"
         type: string
+      use_home_vpn:
+        description: "Use the same home OpenVPN route as the production refresh"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
 
 concurrency:
   group: test-wos-dom-harvester
@@ -32,7 +40,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install dependencies
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openvpn curl iproute2 xvfb
+      - name: Install Python dependencies and browsers
         run: |
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4 pyyaml playwright
@@ -48,6 +60,35 @@ jobs:
             echo "WOS_RESEARCHER_ID=${{ inputs.wos_researcher_id }}" >> "$GITHUB_ENV"
             echo "WOS_PROFILE_URL=https://www.webofscience.com/wos/author/record/${{ inputs.wos_researcher_id }}" >> "$GITHUB_ENV"
           fi
+      - name: Connect home OpenVPN route for WoS
+        if: ${{ inputs.use_home_vpn == 'true' }}
+        env:
+          ELIBRARY_OPENVPN_CONFIG_B64: ${{ secrets.ELIBRARY_OPENVPN_CONFIG_B64 }}
+        run: |
+          if [ -z "$ELIBRARY_OPENVPN_CONFIG_B64" ]; then
+            echo "ELIBRARY_OPENVPN_CONFIG_B64 is not set; WoS test will use the normal runner route."
+            exit 0
+          fi
+          umask 077
+          printf '%s' "$ELIBRARY_OPENVPN_CONFIG_B64" | base64 --decode > home-openvpn.ovpn
+          IP_BEFORE=$(curl -fsS --max-time 20 https://api.ipify.org || true)
+          echo "Public IP before home VPN: ${IP_BEFORE:-not available}"
+          sudo openvpn \
+            --config home-openvpn.ovpn \
+            --data-ciphers-fallback AES-128-CBC \
+            --allow-compression yes \
+            --daemon \
+            --writepid openvpn.pid \
+            --log openvpn.log
+          for i in $(seq 1 60); do
+            if ip link show tun0 >/dev/null 2>&1; then
+              echo "Home VPN tun0 is up"
+              break
+            fi
+            sleep 2
+          done
+          IP_AFTER=$(curl -fsS --max-time 30 https://api.ipify.org || true)
+          echo "Public IP after home VPN: ${IP_AFTER:-not available}"
       - name: Run isolated WoS DOM test
         env:
           WOS_PROFILE_OUT: data/wos/profile_metrics.json
@@ -75,6 +116,16 @@ jobs:
               'source': data.get('source')
           })
           PY
+      - name: Stop home OpenVPN route
+        if: always()
+        run: |
+          if [ -f openvpn.pid ]; then
+            sudo kill "$(cat openvpn.pid)" 2>/dev/null || true
+          fi
+          if [ -f openvpn.log ]; then
+            echo "OpenVPN log tail:"
+            sudo tail -n 120 openvpn.log || true
+          fi
       - name: Upload WoS diagnostics
         if: always()
         uses: actions/upload-artifact@v4
