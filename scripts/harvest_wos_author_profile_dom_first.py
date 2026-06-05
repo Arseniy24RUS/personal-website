@@ -6,12 +6,12 @@ The primary source is the rendered Web of Science profile page. The harvester:
 2. if WoS leaves the browser on a transient Nextgen/transfer URL, returns to the
    public `/wos/author/record/<ResearcherID>` route rather than the fragile
    deep `/author_profile_page/claimed` route;
-3. waits for rendered `app-record` nodes and parses them from page.content();
-4. detects Web of Science human-verification screens and exits quickly with
-   diagnostics instead of waiting for a DOM that cannot appear;
-5. saves a screenshot and a redacted HTML diagnostic when live DOM records are
-   not available;
-6. never overwrites stronger previous WoS records with a weak/empty live result.
+3. supports three browser modes: normal Playwright context, persistent local
+   Chrome profile, or a browser already started with remote debugging;
+4. waits for rendered `app-record` nodes and parses them from page.content();
+5. detects Web of Science human-verification screens and preserves cached data;
+6. saves screenshot/redacted HTML/browser diagnostics for failed live attempts;
+7. never overwrites stronger previous WoS records with a weak/empty live result.
 """
 from __future__ import annotations
 
@@ -19,11 +19,12 @@ from pathlib import Path
 import json
 import os
 import re
+from typing import Any
 
 import harvest_wos_author_profile_production as prod
 
 base = prod.base
-USER_AGENT = prod.USER_AGENT
+USER_AGENT = os.environ.get('WOS_USER_AGENT', prod.USER_AGENT)
 DOM_WAIT_SEC = int(os.environ.get('WOS_DOM_WAIT_SEC', str(max(base.WAIT_SEC, 180))))
 PUBLIC_PROFILE_URL = os.environ.get(
     'WOS_STABLE_PROFILE_URL',
@@ -33,6 +34,9 @@ PUBLIC_PROFILE_URL = os.environ.get(
 # can render "This page doesn't exist" in GitHub Actions. It is disabled by default.
 OPTIONAL_CLAIMED_URL = os.environ.get('WOS_CLAIMED_PROFILE_URL', '').strip()
 ROUTE_CANDIDATES = [PUBLIC_PROFILE_URL] + ([OPTIONAL_CLAIMED_URL] if OPTIONAL_CLAIMED_URL else [])
+PERSISTENT_USER_DATA_DIR = os.environ.get('WOS_CHROME_USER_DATA_DIR', '').strip()
+CDP_ENDPOINT = os.environ.get('WOS_CDP_ENDPOINT', '').strip()
+KEEP_BROWSER_OPEN = os.environ.get('WOS_KEEP_BROWSER_OPEN', '').lower() in {'1', 'true', 'yes'}
 
 HUMAN_VERIFICATION_PATTERNS = [
     ('unusual_activity', 'unusual activity coming from your institution'),
@@ -42,6 +46,26 @@ HUMAN_VERIFICATION_PATTERNS = [
     ('captcha', 'captcha'),
     ('turing', 'turing'),
 ]
+
+
+class BrowserHandle:
+    def __init__(self, context, browser=None, mode: str = 'new_context'):
+        self.context = context
+        self.browser = browser
+        self.mode = mode
+
+    def close(self) -> None:
+        if KEEP_BROWSER_OPEN:
+            return
+        try:
+            self.context.close()
+        except Exception:
+            pass
+        try:
+            if self.browser:
+                self.browser.close()
+        except Exception:
+            pass
 
 
 def safe_page_content(page) -> str:
@@ -66,6 +90,7 @@ def redacted_html(html: str | None) -> str:
     )
     text = re.sub(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[REDACTED_EMAIL]', text)
     text = re.sub(r'[A-Z]{2,3}\d[A-Z0-9]{20,}', '[REDACTED_SID]', text)
+    text = re.sub(r'("(?:SID|ReportingID|session|wos_sid|UserAuthID|AuthEnvID)"\s*:\s*")([^"]+)(")', r'\1[REDACTED]\3', text)
     return text
 
 
@@ -102,6 +127,73 @@ def human_verification_info(sample: str | None) -> dict | None:
     }
 
 
+def cookie_names_from_header(value: str) -> list[str]:
+    names = []
+    for chunk in (value or '').split(';'):
+        if '=' in chunk:
+            name = chunk.split('=', 1)[0].strip()
+            if name and name not in names:
+                names.append(name)
+    return names
+
+
+def sanitize_headers(headers: dict[str, str] | None) -> dict[str, Any]:
+    out: dict[str, Any] = {}
+    for key, value in (headers or {}).items():
+        lk = key.lower()
+        if lk in {'cookie', 'authorization'}:
+            out[lk + '_names'] = cookie_names_from_header(value) if lk == 'cookie' else '[REDACTED]'
+        elif lk in {
+            'user-agent', 'accept', 'accept-language', 'accept-encoding', 'sec-ch-ua',
+            'sec-ch-ua-mobile', 'sec-ch-ua-platform', 'sec-fetch-site', 'sec-fetch-mode',
+            'sec-fetch-user', 'sec-fetch-dest', 'upgrade-insecure-requests', 'priority',
+            'content-type', 'origin', 'referer'
+        }:
+            out[lk] = value
+    return out
+
+
+def attach_network_probe(page, report: dict) -> None:
+    events = []
+    report['network_events_sample'] = events
+
+    def add_event(kind: str, payload: dict) -> None:
+        if len(events) >= 60:
+            return
+        url = payload.get('url') or ''
+        if 'webofscience.com' not in url and 'webofknowledge.com' not in url and 'clarivate' not in url:
+            return
+        events.append({'kind': kind, **payload})
+
+    def on_request(req):
+        try:
+            add_event('request', {
+                'method': req.method,
+                'resource_type': req.resource_type,
+                'url': req.url[:500],
+                'headers': sanitize_headers(req.headers),
+            })
+        except Exception:
+            pass
+
+    def on_response(resp):
+        try:
+            hdrs = {k.lower(): v for k, v in resp.headers.items()}
+            add_event('response', {
+                'status': resp.status,
+                'url': resp.url[:500],
+                'headers': {k: hdrs.get(k) for k in ['content-type', 'server', 'cf-ray', 'cf-cache-status', 'set-cookie'] if hdrs.get(k)},
+            })
+        except Exception:
+            pass
+
+    try:
+        page.on('request', on_request)
+        page.on('response', on_response)
+    except Exception:
+        pass
+
+
 def selector_counts(page) -> dict:
     selectors = {
         'app_record': 'app-record',
@@ -128,6 +220,50 @@ def body_text_sample(page, limit: int = 1600) -> str:
         return ''
 
 
+def browser_environment(page) -> dict:
+    try:
+        return page.evaluate(
+            """async () => {
+              const out = {
+                userAgent: navigator.userAgent,
+                webdriver: navigator.webdriver,
+                platform: navigator.platform,
+                languages: navigator.languages,
+                language: navigator.language,
+                hardwareConcurrency: navigator.hardwareConcurrency,
+                deviceMemory: navigator.deviceMemory,
+                maxTouchPoints: navigator.maxTouchPoints,
+                pluginsLength: navigator.plugins ? navigator.plugins.length : null,
+                mimeTypesLength: navigator.mimeTypes ? navigator.mimeTypes.length : null,
+                screen: {width: screen.width, height: screen.height, availWidth: screen.availWidth, availHeight: screen.availHeight, colorDepth: screen.colorDepth, pixelDepth: screen.pixelDepth},
+                inner: {width: innerWidth, height: innerHeight, devicePixelRatio},
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                userAgentData: null,
+                webgl: null,
+              };
+              try {
+                if (navigator.userAgentData) {
+                  out.userAgentData = {
+                    brands: navigator.userAgentData.brands,
+                    mobile: navigator.userAgentData.mobile,
+                    platform: navigator.userAgentData.platform,
+                    highEntropy: await navigator.userAgentData.getHighEntropyValues(['architecture','bitness','fullVersionList','model','platformVersion','uaFullVersion','wow64']).catch(e => null)
+                  };
+                }
+              } catch(e) {}
+              try {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                const dbg = gl && gl.getExtension('WEBGL_debug_renderer_info');
+                if (gl && dbg) out.webgl = {vendor: gl.getParameter(dbg.UNMASKED_VENDOR_WEBGL), renderer: gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)};
+              } catch(e) {}
+              return out;
+            }"""
+        )
+    except Exception as exc:
+        return {'error': repr(exc)}
+
+
 def page_is_not_found(page) -> bool:
     sample = body_text_sample(page, 800).lower()
     return "this page doesn't exist" in sample or 'this page does not exist' in sample
@@ -144,6 +280,8 @@ def save_diagnostics(page, html: str | None, report: dict, label: str) -> None:
         'selector_counts': selector_counts(page),
         'content_length': len((html or '').encode('utf-8', errors='replace')),
         'human_verification': human_verification_info(sample),
+        'browser_environment': browser_environment(page),
+        'network_events_sample': report.get('network_events_sample', [])[-30:],
         'body_text_sample': sample,
     }
     try:
@@ -210,6 +348,68 @@ def recover_route_if_needed(page, report: dict, reason: str) -> None:
         navigate_candidate(page, report, reason + '_optional_claimed', ROUTE_CANDIDATES[1])
 
 
+def create_browser_context(p, report: dict) -> BrowserHandle:
+    headless = os.environ.get('WOS_BROWSER_HEADLESS', 'false').lower() not in {'0', 'false', 'no'}
+    channel = os.environ.get('WOS_BROWSER_CHANNEL', 'chrome').strip() or None
+    common = {
+        'locale': 'en-US',
+        'timezone_id': 'Europe/Moscow',
+        'viewport': {'width': 1440, 'height': 1400},
+    }
+    # In persistent/local modes, avoid forcing a synthetic UA unless the caller set
+    # WOS_USER_AGENT explicitly. The goal is to use the local browser as-is.
+    if os.environ.get('WOS_USER_AGENT') or not (PERSISTENT_USER_DATA_DIR or CDP_ENDPOINT):
+        common['user_agent'] = USER_AGENT
+
+    if CDP_ENDPOINT:
+        browser = p.chromium.connect_over_cdp(CDP_ENDPOINT)
+        context = browser.contexts[0] if browser.contexts else browser.new_context(**common)
+        report['browser_mode'] = 'cdp_existing_browser'
+        report['cdp_endpoint_present'] = True
+        return BrowserHandle(context=context, browser=browser, mode='cdp')
+
+    launch_args = ['--disable-dev-shm-usage', '--no-sandbox']
+    launch_kwargs: dict[str, Any] = {'headless': headless, 'args': launch_args}
+    if channel:
+        launch_kwargs['channel'] = channel
+
+    if PERSISTENT_USER_DATA_DIR:
+        Path(PERSISTENT_USER_DATA_DIR).mkdir(parents=True, exist_ok=True)
+        try:
+            context = p.chromium.launch_persistent_context(PERSISTENT_USER_DATA_DIR, **launch_kwargs, **common)
+        except Exception as exc:
+            report['persistent_context_launch_error'] = repr(exc)
+            launch_kwargs.pop('channel', None)
+            context = p.chromium.launch_persistent_context(PERSISTENT_USER_DATA_DIR, **launch_kwargs, **common)
+            report['channel_fallback'] = 'bundled_chromium'
+        report['browser_mode'] = 'persistent_context'
+        report['persistent_user_data_dir_present'] = True
+        return BrowserHandle(context=context, mode='persistent')
+
+    try:
+        browser = p.chromium.launch(**launch_kwargs)
+    except Exception as exc:
+        report['browser_launch_error'] = repr(exc)
+        launch_kwargs.pop('channel', None)
+        browser = p.chromium.launch(**launch_kwargs)
+        report['channel_fallback'] = 'bundled_chromium'
+
+    state_path = base.storage_state_path_from_secret(report)
+    if state_path:
+        common['storage_state'] = state_path
+    context = browser.new_context(**common)
+    if base.WOS_COOKIE:
+        try:
+            cookies = prod.cookie_header_to_playwright(base.WOS_COOKIE)
+            context.add_cookies(cookies)
+            report['input_state']['cookie_names'] = sorted({c['name'] for c in cookies})
+            report['input_state']['cookie_domains_count'] = len(cookies)
+        except Exception as exc:
+            report['input_state']['cookie_add_error'] = repr(exc)
+    report['browser_mode'] = 'new_context'
+    return BrowserHandle(context=context, browser=browser, mode='new_context')
+
+
 def browser_dom_first(previous):
     try:
         from playwright.sync_api import sync_playwright  # type: ignore
@@ -225,46 +425,20 @@ def browser_dom_first(previous):
         'input_state': {
             'cookie_secret_present': bool(base.WOS_COOKIE),
             'storage_state_secret_present': bool(base.WOS_STORAGE_STATE_B64),
+            'persistent_user_data_dir_env_present': bool(PERSISTENT_USER_DATA_DIR),
+            'cdp_endpoint_env_present': bool(CDP_ENDPOINT),
         },
     }
     progress = []
-    headless = os.environ.get('WOS_BROWSER_HEADLESS', 'false').lower() not in {'0', 'false', 'no'}
-    channel = os.environ.get('WOS_BROWSER_CHANNEL', 'chrome').strip() or None
 
     with sync_playwright() as p:
-        launch_kwargs = {'headless': headless, 'args': ['--disable-dev-shm-usage', '--no-sandbox']}
-        if channel:
-            launch_kwargs['channel'] = channel
-        try:
-            browser = p.chromium.launch(**launch_kwargs)
-        except Exception as exc:
-            report['browser_launch_error'] = repr(exc)
-            launch_kwargs.pop('channel', None)
-            browser = p.chromium.launch(**launch_kwargs)
-            report['channel_fallback'] = 'bundled_chromium'
-
-        context_kwargs = {
-            'locale': 'en-US',
-            'timezone_id': 'Europe/Moscow',
-            'user_agent': USER_AGENT,
-            'viewport': {'width': 1440, 'height': 1400},
-        }
-        state_path = base.storage_state_path_from_secret(report)
-        if state_path:
-            context_kwargs['storage_state'] = state_path
-        context = browser.new_context(**context_kwargs)
-        if base.WOS_COOKIE:
-            try:
-                cookies = prod.cookie_header_to_playwright(base.WOS_COOKIE)
-                context.add_cookies(cookies)
-                report['input_state']['cookie_names'] = sorted({c['name'] for c in cookies})
-                report['input_state']['cookie_domains_count'] = len(cookies)
-            except Exception as exc:
-                report['input_state']['cookie_add_error'] = repr(exc)
-
+        handle = create_browser_context(p, report)
+        context = handle.context
         page = context.new_page()
+        attach_network_probe(page, report)
         try:
             page.goto(base.URL, wait_until='domcontentloaded', timeout=max(base.WAIT_SEC, 60) * 1000)
+            report['browser_environment_initial'] = browser_environment(page)
             dismiss_overlays(page, report)
             recover_route_if_needed(page, report, 'after_initial_goto')
             try:
@@ -324,7 +498,7 @@ def browser_dom_first(previous):
                         'dom_progress_tail': progress[-8:],
                     })
                     save_diagnostics(page, html, report, 'human_verification_required')
-                    context.close(); browser.close()
+                    handle.close()
                     return html or None, report, best_dom
                 if good_dom_records(dom_data):
                     report.update({
@@ -339,7 +513,7 @@ def browser_dom_first(previous):
                         'dom_progress_tail': progress[-8:],
                     })
                     save_diagnostics(page, html, report, 'success_dom_records')
-                    context.close(); browser.close()
+                    handle.close()
                     return html, report, dom_data
 
             report.update({
@@ -351,7 +525,7 @@ def browser_dom_first(previous):
                 'dom_progress_tail': progress[-8:],
             })
             save_diagnostics(page, html, report, 'failure_no_dom_records')
-            context.close(); browser.close()
+            handle.close()
             return html or None, report, best_dom
         except Exception as exc:
             html = safe_page_content(page)
@@ -367,7 +541,7 @@ def browser_dom_first(previous):
                 save_diagnostics(page, html, report, 'error')
             except Exception:
                 pass
-            context.close(); browser.close()
+            handle.close()
             return html or None, report, candidate
 
 
