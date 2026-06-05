@@ -7,9 +7,11 @@ The primary source is the rendered Web of Science profile page. The harvester:
    public `/wos/author/record/<ResearcherID>` route rather than the fragile
    deep `/author_profile_page/claimed` route;
 3. waits for rendered `app-record` nodes and parses them from page.content();
-4. saves a screenshot and a redacted HTML diagnostic when live DOM records are
+4. detects Web of Science human-verification screens and exits quickly with
+   diagnostics instead of waiting for a DOM that cannot appear;
+5. saves a screenshot and a redacted HTML diagnostic when live DOM records are
    not available;
-5. never overwrites stronger previous WoS records with a weak/empty live result.
+6. never overwrites stronger previous WoS records with a weak/empty live result.
 """
 from __future__ import annotations
 
@@ -27,11 +29,19 @@ PUBLIC_PROFILE_URL = os.environ.get(
     'WOS_STABLE_PROFILE_URL',
     f'https://www.webofscience.com/wos/author/record/{base.RESEARCHER_ID}',
 )
-# Optional only: the latest diagnostics show that directly forcing the claimed
-# deep route can render "This page doesn't exist" in GitHub Actions. Therefore it
-# is no longer used by default.
+# Optional only: diagnostics showed that directly forcing the claimed deep route
+# can render "This page doesn't exist" in GitHub Actions. It is disabled by default.
 OPTIONAL_CLAIMED_URL = os.environ.get('WOS_CLAIMED_PROFILE_URL', '').strip()
 ROUTE_CANDIDATES = [PUBLIC_PROFILE_URL] + ([OPTIONAL_CLAIMED_URL] if OPTIONAL_CLAIMED_URL else [])
+
+HUMAN_VERIFICATION_PATTERNS = [
+    ('unusual_activity', 'unusual activity coming from your institution'),
+    ('verify_human', 'please verify you are human'),
+    ('challenge_expired', 'the challenge has expired'),
+    ('customer_support_challenge', "can't solve this? contact customer support"),
+    ('captcha', 'captcha'),
+    ('turing', 'turing'),
+]
 
 
 def safe_page_content(page) -> str:
@@ -80,6 +90,18 @@ def is_transfer_url(url: str | None) -> bool:
     return 'mode=Nextgen' in url or 'action=transfer' in url or '/wos/?' in url
 
 
+def human_verification_info(sample: str | None) -> dict | None:
+    text = (sample or '').lower()
+    hits = [code for code, pattern in HUMAN_VERIFICATION_PATTERNS if pattern in text]
+    if not hits:
+        return None
+    return {
+        'required': True,
+        'signals': hits,
+        'message': 'Web of Science is asking for human verification; live DOM records cannot be collected in this non-interactive run.',
+    }
+
+
 def selector_counts(page) -> dict:
     selectors = {
         'app_record': 'app-record',
@@ -114,13 +136,15 @@ def page_is_not_found(page) -> bool:
 def save_diagnostics(page, html: str | None, report: dict, label: str) -> None:
     base.ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
     prefix = base.ARTIFACT_DIR / f'wos_{base.RESEARCHER_ID}_{base.stamp()}_{label}'
+    sample = body_text_sample(page)
     payload = {
         'label': label,
         'url': page.url,
         'title': None,
         'selector_counts': selector_counts(page),
         'content_length': len((html or '').encode('utf-8', errors='replace')),
-        'body_text_sample': body_text_sample(page),
+        'human_verification': human_verification_info(sample),
+        'body_text_sample': sample,
     }
     try:
         payload['title'] = page.title()
@@ -269,12 +293,14 @@ def browser_dom_first(previous):
                 html = safe_page_content(page)
                 dom_data = base.carry_forward_metrics(base.parse_wos_author_profile_html(html, base.RESEARCHER_ID), previous) if html else None
                 dom_records = prod.records_count(dom_data)
-                sample = body_text_sample(page, 700)
+                sample = body_text_sample(page, 900)
+                human = human_verification_info(sample)
                 item = {
                     'elapsed_sec': elapsed,
                     'url': page.url,
                     'selector_counts': selector_counts(page),
                     'not_found': "This page doesn't exist" in sample,
+                    'human_verification': human,
                     'parsed_records': dom_records,
                     'parsed_records_or_publications': prod.normalized_count(dom_data),
                     'content_length': len((html or '').encode('utf-8', errors='replace')),
@@ -286,6 +312,20 @@ def browser_dom_first(previous):
                 report['candidate_dom_records_or_publications'] = prod.normalized_count(dom_data)
                 if dom_records:
                     best_dom = dom_data
+                if human and not dom_records:
+                    report.update({
+                        'status': 'human_verification_required',
+                        'human_verification': human,
+                        'elapsed_sec': elapsed,
+                        'records': prod.records_count(best_dom),
+                        'records_or_publications': prod.normalized_count(best_dom),
+                        'final_url': page.url,
+                        'content_length': len((html or '').encode('utf-8', errors='replace')),
+                        'dom_progress_tail': progress[-8:],
+                    })
+                    save_diagnostics(page, html, report, 'human_verification_required')
+                    context.close(); browser.close()
+                    return html or None, report, best_dom
                 if good_dom_records(dom_data):
                     report.update({
                         'status': 'ok',
@@ -377,6 +417,17 @@ def write_result(data, report: dict) -> int:
     return 0
 
 
+def preserved_or_snapshot(previous, report: dict, source_label: str):
+    candidate = best_saved_snapshot(previous, report)
+    if candidate:
+        report['used_source'] = source_label + '_saved_snapshot'
+        return prod.preserve_best_records(candidate, previous, report)
+    if previous:
+        report['used_source'] = source_label + '_previous_normalized_json'
+        return previous
+    return None
+
+
 def main() -> int:
     base.OUT.parent.mkdir(parents=True, exist_ok=True)
     base.REPORT.parent.mkdir(parents=True, exist_ok=True)
@@ -394,7 +445,15 @@ def main() -> int:
     html, browser_report, live_data = browser_dom_first(previous)
     report['browser'] = browser_report
 
-    if live_data and prod.records_count(live_data):
+    if browser_report.get('status') == 'human_verification_required':
+        report['human_verification_required'] = True
+        data = preserved_or_snapshot(previous, report, 'human_verification')
+        if data is None:
+            report['used_source'] = 'none'
+            report['error'] = 'Web of Science requires human verification and no saved WoS data is available.'
+            base.write_json(base.REPORT, report)
+            return 1
+    elif live_data and prod.records_count(live_data):
         report['used_source'] = live_data.get('source') or 'live_wos_rendered_dom'
         save_valid_snapshot(html, browser_report.get('used_subroute') or 'dom_first', report)
         data = prod.preserve_best_records(live_data, previous, report)
@@ -406,14 +465,8 @@ def main() -> int:
         save_valid_snapshot(html, 'dom_metrics_only', report)
         data = prod.preserve_best_records(candidate, previous, report)
     else:
-        candidate = best_saved_snapshot(previous, report)
-        if candidate:
-            report['used_source'] = 'saved_snapshot'
-            data = prod.preserve_best_records(candidate, previous, report)
-        elif previous:
-            report['used_source'] = 'previous_normalized_json'
-            data = previous
-        else:
+        data = preserved_or_snapshot(previous, report, 'saved_snapshot')
+        if data is None:
             report['used_source'] = 'none'
             report['error'] = 'No live Web of Science DOM records, no saved valid snapshot and no previous normalized JSON.'
             base.write_json(base.REPORT, report)
