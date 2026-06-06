@@ -27,8 +27,16 @@ BLOCK_PATH = re.compile(r'/(assets|asset|static|image_resp|images|img|css|js|fon
 BLOCKED_URL_PATTERNS = [
     re.compile(r'admission\.rudn\.ru/staff/86110487-4a8f-11f0-b545-00155d0c0d4a', re.I),
     re.compile(r'fnisc\.ru/pers_about\.html\?id=2472', re.I),
+    re.compile(r'isras\.ru/pers_about\.html\?id=2472', re.I),
+    re.compile(r'fnisc\.ru/index\.php\?id=2472&page_id=1195', re.I),
     re.compile(r'fnisc\.ru/index\.php\?page_id=(44|2366|2483)', re.I),
+    re.compile(r'rudn\.ru/about/struktura-rudn/.*/kafedra-gosudarstvennogo-i-municipalnogo-upravleniya', re.I),
 ]
+BLOCKED_TITLES = {
+    'список публикаций ситковского арсения михайловича',
+    'ситковский арсений михайлович arseniy m. sitkovskiy',
+    'кафедра государственного и муниципального управления',
+}
 NAVIGATION_JUNK = re.compile(r'Публикации молодых ученых|Поиск Информация|Противодействие корруп|Основные сведения Структура|Новости Минобрнауки РФ|slick|bootstrap|font-awesome|ДЕМ\.ИНФОРМ - первое демографическое информационное агентство России Главная', re.I)
 KNOWN_OVERRIDES = {
     'https://www.rosbalt.ru/news/2026-01-31/obschestvo-superzrelosti-my-stremitelno-stareem-5543743': {
@@ -73,6 +81,7 @@ def host(url):
 def is_static_url(url):
     p=urlparse(url or ''); return bool(STATIC_EXT.search(p.path or '') or BLOCK_PATH.search(p.path or ''))
 def is_blocked_url(url): return any(rx.search(canon(url)) for rx in BLOCKED_URL_PATTERNS)
+def is_blocked_title(title): return clean(title).lower().replace('ё','е') in BLOCKED_TITLES
 def read_json(path, default):
     try: return json.loads(Path(path).read_text(encoding='utf-8'))
     except Exception: return default
@@ -190,6 +199,7 @@ def dedupe(records):
         if not r or is_blocked_url(r.get('url')): continue
         r=apply_overrides(r); key=canon(r.get('url'))
         if not key or key in seen: continue
+        if is_blocked_title(r.get('title') or r.get('title_ru') or ''): continue
         if r.get('source')=='institutional_site_scan' and (r.get('title') in {'ФНИСЦ РАН','РУДН'} or NAVIGATION_JUNK.search(r.get('description') or '')): continue
         seen.add(key); out.append(r)
     out.sort(key=lambda x:(x.get('published_at') or x.get('harvested_at') or ''), reverse=True)

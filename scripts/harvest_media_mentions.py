@@ -76,6 +76,18 @@ STOP_DOMAINS = {
     'elibrary.ru', 'orcid.org', 'scopus.com', 'webofscience.com', 'github.com',
     'researchgate.net', 'scholar.google.com', 'cyberleninka.ru'
 }
+BLOCKED_URL_PATTERNS = [
+    re.compile(r'admission\.rudn\.ru/staff/86110487-4a8f-11f0-b545-00155d0c0d4a', re.I),
+    re.compile(r'fnisc\.ru/pers_about\.html\?id=2472', re.I),
+    re.compile(r'isras\.ru/pers_about\.html\?id=2472', re.I),
+    re.compile(r'fnisc\.ru/index\.php\?id=2472&page_id=1195', re.I),
+    re.compile(r'rudn\.ru/about/struktura-rudn/.*/kafedra-gosudarstvennogo-i-municipalnogo-upravleniya', re.I),
+]
+BLOCKED_TITLES = {
+    'список публикаций ситковского арсения михайловича',
+    'ситковский арсений михайлович arseniy m. sitkovskiy',
+    'кафедра государственного и муниципального управления',
+}
 
 
 def now() -> str:
@@ -159,6 +171,14 @@ def domain_of(url: str) -> str:
         return host[4:] if host.startswith('www.') else host
     except Exception:
         return ''
+
+
+def blocked_url(url: str) -> bool:
+    return any(rx.search(clean_url(url)) for rx in BLOCKED_URL_PATTERNS)
+
+
+def blocked_title(title: str | None) -> bool:
+    return re.sub(r'\s+', ' ', html.unescape(title or '')).strip().lower().replace('ё', 'е') in BLOCKED_TITLES
 
 
 def fetch_text(url: str, accept='text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'):
@@ -365,6 +385,8 @@ def fetch_seed_urls(cfg: dict):
     records, reports = [], []
     for seed in cfg.get('seed_urls') or []:
         rec, report = make_record(seed.get('url'), source=seed.get('source_type') or 'known_seed', cfg=cfg, force_publish=bool(seed.get('force_publish')))
+        if rec and (seed.get('date') or seed.get('published_at')):
+            rec['published_at'] = seed.get('date') or seed.get('published_at')
         reports.append(report)
         if rec:
             records.append(rec)
@@ -399,6 +421,8 @@ def dedupe(records):
     seen, out = set(), []
     for r in sorted(records, key=lambda x: (x.get('status') == 'published', x.get('confidence') or 0, x.get('published_at') or ''), reverse=True):
         key = r.get('url') or r.get('id')
+        if blocked_url(key) or blocked_title(r.get('title') or r.get('title_ru')):
+            continue
         if key in seen:
             continue
         seen.add(key); out.append(r)

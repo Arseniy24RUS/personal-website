@@ -9,6 +9,8 @@ import re
 import subprocess
 import sys
 
+from media_postprocess import is_blocked_record, postprocess_media_files
+
 OUT = Path('data/media')
 PUBLISHED = OUT / 'published.json'
 NEWS = OUT / 'news_mentions.json'
@@ -116,6 +118,8 @@ def blocked(record: dict) -> bool:
         return True
     title = str(record.get('title') or record.get('title_ru') or '')
     desc = str(record.get('description') or record.get('description_ru') or '')
+    if is_blocked_record(record):
+        return True
     if record.get('source') == 'institutional_site_scan' and (title.strip() in {'ФНИСЦ РАН', 'РУДН'} or JUNK.search(desc)):
         return True
     return False
@@ -161,7 +165,8 @@ def normalize(before: list[dict] | None = None) -> None:
     write_records(PUBLISHED, published)
     write_records(NEWS, published)
     write_records(REJECTED, rejected)
-    print(json.dumps({'published': len(published), 'rejected_or_low_confidence': len(rejected)}, ensure_ascii=False))
+    post = postprocess_media_files()
+    print(json.dumps({'published': post['published'], 'rejected_or_low_confidence': post['rejected_or_low_confidence']}, ensure_ascii=False))
 
 
 def main() -> int:

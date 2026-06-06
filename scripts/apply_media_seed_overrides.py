@@ -8,6 +8,8 @@ try:
 except Exception:
     yaml = None
 
+from media_postprocess import is_blocked_record, postprocess_media_files
+
 CFG = Path('config/media_sources.yml')
 CORPUS = Path('data/media/known_mentions_corpus.json')
 OUT = Path('data/media')
@@ -44,6 +46,7 @@ def rid(url, title):
 def norm_seed(seed):
     url = seed.get('url')
     title = seed.get('title') or title_from_url(url)
+    seed_metadata_locked = bool(seed.get('title') or seed.get('description') or seed.get('context'))
     return {
         'id': rid(url, title),
         'source': seed.get('source_type') or 'known_media_seed',
@@ -58,7 +61,7 @@ def norm_seed(seed):
         'confidence': 1.0 if seed.get('force_publish', True) else float(seed.get('confidence', 0.85)),
         'status': 'published',
         'force_publish': bool(seed.get('force_publish', True)),
-        'seed_metadata_locked': bool(seed.get('title') or seed.get('description') or seed.get('date')),
+        'seed_metadata_locked': seed_metadata_locked,
         'harvested_at': now(),
     }
 
@@ -67,7 +70,9 @@ def cfg_seed_records():
     seeds = []
     for seed in cfg.get('seed_urls') or []:
         if seed.get('url') and seed.get('force_publish', False):
-            seeds.append(norm_seed(seed))
+            rec = norm_seed(seed)
+            if not is_blocked_record(rec):
+                seeds.append(rec)
     return seeds
 
 def corpus_seed_records():
@@ -77,7 +82,9 @@ def corpus_seed_records():
         if seed.get('url'):
             s = dict(seed)
             s['force_publish'] = True
-            seeds.append(norm_seed(s))
+            rec = norm_seed(s)
+            if not is_blocked_record(rec):
+                seeds.append(rec)
     return seeds
 
 def main():
@@ -88,7 +95,14 @@ def main():
     for rec in seeds:
         if rec['url'] in by_url:
             old = by_url[rec['url']]
-            old.update({k: rec[k] for k in ['title','description','published_at','source_name','confidence','status','force_publish','seed_metadata_locked','source'] if rec.get(k) is not None})
+            old.update({k: rec[k] for k in ['published_at','source_name','confidence','status','force_publish','seed_metadata_locked','source'] if rec.get(k) is not None})
+            if rec.get('seed_metadata_locked'):
+                old.update({k: rec[k] for k in ['title','description'] if rec.get(k) is not None})
+            else:
+                if rec.get('title') and not old.get('title'):
+                    old['title'] = rec['title']
+                if rec.get('description') and not old.get('description'):
+                    old['description'] = rec['description']
             if rec.get('image'):
                 old['image'] = rec['image']
             updated += 1
@@ -98,10 +112,11 @@ def main():
     records = sorted(by_url.values(), key=lambda r: (str(r.get('published_at') or ''), str(r.get('title') or '')), reverse=True)
     write_json(OUT / 'published.json', {'generated_at': now(), 'records': records})
     write_json(OUT / 'news_mentions.json', {'generated_at': now(), 'records': records})
+    post = postprocess_media_files()
     (QUEUE / 'media_mentions.json').write_text('[]\n', encoding='utf-8')
     with (QUEUE / 'media_mentions.csv').open('w', encoding='utf-8-sig', newline='') as f:
         csv.writer(f).writerow(['id','confidence','title','source_name','domain','published_at','url','query'])
-    print(json.dumps({'seed_records_total': len(seeds), 'added': added, 'updated': updated, 'published': len(records)}, ensure_ascii=False))
+    print(json.dumps({'seed_records_total': len(seeds), 'added': added, 'updated': updated, 'published': post['published']}, ensure_ascii=False))
 
 if __name__ == '__main__':
     main()

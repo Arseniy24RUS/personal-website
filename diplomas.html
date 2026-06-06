@@ -8,6 +8,13 @@
   <script>
     let DIPLOMAS=[]; let activeYear='all';
     function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+    function sortedDiplomas(items){
+      return (items||[]).slice().sort((a,b)=>{
+        const ay=Number(a.year)||-1, by=Number(b.year)||-1;
+        if(ay!==by)return by-ay;
+        return String(a.title||a.id||'').localeCompare(String(b.title||b.id||''),'ru');
+      });
+    }
     function renderYears(){
       const years=[...new Set(DIPLOMAS.map(x=>x.year).filter(Boolean))].sort((a,b)=>b-a);
       document.getElementById('years').innerHTML=`<button class="${activeYear==='all'?'active':''}" data-year="all">Все годы</button>`+years.map(y=>`<button class="${String(y)===String(activeYear)?'active':''}" data-year="${y}">${y}</button>`).join('');
@@ -33,7 +40,7 @@
     function closeDiploma(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
     document.addEventListener('keydown',e=>{if(e.key==='Escape') closeDiploma();});
     async function load(){
-      try{DIPLOMAS=(await fetch('data/diplomas/gallery.json',{cache:'no-store'}).then(r=>r.json())).items||[]}catch(e){DIPLOMAS=[]}
+      try{DIPLOMAS=sortedDiplomas((await fetch('data/diplomas/gallery.json',{cache:'no-store'}).then(r=>r.json())).items||[])}catch(e){DIPLOMAS=[]}
       renderYears(); renderGallery();
     }
     document.addEventListener('DOMContentLoaded',load);

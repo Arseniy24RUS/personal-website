@@ -34,32 +34,50 @@ media_monitoring:
     - "семейная ипотека"
   seed_urls:
     - url: "https://www.demoscope.ru/weekly/2025/01081/gazeta03.php"
+      title: "Газеты пишут об образовательной миграции"
       source_type: "known_media_seed"
       force_publish: true
+      date: "2025-06-24"
     - url: "https://t.me/tolk_tolk/27280"
+      title: "Толкователь"
       source_type: "telegram_seed"
       force_publish: true
+      date: "2026-01-30T12:38:45+00:00"
     - url: "https://t.me/tolk_tolk/27274"
+      title: "Толкователь"
       source_type: "telegram_seed"
       force_publish: true
+      date: "2026-01-29T12:50:01+00:00"
     - url: "https://www.rosbalt.ru/news/2026-01-31/obschestvo-superzrelosti-my-stremitelno-stareem-5543743"
+      title: "Общество суперзрелости: мы стремительно стареем"
       source_type: "known_media_seed"
       force_publish: true
+      date: "2026-01-31"
     - url: "https://www.sobaka.ru/city/society/210740"
+      title: "Очень скоро россиян моложе 35 лет останется лишь четверть населения — в 1990-м они составляли его половину. Что будет дальше?"
       source_type: "known_media_seed"
       force_publish: true
+      date: "2026-02-18T18:03:16+03:00"
     - url: "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii"
+      title: "Влияние государственной политики агломерирования на долгосрочные тенденции изменения численности населения России"
       source_type: "known_media_seed"
       force_publish: true
+      date: "2026-03-04"
     - url: "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda"
+      title: "Урбанизация против рождаемости: стратегия пространственного развития России до 2030 года"
       source_type: "known_media_seed"
       force_publish: true
+      date: "2024-11-27"
     - url: "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi"
+      title: "Семейная ипотека 2024: инфраструктурное обеспечение многодетной семьи"
       source_type: "known_media_seed"
       force_publish: true
+      date: "2024-06-05"
     - url: "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit"
+      title: "Демографическое чудо Израиля: можем повторить?"
       source_type: "known_media_seed"
       force_publish: true
+      date: "2023-09-20"
   sitemap_sources:
     - name: "Деминформ"
       sitemap_url: "https://deminform.ru/sitemap.xml"

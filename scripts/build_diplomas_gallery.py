@@ -102,7 +102,7 @@ def collect_source_files():
                 continue
             files.append(p)
     # Newest first by inferred year. Unknown years go last. Stable title order inside a year.
-    files.sort(key=lambda p: (year_from_name(p.name) or -1, p.name.lower()), reverse=True)
+    files.sort(key=lambda p: (-(year_from_name(p.as_posix()) or -1), p.as_posix().lower()))
     return files
 
 
@@ -137,7 +137,7 @@ def main():
     items = []
     used = set()
     for idx, path in enumerate(files, start=1):
-        year = year_from_name(path.name)
+        year = year_from_name(path.as_posix())
         base = f"{year or 'nd'}-{slugify(path.stem)}"
         if base in used:
             base = f"{base}-{file_hash(path)}"
@@ -166,7 +166,7 @@ def main():
     OUT.write_text(json.dumps({
         'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         'count': len(items),
-        'sort': 'year_desc_name_desc',
+        'sort': 'year_desc_name_asc',
         'input_archives': [str(p).replace('\\', '/') for p in archives],
         'items': items,
     }, ensure_ascii=False, indent=2), encoding='utf-8')

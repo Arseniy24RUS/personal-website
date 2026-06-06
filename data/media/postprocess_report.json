@@ -1,0 +1,233 @@
+{
+  "generated_at": "2026-06-06T20:48:29+00:00",
+  "published": 20,
+  "rejected_or_low_confidence": 74,
+  "image_cache_dir": "assets/media/mentions",
+  "reports": [
+    {
+      "record": "aa29e51cf3112fee",
+      "url": "https://kaluga-zaprava.ru/biblioteka/rf/hossijan-molozhe-35-let-ostanetsja-lish-chetvert-naselenija/",
+      "image": {
+        "url": "https://kaluga-zaprava.ru/wp-content/uploads/pozhilye-1-2.jpg",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/jpeg",
+        "raw_content_type": "image/jpeg",
+        "bytes": 276019,
+        "local": "assets/media/mentions/aa29e51cf3112fee.jpg"
+      }
+    },
+    {
+      "record": "4a71034530769dcd",
+      "url": "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii",
+      "image": {
+        "url": "https://deminform.ru/media/Владимир/Июль24/Февраль26/04_Ан_фото из архива семьи Таловских.jpg",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/jpeg",
+        "raw_content_type": "image/jpeg",
+        "bytes": 592577,
+        "local": "assets/media/mentions/4a71034530769dcd.jpg"
+      }
+    },
+    {
+      "record": "b6fc596eca2728c6",
+      "url": "https://www.sobaka.ru/city/society/210740",
+      "image": {
+        "url": "https://static.sobaka.ru/images/post/00/21/07/40/_rotator.jpg?v=1772557576",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/jpeg",
+        "raw_content_type": "image/jpeg",
+        "bytes": 48098,
+        "local": "assets/media/mentions/b6fc596eca2728c6.jpg"
+      }
+    },
+    {
+      "record": "a4c62d3dc74e07ca",
+      "url": "https://www.rosbalt.ru/news/2026-01-31/obschestvo-superzrelosti-my-stremitelno-stareem-5543743",
+      "image": {
+        "status": "missing",
+        "url": null
+      }
+    },
+    {
+      "record": "414faf210745728c",
+      "url": "https://t.me/tolk_tolk/27280",
+      "image": {
+        "url": "https://cdn4.telesco.pe/file/BZJMh6JcQD6X5tT2BMaG9ozoAbvNXd_BMMLI63N8VRwHBTNwzujGMfbULqaPYXj6x-n5aehLtvfBAbm0f3nUSKlphMtB53yAETjd_2BlTpLS3Owy_Fo6P4Mmx1cprrQSmG9SDzGSoXmiaI5tWaHSZ6c4VU1yOGaqDFZRcSoeZLA4ajEV3tbgJz09uKXJzXuJmEV3Aern0zS0akIRmwA6nByGJuucLs-CuYjpikLA4a9AAQfUnvEt_Zlfhswbu8rO7l8ecLiCTWmUpoxgxFS569RQ4BcloYdC2yU4zCAUn3dyxm7XnWK8FC59MQybyeDu7nR90SNc6euypw7STJBDTQ.jpg",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/jpeg",
+        "raw_content_type": "image/jpeg",
+        "bytes": 183535,
+        "local": "assets/media/mentions/414faf210745728c.jpg"
+      }
+    },
+    {
+      "record": "7afe6c3e1110f2f7",
+      "url": "https://t.me/tolk_tolk/27274",
+      "image": {
+        "url": "https://cdn4.telesco.pe/file/gE6RqGxDtAn2QiSjaWQ8qi68w5EvBMysPaYOWxA52PVpXZsbnGKR5H-KLGRJwec-dfFM2dWlJowrMtBuF7Ye11jbNqYE44QxTc9orskB_vOQOs1X_eEmLWch8WZaWUOPYHm1MJoAzntYkVKJxhYz9zE0fY8l6CEMjUUVNDc9BefvFEIGmYSmnn-T87PyOcKKElTJA_5_q1KR--76H2Dhwrs2L87qQiiIbND5dQAuTJBQW2JJOnTvZ5UvlOBDH3Bq1pzS5ecGeH1vRPbxtKcoI3M2LLMADmtEZMwYK7AqewBLSHr9b4spBId_NLLDOw1DIQfdGFfjymrlZfK3pIbXGw.jpg",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/jpeg",
+        "raw_content_type": "image/jpeg",
+        "bytes": 68700,
+        "local": "assets/media/mentions/7afe6c3e1110f2f7.jpg"
+      }
+    },
+    {
+      "record": "4e7b2f54b868d4b8",
+      "url": "https://new.ras.ru/press-center/vi-vserossiyskiy-demograficheskiy-forum-s-mezhdunarodnym-uchastiem/",
+      "image": {
+        "url": "https://new.ras.ru/upload/uf/ca8/yk8vd40vaxhihtvi4dqkrocfkq0ozid4.png",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/png",
+        "raw_content_type": "image/png",
+        "bytes": 6117,
+        "local": "assets/media/mentions/4e7b2f54b868d4b8.png"
+      }
+    },
+    {
+      "record": "ff0e149b620976c8",
+      "url": "https://chelyabinsk.bezformata.com/listnews/konferentciya-molodyozh/152835280/",
+      "image": {
+        "status": "missing",
+        "url": null
+      }
+    },
+    {
+      "record": "b453d2d75d995c21",
+      "url": "https://deminform.ru/analytics/demograficheskiye-resursy-rossii-variativnost-podkhodov-i-otsenok",
+      "image": {
+        "url": "https://deminform.ru/media/Владимир/Июль24/Октябрь25/22_Ан_Костромская семья_Администрация КосОбл1.jpg",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/jpeg",
+        "raw_content_type": "image/jpeg",
+        "bytes": 125722,
+        "local": "assets/media/mentions/b453d2d75d995c21.jpg"
+      }
+    },
+    {
+      "record": "6e48b1825bdc427e",
+      "url": "https://www.demoscope.ru/weekly/2025/01081/gazeta03.php",
+      "image": {
+        "url": "https://www.demoscope.ru/weekly/2025/01081/img/gazeta_graf01.jpg",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/jpeg",
+        "raw_content_type": "image/jpeg",
+        "bytes": 51270,
+        "local": "assets/media/mentions/6e48b1825bdc427e.jpg"
+      }
+    },
+    {
+      "record": "3e9e02887f4e1703",
+      "url": "https://phil.rudn.ru/ru/media/news/123574/",
+      "image": {
+        "status": "missing",
+        "url": null
+      }
+    },
+    {
+      "record": "1c37bb1089f52e88",
+      "url": "https://phil.rudn.ru/ru/media/news/123453/",
+      "image": {
+        "status": "missing",
+        "url": null
+      }
+    },
+    {
+      "record": "4f013516d981a1b7",
+      "url": "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda",
+      "image": {
+        "url": "https://deminform.ru/media/Владимир/Аналитика/Ноябрь-Декабрь24/Семья из Белгородской области2.jpg",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/jpeg",
+        "raw_content_type": "image/jpeg",
+        "bytes": 172937,
+        "local": "assets/media/mentions/4f013516d981a1b7.jpg"
+      }
+    },
+    {
+      "record": "76917ca96c460960",
+      "url": "https://mgimo.ru/about/news/departments/geodata-and-geoinformation-systems/",
+      "image": {
+        "status": "missing",
+        "url": null
+      }
+    },
+    {
+      "record": "3a1978611b411757",
+      "url": "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi",
+      "image": {
+        "url": "https://deminform.ru/media/Владимир/Аналитика/Июнь_24/OG-65_tilda1824916.jpg",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/jpeg",
+        "raw_content_type": "image/jpeg",
+        "bytes": 331026,
+        "local": "assets/media/mentions/3a1978611b411757.jpg"
+      }
+    },
+    {
+      "record": "be3991667c784f69",
+      "url": "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit",
+      "image": {
+        "url": "https://deminform.ru/media/Юлия/сентябрь/kelly-sikkema-WvVyudMd1Es-unsplash1.jpg",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/jpeg",
+        "raw_content_type": "image/jpeg",
+        "bytes": 265273,
+        "local": "assets/media/mentions/be3991667c784f69.jpg"
+      }
+    },
+    {
+      "record": "b84dccef5ac352a4",
+      "url": "https://deminform.ru/analytics/voprosy-sistemy-rasseleniya-rossii-kotorym-ochen-nuzhny-otvety",
+      "image": {
+        "url": "https://deminform.ru/media/Юлия/Аналитика/Ситковский/рисунок к статье (3).png",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/png",
+        "raw_content_type": "image/png",
+        "bytes": 152235,
+        "local": "assets/media/mentions/b84dccef5ac352a4.png"
+      }
+    },
+    {
+      "record": "0231993f9de96e61",
+      "url": "https://ion.ranepa.ru/news/studenty-ion-posetili-shirakskiy-gosudarstvennyy-universitet-v-armenii/",
+      "image": {
+        "status": "missing",
+        "url": null
+      }
+    },
+    {
+      "record": "6de04edc860ab81f",
+      "url": "https://demografplatforma.ru/?p=1033",
+      "image": {
+        "url": "http://demografplatforma.ru/wp-content/uploads/2021/10/IMG_6564-300x195.jpg",
+        "status": "cached",
+        "http_status": 200,
+        "content_type": "image/jpeg",
+        "raw_content_type": "image/jpeg",
+        "bytes": 16456,
+        "local": "assets/media/mentions/6de04edc860ab81f.jpg"
+      }
+    },
+    {
+      "record": "29492b8749f38204",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+      "image": {
+        "status": "missing",
+        "url": null
+      }
+    }
+  ]
+}
