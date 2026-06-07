@@ -17,6 +17,10 @@ const PAGE_META = {
     ru: {title: 'Научные статьи — Ситковский А.М.', description: 'Список научных публикаций Арсения Михайловича Ситковского по данным eLibrary/РИНЦ, Scopus, WoS и справочника качества журналов.'},
     en: {title: 'Research articles — Arseniy M. Sitkovskiy', description: 'Research publications by Arseniy M. Sitkovskiy based on eLibrary/RSCI, Scopus, WoS and journal quality references.'}
   },
+  'teaching.html': {
+    ru: {title: 'Преподавание — Ситковский А.М.', description: 'Преподавательская деятельность Арсения Михайловича Ситковского: курсы высшего образования, онлайн-курсы и лекции ДПО по демографии, ГИС и государственному управлению.'},
+    en: {title: 'Teaching — Arseniy M. Sitkovskiy', description: 'Teaching by Arseniy M. Sitkovskiy: higher education courses, online courses and continuing professional education lectures in demography, GIS and public administration.'}
+  },
   'media.html': {
     ru: {title: 'СМИ — Ситковский А.М.', description: 'Материалы СМИ, публичные упоминания, интервью и аналитические публикации Арсения Михайловича Ситковского.'},
     en: {title: 'Media — Arseniy M. Sitkovskiy', description: 'Media articles, public mentions, interviews and analytical publications related to Arseniy M. Sitkovskiy.'}
@@ -124,6 +128,7 @@ function installHeader(){
     <nav class="nav" aria-label="Main navigation">
       <a href="projects.html"><span class="ru">Проекты</span><span class="en">Projects</span></a>
       <a href="publications.html"><span class="ru">Статьи</span><span class="en">Articles</span></a>
+      <a href="teaching.html"><span class="ru">Преподавание</span><span class="en">Teaching</span></a>
       <a href="media.html"><span class="ru">СМИ</span><span class="en">Media</span></a>
       <a href="diplomas.html"><span class="ru">Дипломы</span><span class="en">Diplomas</span></a>
       <a href="it.html"><span class="ru">Ресурсы</span><span class="en">Resources</span></a>
@@ -148,6 +153,20 @@ function installFooter(){
     </div>`;
 }
 
+function orderHomeSections(){
+  if(!document.body.classList.contains('home')) return;
+  const profile = document.querySelector('.profile-hero');
+  if(!profile) return;
+  let anchor = profile;
+  ['career', 'education', 'dpo', 'grants', 'research'].forEach(id => {
+    const section = document.getElementById(id);
+    if(section){
+      anchor.after(section);
+      anchor = section;
+    }
+  });
+}
+
 installFavicon();
 installVisualFixes();
 
@@ -156,5 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
   installVisualFixes();
   installHeader();
   installFooter();
+  orderHomeSections();
   setLang(preferredLang());
 });
