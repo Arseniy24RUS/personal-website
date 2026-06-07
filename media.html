@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>СМИ — Ситковский А.М.</title>
   <meta name="description" content="Материалы СМИ, публичные упоминания, интервью и аналитические публикации Арсения Михайловича Ситковского.">
-  <link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/additions.css"><script defer src="assets/site.js"></script>
+  <link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/additions.css"><link rel="stylesheet" href="assets/risi/risi.css?v=20260607-risi"><script defer src="assets/site.js"></script><script defer src="assets/risi/risi.js?v=20260607-risi"></script>
   <script>
     const URL_OVERRIDES={
       'https://www.rosbalt.ru/news/2026-01-31/obschestvo-superzrelosti-my-stremitelno-stareem-5543743':{
@@ -98,4 +98,28 @@
 <body><div class="wrap"><header data-header></header>
 <section class="hero"><h1 class="ru">СМИ</h1><h1 class="en">Media</h1><p class="ru">Подборка материалов СМИ, интервью, новостей и аналитических публикаций, где можно узнать о моей профессиональной деятельности.</p><p class="en">A curated set of media articles, interviews, news items and analytical publications related to my professional work.</p></section>
 <section class="media-section"><div id="media-list" class="media-list"></div></section>
+<section class="media-section risi-section" id="risi-archive" aria-labelledby="risi-archive-title">
+  <div class="risi-section-head">
+    <h2 id="risi-archive-title" class="ru">Научно-популярные статьи для сайта Российского института стратегических исследований (РИСИ) 2016-2017 гг.</h2>
+    <h2 class="en">Popular-science articles for the Russian Institute for Strategic Studies (RISS), 2016-2017</h2>
+    <p class="ru">Архивные тексты, подготовленные для сайта РИСИ: полные версии открываются прямо на сайте, а исходные Word-файлы доступны для скачивания.</p>
+    <p class="en">Archival texts prepared for the RISS website: full versions can be read directly on the site, and the original Word files are available for download.</p>
+  </div>
+  <div id="risi-list" class="risi-list" aria-live="polite"></div>
+</section>
+<dialog id="risi-reader" class="risi-reader" aria-labelledby="risi-reader-title">
+  <div class="risi-reader-shell">
+    <div class="risi-reader-toolbar">
+      <div>
+        <div class="risi-reader-source" id="risi-reader-source"></div>
+        <h2 id="risi-reader-title"></h2>
+      </div>
+      <div class="risi-reader-actions">
+        <a id="risi-reader-download" class="risi-reader-download" href="#" download><span class="ru">Скачать DOCX</span><span class="en">Download DOCX</span></a>
+        <button type="button" id="risi-reader-close" class="risi-reader-close" aria-label="Закрыть">×</button>
+      </div>
+    </div>
+    <article id="risi-reader-content" class="risi-article-body"></article>
+  </div>
+</dialog>
 <footer class="footer"><span>Персональный сайт Ситковского А.М.</span><br><span>omnistat@yandex.ru</span></footer></div></body></html>
