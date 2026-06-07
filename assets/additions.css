@@ -6,3 +6,146 @@
 .hero-id-chip .id-logo--github{filter:invert(1)!important}
 @media(max-width:640px){.profile-hero h1{font-size:28px;line-height:1.08}}
 @media(min-width:1051px){.home .hero{height:auto;min-height:calc(100vh - 104px);overflow:visible}.home .hero>div{padding:clamp(28px,4vh,54px) 3vw clamp(28px,4vh,54px) 4vw}.home .hero p{max-width:560px}.home .hero-identifiers{max-width:620px}}
+
+.career-groups{
+  display:grid;
+  gap:16px;
+  min-width:0;
+}
+.career-card{
+  background:#eee;
+  padding:20px;
+  border-left:4px solid #b9b9b9;
+  min-width:0;
+}
+.career-card--featured{
+  border-left-color:#111;
+  padding:24px;
+}
+.career-org{
+  display:grid;
+  grid-template-columns:82px minmax(0,1fr);
+  gap:16px;
+  align-items:center;
+}
+.career-logo{
+  width:76px;
+  height:58px;
+  display:block;
+  object-fit:contain;
+  object-position:center;
+}
+.career-logo--wide{
+  width:82px;
+}
+.career-logo--seal{
+  width:54px;
+  height:62px;
+  justify-self:center;
+}
+.career-org h3{
+  margin:0;
+  font-size:21px;
+  line-height:1.2;
+  color:#111;
+  font-weight:900;
+}
+.career-period{
+  margin-top:5px;
+  color:#555;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.01em;
+}
+.career-summary{
+  margin:14px 0 0;
+  color:#454545;
+  font-size:15px;
+  line-height:1.5;
+}
+.career-roles{
+  margin-top:16px;
+  display:grid;
+  gap:10px;
+}
+.career-role{
+  display:grid;
+  grid-template-columns:150px minmax(0,1fr);
+  gap:14px;
+  padding:12px 0 0;
+  border-top:1px solid #d0d0d0;
+  font-size:15px;
+  line-height:1.45;
+}
+.career-role--note{
+  color:#555;
+}
+.career-date{
+  color:#111;
+  font-weight:800;
+  white-space:nowrap;
+}
+.career-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:7px;
+}
+.career-tag{
+  display:inline-flex;
+  align-items:center;
+  min-height:22px;
+  padding:3px 7px;
+  background:#fff;
+  color:#555;
+  border:1px solid #cfcfcf;
+  border-radius:4px;
+  font-size:12px;
+  line-height:1.1;
+  font-weight:700;
+}
+.career-tag--current{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+.career-tag.en{
+  display:none;
+}
+html.lang-en .career-tag.ru,
+body.lang-en .career-tag.ru{
+  display:none!important;
+}
+html.lang-en .career-tag.en,
+body.lang-en .career-tag.en{
+  display:inline-flex!important;
+}
+@media(max-width:760px){
+  .career-card,
+  .career-card--featured{
+    padding:18px;
+  }
+  .career-org{
+    grid-template-columns:64px minmax(0,1fr);
+    gap:12px;
+  }
+  .career-logo,
+  .career-logo--wide{
+    width:62px;
+    height:50px;
+  }
+  .career-logo--seal{
+    width:46px;
+    height:54px;
+  }
+  .career-org h3{
+    font-size:18px;
+  }
+  .career-role{
+    grid-template-columns:1fr;
+    gap:4px;
+  }
+  .career-date{
+    white-space:normal;
+  }
+}
