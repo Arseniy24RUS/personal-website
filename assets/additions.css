@@ -586,28 +586,24 @@ body.lang-en .research-list.en{
   max-width:none;
   object-fit:cover;
 }
-.teaching-card-logo-badge{
-  position:absolute;
-  left:12px;
-  top:12px;
-  width:72px;
-  height:50px;
-  display:flex;
+.teaching-card-heading{
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr);
+  gap:14px;
   align-items:center;
-  justify-content:center;
-  padding:7px;
-  background:rgba(255,255,255,.94);
-  border:1px solid rgba(0,0,0,.08);
-  box-shadow:0 8px 18px rgba(0,0,0,.16);
 }
-.teaching-card-logo-badge img{
+.teaching-card-logo-inline{
+  width:64px;
+  height:52px;
   display:block;
-  max-width:100%;
-  max-height:100%;
   object-fit:contain;
+  object-position:center;
 }
-.teaching-card-logo-badge--plain{
-  background:rgba(255,255,255,.92);
+.teaching-card-heading > div{
+  min-width:0;
+}
+.teaching-card-heading h3{
+  margin:0;
 }
 .teaching-video-catalog{
   background:#111;
@@ -1074,6 +1070,14 @@ body.lang-en .research-list.en{
   }
   .teaching-lecture-title{
     font-size:16px;
+  }
+  .teaching-card-heading{
+    grid-template-columns:52px minmax(0,1fr);
+    gap:12px;
+  }
+  .teaching-card-logo-inline{
+    width:52px;
+    height:44px;
   }
   .teaching-player-dialog{
     width:calc(100vw - 18px);
