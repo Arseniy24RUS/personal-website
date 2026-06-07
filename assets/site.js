@@ -26,8 +26,8 @@ const PAGE_META = {
     en: {title: 'Media — Arseniy M. Sitkovskiy', description: 'Media articles, public mentions, interviews and analytical publications related to Arseniy M. Sitkovskiy.'}
   },
   'it.html': {
-    ru: {title: 'Ресурсы — Ситковский А.М.', description: 'Интерактивные дашборды, карты, симуляторы и учебные веб-приложения Арсения Михайловича Ситковского.'},
-    en: {title: 'Resources — Arseniy M. Sitkovskiy', description: 'Interactive dashboards, maps, simulators and educational web applications by Arseniy M. Sitkovskiy.'}
+    ru: {title: 'ИТ-ресурсы — Ситковский А.М.', description: 'Интерактивные дашборды, карты, симуляторы и учебные веб-приложения Арсения Михайловича Ситковского.'},
+    en: {title: 'IT Resources — Arseniy M. Sitkovskiy', description: 'Interactive dashboards, maps, simulators and educational web applications by Arseniy M. Sitkovskiy.'}
   },
   'diplomas.html': {
     ru: {title: 'Дипломы и сертификаты — Ситковский А.М.', description: 'Дипломы, сертификаты, благодарности и подтверждённые профессиональные достижения Арсения Михайловича Ситковского.'},
@@ -131,7 +131,7 @@ function installHeader(){
       <a href="teaching.html"><span class="ru">Преподавание</span><span class="en">Teaching</span></a>
       <a href="media.html"><span class="ru">СМИ</span><span class="en">Media</span></a>
       <a href="diplomas.html"><span class="ru">Дипломы</span><span class="en">Diplomas</span></a>
-      <a href="it.html"><span class="ru">Ресурсы</span><span class="en">Resources</span></a>
+      <a href="it.html"><span class="ru">ИТ-ресурсы</span><span class="en">IT Resources</span></a>
       <a class="email-btn" href="mailto:omnistat@yandex.ru">omnistat@yandex.ru</a>
       <button class="lang-toggle" data-lang-toggle onclick="toggleLang()" aria-label="Переключить на английский">EN</button>
     </nav>`;

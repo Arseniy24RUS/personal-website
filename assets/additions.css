@@ -441,6 +441,15 @@ body.lang-en .research-list.en{
 .research-year-group:first-child{
   padding-top:0;
 }
+.research-item--static{
+  color:inherit;
+  text-decoration:none;
+  cursor:default;
+}
+.research-item--static:hover{
+  background:transparent;
+  transform:none;
+}
 .teaching-hero{
   max-width:var(--max);
   margin:42px auto 0;
@@ -563,6 +572,43 @@ body.lang-en .research-list.en{
   width:calc(100% + 40px);
   max-width:none;
 }
+.teaching-card-media{
+  position:relative;
+  margin:-20px -20px 18px;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#d7d7d7;
+}
+.teaching-card-media .teaching-card-image{
+  width:100%;
+  height:100%;
+  margin:0;
+  max-width:none;
+  object-fit:cover;
+}
+.teaching-card-logo-badge{
+  position:absolute;
+  left:12px;
+  top:12px;
+  width:72px;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px;
+  background:rgba(255,255,255,.94);
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 8px 18px rgba(0,0,0,.16);
+}
+.teaching-card-logo-badge img{
+  display:block;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+.teaching-card-logo-badge--plain{
+  background:rgba(255,255,255,.92);
+}
 .teaching-video-catalog{
   background:#111;
   color:#fff;
@@ -614,6 +660,9 @@ body.lang-en .research-list.en{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
   gap:12px;
+}
+.teaching-lecture-details summary{
+  display:none;
 }
 .teaching-lecture-card{
   width:100%;
@@ -737,6 +786,58 @@ body.lang-en .research-list.en{
 }
 .teaching-lecture-external:hover{
   border-bottom-color:transparent;
+}
+.teaching-player-dialog{
+  width:min(980px,calc(100vw - 32px));
+  max-height:calc(100vh - 36px);
+  padding:0;
+  border:0;
+  background:#111;
+  color:#fff;
+  box-shadow:0 26px 80px rgba(0,0,0,.48);
+}
+.teaching-player-dialog::backdrop{
+  background:rgba(0,0,0,.66);
+}
+.teaching-player-dialog[open]{
+  display:block;
+}
+.teaching-dialog-open{
+  overflow:hidden;
+}
+.teaching-player-shell{
+  display:flex;
+  flex-direction:column;
+  max-height:calc(100vh - 36px);
+}
+.teaching-player-dialog .teaching-player-head{
+  margin:0;
+  padding:18px;
+  border-bottom:1px solid rgba(255,255,255,.16);
+}
+.teaching-player-controls{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+.teaching-platform-tabs--dialog{
+  background:#050505;
+}
+.teaching-player-close{
+  width:40px;
+  height:40px;
+  border:1px solid rgba(255,255,255,.24);
+  background:#fff;
+  color:#111;
+  border-radius:50%;
+  font:inherit;
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+}
+.teaching-player-dialog .teaching-lecture-frame-inner{
+  min-height:0;
 }
 .teaching-video-catalog .teaching-actions a{
   background:#fff;
@@ -941,6 +1042,31 @@ body.lang-en .research-list.en{
   .teaching-lecture-grid{
     grid-template-columns:1fr;
   }
+  .teaching-lecture-details{
+    border:1px solid rgba(255,255,255,.18);
+    background:#151515;
+  }
+  .teaching-lecture-details summary{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:14px;
+    color:#fff;
+    font-weight:900;
+    cursor:pointer;
+  }
+  .teaching-lecture-details summary::after{
+    content:"+";
+    font-size:22px;
+    line-height:1;
+  }
+  .teaching-lecture-details[open] summary::after{
+    content:"−";
+  }
+  .teaching-lecture-details .teaching-lecture-grid{
+    padding:0 12px 12px;
+  }
   .teaching-lecture-number{
     width:34px;
     height:34px;
@@ -949,12 +1075,24 @@ body.lang-en .research-list.en{
   .teaching-lecture-title{
     font-size:16px;
   }
-  .teaching-player{
-    padding:12px;
+  .teaching-player-dialog{
+    width:calc(100vw - 18px);
+    max-height:calc(100vh - 18px);
   }
-  .teaching-player-head{
+  .teaching-player-shell{
+    max-height:calc(100vh - 18px);
+  }
+  .teaching-player-dialog .teaching-player-head{
     align-items:flex-start;
     flex-direction:column;
+    padding:14px;
+  }
+  .teaching-player-head h3{
+    font-size:18px;
+  }
+  .teaching-player-controls{
+    width:100%;
+    justify-content:space-between;
   }
   .teaching-lecture-frame-inner{
     min-height:0;
