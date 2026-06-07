@@ -15,7 +15,7 @@ import shutil
 import zipfile
 
 import fitz  # PyMuPDF
-from PIL import Image, ImageOps
+from PIL import Image, ImageChops, ImageOps
 
 ROOT = Path('.')
 INPUT_DIR = ROOT / 'content' / 'dpo'
@@ -26,6 +26,23 @@ OUT = ROOT / 'data' / 'dpo' / 'gallery.json'
 IMAGE_EXTS = {'.jpg', '.jpeg', '.png', '.webp', '.tif', '.tiff', '.bmp'}
 PDF_EXTS = {'.pdf'}
 SUPPORTED_EXTS = IMAGE_EXTS | PDF_EXTS
+
+DPO_FIXUPS = {
+    '2019-ranhigs-2019-eksport-obrazovaniya': {
+        'skip_pages': {1},
+        'rotate': 90,
+        'trim': True,
+    },
+    '2022-sitkovskiy-master-of-public-policy': {
+        'rotate': -90,
+        'trim': True,
+    },
+    '2025-fnists-ran-2025-demogrf-perepodgotovka': {
+        'pages': {
+            1: {'trim': True},
+        },
+    },
+}
 
 TRANSLIT = str.maketrans({
     'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'e','ж':'zh','з':'z','и':'i','й':'y',
@@ -107,6 +124,58 @@ def resize_max(img: Image.Image, max_side: int) -> Image.Image:
     return img
 
 
+def crop_white_margins(img: Image.Image, threshold: int = 12, padding: int = 8) -> Image.Image:
+    rgb = img.convert('RGB')
+    diff = ImageChops.difference(rgb, Image.new('RGB', rgb.size, 'white')).convert('L')
+    mask = diff.point(lambda value: 255 if value > threshold else 0)
+    bbox = mask.getbbox()
+    if not bbox:
+        return rgb
+    pixels = mask.load()
+    min_col_pixels = max(4, int(rgb.height * 0.01))
+    min_row_pixels = max(4, int(rgb.width * 0.01))
+    columns = [
+        x for x in range(rgb.width)
+        if sum(1 for y in range(rgb.height) if pixels[x, y]) >= min_col_pixels
+    ]
+    rows = [
+        y for y in range(rgb.height)
+        if sum(1 for x in range(rgb.width) if pixels[x, y]) >= min_row_pixels
+    ]
+    if columns and rows:
+        left, right = columns[0], columns[-1] + 1
+        top, bottom = rows[0], rows[-1] + 1
+    else:
+        left, top, right, bottom = bbox
+    left = max(0, left - padding)
+    top = max(0, top - padding)
+    right = min(rgb.width, right + padding)
+    bottom = min(rgb.height, bottom + padding)
+    return rgb.crop((left, top, right, bottom))
+
+
+def fixup_for_base(base: str):
+    for key, fixup in DPO_FIXUPS.items():
+        if base.startswith(key):
+            return fixup
+    return {}
+
+
+def apply_page_fixup(base: str, source_page_number: int, img: Image.Image):
+    fixup = fixup_for_base(base)
+    if source_page_number in fixup.get('skip_pages', set()):
+        return None
+    page_fixup = fixup.get('pages', {}).get(source_page_number, {})
+    rotate = page_fixup.get('rotate', fixup.get('rotate'))
+    trim = page_fixup.get('trim', fixup.get('trim', False))
+    fixed = img.convert('RGB')
+    if rotate:
+        fixed = fixed.rotate(rotate, expand=True)
+    if trim:
+        fixed = crop_white_margins(fixed)
+    return fixed
+
+
 def render_pdf_pages(path: Path):
     doc = fitz.open(path)
     try:
@@ -152,20 +221,30 @@ def main():
             continue
 
         page_records = []
-        for page_index, img in enumerate(images, start=1):
+        first_page_image = None
+        for source_page_index, img in enumerate(images, start=1):
+            img = apply_page_fixup(base, source_page_index, img)
+            if img is None:
+                continue
             width, height = img.size
-            page_path = PAGES / f"{base}-p{page_index:02d}.webp"
+            page_number = len(page_records) + 1
+            page_path = PAGES / f"{base}-p{page_number:02d}.webp"
             resize_max(img, 1800).save(page_path, 'WEBP', quality=84, method=6)
+            if first_page_image is None:
+                first_page_image = img
             page_records.append({
-                'page': page_index,
+                'page': page_number,
                 'src': str(page_path).replace('\\', '/'),
                 'width': width,
                 'height': height,
                 'orientation': 'landscape' if width > height else 'portrait',
             })
 
+        if not page_records or first_page_image is None:
+            continue
+
         thumb_path = THUMBS / f"{base}.webp"
-        resize_max(images[0], 520).save(thumb_path, 'WEBP', quality=76, method=6)
+        resize_max(first_page_image, 520).save(thumb_path, 'WEBP', quality=76, method=6)
         first = page_records[0]
         orientation = first['orientation']
         items.append({

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-07T01:05:25+00:00",
+  "generated_at": "2026-06-07T01:33:46+00:00",
   "count": 10,
   "sort": "year_desc_name_asc",
   "input_archives": [],
@@ -108,9 +108,9 @@
       "source_filename": "ФНИСЦ РАН 2025 Демогрф переподготовка.pdf",
       "page_count": 3,
       "width": 1190,
-      "height": 1684,
-      "orientation": "portrait",
-      "span": 1,
+      "height": 862,
+      "orientation": "landscape",
+      "span": 2,
       "thumb": "assets/dpo/thumbs/2025-fnists-ran-2025-demogrf-perepodgotovka.webp",
       "full": "assets/dpo/pages/2025-fnists-ran-2025-demogrf-perepodgotovka-p01.webp",
       "download": "assets/dpo/pages/2025-fnists-ran-2025-demogrf-perepodgotovka-p01.webp",
@@ -119,8 +119,8 @@
           "page": 1,
           "src": "assets/dpo/pages/2025-fnists-ran-2025-demogrf-perepodgotovka-p01.webp",
           "width": 1190,
-          "height": 1684,
-          "orientation": "portrait"
+          "height": 862,
+          "orientation": "landscape"
         },
         {
           "page": 2,
@@ -193,10 +193,10 @@
       "kind": "pdf",
       "source_filename": "Ситковский. Master of Public Policy.PDF",
       "page_count": 3,
-      "width": 1191,
-      "height": 1684,
-      "orientation": "portrait",
-      "span": 1,
+      "width": 1682,
+      "height": 1167,
+      "orientation": "landscape",
+      "span": 2,
       "thumb": "assets/dpo/thumbs/2022-sitkovskiy-master-of-public-policy.webp",
       "full": "assets/dpo/pages/2022-sitkovskiy-master-of-public-policy-p01.webp",
       "download": "assets/dpo/pages/2022-sitkovskiy-master-of-public-policy-p01.webp",
@@ -204,22 +204,22 @@
         {
           "page": 1,
           "src": "assets/dpo/pages/2022-sitkovskiy-master-of-public-policy-p01.webp",
-          "width": 1191,
-          "height": 1684,
-          "orientation": "portrait"
+          "width": 1682,
+          "height": 1167,
+          "orientation": "landscape"
         },
         {
           "page": 2,
           "src": "assets/dpo/pages/2022-sitkovskiy-master-of-public-policy-p02.webp",
-          "width": 1191,
-          "height": 1684,
+          "width": 861,
+          "height": 1174,
           "orientation": "portrait"
         },
         {
           "page": 3,
           "src": "assets/dpo/pages/2022-sitkovskiy-master-of-public-policy-p03.webp",
-          "width": 1191,
-          "height": 1684,
+          "width": 874,
+          "height": 1175,
           "orientation": "portrait"
         }
       ]
@@ -254,11 +254,11 @@
       "year": 2019,
       "kind": "pdf",
       "source_filename": "РАНХиГС 2019 Экспорт образования.pdf",
-      "page_count": 2,
-      "width": 1224,
-      "height": 1584,
-      "orientation": "portrait",
-      "span": 1,
+      "page_count": 1,
+      "width": 1579,
+      "height": 1132,
+      "orientation": "landscape",
+      "span": 2,
       "thumb": "assets/dpo/thumbs/2019-ranhigs-2019-eksport-obrazovaniya.webp",
       "full": "assets/dpo/pages/2019-ranhigs-2019-eksport-obrazovaniya-p01.webp",
       "download": "assets/dpo/pages/2019-ranhigs-2019-eksport-obrazovaniya-p01.webp",
@@ -266,16 +266,9 @@
         {
           "page": 1,
           "src": "assets/dpo/pages/2019-ranhigs-2019-eksport-obrazovaniya-p01.webp",
-          "width": 1224,
-          "height": 1584,
-          "orientation": "portrait"
-        },
-        {
-          "page": 2,
-          "src": "assets/dpo/pages/2019-ranhigs-2019-eksport-obrazovaniya-p02.webp",
-          "width": 1224,
-          "height": 1584,
-          "orientation": "portrait"
+          "width": 1579,
+          "height": 1132,
+          "orientation": "landscape"
         }
       ]
     }
