@@ -21,11 +21,18 @@ jobs:
       - name: Build diplomas gallery from uploaded ZIP archives
         run: |
           python scripts/build_diplomas_gallery.py
+      - name: Build DPO gallery when files are uploaded
+        run: |
+          if find content/dpo -type f \( -iname '*.zip' -o -iname '*.pdf' -o -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' \) | grep -q .; then
+            python scripts/build_dpo_gallery.py
+          else
+            echo "No DPO source files found."
+          fi
       - name: Commit diplomas gallery
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/diplomas/ data/diplomas/gallery.json || true
+          git add assets/diplomas/ data/diplomas/gallery.json assets/dpo/ data/dpo/gallery.json || true
           if git diff --cached --quiet; then
             echo "No diplomas gallery changes."
           else

@@ -1,51 +1,48 @@
 #!/usr/bin/env python3
-"""Build a static diplomas/certificates gallery from user-uploaded files.
+"""Build a static continuing-professional-education gallery.
 
-Universal workflow for future scientist portfolios:
-
-1. Put one or more ZIP archives with any file names into content/diplomas/.
-2. Optionally put standalone PDF/JPG/PNG/WebP files into content/diplomas/.
-3. Run GitHub Action "Build diplomas gallery" manually.
-
-The script recursively extracts all ZIP archives, processes images and the first
-page of PDFs, creates lightweight thumbnails and full-screen WebP versions, and
-writes data/diplomas/gallery.json for diplomas.html.
+The workflow mirrors the diplomas gallery builder, but keeps every rendered PDF
+page for the modal view while using the first page as the thumbnail.
 """
 from __future__ import annotations
 
-from pathlib import Path
 from datetime import datetime, timezone
+from pathlib import Path
 import hashlib
 import json
 import re
 import shutil
 import zipfile
 
-from PIL import Image, ImageOps
 import fitz  # PyMuPDF
+from PIL import Image, ImageOps
 
 ROOT = Path('.')
-INPUT_DIR = ROOT / 'content' / 'diplomas'
-WORK = ROOT / '.tmp_diplomas'
-THUMBS = ROOT / 'assets' / 'diplomas' / 'thumbs'
-FULL = ROOT / 'assets' / 'diplomas' / 'full'
-OUT = ROOT / 'data' / 'diplomas' / 'gallery.json'
+INPUT_DIR = ROOT / 'content' / 'dpo'
+WORK = ROOT / '.tmp_dpo'
+THUMBS = ROOT / 'assets' / 'dpo' / 'thumbs'
+PAGES = ROOT / 'assets' / 'dpo' / 'pages'
+OUT = ROOT / 'data' / 'dpo' / 'gallery.json'
 IMAGE_EXTS = {'.jpg', '.jpeg', '.png', '.webp', '.tif', '.tiff', '.bmp'}
 PDF_EXTS = {'.pdf'}
 SUPPORTED_EXTS = IMAGE_EXTS | PDF_EXTS
 
+TRANSLIT = str.maketrans({
+    'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'e','ж':'zh','з':'z','и':'i','й':'y',
+    'к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f',
+    'х':'h','ц':'ts','ч':'ch','ш':'sh','щ':'sch','ъ':'','ы':'y','ь':'','э':'e','ю':'yu','я':'ya',
+})
+
 
 def slugify(value: str) -> str:
-    value = value.lower().replace('ё', 'e')
-    table = str.maketrans({
-        'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'ts','ч':'ch','ш':'sh','щ':'sch','ъ':'','ы':'y','ь':'','э':'e','ю':'yu','я':'ya'
-    })
-    value = value.translate(table)
+    value = value.lower().translate(TRANSLIT)
     value = re.sub(r'[^a-z0-9]+', '-', value).strip('-')
-    return value[:90] or 'diploma'
+    return value[:90] or 'dpo'
 
 
 def year_from_name(name: str):
+    if 'master of public policy' in name.lower():
+        return 2022
     years = re.findall(r'(20\d{2}|19\d{2})', name)
     return int(years[-1]) if years else None
 
@@ -53,7 +50,7 @@ def year_from_name(name: str):
 def title_from_name(path: Path) -> str:
     name = re.sub(r'[_-]+', ' ', path.stem)
     name = re.sub(r'\s+', ' ', name).strip()
-    return name[:1].upper() + name[1:] if name else 'Диплом / сертификат'
+    return name[:1].upper() + name[1:] if name else 'Document'
 
 
 def file_hash(path: Path) -> str:
@@ -73,10 +70,10 @@ def reset_dir(path: Path):
 def prepare_workdir():
     reset_dir(WORK)
     INPUT_DIR.mkdir(parents=True, exist_ok=True)
-    archives = sorted(INPUT_DIR.glob('*.zip'))
     direct_dir = WORK / 'direct-files'
     direct_dir.mkdir(parents=True, exist_ok=True)
 
+    archives = sorted(INPUT_DIR.glob('*.zip'))
     for src in INPUT_DIR.rglob('*'):
         if src.is_file() and src.suffix.lower() in SUPPORTED_EXTS:
             dst = direct_dir / src.name
@@ -97,25 +94,11 @@ def collect_source_files():
     files = []
     for p in WORK.rglob('*'):
         if p.is_file() and p.suffix.lower() in SUPPORTED_EXTS:
-            # Ignore macOS service files and temporary artefacts inside archives.
             if '__MACOSX' in p.parts or p.name.startswith('._'):
                 continue
             files.append(p)
-    # Newest first by inferred year. Unknown years go last. Stable title order inside a year.
     files.sort(key=lambda p: (-(year_from_name(p.as_posix()) or -1), p.as_posix().lower()))
     return files
-
-
-def load_image(path: Path) -> Image.Image:
-    if path.suffix.lower() in PDF_EXTS:
-        doc = fitz.open(path)
-        page = doc.load_page(0)
-        pix = page.get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False)
-        img = Image.frombytes('RGB', [pix.width, pix.height], pix.samples)
-        doc.close()
-        return img
-    img = Image.open(path)
-    return ImageOps.exif_transpose(img).convert('RGB')
 
 
 def resize_max(img: Image.Image, max_side: int) -> Image.Image:
@@ -124,49 +107,82 @@ def resize_max(img: Image.Image, max_side: int) -> Image.Image:
     return img
 
 
+def render_pdf_pages(path: Path):
+    doc = fitz.open(path)
+    try:
+        for page_number in range(doc.page_count):
+            page = doc.load_page(page_number)
+            pix = page.get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False)
+            yield Image.frombytes('RGB', [pix.width, pix.height], pix.samples)
+    finally:
+        doc.close()
+
+
+def load_source_pages(path: Path):
+    if path.suffix.lower() in PDF_EXTS:
+        return list(render_pdf_pages(path))
+    img = Image.open(path)
+    return [ImageOps.exif_transpose(img).convert('RGB')]
+
+
 def main():
     archives = prepare_workdir()
     files = collect_source_files()
     if not archives and not files:
-        raise FileNotFoundError('No ZIP, PDF or image files found in content/diplomas/')
+        raise FileNotFoundError('No ZIP, PDF or image files found in content/dpo/')
 
     reset_dir(THUMBS)
-    reset_dir(FULL)
+    reset_dir(PAGES)
     OUT.parent.mkdir(parents=True, exist_ok=True)
 
     items = []
     used = set()
-    for idx, path in enumerate(files, start=1):
+    for path in files:
         year = year_from_name(path.as_posix())
         base = f"{year or 'nd'}-{slugify(path.stem)}"
         if base in used:
             base = f"{base}-{file_hash(path)}"
         used.add(base)
-        full_path = FULL / f"{base}.webp"
-        thumb_path = THUMBS / f"{base}.webp"
         try:
-            img = load_image(path)
+            images = load_source_pages(path)
         except Exception as exc:
             print(f'SKIP {path}: {exc}')
             continue
-        width, height = img.size
-        orientation = 'landscape' if width > height else 'portrait'
-        resize_max(img, 1800).save(full_path, 'WEBP', quality=84, method=6)
-        # Smaller thumbnails: the page now displays roughly twice as many items per screen.
-        resize_max(img, 340).save(thumb_path, 'WEBP', quality=74, method=6)
+        if not images:
+            continue
+
+        page_records = []
+        for page_index, img in enumerate(images, start=1):
+            width, height = img.size
+            page_path = PAGES / f"{base}-p{page_index:02d}.webp"
+            resize_max(img, 1800).save(page_path, 'WEBP', quality=84, method=6)
+            page_records.append({
+                'page': page_index,
+                'src': str(page_path).replace('\\', '/'),
+                'width': width,
+                'height': height,
+                'orientation': 'landscape' if width > height else 'portrait',
+            })
+
+        thumb_path = THUMBS / f"{base}.webp"
+        resize_max(images[0], 520).save(thumb_path, 'WEBP', quality=76, method=6)
+        first = page_records[0]
+        orientation = first['orientation']
         items.append({
             'id': base,
             'title': title_from_name(path),
             'year': year,
-            'width': width,
-            'height': height,
+            'kind': 'pdf' if path.suffix.lower() in PDF_EXTS else 'image',
+            'source_filename': path.name,
+            'page_count': len(page_records),
+            'width': first['width'],
+            'height': first['height'],
             'orientation': orientation,
             'span': 2 if orientation == 'landscape' else 1,
             'thumb': str(thumb_path).replace('\\', '/'),
-            'full': str(full_path).replace('\\', '/'),
-            'download': str(full_path).replace('\\', '/'),
-            'download_filename': full_path.name,
-            'source_filename': path.name,
+            'full': first['src'],
+            'download': first['src'],
+            'pages': page_records,
         })
 
     OUT.write_text(json.dumps({
@@ -176,7 +192,7 @@ def main():
         'input_archives': [str(p).replace('\\', '/') for p in archives],
         'items': items,
     }, ensure_ascii=False, indent=2), encoding='utf-8')
-    print(f'Built diplomas gallery: {len(items)} items from {len(archives)} archive(s) and/or direct files')
+    print(f'Built DPO gallery: {len(items)} items')
 
 
 if __name__ == '__main__':

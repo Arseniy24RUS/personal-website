@@ -7,7 +7,9 @@
   <meta name="description" content="Персональный сайт Арсения Михайловича Ситковского: демография, экономическая география, публикации, проекты и научные идентификаторы.">
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/additions.css?v=20260607-academiclinks">
+  <link rel="stylesheet" href="assets/diplomas.css?v=20260607-dpo">
   <script defer src="assets/site.js"></script>
+  <script defer src="assets/dpo.js?v=20260607-dpo"></script>
 </head>
 <body class="home">
 <div class="wrap">
@@ -130,6 +132,12 @@
       </div>
     </div>
   </section>
+  <section class="dpo-section" aria-labelledby="dpo-title-ru">
+    <h2 id="dpo-title-ru" class="ru">Дополнительное профессиональное образование</h2>
+    <h2 class="en">Continuing professional education</h2>
+    <div class="diplomas-wrap"><div id="dpo-gallery" class="diplomas-collage dpo-collage"></div></div>
+  </section>
+  <div id="dpo-modal" class="diploma-modal dpo-modal" onclick="if(event.target.id==='dpo-modal') closeDpoItem()"><div class="diploma-modal-bar"><div id="dpo-modal-title" class="diploma-modal-title"></div><div class="diploma-modal-actions"><a id="dpo-modal-download" href="#" download><span class="ru">Скачать</span><span class="en">Download</span></a><button onclick="closeDpoItem()"><span class="ru">Закрыть</span><span class="en">Close</span></button></div></div><div id="dpo-modal-pages" class="dpo-modal-pages"></div></div>
   <footer class="footer"><span>Персональный сайт Ситковского А.М.</span><br><span>omnistat@yandex.ru</span></footer>
 </div>
 </body>
