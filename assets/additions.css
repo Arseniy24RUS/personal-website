@@ -180,7 +180,7 @@ body.lang-en .career-period.en{
 }
 .education-list{
   display:grid;
-  gap:12px;
+  gap:0;
 }
 .education-list.en{
   display:none;
@@ -194,29 +194,38 @@ body.lang-en .education-list.en{
   display:grid!important;
 }
 .education-item{
+  position:relative;
   display:grid;
-  grid-template-columns:118px minmax(0,1fr);
-  gap:18px;
+  grid-template-columns:142px minmax(0,1fr);
+  gap:24px;
   align-items:start;
-  background:#eee;
-  border-left:4px solid #111;
-  padding:16px 18px;
+  background:transparent;
+  border-left:0;
+  border-bottom:1px solid #c9c9c9;
+  padding:20px 0;
   min-width:0;
+}
+.education-item:first-child{
+  padding-top:0;
+}
+.education-item:last-child{
+  border-bottom:0;
+  padding-bottom:0;
 }
 .education-year{
   color:#111;
   font-weight:900;
-  font-size:18px;
+  font-size:25px;
   line-height:1.2;
   white-space:nowrap;
 }
 .education-kind{
   color:#111;
-  font-weight:800;
+  font-weight:900;
   line-height:1.35;
 }
 .education-org{
-  margin-top:3px;
+  margin-top:5px;
   color:#333;
   font-style:italic;
   font-weight:700;
@@ -290,7 +299,7 @@ body.lang-en .education-list.en{
 .funding-list,
 .research-list{
   display:grid;
-  gap:12px;
+  gap:0;
 }
 .funding-list.en,
 .research-list.en{
@@ -312,22 +321,30 @@ body.lang-en .research-list.en{
 .research-item{
   display:grid;
   min-width:0;
-  background:#eee;
   color:#222;
   text-decoration:none;
-  border-left:4px solid #111;
   transition:background .14s ease,transform .14s ease;
 }
 .funding-item{
-  grid-template-columns:62px 118px minmax(0,1fr);
-  gap:16px;
-  align-items:center;
-  padding:15px 18px;
+  background:#eee;
+  border-top:4px solid #111;
 }
 .research-item{
-  grid-template-columns:96px minmax(0,1fr);
-  gap:18px;
-  padding:16px 18px;
+  background:transparent;
+  border-bottom:1px solid #c9c9c9;
+}
+.funding-item{
+  grid-template-columns:1fr;
+  gap:12px;
+  align-items:start;
+  align-content:start;
+  padding:20px;
+  min-height:190px;
+}
+.research-item{
+  grid-template-columns:minmax(0,1fr);
+  gap:6px;
+  padding:13px 0;
 }
 .funding-item.is-linked:hover,
 .research-item:hover{
@@ -335,21 +352,34 @@ body.lang-en .research-list.en{
   transform:translateY(-1px);
 }
 .funding-logo{
-  width:50px;
-  height:50px;
+  width:132px;
+  max-width:100%;
+  height:52px;
   object-fit:contain;
-  object-position:center;
-  background:#fff;
-  border:1px solid #d4d4d4;
-  padding:6px;
+  object-position:left center;
+  background:transparent;
+  border:0;
+  padding:0;
 }
 .funding-year,
 .research-year{
   color:#111;
-  font-size:18px;
   font-weight:900;
   line-height:1.2;
   white-space:nowrap;
+}
+.funding-year{
+  display:inline-flex;
+  align-items:center;
+  justify-self:start;
+  min-height:24px;
+  background:#111;
+  color:#fff;
+  padding:4px 7px;
+  font-size:13px;
+}
+.research-year{
+  display:none;
 }
 .funding-body,
 .research-body{
@@ -363,10 +393,38 @@ body.lang-en .research-list.en{
   color:#111;
   font-weight:900;
 }
+.funding-body strong{
+  font-size:18px;
+  line-height:1.25;
+}
+.research-body strong{
+  font-size:15px;
+  line-height:1.42;
+}
 .funding-body span,
 .research-body span{
   color:#555;
   overflow-wrap:anywhere;
+}
+.research-body span{
+  font-size:14px;
+}
+.funding-list{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.research-list{
+  border-top:1px solid #c9c9c9;
+}
+.research-year-group{
+  padding:18px 0 8px;
+  color:#111;
+  font-size:26px;
+  line-height:1;
+  font-weight:900;
+}
+.research-year-group:first-child{
+  padding-top:0;
 }
 .teaching-hero{
   max-width:var(--max);
@@ -611,16 +669,19 @@ body.lang-en .research-list.en{
   }
 }
 @media(max-width:1050px){
+  .funding-list{
+    grid-template-columns:1fr;
+  }
   .funding-item{
-    grid-template-columns:54px minmax(0,1fr);
-    gap:12px;
+    grid-template-columns:1fr;
+    min-height:0;
   }
   .funding-year{
-    grid-column:2;
-    grid-row:1;
+    grid-column:auto;
+    grid-row:auto;
   }
   .funding-body{
-    grid-column:2;
+    grid-column:auto;
   }
   .teaching-hero,
   .teaching-video{
@@ -643,7 +704,7 @@ body.lang-en .research-list.en{
     grid-template-columns:1fr;
   }
   .funding-logo{
-    width:46px;
+    width:118px;
     height:46px;
   }
   .funding-year,
