@@ -9,29 +9,34 @@
     return currentLang() === 'en' ? 'youtube' : 'vk';
   }
 
-  function updateToggleLabel(lecture){
-    const button = lecture.querySelector('.teaching-lecture-toggle');
-    const state = lecture.querySelector('.teaching-lecture-state');
-    if(!button || !state) return;
-    const expanded = button.getAttribute('aria-expanded') === 'true';
-    state.innerHTML = expanded
-      ? '<span class="ru">Скрыть</span><span class="en">Hide</span>'
-      : '<span class="ru">Открыть</span><span class="en">Open</span>';
+  function platformExternalText(platform){
+    return platform === 'youtube'
+      ? '<span class="ru">Открыть на YouTube</span><span class="en">Open on YouTube</span>'
+      : '<span class="ru">Открыть в VK Видео</span><span class="en">Open in VK Video</span>';
   }
 
-  function renderFrame(catalog, lecture){
+  function selectedCard(catalog){
+    const id = catalog.dataset.selectedLecture;
+    return id ? catalog.querySelector(`[data-lecture-card][data-lecture-id="${id}"]`) : null;
+  }
+
+  function renderPlayer(catalog, card){
+    const player = catalog.querySelector('[data-teaching-player]');
+    const frame = catalog.querySelector('[data-teaching-frame]');
+    const titleNode = catalog.querySelector('[data-teaching-player-title]');
+    const external = catalog.querySelector('[data-teaching-external]');
+    if(!player || !frame || !titleNode || !external || !card) return;
+
     const platform = catalog.dataset.platform || defaultPlatform();
-    const frame = lecture.querySelector('.teaching-lecture-frame');
-    const title = lecture.querySelector('.teaching-lecture-title')?.textContent.trim() || 'Video lecture';
-    const src = platform === 'youtube' ? lecture.dataset.youtubeSrc : lecture.dataset.vkSrc;
-    const href = platform === 'youtube' ? lecture.dataset.youtubeLink : lecture.dataset.vkLink;
-    if(!frame || !src) return;
+    const src = platform === 'youtube' ? card.dataset.youtubeSrc : card.dataset.vkSrc;
+    const href = platform === 'youtube' ? card.dataset.youtubeLink : card.dataset.vkLink;
+    const title = card.querySelector('.teaching-lecture-title')?.textContent.trim() || 'Video lecture';
+    if(!src) return;
 
-    frame.hidden = false;
+    titleNode.textContent = title;
+    external.href = href || src;
+    external.innerHTML = platformExternalText(platform);
     frame.innerHTML = '';
-
-    const holder = document.createElement('div');
-    holder.className = 'teaching-lecture-frame-inner';
 
     const iframe = document.createElement('iframe');
     iframe.src = src;
@@ -39,20 +44,9 @@
     iframe.allow = FRAME_ALLOW;
     iframe.allowFullscreen = true;
     iframe.loading = 'lazy';
-    holder.appendChild(iframe);
-    frame.appendChild(holder);
+    frame.appendChild(iframe);
 
-    if(href){
-      const link = document.createElement('a');
-      link.className = 'teaching-lecture-external';
-      link.href = href;
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.innerHTML = platform === 'youtube'
-        ? '<span class="ru">Открыть на YouTube</span><span class="en">Open on YouTube</span>'
-        : '<span class="ru">Открыть в VK Видео</span><span class="en">Open in VK Video</span>';
-      frame.appendChild(link);
-    }
+    player.hidden = false;
   }
 
   function setPlatform(catalog, platform){
@@ -63,43 +57,33 @@
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
-    catalog.querySelectorAll('.teaching-lecture').forEach(lecture => {
-      const button = lecture.querySelector('.teaching-lecture-toggle');
-      if(button?.getAttribute('aria-expanded') === 'true'){
-        renderFrame(catalog, lecture);
-      }
+    const card = selectedCard(catalog);
+    if(card) renderPlayer(catalog, card);
+  }
+
+  function selectCard(catalog, card){
+    catalog.querySelectorAll('[data-lecture-card]').forEach(item => {
+      const active = item === card;
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
+    catalog.dataset.selectedLecture = card.dataset.lectureId || '';
+    renderPlayer(catalog, card);
   }
 
   function installCatalog(catalog){
-    setPlatform(catalog, defaultPlatform());
+    catalog.querySelectorAll('[data-lecture-card]').forEach((card, index) => {
+      card.dataset.lectureId = card.dataset.lectureId || String(index + 1);
+      card.setAttribute('aria-pressed', 'false');
+      card.addEventListener('click', () => selectCard(catalog, card));
+    });
 
     catalog.querySelectorAll('[data-video-platform]').forEach(button => {
       button.addEventListener('click', () => setPlatform(catalog, button.dataset.videoPlatform));
     });
 
-    catalog.querySelectorAll('.teaching-lecture').forEach(lecture => {
-      const button = lecture.querySelector('.teaching-lecture-toggle');
-      const frame = lecture.querySelector('.teaching-lecture-frame');
-      if(!button || !frame) return;
-      updateToggleLabel(lecture);
-      button.addEventListener('click', () => {
-        const expanded = button.getAttribute('aria-expanded') === 'true';
-        button.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        if(expanded){
-          frame.hidden = true;
-          frame.innerHTML = '';
-        }else{
-          renderFrame(catalog, lecture);
-        }
-        updateToggleLabel(lecture);
-      });
-    });
-
-    window.addEventListener('site:languagechange', () => {
-      setPlatform(catalog, defaultPlatform());
-      catalog.querySelectorAll('.teaching-lecture').forEach(updateToggleLabel);
-    });
+    setPlatform(catalog, defaultPlatform());
+    window.addEventListener('site:languagechange', () => setPlatform(catalog, defaultPlatform()));
   }
 
   document.addEventListener('DOMContentLoaded', () => {

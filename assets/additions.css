@@ -334,12 +334,13 @@ body.lang-en .research-list.en{
   border-bottom:1px solid #c9c9c9;
 }
 .funding-item{
-  grid-template-columns:1fr;
-  gap:12px;
+  grid-template-columns:112px minmax(0,1fr);
+  grid-template-rows:auto auto auto;
+  gap:4px 14px;
   align-items:start;
   align-content:start;
-  padding:20px;
-  min-height:190px;
+  padding:16px;
+  min-height:0;
 }
 .research-item{
   grid-template-columns:minmax(0,1fr);
@@ -352,9 +353,11 @@ body.lang-en .research-list.en{
   transform:translateY(-1px);
 }
 .funding-logo{
-  width:132px;
+  grid-column:1;
+  grid-row:1/3;
+  width:108px;
   max-width:100%;
-  height:52px;
+  height:46px;
   object-fit:contain;
   object-position:left center;
   background:transparent;
@@ -369,6 +372,8 @@ body.lang-en .research-list.en{
   white-space:nowrap;
 }
 .funding-year{
+  grid-column:2;
+  grid-row:1;
   display:inline-flex;
   align-items:center;
   justify-self:start;
@@ -388,14 +393,19 @@ body.lang-en .research-list.en{
   min-width:0;
   line-height:1.45;
 }
+.funding-body{
+  display:contents;
+}
 .funding-body strong,
 .research-body strong{
   color:#111;
   font-weight:900;
 }
 .funding-body strong{
-  font-size:18px;
-  line-height:1.25;
+  grid-column:2;
+  grid-row:2;
+  font-size:16px;
+  line-height:1.22;
 }
 .research-body strong{
   font-size:15px;
@@ -405,6 +415,11 @@ body.lang-en .research-list.en{
 .research-body span{
   color:#555;
   overflow-wrap:anywhere;
+}
+.funding-body span{
+  grid-column:1/-1;
+  grid-row:3;
+  margin-top:8px;
 }
 .research-body span{
   font-size:14px;
@@ -430,10 +445,7 @@ body.lang-en .research-list.en{
   max-width:var(--max);
   margin:42px auto 0;
   padding:0 20px 26px;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(280px,420px);
-  gap:34px;
-  align-items:end;
+  display:block;
 }
 .teaching-hero h1{
   margin:0 0 18px;
@@ -496,7 +508,7 @@ body.lang-en .research-list.en{
 }
 .teaching-grid{
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:16px;
 }
 .teaching-card,
@@ -598,33 +610,67 @@ body.lang-en .research-list.en{
   background:#fff;
   color:#111;
 }
-.teaching-lecture-list{
+.teaching-lecture-grid{
   display:grid;
-  gap:10px;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
 }
-.teaching-lecture{
-  min-width:0;
-  background:#1b1b1d;
-  border:1px solid rgba(255,255,255,.16);
-}
-.teaching-lecture-toggle{
+.teaching-lecture-card{
   width:100%;
-  min-height:68px;
+  min-width:0;
   display:grid;
-  grid-template-columns:54px minmax(0,1fr) auto;
-  gap:14px;
-  align-items:center;
-  border:0;
-  background:transparent;
+  grid-template-rows:auto 1fr;
+  border:1px solid rgba(255,255,255,.16);
+  background:#1b1b1d;
   color:#fff;
-  padding:14px 16px;
+  padding:0;
   text-align:left;
   cursor:pointer;
   font:inherit;
 }
-.teaching-lecture-toggle:hover,
-.teaching-lecture-toggle:focus-visible{
+.teaching-lecture-card:hover,
+.teaching-lecture-card:focus-visible{
   background:#242427;
+}
+.teaching-lecture-card.is-active{
+  border-color:#fff;
+  box-shadow:0 0 0 2px rgba(255,255,255,.78);
+}
+.teaching-lecture-thumb{
+  position:relative;
+  display:block;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#050505;
+}
+.teaching-lecture-thumb img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+.teaching-lecture-play{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:rgba(0,0,0,.68);
+  color:#fff;
+  font-size:17px;
+  line-height:1;
+}
+.teaching-lecture-meta{
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr);
+  gap:10px;
+  align-items:start;
+  padding:12px;
 }
 .teaching-lecture-number{
   display:inline-flex;
@@ -645,29 +691,35 @@ body.lang-en .research-list.en{
   font-weight:900;
   overflow-wrap:anywhere;
 }
-.teaching-lecture-state{
-  display:inline-flex;
-  align-items:center;
-  min-height:34px;
-  padding:8px 10px;
-  background:#fff;
-  color:#111;
-  border-radius:5px;
-  font-size:13px;
-  font-weight:900;
-  line-height:1;
-  white-space:nowrap;
+.teaching-player{
+  margin-top:18px;
+  padding:16px;
+  background:#1b1b1d;
+  border:1px solid rgba(255,255,255,.16);
 }
-.teaching-lecture-frame{
-  padding:0 16px 16px 84px;
+.teaching-player[hidden]{
+  display:none;
+}
+.teaching-player-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:14px;
+}
+.teaching-player-head h3{
+  color:#fff;
+  margin:0;
+  font-size:20px;
+  line-height:1.25;
 }
 .teaching-lecture-frame-inner{
   position:relative;
   aspect-ratio:16/9;
-  min-height:220px;
+  min-height:320px;
   background:#050505;
 }
-.teaching-lecture-frame iframe{
+.teaching-lecture-frame-inner iframe{
   position:absolute;
   inset:0;
   width:100%;
@@ -828,15 +880,8 @@ body.lang-en .research-list.en{
     grid-template-columns:1fr;
   }
   .funding-item{
-    grid-template-columns:1fr;
+    grid-template-columns:112px minmax(0,1fr);
     min-height:0;
-  }
-  .funding-year{
-    grid-column:auto;
-    grid-row:auto;
-  }
-  .funding-body{
-    grid-column:auto;
   }
   .teaching-hero,
   .teaching-video{
@@ -851,6 +896,9 @@ body.lang-en .research-list.en{
   .teaching-grid{
     grid-template-columns:1fr;
   }
+  .teaching-lecture-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
   .teaching-video-frame{
     min-height:260px;
   }
@@ -859,14 +907,16 @@ body.lang-en .research-list.en{
   }
 }
 @media(max-width:640px){
-  .funding-item,
   .research-item,
   .teaching-course{
     grid-template-columns:1fr;
   }
+  .funding-item{
+    grid-template-columns:92px minmax(0,1fr);
+  }
   .funding-logo{
-    width:118px;
-    height:46px;
+    width:88px;
+    height:42px;
   }
   .funding-year,
   .research-year{
@@ -888,10 +938,8 @@ body.lang-en .research-list.en{
   .teaching-video-catalog{
     padding:18px;
   }
-  .teaching-lecture-toggle{
-    grid-template-columns:42px minmax(0,1fr);
-    gap:10px;
-    padding:12px;
+  .teaching-lecture-grid{
+    grid-template-columns:1fr;
   }
   .teaching-lecture-number{
     width:34px;
@@ -901,12 +949,12 @@ body.lang-en .research-list.en{
   .teaching-lecture-title{
     font-size:16px;
   }
-  .teaching-lecture-state{
-    grid-column:2;
-    justify-self:start;
+  .teaching-player{
+    padding:12px;
   }
-  .teaching-lecture-frame{
-    padding:0 12px 12px;
+  .teaching-player-head{
+    align-items:flex-start;
+    flex-direction:column;
   }
   .teaching-lecture-frame-inner{
     min-height:0;

@@ -8,7 +8,7 @@
     {
       "id": "vliyanie-prostitutsii-na-demografiyu",
       "year": 2016,
-      "order": 1,
+      "order": 3,
       "title_ru": "Влияние проституции на демографию",
       "title_en": "The influence of prostitution on demography",
       "description_ru": "Архивная научно-популярная статья о правовом статусе проституции, международных моделях регулирования и возможных демографических последствиях коммерциализации сексуальных отношений.",
@@ -30,7 +30,7 @@
     {
       "id": "vysokaya-rozhdaemost-klyuch-k-ekonomicheskomu-rostu",
       "year": 2016,
-      "order": 2,
+      "order": 4,
       "title_ru": "Высокая рождаемость — ключ к экономическому росту",
       "title_en": "High fertility as a key to economic growth",
       "description_ru": "Материал о связи рождаемости, трудовых ресурсов, совокупного спроса и устойчивости экономической системы на примере России и Китая.",
@@ -52,7 +52,7 @@
     {
       "id": "demografiya-v-rossiyskoy-imperii",
       "year": 2016,
-      "order": 3,
+      "order": 1,
       "title_ru": "Демография в Российской Империи",
       "title_en": "Demography in the Russian Empire",
       "description_ru": "Исторический очерк о становлении демографического учёта в России, ревизиях, первой всеобщей переписи 1897 года и сравнении с современными демографическими тенденциями.",
@@ -75,7 +75,7 @@
     {
       "id": "dostizhenie-ekonomicheskoy-stabilnosti-uvelicheniem-rozhdaemosti",
       "year": 2016,
-      "order": 4,
+      "order": 2,
       "title_ru": "Достижение экономической стабильности увеличением рождаемости",
       "title_en": "Achieving economic stability through higher fertility",
       "description_ru": "Статья о демографических предпосылках экономического роста, роли трудовых ресурсов, спроса населения и инфраструктуры воспроизводства человеческого капитала.",
