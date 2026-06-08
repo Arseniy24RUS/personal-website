@@ -52,17 +52,46 @@ function pageKey(){
   return name || 'index.html';
 }
 
-function browserPreferredLang(){
-  const langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
-  return langs.some(lang => String(lang).toLowerCase().startsWith('ru')) ? 'ru' : 'en';
+const LOCALIZED_PAGES = new Set([
+  'index.html',
+  'projects.html',
+  'publications.html',
+  'teaching.html',
+  'media.html',
+  'diplomas.html',
+  'it.html',
+  'materials.html',
+  'metrics.html'
+]);
+
+function pageLangFromUrl(){
+  const path = location.pathname.replace(/\\/g, '/');
+  if(/\/en(?:\/|$)/.test(path)) return 'en';
+  const declared = document.documentElement.getAttribute('data-default-lang');
+  return declared === 'en' ? 'en' : 'ru';
 }
 
 function preferredLang(){
-  try{
-    const saved = localStorage.getItem('lang');
-    if(saved === 'ru' || saved === 'en') return saved;
-  }catch(e){}
-  return browserPreferredLang();
+  return pageLangFromUrl();
+}
+
+function localizedPath(lang){
+  const key = pageKey();
+  if(!LOCALIZED_PAGES.has(key)) return null;
+  if(lang === 'en') return key === 'index.html' ? '/en/' : `/en/${key}`;
+  return key === 'index.html' ? '/' : `/${key}`;
+}
+
+function normalizedPath(path){
+  return String(path || '/').replace(/\/index\.html$/i, '/');
+}
+
+function navHref(fileName){
+  const key = fileName || 'index.html';
+  if(pageLangFromUrl() === 'en' && LOCALIZED_PAGES.has(key)){
+    return key === 'index.html' ? 'en/' : `en/${key}`;
+  }
+  return key;
 }
 
 function faviconHref(){
@@ -96,15 +125,20 @@ function installVisualFixes(){
 }
 
 function updatePageMeta(lang){
-  const meta = (PAGE_META[pageKey()] || PAGE_META['index.html'] || {})[lang];
-  if(!meta) return;
-  if(meta.title) document.title = meta.title;
-  const desc = document.querySelector('meta[name="description"]');
-  if(desc && meta.description) desc.setAttribute('content', meta.description);
+  // SEO-critical title and meta description are defined statically in HTML.
+  // Do not mutate them at runtime: crawlers and localized URLs must see stable metadata.
+  return;
 }
 
-function setLang(lang){
+function setLang(lang, options){
   const normalized = lang === 'ru' ? 'ru' : 'en';
+  const opts = options || {};
+  const targetPath = localizedPath(normalized);
+  if(!opts.noNavigate && targetPath && normalizedPath(location.pathname) !== normalizedPath(targetPath)){
+    try{ localStorage.setItem('lang', normalized); }catch(e){}
+    location.href = targetPath + location.search + location.hash;
+    return;
+  }
   document.documentElement.lang = normalized;
   document.documentElement.classList.toggle('lang-en', normalized === 'en');
   document.body.classList.toggle('lang-en', normalized === 'en');
@@ -124,14 +158,14 @@ function installHeader(){
   if(!header) return;
   header.className = 'top';
   header.innerHTML = `
-    <a class="brand brand-link" href="index.html" aria-label="Home"><span class="ru">Ситковский А.М.</span><span class="en">Arseniy M. Sitkovskiy</span></a>
+    <a class="brand brand-link" href="${navHref('index.html')}" aria-label="Home"><span class="ru">Ситковский А.М.</span><span class="en">Arseniy M. Sitkovskiy</span></a>
     <nav class="nav" aria-label="Main navigation">
-      <a href="projects.html"><span class="ru">Проекты</span><span class="en">Projects</span></a>
-      <a href="publications.html"><span class="ru">Статьи</span><span class="en">Articles</span></a>
-      <a href="teaching.html"><span class="ru">Преподавание</span><span class="en">Teaching</span></a>
-      <a href="media.html"><span class="ru">СМИ</span><span class="en">Media</span></a>
-      <a href="diplomas.html"><span class="ru">Дипломы</span><span class="en">Diplomas</span></a>
-      <a href="it.html"><span class="ru">ИТ-ресурсы</span><span class="en">IT Resources</span></a>
+      <a href="${navHref('projects.html')}"><span class="ru">Проекты</span><span class="en">Projects</span></a>
+      <a href="${navHref('publications.html')}"><span class="ru">Статьи</span><span class="en">Articles</span></a>
+      <a href="${navHref('teaching.html')}"><span class="ru">Преподавание</span><span class="en">Teaching</span></a>
+      <a href="${navHref('media.html')}"><span class="ru">СМИ</span><span class="en">Media</span></a>
+      <a href="${navHref('diplomas.html')}"><span class="ru">Дипломы</span><span class="en">Diplomas</span></a>
+      <a href="${navHref('it.html')}"><span class="ru">ИТ-ресурсы</span><span class="en">IT Resources</span></a>
       <a class="email-btn" href="mailto:omnistat@yandex.ru">omnistat@yandex.ru</a>
       <button class="lang-toggle" data-lang-toggle onclick="toggleLang()" aria-label="Переключить на английский">EN</button>
     </nav>`;
@@ -176,5 +210,5 @@ document.addEventListener('DOMContentLoaded', () => {
   installHeader();
   installFooter();
   orderHomeSections();
-  setLang(preferredLang());
+  setLang(preferredLang(), {noNavigate: true});
 });

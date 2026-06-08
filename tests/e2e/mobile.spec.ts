@@ -14,11 +14,12 @@ test.describe('mobile portfolio layout', () => {
     });
   }
 
-  test('language toggle updates dynamic publications without reload', async ({ page }) => {
+  test('language toggle navigates to localized publications URL', async ({ page }) => {
     await page.addInitScript(() => localStorage.setItem('lang', 'ru'));
     await page.goto('/publications.html');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ru');
     await page.getByRole('button', { name: /Switch|Переключить|EN|RU/ }).click();
+    await expect(page).toHaveURL(/\/en\/publications\.html$/);
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
     await expect(page.locator('#src-all')).toHaveText('All sources');
   });

@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "serve": "python3 -m http.server 4173",
+    "seo:build": "python3 scripts/build_en_pages.py && python3 scripts/build_sitemap.py",
+    "seo:check": "python3 scripts/check_seo.py",
+    "seo": "npm run seo:build && npm run seo:check",
     "test:e2e": "playwright test",
     "test:e2e:mobile": "playwright test tests/e2e/mobile.spec.ts --project=mobile-chrome"
   },
