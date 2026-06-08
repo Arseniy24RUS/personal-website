@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T20:15:38+00:00",
+  "generated_at": "2026-06-08T08:32:41+00:00",
   "status": "ok",
   "checks": {
     "publications_count": 66,
@@ -23,8 +23,8 @@
     "reference_enrichment_stats": {
       "records": 66,
       "titles_fixed": 0,
-      "elibrary_detail_fields_added": 0,
-      "metadata_fields_added": 0,
+      "elibrary_detail_fields_added": 16,
+      "metadata_fields_added": 2,
       "gost_built": 66,
       "apa_built": 66,
       "crossref_cache_hit": 25,
@@ -39,15 +39,9 @@
       "details": [
         {
           "section": "browser",
-          "route": "browser_dom_first_then_wosnx",
-          "status": "no_records",
+          "route": "browser_dom_first_public_profile_route",
+          "status": "human_verification_required",
           "excerpt": ""
-        },
-        {
-          "section": "direct_wosnx",
-          "route": "direct_wosnx_run_query_search_har_compatible",
-          "status": "api_without_records",
-          "excerpt": "{\"id\":0,\"key\":\"error\",\"payload\":[\"Server.sessionNotFound\"]}"
         }
       ]
     }

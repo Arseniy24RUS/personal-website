@@ -1,19 +1,31 @@
 {
-  "status": "http_error",
-  "http_status": 302,
-  "elapsed_sec": 7.721,
+  "status": "ok",
+  "http_status": 200,
+  "elapsed_sec": 52.649,
+  "content_length": 1131,
   "url": "https://www.elibrary.ru/author_profile.asp?id=1012909",
-  "error_excerpt": "<head><title>Object moved</title></head>\n<body><h1>Object Moved</h1>This object may be found <a HREF=\"defaultx.asp\">here</a>.</body>\n",
+  "final_url": "https://www.elibrary.ru/ip_restricted.asp?rpage=https%3A%2F%2Fwww%2Eelibrary%2Eru%2Fauthor%5Fprofile%2Easp%3Fid%3D1012909",
   "preflight": {
     "status": "error",
-    "elapsed_sec": 0.719,
+    "elapsed_sec": 0.598,
     "url": "https://elibrary.ru/defaultx.asp",
     "error_type": "URLError",
     "error": "URLError(ConnectionResetError(104, 'Connection reset by peer'))"
   },
   "cookies_count": 1,
   "manual_cookie_present": true,
-  "generated_at": "2026-06-04T20:10:36+00:00",
+  "html_fingerprint": {
+    "has_author_items": false,
+    "has_rows": false,
+    "has_suspicious_ip_text": false,
+    "has_turing_test": false,
+    "has_cookie_text": false,
+    "content_length": 1131,
+    "excerpt": "\r <!DOCTYPE html>\r <html>\r <body bgcolor=#f5f5f5>\r <div id=\"blockedip\" style=\"position:absolute; width:500px; text-align:center; top:50%; left:50%; margin-top:-100px; margin-left:-250px;\">\r <img src=\"/images/stop.gif\" border=0 width=40 height=40 vspace=8><br>\r Из-за нарушения <a href=\"/access_terms.asp\">правил пользования</a> сайтом <br>eLIBRARY.RU доступ к данной странице для незарегистрированных пользователей <br>с IP-адреса 5.228.55.159 ограничен.<br><br>\r Для доступа к данной странице, пожалуйста, <br>перейдите на <a href=\"/defaultx.asp?rpage=https://www.elibrary.ru/author_profile.asp?id=1012909\">главную страницу сайта</a> и <br>укажите имя пользователя и пароль.\r <br><br>За дополнительной информацией обращайтесь по адресу <a href=\"mailto:support@elibrary.ru\">support@elibrary.ru</a>, указав данный IP-адрес 5.228.55.159.\r </div>\r \r </body>\r </html>",
+    "has_metrics": false,
+    "has_h_index": false
+  },
+  "generated_at": "2026-06-08T08:30:44+00:00",
   "used_source": "saved_snapshot",
   "snapshot_path": "data/snapshots/elibrary/profile/author_profile_1012909_20260602T194704Z.html"
 }

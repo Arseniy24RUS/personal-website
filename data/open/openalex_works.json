@@ -5,6 +5,26 @@
     "page": 1,
     "per_page": 200,
     "groups_count": null,
+    "x_query": {
+      "oql": "works\nwhere author is https://openalex.org/A5007601767\nsort by publication_date desc",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "authorships.author.id",
+            "value": "https://openalex.org/A5007601767"
+          }
+        ],
+        "sort_by": [
+          {
+            "column_id": "publication_date",
+            "direction": "desc"
+          }
+        ],
+        "per_page": 200
+      },
+      "url": "/works?filter=authorships.author.id:https:%2F%2Fopenalex.org%2FA5007601767&sort=publication_date:desc&per_page=200"
+    },
     "cost_usd": 0.0001
   },
   "results": [
@@ -419,9 +439,9 @@
       },
       "sustainable_development_goals": [
         {
-          "display_name": "Reduced inequalities",
+          "score": 0.6855306625366211,
           "id": "https://metadata.un.org/sdg/10",
-          "score": 0.6855306625366211
+          "display_name": "Reduced inequalities"
         }
       ],
       "awards": [],
@@ -6939,9 +6959,9 @@
       },
       "sustainable_development_goals": [
         {
-          "display_name": "Reduced inequalities",
+          "score": 0.47999998927116394,
           "id": "https://metadata.un.org/sdg/10",
-          "score": 0.47999998927116394
+          "display_name": "Reduced inequalities"
         }
       ],
       "awards": [],
@@ -7428,9 +7448,9 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "display_name": "Partnerships for the goals",
+          "score": 0.5600000023841858,
           "id": "https://metadata.un.org/sdg/17",
-          "score": 0.5600000023841858
+          "display_name": "Partnerships for the goals"
         }
       ],
       "awards": [],
@@ -10882,9 +10902,9 @@
       },
       "sustainable_development_goals": [
         {
-          "display_name": "Reduced inequalities",
+          "score": 0.5199999809265137,
           "id": "https://metadata.un.org/sdg/10",
-          "score": 0.5199999809265137
+          "display_name": "Reduced inequalities"
         }
       ],
       "awards": [],

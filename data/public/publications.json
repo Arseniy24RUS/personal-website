@@ -11538,9 +11538,9 @@
           },
           "sustainable_development_goals": [
             {
-              "display_name": "Reduced inequalities",
+              "score": 0.5199999809265137,
               "id": "https://metadata.un.org/sdg/10",
-              "score": 0.5199999809265137
+              "display_name": "Reduced inequalities"
             }
           ],
           "awards": [],

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T20:04:09+00:00",
+  "generated_at": "2026-06-08T08:23:19+00:00",
   "providers": {
     "orcid": {
       "status": "ok",
@@ -22,6 +22,6 @@
       "url": "https://api.crossref.org/works?filter=orcid%3A0000-0002-8725-6580&rows=100&sort=published&order=desc&mailto=omnistat%40yandex.ru"
     }
   },
-  "records_total_before_dedupe": 42,
+  "records_total_before_dedupe": 41,
   "records_total_after_dedupe": 18
 }

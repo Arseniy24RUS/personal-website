@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T20:15:37+00:00",
+  "generated_at": "2026-06-08T08:32:40+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
@@ -52,7 +52,7 @@
     "authorid": "1012909",
     "spin": "9559-1803",
     "author_name": "Ситковский Арсений Михайлович",
-    "snapshot_generated_at": "2026-06-04T20:10:36+00:00",
+    "snapshot_generated_at": "2026-06-08T08:30:44+00:00",
     "source_file_sha256": "b235d703822e184ced0e767c02c9de8659cb6c29f467fcdbe1b988dbedba2592",
     "elibrary_updated_at": "29.05.2026",
     "summary": {
@@ -377,7 +377,7 @@
     "source": "web_of_science_free_view_author_profile",
     "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
     "researcher_id": "AAG-1530-2021",
-    "generated_at": "2026-06-04T20:15:36+00:00",
+    "generated_at": "2026-06-08T08:32:39+00:00",
     "page_title": "Arseniy Sitkovskiy - Web of Science Researcher Profile",
     "summary": {
       "publications": 10,
@@ -704,7 +704,7 @@
   },
   "scopus_metrics": {
     "source": "scopus_api",
-    "generated_at": "2026-06-04T20:15:37+00:00",
+    "generated_at": "2026-06-08T08:32:40+00:00",
     "scopus_author_id": "57220956828",
     "author_profile_status": 401,
     "search_status": 200,
@@ -715,7 +715,7 @@
     "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available."
   },
   "scientometrics": {
-    "generated_at": "2026-06-04T20:15:37+00:00",
+    "generated_at": "2026-06-08T08:32:40+00:00",
     "columns": [
       "rinc",
       "scopus",
@@ -766,7 +766,7 @@
     }
   },
   "open_sources_report": {
-    "generated_at": "2026-06-04T20:04:09+00:00",
+    "generated_at": "2026-06-08T08:23:19+00:00",
     "providers": {
       "orcid": {
         "status": "ok",
@@ -789,7 +789,7 @@
         "url": "https://api.crossref.org/works?filter=orcid%3A0000-0002-8725-6580&rows=100&sort=published&order=desc&mailto=omnistat%40yandex.ru"
       }
     },
-    "records_total_before_dedupe": 42,
+    "records_total_before_dedupe": 41,
     "records_total_after_dedupe": 18
   },
   "canonical_publications_count": 66,
@@ -803,7 +803,7 @@
   "wos_auto_added_publications_count": 0,
   "admin_queue_size": 0,
   "wos_public_merge_report": {
-    "generated_at": "2026-06-04T20:15:37+00:00",
+    "generated_at": "2026-06-08T08:32:40+00:00",
     "records_seen": 10,
     "enriched": 10,
     "added": 0,
