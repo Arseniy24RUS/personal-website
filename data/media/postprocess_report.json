@@ -1,9 +1,5 @@
 {
-<<<<<<< Updated upstream
   "generated_at": "2026-06-08T08:30:55+00:00",
-=======
-  "generated_at": "2026-06-08T08:29:38+00:00",
->>>>>>> Stashed changes
   "published": 20,
   "rejected_or_low_confidence": 94,
   "image_cache_dir": "assets/media/mentions",

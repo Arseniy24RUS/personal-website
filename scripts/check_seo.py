@@ -215,6 +215,19 @@ def check_site_js() -> None:
             fail("updatePageMeta must not mutate title or description")
 
 
+def check_public_json_data() -> None:
+    conflict_markers = ("<<<<<<<", "=======", ">>>>>>>")
+    for path in sorted((ROOT / "data").rglob("*.json")):
+        rel = path.relative_to(ROOT).as_posix()
+        text = read(path)
+        if any(marker in text for marker in conflict_markers):
+            fail(f"Conflict marker found in public JSON data: {rel}")
+        try:
+            json.loads(text)
+        except json.JSONDecodeError as exc:
+            fail(f"Invalid public JSON data in {rel}: {exc}")
+
+
 def check_forbidden_files_and_meta() -> None:
     forbidden_names = ["BingSiteAuth.xml", "docs/search-indexing.md"]
     for name in forbidden_names:
@@ -242,6 +255,7 @@ def main() -> int:
         check_page(url)
     check_admin()
     check_site_js()
+    check_public_json_data()
     check_forbidden_files_and_meta()
     if ERRORS:
         print("SEO check failed:")

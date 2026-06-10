@@ -26,9 +26,29 @@ test.describe('mobile portfolio layout', () => {
 
   test('media cards without images use full width', async ({ page }) => {
     await page.goto('/media.html');
-    const noImage = page.locator('.media-card.no-image').first();
+    const noImage = page.locator('#media-list .media-card.no-image').first();
     await expect(noImage).toBeVisible();
     const box = await noImage.boundingBox();
     expect(box?.width || 0).toBeGreaterThan(300);
+  });
+
+  test('published media records load into the dynamic media list', async ({ page }) => {
+    await page.goto('/media.html');
+    await page.waitForFunction(() => document.querySelectorAll('#media-list .media-card').length >= 20);
+    await expect(page.locator('#media-list .note')).toHaveCount(0);
+  });
+
+  test('teaching lecture thumbnails render from local assets', async ({ page }) => {
+    await page.goto('/teaching.html');
+    const thumbs = page.locator('.teaching-lecture-thumb img');
+    await expect(thumbs).toHaveCount(8);
+    await expect(thumbs.first()).toHaveAttribute('src', /^assets\/teaching\/thumbs\//);
+    for (let index = 0; index < 8; index += 1) {
+      const thumb = thumbs.nth(index);
+      await thumb.scrollIntoViewIfNeeded();
+      await expect
+        .poll(() => thumb.evaluate((img) => (img as HTMLImageElement).complete && (img as HTMLImageElement).naturalWidth > 0))
+        .toBe(true);
+    }
   });
 });
