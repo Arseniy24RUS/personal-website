@@ -46,8 +46,8 @@ def rid(url, title):
 def norm_seed(seed):
     url = seed.get('url')
     title = seed.get('title') or title_from_url(url)
-    seed_metadata_locked = bool(seed.get('title') or seed.get('description') or seed.get('context'))
-    return {
+    seed_metadata_locked = bool(seed.get('title') or seed.get('description') or seed.get('context') or seed.get('title_en') or seed.get('description_en'))
+    record = {
         'id': rid(url, title),
         'source': seed.get('source_type') or 'known_media_seed',
         'query': None,
@@ -64,6 +64,10 @@ def norm_seed(seed):
         'seed_metadata_locked': seed_metadata_locked,
         'harvested_at': now(),
     }
+    for key in ['title_ru', 'title_en', 'description_ru', 'description_en', 'source_name_en']:
+        if seed.get(key):
+            record[key] = seed[key]
+    return record
 
 def cfg_seed_records():
     cfg = read_cfg()
@@ -92,17 +96,25 @@ def main():
     by_url = {r.get('url'): r for r in current if r.get('url')}
     added = updated = 0
     seeds = cfg_seed_records() + corpus_seed_records()
+    passthrough_fields = [
+        'published_at', 'source_name', 'source_name_en', 'confidence', 'status',
+        'force_publish', 'seed_metadata_locked', 'source',
+    ]
+    localized_fields = ['title', 'title_ru', 'title_en', 'description', 'description_ru', 'description_en']
     for rec in seeds:
         if rec['url'] in by_url:
             old = by_url[rec['url']]
-            old.update({k: rec[k] for k in ['published_at','source_name','confidence','status','force_publish','seed_metadata_locked','source'] if rec.get(k) is not None})
+            old.update({k: rec[k] for k in passthrough_fields if rec.get(k) is not None})
             if rec.get('seed_metadata_locked'):
-                old.update({k: rec[k] for k in ['title','description'] if rec.get(k) is not None})
+                old.update({k: rec[k] for k in localized_fields if rec.get(k) is not None})
             else:
                 if rec.get('title') and not old.get('title'):
                     old['title'] = rec['title']
                 if rec.get('description') and not old.get('description'):
                     old['description'] = rec['description']
+                for key in ['title_ru', 'title_en', 'description_ru', 'description_en']:
+                    if rec.get(key) and not old.get(key):
+                        old[key] = rec[key]
             if rec.get('image'):
                 old['image'] = rec['image']
             updated += 1

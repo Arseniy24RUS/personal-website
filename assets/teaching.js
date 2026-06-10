@@ -16,6 +16,12 @@
       : '<span class="ru">Открыть в VK Видео</span><span class="en">Open in VK Video</span>';
   }
 
+  function localizedText(root, fallback){
+    if(!root) return fallback;
+    const localized = root.querySelector(`.${currentLang()}`);
+    return (localized?.textContent || root.textContent || fallback).trim() || fallback;
+  }
+
   function playerDialog(){
     return document.querySelector('[data-teaching-player]');
   }
@@ -69,7 +75,7 @@
     const platform = catalog.dataset.platform || defaultPlatform();
     const src = platform === 'youtube' ? card.dataset.youtubeSrc : card.dataset.vkSrc;
     const href = platform === 'youtube' ? card.dataset.youtubeLink : card.dataset.vkLink;
-    const title = card.querySelector('.teaching-lecture-title')?.textContent.trim() || 'Video lecture';
+    const title = localizedText(card.querySelector('.teaching-lecture-title'), 'Video lecture');
     if(!src) return;
 
     titleNode.textContent = title;

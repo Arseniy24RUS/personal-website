@@ -95,6 +95,26 @@
     }
     function sourceLabel(r){
       const raw=String(r.source_name||r.domain||'');
+      if(lang()==='en'){
+        const explicit=String(r.source_name_en||'').trim();
+        if(explicit)return explicit;
+        const labels={
+          'deminform.ru':'DEM.INFORM',
+          'ДЕМ.ИНФОРМ':'DEM.INFORM',
+          't.me':'Telegram',
+          'sobaka.ru':'Sobaka.ru',
+          'rosbalt.ru':'Rosbalt',
+          'demoscope.ru':'Demoscope Weekly',
+          'Калуга За правду':'Kaluga Za Pravdu',
+          'РАН':'Russian Academy of Sciences',
+          'БезФормата Челябинск':'BezFormata Chelyabinsk',
+          'РУДН':'RUDN University',
+          'МГИМО':'MGIMO',
+          'РАНХиГС':'RANEPA',
+          'Демографическая платформа':'Demographic Platform'
+        };
+        return labels[raw]||raw;
+      }
       if(raw==='deminform.ru')return lang()==='en'?'DEM.INFORM':'ДЕМ.ИНФОРМ';
       if(raw==='t.me')return 'Telegram';
       if(raw==='sobaka.ru')return 'Sobaka.ru';

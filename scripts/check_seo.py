@@ -228,6 +228,34 @@ def check_public_json_data() -> None:
             fail(f"Invalid public JSON data in {rel}: {exc}")
 
 
+def check_media_english_localization() -> None:
+    cyrillic = re.compile(r"[\u0400-\u04FF]")
+    for name in ("published.json", "news_mentions.json"):
+        path = ROOT / "data" / "media" / name
+        if not path.exists():
+            fail(f"Media data file is missing: data/media/{name}")
+            continue
+        try:
+            records = json.loads(read(path)).get("records", [])
+        except json.JSONDecodeError:
+            continue
+        for index, record in enumerate(records, start=1):
+            label = record.get("url") or record.get("id") or f"record #{index}"
+            for key in ("title_en", "description_en"):
+                value = str(record.get(key) or "").strip()
+                if not value:
+                    fail(f"Missing {key} in data/media/{name}: {label}")
+                elif cyrillic.search(value):
+                    fail(f"Cyrillic text found in {key} in data/media/{name}: {label}")
+            source_en = str(record.get("source_name_en") or "").strip()
+            source = str(record.get("source_name") or "")
+            if cyrillic.search(source):
+                if not source_en:
+                    fail(f"Missing source_name_en for Cyrillic source in data/media/{name}: {label}")
+                elif cyrillic.search(source_en):
+                    fail(f"Cyrillic text found in source_name_en in data/media/{name}: {label}")
+
+
 def check_forbidden_files_and_meta() -> None:
     forbidden_names = ["BingSiteAuth.xml", "docs/search-indexing.md"]
     for name in forbidden_names:
@@ -256,6 +284,7 @@ def main() -> int:
     check_admin()
     check_site_js()
     check_public_json_data()
+    check_media_english_localization()
     check_forbidden_files_and_meta()
     if ERRORS:
         print("SEO check failed:")

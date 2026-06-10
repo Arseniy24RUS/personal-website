@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 const pages = ['/', '/publications.html', '/media.html', '/it.html', '/projects.html', '/diplomas.html'];
+const cyrillic = /[\u0400-\u04FF]/;
 
 test.describe('mobile portfolio layout', () => {
   for (const path of pages) {
@@ -38,6 +39,16 @@ test.describe('mobile portfolio layout', () => {
     await expect(page.locator('#media-list .note')).toHaveCount(0);
   });
 
+  test('English media cards render translated dynamic text', async ({ page }) => {
+    await page.goto('/en/media.html');
+    await page.waitForFunction(() => document.querySelectorAll('#media-list .media-card').length >= 20);
+    await expect(page.locator('#media-list .note')).toHaveCount(0);
+    const mediaText = await page.locator('#media-list').innerText();
+    expect(mediaText).not.toMatch(cyrillic);
+    await expect(page.locator('#media-list .media-card')).toHaveCount(20);
+    await expect(page.getByRole('link', { name: /Tolk: Russia.s shrinking younger population/ })).toBeVisible();
+  });
+
   test('teaching lecture thumbnails render from local assets', async ({ page }) => {
     await page.goto('/teaching.html');
     const thumbs = page.locator('.teaching-lecture-thumb img');
@@ -50,5 +61,18 @@ test.describe('mobile portfolio layout', () => {
         .poll(() => thumb.evaluate((img) => (img as HTMLImageElement).complete && (img as HTMLImageElement).naturalWidth > 0))
         .toBe(true);
     }
+  });
+
+  test('English teaching lecture titles render without Cyrillic', async ({ page }) => {
+    await page.goto('/en/teaching.html');
+    const details = page.locator('.teaching-lecture-details');
+    if (!(await details.evaluate((node) => (node as HTMLDetailsElement).open))) {
+      await details.locator('summary').click();
+    }
+    const titles = await page.locator('.teaching-lecture-title').allInnerTexts();
+    expect(titles).toHaveLength(8);
+    expect(titles).toContain('Institutional foundations of public and municipal administration');
+    expect(titles).toContain('How to become successful');
+    expect(titles.join(' ')).not.toMatch(cyrillic);
   });
 });

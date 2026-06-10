@@ -2,18 +2,142 @@
   "source": "deep-research-report-8",
   "generated_at": "2026-05-30",
   "records": [
-    {"url":"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3106523","title":"Демографическая Политика Российской Федерации","date":"2018-01-30","source_name":"SSRN","source_type":"research_repository_seed","description":"Карточка SSRN с ранней работой, автор — Arseniy Sitkovskiy, RANEPA Chelyabinsk Branch."},
-    {"url":"https://gsem.urfu.ru/fileadmin/user_upload/site_15921/docs3/Inf.pismo_Stud._konf.__CHF_RANKHiGS__25-26_aprelja_2019.pdf","title":"Информационное письмо XXIII Всероссийской студенческой научно-практической конференции Челябинского филиала РАНХиГС","date":"2019-04-25","source_name":"Челябинский филиал РАНХиГС / УрФУ","source_type":"conference_program_seed","description":"Документ указывает Ситковского Арсения Михайловича как контактного ответственного конференции."},
-    {"url":"https://udf-conf.ru/gallery/Agenda_UDF_2020.pdf","title":"Институты развития человеческого потенциала в условиях современных вызовов","date":"2020-06-04","source_name":"Уральский демографический форум","source_type":"conference_program_seed","description":"Программа указывает должность: ведущий специалист-эксперт Правительства Челябинской области."},
-    {"url":"https://demografplatforma.ru/?p=1033","title":"Международная научная конференция молодых демографов","date":"2021-07-01","source_name":"Демографическая платформа","source_type":"conference_news_seed","description":"Новость указывает А.М. Ситковского как аналитика лаборатории «Модели пространственного развития»."},
-    {"url":"https://ion.ranepa.ru/news/studenty-ion-posetili-shirakskiy-gosudarstvennyy-universitet-v-armenii/","title":"Студенты ИОН посетили Ширакский государственный университет в Армении","date":"2021-12-02","source_name":"РАНХиГС","source_type":"institutional_news_seed","description":"Материал перечисляет Арсения Ситковского среди магистрантов Челябинского филиала РАНХиГС."},
-    {"url":"https://deminform.ru/analytics/voprosy-sistemy-rasseleniya-rossii-kotorym-ochen-nuzhny-otvety","title":"Вопросы системы расселения России, которым очень нужны ответы","date":"2023-04-26","source_name":"ДЕМ.ИНФОРМ","source_type":"known_media_seed","description":"Авторская публикация А.М. Ситковского на ДЕМ.ИНФОРМ."},
-    {"url":"https://deminform.ru/analytics/demograficheskiye-resursy-rossii-variativnost-podkhodov-i-otsenok","title":"Демографические ресурсы России: вариативность подходов и оценок","date":"2025-10-22","source_name":"ДЕМ.ИНФОРМ","source_type":"known_media_seed","description":"Материал ДЕМ.ИНФОРМ указывает А.М. Ситковского среди авторов."},
-    {"url":"https://phil.rudn.ru/ru/media/news/123453/","title":"В Институте демографических исследований РАН презентован Национальный демографический доклад — 2024","date":"2025-02-26","source_name":"РУДН","source_type":"institutional_news_seed","description":"Новость РУДН сообщает, что А.М. Ситковский стал соавтором трёх разделов доклада."},
-    {"url":"https://phil.rudn.ru/ru/media/news/123574/","title":"Делегация филологического факультета и ИСЯМКиМ приняла участие во Всероссийской научно-практической конференции","date":"2025-06-19","source_name":"РУДН","source_type":"institutional_news_seed","description":"Новость РУДН сообщает о докладе А.М. Ситковского."},
-    {"url":"https://new.ras.ru/press-center/vi-vserossiyskiy-demograficheskiy-forum-s-mezhdunarodnym-uchastiem/","title":"VI Всероссийский демографический форум с международным участием","date":"2025-12-03","source_name":"РАН","source_type":"institutional_news_seed","description":"Страница РАН перечисляет Ситковского Арсения Михайловича, младшего научного сотрудника Института социальной демографии ФНИСЦ РАН."},
-    {"url":"https://chelyabinsk.bezformata.com/listnews/konferentciya-molodyozh/152835280/","title":"Всероссийская конференция «Молодёжь как ресурс развития российских регионов»","date":"2025-11-05","source_name":"БезФормата Челябинск","source_type":"regional_media_seed","description":"Новость упоминает А.М. Ситковского как научного сотрудника лаборатории цифровой демографии ФНИСЦ РАН."},
-    {"url":"https://mgimo.ru/about/news/departments/geodata-and-geoinformation-systems/","title":"Геоданные и ГИС: методический семинар программы Цифровой кафедры","date":"2024-10-17","source_name":"МГИМО","source_type":"institutional_news_seed","description":"Страница упоминает Арсения Ситковского в контексте семинара по геоданным и ГИС."},
-    {"url":"https://kaluga-zaprava.ru/biblioteka/rf/hossijan-molozhe-35-let-ostanetsja-lish-chetvert-naselenija/","title":"Россиян моложе 35 лет останется лишь четверть населения","date":"2026-04-20","source_name":"Калуга За правду","source_type":"secondary_republication_seed","description":"Вторичная републикация сюжета о расчётах Арсения Ситковского."}
+    {
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+      "title": "Демографическая Политика Российской Федерации",
+      "date": "2018-01-30",
+      "source_name": "SSRN",
+      "source_type": "research_repository_seed",
+      "description": "Карточка SSRN с ранней работой, автор — Arseniy Sitkovskiy, RANEPA Chelyabinsk Branch.",
+      "title_en": "Demographic policy of the Russian Federation",
+      "description_en": "An SSRN record for an early work authored by Arseniy Sitkovskiy, RANEPA Chelyabinsk branch.",
+      "source_name_en": "SSRN"
+    },
+    {
+      "url": "https://gsem.urfu.ru/fileadmin/user_upload/site_15921/docs3/Inf.pismo_Stud._konf.__CHF_RANKHiGS__25-26_aprelja_2019.pdf",
+      "title": "Информационное письмо XXIII Всероссийской студенческой научно-практической конференции Челябинского филиала РАНХиГС",
+      "date": "2019-04-25",
+      "source_name": "Челябинский филиал РАНХиГС / УрФУ",
+      "source_type": "conference_program_seed",
+      "description": "Документ указывает Ситковского Арсения Михайловича как контактного ответственного конференции."
+    },
+    {
+      "url": "https://udf-conf.ru/gallery/Agenda_UDF_2020.pdf",
+      "title": "Институты развития человеческого потенциала в условиях современных вызовов",
+      "date": "2020-06-04",
+      "source_name": "Уральский демографический форум",
+      "source_type": "conference_program_seed",
+      "description": "Программа указывает должность: ведущий специалист-эксперт Правительства Челябинской области."
+    },
+    {
+      "url": "https://demografplatforma.ru/?p=1033",
+      "title": "Международная научная конференция молодых демографов",
+      "date": "2021-07-01",
+      "source_name": "Демографическая платформа",
+      "source_type": "conference_news_seed",
+      "description": "Новость указывает А.М. Ситковского как аналитика лаборатории «Модели пространственного развития».",
+      "title_en": "International Scientific Conference of Young Demographers",
+      "description_en": "A Demographic Platform news item identifying A. M. Sitkovskiy as an analyst at the Spatial Development Models laboratory.",
+      "source_name_en": "Demographic Platform"
+    },
+    {
+      "url": "https://ion.ranepa.ru/news/studenty-ion-posetili-shirakskiy-gosudarstvennyy-universitet-v-armenii/",
+      "title": "Студенты ИОН посетили Ширакский государственный университет в Армении",
+      "date": "2021-12-02",
+      "source_name": "РАНХиГС",
+      "source_type": "institutional_news_seed",
+      "description": "Материал перечисляет Арсения Ситковского среди магистрантов Челябинского филиала РАНХиГС.",
+      "title_en": "ION students visited Shirak State University in Armenia",
+      "description_en": "A RANEPA Institute of Public Administration article listing Arseniy Sitkovskiy among master’s students of the Chelyabinsk branch of RANEPA.",
+      "source_name_en": "RANEPA"
+    },
+    {
+      "url": "https://deminform.ru/analytics/voprosy-sistemy-rasseleniya-rossii-kotorym-ochen-nuzhny-otvety",
+      "title": "Вопросы системы расселения России, которым очень нужны ответы",
+      "date": "2023-04-26",
+      "source_name": "ДЕМ.ИНФОРМ",
+      "source_type": "known_media_seed",
+      "description": "Авторская публикация А.М. Ситковского на ДЕМ.ИНФОРМ.",
+      "title_en": "Questions about Russia’s settlement system that urgently need answers",
+      "description_en": "An author article by A. M. Sitkovskiy on DEM.INFORM.",
+      "source_name_en": "DEM.INFORM"
+    },
+    {
+      "url": "https://deminform.ru/analytics/demograficheskiye-resursy-rossii-variativnost-podkhodov-i-otsenok",
+      "title": "Демографические ресурсы России: вариативность подходов и оценок",
+      "date": "2025-10-22",
+      "source_name": "ДЕМ.ИНФОРМ",
+      "source_type": "known_media_seed",
+      "description": "Материал ДЕМ.ИНФОРМ указывает А.М. Ситковского среди авторов.",
+      "title_en": "Russia’s demographic resources: variation in approaches and estimates",
+      "description_en": "A DEM.INFORM article listing A. M. Sitkovskiy among the authors.",
+      "source_name_en": "DEM.INFORM"
+    },
+    {
+      "url": "https://phil.rudn.ru/ru/media/news/123453/",
+      "title": "В Институте демографических исследований РАН презентован Национальный демографический доклад — 2024",
+      "date": "2025-02-26",
+      "source_name": "РУДН",
+      "source_type": "institutional_news_seed",
+      "description": "Новость РУДН сообщает, что А.М. Ситковский стал соавтором трёх разделов доклада.",
+      "title_en": "The National Demographic Report 2024 was presented at the Institute for Demographic Research of the Russian Academy of Sciences",
+      "description_en": "A RUDN University news item noting that A. M. Sitkovskiy co-authored three sections of the report.",
+      "source_name_en": "RUDN University"
+    },
+    {
+      "url": "https://phil.rudn.ru/ru/media/news/123574/",
+      "title": "Делегация филологического факультета и ИСЯМКиМ приняла участие во Всероссийской научно-практической конференции",
+      "date": "2025-06-19",
+      "source_name": "РУДН",
+      "source_type": "institutional_news_seed",
+      "description": "Новость РУДН сообщает о докладе А.М. Ситковского.",
+      "title_en": "RUDN delegation took part in an All-Russian research and practice conference",
+      "description_en": "A RUDN University news item mentioning A. M. Sitkovskiy’s conference presentation.",
+      "source_name_en": "RUDN University"
+    },
+    {
+      "url": "https://new.ras.ru/press-center/vi-vserossiyskiy-demograficheskiy-forum-s-mezhdunarodnym-uchastiem/",
+      "title": "VI Всероссийский демографический форум с международным участием",
+      "date": "2025-12-03",
+      "source_name": "РАН",
+      "source_type": "institutional_news_seed",
+      "description": "Страница РАН перечисляет Ситковского Арсения Михайловича, младшего научного сотрудника Института социальной демографии ФНИСЦ РАН.",
+      "title_en": "6th All-Russian Demographic Forum with International Participation",
+      "description_en": "The Russian Academy of Sciences page lists Arseniy M. Sitkovskiy, junior researcher at the Institute for Social Demography, FCTAS RAS.",
+      "source_name_en": "Russian Academy of Sciences"
+    },
+    {
+      "url": "https://chelyabinsk.bezformata.com/listnews/konferentciya-molodyozh/152835280/",
+      "title": "Всероссийская конференция «Молодёжь как ресурс развития российских регионов»",
+      "date": "2025-11-05",
+      "source_name": "БезФормата Челябинск",
+      "source_type": "regional_media_seed",
+      "description": "Новость упоминает А.М. Ситковского как научного сотрудника лаборатории цифровой демографии ФНИСЦ РАН.",
+      "title_en": "All-Russian Conference “Youth as a Resource for the Development of Russian Regions”",
+      "description_en": "A BezFormata Chelyabinsk news item mentioning A. M. Sitkovskiy as a researcher at the Digital Demography Laboratory, FCTAS RAS.",
+      "source_name_en": "BezFormata Chelyabinsk"
+    },
+    {
+      "url": "https://mgimo.ru/about/news/departments/geodata-and-geoinformation-systems/",
+      "title": "Геоданные и ГИС: методический семинар программы Цифровой кафедры",
+      "date": "2024-10-17",
+      "source_name": "МГИМО",
+      "source_type": "institutional_news_seed",
+      "description": "Страница упоминает Арсения Ситковского в контексте семинара по геоданным и ГИС.",
+      "title_en": "Geodata and GIS: a methodological seminar for the Digital Department programme",
+      "description_en": "An MGIMO page mentioning Arseniy Sitkovskiy in the context of a geodata and GIS seminar.",
+      "source_name_en": "MGIMO"
+    },
+    {
+      "url": "https://kaluga-zaprava.ru/biblioteka/rf/hossijan-molozhe-35-let-ostanetsja-lish-chetvert-naselenija/",
+      "title": "Россиян моложе 35 лет останется лишь четверть населения",
+      "date": "2026-04-20",
+      "source_name": "Калуга За правду",
+      "source_type": "secondary_republication_seed",
+      "description": "Вторичная републикация сюжета о расчётах Арсения Ситковского.",
+      "title_en": "Russians under 35 will make up only a quarter of the population",
+      "description_en": "A secondary republication of a story about Arseniy Sitkovskiy’s demographic estimates.",
+      "source_name_en": "Kaluga Za Pravdu"
+    }
   ]
 }

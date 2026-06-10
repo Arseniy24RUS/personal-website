@@ -300,6 +300,15 @@ def build_record(url, source, title, desc, cfg, *, text='', image=None, force_pu
     return record
 
 
+def apply_seed_fields(record: dict, seed: dict) -> dict:
+    for key in ['title', 'title_ru', 'title_en', 'description', 'description_ru', 'description_en', 'source_name', 'source_name_en']:
+        if seed.get(key):
+            record[key] = seed[key]
+    if seed.get('title') or seed.get('description') or seed.get('title_en') or seed.get('description_en'):
+        record['seed_metadata_locked'] = True
+    return record
+
+
 def rss_url(query: str, lang='ru', country='RU') -> str:
     return 'https://news.google.com/rss/search?' + urlencode({'q': query, 'hl': lang, 'gl': country, 'ceid': f'{country}:{lang}'})
 
@@ -384,9 +393,17 @@ def fetch_sitemaps(cfg: dict):
 def fetch_seed_urls(cfg: dict):
     records, reports = [], []
     for seed in cfg.get('seed_urls') or []:
-        rec, report = make_record(seed.get('url'), source=seed.get('source_type') or 'known_seed', cfg=cfg, force_publish=bool(seed.get('force_publish')))
+        rec, report = make_record(
+            seed.get('url'),
+            source=seed.get('source_type') or 'known_seed',
+            cfg=cfg,
+            force_publish=bool(seed.get('force_publish')),
+            source_name=seed.get('source_name'),
+        )
         if rec and (seed.get('date') or seed.get('published_at')):
             rec['published_at'] = seed.get('date') or seed.get('published_at')
+        if rec:
+            rec = apply_seed_fields(rec, seed)
         reports.append(report)
         if rec:
             records.append(rec)
