@@ -11,6 +11,232 @@
           "date-parts": [
             [
               2026,
+              4,
+              10
+            ]
+          ],
+          "date-time": "2026-04-10T14:07:19Z",
+          "timestamp": 1775830039651,
+          "version": "3.50.1"
+        },
+        "reference-count": 5,
+        "publisher": "Peoples' Friendship University of Russia",
+        "issue": "1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  10
+                ]
+              ],
+              "date-time": "2026-04-10T00:00:00Z",
+              "timestamp": 1775779200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Vestn. Ross. univ. družby nar., Ser. Gos. munic. upr."
+        ],
+        "abstract": "<jats:p>This study analyzes the age and sex structure of indigenous peoples of the Russian Federation based on data from the 2020 All-Russian Population Census. Using statistical and cluster analysis methods, typological groups of peoples based on similar demographic characteristics are identified. Two clearly distinct demographic types are identified: Cluster I, with a predominantly young population, and Cluster II, with a predominantly older population. Quantitative indicators and distinctive features of each type are presented. Conclusions are drawn regarding the demographic resilience of some groups and the risks of depopulation in others, and areas for further research and measures to support indigenous peoples are proposed.</jats:p>",
+        "DOI": "10.22363/2312-8313-2026-13-1-86-95",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ],
+          "date-time": "2026-04-10T13:29:10Z",
+          "timestamp": 1775827750000
+        },
+        "page": "86-95",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure"
+        ],
+        "prefix": "10.22363",
+        "volume": "13",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-0600-7639",
+            "authenticated-orcid": false,
+            "given": "Dmitry V.",
+            "family": "Nakisbaev",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "RUDN University"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "Arseniy M.",
+            "family": "Sitkovskiy",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Federal Research Sociological Center of the Russian Academy of Sciences"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "9635",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Loginov VG. Indigenous small-numbered peoples of the North: dynamics and features of reproduction. Corporate Governance and Innovative Economic Development of the North: Bulletin of Research Center of Corporate Law, Management and Venture Investment of Syktyvkar State University, 2019;(1):136–149. (In Russ.). https://doi.org/10.34130/2070-4992-2019-1-136-149 EDN: CQISVU",
+            "DOI": "10.34130/2070-4992-2019-1-136-149"
+          },
+          {
+            "key": "ref2",
+            "unstructured": "Koptseva NP, Shishatskiy NG, Bryukhanova EA. The dynamics of the population and features of the modern resettlement system indigenous peoples of the north in the Arctic zone of the Krasnoyarsk territory. Journal of Siberian Federal University. Humanities and Social Sciences, 2023;16(2):164–183. (In Russ.). EDN: UUJJUX"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rostovskaya TK, Plekhanova LV, Sitkovskiy AM. Features of demographic development of indigenous small-numbered peoples of the north of the KHMAO in 2002–2022. Voprosy istorii, 2023;(9–1):172–187. (In Russ.). https://doi.org/10.31166/VoprosyIstorii202309Statyi16 EDN: OCPEER",
+            "DOI": "10.31166/VoprosyIstorii202309Statyi16"
+          },
+          {
+            "key": "ref4",
+            "unstructured": "Fauzer VV, Kalieva SA. Indigenous peoples of the Russian North and the Republic of Kazakhstan. In Popova LA, Burtsev IN. (eds.), Aktual’nye problemy, napravleniya i mekhanizmy razvitiya proizvoditel’nykh sil Severa — 2024: sbornik statei Devyatoi Vserossiiskoi nauchno-prakticheskoi konferentsii (s mezhdunarodnym uchastiem) (18–20 sentyabrya 2024 g., Syktyvkar): v 2 chastyah. Ch.I. Voronezh: Stroki publ.; 2024:86–93. (In Russ.)."
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Sitkovskiy AM. The impact of state agglomeration policy on long-term trends of population changes in Russia. RUDN Journal of Public Administration. 2025;12(3):375–385. (In Russ.). https://doi.org/10.22363/2312-8313-2025-12-3-375-385 EDN: BMRMLM",
+            "DOI": "10.22363/2312-8313-2025-12-3-375-385"
+          }
+        ],
+        "container-title": [
+          "RUDN Journal of Public Administration"
+        ],
+        "link": [
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/49696/26875",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/49696/26886",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://journals.rudn.ru/public-administration/article/viewFile/49696/26886",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ],
+          "date-time": "2026-04-10T13:29:23Z",
+          "timestamp": 1775827763000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://journals.rudn.ru/public-administration/article/view/49696"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ]
+        },
+        "references-count": 5,
+        "journal-issue": {
+          "issue": "1",
+          "published-online": {
+            "date-parts": [
+              [
+                2026,
+                4,
+                10
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
+        "ISSN": [
+          "2411-1228",
+          "2312-8313"
+        ],
+        "issn-type": [
+          {
+            "value": "2411-1228",
+            "type": "electronic"
+          },
+          {
+            "value": "2312-8313",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
               1,
               16
             ]

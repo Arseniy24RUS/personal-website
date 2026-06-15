@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08T08:23:26+00:00",
+  "generated_at": "2026-06-15T09:35:39+00:00",
   "records": [
     {
       "source": "orcid_public_api",
@@ -1656,8 +1656,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "grobid_xml": false,
-          "pdf": false
+          "pdf": false,
+          "grobid_xml": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -3103,8 +3103,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "grobid_xml": false,
-          "pdf": false
+          "pdf": false,
+          "grobid_xml": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -3693,7 +3693,7 @@
             "countries": [
               "RU"
             ],
-            "is_corresponding": true,
+            "is_corresponding": false,
             "raw_author_name": "Anatoliy Lobastov",
             "raw_affiliation_strings": [
               "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Moscow Campus"
@@ -3749,19 +3749,15 @@
         "institutions": [],
         "countries_distinct_count": 1,
         "institutions_distinct_count": 2,
-        "corresponding_author_ids": [
-          "https://openalex.org/A5083285097"
-        ],
-        "corresponding_institution_ids": [
-          "https://openalex.org/I263417816"
-        ],
+        "corresponding_author_ids": [],
+        "corresponding_institution_ids": [],
         "apc_list": null,
         "apc_paid": null,
         "fwci": 0.0,
         "has_fulltext": false,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.58883167,
+          "value": 0.58784694,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -4010,16 +4006,16 @@
         },
         "sustainable_development_goals": [
           {
+            "display_name": "Reduced inequalities",
             "score": 0.5199999809265137,
-            "id": "https://metadata.un.org/sdg/10",
-            "display_name": "Reduced inequalities"
+            "id": "https://metadata.un.org/sdg/10"
           }
         ],
         "awards": [],
         "funders": [],
         "has_content": {
-          "grobid_xml": false,
-          "pdf": false
+          "pdf": false,
+          "grobid_xml": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -4242,7 +4238,7 @@
           ]
         },
         "counts_by_year": [],
-        "updated_date": "2025-10-10T17:16:08.811792",
+        "updated_date": "2026-06-11T09:08:48.828518",
         "created_date": "2025-10-10T00:00:00"
       }
     }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08T08:29:42+00:00",
+  "generated_at": "2026-06-15T09:41:58+00:00",
   "route": "authors_search_route",
   "min_records": 50,
   "pages": {
@@ -7,27 +7,23 @@
       "source": "authors_search_path",
       "authors_url": "https://www.elibrary.ru/authors.asp",
       "search_name": "Ситковский Арсений Михайлович",
-      "status": "form_fill_failed",
-      "fill_author_search": {
-        "ok": false,
-        "reason": "no_visible_text_input",
-        "inputs": 0
-      },
-      "elapsed_sec": 3.609,
+      "status": "error",
+      "error": "TimeoutError('Page.goto: Timeout 130000ms exceeded.\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
+      "elapsed_sec": 169.445,
       "fingerprint": {
-        "content_length": 1121,
+        "content_length": 0,
         "has_suspicious_ip_text": false,
         "has_cookie_text": false,
         "has_captcha_text": false,
-        "excerpt": "<!DOCTYPE html><html><head></head><body bgcolor=\"#f5f5f5\"> <div id=\"blockedip\" style=\"position:absolute; width:500px; text-align:center; top:50%; left:50%; margin-top:-100px; margin-left:-250px;\"> <img src=\"/images/stop.gif\" border=\"0\" width=\"40\" height=\"40\" vspace=\"8\"><br> Из-за нарушения <a href=\"/access_terms.asp\">правил пользования</a> сайтом <br>eLIBRARY.RU доступ к данной странице для незарегистрированных пользователей <br>с IP-адреса 5.228.55.159 ограничен.<br><br> Для доступа к данной странице, пожалуйста, <br>перейдите на <a href=\"/defaultx.asp?rpage=https://www.elibrary.ru/authors.asp\">главную страницу сайта</a> и <br>укажите имя пользователя и пароль. <br><br>За дополнительной информацией обращайтесь по адресу <a href=\"mailto:support@elibrary.ru\">support@elibrary.ru</a>, указав данный IP-адрес 5.228.55.159. </div>   </body></html>"
+        "excerpt": ""
       },
       "debug": {
-        "html_path": "artifacts/elibrary_debug/20260608T082950Z_authors_search_form_fill_failed.html",
-        "screenshot_path": "artifacts/elibrary_debug/20260608T082950Z_authors_search_form_fill_failed.png"
+        "html_path": "artifacts/elibrary_debug/20260615T094451Z_authors_search_error.html",
+        "screenshot_path": "artifacts/elibrary_debug/20260615T094451Z_authors_search_error.png"
       },
       "debug_final": {
-        "html_path": "artifacts/elibrary_debug/20260608T082950Z_authors_route_items_not_ready.html",
-        "screenshot_path": "artifacts/elibrary_debug/20260608T082950Z_authors_route_items_not_ready.png"
+        "html_path": "artifacts/elibrary_debug/20260615T094451Z_authors_route_items_not_ready.html",
+        "screenshot_path": "artifacts/elibrary_debug/20260615T094451Z_authors_route_items_not_ready.png"
       }
     }
   },
@@ -47,27 +43,23 @@
     "source": "authors_search_path",
     "authors_url": "https://www.elibrary.ru/authors.asp",
     "search_name": "Ситковский Арсений Михайлович",
-    "status": "form_fill_failed",
-    "fill_author_search": {
-      "ok": false,
-      "reason": "no_visible_text_input",
-      "inputs": 0
-    },
-    "elapsed_sec": 3.609,
+    "status": "error",
+    "error": "TimeoutError('Page.goto: Timeout 130000ms exceeded.\\nCall log:\\n  - navigating to \"https://www.elibrary.ru/authors.asp\", waiting until \"domcontentloaded\"\\n')",
+    "elapsed_sec": 169.445,
     "fingerprint": {
-      "content_length": 1121,
+      "content_length": 0,
       "has_suspicious_ip_text": false,
       "has_cookie_text": false,
       "has_captcha_text": false,
-      "excerpt": "<!DOCTYPE html><html><head></head><body bgcolor=\"#f5f5f5\"> <div id=\"blockedip\" style=\"position:absolute; width:500px; text-align:center; top:50%; left:50%; margin-top:-100px; margin-left:-250px;\"> <img src=\"/images/stop.gif\" border=\"0\" width=\"40\" height=\"40\" vspace=\"8\"><br> Из-за нарушения <a href=\"/access_terms.asp\">правил пользования</a> сайтом <br>eLIBRARY.RU доступ к данной странице для незарегистрированных пользователей <br>с IP-адреса 5.228.55.159 ограничен.<br><br> Для доступа к данной странице, пожалуйста, <br>перейдите на <a href=\"/defaultx.asp?rpage=https://www.elibrary.ru/authors.asp\">главную страницу сайта</a> и <br>укажите имя пользователя и пароль. <br><br>За дополнительной информацией обращайтесь по адресу <a href=\"mailto:support@elibrary.ru\">support@elibrary.ru</a>, указав данный IP-адрес 5.228.55.159. </div>   </body></html>"
+      "excerpt": ""
     },
     "debug": {
-      "html_path": "artifacts/elibrary_debug/20260608T082950Z_authors_search_form_fill_failed.html",
-      "screenshot_path": "artifacts/elibrary_debug/20260608T082950Z_authors_search_form_fill_failed.png"
+      "html_path": "artifacts/elibrary_debug/20260615T094451Z_authors_search_error.html",
+      "screenshot_path": "artifacts/elibrary_debug/20260615T094451Z_authors_search_error.png"
     },
     "debug_final": {
-      "html_path": "artifacts/elibrary_debug/20260608T082950Z_authors_route_items_not_ready.html",
-      "screenshot_path": "artifacts/elibrary_debug/20260608T082950Z_authors_route_items_not_ready.png"
+      "html_path": "artifacts/elibrary_debug/20260615T094451Z_authors_route_items_not_ready.html",
+      "screenshot_path": "artifacts/elibrary_debug/20260615T094451Z_authors_route_items_not_ready.png"
     }
   },
   "status": "not_ready"
