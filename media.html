@@ -122,6 +122,11 @@
       if(raw==='demoscope.ru')return 'Demoscope Weekly';
       return raw;
     }
+    const MEDIA_DATA_URLS=[
+      'data/media/published.json',
+      'data/media/news_mentions.json',
+      'data/media/published-fallback.json'
+    ];
     let MEDIA_RECORDS=[];
     function renderMedia(){
       const records=MEDIA_RECORDS.filter(displayable).sort((a,b)=>dateValue(b)-dateValue(a)||String(pick(a,'title')).localeCompare(String(pick(b,'title')),'ru'));
@@ -129,8 +134,19 @@
       if(!records.length){box.innerHTML='<div class="note ru">Пока опубликованные упоминания не загружены. Попробуйте обновить страницу после завершения workflow.</div><div class="note en">Published media mentions have not been loaded yet. Please refresh the page after the workflow finishes.</div>';return}
       box.innerHTML=records.map(r=>{const desc=cleanDescription(r);const title=pick(r,'title')||sourceLabel(r);const image=r.image?`<a class="media-image" href="${esc(r.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(r.image)}" alt=""></a>`:'';return `<article class="media-card ${r.image?'has-image':'no-image'}">${image}<div class="media-body"><div class="media-source">${esc(sourceLabel(r))}${r.published_at?' · '+fmtDate(r.published_at):''}</div><h2><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(title)}</a></h2>${desc?`<p>${esc(desc)}</p>`:''}<a class="media-link" href="${esc(r.url)}" target="_blank" rel="noopener"><span class="ru">Открыть материал</span><span class="en">Open material</span></a></div></article>`}).join('')
     }
+    async function fetchMediaRecords(url){
+      const response=await fetch(url,{cache:'no-store'});
+      if(!response.ok)throw new Error(`HTTP ${response.status}`);
+      const payload=await response.json();
+      const records=Array.isArray(payload.records)?payload.records:[];
+      if(!records.length)throw new Error(`No media records in ${url}`);
+      return records;
+    }
     async function loadMedia(){
-      try{MEDIA_RECORDS=(await fetch('data/media/published.json',{cache:'no-store'}).then(r=>r.json())).records||[]}catch(e){MEDIA_RECORDS=[]}
+      MEDIA_RECORDS=[];
+      for(const url of MEDIA_DATA_URLS){
+        try{MEDIA_RECORDS=await fetchMediaRecords(url);break}catch(e){console.warn('Media data source failed:',url,e)}
+      }
       renderMedia();
     }
     document.addEventListener('DOMContentLoaded',loadMedia)

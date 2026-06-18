@@ -39,6 +39,23 @@ test.describe('mobile portfolio layout', () => {
     await expect(page.locator('#media-list .note')).toHaveCount(0);
   });
 
+  test('media cards survive invalid primary JSON by using fallback data', async ({ page }) => {
+    const invalidJson = '<<<<<<< Updated upstream\n{}\n=======\n{}\n>>>>>>> Stashed changes\n';
+    await page.route('**/data/media/published.json', route => route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: invalidJson,
+    }));
+    await page.route('**/data/media/news_mentions.json', route => route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: invalidJson,
+    }));
+    await page.goto('/media.html');
+    await page.waitForFunction(() => document.querySelectorAll('#media-list .media-card').length >= 20);
+    await expect(page.locator('#media-list .note')).toHaveCount(0);
+  });
+
   test('English media cards render translated dynamic text', async ({ page }) => {
     await page.goto('/en/media.html');
     await page.waitForFunction(() => document.querySelectorAll('#media-list .media-card').length >= 20);

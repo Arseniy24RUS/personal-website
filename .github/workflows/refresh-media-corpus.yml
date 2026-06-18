@@ -27,6 +27,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          python scripts/check_seo.py
+          git diff --check
           git add data/media/ data/admin_queue/ assets/media/mentions/ || true
           if git diff --cached --quiet; then
             echo "No media corpus changes."
