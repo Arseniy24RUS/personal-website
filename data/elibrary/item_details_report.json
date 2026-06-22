@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T09:46:06+00:00",
+  "generated_at": "2026-06-22T09:30:57+00:00",
   "records_seen": 58,
   "candidates": 58,
   "fetched": 0,
@@ -10,7 +10,9 @@
       "item_id": "88771337",
       "url": "https://www.elibrary.ru/item.asp?id=88771337",
       "title": "СРАВНИТЕЛЬНЫЙ КОНТЕНТ-АНАЛИЗ МАГИСТЕРСКИХ И ДОКТОРСКИХ ПРОГРАММ В СФЕРЕ ДЕМОГРАФИИ УНИВЕРСИТЕТОВ МИРОВОГО УРОВНЯ",
-      "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='www.elibrary.ru', port=443): Read timed out. (read timeout=45)\"))"
+      "status_code": 200,
+      "bytes": 1122,
+      "error": "unexpected_response"
     },
     {
       "item_id": "89181881",

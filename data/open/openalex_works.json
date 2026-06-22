@@ -1,7 +1,7 @@
 {
   "meta": {
     "count": 13,
-    "db_response_time_ms": 12,
+    "db_response_time_ms": 99,
     "page": 1,
     "per_page": 200,
     "groups_count": null,
@@ -436,15 +436,15 @@
       "sustainable_development_goals": [
         {
           "display_name": "Reduced inequalities",
-          "score": 0.6855306625366211,
-          "id": "https://metadata.un.org/sdg/10"
+          "id": "https://metadata.un.org/sdg/10",
+          "score": 0.6855306625366211
         }
       ],
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -969,8 +969,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": true,
-        "grobid_xml": true
+        "grobid_xml": true,
+        "pdf": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4416843219.pdf",
@@ -2105,8 +2105,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": true,
-        "grobid_xml": true
+        "grobid_xml": true,
+        "pdf": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4415774334.pdf",
@@ -3192,8 +3192,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": true,
-        "grobid_xml": true
+        "grobid_xml": true,
+        "pdf": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4415774327.pdf",
@@ -3623,8 +3623,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": true,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4411027413.pdf"
@@ -4693,8 +4693,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": true,
-        "grobid_xml": true
+        "grobid_xml": true,
+        "pdf": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4410943920.pdf",
@@ -5586,8 +5586,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -6550,8 +6550,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": true,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4386310774.pdf"
@@ -6937,15 +6937,15 @@
       "sustainable_development_goals": [
         {
           "display_name": "Reduced inequalities",
-          "score": 0.47999998927116394,
-          "id": "https://metadata.un.org/sdg/10"
+          "id": "https://metadata.un.org/sdg/10",
+          "score": 0.47999998927116394
         }
       ],
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -7426,15 +7426,15 @@
       "sustainable_development_goals": [
         {
           "display_name": "Partnerships for the goals",
-          "score": 0.5600000023841858,
-          "id": "https://metadata.un.org/sdg/17"
+          "id": "https://metadata.un.org/sdg/17",
+          "score": 0.5600000023841858
         }
       ],
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -8553,8 +8553,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -9986,8 +9986,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -10876,15 +10876,15 @@
       "sustainable_development_goals": [
         {
           "display_name": "Reduced inequalities",
-          "score": 0.5199999809265137,
-          "id": "https://metadata.un.org/sdg/10"
+          "id": "https://metadata.un.org/sdg/10",
+          "score": 0.5199999809265137
         }
       ],
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "grobid_xml": false,
+        "pdf": false
       },
       "content_urls": null,
       "referenced_works_count": 0,

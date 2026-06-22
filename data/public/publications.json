@@ -7487,8 +7487,8 @@
           "awards": [],
           "funders": [],
           "has_content": {
-            "pdf": false,
-            "grobid_xml": false
+            "grobid_xml": false,
+            "pdf": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
@@ -9959,8 +9959,8 @@
           "awards": [],
           "funders": [],
           "has_content": {
-            "pdf": false,
-            "grobid_xml": false
+            "grobid_xml": false,
+            "pdf": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
@@ -11544,6 +11544,642 @@
           "has_content": {
             "pdf": false,
             "grobid_xml": false
+          },
+          "content_urls": null,
+          "referenced_works_count": 0,
+          "referenced_works": [],
+          "related_works": [
+            "https://openalex.org/W3111654536",
+            "https://openalex.org/W820208174",
+            "https://openalex.org/W2281302634",
+            "https://openalex.org/W2277400443",
+            "https://openalex.org/W2220407734",
+            "https://openalex.org/W2278996019",
+            "https://openalex.org/W2762430384",
+            "https://openalex.org/W2038660243",
+            "https://openalex.org/W2274279275",
+            "https://openalex.org/W1523290965",
+            "https://openalex.org/W2932247238",
+            "https://openalex.org/W2285342040",
+            "https://openalex.org/W26097219",
+            "https://openalex.org/W3140481627",
+            "https://openalex.org/W2269357070",
+            "https://openalex.org/W2736752445",
+            "https://openalex.org/W2725479036",
+            "https://openalex.org/W2274776889",
+            "https://openalex.org/W2727789190",
+            "https://openalex.org/W2986087512"
+          ],
+          "abstract_inverted_index": {
+            "Russian": [
+              0,
+              45,
+              73
+            ],
+            "Abstract:": [
+              1,
+              32
+            ],
+            "В": [
+              2
+            ],
+            "статье": [
+              3
+            ],
+            "рассматривается": [
+              4
+            ],
+            "актуальная": [
+              5
+            ],
+            "ситуация": [
+              6
+            ],
+            "с": [
+              7
+            ],
+            "демографической": [
+              8,
+              26
+            ],
+            "политикой": [
+              9
+            ],
+            "Российской": [
+              10,
+              29
+            ],
+            "Федерации,": [
+              11
+            ],
+            "анализируются": [
+              12
+            ],
+            "ключевые": [
+              13
+            ],
+            "демографические": [
+              14
+            ],
+            "показатели.": [
+              15
+            ],
+            "По": [
+              16
+            ],
+            "результатам": [
+              17
+            ],
+            "исследования": [
+              18
+            ],
+            "дается": [
+              19
+            ],
+            "ряд": [
+              20
+            ],
+            "существенных": [
+              21
+            ],
+            "предложений": [
+              22
+            ],
+            "по": [
+              23
+            ],
+            "совершенствованию": [
+              24
+            ],
+            "государственной": [
+              25
+            ],
+            "политики": [
+              27
+            ],
+            "в": [
+              28
+            ],
+            "Федерации.": [
+              30
+            ],
+            "\r\nEnglish": [
+              31
+            ],
+            "This": [
+              33
+            ],
+            "article": [
+              34
+            ],
+            "examines": [
+              35
+            ],
+            "the": [
+              36,
+              40,
+              44,
+              53,
+              56,
+              67,
+              72
+            ],
+            "current": [
+              37
+            ],
+            "situation": [
+              38
+            ],
+            "with": [
+              39
+            ],
+            "demographic": [
+              41,
+              49,
+              69
+            ],
+            "policy": [
+              42,
+              70
+            ],
+            "of": [
+              43,
+              55,
+              60
+            ],
+            "Federation,": [
+              46
+            ],
+            "analyzes": [
+              47
+            ],
+            "key": [
+              48
+            ],
+            "indicators.": [
+              50
+            ],
+            "Based": [
+              51
+            ],
+            "on": [
+              52
+            ],
+            "results": [
+              54
+            ],
+            "study,": [
+              57
+            ],
+            "a": [
+              58
+            ],
+            "number": [
+              59
+            ],
+            "significant": [
+              61
+            ],
+            "proposals": [
+              62
+            ],
+            "are": [
+              63
+            ],
+            "made": [
+              64
+            ],
+            "to": [
+              65
+            ],
+            "improve": [
+              66
+            ],
+            "state": [
+              68
+            ],
+            "in": [
+              71
+            ],
+            "Federation.": [
+              74
+            ]
+          },
+          "counts_by_year": [],
+          "updated_date": "2026-06-11T09:08:48.828518",
+          "created_date": "2025-10-10T00:00:00"
+        }
+      },
+      {
+        "source": "openalex_api",
+        "openalex_id": "https://openalex.org/W3182071828",
+        "title": "Демографическая Политика Российской Федерации (Demographic Policy of the Russian Federation)",
+        "year": 2017,
+        "doi": null,
+        "url": "https://openalex.org/W3182071828",
+        "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+        "pdf_url": null,
+        "venue": "SSRN Electronic Journal",
+        "cited_by_count": 0,
+        "is_oa": true,
+        "oa_status": "green",
+        "raw": {
+          "id": "https://openalex.org/W3182071828",
+          "doi": null,
+          "title": "Демографическая Политика Российской Федерации (Demographic Policy of the Russian Federation)",
+          "display_name": "Демографическая Политика Российской Федерации (Demographic Policy of the Russian Federation)",
+          "publication_year": 2017,
+          "publication_date": "2017-04-27",
+          "ids": {
+            "openalex": "https://openalex.org/W3182071828",
+            "mag": "3182071828"
+          },
+          "language": "ru",
+          "primary_location": {
+            "id": "mag:3182071828",
+            "is_oa": true,
+            "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+            "pdf_url": null,
+            "source": {
+              "id": "https://openalex.org/S4210172589",
+              "display_name": "SSRN Electronic Journal",
+              "issn_l": "1556-5068",
+              "issn": [
+                "1556-5068"
+              ],
+              "is_oa": true,
+              "is_in_doaj": false,
+              "is_core": false,
+              "host_organization": "https://openalex.org/I1318003438",
+              "host_organization_name": "RELX Group (Netherlands)",
+              "host_organization_lineage": [
+                "https://openalex.org/I1318003438"
+              ],
+              "host_organization_lineage_names": [],
+              "type": "repository"
+            },
+            "license": null,
+            "license_id": null,
+            "version": "submittedVersion",
+            "is_accepted": false,
+            "is_published": false,
+            "raw_source_name": "SSRN Electronic Journal",
+            "raw_type": null
+          },
+          "type": "article",
+          "indexed_in": [],
+          "open_access": {
+            "is_oa": true,
+            "oa_status": "green",
+            "oa_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+            "any_repository_has_fulltext": true
+          },
+          "authorships": [
+            {
+              "author_position": "first",
+              "author": {
+                "id": "https://openalex.org/A5083285097",
+                "display_name": "Anatoliy Lobastov",
+                "orcid": null
+              },
+              "institutions": [
+                {
+                  "id": "https://openalex.org/I263417816",
+                  "display_name": "The Russian Presidential Academy of National Economy and Public Administration",
+                  "ror": "https://ror.org/04xnm9a92",
+                  "country_code": "RU",
+                  "type": "government",
+                  "lineage": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ],
+              "countries": [
+                "RU"
+              ],
+              "is_corresponding": false,
+              "raw_author_name": "Anatoliy Lobastov",
+              "raw_affiliation_strings": [
+                "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Moscow Campus"
+              ],
+              "raw_orcid": null,
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Moscow Campus",
+                  "institution_ids": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ]
+            },
+            {
+              "author_position": "last",
+              "author": {
+                "id": "https://openalex.org/A5007601767",
+                "display_name": "Arseniy Sitkovskiy",
+                "orcid": "https://orcid.org/0000-0002-8725-6580"
+              },
+              "institutions": [
+                {
+                  "id": "https://openalex.org/I263417816",
+                  "display_name": "The Russian Presidential Academy of National Economy and Public Administration",
+                  "ror": "https://ror.org/04xnm9a92",
+                  "country_code": "RU",
+                  "type": "government",
+                  "lineage": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ],
+              "countries": [
+                "RU"
+              ],
+              "is_corresponding": false,
+              "raw_author_name": "Arseniy Sitkovskiy",
+              "raw_affiliation_strings": [
+                "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Chelyabinsk Branch"
+              ],
+              "raw_orcid": "https://orcid.org/0000-0002-8725-6580",
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Chelyabinsk Branch",
+                  "institution_ids": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ]
+            }
+          ],
+          "institutions": [],
+          "countries_distinct_count": 1,
+          "institutions_distinct_count": 2,
+          "corresponding_author_ids": [],
+          "corresponding_institution_ids": [],
+          "apc_list": null,
+          "apc_paid": null,
+          "fwci": 0.0,
+          "has_fulltext": false,
+          "cited_by_count": 0,
+          "citation_normalized_percentile": {
+            "value": 0.58784694,
+            "is_in_top_1_percent": false,
+            "is_in_top_10_percent": false
+          },
+          "cited_by_percentile_year": null,
+          "biblio": {
+            "volume": null,
+            "issue": null,
+            "first_page": null,
+            "last_page": null
+          },
+          "is_retracted": false,
+          "is_paratext": false,
+          "is_xpac": false,
+          "primary_topic": {
+            "id": "https://openalex.org/T13618",
+            "display_name": "Regional Socio-Economic Development Trends",
+            "score": 0.9671000242233276,
+            "subfield": {
+              "id": "https://openalex.org/subfields/3317",
+              "display_name": "Demography"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/33",
+              "display_name": "Social Sciences"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/2",
+              "display_name": "Social Sciences"
+            }
+          },
+          "topics": [
+            {
+              "id": "https://openalex.org/T13618",
+              "display_name": "Regional Socio-Economic Development Trends",
+              "score": 0.9671000242233276,
+              "subfield": {
+                "id": "https://openalex.org/subfields/3317",
+                "display_name": "Demography"
+              },
+              "field": {
+                "id": "https://openalex.org/fields/33",
+                "display_name": "Social Sciences"
+              },
+              "domain": {
+                "id": "https://openalex.org/domains/2",
+                "display_name": "Social Sciences"
+              }
+            },
+            {
+              "id": "https://openalex.org/T12935",
+              "display_name": "Healthcare Systems and Public Health",
+              "score": 0.9498000144958496,
+              "subfield": {
+                "id": "https://openalex.org/subfields/2713",
+                "display_name": "Epidemiology"
+              },
+              "field": {
+                "id": "https://openalex.org/fields/27",
+                "display_name": "Medicine"
+              },
+              "domain": {
+                "id": "https://openalex.org/domains/4",
+                "display_name": "Health Sciences"
+              }
+            }
+          ],
+          "keywords": [
+            {
+              "id": "https://openalex.org/keywords/russian-federation",
+              "display_name": "Russian federation",
+              "score": 0.9324489831924438
+            },
+            {
+              "id": "https://openalex.org/keywords/political-science",
+              "display_name": "Political science",
+              "score": 0.5720423460006714
+            },
+            {
+              "id": "https://openalex.org/keywords/state",
+              "display_name": "State (computer science)",
+              "score": 0.5525809526443481
+            },
+            {
+              "id": "https://openalex.org/keywords/state-policy",
+              "display_name": "State policy",
+              "score": 0.5333276987075806
+            },
+            {
+              "id": "https://openalex.org/keywords/economic-growth",
+              "display_name": "Economic growth",
+              "score": 0.3437904119491577
+            },
+            {
+              "id": "https://openalex.org/keywords/regional-science",
+              "display_name": "Regional science",
+              "score": 0.2902001738548279
+            },
+            {
+              "id": "https://openalex.org/keywords/geography",
+              "display_name": "Geography",
+              "score": 0.2784121632575989
+            },
+            {
+              "id": "https://openalex.org/keywords/economics",
+              "display_name": "Economics",
+              "score": 0.17080670595169067
+            }
+          ],
+          "concepts": [
+            {
+              "id": "https://openalex.org/C3019953208",
+              "wikidata": "https://www.wikidata.org/wiki/Q159",
+              "display_name": "Russian federation",
+              "level": 2,
+              "score": 0.9324489831924438
+            },
+            {
+              "id": "https://openalex.org/C17744445",
+              "wikidata": "https://www.wikidata.org/wiki/Q36442",
+              "display_name": "Political science",
+              "level": 0,
+              "score": 0.5720423460006714
+            },
+            {
+              "id": "https://openalex.org/C48103436",
+              "wikidata": "https://www.wikidata.org/wiki/Q599031",
+              "display_name": "State (computer science)",
+              "level": 2,
+              "score": 0.5525809526443481
+            },
+            {
+              "id": "https://openalex.org/C3019808023",
+              "wikidata": "https://www.wikidata.org/wiki/Q546113",
+              "display_name": "State policy",
+              "level": 3,
+              "score": 0.5333276987075806
+            },
+            {
+              "id": "https://openalex.org/C50522688",
+              "wikidata": "https://www.wikidata.org/wiki/Q189833",
+              "display_name": "Economic growth",
+              "level": 1,
+              "score": 0.3437904119491577
+            },
+            {
+              "id": "https://openalex.org/C148383697",
+              "wikidata": "https://www.wikidata.org/wiki/Q1781695",
+              "display_name": "Regional science",
+              "level": 1,
+              "score": 0.2902001738548279
+            },
+            {
+              "id": "https://openalex.org/C205649164",
+              "wikidata": "https://www.wikidata.org/wiki/Q1071",
+              "display_name": "Geography",
+              "level": 0,
+              "score": 0.2784121632575989
+            },
+            {
+              "id": "https://openalex.org/C162324750",
+              "wikidata": "https://www.wikidata.org/wiki/Q8134",
+              "display_name": "Economics",
+              "level": 0,
+              "score": 0.17080670595169067
+            },
+            {
+              "id": "https://openalex.org/C11413529",
+              "wikidata": "https://www.wikidata.org/wiki/Q8366",
+              "display_name": "Algorithm",
+              "level": 1,
+              "score": 0.0
+            },
+            {
+              "id": "https://openalex.org/C41008148",
+              "wikidata": "https://www.wikidata.org/wiki/Q21198",
+              "display_name": "Computer science",
+              "level": 0,
+              "score": 0.0
+            }
+          ],
+          "mesh": [],
+          "locations_count": 1,
+          "locations": [
+            {
+              "id": "mag:3182071828",
+              "is_oa": true,
+              "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+              "pdf_url": null,
+              "source": {
+                "id": "https://openalex.org/S4210172589",
+                "display_name": "SSRN Electronic Journal",
+                "issn_l": "1556-5068",
+                "issn": [
+                  "1556-5068"
+                ],
+                "is_oa": true,
+                "is_in_doaj": false,
+                "is_core": false,
+                "host_organization": "https://openalex.org/I1318003438",
+                "host_organization_name": "RELX Group (Netherlands)",
+                "host_organization_lineage": [
+                  "https://openalex.org/I1318003438"
+                ],
+                "host_organization_lineage_names": [],
+                "type": "repository"
+              },
+              "license": null,
+              "license_id": null,
+              "version": "submittedVersion",
+              "is_accepted": false,
+              "is_published": false,
+              "raw_source_name": "SSRN Electronic Journal",
+              "raw_type": null
+            }
+          ],
+          "best_oa_location": {
+            "id": "mag:3182071828",
+            "is_oa": true,
+            "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+            "pdf_url": null,
+            "source": {
+              "id": "https://openalex.org/S4210172589",
+              "display_name": "SSRN Electronic Journal",
+              "issn_l": "1556-5068",
+              "issn": [
+                "1556-5068"
+              ],
+              "is_oa": true,
+              "is_in_doaj": false,
+              "is_core": false,
+              "host_organization": "https://openalex.org/I1318003438",
+              "host_organization_name": "RELX Group (Netherlands)",
+              "host_organization_lineage": [
+                "https://openalex.org/I1318003438"
+              ],
+              "host_organization_lineage_names": [],
+              "type": "repository"
+            },
+            "license": null,
+            "license_id": null,
+            "version": "submittedVersion",
+            "is_accepted": false,
+            "is_published": false,
+            "raw_source_name": "SSRN Electronic Journal",
+            "raw_type": null
+          },
+          "sustainable_development_goals": [
+            {
+              "display_name": "Reduced inequalities",
+              "id": "https://metadata.un.org/sdg/10",
+              "score": 0.5199999809265137
+            }
+          ],
+          "awards": [],
+          "funders": [],
+          "has_content": {
+            "grobid_xml": false,
+            "pdf": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
