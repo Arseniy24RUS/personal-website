@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T08:34:27+00:00",
+  "generated_at": "2026-07-06T08:06:01+00:00",
   "published": 20,
   "rejected_or_low_confidence": 133,
   "image_cache_dir": "assets/media/mentions",
@@ -55,7 +55,7 @@
       "record": "414faf210745728c",
       "url": "https://t.me/tolk_tolk/27280",
       "image": {
-        "url": "https://cdn4.telesco.pe/file/TucZWI8lPe9t95IbyUdX5-ajria2IloWsBEVfXdobLBlbhlUBuAQYTqqwM8zFMf-rYO8Abfb0F3jaRbw7KfsZp1U0gRJj5_53WMLV3drRKspf9iyayvV5W0im3d41zjQJsO3x2iJGO8nER1RTAh3UVBj9PuT9BgBO4osdUlE91stin4mHKezbxa1CTT1GdfIuinaZodxOkxlUEJ8qOp1elI54yEFaJllvGNEz7fOcgvuY43m5gGABNGG3fh63-QGUeUBBcv-7HRYTt-vNDAzjERO3LK8FIa24MyjbknDY_DoQPnr5S683qWU8dIKPcnYG4Pcp_1XL-zGw_FVbCtvyg.jpg",
+        "url": "https://cdn4.telesco.pe/file/JTJUADvX6taMn4uxAVgKo-4BXT7VrlJ2kUcYEyqBDZ3DIh0QPdy5_Qh8AiEW3NQtoSgIC8Ez9pZ1ouirZilfXW6zsszMLu3XtgWFjSIunt4YC_rhWBgwncYCuOCBgSt4MV5FaqVymd0n7wcOggCwq_b8XEY4hODtkD-_7HIPhF4qeXyBkP6dUS4FUvCzxZIR10IUvXE7bBf0zd3-y1rUBXL44UO3U_-U9vYe1vWmlgArwbADUU6FG6IQCgMkdlOP2uwg2FJoUpyJ1_DZaPFe9jc_Qnmp-G8Vs2NcaxoSEPFTMd5cpSFOIU9piOchXY8epUVQy9Eu6jSfw-cWmE0GpA.jpg",
         "status": "cached",
         "http_status": 200,
         "content_type": "image/jpeg",
@@ -68,7 +68,7 @@
       "record": "7afe6c3e1110f2f7",
       "url": "https://t.me/tolk_tolk/27274",
       "image": {
-        "url": "https://cdn4.telesco.pe/file/LPmdmiHCb87M9OKkM0bm2iyGCexaQUzBkbFyN37beSDJcj052CHFdgEGNx0J-CE1QK63Uhyo6_Bb65ax3wWdj8y0ZMqXFU1XFo9xTvtVJae1Crzm7LmJNeppCv0f-bnSr7QXaohJr6MQgpmBcgtneVwuyGjRMwZpPqSQmFUvqYD2Z_QWC4uM85ZLvivj_Q9TE-kZIKwW1Vu_34VZ53KVr0uadkPsDRQCQcmpCBZ10BnlS9Ge4qi_PwxJ_iKSHQDwo7tMehxn9Y3IApodvb_m5uxGBzW8CPAjY5TFklq-DqENpQVNLJb53QbicvDL05JMo7CHqEqxXHw__an1KXc1rQ.jpg",
+        "url": "https://cdn4.telesco.pe/file/NoMkcZqzQlRkMCC1dgabmcUEcw4gB5CA_BG0_6LRXHL07ZelN5su_WHpeDQaLk0S35jKG-1OnoGjHHvgky1a_NzyUo335H4FFpFNNoeM5S1hhVepIVCc3eNyKo5gZLbSwJqGE8LDzPZyC1dQEwYgg4DuYCymWxwl2dYOilUioZhCIkg9Hq2U6uX4hFY_NWTgHgIM-mSeecChIH5axVhip7rwbIeSl86cfKtzh3upaC6gASNzUx45ljFZRIuLnHdYqm454QwZsxLupR4y6ievGpA4QHLALN2R3APDNWgHEr-1ycBzYWw7DWCz4l6S-rzVRdNnswVf_7FiQiZxVX8FpQ.jpg",
         "status": "cached",
         "http_status": 200,
         "content_type": "image/jpeg",
@@ -81,8 +81,13 @@
       "record": "4e7b2f54b868d4b8",
       "url": "https://new.ras.ru/press-center/vi-vserossiyskiy-demograficheskiy-forum-s-mezhdunarodnym-uchastiem/",
       "image": {
+        "url": "https://new.ras.ru/upload/uf/ca8/yk8vd40vaxhihtvi4dqkrocfkq0ozid4.png",
         "status": "cached",
-        "url": "assets/media/mentions/4e7b2f54b868d4b8.png"
+        "http_status": 200,
+        "content_type": "image/png",
+        "raw_content_type": "image/png",
+        "bytes": 6117,
+        "local": "assets/media/mentions/4e7b2f54b868d4b8.png"
       }
     },
     {
