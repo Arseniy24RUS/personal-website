@@ -1,13 +1,13 @@
 {
   "status": "ok",
   "http_status": 200,
-  "elapsed_sec": 2.939,
+  "elapsed_sec": 1.924,
   "content_length": 1131,
   "url": "https://www.elibrary.ru/author_profile.asp?id=1012909",
   "final_url": "https://www.elibrary.ru/ip_restricted.asp?rpage=https%3A%2F%2Fwww%2Eelibrary%2Eru%2Fauthor%5Fprofile%2Easp%3Fid%3D1012909",
   "preflight": {
     "status": "error",
-    "elapsed_sec": 0.85,
+    "elapsed_sec": 0.711,
     "url": "https://elibrary.ru/defaultx.asp",
     "error_type": "URLError",
     "error": "URLError(ConnectionResetError(104, 'Connection reset by peer'))"
@@ -25,7 +25,7 @@
     "has_metrics": false,
     "has_h_index": false
   },
-  "generated_at": "2026-06-22T09:30:56+00:00",
+  "generated_at": "2026-07-13T06:37:06+00:00",
   "used_source": "saved_snapshot",
   "snapshot_path": "data/snapshots/elibrary/profile/author_profile_1012909_20260602T194704Z.html"
 }

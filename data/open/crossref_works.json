@@ -1653,13 +1653,13 @@
           "date-parts": [
             [
               2026,
-              3,
-              6
+              6,
+              30
             ]
           ],
-          "date-time": "2026-03-06T20:52:34Z",
-          "timestamp": 1772830354501,
-          "version": "3.50.1"
+          "date-time": "2026-06-30T19:51:10Z",
+          "timestamp": 1782849070804,
+          "version": "3.54.5"
         },
         "reference-count": 38,
         "publisher": "Russian State Vocational Pedagogical University",
@@ -1705,7 +1705,7 @@
         },
         "page": "149-179",
         "source": "Crossref",
-        "is-referenced-by-count": 2,
+        "is-referenced-by-count": 3,
         "title": [
           "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education"
         ],
@@ -1725,8 +1725,8 @@
             ],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           },
@@ -1743,8 +1743,8 @@
             ],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           }
@@ -2613,14 +2613,14 @@
         "indexed": {
           "date-parts": [
             [
-              2025,
-              12,
-              29
+              2026,
+              6,
+              25
             ]
           ],
-          "date-time": "2025-12-29T19:07:00Z",
-          "timestamp": 1767035220323,
-          "version": "3.40.5"
+          "date-time": "2026-06-25T16:58:05Z",
+          "timestamp": 1782406685081,
+          "version": "3.54.5"
         },
         "reference-count": 0,
         "publisher": "The Russian Presidential Academy of National Economy and Public Administration",
@@ -2654,7 +2654,7 @@
         },
         "page": "33-52",
         "source": "Crossref",
-        "is-referenced-by-count": 2,
+        "is-referenced-by-count": 3,
         "title": [
           "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern"
         ],
@@ -2669,8 +2669,8 @@
             "affiliation": [],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           },
@@ -2680,8 +2680,8 @@
             "affiliation": [],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           },
@@ -2694,8 +2694,8 @@
             "affiliation": [],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           },
@@ -2705,8 +2705,8 @@
             "affiliation": [],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           }
@@ -2774,12 +2774,12 @@
         ],
         "issn-type": [
           {
-            "type": "print",
-            "value": "2304-3369"
+            "value": "2304-3369",
+            "type": "print"
           },
           {
-            "type": "electronic",
-            "value": "2308-8842"
+            "value": "2308-8842",
+            "type": "electronic"
           }
         ],
         "published": {

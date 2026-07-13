@@ -1313,7 +1313,7 @@
       "cover_date": "2025-01-01",
       "year": "2025",
       "doi": "10.17853/1994-5639-2025-6-149-179",
-      "cited_by_count": 1,
+      "cited_by_count": 2,
       "aggregation_type": "Journal",
       "subtype": "Article",
       "openaccess": "1",
@@ -1328,7 +1328,7 @@
         "prism:publicationName": "Obrazovanie I Nauka",
         "prism:coverDate": "2025-01-01",
         "prism:doi": "10.17853/1994-5639-2025-6-149-179",
-        "citedby-count": "1",
+        "citedby-count": "2",
         "prism:aggregationType": "Journal",
         "subtype": "ar",
         "subtypeDescription": "Article",
@@ -7122,14 +7122,10 @@
           ],
           "apc_list": null,
           "apc_paid": null,
-          "fwci": 0.0,
+          "fwci": null,
           "has_fulltext": false,
           "cited_by_count": 0,
-          "citation_normalized_percentile": {
-            "value": 0.51334754,
-            "is_in_top_1_percent": false,
-            "is_in_top_10_percent": false
-          },
+          "citation_normalized_percentile": null,
           "cited_by_percentile_year": null,
           "biblio": {
             "volume": null,
@@ -7487,8 +7483,8 @@
           "awards": [],
           "funders": [],
           "has_content": {
-            "grobid_xml": false,
-            "pdf": false
+            "pdf": false,
+            "grobid_xml": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
@@ -8466,7 +8462,7 @@
             ]
           },
           "counts_by_year": [],
-          "updated_date": "2025-10-10T17:16:08.811792",
+          "updated_date": "2026-06-30T13:55:48.251075",
           "created_date": "2025-10-10T00:00:00"
         }
       }
@@ -9609,14 +9605,10 @@
           ],
           "apc_list": null,
           "apc_paid": null,
-          "fwci": 0.0,
+          "fwci": null,
           "has_fulltext": false,
           "cited_by_count": 0,
-          "citation_normalized_percentile": {
-            "value": 0.55713428,
-            "is_in_top_1_percent": false,
-            "is_in_top_10_percent": false
-          },
+          "citation_normalized_percentile": null,
           "cited_by_percentile_year": null,
           "biblio": {
             "volume": null,
@@ -9959,8 +9951,8 @@
           "awards": [],
           "funders": [],
           "has_content": {
-            "grobid_xml": false,
-            "pdf": false
+            "pdf": false,
+            "grobid_xml": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
@@ -10458,7 +10450,7 @@
             ]
           },
           "counts_by_year": [],
-          "updated_date": "2025-10-10T17:16:08.811792",
+          "updated_date": "2026-06-30T13:55:48.251075",
           "created_date": "2025-10-10T00:00:00"
         }
       }
@@ -11912,19 +11904,17 @@
           ],
           "institutions": [],
           "countries_distinct_count": 1,
-          "institutions_distinct_count": 2,
+          "institutions_distinct_count": 1,
           "corresponding_author_ids": [],
-          "corresponding_institution_ids": [],
+          "corresponding_institution_ids": [
+            "https://openalex.org/I263417816"
+          ],
           "apc_list": null,
           "apc_paid": null,
-          "fwci": 0.0,
+          "fwci": null,
           "has_fulltext": false,
           "cited_by_count": 0,
-          "citation_normalized_percentile": {
-            "value": 0.58784694,
-            "is_in_top_1_percent": false,
-            "is_in_top_10_percent": false
-          },
+          "citation_normalized_percentile": null,
           "cited_by_percentile_year": null,
           "biblio": {
             "volume": null,
@@ -12170,16 +12160,16 @@
           },
           "sustainable_development_goals": [
             {
-              "display_name": "Reduced inequalities",
               "id": "https://metadata.un.org/sdg/10",
+              "display_name": "Reduced inequalities",
               "score": 0.5199999809265137
             }
           ],
           "awards": [],
           "funders": [],
           "has_content": {
-            "grobid_xml": false,
-            "pdf": false
+            "pdf": false,
+            "grobid_xml": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
@@ -12402,7 +12392,7 @@
             ]
           },
           "counts_by_year": [],
-          "updated_date": "2026-06-11T09:08:48.828518",
+          "updated_date": "2026-06-30T13:55:48.251075",
           "created_date": "2025-10-10T00:00:00"
         }
       }

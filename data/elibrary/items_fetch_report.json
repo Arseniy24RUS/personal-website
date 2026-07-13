@@ -1,19 +1,19 @@
 {
   "status": "error",
-  "elapsed_sec": 0.534,
+  "elapsed_sec": 0.541,
   "url": "https://elibrary.ru/author_items.asp?authorid=1012909&pubrole=100&show_refs=1&pubcat=risc",
   "error_type": "URLError",
   "error": "URLError(ConnectionResetError(104, 'Connection reset by peer'))",
   "preflight": {
     "status": "error",
-    "elapsed_sec": 0.561,
+    "elapsed_sec": 0.701,
     "url": "https://elibrary.ru/defaultx.asp",
     "error_type": "URLError",
     "error": "URLError(ConnectionResetError(104, 'Connection reset by peer'))"
   },
   "cookies_count": 0,
   "manual_cookie_present": true,
-  "generated_at": "2026-06-22T09:30:57+00:00",
+  "generated_at": "2026-07-13T06:37:07+00:00",
   "min_records": 50,
   "used_source": "saved_snapshot",
   "snapshot_path": "data/snapshots/elibrary/items/author_items_1012909_20260602T194701Z_authors_route.html",
