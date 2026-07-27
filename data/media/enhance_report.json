@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-07-13T06:36:11+00:00",
+  "generated_at": "2026-07-27T06:47:08+00:00",
   "published": 9,
-  "rejected_or_low_confidence": 23,
+  "rejected_or_low_confidence": 22,
   "providers": [
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii",
-      "bytes": 137272
+      "bytes": 135873
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.sobaka.ru/city/society/210740",
-      "bytes": 203861
+      "bytes": 204884
     },
     {
       "status": "ok",
@@ -25,7 +25,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27280",
-      "bytes": 47153
+      "bytes": 47154
     },
     {
       "status": "ok",
@@ -43,37 +43,37 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda",
-      "bytes": 111896
+      "bytes": 111110
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi",
-      "bytes": 141899
+      "bytes": 141113
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit",
-      "bytes": 128221
+      "bytes": 126868
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/",
-      "bytes": 60190
+      "bytes": 60701
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=5",
-      "bytes": 47067
+      "bytes": 46245
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2458",
-      "bytes": 45928
+      "bytes": 45106
     },
     {
       "status": "ok",
@@ -85,19 +85,19 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3125",
-      "bytes": 46360
+      "bytes": 45538
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2459",
-      "bytes": 46115
+      "bytes": 45293
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3158",
-      "bytes": 82337
+      "bytes": 81515
     },
     {
       "status": "error",
@@ -105,39 +105,40 @@
       "error": "URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)'))"
     },
     {
-      "status": "error",
+      "status": "ok",
+      "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3214",
-      "error": "<HTTPError 403: 'Forbidden'>"
+      "bytes": 17045
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=6",
-      "bytes": 47286
+      "bytes": 46547
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=1085",
-      "bytes": 47568
+      "bytes": 46829
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2461",
-      "bytes": 46299
+      "bytes": 45477
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=46",
-      "bytes": 56318
+      "bytes": 55496
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2462",
-      "bytes": 83511
+      "bytes": 45560
     },
     {
       "status": "ok",
@@ -149,55 +150,55 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3138",
-      "bytes": 47134
+      "bytes": 46312
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2524",
-      "bytes": 51515
+      "bytes": 50693
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=7",
-      "bytes": 48429
+      "bytes": 47607
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3176",
-      "bytes": 51484
+      "bytes": 50662
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2475",
-      "bytes": 46493
+      "bytes": 45671
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2472",
-      "bytes": 46297
+      "bytes": 45475
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=25",
-      "bytes": 54782
+      "bytes": 53960
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3271",
-      "bytes": 46601
+      "bytes": 45779
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2473",
-      "bytes": 46192
+      "bytes": 45370
     },
     {
       "status": "ok",
@@ -209,121 +210,120 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3191",
-      "bytes": 47506
+      "bytes": 46684
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3016",
-      "bytes": 48514
+      "bytes": 47692
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=1257",
-      "bytes": 46605
+      "bytes": 45783
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2474",
-      "bytes": 46858
+      "bytes": 46036
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3262",
-      "bytes": 46186
+      "bytes": 45364
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3215",
-      "bytes": 46216
+      "bytes": 45394
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2457",
-      "bytes": 47743
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.fnisc.ru/index.php?page_id=2362",
-      "bytes": 56687
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.fnisc.ru/index.php?page_id=652",
-      "bytes": 53002
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.fnisc.ru/index.php?page_id=1109",
-      "bytes": 46449
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.fnisc.ru/index.php?page_id=1208",
-      "bytes": 46761
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.fnisc.ru/index.php?page_id=1188",
-      "bytes": 46379
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.fnisc.ru/index.php?page_id=2561",
-      "bytes": 146295
+      "bytes": 47434
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=1201",
-      "bytes": 100690
+      "bytes": 99856
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.fnisc.ru/index.php?page_id=652",
+      "bytes": 52168
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.fnisc.ru/index.php?page_id=1109",
+      "bytes": 45615
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3153",
-      "bytes": 46567
+      "bytes": 45901
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.fnisc.ru/index.php?page_id=1188",
+      "bytes": 45632
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.fnisc.ru/index.php?page_id=2561",
+      "bytes": 145461
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.fnisc.ru/index.php?page_id=2362",
+      "bytes": 55853
+    },
+    {
+      "status": "error",
+      "url": "https://www.fnisc.ru/index.php?page_id=3278",
+      "error": "<HTTPError 404: 'Not Found'>"
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2485",
-      "bytes": 48610
+      "bytes": 47130
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2486",
-      "bytes": 73355
+      "bytes": 71022
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3046",
-      "bytes": 46855
+      "bytes": 45965
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3047",
-      "bytes": 46550
+      "bytes": 45660
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3244",
-      "bytes": 46305
+      "bytes": 45415
     },
     {
       "status": "error",
@@ -334,13 +334,13 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/",
-      "bytes": 292430
+      "bytes": 294432
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/media",
-      "bytes": 266992
+      "bytes": 270234
     },
     {
       "status": "ok",
@@ -352,7 +352,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education",
-      "bytes": 252476
+      "bytes": 251109
     },
     {
       "status": "ok",
@@ -370,7 +370,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/schedule",
-      "bytes": 220956
+      "bytes": 220681
     },
     {
       "status": "ok",
@@ -424,7 +424,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science",
-      "bytes": 249211
+      "bytes": 248285
     },
     {
       "status": "ok",
@@ -442,7 +442,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/dissovet",
-      "bytes": 288523
+      "bytes": 288933
     },
     {
       "status": "ok",
@@ -451,10 +451,9 @@
       "bytes": 247814
     },
     {
-      "status": "ok",
-      "http_status": 200,
+      "status": "error",
       "url": "https://www.rudn.ru/science/conferences",
-      "bytes": 245372
+      "error": "<HTTPError 500: 'Internal Server Error'>"
     },
     {
       "status": "ok",
@@ -478,7 +477,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/research-institutes",
-      "bytes": 265722
+      "bytes": 265273
     },
     {
       "status": "ok",
@@ -526,7 +525,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/students-and-research",
-      "bytes": 245217
+      "bytes": 244621
     },
     {
       "status": "ok",
@@ -598,19 +597,19 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/dad/konkurs",
-      "bytes": 240898
+      "bytes": 249811
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://chel.ranepa.ru/",
-      "bytes": 160356
+      "bytes": 160608
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://chel.ranepa.ru/novosti/",
-      "bytes": 160041
+      "bytes": 160293
     }
   ]
 }

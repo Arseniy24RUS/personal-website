@@ -2614,13 +2614,13 @@
           "date-parts": [
             [
               2026,
-              6,
-              25
+              7,
+              19
             ]
           ],
-          "date-time": "2026-06-25T16:58:05Z",
-          "timestamp": 1782406685081,
-          "version": "3.54.5"
+          "date-time": "2026-07-19T09:39:38Z",
+          "timestamp": 1784453978476,
+          "version": "3.55.0"
         },
         "reference-count": 0,
         "publisher": "The Russian Presidential Academy of National Economy and Public Administration",
@@ -2654,7 +2654,7 @@
         },
         "page": "33-52",
         "source": "Crossref",
-        "is-referenced-by-count": 3,
+        "is-referenced-by-count": 4,
         "title": [
           "Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern"
         ],
