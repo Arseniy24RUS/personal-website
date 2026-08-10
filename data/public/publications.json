@@ -9923,6 +9923,1464 @@
           "updated_date": "2026-07-14T23:32:53.992493",
           "created_date": "2025-10-10T00:00:00"
         }
+      },
+      {
+        "source": "openalex_api",
+        "openalex_id": "https://openalex.org/W3191794798",
+        "title": "Методика и практика формирования многоуровневой системы центров социальных услуг (Methodology and Practice of Forming a Multi-Level System of Centers of Social Services)",
+        "year": 2019,
+        "doi": null,
+        "url": "https://openalex.org/W3191794798",
+        "landing_page_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3544599",
+        "pdf_url": null,
+        "venue": "SSRN Electronic Journal",
+        "cited_by_count": 0,
+        "is_oa": true,
+        "oa_status": "green",
+        "raw": {
+          "id": "https://openalex.org/W3191794798",
+          "doi": null,
+          "title": "Методика и практика формирования многоуровневой системы центров социальных услуг (Methodology and Practice of Forming a Multi-Level System of Centers of Social Services)",
+          "display_name": "Методика и практика формирования многоуровневой системы центров социальных услуг (Methodology and Practice of Forming a Multi-Level System of Centers of Social Services)",
+          "publication_year": 2019,
+          "publication_date": "2019-12-28",
+          "ids": {
+            "openalex": "https://openalex.org/W3191794798",
+            "mag": "3191794798"
+          },
+          "language": "ru",
+          "primary_location": {
+            "id": "mag:3191794798",
+            "is_oa": true,
+            "landing_page_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3544599",
+            "pdf_url": null,
+            "source": {
+              "id": "https://openalex.org/S4210172589",
+              "display_name": "SSRN Electronic Journal",
+              "issn_l": "1556-5068",
+              "issn": [
+                "1556-5068"
+              ],
+              "is_oa": true,
+              "is_in_doaj": false,
+              "is_core": false,
+              "host_organization": "https://openalex.org/I1318003438",
+              "host_organization_name": "RELX Group (Netherlands)",
+              "host_organization_lineage": [
+                "https://openalex.org/I1318003438"
+              ],
+              "host_organization_lineage_names": [],
+              "type": "repository"
+            },
+            "license": null,
+            "license_id": null,
+            "version": "submittedVersion",
+            "is_accepted": false,
+            "is_published": false,
+            "raw_source_name": "SSRN Electronic Journal",
+            "raw_type": null
+          },
+          "type": "preprint",
+          "indexed_in": [],
+          "open_access": {
+            "is_oa": true,
+            "oa_status": "green",
+            "oa_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3544599",
+            "any_repository_has_fulltext": true
+          },
+          "authorships": [
+            {
+              "author_position": "first",
+              "author": {
+                "id": "https://openalex.org/A5007601767",
+                "display_name": "Arseniy Sitkovskiy",
+                "orcid": "https://orcid.org/0000-0002-8725-6580"
+              },
+              "institutions": [
+                {
+                  "id": "https://openalex.org/I263417816",
+                  "display_name": "The Russian Presidential Academy of National Economy and Public Administration",
+                  "ror": "https://ror.org/04xnm9a92",
+                  "country_code": "RU",
+                  "type": "government",
+                  "lineage": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ],
+              "countries": [
+                "RU"
+              ],
+              "is_corresponding": true,
+              "raw_author_name": "Arseniy Sitkovskiy",
+              "raw_affiliation_strings": [
+                "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Chelyabinsk Branch"
+              ],
+              "raw_orcid": "https://orcid.org/0000-0002-8725-6580",
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Chelyabinsk Branch",
+                  "institution_ids": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ]
+            }
+          ],
+          "institutions": [],
+          "countries_distinct_count": 1,
+          "institutions_distinct_count": 1,
+          "corresponding_author_ids": [
+            "https://openalex.org/A5007601767"
+          ],
+          "corresponding_institution_ids": [
+            "https://openalex.org/I263417816"
+          ],
+          "apc_list": null,
+          "apc_paid": null,
+          "fwci": null,
+          "has_fulltext": false,
+          "cited_by_count": 0,
+          "citation_normalized_percentile": null,
+          "cited_by_percentile_year": null,
+          "biblio": {
+            "volume": null,
+            "issue": null,
+            "first_page": null,
+            "last_page": null
+          },
+          "is_retracted": false,
+          "is_paratext": false,
+          "is_xpac": false,
+          "primary_topic": {
+            "id": "https://openalex.org/T13618",
+            "display_name": "Regional Socio-Economic Development Trends",
+            "score": 0.9793999791145325,
+            "subfield": {
+              "id": "https://openalex.org/subfields/3317",
+              "display_name": "Demography"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/33",
+              "display_name": "Social Sciences"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/2",
+              "display_name": "Social Sciences"
+            }
+          },
+          "topics": [
+            {
+              "id": "https://openalex.org/T13618",
+              "display_name": "Regional Socio-Economic Development Trends",
+              "score": 0.9793999791145325,
+              "subfield": {
+                "id": "https://openalex.org/subfields/3317",
+                "display_name": "Demography"
+              },
+              "field": {
+                "id": "https://openalex.org/fields/33",
+                "display_name": "Social Sciences"
+              },
+              "domain": {
+                "id": "https://openalex.org/domains/2",
+                "display_name": "Social Sciences"
+              }
+            },
+            {
+              "id": "https://openalex.org/T13154",
+              "display_name": "Legal and Regulatory Analysis",
+              "score": 0.9192000031471252,
+              "subfield": {
+                "id": "https://openalex.org/subfields/3313",
+                "display_name": "Transportation"
+              },
+              "field": {
+                "id": "https://openalex.org/fields/33",
+                "display_name": "Social Sciences"
+              },
+              "domain": {
+                "id": "https://openalex.org/domains/2",
+                "display_name": "Social Sciences"
+              }
+            }
+          ],
+          "keywords": [
+            {
+              "id": "https://openalex.org/keywords/terminology",
+              "display_name": "Terminology",
+              "score": 0.6115188002586365
+            },
+            {
+              "id": "https://openalex.org/keywords/russian-federation",
+              "display_name": "Russian federation",
+              "score": 0.5768639445304871
+            },
+            {
+              "id": "https://openalex.org/keywords/regional-science",
+              "display_name": "Regional science",
+              "score": 0.5432241559028625
+            },
+            {
+              "id": "https://openalex.org/keywords/government",
+              "display_name": "Government (linguistics)",
+              "score": 0.48269176483154297
+            },
+            {
+              "id": "https://openalex.org/keywords/service",
+              "display_name": "Service (business)",
+              "score": 0.4643699526786804
+            },
+            {
+              "id": "https://openalex.org/keywords/state",
+              "display_name": "State (computer science)",
+              "score": 0.4631471335887909
+            },
+            {
+              "id": "https://openalex.org/keywords/political-science",
+              "display_name": "Political science",
+              "score": 0.4364576041698456
+            },
+            {
+              "id": "https://openalex.org/keywords/local-government",
+              "display_name": "Local government",
+              "score": 0.4315914511680603
+            },
+            {
+              "id": "https://openalex.org/keywords/quality",
+              "display_name": "Quality (philosophy)",
+              "score": 0.4267405569553375
+            },
+            {
+              "id": "https://openalex.org/keywords/business",
+              "display_name": "Business",
+              "score": 0.4135456085205078
+            },
+            {
+              "id": "https://openalex.org/keywords/spatial-planning",
+              "display_name": "Spatial planning",
+              "score": 0.410998672246933
+            },
+            {
+              "id": "https://openalex.org/keywords/environmental-planning",
+              "display_name": "Environmental planning",
+              "score": 0.3673378825187683
+            },
+            {
+              "id": "https://openalex.org/keywords/public-administration",
+              "display_name": "Public administration",
+              "score": 0.33373647928237915
+            },
+            {
+              "id": "https://openalex.org/keywords/geography",
+              "display_name": "Geography",
+              "score": 0.3246854543685913
+            },
+            {
+              "id": "https://openalex.org/keywords/computer-science",
+              "display_name": "Computer science",
+              "score": 0.16442131996154785
+            },
+            {
+              "id": "https://openalex.org/keywords/marketing",
+              "display_name": "Marketing",
+              "score": 0.10527157783508301
+            }
+          ],
+          "concepts": [
+            {
+              "id": "https://openalex.org/C547195049",
+              "wikidata": "https://www.wikidata.org/wiki/Q1725664",
+              "display_name": "Terminology",
+              "level": 2,
+              "score": 0.6115188002586365
+            },
+            {
+              "id": "https://openalex.org/C3019953208",
+              "wikidata": "https://www.wikidata.org/wiki/Q159",
+              "display_name": "Russian federation",
+              "level": 2,
+              "score": 0.5768639445304871
+            },
+            {
+              "id": "https://openalex.org/C148383697",
+              "wikidata": "https://www.wikidata.org/wiki/Q1781695",
+              "display_name": "Regional science",
+              "level": 1,
+              "score": 0.5432241559028625
+            },
+            {
+              "id": "https://openalex.org/C2778137410",
+              "wikidata": "https://www.wikidata.org/wiki/Q2732820",
+              "display_name": "Government (linguistics)",
+              "level": 2,
+              "score": 0.48269176483154297
+            },
+            {
+              "id": "https://openalex.org/C2780378061",
+              "wikidata": "https://www.wikidata.org/wiki/Q25351891",
+              "display_name": "Service (business)",
+              "level": 2,
+              "score": 0.4643699526786804
+            },
+            {
+              "id": "https://openalex.org/C48103436",
+              "wikidata": "https://www.wikidata.org/wiki/Q599031",
+              "display_name": "State (computer science)",
+              "level": 2,
+              "score": 0.4631471335887909
+            },
+            {
+              "id": "https://openalex.org/C17744445",
+              "wikidata": "https://www.wikidata.org/wiki/Q36442",
+              "display_name": "Political science",
+              "level": 0,
+              "score": 0.4364576041698456
+            },
+            {
+              "id": "https://openalex.org/C2778719706",
+              "wikidata": "https://www.wikidata.org/wiki/Q6501447",
+              "display_name": "Local government",
+              "level": 2,
+              "score": 0.4315914511680603
+            },
+            {
+              "id": "https://openalex.org/C2779530757",
+              "wikidata": "https://www.wikidata.org/wiki/Q1207505",
+              "display_name": "Quality (philosophy)",
+              "level": 2,
+              "score": 0.4267405569553375
+            },
+            {
+              "id": "https://openalex.org/C144133560",
+              "wikidata": "https://www.wikidata.org/wiki/Q4830453",
+              "display_name": "Business",
+              "level": 0,
+              "score": 0.4135456085205078
+            },
+            {
+              "id": "https://openalex.org/C2776873942",
+              "wikidata": "https://www.wikidata.org/wiki/Q149013",
+              "display_name": "Spatial planning",
+              "level": 2,
+              "score": 0.410998672246933
+            },
+            {
+              "id": "https://openalex.org/C91375879",
+              "wikidata": "https://www.wikidata.org/wiki/Q15473274",
+              "display_name": "Environmental planning",
+              "level": 1,
+              "score": 0.3673378825187683
+            },
+            {
+              "id": "https://openalex.org/C3116431",
+              "wikidata": "https://www.wikidata.org/wiki/Q31728",
+              "display_name": "Public administration",
+              "level": 1,
+              "score": 0.33373647928237915
+            },
+            {
+              "id": "https://openalex.org/C205649164",
+              "wikidata": "https://www.wikidata.org/wiki/Q1071",
+              "display_name": "Geography",
+              "level": 0,
+              "score": 0.3246854543685913
+            },
+            {
+              "id": "https://openalex.org/C41008148",
+              "wikidata": "https://www.wikidata.org/wiki/Q21198",
+              "display_name": "Computer science",
+              "level": 0,
+              "score": 0.16442131996154785
+            },
+            {
+              "id": "https://openalex.org/C162853370",
+              "wikidata": "https://www.wikidata.org/wiki/Q39809",
+              "display_name": "Marketing",
+              "level": 1,
+              "score": 0.10527157783508301
+            },
+            {
+              "id": "https://openalex.org/C111472728",
+              "wikidata": "https://www.wikidata.org/wiki/Q9471",
+              "display_name": "Epistemology",
+              "level": 1,
+              "score": 0.0
+            },
+            {
+              "id": "https://openalex.org/C11413529",
+              "wikidata": "https://www.wikidata.org/wiki/Q8366",
+              "display_name": "Algorithm",
+              "level": 1,
+              "score": 0.0
+            },
+            {
+              "id": "https://openalex.org/C41895202",
+              "wikidata": "https://www.wikidata.org/wiki/Q8162",
+              "display_name": "Linguistics",
+              "level": 1,
+              "score": 0.0
+            },
+            {
+              "id": "https://openalex.org/C138885662",
+              "wikidata": "https://www.wikidata.org/wiki/Q5891",
+              "display_name": "Philosophy",
+              "level": 0,
+              "score": 0.0
+            }
+          ],
+          "mesh": [],
+          "locations_count": 1,
+          "locations": [
+            {
+              "id": "mag:3191794798",
+              "is_oa": true,
+              "landing_page_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3544599",
+              "pdf_url": null,
+              "source": {
+                "id": "https://openalex.org/S4210172589",
+                "display_name": "SSRN Electronic Journal",
+                "issn_l": "1556-5068",
+                "issn": [
+                  "1556-5068"
+                ],
+                "is_oa": true,
+                "is_in_doaj": false,
+                "is_core": false,
+                "host_organization": "https://openalex.org/I1318003438",
+                "host_organization_name": "RELX Group (Netherlands)",
+                "host_organization_lineage": [
+                  "https://openalex.org/I1318003438"
+                ],
+                "host_organization_lineage_names": [],
+                "type": "repository"
+              },
+              "license": null,
+              "license_id": null,
+              "version": "submittedVersion",
+              "is_accepted": false,
+              "is_published": false,
+              "raw_source_name": "SSRN Electronic Journal",
+              "raw_type": null
+            }
+          ],
+          "best_oa_location": {
+            "id": "mag:3191794798",
+            "is_oa": true,
+            "landing_page_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3544599",
+            "pdf_url": null,
+            "source": {
+              "id": "https://openalex.org/S4210172589",
+              "display_name": "SSRN Electronic Journal",
+              "issn_l": "1556-5068",
+              "issn": [
+                "1556-5068"
+              ],
+              "is_oa": true,
+              "is_in_doaj": false,
+              "is_core": false,
+              "host_organization": "https://openalex.org/I1318003438",
+              "host_organization_name": "RELX Group (Netherlands)",
+              "host_organization_lineage": [
+                "https://openalex.org/I1318003438"
+              ],
+              "host_organization_lineage_names": [],
+              "type": "repository"
+            },
+            "license": null,
+            "license_id": null,
+            "version": "submittedVersion",
+            "is_accepted": false,
+            "is_published": false,
+            "raw_source_name": "SSRN Electronic Journal",
+            "raw_type": null
+          },
+          "sustainable_development_goals": [],
+          "awards": [],
+          "funders": [],
+          "has_content": {
+            "grobid_xml": false,
+            "pdf": false
+          },
+          "content_urls": null,
+          "referenced_works_count": 0,
+          "referenced_works": [],
+          "related_works": [
+            "https://openalex.org/W3121901898",
+            "https://openalex.org/W2889721156",
+            "https://openalex.org/W3122805647",
+            "https://openalex.org/W2313700567",
+            "https://openalex.org/W2590029734",
+            "https://openalex.org/W3186830357",
+            "https://openalex.org/W2922135656",
+            "https://openalex.org/W2968412691",
+            "https://openalex.org/W2921442004",
+            "https://openalex.org/W3199555744",
+            "https://openalex.org/W2284837250",
+            "https://openalex.org/W3109182102",
+            "https://openalex.org/W1553483649",
+            "https://openalex.org/W2898504627",
+            "https://openalex.org/W2560118658",
+            "https://openalex.org/W3090066115",
+            "https://openalex.org/W2621323580",
+            "https://openalex.org/W2052084806",
+            "https://openalex.org/W2898123212",
+            "https://openalex.org/W2748843483"
+          ],
+          "abstract_inverted_index": {
+            "Russian": [
+              0,
+              192
+            ],
+            "Abstract:": [
+              1,
+              170
+            ],
+            "В": [
+              2
+            ],
+            "статье": [
+              3
+            ],
+            "рассматриваются": [
+              4
+            ],
+            "различные": [
+              5
+            ],
+            "аспекты": [
+              6,
+              151
+            ],
+            "пространственного": [
+              7,
+              14,
+              41,
+              60,
+              85
+            ],
+            "развития": [
+              8,
+              15,
+              61,
+              86
+            ],
+            "муниципальных": [
+              9
+            ],
+            "образований": [
+              10
+            ],
+            "России.": [
+              11
+            ],
+            "Проанализирована": [
+              12
+            ],
+            "«Стратегия": [
+              13
+            ],
+            "Российской": [
+              16
+            ],
+            "Федерации": [
+              17
+            ],
+            "на": [
+              18,
+              67
+            ],
+            "период": [
+              19,
+              68
+            ],
+            "до": [
+              20,
+              69
+            ],
+            "2025": [
+              21
+            ],
+            "года»,": [
+              22
+            ],
+            "из": [
+              23,
+              48,
+              133
+            ],
+            "которой": [
+              24
+            ],
+            "выделены": [
+              25,
+              43
+            ],
+            "роль": [
+              26
+            ],
+            "муниципалитетов": [
+              27
+            ],
+            "и": [
+              28,
+              46,
+              92,
+              95,
+              103,
+              128,
+              161,
+              166
+            ],
+            "основная": [
+              29
+            ],
+            "терминология,": [
+              30
+            ],
+            "а": [
+              31,
+              123
+            ],
+            "также": [
+              32,
+              75
+            ],
+            "определены": [
+              33
+            ],
+            "методические": [
+              34,
+              50,
+              53
+            ],
+            "ограничения.": [
+              35
+            ],
+            "Муниципальное": [
+              36
+            ],
+            "образование": [
+              37
+            ],
+            "рассмотрено": [
+              38
+            ],
+            "как": [
+              39
+            ],
+            "объект": [
+              40
+            ],
+            "развития,": [
+              42
+            ],
+            "соответствующие": [
+              44,
+              164
+            ],
+            "особенности": [
+              45
+            ],
+            "вытекающие": [
+              47
+            ],
+            "них": [
+              49
+            ],
+            "уточнения.": [
+              51
+            ],
+            "Сформированные": [
+              52
+            ],
+            "положения": [
+              54
+            ],
+            "были": [
+              55
+            ],
+            "использованы": [
+              56
+            ],
+            "при": [
+              57
+            ],
+            "разработке": [
+              58
+            ],
+            "«Стратегии": [
+              59
+            ],
+            "Троицкого": [
+              62
+            ],
+            "муниципального": [
+              63,
+              87,
+              104
+            ],
+            "района": [
+              64
+            ],
+            "Челябинской": [
+              65
+            ],
+            "области": [
+              66
+            ],
+            "2035": [
+              70
+            ],
+            "года».": [
+              71
+            ],
+            "Результаты": [
+              72
+            ],
+            "практического": [
+              73
+            ],
+            "внедрения": [
+              74
+            ],
+            "приведены": [
+              76
+            ],
+            "в": [
+              77,
+              115
+            ],
+            "статье.": [
+              78
+            ],
+            "Указаны": [
+              79
+            ],
+            "два": [
+              80
+            ],
+            "основных": [
+              81
+            ],
+            "инструмента": [
+              82
+            ],
+            "определения": [
+              83
+            ],
+            "приоритетов": [
+              84
+            ],
+            "образования:": [
+              88
+            ],
+            "векторные": [
+              89
+            ],
+            "оценки": [
+              90
+            ],
+            "качества": [
+              91
+            ],
+            "условий": [
+              93
+            ],
+            "жизни": [
+              94
+            ],
+            "миграционное": [
+              96
+            ],
+            "сальдо.\r\nАвтором": [
+              97
+            ],
+            "предложено": [
+              98
+            ],
+            "рассмотрение": [
+              99
+            ],
+            "актуальных": [
+              100
+            ],
+            "тенденций": [
+              101
+            ],
+            "государственного": [
+              102
+            ],
+            "управления": [
+              105,
+              140
+            ],
+            "с": [
+              106
+            ],
+            "точки": [
+              107
+            ],
+            "зрения": [
+              108
+            ],
+            "новой": [
+              109
+            ],
+            "«внеадминистративной": [
+              110
+            ],
+            "парадигмы": [
+              111
+            ],
+            "управления».": [
+              112
+            ],
+            "Она": [
+              113
+            ],
+            "заключается": [
+              114
+            ],
+            "управлении": [
+              116
+            ],
+            "территориальными": [
+              117
+            ],
+            "образованиями,": [
+              118
+            ],
+            "не": [
+              119
+            ],
+            "имеющими": [
+              120
+            ],
+            "административных": [
+              121
+            ],
+            "границ,": [
+              122
+            ],
+            "объединённых": [
+              124
+            ],
+            "общими": [
+              125
+            ],
+            "хозяйственными": [
+              126
+            ],
+            "связями": [
+              127
+            ],
+            "социально-экономическими": [
+              129
+            ],
+            "интересами.": [
+              130
+            ],
+            "Как": [
+              131
+            ],
+            "один": [
+              132
+            ],
+            "случаев": [
+              134
+            ],
+            "«внеадминистративных": [
+              135
+            ],
+            "территориальных": [
+              136
+            ],
+            "образований»": [
+              137
+            ],
+            "предложена": [
+              138
+            ],
+            "методика": [
+              139
+            ],
+            "развитием": [
+              141
+            ],
+            "через": [
+              142
+            ],
+            "систему": [
+              143
+            ],
+            "малых": [
+              144
+            ],
+            "центров": [
+              145,
+              155
+            ],
+            "социальных": [
+              146,
+              156
+            ],
+            "услуг.": [
+              147
+            ],
+            "На": [
+              148
+            ],
+            "примерах": [
+              149
+            ],
+            "проанализированы": [
+              150
+            ],
+            "различных": [
+              152
+            ],
+            "вариантов": [
+              153
+            ],
+            "систем": [
+              154
+            ],
+            "услуг": [
+              157
+            ],
+            "(малая,": [
+              158
+            ],
+            "межмуниципальная,": [
+              159
+            ],
+            "многоуровневая": [
+              160
+            ],
+            "трансграничная).": [
+              162
+            ],
+            "Сделаны": [
+              163
+            ],
+            "выводы": [
+              165
+            ],
+            "даны": [
+              167
+            ],
+            "практические": [
+              168
+            ],
+            "рекомендации.\r\n\r\nEnglish": [
+              169
+            ],
+            "The": [
+              171,
+              184,
+              220,
+              242,
+              272,
+              400
+            ],
+            "article": [
+              172
+            ],
+            "discusses": [
+              173
+            ],
+            "various": [
+              174,
+              388
+            ],
+            "aspects": [
+              175,
+              386
+            ],
+            "of": [
+              176,
+              180,
+              190,
+              205,
+              227,
+              251,
+              258,
+              263,
+              274,
+              290,
+              294,
+              301,
+              314,
+              325,
+              327,
+              338,
+              359,
+              362,
+              373,
+              376,
+              387
+            ],
+            "the": [
+              177,
+              187,
+              191,
+              195,
+              203,
+              208,
+              230,
+              234,
+              249,
+              252,
+              255,
+              259,
+              264,
+              268,
+              281,
+              288,
+              291,
+              295,
+              302,
+              308,
+              323,
+              328,
+              336,
+              360
+            ],
+            "spatial": [
+              178,
+              188,
+              228,
+              256,
+              292
+            ],
+            "development": [
+              179,
+              189,
+              250,
+              257,
+              293,
+              367
+            ],
+            "municipalities": [
+              181,
+              206
+            ],
+            "in": [
+              182,
+              248,
+              280,
+              317,
+              335
+            ],
+            "Russia.": [
+              183
+            ],
+            "“Strategy": [
+              185
+            ],
+            "for": [
+              186,
+              194,
+              254,
+              267,
+              286,
+              390
+            ],
+            "Federation": [
+              193
+            ],
+            "period": [
+              196,
+              269
+            ],
+            "until": [
+              197,
+              270
+            ],
+            "2025”": [
+              198
+            ],
+            "is": [
+              199,
+              222,
+              379
+            ],
+            "analyzed,": [
+              200
+            ],
+            "from": [
+              201,
+              238,
+              322
+            ],
+            "which": [
+              202
+            ],
+            "role": [
+              204
+            ],
+            "and": [
+              207,
+              233,
+              304,
+              307,
+              319,
+              354,
+              398,
+              403
+            ],
+            "basic": [
+              209
+            ],
+            "terminology": [
+              210
+            ],
+            "are": [
+              211,
+              218,
+              240,
+              277,
+              297,
+              348,
+              382,
+              406
+            ],
+            "identified,": [
+              212
+            ],
+            "as": [
+              213,
+              215,
+              224
+            ],
+            "well": [
+              214
+            ],
+            "methodological": [
+              216,
+              235,
+              244
+            ],
+            "restrictions": [
+              217
+            ],
+            "determined.": [
+              219
+            ],
+            "municipality": [
+              221,
+              296
+            ],
+            "considered": [
+              223
+            ],
+            "an": [
+              225
+            ],
+            "object": [
+              226
+            ],
+            "development,": [
+              229
+            ],
+            "corresponding": [
+              231,
+              401
+            ],
+            "features": [
+              232
+            ],
+            "refinements": [
+              236
+            ],
+            "arising": [
+              237
+            ],
+            "them": [
+              239
+            ],
+            "highlighted.": [
+              241
+            ],
+            "generated": [
+              243
+            ],
+            "provisions": [
+              245
+            ],
+            "were": [
+              246
+            ],
+            "used": [
+              247,
+              383
+            ],
+            "Strategy": [
+              253
+            ],
+            "Trinity": [
+              260
+            ],
+            "municipal": [
+              261,
+              320
+            ],
+            "district": [
+              262
+            ],
+            "Chelyabinsk": [
+              265
+            ],
+            "region": [
+              266
+            ],
+            "2035.": [
+              271
+            ],
+            "results": [
+              273
+            ],
+            "practical": [
+              275,
+              404
+            ],
+            "implementation": [
+              276
+            ],
+            "also": [
+              278
+            ],
+            "given": [
+              279
+            ],
+            "article.": [
+              282
+            ],
+            "Two": [
+              283
+            ],
+            "main": [
+              284
+            ],
+            "instruments": [
+              285
+            ],
+            "determining": [
+              287
+            ],
+            "priorities": [
+              289
+            ],
+            "indicated:": [
+              298
+            ],
+            "vectorial": [
+              299
+            ],
+            "assessments": [
+              300
+            ],
+            "quality": [
+              303
+            ],
+            "living": [
+              305
+            ],
+            "conditions": [
+              306
+            ],
+            "migration": [
+              309
+            ],
+            "balance.\r\n\r\nThe": [
+              310
+            ],
+            "author": [
+              311
+            ],
+            "proposed": [
+              312
+            ],
+            "consideration": [
+              313
+            ],
+            "current": [
+              315
+            ],
+            "trends": [
+              316
+            ],
+            "state": [
+              318
+            ],
+            "government": [
+              321
+            ],
+            "point": [
+              324
+            ],
+            "view": [
+              326
+            ],
+            "new": [
+              329
+            ],
+            "“non-administrative": [
+              330,
+              363
+            ],
+            "management": [
+              331,
+              337,
+              368
+            ],
+            "paradigm”.": [
+              332
+            ],
+            "It": [
+              333
+            ],
+            "consists": [
+              334
+            ],
+            "territorial": [
+              339,
+              364
+            ],
+            "entities": [
+              340
+            ],
+            "that": [
+              341
+            ],
+            "do": [
+              342
+            ],
+            "not": [
+              343
+            ],
+            "have": [
+              344
+            ],
+            "administrative": [
+              345
+            ],
+            "borders,": [
+              346
+            ],
+            "but": [
+              347
+            ],
+            "united": [
+              349
+            ],
+            "by": [
+              350
+            ],
+            "common": [
+              351
+            ],
+            "economic": [
+              352
+            ],
+            "ties": [
+              353
+            ],
+            "socio-economic": [
+              355
+            ],
+            "interests.": [
+              356
+            ],
+            "As": [
+              357
+            ],
+            "one": [
+              358
+            ],
+            "cases": [
+              361
+            ],
+            "entities”,": [
+              365
+            ],
+            "a": [
+              366,
+              371
+            ],
+            "technique": [
+              369
+            ],
+            "through": [
+              370
+            ],
+            "system": [
+              372
+            ],
+            "small": [
+              374
+            ],
+            "centers": [
+              375
+            ],
+            "social": [
+              377,
+              391
+            ],
+            "services": [
+              378
+            ],
+            "proposed.": [
+              380
+            ],
+            "Examples": [
+              381
+            ],
+            "to": [
+              384
+            ],
+            "analyze": [
+              385
+            ],
+            "options": [
+              389
+            ],
+            "service": [
+              392
+            ],
+            "center": [
+              393
+            ],
+            "systems": [
+              394
+            ],
+            "(small,": [
+              395
+            ],
+            "inter-municipal,": [
+              396
+            ],
+            "multi-level": [
+              397
+            ],
+            "cross-border).": [
+              399
+            ],
+            "conclusions": [
+              402
+            ],
+            "recommendations": [
+              405
+            ],
+            "made.": [
+              407
+            ]
+          },
+          "counts_by_year": [],
+          "updated_date": "2026-07-14T23:32:53.992493",
+          "created_date": "2025-10-10T00:00:00"
+        }
       }
     ],
     "venue_en": "SSRN Electronic Journal",
@@ -11909,6 +13367,969 @@
           },
           "counts_by_year": [],
           "updated_date": "2026-06-30T13:55:48.251075",
+          "created_date": "2025-10-10T00:00:00"
+        }
+      },
+      {
+        "source": "openalex_api",
+        "openalex_id": "https://openalex.org/W3187712357",
+        "title": "Демографический фактор в обеспечении устойчивого развития мегаполиса (Demographic Factor in Ensuring Sustainable Development of the Megacity)",
+        "year": 2018,
+        "doi": null,
+        "url": "https://openalex.org/W3187712357",
+        "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
+        "pdf_url": null,
+        "venue": "SSRN Electronic Journal",
+        "cited_by_count": 0,
+        "is_oa": true,
+        "oa_status": "green",
+        "raw": {
+          "id": "https://openalex.org/W3187712357",
+          "doi": null,
+          "title": "Демографический фактор в обеспечении устойчивого развития мегаполиса (Demographic Factor in Ensuring Sustainable Development of the Megacity)",
+          "display_name": "Демографический фактор в обеспечении устойчивого развития мегаполиса (Demographic Factor in Ensuring Sustainable Development of the Megacity)",
+          "publication_year": 2018,
+          "publication_date": "2018-11-01",
+          "ids": {
+            "openalex": "https://openalex.org/W3187712357",
+            "mag": "3187712357"
+          },
+          "language": "ru",
+          "primary_location": {
+            "id": "mag:3187712357",
+            "is_oa": true,
+            "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
+            "pdf_url": null,
+            "source": {
+              "id": "https://openalex.org/S4210172589",
+              "display_name": "SSRN Electronic Journal",
+              "issn_l": "1556-5068",
+              "issn": [
+                "1556-5068"
+              ],
+              "is_oa": true,
+              "is_in_doaj": false,
+              "is_core": false,
+              "host_organization": "https://openalex.org/I1318003438",
+              "host_organization_name": "RELX Group (Netherlands)",
+              "host_organization_lineage": [
+                "https://openalex.org/I1318003438"
+              ],
+              "host_organization_lineage_names": [],
+              "type": "repository"
+            },
+            "license": null,
+            "license_id": null,
+            "version": "submittedVersion",
+            "is_accepted": false,
+            "is_published": false,
+            "raw_source_name": "SSRN Electronic Journal",
+            "raw_type": null
+          },
+          "type": "preprint",
+          "indexed_in": [],
+          "open_access": {
+            "is_oa": true,
+            "oa_status": "green",
+            "oa_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
+            "any_repository_has_fulltext": true
+          },
+          "authorships": [
+            {
+              "author_position": "first",
+              "author": {
+                "id": "https://openalex.org/A5007601767",
+                "display_name": "Arseniy Sitkovskiy",
+                "orcid": "https://orcid.org/0000-0002-8725-6580"
+              },
+              "institutions": [
+                {
+                  "id": "https://openalex.org/I263417816",
+                  "display_name": "The Russian Presidential Academy of National Economy and Public Administration",
+                  "ror": "https://ror.org/04xnm9a92",
+                  "country_code": "RU",
+                  "type": "government",
+                  "lineage": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ],
+              "countries": [
+                "RU"
+              ],
+              "is_corresponding": true,
+              "raw_author_name": "Arseniy Sitkovskiy",
+              "raw_affiliation_strings": [
+                "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Chelyabinsk Branch"
+              ],
+              "raw_orcid": "https://orcid.org/0000-0002-8725-6580",
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Chelyabinsk Branch",
+                  "institution_ids": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ]
+            }
+          ],
+          "institutions": [],
+          "countries_distinct_count": 1,
+          "institutions_distinct_count": 1,
+          "corresponding_author_ids": [
+            "https://openalex.org/A5007601767"
+          ],
+          "corresponding_institution_ids": [
+            "https://openalex.org/I263417816"
+          ],
+          "apc_list": null,
+          "apc_paid": null,
+          "fwci": null,
+          "has_fulltext": false,
+          "cited_by_count": 0,
+          "citation_normalized_percentile": null,
+          "cited_by_percentile_year": null,
+          "biblio": {
+            "volume": null,
+            "issue": null,
+            "first_page": null,
+            "last_page": null
+          },
+          "is_retracted": false,
+          "is_paratext": false,
+          "is_xpac": false,
+          "primary_topic": {
+            "id": "https://openalex.org/T13618",
+            "display_name": "Regional Socio-Economic Development Trends",
+            "score": 0.9887999892234802,
+            "subfield": {
+              "id": "https://openalex.org/subfields/3317",
+              "display_name": "Demography"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/33",
+              "display_name": "Social Sciences"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/2",
+              "display_name": "Social Sciences"
+            }
+          },
+          "topics": [
+            {
+              "id": "https://openalex.org/T13618",
+              "display_name": "Regional Socio-Economic Development Trends",
+              "score": 0.9887999892234802,
+              "subfield": {
+                "id": "https://openalex.org/subfields/3317",
+                "display_name": "Demography"
+              },
+              "field": {
+                "id": "https://openalex.org/fields/33",
+                "display_name": "Social Sciences"
+              },
+              "domain": {
+                "id": "https://openalex.org/domains/2",
+                "display_name": "Social Sciences"
+              }
+            }
+          ],
+          "keywords": [
+            {
+              "id": "https://openalex.org/keywords/megacity",
+              "display_name": "Megacity",
+              "score": 0.9157395958900452
+            },
+            {
+              "id": "https://openalex.org/keywords/sustainable-development",
+              "display_name": "Sustainable development",
+              "score": 0.6757106781005859
+            },
+            {
+              "id": "https://openalex.org/keywords/context",
+              "display_name": "Context (archaeology)",
+              "score": 0.5959392786026001
+            },
+            {
+              "id": "https://openalex.org/keywords/sustainability",
+              "display_name": "Sustainability",
+              "score": 0.558770477771759
+            },
+            {
+              "id": "https://openalex.org/keywords/population",
+              "display_name": "Population",
+              "score": 0.5254936814308167
+            },
+            {
+              "id": "https://openalex.org/keywords/economic-geography",
+              "display_name": "Economic geography",
+              "score": 0.4640570878982544
+            },
+            {
+              "id": "https://openalex.org/keywords/geography",
+              "display_name": "Geography",
+              "score": 0.446880578994751
+            },
+            {
+              "id": "https://openalex.org/keywords/balance",
+              "display_name": "Balance (ability)",
+              "score": 0.4461447596549988
+            },
+            {
+              "id": "https://openalex.org/keywords/regional-science",
+              "display_name": "Regional science",
+              "score": 0.44322502613067627
+            },
+            {
+              "id": "https://openalex.org/keywords/economic-growth",
+              "display_name": "Economic growth",
+              "score": 0.363905131816864
+            },
+            {
+              "id": "https://openalex.org/keywords/political-science",
+              "display_name": "Political science",
+              "score": 0.3017812967300415
+            },
+            {
+              "id": "https://openalex.org/keywords/economics",
+              "display_name": "Economics",
+              "score": 0.27280616760253906
+            },
+            {
+              "id": "https://openalex.org/keywords/economy",
+              "display_name": "Economy",
+              "score": 0.22334066033363342
+            },
+            {
+              "id": "https://openalex.org/keywords/demography",
+              "display_name": "Demography",
+              "score": 0.1463472545146942
+            },
+            {
+              "id": "https://openalex.org/keywords/sociology",
+              "display_name": "Sociology",
+              "score": 0.12487494945526123
+            }
+          ],
+          "concepts": [
+            {
+              "id": "https://openalex.org/C127040729",
+              "wikidata": "https://www.wikidata.org/wiki/Q174844",
+              "display_name": "Megacity",
+              "level": 2,
+              "score": 0.9157395958900452
+            },
+            {
+              "id": "https://openalex.org/C552854447",
+              "wikidata": "https://www.wikidata.org/wiki/Q131201",
+              "display_name": "Sustainable development",
+              "level": 2,
+              "score": 0.6757106781005859
+            },
+            {
+              "id": "https://openalex.org/C2779343474",
+              "wikidata": "https://www.wikidata.org/wiki/Q3109175",
+              "display_name": "Context (archaeology)",
+              "level": 2,
+              "score": 0.5959392786026001
+            },
+            {
+              "id": "https://openalex.org/C66204764",
+              "wikidata": "https://www.wikidata.org/wiki/Q219416",
+              "display_name": "Sustainability",
+              "level": 2,
+              "score": 0.558770477771759
+            },
+            {
+              "id": "https://openalex.org/C2908647359",
+              "wikidata": "https://www.wikidata.org/wiki/Q2625603",
+              "display_name": "Population",
+              "level": 2,
+              "score": 0.5254936814308167
+            },
+            {
+              "id": "https://openalex.org/C26271046",
+              "wikidata": "https://www.wikidata.org/wiki/Q187097",
+              "display_name": "Economic geography",
+              "level": 1,
+              "score": 0.4640570878982544
+            },
+            {
+              "id": "https://openalex.org/C205649164",
+              "wikidata": "https://www.wikidata.org/wiki/Q1071",
+              "display_name": "Geography",
+              "level": 0,
+              "score": 0.446880578994751
+            },
+            {
+              "id": "https://openalex.org/C168031717",
+              "wikidata": "https://www.wikidata.org/wiki/Q1530280",
+              "display_name": "Balance (ability)",
+              "level": 2,
+              "score": 0.4461447596549988
+            },
+            {
+              "id": "https://openalex.org/C148383697",
+              "wikidata": "https://www.wikidata.org/wiki/Q1781695",
+              "display_name": "Regional science",
+              "level": 1,
+              "score": 0.44322502613067627
+            },
+            {
+              "id": "https://openalex.org/C50522688",
+              "wikidata": "https://www.wikidata.org/wiki/Q189833",
+              "display_name": "Economic growth",
+              "level": 1,
+              "score": 0.363905131816864
+            },
+            {
+              "id": "https://openalex.org/C17744445",
+              "wikidata": "https://www.wikidata.org/wiki/Q36442",
+              "display_name": "Political science",
+              "level": 0,
+              "score": 0.3017812967300415
+            },
+            {
+              "id": "https://openalex.org/C162324750",
+              "wikidata": "https://www.wikidata.org/wiki/Q8134",
+              "display_name": "Economics",
+              "level": 0,
+              "score": 0.27280616760253906
+            },
+            {
+              "id": "https://openalex.org/C136264566",
+              "wikidata": "https://www.wikidata.org/wiki/Q159810",
+              "display_name": "Economy",
+              "level": 1,
+              "score": 0.22334066033363342
+            },
+            {
+              "id": "https://openalex.org/C149923435",
+              "wikidata": "https://www.wikidata.org/wiki/Q37732",
+              "display_name": "Demography",
+              "level": 1,
+              "score": 0.1463472545146942
+            },
+            {
+              "id": "https://openalex.org/C144024400",
+              "wikidata": "https://www.wikidata.org/wiki/Q21201",
+              "display_name": "Sociology",
+              "level": 0,
+              "score": 0.12487494945526123
+            },
+            {
+              "id": "https://openalex.org/C166957645",
+              "wikidata": "https://www.wikidata.org/wiki/Q23498",
+              "display_name": "Archaeology",
+              "level": 1,
+              "score": 0.0
+            },
+            {
+              "id": "https://openalex.org/C86803240",
+              "wikidata": "https://www.wikidata.org/wiki/Q420",
+              "display_name": "Biology",
+              "level": 0,
+              "score": 0.0
+            },
+            {
+              "id": "https://openalex.org/C199539241",
+              "wikidata": "https://www.wikidata.org/wiki/Q7748",
+              "display_name": "Law",
+              "level": 1,
+              "score": 0.0
+            },
+            {
+              "id": "https://openalex.org/C99508421",
+              "wikidata": "https://www.wikidata.org/wiki/Q2678675",
+              "display_name": "Physical medicine and rehabilitation",
+              "level": 1,
+              "score": 0.0
+            },
+            {
+              "id": "https://openalex.org/C71924100",
+              "wikidata": "https://www.wikidata.org/wiki/Q11190",
+              "display_name": "Medicine",
+              "level": 0,
+              "score": 0.0
+            },
+            {
+              "id": "https://openalex.org/C18903297",
+              "wikidata": "https://www.wikidata.org/wiki/Q7150",
+              "display_name": "Ecology",
+              "level": 1,
+              "score": 0.0
+            }
+          ],
+          "mesh": [],
+          "locations_count": 1,
+          "locations": [
+            {
+              "id": "mag:3187712357",
+              "is_oa": true,
+              "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
+              "pdf_url": null,
+              "source": {
+                "id": "https://openalex.org/S4210172589",
+                "display_name": "SSRN Electronic Journal",
+                "issn_l": "1556-5068",
+                "issn": [
+                  "1556-5068"
+                ],
+                "is_oa": true,
+                "is_in_doaj": false,
+                "is_core": false,
+                "host_organization": "https://openalex.org/I1318003438",
+                "host_organization_name": "RELX Group (Netherlands)",
+                "host_organization_lineage": [
+                  "https://openalex.org/I1318003438"
+                ],
+                "host_organization_lineage_names": [],
+                "type": "repository"
+              },
+              "license": null,
+              "license_id": null,
+              "version": "submittedVersion",
+              "is_accepted": false,
+              "is_published": false,
+              "raw_source_name": "SSRN Electronic Journal",
+              "raw_type": null
+            }
+          ],
+          "best_oa_location": {
+            "id": "mag:3187712357",
+            "is_oa": true,
+            "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
+            "pdf_url": null,
+            "source": {
+              "id": "https://openalex.org/S4210172589",
+              "display_name": "SSRN Electronic Journal",
+              "issn_l": "1556-5068",
+              "issn": [
+                "1556-5068"
+              ],
+              "is_oa": true,
+              "is_in_doaj": false,
+              "is_core": false,
+              "host_organization": "https://openalex.org/I1318003438",
+              "host_organization_name": "RELX Group (Netherlands)",
+              "host_organization_lineage": [
+                "https://openalex.org/I1318003438"
+              ],
+              "host_organization_lineage_names": [],
+              "type": "repository"
+            },
+            "license": null,
+            "license_id": null,
+            "version": "submittedVersion",
+            "is_accepted": false,
+            "is_published": false,
+            "raw_source_name": "SSRN Electronic Journal",
+            "raw_type": null
+          },
+          "sustainable_development_goals": [],
+          "awards": [],
+          "funders": [],
+          "has_content": {
+            "grobid_xml": false,
+            "pdf": false
+          },
+          "content_urls": null,
+          "referenced_works_count": 0,
+          "referenced_works": [],
+          "related_works": [
+            "https://openalex.org/W3113243881",
+            "https://openalex.org/W2129153088",
+            "https://openalex.org/W2276088412",
+            "https://openalex.org/W2205113670",
+            "https://openalex.org/W1995340794",
+            "https://openalex.org/W3134291864",
+            "https://openalex.org/W2276058986",
+            "https://openalex.org/W2742390605",
+            "https://openalex.org/W3108223417",
+            "https://openalex.org/W589523459",
+            "https://openalex.org/W2219635205",
+            "https://openalex.org/W2346419502",
+            "https://openalex.org/W2729406342",
+            "https://openalex.org/W2892598651",
+            "https://openalex.org/W2742291051",
+            "https://openalex.org/W2393374090",
+            "https://openalex.org/W2765161655",
+            "https://openalex.org/W2742614593",
+            "https://openalex.org/W2261497138",
+            "https://openalex.org/W2273950840"
+          ],
+          "abstract_inverted_index": {
+            "Russian": [
+              0
+            ],
+            "Abstract:": [
+              1,
+              81
+            ],
+            "В": [
+              2,
+              36
+            ],
+            "статье": [
+              3
+            ],
+            "рассмотрены": [
+              4
+            ],
+            "перспективы": [
+              5
+            ],
+            "изменения": [
+              6
+            ],
+            "демографической": [
+              7
+            ],
+            "ситуации": [
+              8
+            ],
+            "в": [
+              9,
+              12
+            ],
+            "городе": [
+              10
+            ],
+            "Челябинске": [
+              11
+            ],
+            "контексте": [
+              13
+            ],
+            "устойчивого": [
+              14
+            ],
+            "развития.": [
+              15
+            ],
+            "Произведён": [
+              16
+            ],
+            "расчёт": [
+              17
+            ],
+            "численности": [
+              18,
+              34,
+              60
+            ],
+            "населения": [
+              19,
+              62
+            ],
+            "города": [
+              20
+            ],
+            "Челябинска": [
+              21
+            ],
+            "на": [
+              22,
+              32,
+              53,
+              77
+            ],
+            "среднесрочную": [
+              23,
+              54
+            ],
+            "перспективу.": [
+              24,
+              55
+            ],
+            "Проанализировано": [
+              25
+            ],
+            "миграционное": [
+              26
+            ],
+            "сальдо,": [
+              27
+            ],
+            "которое": [
+              28
+            ],
+            "обладает": [
+              29
+            ],
+            "наибольшим": [
+              30
+            ],
+            "влиянием": [
+              31
+            ],
+            "динамику": [
+              33
+            ],
+            "населения.": [
+              35
+            ],
+            "исследовании": [
+              37
+            ],
+            "представлен": [
+              38
+            ],
+            "обзор": [
+              39
+            ],
+            "тенденций": [
+              40
+            ],
+            "социально-экономической": [
+              41,
+              74
+            ],
+            "динамики,": [
+              42
+            ],
+            "обусловливающей": [
+              43
+            ],
+            "появление": [
+              44
+            ],
+            "диспропорций": [
+              45
+            ],
+            "и": [
+              46
+            ],
+            "рисков,": [
+              47
+            ],
+            "а": [
+              48
+            ],
+            "также": [
+              49
+            ],
+            "прогноз": [
+              50
+            ],
+            "их": [
+              51
+            ],
+            "развития": [
+              52,
+              67,
+              73
+            ],
+            "Также": [
+              56
+            ],
+            "рассмотрено": [
+              57
+            ],
+            "изменение": [
+              58
+            ],
+            "структуры": [
+              59
+            ],
+            "трудоспособного": [
+              61
+            ],
+            "с": [
+              63
+            ],
+            "точки": [
+              64
+            ],
+            "зрения": [
+              65
+            ],
+            "перспективного": [
+              66
+            ],
+            "мегаполиса.": [
+              68
+            ],
+            "Сделаны": [
+              69
+            ],
+            "выводы": [
+              70
+            ],
+            "относительно": [
+              71
+            ],
+            "устойчивости": [
+              72
+            ],
+            "системы": [
+              75
+            ],
+            "мегаполиса": [
+              76
+            ],
+            "основе": [
+              78
+            ],
+            "демографических": [
+              79
+            ],
+            "тенденций.\r\n\r\nEnglish": [
+              80
+            ],
+            "The": [
+              82,
+              103,
+              114,
+              130
+            ],
+            "article": [
+              83
+            ],
+            "considers": [
+              84
+            ],
+            "the": [
+              85,
+              89,
+              93,
+              98,
+              108,
+              117,
+              122,
+              126,
+              141,
+              150,
+              156,
+              160,
+              163,
+              166,
+              172,
+              184,
+              187
+            ],
+            "prospects": [
+              86
+            ],
+            "for": [
+              87
+            ],
+            "changing": [
+              88
+            ],
+            "demographic": [
+              90,
+              194
+            ],
+            "situation": [
+              91
+            ],
+            "in": [
+              92,
+              97,
+              107,
+              137,
+              155,
+              162,
+              169
+            ],
+            "city": [
+              94
+            ],
+            "of": [
+              95,
+              100,
+              105,
+              128,
+              135,
+              143,
+              152,
+              165,
+              171,
+              175,
+              186
+            ],
+            "Chelyabinsk": [
+              96,
+              106
+            ],
+            "context": [
+              99
+            ],
+            "sustainable": [
+              101
+            ],
+            "development.": [
+              102
+            ],
+            "population": [
+              104,
+              168
+            ],
+            "medium": [
+              109,
+              157
+            ],
+            "term": [
+              110
+            ],
+            "has": [
+              111,
+              121
+            ],
+            "been": [
+              112
+            ],
+            "calculated.": [
+              113
+            ],
+            "author": [
+              115
+            ],
+            "analyzes": [
+              116
+            ],
+            "migration": [
+              118
+            ],
+            "balance,": [
+              119
+            ],
+            "which": [
+              120
+            ],
+            "greatest": [
+              123
+            ],
+            "influence": [
+              124
+            ],
+            "on": [
+              125,
+              193
+            ],
+            "dynamics": [
+              127
+            ],
+            "population.": [
+              129
+            ],
+            "study": [
+              131
+            ],
+            "presents": [
+              132
+            ],
+            "a": [
+              133,
+              176
+            ],
+            "review": [
+              134
+            ],
+            "trends": [
+              136
+            ],
+            "socio-economic": [
+              138,
+              189
+            ],
+            "dynamics,": [
+              139
+            ],
+            "causing": [
+              140
+            ],
+            "emergence": [
+              142
+            ],
+            "imbalances": [
+              144
+            ],
+            "and": [
+              145
+            ],
+            "risks,": [
+              146
+            ],
+            "as": [
+              147,
+              149
+            ],
+            "well": [
+              148
+            ],
+            "forecast": [
+              151
+            ],
+            "their": [
+              153
+            ],
+            "development": [
+              154,
+              174,
+              191
+            ],
+            "term.": [
+              158
+            ],
+            "Also": [
+              159
+            ],
+            "change": [
+              161
+            ],
+            "structure": [
+              164
+            ],
+            "working-age": [
+              167
+            ],
+            "terms": [
+              170
+            ],
+            "future": [
+              173
+            ],
+            "megacity": [
+              177
+            ],
+            "is": [
+              178
+            ],
+            "considered.": [
+              179
+            ],
+            "Conclusions": [
+              180
+            ],
+            "are": [
+              181
+            ],
+            "made": [
+              182
+            ],
+            "regarding": [
+              183
+            ],
+            "sustainability": [
+              185
+            ],
+            "metropolis": [
+              188
+            ],
+            "system": [
+              190
+            ],
+            "based": [
+              192
+            ],
+            "trends.": [
+              195
+            ]
+          },
+          "counts_by_year": [],
+          "updated_date": "2026-07-14T23:32:53.992493",
           "created_date": "2025-10-10T00:00:00"
         }
       },
@@ -15217,6 +17638,640 @@
             {
               "display_name": "Reduced inequalities",
               "score": 0.5199999809265137,
+              "id": "https://metadata.un.org/sdg/10"
+            }
+          ],
+          "awards": [],
+          "funders": [],
+          "has_content": {
+            "grobid_xml": false,
+            "pdf": false
+          },
+          "content_urls": null,
+          "referenced_works_count": 0,
+          "referenced_works": [],
+          "related_works": [
+            "https://openalex.org/W3111654536",
+            "https://openalex.org/W820208174",
+            "https://openalex.org/W2281302634",
+            "https://openalex.org/W2277400443",
+            "https://openalex.org/W2220407734",
+            "https://openalex.org/W2278996019",
+            "https://openalex.org/W2762430384",
+            "https://openalex.org/W2038660243",
+            "https://openalex.org/W2274279275",
+            "https://openalex.org/W1523290965",
+            "https://openalex.org/W2932247238",
+            "https://openalex.org/W2285342040",
+            "https://openalex.org/W26097219",
+            "https://openalex.org/W3140481627",
+            "https://openalex.org/W2269357070",
+            "https://openalex.org/W2736752445",
+            "https://openalex.org/W2725479036",
+            "https://openalex.org/W2274776889",
+            "https://openalex.org/W2727789190",
+            "https://openalex.org/W2986087512"
+          ],
+          "abstract_inverted_index": {
+            "Russian": [
+              0,
+              45,
+              73
+            ],
+            "Abstract:": [
+              1,
+              32
+            ],
+            "В": [
+              2
+            ],
+            "статье": [
+              3
+            ],
+            "рассматривается": [
+              4
+            ],
+            "актуальная": [
+              5
+            ],
+            "ситуация": [
+              6
+            ],
+            "с": [
+              7
+            ],
+            "демографической": [
+              8,
+              26
+            ],
+            "политикой": [
+              9
+            ],
+            "Российской": [
+              10,
+              29
+            ],
+            "Федерации,": [
+              11
+            ],
+            "анализируются": [
+              12
+            ],
+            "ключевые": [
+              13
+            ],
+            "демографические": [
+              14
+            ],
+            "показатели.": [
+              15
+            ],
+            "По": [
+              16
+            ],
+            "результатам": [
+              17
+            ],
+            "исследования": [
+              18
+            ],
+            "дается": [
+              19
+            ],
+            "ряд": [
+              20
+            ],
+            "существенных": [
+              21
+            ],
+            "предложений": [
+              22
+            ],
+            "по": [
+              23
+            ],
+            "совершенствованию": [
+              24
+            ],
+            "государственной": [
+              25
+            ],
+            "политики": [
+              27
+            ],
+            "в": [
+              28
+            ],
+            "Федерации.": [
+              30
+            ],
+            "\r\nEnglish": [
+              31
+            ],
+            "This": [
+              33
+            ],
+            "article": [
+              34
+            ],
+            "examines": [
+              35
+            ],
+            "the": [
+              36,
+              40,
+              44,
+              53,
+              56,
+              67,
+              72
+            ],
+            "current": [
+              37
+            ],
+            "situation": [
+              38
+            ],
+            "with": [
+              39
+            ],
+            "demographic": [
+              41,
+              49,
+              69
+            ],
+            "policy": [
+              42,
+              70
+            ],
+            "of": [
+              43,
+              55,
+              60
+            ],
+            "Federation,": [
+              46
+            ],
+            "analyzes": [
+              47
+            ],
+            "key": [
+              48
+            ],
+            "indicators.": [
+              50
+            ],
+            "Based": [
+              51
+            ],
+            "on": [
+              52
+            ],
+            "results": [
+              54
+            ],
+            "study,": [
+              57
+            ],
+            "a": [
+              58
+            ],
+            "number": [
+              59
+            ],
+            "significant": [
+              61
+            ],
+            "proposals": [
+              62
+            ],
+            "are": [
+              63
+            ],
+            "made": [
+              64
+            ],
+            "to": [
+              65
+            ],
+            "improve": [
+              66
+            ],
+            "state": [
+              68
+            ],
+            "in": [
+              71
+            ],
+            "Federation.": [
+              74
+            ]
+          },
+          "counts_by_year": [],
+          "updated_date": "2026-07-14T23:32:53.992493",
+          "created_date": "2025-10-10T00:00:00"
+        }
+      },
+      {
+        "source": "openalex_api",
+        "openalex_id": "https://openalex.org/W3182071828",
+        "title": "Демографическая Политика Российской Федерации (Demographic Policy of the Russian Federation)",
+        "year": 2017,
+        "doi": null,
+        "url": "https://openalex.org/W3182071828",
+        "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+        "pdf_url": null,
+        "venue": "SSRN Electronic Journal",
+        "cited_by_count": 0,
+        "is_oa": true,
+        "oa_status": "green",
+        "raw": {
+          "id": "https://openalex.org/W3182071828",
+          "doi": null,
+          "title": "Демографическая Политика Российской Федерации (Demographic Policy of the Russian Federation)",
+          "display_name": "Демографическая Политика Российской Федерации (Demographic Policy of the Russian Federation)",
+          "publication_year": 2017,
+          "publication_date": "2017-04-27",
+          "ids": {
+            "openalex": "https://openalex.org/W3182071828",
+            "mag": "3182071828"
+          },
+          "language": "ru",
+          "primary_location": {
+            "id": "mag:3182071828",
+            "is_oa": true,
+            "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+            "pdf_url": null,
+            "source": {
+              "id": "https://openalex.org/S4210172589",
+              "display_name": "SSRN Electronic Journal",
+              "issn_l": "1556-5068",
+              "issn": [
+                "1556-5068"
+              ],
+              "is_oa": true,
+              "is_in_doaj": false,
+              "is_core": false,
+              "host_organization": "https://openalex.org/I1318003438",
+              "host_organization_name": "RELX Group (Netherlands)",
+              "host_organization_lineage": [
+                "https://openalex.org/I1318003438"
+              ],
+              "host_organization_lineage_names": [],
+              "type": "repository"
+            },
+            "license": null,
+            "license_id": null,
+            "version": "submittedVersion",
+            "is_accepted": false,
+            "is_published": false,
+            "raw_source_name": "SSRN Electronic Journal",
+            "raw_type": null
+          },
+          "type": "preprint",
+          "indexed_in": [],
+          "open_access": {
+            "is_oa": true,
+            "oa_status": "green",
+            "oa_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+            "any_repository_has_fulltext": true
+          },
+          "authorships": [
+            {
+              "author_position": "first",
+              "author": {
+                "id": "https://openalex.org/A5083285097",
+                "display_name": "Anatoliy Lobastov",
+                "orcid": null
+              },
+              "institutions": [
+                {
+                  "id": "https://openalex.org/I263417816",
+                  "display_name": "The Russian Presidential Academy of National Economy and Public Administration",
+                  "ror": "https://ror.org/04xnm9a92",
+                  "country_code": "RU",
+                  "type": "government",
+                  "lineage": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ],
+              "countries": [
+                "RU"
+              ],
+              "is_corresponding": false,
+              "raw_author_name": "Anatoliy Lobastov",
+              "raw_affiliation_strings": [
+                "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Moscow Campus"
+              ],
+              "raw_orcid": null,
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Moscow Campus",
+                  "institution_ids": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ]
+            },
+            {
+              "author_position": "last",
+              "author": {
+                "id": "https://openalex.org/A5007601767",
+                "display_name": "Arseniy Sitkovskiy",
+                "orcid": "https://orcid.org/0000-0002-8725-6580"
+              },
+              "institutions": [
+                {
+                  "id": "https://openalex.org/I263417816",
+                  "display_name": "The Russian Presidential Academy of National Economy and Public Administration",
+                  "ror": "https://ror.org/04xnm9a92",
+                  "country_code": "RU",
+                  "type": "government",
+                  "lineage": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ],
+              "countries": [
+                "RU"
+              ],
+              "is_corresponding": false,
+              "raw_author_name": "Arseniy Sitkovskiy",
+              "raw_affiliation_strings": [
+                "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Chelyabinsk Branch"
+              ],
+              "raw_orcid": "https://orcid.org/0000-0002-8725-6580",
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "Russian Presidential Academy of National Economy and Public Administration (RANEPA) - Chelyabinsk Branch",
+                  "institution_ids": [
+                    "https://openalex.org/I263417816"
+                  ]
+                }
+              ]
+            }
+          ],
+          "institutions": [],
+          "countries_distinct_count": 1,
+          "institutions_distinct_count": 1,
+          "corresponding_author_ids": [],
+          "corresponding_institution_ids": [
+            "https://openalex.org/I263417816"
+          ],
+          "apc_list": null,
+          "apc_paid": null,
+          "fwci": null,
+          "has_fulltext": false,
+          "cited_by_count": 0,
+          "citation_normalized_percentile": null,
+          "cited_by_percentile_year": null,
+          "biblio": {
+            "volume": null,
+            "issue": null,
+            "first_page": null,
+            "last_page": null
+          },
+          "is_retracted": false,
+          "is_paratext": false,
+          "is_xpac": false,
+          "primary_topic": {
+            "id": "https://openalex.org/T13618",
+            "display_name": "Regional Socio-Economic Development Trends",
+            "score": 0.9671000242233276,
+            "subfield": {
+              "id": "https://openalex.org/subfields/3317",
+              "display_name": "Demography"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/33",
+              "display_name": "Social Sciences"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/2",
+              "display_name": "Social Sciences"
+            }
+          },
+          "topics": [
+            {
+              "id": "https://openalex.org/T13618",
+              "display_name": "Regional Socio-Economic Development Trends",
+              "score": 0.9671000242233276,
+              "subfield": {
+                "id": "https://openalex.org/subfields/3317",
+                "display_name": "Demography"
+              },
+              "field": {
+                "id": "https://openalex.org/fields/33",
+                "display_name": "Social Sciences"
+              },
+              "domain": {
+                "id": "https://openalex.org/domains/2",
+                "display_name": "Social Sciences"
+              }
+            },
+            {
+              "id": "https://openalex.org/T12935",
+              "display_name": "Healthcare Systems and Public Health",
+              "score": 0.9498000144958496,
+              "subfield": {
+                "id": "https://openalex.org/subfields/2713",
+                "display_name": "Epidemiology"
+              },
+              "field": {
+                "id": "https://openalex.org/fields/27",
+                "display_name": "Medicine"
+              },
+              "domain": {
+                "id": "https://openalex.org/domains/4",
+                "display_name": "Health Sciences"
+              }
+            }
+          ],
+          "keywords": [
+            {
+              "id": "https://openalex.org/keywords/russian-federation",
+              "display_name": "Russian federation",
+              "score": 0.9324489831924438
+            },
+            {
+              "id": "https://openalex.org/keywords/political-science",
+              "display_name": "Political science",
+              "score": 0.5720423460006714
+            },
+            {
+              "id": "https://openalex.org/keywords/state",
+              "display_name": "State (computer science)",
+              "score": 0.5525809526443481
+            },
+            {
+              "id": "https://openalex.org/keywords/state-policy",
+              "display_name": "State policy",
+              "score": 0.5333276987075806
+            },
+            {
+              "id": "https://openalex.org/keywords/economic-growth",
+              "display_name": "Economic growth",
+              "score": 0.3437904119491577
+            },
+            {
+              "id": "https://openalex.org/keywords/regional-science",
+              "display_name": "Regional science",
+              "score": 0.2902001738548279
+            },
+            {
+              "id": "https://openalex.org/keywords/geography",
+              "display_name": "Geography",
+              "score": 0.2784121632575989
+            },
+            {
+              "id": "https://openalex.org/keywords/economics",
+              "display_name": "Economics",
+              "score": 0.17080670595169067
+            }
+          ],
+          "concepts": [
+            {
+              "id": "https://openalex.org/C3019953208",
+              "wikidata": "https://www.wikidata.org/wiki/Q159",
+              "display_name": "Russian federation",
+              "level": 2,
+              "score": 0.9324489831924438
+            },
+            {
+              "id": "https://openalex.org/C17744445",
+              "wikidata": "https://www.wikidata.org/wiki/Q36442",
+              "display_name": "Political science",
+              "level": 0,
+              "score": 0.5720423460006714
+            },
+            {
+              "id": "https://openalex.org/C48103436",
+              "wikidata": "https://www.wikidata.org/wiki/Q599031",
+              "display_name": "State (computer science)",
+              "level": 2,
+              "score": 0.5525809526443481
+            },
+            {
+              "id": "https://openalex.org/C3019808023",
+              "wikidata": "https://www.wikidata.org/wiki/Q546113",
+              "display_name": "State policy",
+              "level": 3,
+              "score": 0.5333276987075806
+            },
+            {
+              "id": "https://openalex.org/C50522688",
+              "wikidata": "https://www.wikidata.org/wiki/Q189833",
+              "display_name": "Economic growth",
+              "level": 1,
+              "score": 0.3437904119491577
+            },
+            {
+              "id": "https://openalex.org/C148383697",
+              "wikidata": "https://www.wikidata.org/wiki/Q1781695",
+              "display_name": "Regional science",
+              "level": 1,
+              "score": 0.2902001738548279
+            },
+            {
+              "id": "https://openalex.org/C205649164",
+              "wikidata": "https://www.wikidata.org/wiki/Q1071",
+              "display_name": "Geography",
+              "level": 0,
+              "score": 0.2784121632575989
+            },
+            {
+              "id": "https://openalex.org/C162324750",
+              "wikidata": "https://www.wikidata.org/wiki/Q8134",
+              "display_name": "Economics",
+              "level": 0,
+              "score": 0.17080670595169067
+            },
+            {
+              "id": "https://openalex.org/C11413529",
+              "wikidata": "https://www.wikidata.org/wiki/Q8366",
+              "display_name": "Algorithm",
+              "level": 1,
+              "score": 0.0
+            },
+            {
+              "id": "https://openalex.org/C41008148",
+              "wikidata": "https://www.wikidata.org/wiki/Q21198",
+              "display_name": "Computer science",
+              "level": 0,
+              "score": 0.0
+            }
+          ],
+          "mesh": [],
+          "locations_count": 1,
+          "locations": [
+            {
+              "id": "mag:3182071828",
+              "is_oa": true,
+              "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+              "pdf_url": null,
+              "source": {
+                "id": "https://openalex.org/S4210172589",
+                "display_name": "SSRN Electronic Journal",
+                "issn_l": "1556-5068",
+                "issn": [
+                  "1556-5068"
+                ],
+                "is_oa": true,
+                "is_in_doaj": false,
+                "is_core": false,
+                "host_organization": "https://openalex.org/I1318003438",
+                "host_organization_name": "RELX Group (Netherlands)",
+                "host_organization_lineage": [
+                  "https://openalex.org/I1318003438"
+                ],
+                "host_organization_lineage_names": [],
+                "type": "repository"
+              },
+              "license": null,
+              "license_id": null,
+              "version": "submittedVersion",
+              "is_accepted": false,
+              "is_published": false,
+              "raw_source_name": "SSRN Electronic Journal",
+              "raw_type": null
+            }
+          ],
+          "best_oa_location": {
+            "id": "mag:3182071828",
+            "is_oa": true,
+            "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+            "pdf_url": null,
+            "source": {
+              "id": "https://openalex.org/S4210172589",
+              "display_name": "SSRN Electronic Journal",
+              "issn_l": "1556-5068",
+              "issn": [
+                "1556-5068"
+              ],
+              "is_oa": true,
+              "is_in_doaj": false,
+              "is_core": false,
+              "host_organization": "https://openalex.org/I1318003438",
+              "host_organization_name": "RELX Group (Netherlands)",
+              "host_organization_lineage": [
+                "https://openalex.org/I1318003438"
+              ],
+              "host_organization_lineage_names": [],
+              "type": "repository"
+            },
+            "license": null,
+            "license_id": null,
+            "version": "submittedVersion",
+            "is_accepted": false,
+            "is_published": false,
+            "raw_source_name": "SSRN Electronic Journal",
+            "raw_type": null
+          },
+          "sustainable_development_goals": [
+            {
+              "score": 0.5199999809265137,
+              "display_name": "Reduced inequalities",
               "id": "https://metadata.un.org/sdg/10"
             }
           ],

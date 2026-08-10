@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T06:42:13+00:00",
+  "generated_at": "2026-08-10T04:54:11+00:00",
   "records": [
     {
       "source": "orcid_public_api",
@@ -3996,8 +3996,8 @@
         },
         "sustainable_development_goals": [
           {
-            "display_name": "Reduced inequalities",
             "score": 0.5199999809265137,
+            "display_name": "Reduced inequalities",
             "id": "https://metadata.un.org/sdg/10"
           }
         ],

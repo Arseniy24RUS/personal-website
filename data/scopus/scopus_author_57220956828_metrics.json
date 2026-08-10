@@ -1,12 +1,12 @@
 {
   "source": "scopus_api",
-  "generated_at": "2026-07-27T06:50:21+00:00",
+  "generated_at": "2026-08-10T05:03:09+00:00",
   "scopus_author_id": "57220956828",
   "author_profile_status": 401,
-  "search_status": 200,
+  "search_status": 400,
   "profile": {},
-  "works_count_from_search": 7,
-  "citation_sum_from_search": 7,
-  "h_index_recomputed_from_retrieved_works": 2,
+  "works_count_from_search": 0,
+  "citation_sum_from_search": 0,
+  "h_index_recomputed_from_retrieved_works": 0,
   "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available."
 }
