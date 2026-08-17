@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-08-10T04:59:56+00:00",
+  "generated_at": "2026-08-17T04:07:17+00:00",
   "published": 9,
-  "rejected_or_low_confidence": 22,
+  "rejected_or_low_confidence": 23,
   "providers": [
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii",
-      "bytes": 137454
+      "bytes": 137948
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.sobaka.ru/city/society/210740",
-      "bytes": 204038
+      "bytes": 203966
     },
     {
       "status": "ok",
@@ -43,25 +43,25 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda",
-      "bytes": 111875
+      "bytes": 112369
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi",
-      "bytes": 142247
+      "bytes": 143166
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit",
-      "bytes": 128290
+      "bytes": 128343
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/",
-      "bytes": 61008
+      "bytes": 61065
     },
     {
       "status": "ok",
@@ -216,7 +216,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3016",
-      "bytes": 47002
+      "bytes": 47872
     },
     {
       "status": "ok",
@@ -334,13 +334,13 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/",
-      "bytes": 285601
+      "bytes": 286568
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/media",
-      "bytes": 269625
+      "bytes": 272329
     },
     {
       "status": "ok",
@@ -352,7 +352,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education",
-      "bytes": 252176
+      "bytes": 252647
     },
     {
       "status": "ok",
@@ -430,7 +430,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science",
-      "bytes": 249414
+      "bytes": 249051
     },
     {
       "status": "ok",
@@ -484,7 +484,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/research-institutes",
-      "bytes": 266288
+      "bytes": 266067
     },
     {
       "status": "ok",
@@ -532,7 +532,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/students-and-research",
-      "bytes": 245750
+      "bytes": 245387
     },
     {
       "status": "ok",
@@ -604,13 +604,13 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://chel.ranepa.ru/",
-      "bytes": 160849
+      "bytes": 160847
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://chel.ranepa.ru/novosti/",
-      "bytes": 160534
+      "bytes": 160532
     }
   ]
 }

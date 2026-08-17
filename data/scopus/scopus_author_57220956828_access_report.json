@@ -1,12 +1,11 @@
 {
-  "generated_at": "2026-08-10T05:03:09+00:00",
+  "generated_at": "2026-08-17T04:09:56+00:00",
   "author_headers": {
     "Content-Type": "application/json;charset=UTF-8",
-    "X-ELS-APIKey": "0b32c254dc4bd46076fd480238bc47f7",
-    "X-ELS-ReqId": "4cbe6f06dc79bfc0",
+    "X-ELS-ReqId": "cd6cdfaaa80ad785",
     "X-ELS-ResourceVersion": "default",
     "X-ELS-Status": "AUTHORIZATION_ERROR - The requestor is not authorized to access the requested view or fields of the resource",
-    "X-ELS-TransId": "4cbe6f06dc79bfc0",
+    "X-ELS-TransId": "cd6cdfaaa80ad785",
     "X-RateLimit-Limit": "5000",
     "X-RateLimit-Remaining": "5000",
     "X-RateLimit-Reset": "1786942989"
@@ -14,11 +13,10 @@
   "search_headers": [
     {
       "Content-Type": "application/json;charset=UTF-8",
-      "X-ELS-APIKey": "0b32c254dc4bd46076fd480238bc47f7",
-      "X-ELS-ReqId": "95494cf5748628e1",
+      "X-ELS-ReqId": "d0b0e3efccdbf95b",
       "X-ELS-ResourceVersion": "default",
-      "X-ELS-Status": "INVALID_INPUT - Error translating query",
-      "X-ELS-TransId": "95494cf5748628e1",
+      "X-ELS-Status": "OK",
+      "X-ELS-TransId": "d0b0e3efccdbf95b",
       "X-RateLimit-Limit": "20000",
       "X-RateLimit-Remaining": "20000",
       "X-RateLimit-Reset": "1786942989"
@@ -37,7 +35,7 @@
       "view": "ENHANCED"
     },
     "_headers": {
-      "Date": "Mon, 10 Aug 2026 05:03:09 GMT",
+      "Date": "Mon, 17 Aug 2026 04:09:56 GMT",
       "Content-Type": "application/json;charset=UTF-8",
       "Content-Length": "167",
       "Connection": "close",
@@ -45,57 +43,18 @@
       "tdm-policy": "https://www.elsevier.com/tdm/tdmrep-policy.json",
       "tdm-reservation": "1",
       "Vary": "Access-Control-Request-Headers",
-      "X-ELS-APIKey": "0b32c254dc4bd46076fd480238bc47f7",
-      "X-ELS-ReqId": "4cbe6f06dc79bfc0",
+      "X-ELS-ReqId": "cd6cdfaaa80ad785",
       "X-ELS-ResourceVersion": "default",
       "X-ELS-Status": "AUTHORIZATION_ERROR - The requestor is not authorized to access the requested view or fields of the resource",
-      "X-ELS-TransId": "4cbe6f06dc79bfc0",
+      "X-ELS-TransId": "cd6cdfaaa80ad785",
       "X-RateLimit-Limit": "5000",
       "X-RateLimit-Remaining": "5000",
       "X-RateLimit-Reset": "1786942989",
-      "set-cookie": "__cf_bm=P_oBds5DJrHf88UVlckjt8lAwMfz2Ubi0FnBNaNrEnY-1786338189.1909158-1.0.1.1-zb6NnP9mRLjb0QWIQ5QcyrmhbjlIOGFPFAF4sztJnIaFz3o4UblAsidkM8NwYAUYFItWZHP7TCQBHVKnaeUQ9zAhe0J6c3MrwiLWFZRikSC_J_uk7rXxmGgdsF2g44lM; HttpOnly; SameSite=None; Secure; Path=/; Domain=elsevier.com; Expires=Mon, 10 Aug 2026 05:33:09 GMT",
+      "set-cookie": "__cf_bm=mGU4hvN8ZebhX6hSoYQo7cNAmAOL1wdF4hGRVAcRLjQ-1786939796.266784-1.0.1.1-sx9cl9JaSItzjZrphsuqMdzlEVycqAXctCJCnc4R8dHcYHxGNnb3InJaJKrMqZ6zbFcSw9IKcxUcZNIB1rcCcluaiMLFhVmWO_VlVdnSBCmQMHBTmDQ_PWj6cfphejiD; HttpOnly; SameSite=None; Secure; Path=/; Domain=elsevier.com; Expires=Mon, 17 Aug 2026 04:39:56 GMT",
       "cf-cache-status": "DYNAMIC",
       "Server": "cloudflare",
-      "CF-RAY": "a28c73d269bbb828-SJC"
+      "CF-RAY": "a2c5d37eadaee61f-IAD"
     }
   },
-  "search_error": {
-    "service-error": {
-      "status": {
-        "statusCode": "INVALID_INPUT",
-        "statusText": "Error translating query"
-      }
-    },
-    "_http_status": 400,
-    "_url_path": "/content/search/scopus",
-    "_params": {
-      "query": "AU-ID(57220956828)",
-      "count": 25,
-      "start": 0,
-      "view": "STANDARD",
-      "field": "dc:title,dc:creator,prism:publicationName,prism:coverDate,prism:doi,citedby-count,eid,dc:identifier,prism:aggregationType,subtypeDescription,openaccess"
-    },
-    "_headers": {
-      "Date": "Mon, 10 Aug 2026 05:03:09 GMT",
-      "Content-Type": "application/json;charset=UTF-8",
-      "Content-Length": "98",
-      "Connection": "close",
-      "allow": "GET",
-      "tdm-policy": "https://www.elsevier.com/tdm/tdmrep-policy.json",
-      "tdm-reservation": "1",
-      "Vary": "Access-Control-Request-Headers",
-      "X-ELS-APIKey": "0b32c254dc4bd46076fd480238bc47f7",
-      "X-ELS-ReqId": "95494cf5748628e1",
-      "X-ELS-ResourceVersion": "default",
-      "X-ELS-Status": "INVALID_INPUT - Error translating query",
-      "X-ELS-TransId": "95494cf5748628e1",
-      "X-RateLimit-Limit": "20000",
-      "X-RateLimit-Remaining": "20000",
-      "X-RateLimit-Reset": "1786942989",
-      "set-cookie": "__cf_bm=SaEFA5t0cSD1G6bNtwyUHBo0fthupyoxChj1Y2x5csI-1786338189.634249-1.0.1.1-zeTsYVCq76BJMTbnZBow87rhqCW5jzl4CGNCGcGIwTlzNH_ye5Icw6TrOWCuNSrEE9oldOavTk5WJV6dn0ksLRAcM.98vTC7Dd.jxLhuDK6QaqAGlZRzAcC0BsqZKO6l; HttpOnly; SameSite=None; Secure; Path=/; Domain=elsevier.com; Expires=Mon, 10 Aug 2026 05:33:09 GMT",
-      "cf-cache-status": "DYNAMIC",
-      "Server": "cloudflare",
-      "CF-RAY": "a28c73d5392bbe62-SJC"
-    }
-  }
+  "search_error": null
 }

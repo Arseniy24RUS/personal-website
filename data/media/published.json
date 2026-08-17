@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T05:09:05+00:00",
+  "generated_at": "2026-08-17T04:07:52+00:00",
   "records": [
     {
       "id": "aa29e51cf3112fee",
@@ -22,7 +22,7 @@
       "language": "ru",
       "image_original_url": "https://kaluga-zaprava.ru/wp-content/uploads/pozhilye-1-2.jpg",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:20+00:00",
+      "image_checked_at": "2026-08-17T04:07:21+00:00",
       "title_en": "Russians under 35 will make up only a quarter of the population",
       "description_en": "A secondary republication of a story about Arseniy Sitkovskiy’s demographic estimates.",
       "source_name_en": "Kaluga Za Pravdu"
@@ -39,9 +39,9 @@
       "confidence": 1.0,
       "status": "published",
       "force_publish": true,
-      "harvested_at": "2026-08-10T04:54:20+00:00",
+      "harvested_at": "2026-08-17T04:02:27+00:00",
       "title": "Влияние государственной политики агломерирования на долгосрочные тенденции изменения численности населения России",
-      "description": "",
+      "description": "Аналитический материал ДЕМ.ИНФОРМ о долгосрочных демографических последствиях политики агломерирования и пространственной концентрации населения.",
       "title_ru": "Влияние государственной политики агломерирования на долгосрочные тенденции изменения численности населения России",
       "description_ru": "Аналитический материал ДЕМ.ИНФОРМ о долгосрочных демографических последствиях политики агломерирования и пространственной концентрации населения.",
       "language": "ru",
@@ -51,7 +51,7 @@
       "seed_metadata_locked": true,
       "image_original_url": "https://deminform.ru/media/Владимир/Июль24/Февраль26/04_Ан_фото из архива семьи Таловских.jpg",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:23+00:00"
+      "image_checked_at": "2026-08-17T04:07:24+00:00"
     },
     {
       "id": "b6fc596eca2728c6",
@@ -65,7 +65,7 @@
       "confidence": 1.0,
       "status": "published",
       "force_publish": true,
-      "harvested_at": "2026-08-10T04:54:18+00:00",
+      "harvested_at": "2026-08-17T04:02:25+00:00",
       "title": "Очень скоро россиян моложе 35 лет останется лишь четверть населения — в 1990-м они составляли его половину. Что будет дальше?",
       "description": "Рассказываем о новом прогнозе демографов и том мире, который он нам рисует.",
       "title_ru": "Очень скоро россиян моложе 35 лет останется лишь четверть населения — в 1990-м они составляли его половину. Что будет дальше?",
@@ -77,7 +77,7 @@
       "seed_metadata_locked": true,
       "image_original_url": "https://static.sobaka.ru/images/post/00/21/07/40/_rotator.jpg?v=1772557576",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:26+00:00"
+      "image_checked_at": "2026-08-17T04:07:26+00:00"
     },
     {
       "id": "a4c62d3dc74e07ca",
@@ -90,9 +90,9 @@
       "confidence": 1.0,
       "status": "published",
       "force_publish": true,
-      "harvested_at": "2026-08-10T04:54:16+00:00",
+      "harvested_at": "2026-08-17T04:02:24+00:00",
       "title": "Общество суперзрелости: мы стремительно стареем",
-      "description": "",
+      "description": "Материал «Росбалта» о демографическом старении, изменении возрастной структуры населения и социальных последствиях этих процессов.",
       "title_en": "A super-mature society: we are ageing rapidly",
       "language": "ru",
       "description_en": "A Rosbalt article on population ageing, shifts in the age structure and the social consequences of these processes.",
@@ -101,8 +101,8 @@
       "title_ru": "Общество суперзрелости: мы стремительно стареем",
       "description_ru": "Материал «Росбалта» о демографическом старении, изменении возрастной структуры населения и социальных последствиях этих процессов.",
       "image_original_url": "data:image/gif;base64,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",
-      "image_status": "missing",
-      "image_checked_at": "2026-08-10T05:08:27+00:00"
+      "image_status": "invalid_url",
+      "image_checked_at": "2026-08-17T04:07:26+00:00"
     },
     {
       "id": "414faf210745728c",
@@ -116,7 +116,7 @@
       "confidence": 1.0,
       "status": "published",
       "force_publish": true,
-      "harvested_at": "2026-08-10T04:54:14+00:00",
+      "harvested_at": "2026-08-17T04:02:22+00:00",
       "title": "Толкователь",
       "description": "Очень правильная методология у исследователей – наконец-то считать численность не только городов, но и агломераций. Потому что города-спутники стали частью многих мегаполисов. Про другие города не скажу, но для Москвы какие-нибудь Мытищи, Химки, Люберцы, Одинцово и т.п. уже фактические стали частью Москвы. Например, по Красногорску и Долгопрудному (5 км от МКАД) видел данные, что 60-70% трудоспособного населения города работают в Москве. (Таблица – Ситковский, Райсих, Гладкий и Безвербная из Института социологии РАН, «Экономические и социальные перемены: факты, тенденции, прогноз», №6, 2025) Кроме Московской и Питерской мы видим ещё 5 агломераций с численностью населения более 2 млн человек. Данные – на 2021 год. Главный претендент на 2-миллионник, Казанская агломерация росла с темпом примерно +1,5% прироста населения за год, и за следующие четыре года наверняка она подобралась вплотную к 2 млн человек (от численности в 1,8 млн человек) или даже преодолела. Московская агломерация насчитывала в 2021 г. 20 млн человек. И это без учёта внешних мигрантов и вахтовиков. Последних насчитывали 1-1,5 млн человек, даже приблизительного числа внешних мигрантов никто не знает, нижние оценки дают 1,5 млн человек, верхние – и 3-4 млн человек. Так что общая численность Московской агломерации может быть 23-25 млн человек. Самые же огромные темпы прироста у Краснодарской агломерации, +37% за десять лет! С такими темпами прироста к середине 2030-х она будет 3-й по численности агломерацией России. Что ещё раз подтверждает мой тезис о быстром формировании третьего самого значимого макрорегиона России после Москвы и Питера - Причерноморского. Причём это будет ещё и самый рыночный макрорегион, так как в отличие от Питера и особенно Москвы он не сидит на административной ренте, а растёт за счёт частной инициативы. (Уверен, что похожими, как в Краснодаре, темпами растёт численность населения как приморских городов края – от Анапы до Сочи, так и станиц и других городов края). Мой прогноз – следующая точка роста в России это КавМинВоды. Я ориентируюсь на такой индикатор: по темпам роста стоимости и по общей стоимости земли под застройку – 5-е место в России после Краснодара, Геленджика, Анапы и Москвы. Будет там формироваться регион 2-миллионник (на 2021 год его население было 954 тыс.). Вторая агломерация по темпам роста – Тюменская, почти +25% за десятилетие. Всего же на 2021 год в России было уже 23 агломерации-миллионника. На подходе были ещё две – вышеупомянутая КавМинВод и Барнаульская (928 тыс.) А вообще по подсчётам авторов исследования в 2021 году в агломерациях с населением выше 600 тыс. человек жили 73,3 млн человек. Или уже чуть больше 50% населения страны. С учётом темпов роста агломераций, остальная половина России всё больше будет стягиваться в них.",
       "title_ru": "Толкователь",
@@ -126,9 +126,9 @@
       "description_en": "A Telegram post discussing research by Sitkovskiy, Raysikh, Gladky and Bezverbnaya on Russian agglomerations, settlement systems and regional growth trends.",
       "source_name_en": "Telegram",
       "seed_metadata_locked": true,
-      "image_original_url": "https://cdn4.telesco.pe/file/lv44A8rTACPXDpMcE0kr1ucD0l53wL2zVi8EJTVhB8LCWpiwbMDAsYFAVmNHOnAnj6BSmbn897f0AzAztAGeandUBnw3S6GMyWvpzkFncxvlsMHBwhkv9XjtL1x7_iGxvpG3ISISPKHn-IszV7GQ7valPuCA9AZy2P3oAwdZegVR1DcWVY0nhn1hnlsox6jbBzr1PMe2kZl-xj8mg-cW9U-UONhhRZH97_umbLeyEfvSXk245CsGuOEmZtsn-keHiGmF6hqqzHbjHCGcFMuxOPKIVdEloBPvkrAgkEqROcM-6EU_SxxE224C0thsdzNXWDHOCMvtUbNfxGGA5Xcicw.jpg",
+      "image_original_url": "https://cdn4.telesco.pe/file/mVyEoWzEIWrjEYgJ33_8FT43Bn0BiqmWox81VEshneRXJC2hKA_ECWNQO7TmF3AfRR4jmhDhRtimzkmBfK6Wmxniwj3Vs5SaCOe4CoV5rC2hcjg-BxsR31RqUX7baPePD2wMZbwcFdXe5vZRGMzZ1hddg6QQrcKD5hvEaa_SDy9fXOJk-zxhDJKccUQlB2tF1sh6fQg8ahg1N8SV7L5THS4hGKRBrysDe3ZToTvncO1EHcLqzzcW1eil-A4sSwZV9uMS4W6XV6bs32BSzuw--gDo_3XAJWxvndAQSEaPMuRnY-c05gac4nfjZMcfpsvXnRwWuwd3SsJ15odNUrY7lw.jpg",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:30+00:00"
+      "image_checked_at": "2026-08-17T04:07:29+00:00"
     },
     {
       "id": "7afe6c3e1110f2f7",
@@ -142,7 +142,7 @@
       "confidence": 1.0,
       "status": "published",
       "force_publish": true,
-      "harvested_at": "2026-08-10T04:54:15+00:00",
+      "harvested_at": "2026-08-17T04:02:23+00:00",
       "title": "Толкователь",
       "description": "Увидел этот график в работе Арсения Ситковского из Института социологии РАН («Социум и власть», №4, 2025). Доля россиян в возрасте 0-35 лет упала с 55% в 1990 году до 40% в 2025 году. Причём мы видим, что после 2020 года падение этой доли ускорилось. Что нам говорит этот график? Нас ждёт очень быстрое старение российского общества. Об этом же пишет и автор исследования Ситковский: «Представленные на рисунке данные о доле населения в возрасте 0-35 лет в общей численности населения России на 1 января 1990-2025 годов наглядно фиксируют долгосрочную тенденцию демографического старения». Я примерно об этом же говорил в своей недавней лекции о рынке труда в России-2040 (в понедельник 26 января, анонсировал её). Надо переставать заниматься прожектёрством и научиться принимать реальность такую, какая она есть. Судя по тренду на графике, к 2040 году мы подойдём с долей населения 0-35 лет в 30%. Россия, как и остальные развитые страны, станет миром поживших людей. А особенность России ещё и в том, что это будет не просто мир пожилых людей, но – мир пожилых женщин, с учётом того, как у нас быстро вымирают мужчины, уже начиная с возраста 25-30 лет. Медианный россиянин в 2040 году – женщина 50-55 лет. В такой России мира пожилых женщин усилится запрос на социальный консерватизм, настоящую стабильность (чтобы в стране ничего не происходило, в отличие от нынешнего перманентного зуда реформаторства и движухи). Запрос на ещё бОльшую безопасность (потому что старики ощущают себя физически беззащитными). Отдельная большая тема.",
       "title_ru": "Толкователь",
@@ -152,9 +152,9 @@
       "description_en": "A Telegram post citing Arseniy Sitkovskiy’s work on the declining share of Russians aged 0-35 and its social implications.",
       "source_name_en": "Telegram",
       "seed_metadata_locked": true,
-      "image_original_url": "https://cdn4.telesco.pe/file/TLBuxzDAuSgYUGTAId8Nu6yqA6qwrbqIUWdshNzLB-_TDMkhSrXRYeWHzM787a0NonUQ2ZtthKncP6BD5RE2cm60Q9Fhr2_7hhJ3UCySH5r1fSrflo17Omc0XBj_QoBIqkm2jfb0IJYWxawKc5bLvFZVtR-_k-yky4txCoba-t3fQu55cvv-F81NG78reIzWE2SJx46wCUHijGicroJ6SPklsejajOxp7nsgZOekK_nnNpgchMc71OLcqrtJRo6Dxg70jejpTEwv8zEj6ntfnF5z42bVoWiyx0QnTbaxDeGE_h1W-Vs4JiofAC-c2yLV9Nt_ly3Bq66dkB8kWKvycQ.jpg",
+      "image_original_url": "https://cdn4.telesco.pe/file/qXkd6HGT7wq8xHOCpaqIl-Yv-AhxGDOJLJ4aISda3Hm9e889OGoSWEuguHXgGDRp1QjdtwLXPYK4Bji_ZvqVx2iPXg1Dh5yyN48wObLTygty9c7H8G7lVNLdiYqrQ4LvI7VOtZLCQxxJ002By-S6xut0-fTUnIcb4QPKx0ErJtPlN1rgKD0wcUTO5OjS69FGnulSczcCPwy2YoMUdI0BDc8cEMOMpIfPn5RoAcJPqeYdsadj8bGqPWqVxNdJwTOB0p7vUk9vnnLsgpv-B5MTKRoUqFd1WcQbCvAYXHN6zEcZFHMJrjJ9azWCnNPhhQriE10ODpfaAFYwK2YwtJgarQ.jpg",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:33+00:00"
+      "image_checked_at": "2026-08-17T04:07:32+00:00"
     },
     {
       "id": "4e7b2f54b868d4b8",
@@ -177,7 +177,7 @@
       "language": "ru",
       "image_original_url": "https://new.ras.ru/upload/uf/ca8/yk8vd40vaxhihtvi4dqkrocfkq0ozid4.png",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:34+00:00",
+      "image_checked_at": "2026-08-17T04:07:32+00:00",
       "title_en": "6th All-Russian Demographic Forum with International Participation",
       "description_en": "The Russian Academy of Sciences page lists Arseniy M. Sitkovskiy, junior researcher at the Institute for Social Demography, FCTAS RAS.",
       "source_name_en": "Russian Academy of Sciences"
@@ -198,7 +198,7 @@
       "seed_metadata_locked": true,
       "harvested_at": "2026-06-01T09:02:59+00:00",
       "image_status": "missing",
-      "image_checked_at": "2026-08-10T05:08:34+00:00",
+      "image_checked_at": "2026-08-17T04:07:32+00:00",
       "title_en": "All-Russian Conference “Youth as a Resource for the Development of Russian Regions”",
       "description_en": "A BezFormata Chelyabinsk news item mentioning A. M. Sitkovskiy as a researcher at the Digital Demography Laboratory, FCTAS RAS.",
       "source_name_en": "BezFormata Chelyabinsk"
@@ -224,7 +224,7 @@
       "language": "ru",
       "image_original_url": "https://deminform.ru/media/Владимир/Июль24/Октябрь25/22_Ан_Костромская семья_Администрация КосОбл1.jpg",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:38+00:00",
+      "image_checked_at": "2026-08-17T04:07:35+00:00",
       "title_en": "Russia’s demographic resources: variation in approaches and estimates",
       "description_en": "A DEM.INFORM article listing A. M. Sitkovskiy among the authors.",
       "source_name_en": "DEM.INFORM"
@@ -241,9 +241,9 @@
       "confidence": 1.0,
       "status": "published",
       "force_publish": true,
-      "harvested_at": "2026-08-10T04:54:13+00:00",
+      "harvested_at": "2026-08-17T04:02:21+00:00",
       "title": "Газеты пишут об образовательной миграции",
-      "description": "",
+      "description": "Газеты пишут об образовательной миграции Институт демографии НИУ ВШЭ имени А.Г. Вишневского № 1081 - 1082 24 июня - 7 июля 2025 ISSN 1726-2891 первая полоса содержание номера архив читальный зал приложения обратная связь доска объявлений поиск Газеты пишут о ... : \"Коммерсантъ\" о детях мигрантов \"РБК\" о регулировании м",
       "title_ru": "Газеты пишут об образовательной миграции",
       "description_ru": "Газеты пишут об образовательной миграции Институт демографии НИУ ВШЭ имени А.Г. Вишневского № 1081 - 1082 24 июня - 7 июля 2025 ISSN 1726-2891 первая полоса содержание номера архив читальный зал приложения обратная связь доска объявлений поиск Газеты пишут о ... : \"Коммерсантъ\" о детях мигрантов \"РБК\" о регулировании м",
       "language": "ru",
@@ -253,7 +253,7 @@
       "seed_metadata_locked": true,
       "image_original_url": "https://www.demoscope.ru/weekly/2025/01081/img/gazeta_graf01.jpg",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:42+00:00"
+      "image_checked_at": "2026-08-17T04:07:37+00:00"
     },
     {
       "id": "3e9e02887f4e1703",
@@ -271,7 +271,7 @@
       "seed_metadata_locked": true,
       "harvested_at": "2026-06-01T09:02:59+00:00",
       "image_status": "missing",
-      "image_checked_at": "2026-08-10T05:08:44+00:00",
+      "image_checked_at": "2026-08-17T04:07:38+00:00",
       "title_en": "RUDN delegation took part in an All-Russian research and practice conference",
       "description_en": "A RUDN University news item mentioning A. M. Sitkovskiy’s conference presentation.",
       "source_name_en": "RUDN University"
@@ -292,7 +292,7 @@
       "seed_metadata_locked": true,
       "harvested_at": "2026-06-01T09:02:59+00:00",
       "image_status": "missing",
-      "image_checked_at": "2026-08-10T05:08:46+00:00",
+      "image_checked_at": "2026-08-17T04:07:39+00:00",
       "title_en": "The National Demographic Report 2024 was presented at the Institute for Demographic Research of the Russian Academy of Sciences",
       "description_en": "A RUDN University news item noting that A. M. Sitkovskiy co-authored three sections of the report.",
       "source_name_en": "RUDN University"
@@ -309,9 +309,9 @@
       "confidence": 1.0,
       "status": "published",
       "force_publish": true,
-      "harvested_at": "2026-08-10T04:54:22+00:00",
+      "harvested_at": "2026-08-17T04:02:28+00:00",
       "title": "Урбанизация против рождаемости: стратегия пространственного развития России до 2030 года",
-      "description": "",
+      "description": "Аналитический материал ДЕМ.ИНФОРМ о взаимосвязи урбанизации, пространственного развития и демографической динамики.",
       "title_ru": "Урбанизация против рождаемости: стратегия пространственного развития России до 2030 года",
       "description_ru": "Аналитический материал ДЕМ.ИНФОРМ о взаимосвязи урбанизации, пространственного развития и демографической динамики.",
       "language": "ru",
@@ -321,7 +321,7 @@
       "seed_metadata_locked": true,
       "image_original_url": "https://deminform.ru/media/Владимир/Аналитика/Ноябрь-Декабрь24/Семья из Белгородской области2.jpg",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:49+00:00"
+      "image_checked_at": "2026-08-17T04:07:41+00:00"
     },
     {
       "id": "76917ca96c460960",
@@ -342,7 +342,7 @@
       "description_ru": "Страница упоминает Арсения Ситковского в контексте семинара по геоданным и ГИС.",
       "language": "ru",
       "image_status": "missing",
-      "image_checked_at": "2026-08-10T05:08:51+00:00",
+      "image_checked_at": "2026-08-17T04:07:42+00:00",
       "title_en": "Geodata and GIS: a methodological seminar for the Digital Department programme",
       "description_en": "An MGIMO page mentioning Arseniy Sitkovskiy in the context of a geodata and GIS seminar.",
       "source_name_en": "MGIMO"
@@ -359,9 +359,9 @@
       "confidence": 1.0,
       "status": "published",
       "force_publish": true,
-      "harvested_at": "2026-08-10T04:54:24+00:00",
+      "harvested_at": "2026-08-17T04:02:29+00:00",
       "title": "Семейная ипотека 2024: инфраструктурное обеспечение многодетной семьи",
-      "description": "",
+      "description": "Аналитический материал ДЕМ.ИНФОРМ о семейной ипотеке, инфраструктурной обеспеченности и пространственных условиях жизни многодетных семей.",
       "title_ru": "Семейная ипотека 2024: инфраструктурное обеспечение многодетной семьи",
       "description_ru": "Аналитический материал ДЕМ.ИНФОРМ о семейной ипотеке, инфраструктурной обеспеченности и пространственных условиях жизни многодетных семей.",
       "language": "ru",
@@ -371,7 +371,7 @@
       "seed_metadata_locked": true,
       "image_original_url": "https://deminform.ru/media/Владимир/Аналитика/Июнь_24/OG-65_tilda1824916.jpg",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:54+00:00"
+      "image_checked_at": "2026-08-17T04:07:44+00:00"
     },
     {
       "id": "be3991667c784f69",
@@ -385,9 +385,9 @@
       "confidence": 1.0,
       "status": "published",
       "force_publish": true,
-      "harvested_at": "2026-08-10T04:54:26+00:00",
+      "harvested_at": "2026-08-17T04:02:31+00:00",
       "title": "Демографическое чудо Израиля: можем повторить?",
-      "description": "",
+      "description": "Аналитический материал ДЕМ.ИНФОРМ о факторах высокой рождаемости в Израиле и применимости отдельных демографических практик в России.",
       "title_ru": "Демографическое чудо Израиля: можем повторить?",
       "description_ru": "Аналитический материал ДЕМ.ИНФОРМ о факторах высокой рождаемости в Израиле и применимости отдельных демографических практик в России.",
       "language": "ru",
@@ -397,7 +397,7 @@
       "seed_metadata_locked": true,
       "image_original_url": "https://deminform.ru/media/Юлия/сентябрь/kelly-sikkema-WvVyudMd1Es-unsplash1.jpg",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:57+00:00"
+      "image_checked_at": "2026-08-17T04:07:46+00:00"
     },
     {
       "id": "b84dccef5ac352a4",
@@ -420,7 +420,7 @@
       "language": "ru",
       "image_original_url": "https://deminform.ru/media/Юлия/Аналитика/Ситковский/рисунок к статье (3).png",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:08:59+00:00",
+      "image_checked_at": "2026-08-17T04:07:48+00:00",
       "title_en": "Questions about Russia’s settlement system that urgently need answers",
       "description_en": "An author article by A. M. Sitkovskiy on DEM.INFORM.",
       "source_name_en": "DEM.INFORM"
@@ -441,7 +441,7 @@
       "seed_metadata_locked": true,
       "harvested_at": "2026-06-01T09:02:59+00:00",
       "image_status": "missing",
-      "image_checked_at": "2026-08-10T05:09:01+00:00",
+      "image_checked_at": "2026-08-17T04:07:50+00:00",
       "title_en": "ION students visited Shirak State University in Armenia",
       "description_en": "A RANEPA Institute of Public Administration article listing Arseniy Sitkovskiy among master’s students of the Chelyabinsk branch of RANEPA.",
       "source_name_en": "RANEPA"
@@ -467,7 +467,7 @@
       "language": "ru",
       "image_original_url": "http://demografplatforma.ru/wp-content/uploads/2021/10/IMG_6564-300x195.jpg",
       "image_status": "cached",
-      "image_checked_at": "2026-08-10T05:09:04+00:00",
+      "image_checked_at": "2026-08-17T04:07:52+00:00",
       "title_en": "International Scientific Conference of Young Demographers",
       "description_en": "A Demographic Platform news item identifying A. M. Sitkovskiy as an analyst at the Spatial Development Models laboratory.",
       "source_name_en": "Demographic Platform"
@@ -488,7 +488,7 @@
       "seed_metadata_locked": true,
       "harvested_at": "2026-06-01T09:02:59+00:00",
       "image_status": "missing",
-      "image_checked_at": "2026-08-10T05:09:05+00:00",
+      "image_checked_at": "2026-08-17T04:07:52+00:00",
       "title_en": "Demographic policy of the Russian Federation",
       "description_en": "An SSRN record for an early work authored by Arseniy Sitkovskiy, RANEPA Chelyabinsk branch.",
       "source_name_en": "SSRN"
