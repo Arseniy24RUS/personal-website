@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-17T04:07:17+00:00",
+  "generated_at": "2026-08-24T04:09:35+00:00",
   "published": 9,
-  "rejected_or_low_confidence": 23,
+  "rejected_or_low_confidence": 20,
   "providers": [
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii",
-      "bytes": 137948
+      "bytes": 136844
     },
     {
       "status": "ok",
@@ -25,13 +25,13 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27280",
-      "bytes": 47154
+      "bytes": 47155
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27274",
-      "bytes": 42607
+      "bytes": 42606
     },
     {
       "status": "ok",
@@ -43,25 +43,25 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda",
-      "bytes": 112369
+      "bytes": 111265
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi",
-      "bytes": 143166
+      "bytes": 141268
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit",
-      "bytes": 128343
+      "bytes": 126951
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/",
-      "bytes": 61065
+      "bytes": 61116
     },
     {
       "status": "ok",
@@ -105,10 +105,9 @@
       "error": "URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1016)'))"
     },
     {
-      "status": "ok",
-      "http_status": 200,
+      "status": "error",
       "url": "https://www.fnisc.ru/index.php?page_id=3214",
-      "bytes": 15358
+      "error": "<HTTPError 502: 'Bad Gateway'>"
     },
     {
       "status": "ok",
@@ -334,13 +333,13 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/",
-      "bytes": 286568
+      "bytes": 285958
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/media",
-      "bytes": 272329
+      "bytes": 269626
     },
     {
       "status": "ok",
@@ -352,7 +351,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education",
-      "bytes": 252647
+      "bytes": 252787
     },
     {
       "status": "ok",
@@ -376,7 +375,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/schedule",
-      "bytes": 221247
+      "bytes": 225317
     },
     {
       "status": "ok",
@@ -394,7 +393,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/foreign-languages",
-      "bytes": 266754
+      "bytes": 268496
     },
     {
       "status": "ok",
@@ -406,7 +405,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/fee-paying-education",
-      "bytes": 473744
+      "bytes": 475486
     },
     {
       "status": "ok",
@@ -430,7 +429,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science",
-      "bytes": 249051
+      "bytes": 248053
     },
     {
       "status": "ok",
@@ -460,7 +459,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/conferences",
-      "bytes": 248237
+      "bytes": 257108
     },
     {
       "status": "ok",
@@ -484,7 +483,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/research-institutes",
-      "bytes": 266067
+      "bytes": 265995
     },
     {
       "status": "ok",
@@ -532,7 +531,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/students-and-research",
-      "bytes": 245387
+      "bytes": 244389
     },
     {
       "status": "ok",
@@ -604,13 +603,13 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://chel.ranepa.ru/",
-      "bytes": 160847
+      "bytes": 160999
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://chel.ranepa.ru/novosti/",
-      "bytes": 160532
+      "bytes": 160680
     }
   ]
 }

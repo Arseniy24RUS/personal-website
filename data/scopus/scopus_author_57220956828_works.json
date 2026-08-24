@@ -169,59 +169,6 @@
   },
   {
     "source": "scopus_api",
-    "eid": "2-s2.0-105008183052",
-    "scopus_id": "105008183052",
-    "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
-    "creator": "Sitkovskiy A.M.",
-    "journal_or_source": "Obrazovanie I Nauka",
-    "cover_date": "2025-01-01",
-    "year": "2025",
-    "doi": "10.17853/1994-5639-2025-6-149-179",
-    "cited_by_count": 2,
-    "aggregation_type": "Journal",
-    "subtype": "Article",
-    "openaccess": "1",
-    "url": null,
-    "raw": {
-      "@_fa": "true",
-      "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105008183052",
-      "dc:identifier": "SCOPUS_ID:105008183052",
-      "eid": "2-s2.0-105008183052",
-      "dc:title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
-      "dc:creator": "Sitkovskiy A.M.",
-      "prism:publicationName": "Obrazovanie I Nauka",
-      "prism:coverDate": "2025-01-01",
-      "prism:doi": "10.17853/1994-5639-2025-6-149-179",
-      "citedby-count": "2",
-      "prism:aggregationType": "Journal",
-      "subtype": "ar",
-      "subtypeDescription": "Article",
-      "openaccess": "1",
-      "openaccessFlag": true,
-      "freetoread": {
-        "value": [
-          {
-            "$": "all"
-          },
-          {
-            "$": "publisherfullgold"
-          }
-        ]
-      },
-      "freetoreadLabel": {
-        "value": [
-          {
-            "$": "All Open Access"
-          },
-          {
-            "$": "Gold"
-          }
-        ]
-      }
-    }
-  },
-  {
-    "source": "scopus_api",
     "eid": "2-s2.0-105007238835",
     "scopus_id": "105007238835",
     "title": "The settlement system of the Republic of Tuva: central places",
@@ -277,6 +224,59 @@
           },
           {
             "$": "Green"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "source": "scopus_api",
+    "eid": "2-s2.0-105008183052",
+    "scopus_id": "105008183052",
+    "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+    "creator": "Sitkovskiy A.M.",
+    "journal_or_source": "Obrazovanie I Nauka",
+    "cover_date": "2025-01-01",
+    "year": "2025",
+    "doi": "10.17853/1994-5639-2025-6-149-179",
+    "cited_by_count": 2,
+    "aggregation_type": "Journal",
+    "subtype": "Article",
+    "openaccess": "1",
+    "url": null,
+    "raw": {
+      "@_fa": "true",
+      "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105008183052",
+      "dc:identifier": "SCOPUS_ID:105008183052",
+      "eid": "2-s2.0-105008183052",
+      "dc:title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+      "dc:creator": "Sitkovskiy A.M.",
+      "prism:publicationName": "Obrazovanie I Nauka",
+      "prism:coverDate": "2025-01-01",
+      "prism:doi": "10.17853/1994-5639-2025-6-149-179",
+      "citedby-count": "2",
+      "prism:aggregationType": "Journal",
+      "subtype": "ar",
+      "subtypeDescription": "Article",
+      "openaccess": "1",
+      "openaccessFlag": true,
+      "freetoread": {
+        "value": [
+          {
+            "$": "all"
+          },
+          {
+            "$": "publisherfullgold"
+          }
+        ]
+      },
+      "freetoreadLabel": {
+        "value": [
+          {
+            "$": "All Open Access"
+          },
+          {
+            "$": "Gold"
           }
         ]
       }

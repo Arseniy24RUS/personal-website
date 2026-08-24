@@ -1,7 +1,7 @@
 {
   "meta": {
     "count": 13,
-    "db_response_time_ms": 45,
+    "db_response_time_ms": 208,
     "page": 1,
     "per_page": 200,
     "groups_count": null,
@@ -430,16 +430,16 @@
       },
       "sustainable_development_goals": [
         {
-          "score": 0.6855306625366211,
+          "id": "https://metadata.un.org/sdg/10",
           "display_name": "Reduced inequalities",
-          "id": "https://metadata.un.org/sdg/10"
+          "score": 0.6855306625366211
         }
       ],
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -673,7 +673,7 @@
       ],
       "institutions": [],
       "countries_distinct_count": 1,
-      "institutions_distinct_count": 3,
+      "institutions_distinct_count": 1,
       "corresponding_author_ids": [],
       "corresponding_institution_ids": [],
       "apc_list": {
@@ -690,7 +690,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.43716031,
+        "value": 0.3349547,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -964,8 +964,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4416843219.pdf",
@@ -1530,7 +1530,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-06-11T09:08:48.828518",
+      "updated_date": "2026-08-21T09:56:20.448147",
       "created_date": "2025-12-01T00:00:00"
     },
     {
@@ -1654,11 +1654,11 @@
       ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 5.9642,
+      "fwci": 5.5863,
       "has_fulltext": true,
       "cited_by_count": 2,
       "citation_normalized_percentile": {
-        "value": 0.96523068,
+        "value": 0.96220354,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -2100,8 +2100,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4415774334.pdf",
@@ -2716,7 +2716,7 @@
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-07-31T08:31:51.225901",
+      "updated_date": "2026-08-19T15:00:24.278416",
       "created_date": "2025-11-02T00:00:00"
     },
     {
@@ -2901,7 +2901,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.38425665,
+        "value": 0.34209794,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -3187,8 +3187,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4415774327.pdf",
@@ -3203,7 +3203,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-06-11T09:08:48.828518",
+      "updated_date": "2026-08-21T09:56:20.448147",
       "created_date": "2025-11-02T00:00:00"
     },
     {
@@ -3222,7 +3222,7 @@
         "id": "doi:10.17853/1994-5639-2025-6-149-179",
         "is_oa": true,
         "landing_page_url": "https://doi.org/10.17853/1994-5639-2025-6-149-179",
-        "pdf_url": "https://www.edscience.ru/jour/article/download/4406/1323",
+        "pdf_url": null,
         "source": {
           "id": "https://openalex.org/S2737075480",
           "display_name": "The Education and science journal",
@@ -3260,7 +3260,7 @@
       "open_access": {
         "is_oa": true,
         "oa_status": "gold",
-        "oa_url": "https://www.edscience.ru/jour/article/download/4406/1323",
+        "oa_url": "https://doi.org/10.17853/1994-5639-2025-6-149-179",
         "any_repository_has_fulltext": false
       },
       "authorships": [
@@ -3356,11 +3356,11 @@
         "currency": "RUB",
         "value_usd": 333
       },
-      "fwci": 9.2189,
+      "fwci": 8.4181,
       "has_fulltext": false,
       "cited_by_count": 3,
       "citation_normalized_percentile": {
-        "value": 0.97503671,
+        "value": 0.97225699,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -3549,7 +3549,7 @@
           "id": "doi:10.17853/1994-5639-2025-6-149-179",
           "is_oa": true,
           "landing_page_url": "https://doi.org/10.17853/1994-5639-2025-6-149-179",
-          "pdf_url": "https://www.edscience.ru/jour/article/download/4406/1323",
+          "pdf_url": null,
           "source": {
             "id": "https://openalex.org/S2737075480",
             "display_name": "The Education and science journal",
@@ -3611,7 +3611,7 @@
         "id": "doi:10.17853/1994-5639-2025-6-149-179",
         "is_oa": true,
         "landing_page_url": "https://doi.org/10.17853/1994-5639-2025-6-149-179",
-        "pdf_url": "https://www.edscience.ru/jour/article/download/4406/1323",
+        "pdf_url": null,
         "source": {
           "id": "https://openalex.org/S2737075480",
           "display_name": "The Education and science journal",
@@ -3645,12 +3645,10 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": true
+        "pdf": false,
+        "grobid_xml": false
       },
-      "content_urls": {
-        "pdf": "https://content.openalex.org/works/W4411027413.pdf"
-      },
+      "content_urls": null,
       "referenced_works_count": 33,
       "referenced_works": [
         "https://openalex.org/W1969584169",
@@ -4390,7 +4388,7 @@
           "cited_by_count": 3
         }
       ],
-      "updated_date": "2026-07-25T09:21:30.201066",
+      "updated_date": "2026-08-18T07:49:30.821534",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -4497,7 +4495,7 @@
       ],
       "institutions": [],
       "countries_distinct_count": 0,
-      "institutions_distinct_count": 2,
+      "institutions_distinct_count": 0,
       "corresponding_author_ids": [],
       "corresponding_institution_ids": [],
       "apc_list": {
@@ -4514,7 +4512,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.19428171,
+        "value": 0.18087171,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -4715,8 +4713,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4410943920.pdf",
@@ -5216,7 +5214,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-06-11T09:08:48.828518",
+      "updated_date": "2026-08-21T09:56:20.448147",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -5608,8 +5606,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -6375,11 +6373,11 @@
       "corresponding_institution_ids": [],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 2.9634,
+      "fwci": 2.9135,
       "has_fulltext": true,
       "cited_by_count": 4,
       "citation_normalized_percentile": {
-        "value": 0.92158142,
+        "value": 0.91992049,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -6571,11 +6569,12 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
-        "pdf": "https://content.openalex.org/works/W4386310774.pdf"
+        "pdf": "https://content.openalex.org/works/W4386310774.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W4386310774.grobid-xml"
       },
       "referenced_works_count": 23,
       "referenced_works": [
@@ -6616,53 +6615,18 @@
         "https://openalex.org/W2765299608"
       ],
       "abstract_inverted_index": {
-        "МЕТОДИЧЕСКИЙ": [
+        "-": [
           0
         ],
-        "ПОДХОД": [
-          1
-        ],
-        "К": [
+        ".": [
+          1,
           2
         ],
-        "АНАЛИЗУ": [
+        "a": [
           3
         ],
-        "СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИХ": [
-          4
-        ],
-        "ФАКТОРОВ": [
-          5
-        ],
-        "ФОРМИРОВАНИЯ": [
-          6
-        ],
-        "ОПОРНОГО": [
-          7
-        ],
-        "КАРКАСА": [
-          8
-        ],
-        "РАССЕЛЕНИЯ": [
-          9
-        ],
-        "О.": [
-          10
-        ],
-        "А.": [
-          11
-        ],
-        "Козлова": [
-          12
-        ],
-        "a": [
-          13
-        ],
         ",": [
-          14
-        ],
-        "А": [
-          15
+          4
         ]
       },
       "counts_by_year": [
@@ -6679,7 +6643,7 @@
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-07-19T07:52:34.831488",
+      "updated_date": "2026-08-18T07:49:30.821534",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -6699,7 +6663,7 @@
         "id": "doi:10.22394/2304-3369-2021-2-102-119",
         "is_oa": true,
         "landing_page_url": "https://doi.org/10.22394/2304-3369-2021-2-102-119",
-        "pdf_url": "https://journal-management.com/file/B6187D00-A26D-4ACE-89A6-8F06E408052E",
+        "pdf_url": null,
         "source": {
           "id": "https://openalex.org/S4210222004",
           "display_name": "Management Issues",
@@ -6732,7 +6696,7 @@
       "open_access": {
         "is_oa": true,
         "oa_status": "hybrid",
-        "oa_url": "https://journal-management.com/file/B6187D00-A26D-4ACE-89A6-8F06E408052E",
+        "oa_url": "https://doi.org/10.22394/2304-3369-2021-2-102-119",
         "any_repository_has_fulltext": false
       },
       "authorships": [
@@ -6761,11 +6725,11 @@
       "corresponding_institution_ids": [],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 0.2808,
+      "fwci": 0.2655,
       "has_fulltext": false,
       "cited_by_count": 3,
       "citation_normalized_percentile": {
-        "value": 0.64112756,
+        "value": 0.63937015,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -6901,7 +6865,7 @@
           "id": "doi:10.22394/2304-3369-2021-2-102-119",
           "is_oa": true,
           "landing_page_url": "https://doi.org/10.22394/2304-3369-2021-2-102-119",
-          "pdf_url": "https://journal-management.com/file/B6187D00-A26D-4ACE-89A6-8F06E408052E",
+          "pdf_url": null,
           "source": {
             "id": "https://openalex.org/S4210222004",
             "display_name": "Management Issues",
@@ -6932,7 +6896,7 @@
         "id": "doi:10.22394/2304-3369-2021-2-102-119",
         "is_oa": true,
         "landing_page_url": "https://doi.org/10.22394/2304-3369-2021-2-102-119",
-        "pdf_url": "https://journal-management.com/file/B6187D00-A26D-4ACE-89A6-8F06E408052E",
+        "pdf_url": null,
         "source": {
           "id": "https://openalex.org/S4210222004",
           "display_name": "Management Issues",
@@ -6960,16 +6924,16 @@
       },
       "sustainable_development_goals": [
         {
-          "score": 0.47999998927116394,
+          "id": "https://metadata.un.org/sdg/10",
           "display_name": "Reduced inequalities",
-          "id": "https://metadata.un.org/sdg/10"
+          "score": 0.47999998927116394
         }
       ],
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -6997,7 +6961,7 @@
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-07-07T06:14:10.401900",
+      "updated_date": "2026-08-18T07:49:30.821534",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -7449,16 +7413,16 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "score": 0.5600000023841858,
+          "id": "https://metadata.un.org/sdg/17",
           "display_name": "Partnerships for the goals",
-          "id": "https://metadata.un.org/sdg/17"
+          "score": 0.5600000023841858
         }
       ],
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -8573,8 +8537,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -10002,8 +9966,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -10889,16 +10853,16 @@
       },
       "sustainable_development_goals": [
         {
-          "score": 0.5199999809265137,
+          "id": "https://metadata.un.org/sdg/10",
           "display_name": "Reduced inequalities",
-          "id": "https://metadata.un.org/sdg/10"
+          "score": 0.5199999809265137
         }
       ],
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
