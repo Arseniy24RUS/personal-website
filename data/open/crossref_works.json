@@ -2795,158 +2795,6 @@
           "date-parts": [
             [
               2025,
-              5,
-              14
-            ]
-          ],
-          "date-time": "2025-05-14T08:37:18Z",
-          "timestamp": 1747211838701,
-          "version": "3.40.5"
-        },
-        "reference-count": 0,
-        "publisher": "Publishing House Economic Education",
-        "issue": "6",
-        "content-domain": {
-          "domain": [],
-          "crossmark-restriction": false
-        },
-        "short-container-title": [
-          "SRS1E&amp;L"
-        ],
-        "published-print": {
-          "date-parts": [
-            [
-              2021
-            ]
-          ]
-        },
-        "abstract": "<jats:p>The economic specialization of territories is a common definition in economic studies, while the methodology for its definition varies considerably. The paper presents an attempt to comprehend the essence of the concept of economic specialization of the territory in modern conditions. Various approaches to its definition are presented and analyzed, both by great Soviet scientists and modern interpretations. A methodology and formula for determining the economic specialization of subjects of the Russian Federation is proposed, taking into account the existing limitations of publicly available statistical information. Based on the identified economic specialization, the similarity coefficient of the economic specialization of the subjects of the Russian Federation was calculated. The calculation method includes computer data processing in the M language in the Microsoft Power Query environment. All subjects of the Russian Federation were divided into 9 groups in accordance with their economic specializations in order to determine a list of comparable territories. In order to identify the real potential of economic cooperation of adjacent territories, on the basis of the grouping, a cartogram of the economic specialization of the constituent entities of the Russian Federation was formed using the MapChart software tool. In the course of visual analysis, zones of similar economic specialization were identified, and the degree of cooperation potential was determined based on the similarity coefficient. This study is of an applied nature and is intended to expand the tools for developing a targeted state policy for managing the development of territories. The identification of economic specialization is intended to form groups of comparable territories for a one-time solution to emerging problems of the same type. Identification of the cooperation potential of the subjects of the Russian Federation is in demand from the point of view of the formation of interregional industry clusters, which corresponds to the current trends in the formation of state policy in the development of agglomerations and the transformation of the settlement system.</jats:p>",
-        "DOI": "10.26653/2076-4650-2021-6-08",
-        "type": "journal-article",
-        "created": {
-          "date-parts": [
-            [
-              2022,
-              3,
-              28
-            ]
-          ],
-          "date-time": "2022-03-28T20:50:22Z",
-          "timestamp": 1648500622000
-        },
-        "page": "92-111",
-        "source": "Crossref",
-        "is-referenced-by-count": 0,
-        "title": [
-          "IDENTIFICATION OF ECONOMIC SPECIALIZATION AND COOPERATION POTENTIAL OF THE REGIONS OF THE RUSSIAN FEDERATION"
-        ],
-        "prefix": "10.26653",
-        "author": [
-          {
-            "name": "10.26653/2076-4650-2021-6-08",
-            "sequence": "first",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          },
-          {
-            "ORCID": "https://orcid.org/0000-0002-8725-6580",
-            "authenticated-orcid": false,
-            "given": "A.M.",
-            "family": "Sitkovskiy",
-            "sequence": "first",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          }
-        ],
-        "member": "11196",
-        "published-online": {
-          "date-parts": [
-            [
-              2021
-            ]
-          ]
-        },
-        "container-title": [
-          "Scientific Review. Series 1. Economics and Law"
-        ],
-        "original-title": [
-          "ВЫЯВЛЕНИЕ ЭКОНОМИЧЕСКОЙ СПЕЦИАЛИЗАЦИИ И ПОТЕНЦИАЛА КООПЕРАЦИИ СУБЪЕКТОВ РФ"
-        ],
-        "deposited": {
-          "date-parts": [
-            [
-              2022,
-              3,
-              28
-            ]
-          ],
-          "date-time": "2022-03-28T20:50:36Z",
-          "timestamp": 1648500636000
-        },
-        "score": 0.0,
-        "resource": {
-          "primary": {
-            "URL": "https://elibrary.ru/item.asp?id=48126823"
-          }
-        },
-        "issued": {
-          "date-parts": [
-            [
-              2021
-            ]
-          ]
-        },
-        "references-count": 0,
-        "journal-issue": {
-          "issue": "6",
-          "published-online": {
-            "date-parts": [
-              [
-                2021
-              ]
-            ]
-          },
-          "published-print": {
-            "date-parts": [
-              [
-                2021
-              ]
-            ]
-          }
-        },
-        "URL": "https://doi.org/10.26653/2076-4650-2021-6-08",
-        "ISSN": [
-          "2076-4650"
-        ],
-        "issn-type": [
-          {
-            "type": "print",
-            "value": "2076-4650"
-          }
-        ],
-        "published": {
-          "date-parts": [
-            [
-              2021
-            ]
-          ]
-        }
-      },
-      {
-        "indexed": {
-          "date-parts": [
-            [
-              2025,
               12,
               26
             ]
@@ -3088,6 +2936,158 @@
           {
             "type": "electronic",
             "value": "2308-8842"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              14
+            ]
+          ],
+          "date-time": "2025-05-14T08:37:18Z",
+          "timestamp": 1747211838701,
+          "version": "3.40.5"
+        },
+        "reference-count": 0,
+        "publisher": "Publishing House Economic Education",
+        "issue": "6",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "SRS1E&amp;L"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        },
+        "abstract": "<jats:p>The economic specialization of territories is a common definition in economic studies, while the methodology for its definition varies considerably. The paper presents an attempt to comprehend the essence of the concept of economic specialization of the territory in modern conditions. Various approaches to its definition are presented and analyzed, both by great Soviet scientists and modern interpretations. A methodology and formula for determining the economic specialization of subjects of the Russian Federation is proposed, taking into account the existing limitations of publicly available statistical information. Based on the identified economic specialization, the similarity coefficient of the economic specialization of the subjects of the Russian Federation was calculated. The calculation method includes computer data processing in the M language in the Microsoft Power Query environment. All subjects of the Russian Federation were divided into 9 groups in accordance with their economic specializations in order to determine a list of comparable territories. In order to identify the real potential of economic cooperation of adjacent territories, on the basis of the grouping, a cartogram of the economic specialization of the constituent entities of the Russian Federation was formed using the MapChart software tool. In the course of visual analysis, zones of similar economic specialization were identified, and the degree of cooperation potential was determined based on the similarity coefficient. This study is of an applied nature and is intended to expand the tools for developing a targeted state policy for managing the development of territories. The identification of economic specialization is intended to form groups of comparable territories for a one-time solution to emerging problems of the same type. Identification of the cooperation potential of the subjects of the Russian Federation is in demand from the point of view of the formation of interregional industry clusters, which corresponds to the current trends in the formation of state policy in the development of agglomerations and the transformation of the settlement system.</jats:p>",
+        "DOI": "10.26653/2076-4650-2021-6-08",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              28
+            ]
+          ],
+          "date-time": "2022-03-28T20:50:22Z",
+          "timestamp": 1648500622000
+        },
+        "page": "92-111",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "IDENTIFICATION OF ECONOMIC SPECIALIZATION AND COOPERATION POTENTIAL OF THE REGIONS OF THE RUSSIAN FEDERATION"
+        ],
+        "prefix": "10.26653",
+        "author": [
+          {
+            "name": "10.26653/2076-4650-2021-6-08",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8725-6580",
+            "authenticated-orcid": false,
+            "given": "A.M.",
+            "family": "Sitkovskiy",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "11196",
+        "published-online": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        },
+        "container-title": [
+          "Scientific Review. Series 1. Economics and Law"
+        ],
+        "original-title": [
+          "ВЫЯВЛЕНИЕ ЭКОНОМИЧЕСКОЙ СПЕЦИАЛИЗАЦИИ И ПОТЕНЦИАЛА КООПЕРАЦИИ СУБЪЕКТОВ РФ"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              28
+            ]
+          ],
+          "date-time": "2022-03-28T20:50:36Z",
+          "timestamp": 1648500636000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://elibrary.ru/item.asp?id=48126823"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2021
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "6",
+          "published-online": {
+            "date-parts": [
+              [
+                2021
+              ]
+            ]
+          },
+          "published-print": {
+            "date-parts": [
+              [
+                2021
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.26653/2076-4650-2021-6-08",
+        "ISSN": [
+          "2076-4650"
+        ],
+        "issn-type": [
+          {
+            "type": "print",
+            "value": "2076-4650"
           }
         ],
         "published": {

@@ -1,7 +1,7 @@
 {
   "meta": {
     "count": 13,
-    "db_response_time_ms": 208,
+    "db_response_time_ms": 140,
     "page": 1,
     "per_page": 200,
     "groups_count": null,
@@ -430,8 +430,8 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/10",
           "display_name": "Reduced inequalities",
+          "id": "https://metadata.un.org/sdg/10",
           "score": 0.6855306625366211
         }
       ],
@@ -1532,6 +1532,493 @@
       "counts_by_year": [],
       "updated_date": "2026-08-21T09:56:20.448147",
       "created_date": "2025-12-01T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W4415774327",
+      "doi": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
+      "title": "State demographic and family policy: an overview of current research and practices",
+      "display_name": "State demographic and family policy: an overview of current research and practices",
+      "publication_year": 2025,
+      "publication_date": "2025-11-01",
+      "ids": {
+        "openalex": "https://openalex.org/W4415774327",
+        "doi": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327"
+      },
+      "language": "ru",
+      "primary_location": {
+        "id": "doi:10.22363/2312-8313-2025-12-3-319-327",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
+        "pdf_url": "https://journals.rudn.ru/public-administration/article/download/46827/25727",
+        "source": {
+          "id": "https://openalex.org/S4210206045",
+          "display_name": "RUDN Journal of Public Administration",
+          "issn_l": "2312-8313",
+          "issn": [
+            "2312-8313",
+            "2411-1228"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310312633",
+          "host_organization_name": "Peoples' Friendship University of Russia",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310312633"
+          ],
+          "host_organization_lineage_names": [
+            "Peoples' Friendship University of Russia"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc",
+        "license_id": "https://openalex.org/licenses/cc-by-nc",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "RUDN Journal of Public Administration",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref",
+        "doaj"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "diamond",
+        "oa_url": "https://journals.rudn.ru/public-administration/article/download/46827/25727",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5016469975",
+            "display_name": "Тамара Керимовна Ростовская",
+            "orcid": "https://orcid.org/0000-0002-1629-7780"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I126527374",
+              "display_name": "Peoples' Friendship University of Russia",
+              "ror": "https://ror.org/02dn9h927",
+              "country_code": "RU",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I126527374"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210122195",
+              "display_name": "Institute of Socio-Political Research",
+              "ror": "https://ror.org/02mx1ea71",
+              "country_code": "RU",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I1313323035",
+                "https://openalex.org/I4210120228",
+                "https://openalex.org/I4210122195"
+              ]
+            }
+          ],
+          "countries": [
+            "RU"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Tamara R. Rostovskaya",
+          "raw_affiliation_strings": [
+            "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)",
+            "RUDN University"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-1629-7780",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)",
+              "institution_ids": [
+                "https://openalex.org/I4210122195"
+              ]
+            },
+            {
+              "raw_affiliation_string": "RUDN University",
+              "institution_ids": [
+                "https://openalex.org/I126527374"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5007601767",
+            "display_name": "Arseniy Sitkovskiy",
+            "orcid": "https://orcid.org/0000-0002-8725-6580"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I126527374",
+              "display_name": "Peoples' Friendship University of Russia",
+              "ror": "https://ror.org/02dn9h927",
+              "country_code": "RU",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I126527374"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210122195",
+              "display_name": "Institute of Socio-Political Research",
+              "ror": "https://ror.org/02mx1ea71",
+              "country_code": "RU",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I1313323035",
+                "https://openalex.org/I4210120228",
+                "https://openalex.org/I4210122195"
+              ]
+            }
+          ],
+          "countries": [
+            "RU"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Arseniy M. Sitkovskiy",
+          "raw_affiliation_strings": [
+            "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)",
+            "RUDN University"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-8725-6580",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)",
+              "institution_ids": [
+                "https://openalex.org/I4210122195"
+              ]
+            },
+            {
+              "raw_affiliation_string": "RUDN University",
+              "institution_ids": [
+                "https://openalex.org/I126527374"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 2,
+      "corresponding_author_ids": [],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 0.0,
+      "has_fulltext": true,
+      "cited_by_count": 0,
+      "citation_normalized_percentile": {
+        "value": 0.34209794,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": false
+      },
+      "cited_by_percentile_year": null,
+      "biblio": {
+        "volume": "12",
+        "issue": "3",
+        "first_page": "319",
+        "last_page": "327"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T11712",
+        "display_name": "Intergenerational Family Dynamics and Caregiving",
+        "score": 0.1680999994277954,
+        "subfield": {
+          "id": "https://openalex.org/subfields/3312",
+          "display_name": "Sociology and Political Science"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/33",
+          "display_name": "Social Sciences"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T11712",
+          "display_name": "Intergenerational Family Dynamics and Caregiving",
+          "score": 0.1680999994277954,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3312",
+            "display_name": "Sociology and Political Science"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T10585",
+          "display_name": "Family Dynamics and Relationships",
+          "score": 0.07249999791383743,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3317",
+            "display_name": "Demography"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T12011",
+          "display_name": "Insurance, Mortality, Demography, Risk Management",
+          "score": 0.0478999987244606,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3317",
+            "display_name": "Demography"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/state",
+          "display_name": "State (computer science)",
+          "score": 0.6078000068664551
+        },
+        {
+          "id": "https://openalex.org/keywords/current",
+          "display_name": "Current (fluid)",
+          "score": 0.5530999898910522
+        },
+        {
+          "id": "https://openalex.org/keywords/population",
+          "display_name": "Population",
+          "score": 0.3959999978542328
+        },
+        {
+          "id": "https://openalex.org/keywords/current-population-survey",
+          "display_name": "Current Population Survey",
+          "score": 0.31189998984336853
+        },
+        {
+          "id": "https://openalex.org/keywords/government",
+          "display_name": "Government (linguistics)",
+          "score": 0.25999999046325684
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C48103436",
+          "wikidata": "https://www.wikidata.org/wiki/Q599031",
+          "display_name": "State (computer science)",
+          "level": 2,
+          "score": 0.6078000068664551
+        },
+        {
+          "id": "https://openalex.org/C148043351",
+          "wikidata": "https://www.wikidata.org/wiki/Q4456944",
+          "display_name": "Current (fluid)",
+          "level": 2,
+          "score": 0.5530999898910522
+        },
+        {
+          "id": "https://openalex.org/C2908647359",
+          "wikidata": "https://www.wikidata.org/wiki/Q2625603",
+          "display_name": "Population",
+          "level": 2,
+          "score": 0.3959999978542328
+        },
+        {
+          "id": "https://openalex.org/C17744445",
+          "wikidata": "https://www.wikidata.org/wiki/Q36442",
+          "display_name": "Political science",
+          "level": 0,
+          "score": 0.3723999857902527
+        },
+        {
+          "id": "https://openalex.org/C50522688",
+          "wikidata": "https://www.wikidata.org/wiki/Q189833",
+          "display_name": "Economic growth",
+          "level": 1,
+          "score": 0.34450000524520874
+        },
+        {
+          "id": "https://openalex.org/C2777766161",
+          "wikidata": "https://www.wikidata.org/wiki/Q5195069",
+          "display_name": "Current Population Survey",
+          "level": 3,
+          "score": 0.31189998984336853
+        },
+        {
+          "id": "https://openalex.org/C144133560",
+          "wikidata": "https://www.wikidata.org/wiki/Q4830453",
+          "display_name": "Business",
+          "level": 0,
+          "score": 0.3059000074863434
+        },
+        {
+          "id": "https://openalex.org/C2778137410",
+          "wikidata": "https://www.wikidata.org/wiki/Q2732820",
+          "display_name": "Government (linguistics)",
+          "level": 2,
+          "score": 0.25999999046325684
+        },
+        {
+          "id": "https://openalex.org/C9652623",
+          "wikidata": "https://www.wikidata.org/wiki/Q190109",
+          "display_name": "Field (mathematics)",
+          "level": 2,
+          "score": 0.24879999458789825
+        },
+        {
+          "id": "https://openalex.org/C18762648",
+          "wikidata": "https://www.wikidata.org/wiki/Q42213",
+          "display_name": "Work (physics)",
+          "level": 2,
+          "score": 0.24869999289512634
+        }
+      ],
+      "mesh": [],
+      "locations_count": 2,
+      "locations": [
+        {
+          "id": "doi:10.22363/2312-8313-2025-12-3-319-327",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
+          "pdf_url": "https://journals.rudn.ru/public-administration/article/download/46827/25727",
+          "source": {
+            "id": "https://openalex.org/S4210206045",
+            "display_name": "RUDN Journal of Public Administration",
+            "issn_l": "2312-8313",
+            "issn": [
+              "2312-8313",
+              "2411-1228"
+            ],
+            "is_oa": true,
+            "is_in_doaj": true,
+            "is_core": false,
+            "host_organization": "https://openalex.org/P4310312633",
+            "host_organization_name": "Peoples' Friendship University of Russia",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310312633"
+            ],
+            "host_organization_lineage_names": [
+              "Peoples' Friendship University of Russia"
+            ],
+            "type": "journal"
+          },
+          "license": "cc-by-nc",
+          "license_id": "https://openalex.org/licenses/cc-by-nc",
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "RUDN Journal of Public Administration",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:oai:doaj.org/article:713fe8ad79d0477c8c428d994f2d3168",
+          "is_oa": true,
+          "landing_page_url": "https://doaj.org/article/713fe8ad79d0477c8c428d994f2d3168",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306401280",
+            "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-sa",
+          "license_id": "https://openalex.org/licenses/cc-by-sa",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "RUDN Journal of Public Administration, Vol 12, Iss 3, Pp 319-327 (2025)",
+          "raw_type": "article"
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.22363/2312-8313-2025-12-3-319-327",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
+        "pdf_url": "https://journals.rudn.ru/public-administration/article/download/46827/25727",
+        "source": {
+          "id": "https://openalex.org/S4210206045",
+          "display_name": "RUDN Journal of Public Administration",
+          "issn_l": "2312-8313",
+          "issn": [
+            "2312-8313",
+            "2411-1228"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310312633",
+          "host_organization_name": "Peoples' Friendship University of Russia",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310312633"
+          ],
+          "host_organization_lineage_names": [
+            "Peoples' Friendship University of Russia"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc",
+        "license_id": "https://openalex.org/licenses/cc-by-nc",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "RUDN Journal of Public Administration",
+        "raw_type": "journal-article"
+      },
+      "sustainable_development_goals": [],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "pdf": true,
+        "grobid_xml": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W4415774327.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W4415774327.grobid-xml"
+      },
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [],
+      "abstract_inverted_index": {
+        "-": [
+          0
+        ]
+      },
+      "counts_by_year": [],
+      "updated_date": "2026-08-21T09:56:20.448147",
+      "created_date": "2025-11-02T00:00:00"
     },
     {
       "id": "https://openalex.org/W4415774334",
@@ -2717,493 +3204,6 @@
         }
       ],
       "updated_date": "2026-08-19T15:00:24.278416",
-      "created_date": "2025-11-02T00:00:00"
-    },
-    {
-      "id": "https://openalex.org/W4415774327",
-      "doi": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
-      "title": "State demographic and family policy: an overview of current research and practices",
-      "display_name": "State demographic and family policy: an overview of current research and practices",
-      "publication_year": 2025,
-      "publication_date": "2025-11-01",
-      "ids": {
-        "openalex": "https://openalex.org/W4415774327",
-        "doi": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327"
-      },
-      "language": "ru",
-      "primary_location": {
-        "id": "doi:10.22363/2312-8313-2025-12-3-319-327",
-        "is_oa": true,
-        "landing_page_url": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
-        "pdf_url": "https://journals.rudn.ru/public-administration/article/download/46827/25727",
-        "source": {
-          "id": "https://openalex.org/S4210206045",
-          "display_name": "RUDN Journal of Public Administration",
-          "issn_l": "2312-8313",
-          "issn": [
-            "2312-8313",
-            "2411-1228"
-          ],
-          "is_oa": true,
-          "is_in_doaj": true,
-          "is_core": false,
-          "host_organization": "https://openalex.org/P4310312633",
-          "host_organization_name": "Peoples' Friendship University of Russia",
-          "host_organization_lineage": [
-            "https://openalex.org/P4310312633"
-          ],
-          "host_organization_lineage_names": [
-            "Peoples' Friendship University of Russia"
-          ],
-          "type": "journal"
-        },
-        "license": "cc-by-nc",
-        "license_id": "https://openalex.org/licenses/cc-by-nc",
-        "version": "publishedVersion",
-        "is_accepted": true,
-        "is_published": true,
-        "raw_source_name": "RUDN Journal of Public Administration",
-        "raw_type": "journal-article"
-      },
-      "type": "article",
-      "indexed_in": [
-        "crossref",
-        "doaj"
-      ],
-      "open_access": {
-        "is_oa": true,
-        "oa_status": "diamond",
-        "oa_url": "https://journals.rudn.ru/public-administration/article/download/46827/25727",
-        "any_repository_has_fulltext": true
-      },
-      "authorships": [
-        {
-          "author_position": "first",
-          "author": {
-            "id": "https://openalex.org/A5016469975",
-            "display_name": "Тамара Керимовна Ростовская",
-            "orcid": "https://orcid.org/0000-0002-1629-7780"
-          },
-          "institutions": [
-            {
-              "id": "https://openalex.org/I126527374",
-              "display_name": "Peoples' Friendship University of Russia",
-              "ror": "https://ror.org/02dn9h927",
-              "country_code": "RU",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I126527374"
-              ]
-            },
-            {
-              "id": "https://openalex.org/I4210122195",
-              "display_name": "Institute of Socio-Political Research",
-              "ror": "https://ror.org/02mx1ea71",
-              "country_code": "RU",
-              "type": "facility",
-              "lineage": [
-                "https://openalex.org/I1313323035",
-                "https://openalex.org/I4210120228",
-                "https://openalex.org/I4210122195"
-              ]
-            }
-          ],
-          "countries": [
-            "RU"
-          ],
-          "is_corresponding": false,
-          "raw_author_name": "Tamara R. Rostovskaya",
-          "raw_affiliation_strings": [
-            "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)",
-            "RUDN University"
-          ],
-          "raw_orcid": "https://orcid.org/0000-0002-1629-7780",
-          "affiliations": [
-            {
-              "raw_affiliation_string": "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)",
-              "institution_ids": [
-                "https://openalex.org/I4210122195"
-              ]
-            },
-            {
-              "raw_affiliation_string": "RUDN University",
-              "institution_ids": [
-                "https://openalex.org/I126527374"
-              ]
-            }
-          ]
-        },
-        {
-          "author_position": "last",
-          "author": {
-            "id": "https://openalex.org/A5007601767",
-            "display_name": "Arseniy Sitkovskiy",
-            "orcid": "https://orcid.org/0000-0002-8725-6580"
-          },
-          "institutions": [
-            {
-              "id": "https://openalex.org/I126527374",
-              "display_name": "Peoples' Friendship University of Russia",
-              "ror": "https://ror.org/02dn9h927",
-              "country_code": "RU",
-              "type": "education",
-              "lineage": [
-                "https://openalex.org/I126527374"
-              ]
-            },
-            {
-              "id": "https://openalex.org/I4210122195",
-              "display_name": "Institute of Socio-Political Research",
-              "ror": "https://ror.org/02mx1ea71",
-              "country_code": "RU",
-              "type": "facility",
-              "lineage": [
-                "https://openalex.org/I1313323035",
-                "https://openalex.org/I4210120228",
-                "https://openalex.org/I4210122195"
-              ]
-            }
-          ],
-          "countries": [
-            "RU"
-          ],
-          "is_corresponding": false,
-          "raw_author_name": "Arseniy M. Sitkovskiy",
-          "raw_affiliation_strings": [
-            "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)",
-            "RUDN University"
-          ],
-          "raw_orcid": "https://orcid.org/0000-0002-8725-6580",
-          "affiliations": [
-            {
-              "raw_affiliation_string": "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)",
-              "institution_ids": [
-                "https://openalex.org/I4210122195"
-              ]
-            },
-            {
-              "raw_affiliation_string": "RUDN University",
-              "institution_ids": [
-                "https://openalex.org/I126527374"
-              ]
-            }
-          ]
-        }
-      ],
-      "institutions": [],
-      "countries_distinct_count": 1,
-      "institutions_distinct_count": 2,
-      "corresponding_author_ids": [],
-      "corresponding_institution_ids": [],
-      "apc_list": null,
-      "apc_paid": null,
-      "fwci": 0.0,
-      "has_fulltext": true,
-      "cited_by_count": 0,
-      "citation_normalized_percentile": {
-        "value": 0.34209794,
-        "is_in_top_1_percent": false,
-        "is_in_top_10_percent": false
-      },
-      "cited_by_percentile_year": null,
-      "biblio": {
-        "volume": "12",
-        "issue": "3",
-        "first_page": "319",
-        "last_page": "327"
-      },
-      "is_retracted": false,
-      "is_paratext": false,
-      "is_xpac": false,
-      "primary_topic": {
-        "id": "https://openalex.org/T11712",
-        "display_name": "Intergenerational Family Dynamics and Caregiving",
-        "score": 0.1680999994277954,
-        "subfield": {
-          "id": "https://openalex.org/subfields/3312",
-          "display_name": "Sociology and Political Science"
-        },
-        "field": {
-          "id": "https://openalex.org/fields/33",
-          "display_name": "Social Sciences"
-        },
-        "domain": {
-          "id": "https://openalex.org/domains/2",
-          "display_name": "Social Sciences"
-        }
-      },
-      "topics": [
-        {
-          "id": "https://openalex.org/T11712",
-          "display_name": "Intergenerational Family Dynamics and Caregiving",
-          "score": 0.1680999994277954,
-          "subfield": {
-            "id": "https://openalex.org/subfields/3312",
-            "display_name": "Sociology and Political Science"
-          },
-          "field": {
-            "id": "https://openalex.org/fields/33",
-            "display_name": "Social Sciences"
-          },
-          "domain": {
-            "id": "https://openalex.org/domains/2",
-            "display_name": "Social Sciences"
-          }
-        },
-        {
-          "id": "https://openalex.org/T10585",
-          "display_name": "Family Dynamics and Relationships",
-          "score": 0.07249999791383743,
-          "subfield": {
-            "id": "https://openalex.org/subfields/3317",
-            "display_name": "Demography"
-          },
-          "field": {
-            "id": "https://openalex.org/fields/33",
-            "display_name": "Social Sciences"
-          },
-          "domain": {
-            "id": "https://openalex.org/domains/2",
-            "display_name": "Social Sciences"
-          }
-        },
-        {
-          "id": "https://openalex.org/T12011",
-          "display_name": "Insurance, Mortality, Demography, Risk Management",
-          "score": 0.0478999987244606,
-          "subfield": {
-            "id": "https://openalex.org/subfields/3317",
-            "display_name": "Demography"
-          },
-          "field": {
-            "id": "https://openalex.org/fields/33",
-            "display_name": "Social Sciences"
-          },
-          "domain": {
-            "id": "https://openalex.org/domains/2",
-            "display_name": "Social Sciences"
-          }
-        }
-      ],
-      "keywords": [
-        {
-          "id": "https://openalex.org/keywords/state",
-          "display_name": "State (computer science)",
-          "score": 0.6078000068664551
-        },
-        {
-          "id": "https://openalex.org/keywords/current",
-          "display_name": "Current (fluid)",
-          "score": 0.5530999898910522
-        },
-        {
-          "id": "https://openalex.org/keywords/population",
-          "display_name": "Population",
-          "score": 0.3959999978542328
-        },
-        {
-          "id": "https://openalex.org/keywords/current-population-survey",
-          "display_name": "Current Population Survey",
-          "score": 0.31189998984336853
-        },
-        {
-          "id": "https://openalex.org/keywords/government",
-          "display_name": "Government (linguistics)",
-          "score": 0.25999999046325684
-        }
-      ],
-      "concepts": [
-        {
-          "id": "https://openalex.org/C48103436",
-          "wikidata": "https://www.wikidata.org/wiki/Q599031",
-          "display_name": "State (computer science)",
-          "level": 2,
-          "score": 0.6078000068664551
-        },
-        {
-          "id": "https://openalex.org/C148043351",
-          "wikidata": "https://www.wikidata.org/wiki/Q4456944",
-          "display_name": "Current (fluid)",
-          "level": 2,
-          "score": 0.5530999898910522
-        },
-        {
-          "id": "https://openalex.org/C2908647359",
-          "wikidata": "https://www.wikidata.org/wiki/Q2625603",
-          "display_name": "Population",
-          "level": 2,
-          "score": 0.3959999978542328
-        },
-        {
-          "id": "https://openalex.org/C17744445",
-          "wikidata": "https://www.wikidata.org/wiki/Q36442",
-          "display_name": "Political science",
-          "level": 0,
-          "score": 0.3723999857902527
-        },
-        {
-          "id": "https://openalex.org/C50522688",
-          "wikidata": "https://www.wikidata.org/wiki/Q189833",
-          "display_name": "Economic growth",
-          "level": 1,
-          "score": 0.34450000524520874
-        },
-        {
-          "id": "https://openalex.org/C2777766161",
-          "wikidata": "https://www.wikidata.org/wiki/Q5195069",
-          "display_name": "Current Population Survey",
-          "level": 3,
-          "score": 0.31189998984336853
-        },
-        {
-          "id": "https://openalex.org/C144133560",
-          "wikidata": "https://www.wikidata.org/wiki/Q4830453",
-          "display_name": "Business",
-          "level": 0,
-          "score": 0.3059000074863434
-        },
-        {
-          "id": "https://openalex.org/C2778137410",
-          "wikidata": "https://www.wikidata.org/wiki/Q2732820",
-          "display_name": "Government (linguistics)",
-          "level": 2,
-          "score": 0.25999999046325684
-        },
-        {
-          "id": "https://openalex.org/C9652623",
-          "wikidata": "https://www.wikidata.org/wiki/Q190109",
-          "display_name": "Field (mathematics)",
-          "level": 2,
-          "score": 0.24879999458789825
-        },
-        {
-          "id": "https://openalex.org/C18762648",
-          "wikidata": "https://www.wikidata.org/wiki/Q42213",
-          "display_name": "Work (physics)",
-          "level": 2,
-          "score": 0.24869999289512634
-        }
-      ],
-      "mesh": [],
-      "locations_count": 2,
-      "locations": [
-        {
-          "id": "doi:10.22363/2312-8313-2025-12-3-319-327",
-          "is_oa": true,
-          "landing_page_url": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
-          "pdf_url": "https://journals.rudn.ru/public-administration/article/download/46827/25727",
-          "source": {
-            "id": "https://openalex.org/S4210206045",
-            "display_name": "RUDN Journal of Public Administration",
-            "issn_l": "2312-8313",
-            "issn": [
-              "2312-8313",
-              "2411-1228"
-            ],
-            "is_oa": true,
-            "is_in_doaj": true,
-            "is_core": false,
-            "host_organization": "https://openalex.org/P4310312633",
-            "host_organization_name": "Peoples' Friendship University of Russia",
-            "host_organization_lineage": [
-              "https://openalex.org/P4310312633"
-            ],
-            "host_organization_lineage_names": [
-              "Peoples' Friendship University of Russia"
-            ],
-            "type": "journal"
-          },
-          "license": "cc-by-nc",
-          "license_id": "https://openalex.org/licenses/cc-by-nc",
-          "version": "publishedVersion",
-          "is_accepted": true,
-          "is_published": true,
-          "raw_source_name": "RUDN Journal of Public Administration",
-          "raw_type": "journal-article"
-        },
-        {
-          "id": "pmh:oai:doaj.org/article:713fe8ad79d0477c8c428d994f2d3168",
-          "is_oa": true,
-          "landing_page_url": "https://doaj.org/article/713fe8ad79d0477c8c428d994f2d3168",
-          "pdf_url": null,
-          "source": {
-            "id": "https://openalex.org/S4306401280",
-            "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
-            "issn_l": null,
-            "issn": null,
-            "is_oa": false,
-            "is_in_doaj": false,
-            "is_core": false,
-            "host_organization": null,
-            "host_organization_name": null,
-            "host_organization_lineage": [],
-            "host_organization_lineage_names": [],
-            "type": "repository"
-          },
-          "license": "cc-by-sa",
-          "license_id": "https://openalex.org/licenses/cc-by-sa",
-          "version": "submittedVersion",
-          "is_accepted": false,
-          "is_published": false,
-          "raw_source_name": "RUDN Journal of Public Administration, Vol 12, Iss 3, Pp 319-327 (2025)",
-          "raw_type": "article"
-        }
-      ],
-      "best_oa_location": {
-        "id": "doi:10.22363/2312-8313-2025-12-3-319-327",
-        "is_oa": true,
-        "landing_page_url": "https://doi.org/10.22363/2312-8313-2025-12-3-319-327",
-        "pdf_url": "https://journals.rudn.ru/public-administration/article/download/46827/25727",
-        "source": {
-          "id": "https://openalex.org/S4210206045",
-          "display_name": "RUDN Journal of Public Administration",
-          "issn_l": "2312-8313",
-          "issn": [
-            "2312-8313",
-            "2411-1228"
-          ],
-          "is_oa": true,
-          "is_in_doaj": true,
-          "is_core": false,
-          "host_organization": "https://openalex.org/P4310312633",
-          "host_organization_name": "Peoples' Friendship University of Russia",
-          "host_organization_lineage": [
-            "https://openalex.org/P4310312633"
-          ],
-          "host_organization_lineage_names": [
-            "Peoples' Friendship University of Russia"
-          ],
-          "type": "journal"
-        },
-        "license": "cc-by-nc",
-        "license_id": "https://openalex.org/licenses/cc-by-nc",
-        "version": "publishedVersion",
-        "is_accepted": true,
-        "is_published": true,
-        "raw_source_name": "RUDN Journal of Public Administration",
-        "raw_type": "journal-article"
-      },
-      "sustainable_development_goals": [],
-      "awards": [],
-      "funders": [],
-      "has_content": {
-        "pdf": true,
-        "grobid_xml": true
-      },
-      "content_urls": {
-        "pdf": "https://content.openalex.org/works/W4415774327.pdf",
-        "grobid_xml": "https://content.openalex.org/works/W4415774327.grobid-xml"
-      },
-      "referenced_works_count": 0,
-      "referenced_works": [],
-      "related_works": [],
-      "abstract_inverted_index": {
-        "-": [
-          0
-        ]
-      },
-      "counts_by_year": [],
-      "updated_date": "2026-08-21T09:56:20.448147",
       "created_date": "2025-11-02T00:00:00"
     },
     {
@@ -6924,8 +6924,8 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/10",
           "display_name": "Reduced inequalities",
+          "id": "https://metadata.un.org/sdg/10",
           "score": 0.47999998927116394
         }
       ],
@@ -7413,8 +7413,8 @@
       "best_oa_location": null,
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/17",
           "display_name": "Partnerships for the goals",
+          "id": "https://metadata.un.org/sdg/17",
           "score": 0.5600000023841858
         }
       ],
@@ -10853,8 +10853,8 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/10",
           "display_name": "Reduced inequalities",
+          "id": "https://metadata.un.org/sdg/10",
           "score": 0.5199999809265137
         }
       ],
