@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T09:50:55+00:00",
+  "generated_at": "2026-09-07T08:25:14+00:00",
   "strategy": "dom_first_public_profile_route",
   "previous_records": 10,
   "previous_records_or_publications": 10,
@@ -49,7 +49,7 @@
         "headers": {
           "content-type": "text/html; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b22450dde2d9e-ARN",
+          "cf-ray": "a3745261ead197af-ARN",
           "cf-cache-status": "DYNAMIC"
         }
       },
@@ -176,22 +176,11 @@
       {
         "kind": "response",
         "status": 200,
-        "url": "https://www.webofscience.com/wos/static/runtime.783ba7b4c4bd43a9.js",
+        "url": "https://www.webofscience.com/wos/static/font/clarivate-regular-font.css",
         "headers": {
-          "content-type": "application/javascript; charset=UTF-8",
+          "content-type": "text/css; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf3e2d9e-ARN",
-          "cf-cache-status": "HIT"
-        }
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/polyfills.340d609cb17ea841.js",
-        "headers": {
-          "content-type": "application/javascript; charset=UTF-8",
-          "server": "cloudflare",
-          "cf-ray": "a33b2246cf402d9e-ARN",
+          "cf-ray": "a3745265cbad2df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -202,7 +191,7 @@
         "headers": {
           "content-type": "text/css; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf3c2d9e-ARN",
+          "cf-ray": "a3745265cbb42df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -213,18 +202,7 @@
         "headers": {
           "content-type": "text/css; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf3a2d9e-ARN",
-          "cf-cache-status": "HIT"
-        }
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/font/clarivate-regular-font.css",
-        "headers": {
-          "content-type": "text/css; charset=UTF-8",
-          "server": "cloudflare",
-          "cf-ray": "a33b2246cf342d9e-ARN",
+          "cf-ray": "a3745265cbb12df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -235,7 +213,7 @@
         "headers": {
           "content-type": "text/css; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf3b2d9e-ARN",
+          "cf-ray": "a3745265cbb22df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -246,7 +224,29 @@
         "headers": {
           "content-type": "text/css; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf322d9e-ARN",
+          "cf-ray": "a3745265cbab2df5-ARN",
+          "cf-cache-status": "HIT"
+        }
+      },
+      {
+        "kind": "response",
+        "status": 200,
+        "url": "https://www.webofscience.com/wos/static/runtime.783ba7b4c4bd43a9.js",
+        "headers": {
+          "content-type": "application/javascript; charset=UTF-8",
+          "server": "cloudflare",
+          "cf-ray": "a3745265cbb72df5-ARN",
+          "cf-cache-status": "HIT"
+        }
+      },
+      {
+        "kind": "response",
+        "status": 200,
+        "url": "https://www.webofscience.com/wos/static/polyfills.340d609cb17ea841.js",
+        "headers": {
+          "content-type": "application/javascript; charset=UTF-8",
+          "server": "cloudflare",
+          "cf-ray": "a3745265cbb82df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -271,7 +271,7 @@
         "headers": {
           "content-type": "application/javascript; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b224e4e862d9e-ARN",
+          "cf-ray": "a374526da86e2df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -282,7 +282,7 @@
         "headers": {
           "content-type": "application/javascript; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf422d9e-ARN",
+          "cf-ray": "a3745265cbbd2df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -370,7 +370,7 @@
         "headers": {
           "content-type": "text/plain",
           "server": "cloudflare",
-          "cf-ray": "a33b22566dab2d9e-ARN"
+          "cf-ray": "a3745275bd792df5-ARN"
         }
       },
       {
@@ -380,7 +380,7 @@
         "headers": {
           "content-type": "image/png",
           "server": "cloudflare",
-          "cf-ray": "a33b22566daf2d9e-ARN",
+          "cf-ray": "a3745275bd7d2df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -391,7 +391,7 @@
         "headers": {
           "content-type": "application/json;charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b22565d882d9e-ARN",
+          "cf-ray": "a3745275ad6b2df5-ARN",
           "cf-cache-status": "DYNAMIC"
         }
       },
@@ -423,17 +423,6 @@
           "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
           "sec-ch-ua-mobile": "?0",
           "sec-ch-ua-platform": "\"Windows\""
-        }
-      },
-      {
-        "kind": "response",
-        "status": 401,
-        "url": "https://www.webofscience.com/api/esti/Personalization/preferences",
-        "headers": {
-          "content-type": "application/json;charset=UTF-8",
-          "server": "cloudflare",
-          "cf-ray": "a33b22565d932d9e-ARN",
-          "cf-cache-status": "DYNAMIC"
         }
       },
       {
@@ -443,7 +432,18 @@
         "headers": {
           "content-type": "application/json;charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b22565d902d9e-ARN",
+          "cf-ray": "a3745275ad6d2df5-ARN",
+          "cf-cache-status": "DYNAMIC"
+        }
+      },
+      {
+        "kind": "response",
+        "status": 401,
+        "url": "https://www.webofscience.com/api/esti/Personalization/preferences",
+        "headers": {
+          "content-type": "application/json;charset=UTF-8",
+          "server": "cloudflare",
+          "cf-ray": "a3745275ad702df5-ARN",
           "cf-cache-status": "DYNAMIC"
         }
       },
@@ -453,7 +453,7 @@
         "url": "https://www.webofknowledge.com/?mode=Nextgen&action=transfer&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&DestApp=UA&DestParams=",
         "headers": {
           "server": "cloudflare",
-          "cf-ray": "a33b225a8e23bc80-ARN",
+          "cf-ray": "a3745279bb47dcff-ARN",
           "cf-cache-status": "DYNAMIC"
         }
       },
@@ -479,7 +479,7 @@
         "headers": {
           "content-type": "text/html; charset=utf-8",
           "server": "cloudflare",
-          "cf-ray": "a33b225fae34f115-DME",
+          "cf-ray": "a374527ea8559dbe-DME",
           "cf-cache-status": "DYNAMIC"
         }
       },
@@ -504,7 +504,7 @@
         "url": "https://www.webofknowledge.com/?authCode=null&referrer=path%3D%252Fwos%252Fauthor%252Frecord%252FAAG-1530-2021%26detectSessionComplete%3Dtrue%26mode%3DNextgen%26action%3Dtransfer%26DestParams%3D%26DestApp%3DUA",
         "headers": {
           "server": "cloudflare",
-          "cf-ray": "a33b226259fdbc80-ARN",
+          "cf-ray": "a37452814a1bdcff-ARN",
           "cf-cache-status": "DYNAMIC"
         }
       },
@@ -512,7 +512,7 @@
         "kind": "request",
         "method": "GET",
         "resource_type": "document",
-        "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH",
+        "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr",
         "headers": {
           "accept-language": "en-US",
           "referer": "https://www.webofscience.com/",
@@ -526,11 +526,11 @@
       {
         "kind": "response",
         "status": 200,
-        "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH",
+        "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr",
         "headers": {
           "content-type": "text/html; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2263fa092d9e-ARN",
+          "cf-ray": "a3745282cd7b2df5-ARN",
           "cf-cache-status": "DYNAMIC"
         }
       },
@@ -541,7 +541,7 @@
         "url": "https://www.webofscience.com/wos/static/font/source-sans-pro.css",
         "headers": {
           "origin": "https://www.webofscience.com",
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
         }
       },
       {
@@ -551,7 +551,7 @@
         "headers": {
           "content-type": "text/css; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf322d9e-ARN",
+          "cf-ray": "a3745265cbab2df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -562,7 +562,7 @@
         "url": "https://www.webofscience.com/wos/static/font/clarivate-regular-font.css",
         "headers": {
           "origin": "https://www.webofscience.com",
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
         }
       },
       {
@@ -572,7 +572,7 @@
         "headers": {
           "content-type": "text/css; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf342d9e-ARN",
+          "cf-ray": "a3745265cbad2df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -583,7 +583,7 @@
         "url": "https://www.webofscience.com/wos/static/font/noto-kufi-arabic.css",
         "headers": {
           "origin": "https://www.webofscience.com",
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
         }
       },
       {
@@ -593,7 +593,7 @@
         "headers": {
           "content-type": "text/css; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf3a2d9e-ARN",
+          "cf-ray": "a3745265cbb12df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -604,7 +604,7 @@
         "url": "https://www.webofscience.com/wos/static/font/icons.css",
         "headers": {
           "origin": "https://www.webofscience.com",
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
         }
       },
       {
@@ -614,7 +614,7 @@
         "headers": {
           "content-type": "text/css; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf3b2d9e-ARN",
+          "cf-ray": "a3745265cbb22df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -625,7 +625,7 @@
         "url": "https://www.webofscience.com/wos/static/styles.fd971879af9230fa.css",
         "headers": {
           "origin": "https://www.webofscience.com",
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
         }
       },
       {
@@ -635,7 +635,7 @@
         "headers": {
           "content-type": "text/css; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf3c2d9e-ARN",
+          "cf-ray": "a3745265cbb42df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -646,7 +646,7 @@
         "url": "https://www.webofscience.com/wos/static/runtime.783ba7b4c4bd43a9.js",
         "headers": {
           "origin": "https://www.webofscience.com",
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
         }
       },
       {
@@ -656,7 +656,7 @@
         "headers": {
           "content-type": "application/javascript; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf3e2d9e-ARN",
+          "cf-ray": "a3745265cbb72df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -667,7 +667,7 @@
         "url": "https://www.webofscience.com/wos/static/polyfills.340d609cb17ea841.js",
         "headers": {
           "origin": "https://www.webofscience.com",
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
         }
       },
       {
@@ -677,7 +677,7 @@
         "headers": {
           "content-type": "application/javascript; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf402d9e-ARN",
+          "cf-ray": "a3745265cbb82df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -688,7 +688,7 @@
         "url": "https://www.webofscience.com/wos/static/main.7a7496df7be72f15.js",
         "headers": {
           "origin": "https://www.webofscience.com",
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
         }
       },
       {
@@ -698,7 +698,7 @@
         "headers": {
           "content-type": "application/javascript; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b2246cf422d9e-ARN",
+          "cf-ray": "a3745265cbbd2df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -708,7 +708,7 @@
         "resource_type": "script",
         "url": "https://www.webofscience.com/wos/static/scripts/snowplow.js",
         "headers": {
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
         }
       },
       {
@@ -718,7 +718,7 @@
         "headers": {
           "content-type": "application/javascript; charset=UTF-8",
           "server": "cloudflare",
-          "cf-ray": "a33b224e4e862d9e-ARN",
+          "cf-ray": "a374526da86e2df5-ARN",
           "cf-cache-status": "HIT"
         }
       },
@@ -729,7 +729,7 @@
         "url": "https://www.webofscience.com/api/esti/SearchEngine/getAllLoadDates",
         "headers": {
           "sec-ch-ua-platform": "\"Windows\"",
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH",
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr",
           "accept-language": "en-US",
           "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
           "sec-ch-ua-mobile": "?0",
@@ -745,7 +745,7 @@
         "url": "https://www.webofscience.com/api/esti/Personalization/preferences",
         "headers": {
           "sec-ch-ua-platform": "\"Windows\"",
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH",
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr",
           "accept-language": "en-US",
           "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
           "sec-ch-ua-mobile": "?0",
@@ -761,7 +761,7 @@
         "url": "https://www.webofscience.com/cdn-cgi/rum?",
         "headers": {
           "sec-ch-ua-platform": "\"Windows\"",
-          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH",
+          "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr",
           "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36",
           "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
           "content-type": "application/json",
@@ -834,7 +834,7 @@
           "fullVersionList": [
             {
               "brand": "Chromium",
-              "version": "152.0.7977.64"
+              "version": "152.0.7977.82"
             },
             {
               "brand": "Not?A_Brand",
@@ -842,14 +842,14 @@
             },
             {
               "brand": "Google Chrome",
-              "version": "152.0.7977.64"
+              "version": "152.0.7977.82"
             }
           ],
           "mobile": false,
           "model": "",
           "platform": "Windows",
           "platformVersion": "10.0",
-          "uaFullVersion": "152.0.7977.64",
+          "uaFullVersion": "152.0.7977.82",
           "wow64": false
         }
       },
@@ -858,11 +858,11 @@
         "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
       }
     },
-    "initial_app_record_wait": "TimeoutError('Page.wait_for_selector: Timeout 45000ms exceeded.\\nCall log:\\n  - waiting for locator(\"app-record\") to be visible\\n    - waiting for navigation to finish...\\n    - navigated to \"https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3…\"\\n')",
+    "initial_app_record_wait": "TimeoutError('Page.wait_for_selector: Timeout 45000ms exceeded.\\nCall log:\\n  - waiting for locator(\"app-record\") to be visible\\n    - waiting for navigation to finish...\\n    - navigated to \"https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0T…\"\\n')",
     "route_forcing": [
       {
         "reason": "after_initial_app_record_timeout",
-        "from": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH",
+        "from": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr",
         "to": "https://www.webofscience.com/wos/author/record/AAG-1530-2021"
       }
     ],
@@ -883,7 +883,7 @@
         "human_verification": null,
         "parsed_records": 0,
         "parsed_records_or_publications": 0,
-        "content_length": 244886,
+        "content_length": 262131,
         "body_text_sample": "WOS Top Header expand_more Skip navigation menu skipToNav English apps Products Web of Science™ Research Assistant Sign In Register You are accessing a free view of the Web of Science Learn More MENU © 2026 Clarivate. All rights reserved. Legal Center Privacy Statement Copyright Notice Training Portal Product Support Newsletter Cookie Policy Manage cookie preferences Data Correction Accessibility Help Terms of Use Follow Us "
       },
       {
@@ -910,7 +910,7 @@
         },
         "parsed_records": 0,
         "parsed_records_or_publications": 0,
-        "content_length": 245271,
+        "content_length": 262516,
         "body_text_sample": "WOS Top Header expand_more Skip navigation menu skipToNav English apps Products Web of Science™ Research Assistant Sign In Register You are accessing a free view of the Web of Science Learn More MENU © 2026 Clarivate. All rights reserved. Legal Center Privacy Statement Copyright Notice Training Portal Product Support Newsletter Cookie Policy Manage cookie preferences Data Correction Accessibility Help Terms of Use Follow Us There is unusual activity coming from your institution. Please verify you are human to proceed. Can't solve this? Contact Customer Support"
       }
     ],
@@ -931,7 +931,7 @@
     "records": 0,
     "records_or_publications": 0,
     "final_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-    "content_length": 245271,
+    "content_length": 262516,
     "diagnostic_artifacts": [
       {
         "label": "human_verification_required",
@@ -946,7 +946,7 @@
           "cookie_banner": 0,
           "free_view_dialog": 2
         },
-        "content_length": 245271,
+        "content_length": 262516,
         "human_verification": {
           "required": true,
           "signals": [
@@ -1020,7 +1020,7 @@
               "fullVersionList": [
                 {
                   "brand": "Chromium",
-                  "version": "152.0.7977.64"
+                  "version": "152.0.7977.82"
                 },
                 {
                   "brand": "Not?A_Brand",
@@ -1028,14 +1028,14 @@
                 },
                 {
                   "brand": "Google Chrome",
-                  "version": "152.0.7977.64"
+                  "version": "152.0.7977.82"
                 }
               ],
               "mobile": false,
               "model": "",
               "platform": "Windows",
               "platformVersion": "10.0",
-              "uaFullVersion": "152.0.7977.64",
+              "uaFullVersion": "152.0.7977.82",
               "wow64": false
             }
           },
@@ -1048,22 +1048,22 @@
           {
             "kind": "response",
             "status": 401,
-            "url": "https://www.webofscience.com/api/esti/Personalization/preferences",
+            "url": "https://www.webofscience.com/api/esti/SearchEngine/getAllLoadDates",
             "headers": {
               "content-type": "application/json;charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b22565d932d9e-ARN",
+              "cf-ray": "a3745275ad6d2df5-ARN",
               "cf-cache-status": "DYNAMIC"
             }
           },
           {
             "kind": "response",
             "status": 401,
-            "url": "https://www.webofscience.com/api/esti/SearchEngine/getAllLoadDates",
+            "url": "https://www.webofscience.com/api/esti/Personalization/preferences",
             "headers": {
               "content-type": "application/json;charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b22565d902d9e-ARN",
+              "cf-ray": "a3745275ad702df5-ARN",
               "cf-cache-status": "DYNAMIC"
             }
           },
@@ -1073,7 +1073,7 @@
             "url": "https://www.webofknowledge.com/?mode=Nextgen&action=transfer&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&DestApp=UA&DestParams=",
             "headers": {
               "server": "cloudflare",
-              "cf-ray": "a33b225a8e23bc80-ARN",
+              "cf-ray": "a3745279bb47dcff-ARN",
               "cf-cache-status": "DYNAMIC"
             }
           },
@@ -1099,7 +1099,7 @@
             "headers": {
               "content-type": "text/html; charset=utf-8",
               "server": "cloudflare",
-              "cf-ray": "a33b225fae34f115-DME",
+              "cf-ray": "a374527ea8559dbe-DME",
               "cf-cache-status": "DYNAMIC"
             }
           },
@@ -1124,7 +1124,7 @@
             "url": "https://www.webofknowledge.com/?authCode=null&referrer=path%3D%252Fwos%252Fauthor%252Frecord%252FAAG-1530-2021%26detectSessionComplete%3Dtrue%26mode%3DNextgen%26action%3Dtransfer%26DestParams%3D%26DestApp%3DUA",
             "headers": {
               "server": "cloudflare",
-              "cf-ray": "a33b226259fdbc80-ARN",
+              "cf-ray": "a37452814a1bdcff-ARN",
               "cf-cache-status": "DYNAMIC"
             }
           },
@@ -1132,7 +1132,7 @@
             "kind": "request",
             "method": "GET",
             "resource_type": "document",
-            "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH",
+            "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr",
             "headers": {
               "accept-language": "en-US",
               "referer": "https://www.webofscience.com/",
@@ -1146,11 +1146,11 @@
           {
             "kind": "response",
             "status": 200,
-            "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH",
+            "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr",
             "headers": {
               "content-type": "text/html; charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b2263fa092d9e-ARN",
+              "cf-ray": "a3745282cd7b2df5-ARN",
               "cf-cache-status": "DYNAMIC"
             }
           },
@@ -1161,7 +1161,7 @@
             "url": "https://www.webofscience.com/wos/static/font/source-sans-pro.css",
             "headers": {
               "origin": "https://www.webofscience.com",
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
             }
           },
           {
@@ -1171,7 +1171,7 @@
             "headers": {
               "content-type": "text/css; charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b2246cf322d9e-ARN",
+              "cf-ray": "a3745265cbab2df5-ARN",
               "cf-cache-status": "HIT"
             }
           },
@@ -1182,7 +1182,7 @@
             "url": "https://www.webofscience.com/wos/static/font/clarivate-regular-font.css",
             "headers": {
               "origin": "https://www.webofscience.com",
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
             }
           },
           {
@@ -1192,7 +1192,7 @@
             "headers": {
               "content-type": "text/css; charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b2246cf342d9e-ARN",
+              "cf-ray": "a3745265cbad2df5-ARN",
               "cf-cache-status": "HIT"
             }
           },
@@ -1203,7 +1203,7 @@
             "url": "https://www.webofscience.com/wos/static/font/noto-kufi-arabic.css",
             "headers": {
               "origin": "https://www.webofscience.com",
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
             }
           },
           {
@@ -1213,7 +1213,7 @@
             "headers": {
               "content-type": "text/css; charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b2246cf3a2d9e-ARN",
+              "cf-ray": "a3745265cbb12df5-ARN",
               "cf-cache-status": "HIT"
             }
           },
@@ -1224,7 +1224,7 @@
             "url": "https://www.webofscience.com/wos/static/font/icons.css",
             "headers": {
               "origin": "https://www.webofscience.com",
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
             }
           },
           {
@@ -1234,7 +1234,7 @@
             "headers": {
               "content-type": "text/css; charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b2246cf3b2d9e-ARN",
+              "cf-ray": "a3745265cbb22df5-ARN",
               "cf-cache-status": "HIT"
             }
           },
@@ -1245,7 +1245,7 @@
             "url": "https://www.webofscience.com/wos/static/styles.fd971879af9230fa.css",
             "headers": {
               "origin": "https://www.webofscience.com",
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
             }
           },
           {
@@ -1255,7 +1255,7 @@
             "headers": {
               "content-type": "text/css; charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b2246cf3c2d9e-ARN",
+              "cf-ray": "a3745265cbb42df5-ARN",
               "cf-cache-status": "HIT"
             }
           },
@@ -1266,7 +1266,7 @@
             "url": "https://www.webofscience.com/wos/static/runtime.783ba7b4c4bd43a9.js",
             "headers": {
               "origin": "https://www.webofscience.com",
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
             }
           },
           {
@@ -1276,7 +1276,7 @@
             "headers": {
               "content-type": "application/javascript; charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b2246cf3e2d9e-ARN",
+              "cf-ray": "a3745265cbb72df5-ARN",
               "cf-cache-status": "HIT"
             }
           },
@@ -1287,7 +1287,7 @@
             "url": "https://www.webofscience.com/wos/static/polyfills.340d609cb17ea841.js",
             "headers": {
               "origin": "https://www.webofscience.com",
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
             }
           },
           {
@@ -1297,7 +1297,7 @@
             "headers": {
               "content-type": "application/javascript; charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b2246cf402d9e-ARN",
+              "cf-ray": "a3745265cbb82df5-ARN",
               "cf-cache-status": "HIT"
             }
           },
@@ -1308,7 +1308,7 @@
             "url": "https://www.webofscience.com/wos/static/main.7a7496df7be72f15.js",
             "headers": {
               "origin": "https://www.webofscience.com",
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
             }
           },
           {
@@ -1318,7 +1318,7 @@
             "headers": {
               "content-type": "application/javascript; charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b2246cf422d9e-ARN",
+              "cf-ray": "a3745265cbbd2df5-ARN",
               "cf-cache-status": "HIT"
             }
           },
@@ -1328,7 +1328,7 @@
             "resource_type": "script",
             "url": "https://www.webofscience.com/wos/static/scripts/snowplow.js",
             "headers": {
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH"
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr"
             }
           },
           {
@@ -1338,7 +1338,7 @@
             "headers": {
               "content-type": "application/javascript; charset=UTF-8",
               "server": "cloudflare",
-              "cf-ray": "a33b224e4e862d9e-ARN",
+              "cf-ray": "a374526da86e2df5-ARN",
               "cf-cache-status": "HIT"
             }
           },
@@ -1349,7 +1349,7 @@
             "url": "https://www.webofscience.com/api/esti/SearchEngine/getAllLoadDates",
             "headers": {
               "sec-ch-ua-platform": "\"Windows\"",
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH",
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr",
               "accept-language": "en-US",
               "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
               "sec-ch-ua-mobile": "?0",
@@ -1365,7 +1365,7 @@
             "url": "https://www.webofscience.com/api/esti/Personalization/preferences",
             "headers": {
               "sec-ch-ua-platform": "\"Windows\"",
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH",
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr",
               "accept-language": "en-US",
               "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
               "sec-ch-ua-mobile": "?0",
@@ -1381,7 +1381,7 @@
             "url": "https://www.webofscience.com/cdn-cgi/rum?",
             "headers": {
               "sec-ch-ua-platform": "\"Windows\"",
-              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0E8FwTRSFDAKTtoDL67B3sH",
+              "referer": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=EUW1ED0C5Fyo7d9XVJ9rE0cHS0TAr",
               "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36",
               "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
               "content-type": "application/json",
@@ -1391,9 +1391,9 @@
           }
         ],
         "body_text_sample": "WOS Top Header expand_more Skip navigation menu skipToNav English apps Products Web of Science™ Research Assistant Sign In Register You are accessing a free view of the Web of Science Learn More MENU © 2026 Clarivate. All rights reserved. Legal Center Privacy Statement Copyright Notice Training Portal Product Support Newsletter Cookie Policy Manage cookie preferences Data Correction Accessibility Help Terms of Use Follow Us There is unusual activity coming from your institution. Please verify you are human to proceed. Can't solve this? Contact Customer Support",
-        "screenshot_path": "artifacts/wos_live/wos_AAG-1530-2021_20260831T095155Z_human_verification_required.png",
-        "html_path": "artifacts/wos_live/wos_AAG-1530-2021_20260831T095155Z_human_verification_required.html",
-        "json_path": "artifacts/wos_live/wos_AAG-1530-2021_20260831T095155Z_human_verification_required.json"
+        "screenshot_path": "artifacts/wos_live/wos_AAG-1530-2021_20260907T082614Z_human_verification_required.png",
+        "html_path": "artifacts/wos_live/wos_AAG-1530-2021_20260907T082614Z_human_verification_required.html",
+        "json_path": "artifacts/wos_live/wos_AAG-1530-2021_20260907T082614Z_human_verification_required.json"
       }
     ]
   },

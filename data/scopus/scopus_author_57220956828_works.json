@@ -54,6 +54,68 @@
   },
   {
     "source": "scopus_api",
+    "eid": "2-s2.0-105046947039",
+    "scopus_id": "105046947039",
+    "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+    "creator": "Dozhdikov A.V.",
+    "journal_or_source": "Frontiers in Big Data",
+    "cover_date": "2026-01-01",
+    "year": "2026",
+    "doi": "10.3389/fdata.2026.1842233",
+    "cited_by_count": 0,
+    "aggregation_type": "Journal",
+    "subtype": "Article",
+    "openaccess": "1",
+    "url": null,
+    "raw": {
+      "@_fa": "true",
+      "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105046947039",
+      "dc:identifier": "SCOPUS_ID:105046947039",
+      "eid": "2-s2.0-105046947039",
+      "dc:title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+      "dc:creator": "Dozhdikov A.V.",
+      "prism:publicationName": "Frontiers in Big Data",
+      "prism:coverDate": "2026-01-01",
+      "prism:doi": "10.3389/fdata.2026.1842233",
+      "citedby-count": "0",
+      "prism:aggregationType": "Journal",
+      "subtype": "ar",
+      "subtypeDescription": "Article",
+      "openaccess": "1",
+      "openaccessFlag": true,
+      "freetoread": {
+        "value": [
+          {
+            "$": "all"
+          },
+          {
+            "$": "publisherfullgold"
+          },
+          {
+            "$": "repository"
+          },
+          {
+            "$": "repositoryam"
+          }
+        ]
+      },
+      "freetoreadLabel": {
+        "value": [
+          {
+            "$": "All Open Access"
+          },
+          {
+            "$": "Gold"
+          },
+          {
+            "$": "Green"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "source": "scopus_api",
     "eid": "2-s2.0-105021702108",
     "scopus_id": "105021702108",
     "title": "THE ATTITUDES OF FOREIGN STUDENTS TO THEIR FURTHER LIFE AND CAREER IN RUSSIA",

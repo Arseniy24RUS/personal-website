@@ -615,6 +615,115 @@
     "apa_en": "Rostovskaya, TK and Sitkovskiy, & AM (2026). Comparative content analysis of master's and doctoral programmes in demography at world-class universities. OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE, 28(1), 33–64. https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002"
   },
   {
+    "source": "scopus_api_auto",
+    "number": null,
+    "elibrary_item_id": null,
+    "year": 2026,
+    "rinc_citations": 0,
+    "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+    "authors_raw": "Dozhdikov A.V.",
+    "venue": "Frontiers in Big Data",
+    "pages": null,
+    "doi": "10.3389/fdata.2026.1842233",
+    "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-105046947039",
+    "sources": [
+      "scopus"
+    ],
+    "scopus": {
+      "source": "scopus_api",
+      "eid": "2-s2.0-105046947039",
+      "scopus_id": "105046947039",
+      "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+      "creator": "Dozhdikov A.V.",
+      "journal_or_source": "Frontiers in Big Data",
+      "cover_date": "2026-01-01",
+      "year": "2026",
+      "doi": "10.3389/fdata.2026.1842233",
+      "cited_by_count": 0,
+      "aggregation_type": "Journal",
+      "subtype": "Article",
+      "openaccess": "1",
+      "url": null,
+      "raw": {
+        "@_fa": "true",
+        "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105046947039",
+        "dc:identifier": "SCOPUS_ID:105046947039",
+        "eid": "2-s2.0-105046947039",
+        "dc:title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+        "dc:creator": "Dozhdikov A.V.",
+        "prism:publicationName": "Frontiers in Big Data",
+        "prism:coverDate": "2026-01-01",
+        "prism:doi": "10.3389/fdata.2026.1842233",
+        "citedby-count": "0",
+        "prism:aggregationType": "Journal",
+        "subtype": "ar",
+        "subtypeDescription": "Article",
+        "openaccess": "1",
+        "openaccessFlag": true,
+        "freetoread": {
+          "value": [
+            {
+              "$": "all"
+            },
+            {
+              "$": "publisherfullgold"
+            },
+            {
+              "$": "repository"
+            },
+            {
+              "$": "repositoryam"
+            }
+          ]
+        },
+        "freetoreadLabel": {
+          "value": [
+            {
+              "$": "All Open Access"
+            },
+            {
+              "$": "Gold"
+            },
+            {
+              "$": "Green"
+            }
+          ]
+        }
+      }
+    },
+    "auto_accept_reason": "author-scoped Scopus AU-ID record",
+    "title_en": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+    "venue_en": "Frontiers in Big Data",
+    "title_ru": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+    "venue_ru": "Frontiers in Big Data",
+    "title_en_source": "scopus",
+    "venue_en_source": "scopus",
+    "title_ru_display": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+    "crossref_metadata": {
+      "source": "crossref_api",
+      "doi": "10.3389/fdata.2026.1842233",
+      "type": "journal-article",
+      "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+      "subtitle": null,
+      "container_title": "Frontiers in Big Data",
+      "publisher": "Frontiers Media SA",
+      "volume": "9",
+      "issue": null,
+      "page": "",
+      "year": 2026,
+      "issn": [
+        "2624-909X"
+      ],
+      "isbn": null,
+      "url": "https://doi.org/10.3389/fdata.2026.1842233"
+    },
+    "volume": "9",
+    "publisher": "Frontiers Media SA",
+    "publication_type": "journal-article",
+    "gost_ru": "Dozhdikov A.V. Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization. // Frontiers in Big Data. — 2026. — Т. 9. — DOI: 10.3389/fdata.2026.1842233.",
+    "apa_en": "Dozhdikov, A. V. (2026). Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization. Frontiers in Big Data, 9. https://doi.org/10.3389/fdata.2026.1842233"
+  },
+  {
     "source": "elibrary_rinc_saved_html",
     "number": 4,
     "elibrary_item_id": "80640587",
@@ -10399,8 +10508,8 @@
           "awards": [],
           "funders": [],
           "has_content": {
-            "pdf": false,
-            "grobid_xml": false
+            "grobid_xml": false,
+            "pdf": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
@@ -14793,8 +14902,8 @@
           "awards": [],
           "funders": [],
           "has_content": {
-            "pdf": false,
-            "grobid_xml": false
+            "grobid_xml": false,
+            "pdf": false
           },
           "content_urls": null,
           "referenced_works_count": 0,
@@ -18270,16 +18379,16 @@
           },
           "sustainable_development_goals": [
             {
-              "display_name": "Reduced inequalities",
               "id": "https://metadata.un.org/sdg/10",
-              "score": 0.5199999809265137
+              "score": 0.5199999809265137,
+              "display_name": "Reduced inequalities"
             }
           ],
           "awards": [],
           "funders": [],
           "has_content": {
-            "pdf": false,
-            "grobid_xml": false
+            "grobid_xml": false,
+            "pdf": false
           },
           "content_urls": null,
           "referenced_works_count": 0,

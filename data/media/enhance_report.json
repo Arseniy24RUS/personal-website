@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-08-31T09:49:03+00:00",
+  "generated_at": "2026-09-07T08:23:21+00:00",
   "published": 9,
-  "rejected_or_low_confidence": 23,
+  "rejected_or_low_confidence": 16,
   "providers": [
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii",
-      "bytes": 139057
+      "bytes": 137336
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.sobaka.ru/city/society/210740",
-      "bytes": 200085
+      "bytes": 199745
     },
     {
       "status": "ok",
@@ -25,13 +25,13 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27280",
-      "bytes": 47155
+      "bytes": 47154
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://t.me/tolk_tolk/27274",
-      "bytes": 42606
+      "bytes": 42604
     },
     {
       "status": "ok",
@@ -43,31 +43,30 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda",
-      "bytes": 113478
+      "bytes": 111757
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi",
-      "bytes": 143739
+      "bytes": 142355
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit",
-      "bytes": 129422
+      "bytes": 127920
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/",
-      "bytes": 60721
+      "bytes": 60460
     },
     {
-      "status": "ok",
-      "http_status": 200,
+      "status": "error",
       "url": "https://www.fnisc.ru/index.php?page_id=5",
-      "bytes": 46245
+      "error": "URLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)'))"
     },
     {
       "status": "ok",
@@ -334,277 +333,277 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/",
-      "bytes": 287543
+      "bytes": 278728
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/media",
-      "bytes": 273918
+      "bytes": 270498
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/staff/1045",
-      "bytes": 225745
+      "bytes": 226359
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education",
-      "bytes": 253039
+      "bytes": 252475
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/schools-and-departments",
-      "bytes": 269981
+      "bytes": 269985
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/organizaciya-uchebnogo-processa",
-      "bytes": 221974
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/education/educational-programs",
-      "bytes": 351433
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/education/schedule",
-      "bytes": 225731
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/education/nauchnaya-biblioteka",
-      "bytes": 314606
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/education/continuing",
-      "bytes": 228804
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/education/foreign-languages",
-      "bytes": 254688
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/education/mooc",
-      "bytes": 253626
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/education/fee-paying-education",
-      "bytes": 477668
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/education/rki",
-      "bytes": 256823
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/education/learning-quality-system",
-      "bytes": 226872
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/education/students-with-disabilities",
-      "bytes": 323785
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science",
-      "bytes": 248467
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/dad",
-      "bytes": 223811
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/grants",
-      "bytes": 221858
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/dissovet",
-      "bytes": 289888
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/laboratories-and-centers",
-      "bytes": 248794
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/conferences",
-      "bytes": 256863
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/smu",
-      "bytes": 235055
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/library",
-      "bytes": 251416
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/library/science-journal",
-      "bytes": 223876
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/research-institutes",
-      "bytes": 266104
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/nacionalnyy-proekt-nauka-i-universitety",
-      "bytes": 236545
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/research-partnerships",
-      "bytes": 275728
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/patents",
-      "bytes": 249136
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/poleznye-resursy",
-      "bytes": 248412
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/seminars",
-      "bytes": 267513
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/priority_research_areas",
-      "bytes": 299697
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/research-projects",
-      "bytes": 285783
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/students-and-research",
-      "bytes": 244803
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/science/rudn-scientists",
-      "bytes": 460679
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/about/ekologicheskaya-politika/science-projects",
-      "bytes": 237904
-    },
-    {
-      "status": "ok",
-      "http_status": 200,
-      "url": "https://www.rudn.ru/education/learning-quality-system/politics",
       "bytes": 221978
     },
     {
       "status": "ok",
       "http_status": 200,
+      "url": "https://www.rudn.ru/education/educational-programs",
+      "bytes": 351437
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/education/raspisanie",
+      "bytes": 213337
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/education/nauchnaya-biblioteka",
+      "bytes": 314610
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/education/continuing",
+      "bytes": 228808
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/education/foreign-languages",
+      "bytes": 264149
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/education/mooc",
+      "bytes": 253630
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/education/fee-paying-education",
+      "bytes": 477672
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/education/rki",
+      "bytes": 256827
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/education/learning-quality-system",
+      "bytes": 226876
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/education/students-with-disabilities",
+      "bytes": 323789
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science",
+      "bytes": 249310
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/dad",
+      "bytes": 223815
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/grants",
+      "bytes": 221862
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/dissovet",
+      "bytes": 290827
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/laboratories-and-centers",
+      "bytes": 248798
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/conferences",
+      "bytes": 264195
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/smu",
+      "bytes": 235059
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/library",
+      "bytes": 251420
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/library/science-journal",
+      "bytes": 223880
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/research-institutes",
+      "bytes": 266549
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/nacionalnyy-proekt-nauka-i-universitety",
+      "bytes": 236549
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/research-partnerships",
+      "bytes": 275732
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/patents",
+      "bytes": 249140
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/poleznye-resursy",
+      "bytes": 248416
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/seminars",
+      "bytes": 267517
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/priority_research_areas",
+      "bytes": 299701
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/research-projects",
+      "bytes": 285787
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/students-and-research",
+      "bytes": 245646
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/science/rudn-scientists",
+      "bytes": 460683
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/about/ekologicheskaya-politika/science-projects",
+      "bytes": 237908
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
+      "url": "https://www.rudn.ru/education/learning-quality-system/politics",
+      "bytes": 221982
+    },
+    {
+      "status": "ok",
+      "http_status": 200,
       "url": "https://www.rudn.ru/education/learning-quality-system/quality-management-model",
-      "bytes": 224378
+      "bytes": 224382
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/learning-quality-system/quality-assurance-service",
-      "bytes": 223758
+      "bytes": 223762
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/learning-quality-system/quality-assurance-program",
-      "bytes": 251028
+      "bytes": 251032
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/learning-quality-system/international-accreditation-of-educational-programs-rudn",
-      "bytes": 222415
+      "bytes": 222419
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/learning-quality-system/faq",
-      "bytes": 266495
+      "bytes": 266499
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/learning-quality-system/normativnoe-obespechenie-obrazovatelnoy-deyatelnosti",
-      "bytes": 287720
+      "bytes": 287724
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/learning-quality-system/obratnaya-svyaz-v-sisteme-kachestva-obucheniya",
-      "bytes": 234683
+      "bytes": 234687
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/dad/aspirantura",
-      "bytes": 213922
+      "bytes": 213926
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://chel.ranepa.ru/",
-      "bytes": 159753
+      "bytes": 159755
     },
     {
       "status": "ok",

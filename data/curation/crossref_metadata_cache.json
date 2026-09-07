@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T09:51:57+00:00",
+  "generated_at": "2026-09-07T08:26:17+00:00",
   "items": {
     "10.17853/1994-5639-2026-1-33-64": {
       "fetched_at": "2026-06-03T20:08:47+00:00",
@@ -530,6 +530,28 @@
         ],
         "isbn": null,
         "url": "https://doi.org/10.21064/winrs.2025.4.7"
+      }
+    },
+    "10.3389/fdata.2026.1842233": {
+      "fetched_at": "2026-09-07T08:26:16+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.3389/fdata.2026.1842233",
+        "type": "journal-article",
+        "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+        "subtitle": null,
+        "container_title": "Frontiers in Big Data",
+        "publisher": "Frontiers Media SA",
+        "volume": "9",
+        "issue": null,
+        "page": "",
+        "year": 2026,
+        "issn": [
+          "2624-909X"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.3389/fdata.2026.1842233"
       }
     }
   },
