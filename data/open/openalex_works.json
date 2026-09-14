@@ -1,7 +1,7 @@
 {
   "meta": {
     "count": 13,
-    "db_response_time_ms": 66,
+    "db_response_time_ms": 61,
     "page": 1,
     "per_page": 200,
     "groups_count": null,
@@ -438,8 +438,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -964,8 +964,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4416843219.pdf",
@@ -2001,8 +2001,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4415774327.pdf",
@@ -2587,8 +2587,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4415774334.pdf",
@@ -3356,17 +3356,17 @@
         "currency": "RUB",
         "value_usd": 333
       },
-      "fwci": 8.4181,
+      "fwci": 7.751,
       "has_fulltext": false,
       "cited_by_count": 3,
       "citation_normalized_percentile": {
-        "value": 0.97225699,
+        "value": 0.96930768,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
       "cited_by_percentile_year": {
-        "min": 98,
-        "max": 99
+        "min": 97,
+        "max": 98
       },
       "biblio": {
         "volume": "27",
@@ -3645,8 +3645,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 33,
@@ -4388,7 +4388,7 @@
           "cited_by_count": 3
         }
       ],
-      "updated_date": "2026-08-18T07:49:30.821534",
+      "updated_date": "2026-09-11T09:22:31.653822",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -4713,8 +4713,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4410943920.pdf",
@@ -5606,8 +5606,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -6373,11 +6373,11 @@
       "corresponding_institution_ids": [],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 2.9135,
+      "fwci": 2.8978,
       "has_fulltext": true,
       "cited_by_count": 4,
       "citation_normalized_percentile": {
-        "value": 0.91992049,
+        "value": 0.91987131,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -6569,8 +6569,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": true,
-        "pdf": true
+        "pdf": true,
+        "grobid_xml": true
       },
       "content_urls": {
         "pdf": "https://content.openalex.org/works/W4386310774.pdf",
@@ -6615,18 +6615,54 @@
         "https://openalex.org/W2765299608"
       ],
       "abstract_inverted_index": {
-        "-": [
+        "МЕТОДИЧЕСКИЙ": [
           0
         ],
-        ".": [
-          1,
+        "ПОДХОД": [
+          1
+        ],
+        "К": [
           2
         ],
-        "a": [
+        "АНАЛИЗУ": [
           3
         ],
-        ",": [
+        "СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИХ": [
           4
+        ],
+        "ФАКТОРОВ": [
+          5
+        ],
+        "ФОРМИРОВАНИЯ": [
+          6
+        ],
+        "ОПОРНОГО": [
+          7
+        ],
+        "КАРКАСА": [
+          8
+        ],
+        "РАССЕЛЕНИЯ": [
+          9
+        ],
+        "О.": [
+          10
+        ],
+        "А.": [
+          11,
+          15
+        ],
+        "Козлова": [
+          12
+        ],
+        "a": [
+          13
+        ],
+        ",": [
+          14
+        ],
+        "М": [
+          16
         ]
       },
       "counts_by_year": [
@@ -6643,7 +6679,7 @@
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-08-18T07:49:30.821534",
+      "updated_date": "2026-09-08T07:41:39.490200",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -6932,8 +6968,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -7421,8 +7457,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -8537,8 +8573,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -9966,8 +10002,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,
@@ -10861,8 +10897,8 @@
       "awards": [],
       "funders": [],
       "has_content": {
-        "grobid_xml": false,
-        "pdf": false
+        "pdf": false,
+        "grobid_xml": false
       },
       "content_urls": null,
       "referenced_works_count": 0,

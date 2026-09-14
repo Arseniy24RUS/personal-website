@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-09-07T08:23:21+00:00",
+  "generated_at": "2026-09-14T08:59:35+00:00",
   "published": 9,
-  "rejected_or_low_confidence": 16,
+  "rejected_or_low_confidence": 22,
   "providers": [
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii",
-      "bytes": 137336
+      "bytes": 137880
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.sobaka.ru/city/society/210740",
-      "bytes": 199745
+      "bytes": 200235
     },
     {
       "status": "ok",
@@ -43,30 +43,31 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda",
-      "bytes": 111757
+      "bytes": 112301
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi",
-      "bytes": 142355
+      "bytes": 142321
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit",
-      "bytes": 127920
+      "bytes": 128497
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/",
-      "bytes": 60460
+      "bytes": 60497
     },
     {
-      "status": "error",
+      "status": "ok",
+      "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=5",
-      "error": "URLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1016)'))"
+      "bytes": 46245
     },
     {
       "status": "ok",
@@ -173,7 +174,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2475",
-      "bytes": 45671
+      "bytes": 45765
     },
     {
       "status": "ok",
@@ -215,7 +216,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=3016",
-      "bytes": 47872
+      "bytes": 48190
     },
     {
       "status": "ok",
@@ -287,7 +288,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.fnisc.ru/index.php?page_id=2362",
-      "bytes": 55853
+      "bytes": 55854
     },
     {
       "status": "error",
@@ -333,13 +334,13 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/",
-      "bytes": 278728
+      "bytes": 278794
     },
     {
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/media",
-      "bytes": 270498
+      "bytes": 271428
     },
     {
       "status": "ok",
@@ -351,7 +352,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education",
-      "bytes": 252475
+      "bytes": 252407
     },
     {
       "status": "ok",
@@ -429,7 +430,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science",
-      "bytes": 249310
+      "bytes": 249775
     },
     {
       "status": "ok",
@@ -447,7 +448,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/dissovet",
-      "bytes": 290827
+      "bytes": 291084
     },
     {
       "status": "ok",
@@ -459,7 +460,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/conferences",
-      "bytes": 264195
+      "bytes": 269388
     },
     {
       "status": "ok",
@@ -483,7 +484,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/research-institutes",
-      "bytes": 266549
+      "bytes": 266701
     },
     {
       "status": "ok",
@@ -531,7 +532,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/science/students-and-research",
-      "bytes": 245646
+      "bytes": 246371
     },
     {
       "status": "ok",
@@ -543,7 +544,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/about/ekologicheskaya-politika/science-projects",
-      "bytes": 237908
+      "bytes": 237902
     },
     {
       "status": "ok",
@@ -579,7 +580,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://www.rudn.ru/education/learning-quality-system/faq",
-      "bytes": 266499
+      "bytes": 271144
     },
     {
       "status": "ok",
@@ -609,7 +610,7 @@
       "status": "ok",
       "http_status": 200,
       "url": "https://chel.ranepa.ru/novosti/",
-      "bytes": 160676
+      "bytes": 160684
     }
   ]
 }
