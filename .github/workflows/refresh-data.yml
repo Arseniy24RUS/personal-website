@@ -104,20 +104,21 @@ jobs:
           if test -d "$PORTFOLIO_RUN_DIR/portfolio-stage"; then
             sudo chown -R "$(id -u):$(id -g)" "$PORTFOLIO_RUN_DIR/portfolio-stage"
           fi
-      - name: Export safe collection diagnostics
-        if: always()
-        run: python scripts/refresh_pipeline.py diagnostics --stage "$PORTFOLIO_RUN_DIR/portfolio-stage" --output "$RUNNER_TEMP/refresh-diagnostics"
       - name: Stop tunnel and remove private state
         if: always()
         run: bash scripts/home_vpn.sh stop
       - name: Promote and validate safe candidate
         run: |
           python scripts/refresh_pipeline.py promote --stage "$PORTFOLIO_RUN_DIR/portfolio-stage"
-          python scripts/validate_retention.py --baseline-ref "$REFRESH_BASE_SHA" --report data/audit/retention_report.json
+          python scripts/validate_retention.py --baseline-ref "$REFRESH_BASE_SHA" --report "$PORTFOLIO_RUN_DIR/portfolio-stage/data/audit/retention_report.json"
+          cp "$PORTFOLIO_RUN_DIR/portfolio-stage/data/audit/retention_report.json" data/audit/retention_report.json
           python scripts/check_seo.py
           git diff --check
       - name: Browser checks on refreshed data
         run: npm run test:e2e
+      - name: Export safe collection diagnostics
+        if: always()
+        run: python scripts/refresh_pipeline.py diagnostics --stage "$PORTFOLIO_RUN_DIR/portfolio-stage" --output "$RUNNER_TEMP/refresh-diagnostics"
       - name: Save sanitized diagnostics
         if: always()
         uses: actions/upload-artifact@v4

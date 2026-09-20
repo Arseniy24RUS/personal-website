@@ -280,7 +280,15 @@ def login_wos(context, profile_url, timeout=180):
             if user is not None and secret is not None and not submitted:
                 user.fill(username)
                 secret.fill(password)
-                if not click_named(page, r'^Sign in$|^Войти$'):
+                # Live ORCID form: button#signin-button, "Sign in to ORCID".
+                # Its cookie banner may mount after the fields have appeared.
+                consent = visible(page, ['#onetrust-reject-all-handler', '#onetrust-accept-btn-handler'])
+                if consent is not None:
+                    consent.click()
+                submit = visible(page, ['button#signin-button[type="submit"]'])
+                if submit is not None:
+                    submit.click(timeout=15000)
+                elif not click_named(page, r'^Sign in(?: to ORCID)?$|^Войти(?: в ORCID)?$'):
                     raise AuthFailure('orcid_submit_changed')
                 submitted = True
                 continue

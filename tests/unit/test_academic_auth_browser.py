@@ -79,7 +79,7 @@ class AuthBrowserTests(unittest.TestCase):
                 authenticated = True
                 html = f'<body><script>location.href="{profile_url}"</script></body>'
             elif url.startswith('https://orcid.org/oauth/'):
-                html = '''<body><form method="post" action="/finish"><input id="username-input"><input type="password"><button>Sign in</button></form></body>'''
+                html = '''<body><form method="post" action="/finish"><input id="username-input"><input type="password"><button id="signin-button" type="submit">Sign in to ORCID</button></form></body>'''
             elif authenticated:
                 html = '<body><button data-ta="user-menu">Account</button><p>Author works</p></body>'
             else:
