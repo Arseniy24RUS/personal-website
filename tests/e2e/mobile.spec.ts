@@ -100,11 +100,11 @@ test.describe('mobile portfolio layout', () => {
     });
   }
 
-  test('publication source dates distinguish collection from saved snapshots', async ({page}) => {
+  test('publication search works without public collector diagnostics', async ({page}) => {
     await page.goto('/publications.html');
-    await expect(page.locator('[data-source-health]')).toContainText('Scopus');
     await page.locator('#q').fill('10.17853/1994-5639-2026-1-33-64');
     await expect(page.locator('#count')).toHaveText('1');
+    await expect(page.locator('[data-source-health]')).toHaveCount(0);
   });
 
   test('teaching lecture thumbnails render from local assets', async ({ page }) => {
