@@ -177,12 +177,41 @@ class CVUIBrowserTests(unittest.TestCase):
         self.assertEqual(str(caught.exception), 'cv_export_job_failed')
 
     def test_timeout_is_bounded_and_does_not_make_polling_requests(self):
+        from types import SimpleNamespace
+
         page, calls = self.fixture(behavior='timeout')
-        started = time.monotonic()
-        with self.assertRaises(cv.CVExportError) as caught:
-            cv.fetch_wos_cv(page, timeout=2)
+        clock = {'started': None, 'expired': False}
+        ordinary_wait = page.wait_for_timeout
+        waits = []
+
+        def monotonic():
+            current = time.monotonic()
+            if clock['started'] is None:
+                clock['started'] = current
+            return clock['started'] + 121 if clock['expired'] else current
+
+        def finish_job_wait(milliseconds):
+            if any(path == cv.CREATE_PATH and method == 'POST' for _, path, method in calls):
+                waits.append(milliseconds)
+                # Expire after the ordinary UI starts its job, between guard
+                # calls. A two-second wall-clock limit can instead expire
+                # inside a legitimate challenge observation on a slower runner.
+                clock['expired'] = True
+                return ordinary_wait(0)
+            return ordinary_wait(milliseconds)
+
+        # Replace this module's clock only. provider_auth and Playwright keep
+        # their real clocks and all production CAPTCHA checks remain active.
+        with patch.object(cv, 'time', SimpleNamespace(monotonic=monotonic)), \
+                patch.object(page, 'wait_for_timeout', side_effect=finish_job_wait), \
+                self.assertRaises(cv.CVExportError) as caught:
+            cv.fetch_wos_cv(page, timeout=120)
         self.assertEqual(caught.exception.reason, 'cv_export_timeout')
-        self.assertLess(time.monotonic() - started, 3)
+        self.assertTrue(clock['expired'])
+        self.assertEqual(len(waits), 1)
+        self.assertLessEqual(waits[0], cv.POLL_SECONDS * 1000)
+        self.assertEqual(page.evaluate('window.downloadClicks'), 1)
+        self.assertEqual(sum(path == cv.CREATE_PATH and method == 'POST' for _, path, method in calls), 1)
         self.assertFalse(any(path == cv.TASK_PATH for _, path, _ in calls))
 
     def test_visible_challenge_stops_before_export_button(self):
