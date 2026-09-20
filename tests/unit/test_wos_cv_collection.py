@@ -87,6 +87,13 @@ class CvCollectionTests(unittest.TestCase):
         dom.assert_not_called()
         verify.assert_not_called()
 
+    def test_known_export_failure_keeps_only_its_fixed_diagnostic_reason(self):
+        from wos_cv_export import CVExportError
+        report, _, dom, _ = self.run_collection(MagicMock(side_effect=CVExportError('cv_export_controls_missing')))
+        self.assertEqual(report['cv_export']['reason'], 'cv_export_controls_missing')
+        self.assertTrue(report['complete'])
+        dom.assert_called_once()
+
     def test_wrong_export_author_is_not_treated_as_retriable_download_failure(self):
         document = exported()
         document['author']['rid'] = 'OTHER-1'

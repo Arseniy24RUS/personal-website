@@ -394,7 +394,8 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
         emit()
 
     if cv_export is not None:
-        from parse_wos_cv import parse_wos_cv
+        from parse_wos_cv import parse_wos_cv, CvParseError
+        from wos_cv_export import CVExportError
         try:
             # Export follows the site's own UI and belongs to this login. The
             # profile metrics above have already been durably checkpointed.
@@ -412,6 +413,8 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
                 save_metrics(cv_metrics, observed_at=component_state(cv_state, 'metrics')['last_success_at'])
             complete = component_state(cv_state, 'publications').get('complete') is True
             cv_attempt = {'status': 'success' if complete else 'partial'}
+            if not complete:
+                cv_attempt['reason'] = component_state(cv_state, 'publications').get('reason')
             publication_transport = 'cv_export'
             batch(cv_payload['publications'], complete)
             if complete:
@@ -422,6 +425,8 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
             cv_attempt = {'status': 'blocked', 'reason': exc.reason}
             fail('publications', exc)
             return report, payloads
+        except (CvParseError, CVExportError) as exc:
+            cv_attempt = {'status': 'error', 'reason': exc.reason}
         except Exception:
             # Raw export exceptions can include download URLs or CV sections.
             cv_attempt = {'status': 'error', 'reason': 'cv_export_unavailable'}
