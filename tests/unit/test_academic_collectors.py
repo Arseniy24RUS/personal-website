@@ -49,6 +49,15 @@ class CollectionTests(unittest.TestCase):
             result, diagnostic = opening.fetch_cursor_pages('https://api.crossref.org/works', {}, 'crossref')
         self.assertEqual(len(result['message']['items']), 2)
 
+    def test_crossref_cursor_does_not_send_forbidden_published_sort(self):
+        payload = {'message': {'total-results': 2, 'items': [{'DOI': 'old', 'published': {'date-parts': [[2020]]}}, {'DOI': 'new', 'published': {'date-parts': [[2026]]}}]}}
+        with patch.object(opening, 'get_json', return_value=(payload, {})) as request:
+            result, _ = opening.fetch_cursor_pages('https://api.crossref.org/works', {'sort': 'published', 'order': 'desc', 'filter': 'orcid:test'}, 'crossref')
+        self.assertNotIn('sort=', request.call_args.args[0])
+        self.assertNotIn('order=', request.call_args.args[0])
+        self.assertIn('cursor=', request.call_args.args[0])
+        self.assertEqual(result['message']['items'][0]['DOI'], 'new')
+
     def test_partial_pages_never_form_a_successful_snapshot(self):
         for second in ((None, {'reason': 'http_429'}), ({'meta': {'count': 2}, 'results': []}, {})):
             with self.subTest(second=second), patch.object(opening, 'get_json', side_effect=[({'meta': {'count': 2, 'next_cursor': 'n'}, 'results': [{'id': 'a'}]}, {}), second]):
@@ -163,6 +172,16 @@ class CollectionTests(unittest.TestCase):
         for text, expected in samples:
             self.assertEqual(auth.challenge_reason(text), expected)
         self.assertIsNone(auth.challenge_reason('Scientific publication about Turing machines'))
+        self.assertEqual(auth.challenge_reason('Invalid sign in details. Please check your ORCID sign in details and then try signing in again.'), 'invalid_credentials')
+
+    def test_orcid_response_evidence_is_specific_and_private(self):
+        payload = {'success': False, 'errors': ['private message'], 'email': 'private@example.test', 'url': 'https://orcid.org?token=private'}
+        evidence = auth.orcid_auth_response_evidence(200, payload)
+        self.assertEqual(evidence['reason'], 'orcid_signin_rejected')
+        self.assertNotIn('private', json.dumps(evidence))
+        self.assertEqual(auth.orcid_auth_response_evidence(200, {'verificationCodeRequired': True})['reason'], 'mfa_required')
+        self.assertIsNone(auth.orcid_auth_response_evidence(200, {'success': True})['reason'])
+        self.assertEqual(auth.orcid_auth_response_evidence(401, {})['reason'], 'orcid_auth_http_401')
 
     def test_vpn_mismatch_stops_before_login(self):
         with tempfile.TemporaryDirectory() as directory:

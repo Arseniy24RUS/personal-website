@@ -165,6 +165,12 @@ def normalize_crossref_works(payload):
 
 def fetch_cursor_pages(base_url, params, provider):
     """Keep partial pages out of the last-good cache."""
+    params = dict(params)
+    if provider == 'crossref':
+        # Since 2026-08-24 Crossref rejects cursor + published/issued sorting.
+        # https://community.crossref.org/t/16246
+        params.pop('sort', None)
+        params.pop('order', None)
     cursor = '*'
     seen = set()
     collected = []
@@ -204,6 +210,7 @@ def fetch_cursor_pages(base_url, params, provider):
     if provider == 'openalex':
         first['results'] = collected
     else:
+        collected.sort(key=lambda row: tuple(((row.get('published') or row.get('issued') or {}).get('date-parts') or [[]])[0]), reverse=True)
         first['message']['items'] = collected
     return first, {'status': 'ok', 'pages': len(seen)}
 

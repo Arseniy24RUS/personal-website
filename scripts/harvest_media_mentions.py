@@ -31,6 +31,8 @@ OUT = Path('data/media')
 QUEUE = Path('data/admin_queue')
 CONFIG = Path(os.environ.get('MEDIA_SOURCES_YAML', 'config/media_sources.yml'))
 FETCH_DEADLINE = None
+HOST_FAILURES = {}
+HOST_FAILURE_LIMIT = 3
 TRACKING = re.compile(r'^(utm_|fbclid$|gclid$|yclid$)', re.I)
 STATIC = re.compile(r'\.(?:css|js|png|jpe?g|gif|svg|webp|pdf|docx?|xlsx?|zip)(?:$|\?)', re.I)
 SURNAME = r'(?:ситковск(?:ий|ого|ому|им|ом)|sitkovsk(?:iy|ij|y|ii|i))'
@@ -71,11 +73,15 @@ def write_json(path, value):
 
 def fetch_text(url, accept='text/html,application/xml,text/xml,*/*', attempts=3):
     report = {'url': url, 'status': 'error'}
+    host = urlparse(url).netloc.lower().removeprefix('www.')
     for attempt in range(attempts):
+        if HOST_FAILURES.get(host, 0) >= HOST_FAILURE_LIMIT:
+            return None, {**report, 'status': 'circuit_open', 'reason': 'repeated_host_failures'}
         remaining = FETCH_DEADLINE - time.monotonic() if FETCH_DEADLINE else 60
         if remaining <= 2:
             return None, {**report, 'status': 'budget_exhausted'}
         try:
+            report['attempts'] = attempt + 1
             response = requests.get(url, timeout=(min(10, remaining / 2), min(25, remaining / 2)), headers={
                 'User-Agent': 'Mozilla/5.0 personal-website-media-monitor/2.0',
                 'Accept': accept, 'Accept-Language': 'en-US,en;q=0.8' if urlparse(url).netloc == 'news.google.com' else 'ru,en;q=0.8'}, stream=True)
@@ -83,11 +89,16 @@ def fetch_text(url, accept='text/html,application/xml,text/xml,*/*', attempts=3)
             if response.status_code != 200:
                 response.close()
                 report['status'] = 'http_error'
+                if response.status_code in (401, 403, 429, 500, 502, 503, 504):
+                    HOST_FAILURES[host] = HOST_FAILURES.get(host, 0) + 1
                 if response.status_code not in (429, 500, 502, 503, 504):
                     break
             else:
                 chunks, size = [], 0
                 for chunk in response.iter_content(65536):
+                    if FETCH_DEADLINE and time.monotonic() >= FETCH_DEADLINE:
+                        response.close()
+                        return None, {**report, 'status': 'budget_exhausted'}
                     size += len(chunk)
                     if size > 6_000_000:
                         response.close()
@@ -98,12 +109,30 @@ def fetch_text(url, accept='text/html,application/xml,text/xml,*/*', attempts=3)
                     encoding = 'utf-8'
                 text = b''.join(chunks).decode(encoding, errors='replace')
                 response.close()
+                HOST_FAILURES.pop(host, None)
                 return text, {**report, 'status': 'ok', 'bytes': size}
         except requests.RequestException as exc:
+            HOST_FAILURES[host] = HOST_FAILURES.get(host, 0) + 1
             report['reason'] = type(exc).__name__  # Do not store response bodies or headers.
         if attempt < attempts - 1:
-            time.sleep(2 ** attempt)
+            remaining = FETCH_DEADLINE - time.monotonic() if FETCH_DEADLINE else 60
+            time.sleep(min(2 ** attempt, max(0, remaining - 2)))
     return None, report
+
+
+def source_slices(sources):
+    """Reserve time for each configured source inside its channel's allocation."""
+    global FETCH_DEADLINE
+    sources = list(sources)
+    channel_deadline = FETCH_DEADLINE
+    try:
+        for index, source in enumerate(sources):
+            if channel_deadline is not None:
+                started = time.monotonic()
+                FETCH_DEADLINE = started + max(0, channel_deadline - started) / (len(sources) - index)
+            yield source
+    finally:
+        FETCH_DEADLINE = channel_deadline
 
 
 def score_record(text, title, url, cfg, force_publish=False):
@@ -188,7 +217,7 @@ def discover_listings(cfg, reports, state):
     items = []
     initial = (datetime.now(timezone.utc) - timedelta(days=int(cfg.get('initial_lookback_days', 90)))).date().isoformat()
     cutoff = state.setdefault('initial_cutoff', initial)
-    for source in cfg.get('listing_sources', []):
+    for source in source_slices(cfg.get('listing_sources', [])):
         raw, report = fetch_text(source['url'])
         if raw:
             try:
@@ -266,20 +295,26 @@ def resolve_original(link):
 
 def discover_rss(cfg, reports, state):
     items = []
-    for query in cfg.get('queries', []):
-        for lang, country in [('ru', 'RU'), ('en', 'US')]:
-            url = 'https://news.google.com/rss/search?' + urlencode({'q': query, 'hl': lang, 'gl': country, 'ceid': country + ':' + lang})
-            raw, report = fetch_text(url)
-            if raw:
-                try:
-                    root = ET.fromstring(raw)
-                    for node in root.findall('.//item'):
-                        items.append({'url': node.findtext('link'), 'title': clean(node.findtext('title')),
-                                      'published_at': parse_date_value(node.findtext('pubDate')),
-                                      'source': 'google_news_rss', 'source_name': node.findtext('source'), 'query': query})
-                except ET.ParseError:
-                    report.update(status='parse_error', reason='invalid_rss')
-            reports.append(report)
+    feeds = [(query, lang, country) for query in cfg.get('queries', []) for lang, country in [('ru', 'RU'), ('en', 'US')]]
+    offset = int(state.get('rss_cursor', {}).get('next_index', 0)) % max(1, len(feeds))
+    for index in list(range(offset, len(feeds))) + list(range(offset)):
+        query, lang, country = feeds[index]
+        url = 'https://news.google.com/rss/search?' + urlencode({'q': query, 'hl': lang, 'gl': country, 'ceid': country + ':' + lang})
+        raw, report = fetch_text(url)
+        # A slow but reachable feed must not monopolize the first slot forever.
+        # Skips do not count as attempts; the next run resumes at the next query.
+        if report.get('attempts') or report.get('status') not in ('budget_exhausted', 'circuit_open'):
+            state['rss_cursor'] = {'next_index': (index + 1) % len(feeds), 'attempted_at': now()}
+        if raw:
+            try:
+                root = ET.fromstring(raw)
+                for node in root.findall('.//item'):
+                    items.append({'url': node.findtext('link'), 'title': clean(node.findtext('title')),
+                                  'published_at': parse_date_value(node.findtext('pubDate')),
+                                  'source': 'google_news_rss', 'source_name': node.findtext('source'), 'query': query})
+            except ET.ParseError:
+                report.update(status='parse_error', reason='invalid_rss')
+        reports.append(report)
     return items
 
 
@@ -326,7 +361,7 @@ def fetch_sitemap_urls(url, limit, allow_regex=None, max_sitemaps=12, state=None
 
 def discover_sitemaps(cfg, reports, state):
     items = []
-    for source in cfg.get('sitemap_sources', []):
+    for source in source_slices(cfg.get('sitemap_sources', [])):
         urls, source_reports = fetch_sitemap_urls(source['sitemap_url'], int(source.get('max_urls', 100)), source.get('url_allow_regex'), state=state)
         reports.extend(source_reports)
         items.extend({'url': url, 'source': 'sitemap_scan', 'source_name': source['name']} for url in urls)
@@ -336,7 +371,7 @@ def discover_sitemaps(cfg, reports, state):
 def discover_sites(cfg, reports, state):
     # Generic institutional scan remains bounded, with article extraction required.
     items = []
-    for source in cfg.get('site_scan_sources', []):
+    for source in source_slices(cfg.get('site_scan_sources', [])):
         allowed = re.compile(source.get('url_allow_regex', '.'))
         pending = [(url, 0) for url in source.get('start_urls', [])]
         visited = set()
@@ -364,7 +399,7 @@ def discover_sites(cfg, reports, state):
 
 def discover_telegram(cfg, reports, state):
     items = []
-    for source in cfg.get('telegram_channels', []):
+    for source in source_slices(cfg.get('telegram_channels', [])):
         url = 'https://t.me/s/' + source['channel']
         raw, report = fetch_text(url)
         reports.append(report)
@@ -430,6 +465,9 @@ def merge_discovery_state(existing, incoming):
     """
     result = {'processed': {}, 'pending': {}, 'sitemap_pending': {}}
     for state in (existing or {}, incoming or {}):
+        cursor = state.get('rss_cursor')
+        if cursor and cursor.get('attempted_at', '') >= result.get('rss_cursor', {}).get('attempted_at', ''):
+            result['rss_cursor'] = dict(cursor)
         cutoff = state.get('initial_cutoff')
         if cutoff:
             result['initial_cutoff'] = min(cutoff, result.get('initial_cutoff', cutoff))
@@ -471,7 +509,8 @@ def run(cfg, providers=None, max_articles=None, seeds_only=False, mirror=True, t
     global FETCH_DEADLINE
     started = time.monotonic()
     runtime_budget = int(cfg.get('max_runtime_seconds', 600))
-    FETCH_DEADLINE = started + min(180, runtime_budget / 3)
+    discovery_deadline = started + min(180, runtime_budget / 3)
+    HOST_FAILURES.clear()  # A later weekly run must retry an unavailable host.
     OUT.mkdir(parents=True, exist_ok=True)
     current = read_json(OUT / 'published.json', {'records': []})['records']
     old_report = read_json(OUT / 'harvest_report.json', {})
@@ -486,7 +525,19 @@ def run(cfg, providers=None, max_articles=None, seeds_only=False, mirror=True, t
     funcs = {'listings': discover_listings, 'rss': discover_rss, 'sitemaps': discover_sitemaps,
              'sites': discover_sites, 'telegram': discover_telegram}
     selected = [] if seeds_only else providers or list(funcs)
-    for provider in selected:
+    selected = list(dict.fromkeys(selected))
+    if 'listings' in selected:
+        selected.remove('listings')
+        selected.insert(0, 'listings')
+    # Required listings receive double weight. Every subsequent channel keeps a
+    # reserved share even if Google or another earlier channel times out.
+    weights = {'listings': 2}
+    discovery_budgets = []
+    for index, provider in enumerate(selected):
+        channel_started = time.monotonic()
+        weight = weights.get(provider, 1)
+        allocation = max(0, discovery_deadline - channel_started) * weight / sum(weights.get(p, 1) for p in selected[index:])
+        FETCH_DEADLINE = channel_started + allocation
         first_report = len(reports)
         try:
             for candidate in funcs[provider](cfg, reports, state):
@@ -497,6 +548,8 @@ def run(cfg, providers=None, max_articles=None, seeds_only=False, mirror=True, t
             reports.append({'collector': provider, 'status': 'error', 'reason': type(exc).__name__})
         for report in reports[first_report:]:
             report.update(collector=provider, required=provider == 'listings')
+        discovery_budgets.append({'collector': provider, 'budget_seconds': round(allocation, 2),
+                                  'elapsed_seconds': round(time.monotonic() - channel_started, 2)})
     FETCH_DEADLINE = started + runtime_budget
     listing_urls = {canonical(source['url']) for source in cfg.get('listing_sources', [])}
     for key in list(pending):
@@ -563,6 +616,7 @@ def run(cfg, providers=None, max_articles=None, seeds_only=False, mirror=True, t
               'required_sources_ok': required_ok,
               'published': len(published), 'new_records': len(published) - len(current),
               'low_confidence': len(queue), 'pending': len(pending), 'providers': reports,
+              'discovery_budgets': discovery_budgets,
               'images': post_reports, 'translation': translator.status if translator else 'disabled'}
     # Assert identity-level retention before promoting any public file.
     for old in current:

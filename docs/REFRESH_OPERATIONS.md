@@ -46,6 +46,13 @@ publish automatically; ambiguous matches remain in the JSON/CSV review queue.
 Existing reviewed entries win over automatic metadata, and failed image/translation
 downloads keep previous values. English fallback explicitly marks translation pending.
 
+The Argos RU–EN model and sentence splitter are provisioned and tested before the
+VPN starts, with a bounded setup time and a shared model cache. Collection uses
+offline translation only. Translation and metadata enrichment have separate time
+limits and transactional rollback: their failure leaves collected Russian records,
+existing translations and caches intact. `derived_steps.json` and the Actions
+summary expose failures without blocking otherwise validated data publication.
+
 One workflow owns scheduled publication. Legacy media/WoS workflow buttons call
 the same workflow. Writers share a concurrency group. Concurrent data commits
 are recombined on a clean checkout and revalidated; concurrent code/config changes

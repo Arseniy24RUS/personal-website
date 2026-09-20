@@ -100,6 +100,8 @@ def main():
         report['stage'] = stage
         if getattr(exc, 'diagnostics', None):
             report['diagnostics'] = exc.diagnostics
+        if getattr(exc, 'authentication_evidence', None):
+            report['authentication_evidence'] = exc.authentication_evidence
     except Exception as exc:
         initialization = browser_initialization_diagnostics(exc) if stage == 'initialization' else None
         report = source_result(previous_report, status='error', count=len(previous.get('records', [])), reason=initialization['reason'] if initialization else type(exc).__name__)

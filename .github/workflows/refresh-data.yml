@@ -32,6 +32,7 @@ env:
   PYTHONUNBUFFERED: '1'
   PLAYWRIGHT_BROWSERS_PATH: /opt/portfolio-browsers
   PORTFOLIO_RUN_DIR: /opt/portfolio-runner
+  PORTFOLIO_TRANSLATION_HOME: /opt/portfolio-runner/translation
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -68,6 +69,31 @@ jobs:
         run: python scripts/export_profile_env.py
       - name: Prepare isolated candidate
         run: python scripts/refresh_pipeline.py prepare --stage "$PORTFOLIO_RUN_DIR/portfolio-stage"
+      - name: Restore offline translation models
+        id: translation-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: /opt/portfolio-runner/translation
+          key: argos-ru-en-1.11.0-minisbd-v1
+      - name: Prepare and verify offline RU-EN translation
+        id: translation-setup
+        run: |
+          mkdir -p "$PORTFOLIO_TRANSLATION_HOME"
+          sudo chown -R "$(id -u):$(id -g)" "$PORTFOLIO_TRANSLATION_HOME"
+          if python scripts/translation_runtime.py provision --root "$PORTFOLIO_TRANSLATION_HOME" --timeout 240 --report "$PORTFOLIO_RUN_DIR/portfolio-stage/data/audit/translation_model_setup.json"; then
+            echo 'Offline RU-EN translation verified.'
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+          else
+            result=$?
+            if test "$result" -ne 2; then exit "$result"; fi
+            echo 'Translation unavailable; collection will retain Russian text and retry later.'
+          fi
+      - name: Cache verified translation model
+        if: ${{ steps.translation-setup.outputs.ready == 'true' && steps.translation-cache.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@v4
+        with:
+          path: /opt/portfolio-runner/translation
+          key: argos-ru-en-1.11.0-minisbd-v1
       - name: Establish verified home route
         env:
           ELIBRARY_OPENVPN_CONFIG_B64: ${{ secrets.ELIBRARY_OPENVPN_CONFIG_B64 }}
@@ -76,6 +102,7 @@ jobs:
           bash scripts/home_vpn.sh start
           bash scripts/home_vpn.sh test-isolation
           sudo chown -R portfolio:portfolio "$PORTFOLIO_RUN_DIR/portfolio-stage"
+          sudo chown -R portfolio:portfolio "$PORTFOLIO_TRANSLATION_HOME"
           sudo install -d -o portfolio -g portfolio -m 700 "$PORTFOLIO_RUN_DIR/portfolio-runtime"
       - name: Collect and build candidate through home route
         env:
@@ -96,7 +123,7 @@ jobs:
           bash scripts/home_vpn.sh check
           stage="$PORTFOLIO_RUN_DIR/portfolio-stage"
           export RUNNER_TEMP="$PORTFOLIO_RUN_DIR/portfolio-runtime"
-          sudo --preserve-env=PATH,RUNNER_TEMP,PLAYWRIGHT_BROWSERS_PATH,PYTHONUNBUFFERED,HOME_VPN_REQUIRED,HOME_VPN_EXPECTED_IP_FILE,ELIBRARY_USERNAME,ELIBRARY_PASSWORD,WOS_ORCID_USERNAME,WOS_ORCID_PASSWORD,SCOPUS_API_KEY,SCOPUS_INST_TOKEN,OPENALEX_MAILTO,CROSSREF_MAILTO,ELIBRARY_AUTHOR_ID,ELIBRARY_PROFILE_URL,ELIBRARY_ITEMS_URL,ELIBRARY_SPIN,ORCID_ID,SCOPUS_AUTHOR_ID,WOS_RESEARCHER_ID,WOS_PROFILE_URL,ELIBRARY_BROWSER_HEADLESS,WOS_BROWSER_HEADLESS \
+          sudo --preserve-env=PATH,RUNNER_TEMP,PLAYWRIGHT_BROWSERS_PATH,PYTHONUNBUFFERED,PORTFOLIO_TRANSLATION_HOME,HOME_VPN_REQUIRED,HOME_VPN_EXPECTED_IP_FILE,ELIBRARY_USERNAME,ELIBRARY_PASSWORD,WOS_ORCID_USERNAME,WOS_ORCID_PASSWORD,SCOPUS_API_KEY,SCOPUS_INST_TOKEN,OPENALEX_MAILTO,CROSSREF_MAILTO,ELIBRARY_AUTHOR_ID,ELIBRARY_PROFILE_URL,ELIBRARY_ITEMS_URL,ELIBRARY_SPIN,ORCID_ID,SCOPUS_AUTHOR_ID,WOS_RESEARCHER_ID,WOS_PROFILE_URL,ELIBRARY_BROWSER_HEADLESS,WOS_BROWSER_HEADLESS \
             -H -u portfolio /bin/bash "$stage/scripts/run_collection.sh" "$stage" "$(command -v python)" "$REFRESH_SOURCES"
       - name: Return candidate ownership to runner
         if: always()

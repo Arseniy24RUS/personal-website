@@ -76,6 +76,77 @@ class ReportSafetyTests(unittest.TestCase):
 
 
 class RefreshStageTests(unittest.TestCase):
+    def test_prepare_does_not_reuse_prior_run_validation(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root, stage = Path(temporary) / 'checkout', Path(temporary) / 'stage'
+            paths = ['data/public/publications.json', 'data/audit/retention_report.json',
+                     'data/audit/refresh_pipeline_audit.json', 'data/audit/derived_steps.json']
+            for name in paths:
+                dump(root / name, {'prior': True})
+
+            def git_output(argv, **kwargs):
+                return '\0'.join(paths).encode() if argv[1] == 'ls-files' else 'base-sha\n'
+
+            with patch.object(pipeline, 'ROOT', root), \
+                 patch.object(pipeline.subprocess, 'check_output', side_effect=git_output):
+                pipeline.prepare(stage)
+            self.assertTrue((stage / paths[0]).exists())
+            for name in paths[1:]:
+                self.assertFalse((stage / name).exists())
+            self.assertEqual(load(stage / 'data/audit/refresh_run.json')['state'], 'collecting')
+
+    def test_optional_timeout_restores_collected_publications_and_cache(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            stage = Path(temporary)
+            publications = stage / 'data/public/publications.json'
+            cache = stage / 'data/curation/publication_title_translations.json'
+            dump(publications, [{'id': 'fresh', 'title': 'Свежая работа', 'title_en': 'Manual title'}])
+            dump(cache, {'manual': 'preserved'})
+            original = publications.read_bytes(), cache.read_bytes()
+            executed = []
+
+            def timeout_after_partial_write(script, cwd, timeout, args=()):
+                executed.append(script)
+                if script == 'translate_publication_titles.py':
+                    publications.write_text('{broken', encoding='utf-8')
+                    cache.write_text('{}', encoding='utf-8')
+                    dump(stage / 'data/audit/publication_title_translation_report.json', {'partial': True})
+                    return 124, 'timeout'
+                return 0, 'completed'
+
+            with patch.object(pipeline, 'DERIVED', [('translate_publication_titles.py', 1), ('sanitize_publication_references.py', 1)]), \
+                 patch.object(pipeline, 'run', side_effect=timeout_after_partial_write):
+                pipeline.derive(stage)
+            self.assertEqual((publications.read_bytes(), cache.read_bytes()), original)
+            self.assertFalse((stage / 'data/audit/publication_title_translation_report.json').exists())
+            self.assertEqual(executed[-1], 'sanitize_publication_references.py')
+            self.assertEqual(load(stage / 'data/audit/derived_steps.json')['steps'][0]['reason'], 'timeout')
+
+    def test_successful_exit_with_invalid_optional_json_is_rolled_back(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            stage = Path(temporary)
+            publications = stage / 'data/public/publications.json'
+            dump(publications, [{'id': 'published'}])
+
+            def malformed_output(*args):
+                publications.write_text('null', encoding='utf-8')
+                return 0, 'completed'
+
+            with patch.object(pipeline, 'DERIVED', [('translate_publication_titles.py', 1)]), \
+                 patch.object(pipeline, 'run', side_effect=malformed_output):
+                pipeline.derive(stage)
+            self.assertEqual(load(publications), [{'id': 'published'}])
+            self.assertEqual(load(stage / 'data/audit/derived_steps.json')['steps'][0]['reason'], 'invalid_enrichment_output')
+
+    def test_core_derived_failure_still_blocks_candidate(self):
+        with tempfile.TemporaryDirectory() as temporary, \
+             patch.object(pipeline, 'DERIVED', [('build_public_data.py', 1)]), \
+             patch.object(pipeline, 'run', return_value=(1, 'nonzero_exit')):
+            stage = Path(temporary)
+            with self.assertRaisesRegex(RuntimeError, 'Mandatory derived-data'):
+                pipeline.derive(stage)
+            self.assertEqual(load(stage / 'data/audit/derived_steps.json')['steps'][0]['status'], 'error')
+
     def test_promotion_rejects_unready_candidate_without_changing_destination(self):
         with tempfile.TemporaryDirectory() as temporary:
             stage, destination = Path(temporary) / 'stage', Path(temporary) / 'published'

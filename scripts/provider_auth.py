@@ -14,8 +14,9 @@ from urllib.parse import urlparse
 
 
 class AuthFailure(RuntimeError):
-    def __init__(self, reason):
+    def __init__(self, reason, authentication_evidence=None):
         self.reason = reason
+        self.authentication_evidence = authentication_evidence
         super().__init__(reason)
 
 
@@ -105,8 +106,12 @@ def challenge_reason(text, url=''):
         return 'mfa_required'
     if any(x in text for x in ('link your account', 'link an existing account', 'associate your account')):
         return 'account_link_required'
-    if any(x in text for x in ('неверный пароль', 'неверный логин', 'invalid username', 'incorrect password', 'incorrect email', 'bad username or password', 'invalid credentials')):
+    if any(x in text for x in ('неверный пароль', 'неверный логин', 'invalid username', 'incorrect password', 'incorrect email', 'bad username or password', 'invalid credentials', 'invalid sign in details', 'please check your orcid sign in details')):
         return 'invalid_credentials'
+    if 'please enter a valid email address or orcid' in text:
+        return 'invalid_username_format'
+    if 'you will need to reactivate the account' in text:
+        return 'account_reactivation_required'
     if 'ip_blocked' in url or 'заблокирован из-за нарушения' in text:
         return 'ip_blocked'
     return None
@@ -234,6 +239,27 @@ def provider_host(host, provider):
     return host == provider or host.endswith('.' + provider)
 
 
+def orcid_auth_response_evidence(status, payload):
+    """ORCID's public SignIn interface: retain only status and boolean flags."""
+    evidence = {'http_status': int(status), 'response_observed': True}
+    if not 200 <= status < 300:
+        evidence['reason'] = f'orcid_auth_http_{status}'
+        return evidence
+    if not isinstance(payload, dict):
+        evidence['reason'] = 'orcid_auth_response_unrecognized'
+        return evidence
+    mapping = {'verificationCodeRequired': 'mfa_required', 'disabled': 'account_reactivation_required', 'unclaimed': 'account_claim_required', 'deprecated': 'account_deprecated', 'invalidUserType': 'account_type_unsupported'}
+    for key in ('success', *mapping):
+        if key in payload:
+            evidence[key] = payload[key] is True or str(payload[key]).lower() == 'true'
+    evidence['reason'] = next((reason for key, reason in mapping.items() if evidence.get(key)), None)
+    if not evidence['reason'] and evidence.get('success') is False:
+        # A negative result alone does not distinguish credentials from other
+        # server-side failures. Only an explicit UI marker establishes that.
+        evidence['reason'] = 'orcid_signin_rejected'
+    return evidence
+
+
 def choose_orcid_signin(page, host):
     """Never confuse the author's public ORCID link with the SSO login option."""
     if provider_host(host, 'clarivate.com'):
@@ -258,6 +284,22 @@ def login_wos(context, profile_url, timeout=180):
     submitted = False
     selected_signin = False
     selected_orcid = False
+    auth_responses = []
+
+    def record_auth_response(response):
+        try:
+            address = urlparse(response.url)
+            if not provider_host(address.hostname or '', 'orcid.org') or address.path not in {'/signin/auth.json', '/login'} or response.request.method != 'POST':
+                return
+            try:
+                payload = response.json()
+            except Exception:
+                payload = None
+            auth_responses.append(orcid_auth_response_evidence(response.status, payload))
+        except Exception:
+            pass
+
+    context.on('response', record_auth_response)
     while time.monotonic() < deadline:
         if page.is_closed():
             page = context.pages[0]
@@ -265,6 +307,18 @@ def login_wos(context, profile_url, timeout=180):
         if page.is_closed():
             page = context.pages[0]
             continue
+        if auth_responses and auth_responses[-1].get('reason'):
+            reason = auth_responses[-1]['reason']
+            if reason == 'orcid_signin_rejected':
+                # The JSON response arrives before Angular renders its error.
+                # Give the explicit UI message a bounded opportunity to appear.
+                page.wait_for_timeout(1500)
+                try:
+                    assert_no_challenge(page)
+                except AuthFailure as failure:
+                    failure.authentication_evidence = auth_responses[-1]
+                    raise
+            raise AuthFailure(reason, authentication_evidence=auth_responses[-1])
         assert_no_challenge(page)
         dismiss = visible(page, ['#onetrust-reject-all-handler', '#onetrust-accept-btn-handler'])
         if dismiss is not None:
@@ -323,4 +377,4 @@ def login_wos(context, profile_url, timeout=180):
         # ORCID may close a popup when redirecting the original tab.
         if page.is_closed():
             page = context.pages[0]
-    raise AuthFailure('wos_login_not_confirmed' if submitted else 'wos_login_form_changed')
+    raise AuthFailure('wos_login_not_confirmed' if submitted else 'wos_login_form_changed', authentication_evidence=auth_responses[-1] if auth_responses else {'response_observed': False, 'submit_clicked': submitted})

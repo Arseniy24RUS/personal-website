@@ -142,6 +142,27 @@ class AuthBrowserTests(unittest.TestCase):
             self.assertNotIn(secret, diagnostics)
         self.assertIn('username', diagnostics)
 
+    def test_orcid_rejected_credentials_are_evidence_not_callback_timeout(self):
+        def route(request):
+            url = request.request.url
+            if url == 'https://www.webofscience.com/':
+                html = '<body><script>location.href="https://access.clarivate.com/login"</script></body>'
+            elif url.startswith('https://access.clarivate.com/'):
+                html = '<body><a href="https://orcid.org/signin">ORCID</a></body>'
+            elif url.endswith('/signin/auth.json'):
+                request.fulfill(status=200, content_type='application/json', body='{"success":false,"email":"private@example.test","errors":["private server detail"]}')
+                return
+            else:
+                html = '''<body><form onsubmit="event.preventDefault();fetch('/signin/auth.json',{method:'POST',body:'fixture'});"><input id="username-input"><input type="password"><button id="signin-button" type="submit">Sign in to ORCID</button></form></body>'''
+            request.fulfill(status=200, content_type='text/html', body=html)
+        self.context.route('**/*', route)
+        with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture-user', 'WOS_ORCID_PASSWORD': 'fixture-password'}):
+            with self.assertRaises(auth.AuthFailure) as caught:
+                auth.login_wos(self.context, 'https://www.webofscience.com/wos/author/record/TEST', timeout=20)
+        self.assertEqual(caught.exception.reason, 'orcid_signin_rejected')
+        self.assertFalse(caught.exception.authentication_evidence['success'])
+        self.assertNotIn('private', str(caught.exception.authentication_evidence))
+
 
 if __name__ == '__main__':
     unittest.main()

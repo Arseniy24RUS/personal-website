@@ -40,6 +40,10 @@ class MediaTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
+        for target, value in [('FETCH_DEADLINE', None), ('HOST_FAILURES', {})]:
+            p = patch.object(media, target, value)
+            p.start()
+            self.addCleanup(p.stop)
         for target, value in [('OUT', self.root / 'media'), ('QUEUE', self.root / 'queue')]:
             p = patch.object(media, target, value)
             p.start()
@@ -129,6 +133,92 @@ class MediaTests(unittest.TestCase):
             urls, _ = media.fetch_sitemap_urls('https://site.org/map.xml', 1, '/news/', state=state)
         self.assertEqual(len(urls), 2)  # All discovered items reach durable backlog.
 
+    def test_five_rss_timeouts_cannot_starve_other_discovery_channels(self):
+        clock = [100.0]
+        rss_calls, calls = [], []
+        rss_duration = [None]
+        cfg = {**CFG, 'queries': ['one', 'two', 'three'],
+               'sitemap_sources': [{'name': 'Map', 'sitemap_url': 'https://maps.org/map.xml'}],
+               'site_scan_sources': [{'name': 'Site', 'start_urls': ['https://site.org']}],
+               'telegram_channels': [{'channel': 'example'}]}
+
+        def fetch(url, *args, **kwargs):
+            if media.FETCH_DEADLINE - clock[0] <= 2:
+                return None, {'url': url, 'status': 'budget_exhausted'}
+            calls.append(url)
+            if 'news.google.com' in url:
+                if rss_duration[0] is None:
+                    rss_duration[0] = (media.FETCH_DEADLINE - clock[0]) / 5
+                clock[0] += rss_duration[0]
+                rss_calls.append(url)
+                return None, {'url': url, 'status': 'error', 'reason': 'ReadTimeout', 'attempts': 1}
+            if url in (ISESP['url'], ISD['url']):
+                return self.fake_fetch(url)
+            return ('<urlset/>' if 'maps.org' in url else '<html/>'), {'url': url, 'status': 'ok'}
+
+        with patch.object(media.time, 'monotonic', side_effect=lambda: clock[0]), patch.object(media, 'fetch_text', side_effect=fetch):
+            # Required listings must run first even with a different CLI order.
+            report = media.run(cfg, ['rss', 'listings', 'sitemaps', 'sites', 'telegram'], max_articles=0, mirror=False, translate=False)
+        self.assertEqual(calls[:2], [ISESP['url'], ISD['url']])
+        self.assertEqual(len(rss_calls), 5)
+        for url in ('https://maps.org/map.xml', 'https://site.org', 'https://t.me/s/example'):
+            self.assertIn(url, calls)
+        self.assertTrue(report['required_sources_ok'])
+        self.assertEqual(report['status'], 'partial')
+        self.assertFalse(report['complete'])
+        self.assertEqual(report['pending'], 2)  # Deferred article processing remains durable.
+        self.assertEqual(self.read('discovery_state.json')['rss_cursor']['next_index'], 5)
+        self.assertEqual({r['collector'] for r in report['discovery_budgets']}, {'rss', 'listings', 'sitemaps', 'sites', 'telegram'})
+
+    def test_slow_sitemap_cannot_starve_other_roots_and_stays_pending(self):
+        clock = [100.0]
+        calls = []
+        state, reports = {}, []
+        sources = [{'name': host, 'sitemap_url': 'https://' + host + '/map.xml'} for host in ('slow.org', 'reachable.org')]
+
+        def fetch(url):
+            calls.append(url)
+            if 'slow.org' in url:
+                clock[0] = media.FETCH_DEADLINE
+                return None, {'url': url, 'status': 'budget_exhausted'}
+            self.assertGreater(media.FETCH_DEADLINE, clock[0])
+            return '<urlset/>', {'url': url, 'status': 'ok'}
+
+        with patch.object(media, 'FETCH_DEADLINE', 130), patch.object(media.time, 'monotonic', side_effect=lambda: clock[0]), patch.object(media, 'fetch_text', side_effect=fetch):
+            media.discover_sitemaps({'sitemap_sources': sources}, reports, state)
+        self.assertEqual(calls, [s['sitemap_url'] for s in sources])
+        self.assertEqual(state['sitemap_pending']['https://slow.org/map.xml'], ['https://slow.org/map.xml'])
+
+    def test_host_circuit_breaker_is_local_and_retries_next_run(self):
+        ok = Mock(status_code=200, url='https://reachable.org', encoding='utf-8')
+        ok.iter_content.return_value = [b'<html>ok</html>']
+        with patch.object(media.requests, 'get', side_effect=[media.requests.ReadTimeout()] * 3 + [ok]) as get, patch.object(media.time, 'sleep'):
+            media.fetch_text('https://news.google.com/rss/one')
+            raw, report = media.fetch_text('https://news.google.com/rss/two')
+            self.assertIsNone(raw)
+            self.assertEqual(report['status'], 'circuit_open')
+            self.assertEqual(get.call_count, 3)
+            self.assertEqual(media.fetch_text('https://reachable.org')[1]['status'], 'ok')
+        ok.iter_content.return_value = [b'<rss><channel/></rss>']
+        with patch.object(media.requests, 'get', return_value=ok) as get:
+            media.run({'queries': ['test']}, ['rss'], mirror=False, translate=False)
+        self.assertEqual(get.call_count, 2)
+        self.assertFalse(media.HOST_FAILURES)
+
+    def test_rss_rotation_resumes_queries_skipped_by_budget(self):
+        state, reports = {}, []
+        cfg = {'queries': ['first', 'second']}
+        with patch.object(media, 'fetch_text', side_effect=[
+                ('<rss/>', {'status': 'ok'}), (None, {'status': 'error', 'reason': 'ReadTimeout'}),
+                (None, {'status': 'budget_exhausted'}), (None, {'status': 'budget_exhausted'})]):
+            media.discover_rss(cfg, reports, state)
+        self.assertEqual(state['rss_cursor']['next_index'], 2)
+        with patch.object(media, 'fetch_text', return_value=('<rss/>', {'status': 'ok'})) as fetch:
+            media.discover_rss(cfg, [], state)
+        self.assertIn('q=second&hl=ru', fetch.call_args_list[0].args[0])
+        merged = media.merge_discovery_state({'rss_cursor': {'next_index': 1, 'attempted_at': '2026-01-01'}}, state)
+        self.assertEqual(merged['rss_cursor'], state['rss_cursor'])
+
     def test_rss_body_score_after_redirect(self):
         candidate = {'url': 'https://news.google.com/rss/articles/opaque', 'source': 'google_news_rss', 'title': 'Uninformative feed title'}
         with patch.object(media, 'fetch_text', return_value=(ISD_ARTICLE, {'status': 'ok', 'final_url': 'https://isd-ras.ru/news/example'})):
@@ -180,12 +270,14 @@ class MediaTests(unittest.TestCase):
 
     def test_http_errors_and_retryable_rate_limit(self):
         for code in (401, 403):
+            media.HOST_FAILURES.clear()
             response = Mock(status_code=code, url='https://source.org')
             with patch.object(media.requests, 'get', return_value=response) as get:
                 raw, report = media.fetch_text('https://source.org')
             self.assertIsNone(raw)
             self.assertEqual(report['http_status'], code)
             self.assertEqual(get.call_count, 1)
+        media.HOST_FAILURES.clear()
         denied = Mock(status_code=429, url='https://source.org')
         ok = Mock(status_code=200, url='https://source.org', encoding='utf-8')
         ok.iter_content.return_value = [b'<html>ok</html>']

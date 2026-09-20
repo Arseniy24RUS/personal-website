@@ -28,10 +28,61 @@ SOURCES = [
 DERIVED = [
     ('build_public_data.py', 120),
     ('merge_wos_records_into_public_data.py', 120),
-    ('translate_publication_titles.py', 600),
-    ('enrich_publication_metadata.py', 600),
+    ('translate_publication_titles.py', 240),
+    ('enrich_publication_metadata.py', 300),
     ('sanitize_publication_references.py', 120),
 ]
+OPTIONAL_DERIVED = {
+    'translate_publication_titles.py': (
+        'data/public/publications.json', 'data/public/publications.tsv',
+        'data/curation/publication_title_translations.json',
+        'data/audit/publication_title_translation_report.json',
+    ),
+    'enrich_publication_metadata.py': (
+        'data/public/publications.json', 'data/public/publications.tsv',
+        'data/curation/crossref_metadata_cache.json',
+        'data/audit/publication_metadata_enrichment_report.json',
+    ),
+}
+
+
+def derive(stage: Path):
+    """Optional network enrichment is transactional; core generation must pass."""
+    steps = []
+    report_path = stage / 'data/audit/derived_steps.json'
+    for script, timeout in DERIVED:
+        optional = script in OPTIONAL_DERIVED
+        backup = {name: (stage / name).read_bytes() if (stage / name).exists() else None
+                  for name in OPTIONAL_DERIVED.get(script, ())}
+        step = {'script': script, 'optional': optional, 'attempted_at': now(), 'status': 'running'}
+        steps.append(step)
+        write(report_path, {'steps': steps})
+        print(f'Building: {script}', flush=True)
+        code, reason = run(script, stage, timeout)
+        if optional and not code:
+            try:
+                if not isinstance(read(stage / 'data/public/publications.json'), list):
+                    raise ValueError('Publication list required.')
+                for name in backup:
+                    if name.endswith('.json') and (stage / name).exists():
+                        read(stage / name)
+            except (ValueError, TypeError):
+                code, reason = 1, 'invalid_enrichment_output'
+        if code and optional:
+            for name, content in backup.items():
+                path = stage / name
+                if content is None:
+                    path.unlink(missing_ok=True)
+                else:
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_bytes(content)
+        step.update(status='error' if code else 'success', exit_code=code,
+                    reason=reason, completed_at=now())
+        write(report_path, {'steps': steps})
+        if code and not optional:
+            raise RuntimeError(f'Mandatory derived-data step failed: {script} ({reason}).')
+        if code:
+            print(f'Optional enrichment unavailable: {script} ({reason}); collected data retained.', flush=True)
 
 def now():
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
@@ -55,6 +106,10 @@ def prepare(destination: Path):
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, target)
     write(destination / 'data/audit/refresh_run.json', {'attempted_at': now(), 'base_sha': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), 'state': 'collecting'})
+    # A failed run must not export yesterday's validation as its own evidence.
+    for name in ('collector_steps.json', 'derived_steps.json', 'refresh_pipeline_audit.json',
+                 'retention_report.json', 'translation_model_setup.json'):
+        (destination / 'data/audit' / name).unlink(missing_ok=True)
     print('Isolated source and content snapshot prepared.')
 
 def run(script, cwd, timeout, args=()):
@@ -126,10 +181,7 @@ def collect(stage: Path, only: str):
         steps.append({'source': source, 'exit_code': code, 'reason': reason, 'attempted_at': attempted})
         print(f'{source}: {report.get("status", "error")} (exit {code})', flush=True)
     write(stage / 'data/audit/collector_steps.json', {'attempted_at': now(), 'steps': steps})
-    for script, timeout in DERIVED:
-        code, reason = run(script, stage, timeout)
-        if code:
-            raise RuntimeError(f'Mandatory derived-data step failed: {script} ({reason}).')
+    derive(stage)
     sanitize_public_tree(stage)
     code, _ = run('audit_refresh_pipeline.py', stage, 120)
     if code not in (0, 2):
@@ -176,6 +228,11 @@ def health(root: Path = ROOT):
     summary = os.environ.get('GITHUB_STEP_SUMMARY')
     lines = ['### Source collection', '', '| Source | Fresh collection |', '|---|---|']
     lines += [f'| {key} | {"PASS" if ok else "NEEDS ATTENTION — previous data preserved"} |' for key, ok in results.items()]
+    enrichment = read(root / 'data/audit/derived_steps.json', {}).get('steps', [])
+    incomplete = [step for step in enrichment if step.get('status') != 'success']
+    if incomplete:
+        lines += ['', 'Optional enrichment requiring attention:']
+        lines += [f'- {step["script"]}: {step.get("reason", "not completed")}; collected data retained.' for step in incomplete if step.get('optional')]
     print('\n'.join(lines))
     if summary:
         with open(summary, 'a', encoding='utf-8') as f:
@@ -183,7 +240,7 @@ def health(root: Path = ROOT):
     return 0 if report['healthy'] else 2
 
 def diagnostics(stage: Path, destination: Path):
-    paths = [item[2] for item in SOURCES] + ['data/audit/refresh_run.json', 'data/audit/collector_steps.json', 'data/audit/refresh_pipeline_audit.json', 'data/audit/retention_report.json']
+    paths = [item[2] for item in SOURCES] + ['data/audit/refresh_run.json', 'data/audit/collector_steps.json', 'data/audit/derived_steps.json', 'data/audit/translation_model_setup.json', 'data/audit/publication_title_translation_report.json', 'data/audit/publication_metadata_enrichment_report.json', 'data/audit/refresh_pipeline_audit.json', 'data/audit/retention_report.json']
     for name in paths:
         path = stage / name
         if path.exists():
