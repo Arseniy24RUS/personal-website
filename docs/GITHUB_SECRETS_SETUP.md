@@ -1,16 +1,22 @@
-# How to configure Scopus in GitHub Actions
+# GitHub Actions secrets
 
-1. Open the repository on GitHub.
-2. Go to `Settings` → `Secrets and variables` → `Actions`.
-3. Create a repository secret for the Scopus API key.
-4. Optional: create a repository secret for an Elsevier institutional token, if Elsevier provides one.
-5. Run `Actions` → `Refresh scientist portfolio data` → `Run workflow`.
+Configure repository secrets in **Settings → Secrets and variables → Actions**:
 
-Do not put keys into:
+| Secret | Purpose |
+| --- | --- |
+| `ELIBRARY_OPENVPN_CONFIG_B64` | Existing home OpenVPN configuration |
+| `ELIBRARY_USERNAME`, `ELIBRARY_PASSWORD` | Fresh eLibrary sign-in each run |
+| `WOS_ORCID_USERNAME`, `WOS_ORCID_PASSWORD` | WoS sign-in through ORCID |
+| `SCOPUS_API_KEY` | Elsevier Scopus API key |
+| `SCOPUS_INST_TOKEN` | Optional institutional entitlement issued by Elsevier |
 
-- `public/`
-- frontend React/JS code
-- static JSON files
-- committed YAML/MDX content
+The workflow no longer reads legacy cookie or storage-state secrets. A password
+change only requires updating its secret; browser sessions are created anew.
 
-For GitHub Pages, the correct architecture is: secret in GitHub Actions → data snapshot JSON → static website.
+Run **Actions → Refresh scientist portfolio data** with `dry_run=true` to verify
+credentials and collection without publishing. Inspect the source-health summary
+and sanitized diagnostics; a saved snapshot is not successful authentication.
+
+Never commit credentials into Python, YAML, documentation, browser JavaScript or
+public JSON. GitHub Pages receives only the validated public data snapshots.
+See [refresh operations](REFRESH_OPERATIONS.md) for failure states and deployment.

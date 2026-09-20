@@ -36,7 +36,7 @@ def load_profile() -> dict:
     if yaml and PROFILE_YAML.exists():
         data = yaml.safe_load(PROFILE_YAML.read_text(encoding='utf-8')) or {}
         return data.get('profile') or {}
-    return {}
+    raise ValueError('Profile configuration or PyYAML is unavailable; cached data was not changed')
 
 
 def ids_match(expected: dict, actual: dict, keys: list[str]) -> bool:
@@ -45,6 +45,8 @@ def ids_match(expected: dict, actual: dict, keys: list[str]) -> bool:
     for key in keys:
         exp = clean(expected.get(key))
         got = clean(actual.get(key))
+        if got and not exp:
+            return False
         if exp and got:
             compared += 1
             if exp == got:
@@ -55,15 +57,11 @@ def ids_match(expected: dict, actual: dict, keys: list[str]) -> bool:
 
 
 def unlink(path: Path, report: dict, reason: str) -> None:
+    """Legacy name: report incompatible data without deleting any publication."""
     if not path.exists():
         return
-    try:
-        path.unlink()
-        report.setdefault('removed', []).append({'path': str(path), 'reason': reason})
-    except IsADirectoryError:
-        report.setdefault('skipped', []).append({'path': str(path), 'reason': 'directory_not_removed'})
-    except Exception as exc:
-        report.setdefault('errors', []).append({'path': str(path), 'error': repr(exc)})
+    report.setdefault('errors', []).append({'path': str(path), 'reason': reason,
+                                           'action': 'preserved; explicit profile migration required'})
 
 
 def main() -> int:
@@ -106,9 +104,10 @@ def main() -> int:
         for path in [DATA / 'wos/profile_metrics.json', DATA / 'wos/harvest_report.json']:
             unlink(path, report, 'wos_researcher_id_cache_mismatch')
 
+    report['status'] = 'error' if report['errors'] else 'success'
     write_json(REPORT, report)
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0
+    return 1 if report['errors'] else 0
 
 
 if __name__ == '__main__':

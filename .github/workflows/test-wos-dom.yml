@@ -1,139 +1,14 @@
-name: Test WoS DOM harvester
-
+name: Test authenticated WoS collection
 on:
   workflow_dispatch:
-    inputs:
-      wos_researcher_id:
-        description: "Optional WoS ResearcherID override"
-        required: false
-        default: ""
-        type: string
-      wait_seconds:
-        description: "DOM wait time in seconds"
-        required: false
-        default: "240"
-        type: string
-      use_home_vpn:
-        description: "Use the same home OpenVPN route as the production refresh"
-        required: false
-        default: "true"
-        type: choice
-        options:
-          - "true"
-          - "false"
-
-concurrency:
-  group: test-wos-dom-harvester
-  cancel-in-progress: true
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 permissions:
-  contents: read
-
+  contents: write
+  pages: write
+  actions: read
 jobs:
-  test-wos-dom:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y openvpn curl iproute2 xvfb
-      - name: Install Python dependencies and browsers
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 pyyaml playwright
-          python -m playwright install --with-deps chromium
-          python -m playwright install chrome || true
-          google-chrome --version || true
-      - name: Load profile identifiers
-        env:
-          PROFILE_YAML: config/profile.yml
-        run: |
-          python scripts/export_profile_env.py
-          if [ -n "${{ inputs.wos_researcher_id }}" ]; then
-            echo "WOS_RESEARCHER_ID=${{ inputs.wos_researcher_id }}" >> "$GITHUB_ENV"
-            echo "WOS_PROFILE_URL=https://www.webofscience.com/wos/author/record/${{ inputs.wos_researcher_id }}" >> "$GITHUB_ENV"
-          fi
-      - name: Connect home OpenVPN route for WoS
-        if: ${{ inputs.use_home_vpn == 'true' }}
-        env:
-          ELIBRARY_OPENVPN_CONFIG_B64: ${{ secrets.ELIBRARY_OPENVPN_CONFIG_B64 }}
-        run: |
-          if [ -z "$ELIBRARY_OPENVPN_CONFIG_B64" ]; then
-            echo "ELIBRARY_OPENVPN_CONFIG_B64 is not set; WoS test will use the normal runner route."
-            exit 0
-          fi
-          umask 077
-          printf '%s' "$ELIBRARY_OPENVPN_CONFIG_B64" | base64 --decode > home-openvpn.ovpn
-          IP_BEFORE=$(curl -fsS --max-time 20 https://api.ipify.org || true)
-          echo "Public IP before home VPN: ${IP_BEFORE:-not available}"
-          sudo openvpn \
-            --config home-openvpn.ovpn \
-            --data-ciphers-fallback AES-128-CBC \
-            --allow-compression yes \
-            --daemon \
-            --writepid openvpn.pid \
-            --log openvpn.log
-          for i in $(seq 1 60); do
-            if ip link show tun0 >/dev/null 2>&1; then
-              echo "Home VPN tun0 is up"
-              break
-            fi
-            sleep 2
-          done
-          IP_AFTER=$(curl -fsS --max-time 30 https://api.ipify.org || true)
-          echo "Public IP after home VPN: ${IP_AFTER:-not available}"
-      - name: Run isolated WoS DOM test
-        env:
-          WOS_PROFILE_OUT: data/wos/profile_metrics.json
-          WOS_HARVEST_REPORT: data/wos/harvest_report.json
-          WOS_BROWSER_WAIT_SEC: ${{ inputs.wait_seconds }}
-          WOS_DOM_WAIT_SEC: ${{ inputs.wait_seconds }}
-          WOS_BROWSER_HEADLESS: "false"
-          WOS_BROWSER_CHANNEL: "chrome"
-          WOS_COOKIE: ${{ secrets.WOS_COOKIE }}
-          WOS_STORAGE_STATE_B64: ${{ secrets.WOS_STORAGE_STATE_B64 }}
-        run: |
-          mkdir -p artifacts/wos_live data/wos
-          xvfb-run -a python scripts/harvest_wos_author_profile_dom_first.py || true
-          echo "===== WoS harvest report ====="
-          cat data/wos/harvest_report.json || true
-          echo "===== Normalized WoS record count ====="
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          path = Path('data/wos/profile_metrics.json')
-          data = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
-          print({
-              'records': len(data.get('records') or []),
-              'records_count_on_page': data.get('records_count_on_page'),
-              'source': data.get('source')
-          })
-          PY
-      - name: Stop home OpenVPN route
-        if: always()
-        run: |
-          if [ -f openvpn.pid ]; then
-            sudo kill "$(cat openvpn.pid)" 2>/dev/null || true
-          fi
-          if [ -f openvpn.log ]; then
-            echo "OpenVPN log tail:"
-            sudo tail -n 120 openvpn.log || true
-          fi
-      - name: Upload WoS diagnostics
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: wos-dom-test-diagnostics
-          path: |
-            data/wos/profile_metrics.json
-            data/wos/harvest_report.json
-            artifacts/wos_live/**
-          if-no-files-found: warn
-          retention-days: 7
+  test:
+    uses: ./.github/workflows/refresh-data.yml
+    secrets: inherit
+    with:
+      dry_run: true
+      sources: wos

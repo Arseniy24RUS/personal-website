@@ -15,14 +15,12 @@ from __future__ import annotations
 
 from pathlib import Path
 from datetime import datetime, timezone
-import hashlib
-import json
 import re
-import shutil
-import zipfile
+from tempfile import TemporaryDirectory
+
+from gallery_storage import prepare_sources, publish, read_manifest, source_hash
 
 from PIL import Image, ImageOps
-import fitz  # PyMuPDF
 
 ROOT = Path('.')
 INPUT_DIR = ROOT / 'content' / 'diplomas'
@@ -56,41 +54,8 @@ def title_from_name(path: Path) -> str:
     return name[:1].upper() + name[1:] if name else 'Диплом / сертификат'
 
 
-def file_hash(path: Path) -> str:
-    h = hashlib.sha1()
-    with path.open('rb') as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b''):
-            h.update(chunk)
-    return h.hexdigest()[:10]
-
-
-def reset_dir(path: Path):
-    if path.exists():
-        shutil.rmtree(path)
-    path.mkdir(parents=True, exist_ok=True)
-
-
 def prepare_workdir():
-    reset_dir(WORK)
-    INPUT_DIR.mkdir(parents=True, exist_ok=True)
-    archives = sorted(INPUT_DIR.glob('*.zip'))
-    direct_dir = WORK / 'direct-files'
-    direct_dir.mkdir(parents=True, exist_ok=True)
-
-    for src in INPUT_DIR.rglob('*'):
-        if src.is_file() and src.suffix.lower() in SUPPORTED_EXTS:
-            dst = direct_dir / src.name
-            if dst.exists():
-                dst = direct_dir / f"{src.stem}-{file_hash(src)}{src.suffix}"
-            shutil.copy2(src, dst)
-
-    for idx, zip_path in enumerate(archives, start=1):
-        extract_to = WORK / f'archive-{idx:02d}-{slugify(zip_path.stem)}'
-        extract_to.mkdir(parents=True, exist_ok=True)
-        with zipfile.ZipFile(zip_path) as zf:
-            zf.extractall(extract_to)
-
-    return archives
+    return prepare_sources(INPUT_DIR, WORK, SUPPORTED_EXTS)
 
 
 def collect_source_files():
@@ -108,6 +73,7 @@ def collect_source_files():
 
 def load_image(path: Path) -> Image.Image:
     if path.suffix.lower() in PDF_EXTS:
+        import fitz  # PyMuPDF is needed only for PDF inputs
         doc = fitz.open(path)
         page = doc.load_page(0)
         pix = page.get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False)
@@ -124,36 +90,43 @@ def resize_max(img: Image.Image, max_side: int) -> Image.Image:
     return img
 
 
-def main():
+def build_additions():
     archives = prepare_workdir()
     files = collect_source_files()
+    previous = read_manifest(OUT)
     if not archives and not files:
-        raise FileNotFoundError('No ZIP, PDF or image files found in content/diplomas/')
+        print('No new diploma inputs; existing gallery retained.')
+        return 0
 
-    reset_dir(THUMBS)
-    reset_dir(FULL)
     OUT.parent.mkdir(parents=True, exist_ok=True)
 
-    items = []
-    used = set()
+    items = list(previous['items'])
+    known_hashes = {item.get('source_hash') for item in items if item.get('source_hash')}
+    staged_assets = []
+    stage = WORK / 'rendered'
+    stage.mkdir(parents=True, exist_ok=True)
     for idx, path in enumerate(files, start=1):
         year = year_from_name(path.as_posix())
-        base = f"{year or 'nd'}-{slugify(path.stem)}"
-        if base in used:
-            base = f"{base}-{file_hash(path)}"
-        used.add(base)
+        digest = source_hash(path)
+        if digest in known_hashes:
+            continue
+        base = f"{year or 'nd'}-{slugify(path.stem)}-{digest[:16]}"
+        known_hashes.add(digest)
         full_path = FULL / f"{base}.webp"
         thumb_path = THUMBS / f"{base}.webp"
         try:
             img = load_image(path)
         except Exception as exc:
-            print(f'SKIP {path}: {exc}')
-            continue
+            raise ValueError(f'Cannot render new document {path.name}; existing gallery retained') from exc
         width, height = img.size
         orientation = 'landscape' if width > height else 'portrait'
-        resize_max(img, 1800).save(full_path, 'WEBP', quality=84, method=6)
+        staged_full = stage / (base + '-full.webp')
+        resize_max(img, 1800).save(staged_full, 'WEBP', quality=84, method=6)
+        staged_assets.append((staged_full, full_path))
         # Smaller thumbnails: the page now displays roughly twice as many items per screen.
-        resize_max(img, 340).save(thumb_path, 'WEBP', quality=74, method=6)
+        staged_thumb = stage / (base + '-thumb.webp')
+        resize_max(img, 340).save(staged_thumb, 'WEBP', quality=74, method=6)
+        staged_assets.append((staged_thumb, thumb_path))
         items.append({
             'id': base,
             'title': title_from_name(path),
@@ -167,17 +140,32 @@ def main():
             'download': str(full_path).replace('\\', '/'),
             'download_filename': full_path.name,
             'source_filename': path.name,
+            'source_hash': digest,
         })
 
-    OUT.write_text(json.dumps({
+    if len(items) == len(previous['items']):
+        print('All source hashes already present; existing gallery retained.')
+        return 0
+    items.sort(key=lambda item: (-(item.get('year') or 0), str(item.get('title') or item['id'])))
+    publish(OUT, {
+        **previous,
         'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         'count': len(items),
         'sort': 'year_desc_name_asc',
-        'input_archives': [str(p).replace('\\', '/') for p in archives],
+        'input_archives': sorted(set(previous.get('input_archives', [])) | {str(p).replace('\\', '/') for p in archives}),
         'items': items,
-    }, ensure_ascii=False, indent=2), encoding='utf-8')
+    }, staged_assets)
     print(f'Built diplomas gallery: {len(items)} items from {len(archives)} archive(s) and/or direct files')
+
+    return 0
+
+
+def main():
+    global WORK
+    with TemporaryDirectory(prefix='portfolio-gallery-') as temporary:
+        WORK = Path(temporary)
+        return build_additions()
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())

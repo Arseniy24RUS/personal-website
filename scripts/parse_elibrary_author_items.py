@@ -46,7 +46,7 @@ def parse_elibrary_author_items(path: str):
         if doi_m:
             doi = doi_m.group(0).rstrip('.,;')
         cit_txt = clean(cit_cell.get_text(' ')) if cit_cell else ''
-        citations = int(cit_txt) if cit_txt.isdigit() else 0
+        citations = int(cit_txt) if cit_txt.isdigit() else None
         norm_title = re.sub(r'[^a-zа-я0-9]+', ' ', title.lower(), flags=re.I).strip()
         fingerprint = hashlib.sha256('|'.join([norm_title, str(year or ''), venue or '', authors_raw]).encode('utf-8')).hexdigest()[:16]
         pubs.append({

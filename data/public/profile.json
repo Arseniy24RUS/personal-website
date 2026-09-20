@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T09:05:19+00:00",
+  "generated_at": "2026-09-20T12:16:22+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
@@ -715,7 +715,7 @@
     "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available."
   },
   "scientometrics": {
-    "generated_at": "2026-09-14T09:05:19+00:00",
+    "generated_at": "2026-09-20T12:16:20+00:00",
     "columns": [
       "rinc",
       "scopus",
@@ -745,15 +745,55 @@
         "source": "eLibrary/РИНЦ",
         "publications": 58,
         "citations": 302,
-        "h_index": 10
+        "h_index": 10,
+        "status": "blocked",
+        "attempted_at": "2026-09-14T09:00:32+00:00",
+        "last_success_at": "2026-06-02T19:47:01+00:00",
+        "origin": "snapshot",
+        "complete": false,
+        "record_count": 0,
+        "reason": "legacy_report_without_verified_freshness",
+        "metric_observed_at": {
+          "publications": "2026-06-02T19:47:01+00:00",
+          "citations": "2026-06-02T19:47:01+00:00",
+          "h_index": "2026-06-02T19:47:01+00:00"
+        },
+        "retained_metrics": [
+          "publications",
+          "citations",
+          "h_index"
+        ],
+        "method": "provider_profile"
       },
       "scopus": {
         "label_ru": "Scopus",
         "label_en": "Scopus",
-        "source": "Scopus API/search snapshot",
+        "source": "Scopus API",
         "publications": 8,
         "citations": 7,
-        "h_index": 2
+        "h_index": 2,
+        "status": "partial",
+        "attempted_at": "2026-09-14T09:05:19+00:00",
+        "last_success_at": null,
+        "origin": "snapshot",
+        "complete": false,
+        "record_count": 0,
+        "reason": "legacy_report_without_verified_freshness",
+        "metric_observed_at": {
+          "publications": null,
+          "citations": null,
+          "h_index": null
+        },
+        "retained_metrics": [
+          "publications",
+          "citations",
+          "h_index"
+        ],
+        "method": {
+          "publications": "calculated_from_complete_search",
+          "citations": "calculated_from_complete_search",
+          "h_index": "calculated_from_complete_search"
+        }
       },
       "wos": {
         "label_ru": "Web of Science",
@@ -761,7 +801,25 @@
         "source": "Web of Science Researcher Profile",
         "publications": 10,
         "citations": 7,
-        "h_index": 2
+        "h_index": 2,
+        "status": "blocked",
+        "attempted_at": "2026-09-14T09:04:16+00:00",
+        "last_success_at": "2026-06-03T14:54:55+00:00",
+        "origin": "snapshot",
+        "complete": false,
+        "record_count": 0,
+        "reason": "legacy_report_without_verified_freshness",
+        "metric_observed_at": {
+          "publications": "2026-06-03T14:54:55+00:00",
+          "citations": "2026-06-03T14:54:55+00:00",
+          "h_index": "2026-06-03T14:54:55+00:00"
+        },
+        "retained_metrics": [
+          "publications",
+          "citations",
+          "h_index"
+        ],
+        "method": "provider_profile"
       }
     }
   },
@@ -802,8 +860,73 @@
   "wos_enriched_publications_count": 10,
   "wos_auto_added_publications_count": 0,
   "admin_queue_size": 0,
+  "source_health": {
+    "elibrary": {
+      "status": "blocked",
+      "attempted_at": "2026-09-14T09:00:32+00:00",
+      "last_success_at": "2026-06-02T19:47:01+00:00",
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    "wos": {
+      "status": "blocked",
+      "attempted_at": "2026-09-14T09:04:16+00:00",
+      "last_success_at": "2026-06-03T14:54:55+00:00",
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    "scopus": {
+      "status": "partial",
+      "attempted_at": "2026-09-14T09:05:19+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    "media": {
+      "status": "success",
+      "attempted_at": "2026-09-20T12:16:08+00:00",
+      "last_success_at": "2026-09-20T12:16:08+00:00",
+      "origin": "live",
+      "complete": true,
+      "record_count": 23,
+      "reason": null
+    },
+    "orcid": {
+      "status": "partial",
+      "attempted_at": "2026-09-14T08:54:26+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    "openalex": {
+      "status": "partial",
+      "attempted_at": "2026-09-14T08:54:26+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    "crossref": {
+      "status": "partial",
+      "attempted_at": "2026-09-14T08:54:26+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    }
+  },
   "wos_public_merge_report": {
-    "generated_at": "2026-09-14T09:05:19+00:00",
+    "generated_at": "2026-09-20T12:16:22+00:00",
     "records_seen": 10,
     "enriched": 10,
     "added": 0,

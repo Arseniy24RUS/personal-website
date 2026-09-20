@@ -25,25 +25,27 @@
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/additions.css?v=20260607-nav-nowrap">
   <script defer src="assets/site.js?v=20260607-it-resources"></script>
+  <script defer src="assets/source-status.js"></script>
   <script>
       function val(x,f='—'){return x===0||x?x:f}
       addEventListener('DOMContentLoaded',async()=>{
         try{
           const p=await fetch('data/public/profile.json',{cache:'no-store'}).then(r=>r.json());
           const elist=p.elibrary_metrics||{}, c=elist.category_counts||{}, ep=(p.elibrary_profile_metrics||{}).summary||{}, s=p.scopus_metrics||{}, w=(p.wos_profile_metrics||{}).summary||{};
+          const verified=(p.scientometrics||{}).sources||{}, sc=verified.scopus||{}, wo=verified.wos||{}, ri=verified.rinc||{};
           document.getElementById('gen').textContent=p.generated_at||'—';
-          document.getElementById('rinc_total').textContent=val(ep.publications_rinc, val(elist.total_found));
-          document.getElementById('rinc_cit').textContent=val(ep.citations_rinc, val(elist.total_rinc_citations));
-          document.getElementById('rinc_h').textContent=val(ep.h_index_rinc);
+          document.getElementById('rinc_total').textContent=val(ri.publications);
+          document.getElementById('rinc_cit').textContent=val(ri.citations);
+          document.getElementById('rinc_h').textContent=val(ri.h_index);
           document.getElementById('rinc_h_core').textContent=val(ep.h_index_core_rinc);
           document.getElementById('rinc_core').textContent=val(ep.publications_core_rinc, val(c['публикации, включенные в ядро РИНЦ']));
           document.getElementById('vak').textContent=val(c['статьи в российских журналах, включенных в перечень ВАК']);
-          document.getElementById('scopus_works').textContent=val(s.works_count_from_search);
-          document.getElementById('scopus_cit').textContent=val(s.citation_sum_from_search);
-          document.getElementById('scopus_h').textContent=val(s.h_index_recomputed_from_retrieved_works);
-          document.getElementById('wos_works').textContent=val(w.publications);
-          document.getElementById('wos_cit').textContent=val(w.citations);
-          document.getElementById('wos_h').textContent=val(w.h_index);
+          document.getElementById('scopus_works').textContent=val(sc.publications);
+          document.getElementById('scopus_cit').textContent=val(sc.citations);
+          document.getElementById('scopus_h').textContent=val(sc.h_index);
+          document.getElementById('wos_works').textContent=val(wo.publications);
+          document.getElementById('wos_cit').textContent=val(wo.citations);
+          document.getElementById('wos_h').textContent=val(wo.h_index);
           document.getElementById('self_h').textContent=val(ep.h_index_without_self_citations);
           document.getElementById('first_year').textContent=val(ep.first_publication_year);
           document.getElementById('coauthors').textContent=val(ep.coauthors_count);

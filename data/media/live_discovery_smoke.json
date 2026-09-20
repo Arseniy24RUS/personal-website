@@ -1,0 +1,81 @@
+{
+  "attempted_at": "2026-09-20T12:12:41+00:00",
+  "seeds_used": false,
+  "published_baseline": 0,
+  "providers": [
+    {
+      "url": "https://www.isesp-ras.ru/news/",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/",
+      "bytes": 102403,
+      "record_count": 14,
+      "collector": "listings",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/",
+      "bytes": 548316,
+      "record_count": 24,
+      "collector": "listings",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/pervaya-zashchita-dissovet-24124405-2026",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/pervaya-zashchita-dissovet-24124405-2026",
+      "bytes": 14339,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/sitkovskij-zashhitil-kandidatskuyu-dissertaciyu",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/9/sitkovskij-zashhitil-kandidatskuyu-dissertaciyu/",
+      "bytes": 10711,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/bajkalskij-demforum-2026",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/9/bajkalskij-demforum-2026/",
+      "bytes": 20599,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/polyachenko-social-forum-2026",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/polyachenko-social-forum-2026",
+      "bytes": 13394,
+      "collector": "institutional_news_listing",
+      "required": true
+    }
+  ],
+  "record_count": 2,
+  "pending": 25,
+  "records": [
+    {
+      "url": "https://www.isesp-ras.ru/news/pervaya-zashchita-dissovet-24124405-2026",
+      "title": "Первая защита кандидатской диссертации во вновь открывшемся Диссертационном совете 24.1.244.05 ФНИСЦ РАН",
+      "published_at": "2026-09-17",
+      "confidence": 0.95,
+      "source": "institutional_news_listing"
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/sitkovskij-zashhitil-kandidatskuyu-dissertaciyu",
+      "title": "А.М. Ситковский успешно защитил кандидатскую диссертацию",
+      "published_at": "2026-09-15",
+      "confidence": 0.95,
+      "source": "institutional_news_listing"
+    }
+  ]
+}

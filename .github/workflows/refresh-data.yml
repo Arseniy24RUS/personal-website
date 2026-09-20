@@ -1,322 +1,177 @@
 name: Refresh scientist portfolio data
-
 on:
   workflow_dispatch:
     inputs:
-      scopus_author_id:
-        description: "Optional Scopus Author ID override; leave empty to use config/profile.yml"
-        required: false
-        default: ""
+      dry_run:
+        description: Validate collection without publishing
+        type: boolean
+        default: false
+      sources:
+        description: Comma-separated sources, empty for all
         type: string
-      mirror_craftum_assets:
-        description: "Download/mirror Craftum assets into repository"
-        required: false
-        default: "true"
-        type: choice
-        options:
-          - "true"
-          - "false"
+        default: ''
+  workflow_call:
+    inputs:
+      dry_run:
+        type: boolean
+        default: false
+      sources:
+        type: string
+        default: ''
   schedule:
-    - cron: "17 3 * * 1"
-
+    - cron: '17 3 * * 1'
 concurrency:
-  group: refresh-scientist-portfolio-data
+  group: portfolio-data-writer
   cancel-in-progress: false
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 permissions:
   contents: write
-  issues: write
-
+  pages: write
+  actions: read
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  PYTHONUNBUFFERED: '1'
+  PLAYWRIGHT_BROWSERS_PATH: /opt/portfolio-browsers
+  PORTFOLIO_RUN_DIR: /opt/portfolio-runner
+  PORTFOLIO_TRANSLATION_HOME: /opt/portfolio-runner/translation
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-      - name: Install system dependencies
+          python-version: '3.11'
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install pinned dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y openvpn curl iproute2 xvfb
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 pyyaml rapidfuzz argostranslate playwright
-      - name: Load profile identifiers
-        env:
-          PROFILE_YAML: config/profile.yml
-        run: |
-          if [ -f scripts/export_profile_env.py ]; then
-            python scripts/export_profile_env.py
-          else
-            echo "scripts/export_profile_env.py is missing; using script defaults where available."
-          fi
-          if [ -n "${{ inputs.scopus_author_id }}" ]; then
-            echo "SCOPUS_AUTHOR_ID=${{ inputs.scopus_author_id }}" >> "$GITHUB_ENV"
-            echo "Scopus Author ID overridden from workflow input."
-          fi
-      - name: Guard cached data for current profile
-        env:
-          PROFILE_YAML: config/profile.yml
-        run: |
-          if [ -f scripts/guard_profile_cache.py ]; then
-            python scripts/guard_profile_cache.py || true
-          else
-            echo "Profile cache guard is missing; continuing with existing cache."
-          fi
-          echo "Profile cache guard report:"
-          cat data/audit/profile_cache_guard_report.json || true
-      - name: Install browsers for browser-backed data fetchers
-        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y openvpn curl iproute2 xvfb iptables
+          python -m pip install -r requirements.txt
+          npm ci
+          sudo mkdir -p "$PLAYWRIGHT_BROWSERS_PATH"
+          sudo chown "$USER" "$PLAYWRIGHT_BROWSERS_PATH"
+          sudo install -d -o "$USER" -g "$(id -gn)" -m 755 "$PORTFOLIO_RUN_DIR"
           python -m playwright install --with-deps chromium
-          python -m playwright install chrome || true
-          google-chrome --version || true
-      - name: Mirror Craftum assets
+          npx playwright install --with-deps
+      - name: Unit and baseline checks
         run: |
-          if [ "${{ inputs.mirror_craftum_assets || 'true' }}" = "true" ] && [ -f scripts/mirror_craftum_assets.py ]; then
-            python scripts/mirror_craftum_assets.py || true
-          else
-            echo "Craftum asset mirroring skipped."
-          fi
-      - name: Harvest open bibliographic sources
-        env:
-          PROFILE_YAML: config/profile.yml
-          OPENALEX_MAILTO: omnistat@yandex.ru
+          python -m unittest discover -s tests/unit -v
+          python scripts/check_seo.py
+          echo "REFRESH_BASE_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Load profile identifiers
+        run: python scripts/export_profile_env.py
+      - name: Prepare isolated candidate
+        run: python scripts/refresh_pipeline.py prepare --stage "$PORTFOLIO_RUN_DIR/portfolio-stage"
+      - name: Restore offline translation models
+        id: translation-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: /opt/portfolio-runner/translation
+          key: argos-ru-en-1.11.0-minisbd-v1
+      - name: Prepare and verify offline RU-EN translation
+        id: translation-setup
         run: |
-          if [ -f scripts/harvest_open_sources.py ]; then
-            python scripts/harvest_open_sources.py || true
+          mkdir -p "$PORTFOLIO_TRANSLATION_HOME"
+          sudo chown -R "$(id -u):$(id -g)" "$PORTFOLIO_TRANSLATION_HOME"
+          if python scripts/translation_runtime.py provision --root "$PORTFOLIO_TRANSLATION_HOME" --timeout 240 --report "$PORTFOLIO_RUN_DIR/portfolio-stage/data/audit/translation_model_setup.json"; then
+            echo 'Offline RU-EN translation verified.'
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
           else
-            echo "Open sources harvester is missing; skipping ORCID/OpenAlex/Crossref."
+            result=$?
+            if test "$result" -ne 2; then exit "$result"; fi
+            echo 'Translation unavailable; collection will retain Russian text and retry later.'
           fi
-      - name: Harvest free media mentions
-        env:
-          PROFILE_YAML: config/profile.yml
-        run: |
-          if [ -f scripts/harvest_media_mentions.py ]; then
-            python scripts/harvest_media_mentions.py || true
-          else
-            echo "Media mentions harvester is missing; skipping RSS media search."
-          fi
-      - name: Enhance media mention metadata and institutional scan
-        env:
-          PROFILE_YAML: config/profile.yml
-          MEDIA_SOURCES_YAML: config/media_sources.yml
-        run: |
-          if [ -f scripts/enhance_media_mentions.py ]; then
-            python scripts/enhance_media_mentions.py || true
-          else
-            echo "Media enhancer is missing; skipping metadata repair and institutional scan."
-          fi
-      - name: Normalize append-only media snapshot
-        run: |
-          if [ -f scripts/normalize_media_snapshot.py ]; then
-            python scripts/normalize_media_snapshot.py --normalize-only || true
-          else
-            echo "Media snapshot normalizer is missing; skipping post-processing."
-          fi
-      - name: Connect home OpenVPN route for eLibrary and WoS
+      - name: Cache verified translation model
+        if: ${{ steps.translation-setup.outputs.ready == 'true' && steps.translation-cache.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@v4
+        with:
+          path: /opt/portfolio-runner/translation
+          key: argos-ru-en-1.11.0-minisbd-v1
+      - name: Establish verified home route
         env:
           ELIBRARY_OPENVPN_CONFIG_B64: ${{ secrets.ELIBRARY_OPENVPN_CONFIG_B64 }}
         run: |
-          if [ -z "$ELIBRARY_OPENVPN_CONFIG_B64" ]; then
-            echo "ELIBRARY_OPENVPN_CONFIG_B64 is not set; eLibrary/WoS will use the normal runner route or fallback data."
-            exit 0
-          fi
-          umask 077
-          printf '%s' "$ELIBRARY_OPENVPN_CONFIG_B64" | base64 --decode > home-openvpn.ovpn
-          IP_BEFORE=$(curl -fsS --max-time 20 https://api.ipify.org || true)
-          echo "Public IP before home VPN: ${IP_BEFORE:-not available}"
-          sudo openvpn \
-            --config home-openvpn.ovpn \
-            --data-ciphers-fallback AES-128-CBC \
-            --allow-compression yes \
-            --daemon \
-            --writepid openvpn.pid \
-            --log openvpn.log
-          for i in $(seq 1 60); do
-            if ip link show tun0 >/dev/null 2>&1; then
-              echo "Home VPN tun0 is up"
-              break
-            fi
-            sleep 2
-          done
-          IP_AFTER=$(curl -fsS --max-time 30 https://api.ipify.org || true)
-          echo "Public IP after home VPN: ${IP_AFTER:-not available}"
-          if [ -n "$IP_AFTER" ] && [ "$IP_AFTER" != "$IP_BEFORE" ]; then
-            echo "ELIBRARY_OPENVPN_ACTIVE=1" >> "$GITHUB_ENV"
-            echo "WOS_HOME_OPENVPN_ACTIVE=1" >> "$GITHUB_ENV"
-          else
-            echo "OpenVPN did not change public IP; continuing with fallback logic."
-            sudo tail -n 120 openvpn.log || true
-          fi
-      - name: Harvest eLibrary publication list through confirmed authors route
+          chmod +x scripts/home_vpn_dns.sh
+          bash scripts/home_vpn.sh start
+          bash scripts/home_vpn.sh test-isolation
+          sudo chown -R portfolio:portfolio "$PORTFOLIO_RUN_DIR/portfolio-stage"
+          sudo chown -R portfolio:portfolio "$PORTFOLIO_TRANSLATION_HOME"
+          sudo install -d -o portfolio -g portfolio -m 700 "$PORTFOLIO_RUN_DIR/portfolio-runtime"
+      - name: Collect and build candidate through home route
         env:
-          ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
-          ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
-          ELIBRARY_BROWSER_REPORT: data/elibrary/browser_fetch_report.json
-          ELIBRARY_BROWSER_WAIT_SEC: "130"
-          ELIBRARY_BROWSER_HEADLESS: "false"
-          ELIBRARY_USER_AGENT: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36"
-        run: |
-          if [ -f scripts/harvest_elibrary_authors_route.py ]; then
-            xvfb-run -a python scripts/harvest_elibrary_authors_route.py || true
-          else
-            echo "Production eLibrary authors-route harvester is missing; skipping browser route."
-          fi
-      - name: Harvest eLibrary author profile metrics
-        env:
-          ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
-          ELIBRARY_PROFILE_OUT: data/elibrary/profile_metrics.json
-          ELIBRARY_PROFILE_REPORT: data/elibrary/profile_metrics_fetch_report.json
-          ELIBRARY_PROXY_URL: ${{ secrets.ELIBRARY_PROXY_URL }}
-        run: |
-          if [ -f scripts/harvest_elibrary_profile.py ] && [ -f scripts/parse_elibrary_author_profile.py ]; then
-            python scripts/harvest_elibrary_profile.py || true
-          else
-            echo "eLibrary author profile harvester/parser is missing; using existing normalized metrics."
-          fi
-      - name: Harvest eLibrary publication list fallback
-        env:
-          ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
-          ELIBRARY_ITEMS_OUT: data/processed/elibrary_publications.json
-          ELIBRARY_ITEMS_REPORT: data/elibrary/items_fetch_report.json
-          ELIBRARY_PROXY_URL: ${{ secrets.ELIBRARY_PROXY_URL }}
-        run: |
-          if [ -f scripts/harvest_elibrary_items.py ] && [ -f scripts/parse_elibrary_author_items.py ]; then
-            python scripts/harvest_elibrary_items.py || true
-          else
-            echo "eLibrary items harvester/parser is missing; using existing data/elibrary/publications.tsv."
-          fi
-      - name: Harvest eLibrary item pages for full references
-        env:
-          ELIBRARY_COOKIE: ${{ secrets.ELIBRARY_COOKIE }}
-          ELIBRARY_USER_AGENT: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36"
-          ELIBRARY_ITEM_DETAILS_LIMIT: "25"
-          ELIBRARY_ITEM_DETAILS_DELAY_SEC: "1.5"
-        run: |
-          if [ -f scripts/harvest_elibrary_item_details.py ]; then
-            python scripts/harvest_elibrary_item_details.py || true
-          else
-            echo "eLibrary item detail harvester is missing; using list-page metadata only."
-          fi
-      - name: Harvest Web of Science free-view author profile
-        env:
-          WOS_PROFILE_OUT: data/wos/profile_metrics.json
-          WOS_HARVEST_REPORT: data/wos/harvest_report.json
-          WOS_BROWSER_WAIT_SEC: "180"
-          WOS_BROWSER_HEADLESS: "false"
-          WOS_BROWSER_CHANNEL: "chrome"
-          WOS_COOKIE: ${{ secrets.WOS_COOKIE }}
-          WOS_STORAGE_STATE_B64: ${{ secrets.WOS_STORAGE_STATE_B64 }}
-        run: |
-          if [ -f scripts/harvest_wos_author_profile_dom_first.py ]; then
-            xvfb-run -a python scripts/harvest_wos_author_profile_dom_first.py || true
-          elif [ -f scripts/harvest_wos_author_profile_production.py ]; then
-            xvfb-run -a python scripts/harvest_wos_author_profile_production.py || true
-          elif [ -f scripts/harvest_wos_author_profile.py ]; then
-            xvfb-run -a python scripts/harvest_wos_author_profile.py || true
-          else
-            echo "Web of Science free-view harvester is missing; using existing WOS snapshot/data."
-          fi
-          echo "Web of Science harvest report:"
-          cat data/wos/harvest_report.json || true
-      - name: Disconnect home OpenVPN route
-        if: always()
-        run: |
-          if [ -f openvpn.pid ]; then
-            sudo kill "$(cat openvpn.pid)" 2>/dev/null || true
-            echo "Home OpenVPN route stopped."
-          fi
-          if [ -f openvpn.log ]; then
-            echo "OpenVPN log tail:"
-            sudo tail -n 120 openvpn.log || true
-          fi
-      - name: Harvest Scopus
-        env:
+          HOME_VPN_REQUIRED: '1'
+          HOME_VPN_EXPECTED_IP_FILE: /opt/portfolio-runner/portfolio-private/expected-ip
+          ELIBRARY_USERNAME: ${{ secrets.ELIBRARY_USERNAME }}
+          ELIBRARY_PASSWORD: ${{ secrets.ELIBRARY_PASSWORD }}
+          WOS_ORCID_USERNAME: ${{ secrets.WOS_ORCID_USERNAME }}
+          WOS_ORCID_PASSWORD: ${{ secrets.WOS_ORCID_PASSWORD }}
           SCOPUS_API_KEY: ${{ secrets.SCOPUS_API_KEY }}
           SCOPUS_INST_TOKEN: ${{ secrets.SCOPUS_INST_TOKEN }}
-          SCOPUS_OUT_DIR: data/scopus
-        run: |
-          if [ -f scripts/harvest_scopus.py ] && [ -n "$SCOPUS_API_KEY" ]; then
-            python scripts/harvest_scopus.py || true
-          else
-            echo "Scopus harvester or key is not configured; skipping."
-          fi
-      - name: Generate derived public data
-        run: |
-          if [ -f scripts/build_public_data.py ]; then
-            python scripts/build_public_data.py || true
-          else
-            echo "No public data builder yet; skipping."
-          fi
-      - name: Merge Web of Science records into public data
-        run: |
-          if [ -f scripts/merge_wos_records_into_public_data.py ]; then
-            python scripts/merge_wos_records_into_public_data.py || true
-          else
-            echo "WoS public merge script is missing; skipping WoS record merge."
-          fi
-      - name: Translate publication titles to English
-        run: |
-          if [ -f scripts/translate_publication_titles.py ]; then
-            python scripts/translate_publication_titles.py || true
-          else
-            echo "Publication-title translation script is missing; skipping."
-          fi
-      - name: Enrich publication metadata and references
-        env:
+          OPENALEX_MAILTO: omnistat@yandex.ru
           CROSSREF_MAILTO: omnistat@yandex.ru
+          ELIBRARY_BROWSER_HEADLESS: 'false'
+          WOS_BROWSER_HEADLESS: 'false'
+          REFRESH_SOURCES: ${{ inputs.sources }}
         run: |
-          if [ -f scripts/enrich_publication_metadata.py ]; then
-            python scripts/enrich_publication_metadata.py || true
-          else
-            echo "Publication metadata enricher is missing; skipping GOST/APA reference enrichment."
+          bash scripts/home_vpn.sh check
+          stage="$PORTFOLIO_RUN_DIR/portfolio-stage"
+          export RUNNER_TEMP="$PORTFOLIO_RUN_DIR/portfolio-runtime"
+          sudo --preserve-env=PATH,RUNNER_TEMP,PLAYWRIGHT_BROWSERS_PATH,PYTHONUNBUFFERED,PORTFOLIO_TRANSLATION_HOME,HOME_VPN_REQUIRED,HOME_VPN_EXPECTED_IP_FILE,ELIBRARY_USERNAME,ELIBRARY_PASSWORD,WOS_ORCID_USERNAME,WOS_ORCID_PASSWORD,SCOPUS_API_KEY,SCOPUS_INST_TOKEN,OPENALEX_MAILTO,CROSSREF_MAILTO,ELIBRARY_AUTHOR_ID,ELIBRARY_PROFILE_URL,ELIBRARY_ITEMS_URL,ELIBRARY_SPIN,ORCID_ID,SCOPUS_AUTHOR_ID,WOS_RESEARCHER_ID,WOS_PROFILE_URL,ELIBRARY_BROWSER_HEADLESS,WOS_BROWSER_HEADLESS \
+            -H -u portfolio /bin/bash "$stage/scripts/run_collection.sh" "$stage" "$(command -v python)" "$REFRESH_SOURCES"
+      - name: Return candidate ownership to runner
+        if: always()
+        run: |
+          if test -d "$PORTFOLIO_RUN_DIR/portfolio-stage"; then
+            sudo chown -R "$(id -u):$(id -g)" "$PORTFOLIO_RUN_DIR/portfolio-stage"
           fi
-      - name: Sanitize generated publication references
+      - name: Stop tunnel and remove private state
+        if: always()
+        run: bash scripts/home_vpn.sh stop
+      - name: Promote and validate safe candidate
         run: |
-          if [ -f scripts/sanitize_publication_references.py ]; then
-            python scripts/sanitize_publication_references.py || true
-          else
-            echo "Publication reference sanitizer is missing; skipping sanitizer."
-          fi
-          echo "Publication reference sanitizer report:"
-          cat data/audit/publication_reference_sanitizer_report.json || true
-      - name: Audit refreshed data pipeline
-        run: |
-          if [ -f scripts/audit_refresh_pipeline.py ]; then
-            python scripts/audit_refresh_pipeline.py || true
-          else
-            echo "Refresh pipeline audit script is missing; skipping audit."
-          fi
-          echo "Refresh pipeline audit report:"
-          cat data/audit/refresh_pipeline_audit.json || true
-      - name: Write refresh audit stamp
-        run: |
-          mkdir -p data/audit
-          date -u +"%Y-%m-%dT%H:%M:%SZ" > data/audit/last_refresh_utc.txt
-      - name: Commit data and mirrored assets
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash origin main
+          python scripts/refresh_pipeline.py promote --stage "$PORTFOLIO_RUN_DIR/portfolio-stage"
+          python scripts/validate_retention.py --baseline-ref "$REFRESH_BASE_SHA" --report "$PORTFOLIO_RUN_DIR/portfolio-stage/data/audit/retention_report.json"
+          cp "$PORTFOLIO_RUN_DIR/portfolio-stage/data/audit/retention_report.json" data/audit/retention_report.json
           python scripts/check_seo.py
           git diff --check
-          git add data/ assets/craftum/ assets/media/mentions/ || true
-          if git diff --cached --quiet; then
-            echo "No data changes."
+      - name: Browser checks on refreshed data
+        run: npm run test:e2e
+      - name: Export safe collection diagnostics
+        if: always()
+        run: python scripts/refresh_pipeline.py diagnostics --stage "$PORTFOLIO_RUN_DIR/portfolio-stage" --output "$RUNNER_TEMP/refresh-diagnostics"
+      - name: Save sanitized diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: refresh-diagnostics-${{ github.run_id }}
+          path: ${{ runner.temp }}/refresh-diagnostics/data/
+          retention-days: 7
+      - name: Commit validated data
+        if: ${{ !inputs.dry_run && github.ref == 'refs/heads/main' }}
+        id: publish
+        run: python scripts/publish_refresh.py --baseline-ref "$REFRESH_BASE_SHA"
+      - name: Request Pages build
+        if: ${{ steps.publish.outputs.changed == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent
+      - name: Verify published data
+        if: ${{ steps.publish.outputs.changed == 'true' }}
+        run: python scripts/verify_published.py --wait 600
+      - name: Report source availability separately
+        if: ${{ always() && !cancelled() }}
+        env:
+          PUBLICATION_OUTCOME: ${{ steps.publish.outcome }}
+        run: |
+          if test "$PUBLICATION_OUTCOME" = success; then
+            python scripts/refresh_pipeline.py health
           else
-            git commit -m "chore: refresh portfolio data and assets"
-            for attempt in 1 2 3; do
-              if git push; then
-                exit 0
-              fi
-              echo "Push attempt ${attempt} failed; rebasing on origin/main and retrying."
-              git pull --rebase --autostash origin main || true
-              sleep 3
-            done
-            git push
+            python scripts/refresh_pipeline.py health --stage "$PORTFOLIO_RUN_DIR/portfolio-stage"
           fi

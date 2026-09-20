@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 import hashlib
 import json
 import re
+from build_public_data import is_fresh, normalize_health
 from typing import Any
 
 DATA = Path('data')
@@ -144,7 +145,7 @@ def append_unique_record(pub: dict, record: dict) -> None:
     existing.append(record)
 
 
-def enrich_existing(pub: dict, record: dict) -> int:
+def enrich_existing(pub: dict, record: dict, fresh: bool = False) -> int:
     changed = 0
     add_source(pub, 'wos')
     append_unique_record(pub, record)
@@ -160,7 +161,12 @@ def enrich_existing(pub: dict, record: dict) -> int:
     if set_missing(pub, 'issn', record.get('issn')): changed += 1
     if set_missing(pub, 'eissn', record.get('eissn')): changed += 1
     if set_missing(pub, 'isbn', record.get('isbn')): changed += 1
-    if set_missing(pub, 'wos_citations', record.get('wos_citations')): changed += 1
+    if fresh and record.get('wos_citations') is not None:
+        if pub.get('wos_citations') != record['wos_citations']:
+            pub['wos_citations'] = record['wos_citations']
+            changed += 1
+    elif set_missing(pub, 'wos_citations', record.get('wos_citations')):
+        changed += 1
     if set_missing(pub, 'references_count', record.get('references_count')): changed += 1
     if set_missing(pub, 'publication_type', record.get('document_type')): changed += 1
     if set_lang_field(pub, 'title', record.get('title_en') or record.get('title'), 'en'): changed += 1
@@ -220,11 +226,12 @@ def sort_key(pub: dict) -> tuple:
 
 
 def main() -> int:
-    publications = read_json(PUBLICATIONS_JSON, [])
+    publications = json.loads(PUBLICATIONS_JSON.read_text(encoding='utf-8'))
     if not isinstance(publications, list):
         raise SystemExit(f'{PUBLICATIONS_JSON} is missing or invalid')
     profile = read_json(PROFILE_JSON, {})
     wos_profile = read_json(WOS_PROFILE_JSON, {})
+    health = normalize_health(read_json(DATA / 'wos/harvest_report.json', {}))
     records = wos_profile.get('records') or []
     if not isinstance(records, list):
         records = []
@@ -241,7 +248,7 @@ def main() -> int:
             continue
         target = find_target(record, idx)
         if target:
-            changed_fields += enrich_existing(target, record)
+            changed_fields += enrich_existing(target, record, fresh=is_fresh(health))
             enriched += 1
             matched.append({'title': record.get('title_en') or record.get('title'), 'doi': record.get('doi'), 'wos_uid': record.get('wos_uid')})
         else:

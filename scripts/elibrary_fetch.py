@@ -32,9 +32,7 @@ def fetch_once(opener: urllib.request.OpenerDirector, url: str, *, referer: str 
     headers['Host'] = urllib.request.urlparse(url).netloc
     if referer:
         headers['Referer'] = referer
-    extra_cookie = os.environ.get('ELIBRARY_COOKIE')
-    if extra_cookie:
-        headers['Cookie'] = extra_cookie
+    # CookieJar owns the session; never override refreshed cookies with a stale header.
     started = time.time()
     req = urllib.request.Request(url, headers=headers, method='GET')
     try:
@@ -50,13 +48,11 @@ def fetch_once(opener: urllib.request.OpenerDirector, url: str, *, referer: str 
                 'final_url': resp.geturl(),
             }
     except urllib.error.HTTPError as exc:
-        body = exc.read().decode('utf-8', errors='replace')[:1200]
         return None, {
             'status': 'http_error',
             'http_status': exc.code,
             'elapsed_sec': round(time.time() - started, 3),
             'url': url,
-            'error_excerpt': body,
         }
     except Exception as exc:
         return None, {
@@ -64,7 +60,6 @@ def fetch_once(opener: urllib.request.OpenerDirector, url: str, *, referer: str 
             'elapsed_sec': round(time.time() - started, 3),
             'url': url,
             'error_type': type(exc).__name__,
-            'error': repr(exc),
         }
 
 
@@ -77,7 +72,7 @@ def fetch_elibrary_page(url: str) -> tuple[str | None, dict]:
     target_report['cookies_count'] = len(jar)
     target_report['manual_cookie_present'] = bool(os.environ.get('ELIBRARY_COOKIE'))
     if preflight_text:
-        target_report['preflight_fingerprint'] = {'content_length': len(preflight_text.encode('utf-8', errors='replace')), 'excerpt': preflight_text[:700].replace('\n', ' ')}
+        target_report['preflight_fingerprint'] = {'content_length': len(preflight_text.encode('utf-8', errors='replace'))}
     if text:
         lowered = text.lower()
         target_report['html_fingerprint'] = {
@@ -87,6 +82,5 @@ def fetch_elibrary_page(url: str) -> tuple[str | None, dict]:
             'has_turing_test': 'тест тьюринга' in lowered or 'page_captcha' in lowered or 'recaptcha' in lowered,
             'has_cookie_text': 'cookie' in lowered or 'cookies' in lowered,
             'content_length': len(text.encode('utf-8', errors='replace')),
-            'excerpt': text[:900].replace('\n', ' '),
         }
     return text, target_report

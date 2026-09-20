@@ -1,31 +1,30 @@
 # eLibrary weekly refresh
 
-The public eLibrary pages may reject requests from standard GitHub Actions IP
-ranges. The portfolio harvester therefore supports two no-API, no-login modes:
+The production entry point is `scripts/harvest_elibrary_browser.py`, invoked by
+the common refresh workflow through the existing home OpenVPN connection.
+It signs in normally using `ELIBRARY_USERNAME` and `ELIBRARY_PASSWORD` Actions
+secrets, verifies authentication and the configured AuthorID, and collects
+profile metrics, every publication-list page and article details in one browser
+session. Saved cookie strings are not injected into this session.
 
-1. **Recommended:** run the scheduled workflow with a stable proxy or a
-   self-hosted runner on a trusted home/VPS IP.
-2. **Fallback:** keep the previous normalized JSON or the latest committed HTML
-   snapshot when eLibrary temporarily blocks live access.
+Metrics and publication lists are fetched each run. Successfully read article
+metadata is reused for 30 days for recent works and 90 days for older works;
+missing optional fields such as ISBN do not trigger endless repeat requests.
+New and failed article pages remain eligible for collection.
 
-## Stable proxy option
+The dedicated collector account cannot fall back to direct IPv4 or IPv6 access
+if the tunnel drops. Browser profiles and credentials live in private temporary
+runner storage and are removed after collection.
 
-Add a repository secret named `ELIBRARY_PROXY_URL` with a standard proxy URL,
-for example `http://user:password@host:port`. The eLibrary scripts use this
-value through Python `urllib.request.ProxyHandler` for both profile metrics and
-publication-list requests. If the secret is absent, the workflow uses the normal
-runner network.
+`data/elibrary/browser_fetch_report.json` distinguishes a complete fresh login
+and collection from retained snapshots. CAPTCHA, MFA, an expired session,
+changed HTML and network failure have explicit reasons. A failure retains
+published records and the last successful metrics instead of replacing them
+with an empty list or zero.
 
-## Self-hosted runner option
+Use the common workflow with `dry_run=true` and `sources=elibrary` for diagnosis.
+The older HTTP scripts remain historical utilities; the scheduled workflow does
+not use them, a standalone proxy, or a self-hosted runner.
 
-Install a GitHub self-hosted runner on a machine whose IP can open public
-eLibrary author pages in a browser. Use a dedicated low-privilege machine/user
-and run the weekly workflow normally. No eLibrary username or password is used
-or stored by this repository.
-
-## Diagnostics
-
-Each run writes fetch reports to `data/elibrary/*_fetch_report.json`. Reports
-include HTTP status, content length, selected source (`live_elibrary`,
-`saved_snapshot`, or `previous_normalized_json`) and an HTML fingerprint that
-helps distinguish a real author page from an access-block page.
+See [refresh operations](REFRESH_OPERATIONS.md) for the schedule, full secret
+list, diagnostics and publication checks.

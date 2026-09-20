@@ -57,17 +57,33 @@ def item_id_from_pub(pub: dict) -> str:
     return m.group(1) if m else ''
 
 
-def needs_details(pub: dict, cached: dict) -> bool:
+def needs_details(pub: dict, cached: dict, *, at: datetime | None = None) -> bool:
     item_id = item_id_from_pub(pub)
     if not item_id:
         return False
     if item_id not in cached:
         return True
-    parsed = ((cached.get(item_id) or {}).get('parsed') or {})
-    for key in ('venue', 'publisher', 'volume', 'issue', 'pages', 'doi', 'isbn', 'issn'):
-        if not (pub.get(key) or parsed.get(key)):
-            return True
-    return False
+    entry = cached.get(item_id) or {}
+    parsed = entry.get('parsed') or {}
+    # ISBN, DOI, volume, issue etc. are optional and their absence is not a
+    # failed extraction. A successful page observation is cached as a whole.
+    if not parsed or entry.get('status') in {'error', 'blocked'}:
+        return True
+    try:
+        fetched_at = datetime.fromisoformat(str(entry.get('fetched_at', '')).replace('Z', '+00:00'))
+        if fetched_at.tzinfo is None:
+            fetched_at = fetched_at.replace(tzinfo=timezone.utc)
+    except (ValueError, TypeError):
+        return True
+    at = at or datetime.now(timezone.utc)
+    # Recently published works may receive metadata corrections more often.
+    try:
+        recent = int(pub.get('year') or 0) >= at.year - 1
+    except (TypeError, ValueError):
+        recent = False
+    max_age_days = 30 if recent else 90
+    age_seconds = (at - fetched_at).total_seconds()
+    return age_seconds < 0 or age_seconds >= max_age_days * 86400
 
 
 def text_after_label(text: str, label: str) -> str:

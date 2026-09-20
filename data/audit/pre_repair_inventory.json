@@ -1,0 +1,4082 @@
+{
+  "baseline_commit": "58d9b9ac0c95ca42a3885f7bd1a86284505dfa10",
+  "datasets": {
+    "data/public/publications.json": {
+      "count": 67,
+      "records": [
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "b4cd1d011899f196"
+            ],
+            [
+              "doi",
+              "10.17853/1994-5639-2026-1-33-64"
+            ],
+            [
+              "elibrary_item_id",
+              "88771337"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=88771337"
+            ]
+          ],
+          "title": "Сравнительный контент — анализ магистерских и докторских программ в сфере демографии университетов мирового уровня",
+          "url": "https://www.elibrary.ru/item.asp?id=88771337",
+          "protected_fields_sha256": "e962befddb22ac810e72eadec077dc024be953116e6ff7fef63be274d6d1317e"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "b429d24e66fd8706"
+            ],
+            [
+              "doi",
+              "10.21064/winrs.2026.1.3"
+            ],
+            [
+              "elibrary_item_id",
+              "89181881"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=89181881"
+            ]
+          ],
+          "title": "Формирование технологий решения жилищных проблем семьи в рамках демографической политики: проблемы и перспективы",
+          "url": "https://www.elibrary.ru/item.asp?id=89181881",
+          "protected_fields_sha256": "d32f342f84254baa99fc1c644690fdf7d128f9640ca0c1b1337885b790b68fca"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "fdf63ff96d949f05"
+            ],
+            [
+              "doi",
+              "10.22363/2312-8313-2026-13-1-86-95"
+            ],
+            [
+              "elibrary_item_id",
+              "90401152"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=90401152"
+            ]
+          ],
+          "title": "Демографическая типология коренных малочисленных народов России: кластерный анализ возрастной структуры",
+          "url": "https://www.elibrary.ru/item.asp?id=90401152",
+          "protected_fields_sha256": "36ba40fe59bd1443ee298d9e0524c94f565b08b60ce06c14830d420edd3d6a69"
+        },
+        {
+          "identity": [
+            [
+              "url",
+              "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002"
+            ],
+            [
+              "wos_uid",
+              "WOS:001705010300002"
+            ]
+          ],
+          "title": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
+          "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
+          "protected_fields_sha256": "73f863f5e722bb2fa93c29d29533a9e65524f045750dd62ff93afd619df9c64d"
+        },
+        {
+          "identity": [
+            [
+              "doi",
+              "10.3389/fdata.2026.1842233"
+            ],
+            [
+              "url",
+              "https://www.scopus.com/record/display.uri?eid=2-s2.0-105046947039"
+            ]
+          ],
+          "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+          "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-105046947039",
+          "protected_fields_sha256": "97cd7e8bb3fda9afe81c4971d01a327ea4919ef3529d0ae0ea759f24b2e929e6"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "2dd81613294bdfd0"
+            ],
+            [
+              "elibrary_item_id",
+              "80640587"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=80640587"
+            ]
+          ],
+          "title": "Демографическое развитие России: становление и эволюция научной школы Л. Л. Рыбаковского",
+          "url": "https://www.elibrary.ru/item.asp?id=80640587",
+          "protected_fields_sha256": "8299541d1a73aab3d25d21e1ddfe1be172a134285e3b4273465a8317ca98251c"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "248dc58342acce5c"
+            ],
+            [
+              "elibrary_item_id",
+              "82280485"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=82280485"
+            ]
+          ],
+          "title": "Демографическое самочувствие регионов России. национальный демографический доклад — 2024",
+          "url": "https://www.elibrary.ru/item.asp?id=82280485",
+          "protected_fields_sha256": "372491eed5dabf2ae028005f566b3e680830105d1b68f47765f4a935c6927d0b"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "059488b9751640fe"
+            ],
+            [
+              "doi",
+              "10.19181/monogr.978-5-89697-443-7.2025"
+            ],
+            [
+              "elibrary_item_id",
+              "82935261"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=82935261"
+            ]
+          ],
+          "title": "Устойчивость российского государства и общества в условиях укрепления традиционных ценностей и становления многополярного мира. социальная и социально — политическая ситуация",
+          "url": "https://www.elibrary.ru/item.asp?id=82935261",
+          "protected_fields_sha256": "5bffec498eef335a983f25111dbc2414a292bfb7b33de03f26b87e24605d28f3"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "1742da56f32ae510"
+            ],
+            [
+              "elibrary_item_id",
+              "83120230"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=83120230"
+            ]
+          ],
+          "title": "Репродуктивные установки населения г. Севастополя и условия, влияющие на рождаемость",
+          "url": "https://www.elibrary.ru/item.asp?id=83120230",
+          "protected_fields_sha256": "99be2ff6073eab63d8c7f50baafe42b980ad4e282ce74e8c0b44db8302243f7a"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "2c4d6b7d806d7b33"
+            ],
+            [
+              "elibrary_item_id",
+              "89267026"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=89267026"
+            ]
+          ],
+          "title": "Корреляционный анализ социальноэкономических факторов демографических изменений",
+          "url": "https://www.elibrary.ru/item.asp?id=89267026",
+          "protected_fields_sha256": "e7f2ed7e9f2f5bd93faa076a80fbdbc0028eeb773d9d0754de2e2baab94d61c8"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "00ba17719fdf2ebc"
+            ],
+            [
+              "doi",
+              "10.52605/16059921_2025_05_116"
+            ],
+            [
+              "elibrary_item_id",
+              "83193628"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=83193628"
+            ]
+          ],
+          "title": "Цифровые технологии в профессиональной деятельности демографа",
+          "url": "https://www.elibrary.ru/item.asp?id=83193628",
+          "protected_fields_sha256": "b4ae21f52ca6bac72e33df7274da74f633bb5c9c85393e4390dec4ae87416d69"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "5a935f3e4cf11720"
+            ],
+            [
+              "doi",
+              "10.52605/16059921_2025_06_121"
+            ],
+            [
+              "elibrary_item_id",
+              "88811236"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=88811236"
+            ]
+          ],
+          "title": "Цифровая демография: современные методы исследования демографических процессов",
+          "url": "https://www.elibrary.ru/item.asp?id=88811236",
+          "protected_fields_sha256": "31fc0faa1fb2cdda2a59aaafa16f9e4ef62802f2b40572096d70e06a163d4c81"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "addb493ce7bcd300"
+            ],
+            [
+              "doi",
+              "10.7868/s3034520025040127"
+            ],
+            [
+              "elibrary_item_id",
+              "82376416"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=82376416"
+            ]
+          ],
+          "title": "Многодетная многопоколенная семья как ключевой ресурс новой долгосрочной стратегии демографического развития России",
+          "url": "https://www.elibrary.ru/item.asp?id=82376416",
+          "protected_fields_sha256": "534600dc7ae91155865970778ee68800d872cb8c141248767ab2b3865cccc53b"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "d78142ac2078e055"
+            ],
+            [
+              "doi",
+              "10.32687/0869-866x-2025-33-5-1280-1285"
+            ],
+            [
+              "elibrary_item_id",
+              "83174967"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=83174967"
+            ]
+          ],
+          "title": "The attitudes of foreign students to their further life and career in russia",
+          "url": "https://www.elibrary.ru/item.asp?id=83174967",
+          "protected_fields_sha256": "f9def2f23a7ba2bf0258865fe0524a812226be922ef0761af963c64e8c8a47d0"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "41919311581fea7e"
+            ],
+            [
+              "doi",
+              "10.52180/1999-9836_2025_21_4_8_602_617"
+            ],
+            [
+              "elibrary_item_id",
+              "83896667"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=83896667"
+            ]
+          ],
+          "title": "Взаимосвязи демографических и социально — экономических показателей развития регионов России",
+          "url": "https://www.elibrary.ru/item.asp?id=83896667",
+          "protected_fields_sha256": "b14b5ccb2ed2cb8579fe218b0d97de69649ac3a641404eae47282978e818b777"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "58ad60face9469ed"
+            ],
+            [
+              "doi",
+              "10.17853/1994-5639-2025-6-149-179"
+            ],
+            [
+              "elibrary_item_id",
+              "82678054"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=82678054"
+            ]
+          ],
+          "title": "Внутрироссийская образовательная миграция молодежи: привлекательность регионов для получения высшего образования",
+          "url": "https://www.elibrary.ru/item.asp?id=82678054",
+          "protected_fields_sha256": "9c80b684c5dca79b70b1af3c9dc696112309f423019a6eaa14d63079a6a339df"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "6c348dccce8e4c7d"
+            ],
+            [
+              "elibrary_item_id",
+              "88812395"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=88812395"
+            ]
+          ],
+          "title": "Молодёжь как ресурс развития российских регионов: государственные и корпоративные стратегии",
+          "url": "https://www.elibrary.ru/item.asp?id=88812395",
+          "protected_fields_sha256": "4c6d1960f7fe73a8f295724c567f1494ce7b06f7f872fd4dbeb50f0d4b4dfb35"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "2340cb41f705a868"
+            ],
+            [
+              "doi",
+              "10.21064/winrs.2025.3.5"
+            ],
+            [
+              "elibrary_item_id",
+              "82921380"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=82921380"
+            ]
+          ],
+          "title": "Репродуктивистика в трудах уральских демографов",
+          "url": "https://www.elibrary.ru/item.asp?id=82921380",
+          "protected_fields_sha256": "7c2eb6431efe714752cbf0f837f0cdf082e2ffb542357a44d3bbce911cf4ddc1"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "f046f50fa09045f1"
+            ],
+            [
+              "doi",
+              "10.21064/winrs.2025.4.7"
+            ],
+            [
+              "elibrary_item_id",
+              "87233267"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=87233267"
+            ]
+          ],
+          "title": "Цифровая демографическая обсерватория: новые подходы к мониторингу миграционных потоков",
+          "url": "https://www.elibrary.ru/item.asp?id=87233267",
+          "protected_fields_sha256": "80c3fbaa4c1fe314af8dc95afce81741be2a9d29382df1f083fe9af7d44411f1"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "e344883e06272cb3"
+            ],
+            [
+              "doi",
+              "10.15838/esc.2025.3.99.10"
+            ],
+            [
+              "elibrary_item_id",
+              "82579805"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=82579805"
+            ]
+          ],
+          "title": "Демографические ресурсы России: вариативность подходов и оценок",
+          "url": "https://www.elibrary.ru/item.asp?id=82579805",
+          "protected_fields_sha256": "d87995f65d30951f52b5340b27c3449667abd3131afa3f55c3cf4f26fb80ed12"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "568e73e9e25c6aa2"
+            ],
+            [
+              "doi",
+              "10.15838/esc.2025.6.102.4"
+            ],
+            [
+              "elibrary_item_id",
+              "88778278"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=88778278"
+            ]
+          ],
+          "title": "Влияние агломерационного эффекта на демографическую политику территорий",
+          "url": "https://www.elibrary.ru/item.asp?id=88778278",
+          "protected_fields_sha256": "677647fbe0e8dc331e5797c19b7d625037f5f8a05cae93d6c66706d8f3a7266f"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "8787a11d6c0aee7d"
+            ],
+            [
+              "doi",
+              "10.25178/nit.2025.2.4"
+            ],
+            [
+              "elibrary_item_id",
+              "82491287"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=82491287"
+            ]
+          ],
+          "title": "Система расселения Республики Тыва: опорные населённые пункты",
+          "url": "https://www.elibrary.ru/item.asp?id=82491287",
+          "protected_fields_sha256": "2e43b7c6a721d37fc925a67ad4cb0552164b242caa487976ca36382c7f9d4ba9"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "409efe2a904a8be1"
+            ],
+            [
+              "doi",
+              "10.25178/nit.2025.4.13"
+            ],
+            [
+              "elibrary_item_id",
+              "85423263"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=85423263"
+            ]
+          ],
+          "title": "Методология и практика проведения демографической экспертизы на примере региональной программы \"повышение рождаемости в Республике Тыва на период 2023 — 2025 годов\"",
+          "url": "https://www.elibrary.ru/item.asp?id=85423263",
+          "protected_fields_sha256": "43b561b544237a2ace96064a70143a4f935f025cb61267d603c2381c82d8854d"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "e30afe7f9194bc7b"
+            ],
+            [
+              "doi",
+              "10.22363/2312-8313-2025-12-3-319-327"
+            ],
+            [
+              "elibrary_item_id",
+              "83217146"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=83217146"
+            ]
+          ],
+          "title": "Государственная семейно — демографическая политика: обзор актуальных исследований и практик",
+          "url": "https://www.elibrary.ru/item.asp?id=83217146",
+          "protected_fields_sha256": "5ee89c7a3ec48688b4dacf0771143dfd1ea8d58be54c93dad5cacad817194ab6"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "7d41f4757ddfd95b"
+            ],
+            [
+              "doi",
+              "10.22363/2312-8313-2025-12-3-375-385"
+            ],
+            [
+              "elibrary_item_id",
+              "83217152"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=83217152"
+            ]
+          ],
+          "title": "Влияние государственной политики агломерирования на долгосрочные тенденции изменения численности населения России",
+          "url": "https://www.elibrary.ru/item.asp?id=83217152",
+          "protected_fields_sha256": "e249f21cc811f5895bb5eac29003d00d6b754e09bc6f983169b92e70b708d6d6"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "41a007210647f0a6"
+            ],
+            [
+              "doi",
+              "10.18413/2408-9338-2025-11-4-1-4"
+            ],
+            [
+              "elibrary_item_id",
+              "88751490"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=88751490"
+            ]
+          ],
+          "title": "Социологическая диагностика неудовлетворённости населения как инструмент управления развитием территорий",
+          "url": "https://www.elibrary.ru/item.asp?id=88751490",
+          "protected_fields_sha256": "a40cfbd2934989de47afcf95baa4212c269c8163626d56f20589e0d7417283db"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "89fd29fe20d215b1"
+            ],
+            [
+              "doi",
+              "10.19181/demis.2025.5.4.11"
+            ],
+            [
+              "elibrary_item_id",
+              "88766941"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=88766941"
+            ]
+          ],
+          "title": "Методологические аспекты проведения демографической экспертизы проектов и работ",
+          "url": "https://www.elibrary.ru/item.asp?id=88766941",
+          "protected_fields_sha256": "5eff2c0e7c027b2886474c7044a41d21888e4e3234ba749d6fabe7d508eb4caa"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "94de25b9d60208a4"
+            ],
+            [
+              "elibrary_item_id",
+              "88139507"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=88139507"
+            ],
+            [
+              "wos_uid",
+              "WOS:001643513900001"
+            ]
+          ],
+          "title": "The impact of population density on the socio-economic development of russian regions: from correlation portraits to the cluster-differentiated density governance",
+          "url": "https://www.elibrary.ru/item.asp?id=88139507",
+          "protected_fields_sha256": "79439a75aa3b1a6693fbf3fa12e1f01e0749b229cefa9a7d0e2e3001388a563a"
+        },
+        {
+          "identity": [
+            [
+              "url",
+              "https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010"
+            ],
+            [
+              "wos_uid",
+              "WOS:001555353700010"
+            ]
+          ],
+          "title": "Demographic Resources of Russia: Variability of Approaches and Assessments",
+          "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010",
+          "protected_fields_sha256": "170f8e52ea56f67076436cbedeaa326acafaf06709483dbf22f50a263767a0b8"
+        },
+        {
+          "identity": [
+            [
+              "url",
+              "https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006"
+            ],
+            [
+              "wos_uid",
+              "WOS:001504467400006"
+            ]
+          ],
+          "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+          "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006",
+          "protected_fields_sha256": "6400996f65aecb45bf11b7971cdbe17449e5e06e008ea80b41c9709e50d396f0"
+        },
+        {
+          "identity": [
+            [
+              "url",
+              "https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001"
+            ],
+            [
+              "wos_uid",
+              "WOS:001633673200001"
+            ]
+          ],
+          "title": "Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\"",
+          "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001",
+          "protected_fields_sha256": "ffa21ba19d24effece51a2d2338ea12c88ec58b64fa64fe91f0856432a9e67cd"
+        },
+        {
+          "identity": [
+            [
+              "url",
+              "https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004"
+            ],
+            [
+              "wos_uid",
+              "WOS:001679486900004"
+            ]
+          ],
+          "title": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
+          "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004",
+          "protected_fields_sha256": "0025ff513b90b8e298dc7e97c0d6386666a50d1b1502ca1f4485c394d6eae4bc"
+        },
+        {
+          "identity": [
+            [
+              "url",
+              "https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001"
+            ],
+            [
+              "wos_uid",
+              "WOS:001508911200001"
+            ]
+          ],
+          "title": "The settlement system of the Republic of Tuva: central places",
+          "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001",
+          "protected_fields_sha256": "63ab5c0314b4ce776d0e8724d103f93cebd51770c8328f389dab35fb99e162f2"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "eb00ba5f977054de"
+            ],
+            [
+              "elibrary_item_id",
+              "62766619"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=62766619"
+            ]
+          ],
+          "title": "Ресурсы демографического развития: к вопросу об унификации понятий в демографических исследованиях",
+          "url": "https://www.elibrary.ru/item.asp?id=62766619",
+          "protected_fields_sha256": "087762b29b22bd31da5203a808fba9b61ab4d69c763cae2ab5b1ce56b2533c56"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "b2d5a1c5020a3cc3"
+            ],
+            [
+              "doi",
+              "10.25178/nit.2024.3.13"
+            ],
+            [
+              "elibrary_item_id",
+              "72083389"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=72083389"
+            ]
+          ],
+          "title": "Образовательные межрегиональные миграции в России в 2017 — 2019 гг. : гендерные и пространственные аспекты",
+          "url": "https://www.elibrary.ru/item.asp?id=72083389",
+          "protected_fields_sha256": "f0fa4b90dc0a2141132412ffca858d58b21ffc98eb7bf40d2e9c289551320151"
+        },
+        {
+          "identity": [
+            [
+              "url",
+              "https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001"
+            ],
+            [
+              "wos_uid",
+              "WOS:001186327000001"
+            ]
+          ],
+          "title": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
+          "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001",
+          "protected_fields_sha256": "ed821f76f9aa74ae9eaa3d20c438e10166e4064815a02ead87855b1b0a7e9e17"
+        },
+        {
+          "identity": [
+            [
+              "url",
+              "https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001"
+            ],
+            [
+              "wos_uid",
+              "WOS:001331184300001"
+            ]
+          ],
+          "title": "Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects",
+          "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001",
+          "protected_fields_sha256": "f4cf76775c63c90e672ff6cea673bfc65758628748db4c4edc0bde5095c502f2"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "8ff2a5b19f31c0e6"
+            ],
+            [
+              "elibrary_item_id",
+              "54756601"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=54756601"
+            ]
+          ],
+          "title": "Использование векторных оценок и графоаналитических методов в исследовании демографического поведения населения региона",
+          "url": "https://www.elibrary.ru/item.asp?id=54756601",
+          "protected_fields_sha256": "ebac6bd81814a3e99e84012e2292b4424407d734c5d15a38068c3d82ba944530"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "5c76ced8179dcb36"
+            ],
+            [
+              "elibrary_item_id",
+              "54485757"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=54485757"
+            ]
+          ],
+          "title": "Особенности демографического развития коренных малочисленных народов севера хмао в период 20022022 гг",
+          "url": "https://www.elibrary.ru/item.asp?id=54485757",
+          "protected_fields_sha256": "4828e951bf63f205d864e7f6e269c1c1df1cb2c02b756a46c074ef563f11e48f"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "c98316796b68ea53"
+            ],
+            [
+              "elibrary_item_id",
+              "54305933"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=54305933"
+            ]
+          ],
+          "title": "Социально — демографические аспекты определения опорного каркаса расселения",
+          "url": "https://www.elibrary.ru/item.asp?id=54305933",
+          "protected_fields_sha256": "7157398ebe05394e3a7ae81d96de11f6f5b46e7118e55fbe22259f1406105523"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "1ea1b99c17a65875"
+            ],
+            [
+              "doi",
+              "10.22394/2304-3369-2023-4-33-52"
+            ],
+            [
+              "elibrary_item_id",
+              "54353108"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=54353108"
+            ]
+          ],
+          "title": "Методический подход к анализу социально — демографических факторов формирования опорного каркаса расселения",
+          "url": "https://www.elibrary.ru/item.asp?id=54353108",
+          "protected_fields_sha256": "439e6462f86ca9d12643ab591f0ce7da4e6a89a8fae1a22d9d2f11465b8f7769"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "722bf6bf79e405f5"
+            ],
+            [
+              "elibrary_item_id",
+              "49832359"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=49832359"
+            ]
+          ],
+          "title": "Половозрастная пирамида миграционного сальдо как инструмент углубленного анализа миграционныхпроцессов",
+          "url": "https://www.elibrary.ru/item.asp?id=49832359",
+          "protected_fields_sha256": "bcfa7de89833914e3a4bf4a3481e55cbf2313aa05c1088363a0600c42d85581d"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "0d65ca49ecb4e9df"
+            ],
+            [
+              "elibrary_item_id",
+              "50094227"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=50094227"
+            ]
+          ],
+          "title": "Система расселения чувашской республики: чебоксарская агломерация",
+          "url": "https://www.elibrary.ru/item.asp?id=50094227",
+          "protected_fields_sha256": "7daa6d90abdc9b76fa9948751da0fba12767e9d3d6f3ce365d5e43f08d43dcbe"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "3eca897efa4c444d"
+            ],
+            [
+              "elibrary_item_id",
+              "48075389"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=48075389"
+            ]
+          ],
+          "title": "Города будущего: пространственное развитие, соучаствующее управление и творческие индустрии",
+          "url": "https://www.elibrary.ru/item.asp?id=48075389",
+          "protected_fields_sha256": "d5cedca37985652ec70d9e623ccc5afa6fa7ddd8eedae4393dbd620f200b033e"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "3736aa250dcb758d"
+            ],
+            [
+              "elibrary_item_id",
+              "48271056"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=48271056"
+            ]
+          ],
+          "title": "Пространственное сжатие территорий Российской Федерации: понятие, критерии, система показателей",
+          "url": "https://www.elibrary.ru/item.asp?id=48271056",
+          "protected_fields_sha256": "526277ccf691d3cbe2260633c20a87afd9bbf03b0029000d7aaba2032a4393dd"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "8272e0e1c7cdf192"
+            ],
+            [
+              "elibrary_item_id",
+              "45763932"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=45763932"
+            ]
+          ],
+          "title": "Многоуровневые модели трансформации социального пространства Евразийского макрорегиона: на примере урала",
+          "url": "https://www.elibrary.ru/item.asp?id=45763932",
+          "protected_fields_sha256": "ef59e7a89977ff72586c097ac3a23ce363620934f3fc6f2a326125ee1ec0b9be"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "809571a7882fbdac"
+            ],
+            [
+              "elibrary_item_id",
+              "48333690"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=48333690"
+            ]
+          ],
+          "title": "Многомерная типологизация субъектов РФ на основе социально — экономических и природно — климатических характеристи",
+          "url": "https://www.elibrary.ru/item.asp?id=48333690",
+          "protected_fields_sha256": "9025b088f0722aeff9570a3bfff61f8cb5ac80ce2e17d7dfc6c777f240d43b7b"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "b71b03779c42f4e3"
+            ],
+            [
+              "doi",
+              "10.26653/2076-4650-2021-6-08"
+            ],
+            [
+              "elibrary_item_id",
+              "48126823"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=48126823"
+            ]
+          ],
+          "title": "Выявление экономической специализации и потенциала кооперации субъектов РФ",
+          "url": "https://www.elibrary.ru/item.asp?id=48126823",
+          "protected_fields_sha256": "6d650cc0d792d366da05fd54a7956d579671205fbe98afa8e316c3adf1e1cf37"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "8fa4022d53cba9b3"
+            ],
+            [
+              "doi",
+              "10.22394/2304-3369-2021-2-102-119"
+            ],
+            [
+              "elibrary_item_id",
+              "45651388"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=45651388"
+            ]
+          ],
+          "title": "Моделирование многокритериальной оценки социо — эколого — экономического состояния и динамики территории",
+          "url": "https://www.elibrary.ru/item.asp?id=45651388",
+          "protected_fields_sha256": "55c425bab300e7ee7e119df19ca2b202c69c6c10da49c5ee3f99d0476917473b"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "4682e5ee518dc06f"
+            ],
+            [
+              "elibrary_item_id",
+              "43996074"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=43996074"
+            ]
+          ],
+          "title": "The transformation of social and cultural space in the context of the development of transport corridors",
+          "url": "https://www.elibrary.ru/item.asp?id=43996074",
+          "protected_fields_sha256": "28924576cb6259dbdd576b2068960ebcd29161054eb22c798aa19dbb88089eef"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "b4947f53ad19ec0a"
+            ],
+            [
+              "elibrary_item_id",
+              "44238615"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=44238615"
+            ]
+          ],
+          "title": "«Эффект колеи» и трансформация социального пространства Евразийского макрорегиона: на примере урала",
+          "url": "https://www.elibrary.ru/item.asp?id=44238615",
+          "protected_fields_sha256": "83b1e61fc1497b2b902b4a559f0b32396e6b62f8b8dda8bad9a57a95448aa2b3"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "3adcac2daa085839"
+            ],
+            [
+              "elibrary_item_id",
+              "48727518"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=48727518"
+            ],
+            [
+              "wos_uid",
+              "WOS:000773381800013"
+            ]
+          ],
+          "title": "“Path dependence”: the transformation of the social space of the eurasian macroregion",
+          "url": "https://www.elibrary.ru/item.asp?id=48727518",
+          "protected_fields_sha256": "4d4cfd4725d62c1ba5f4e6a5cf958c26ae4a70c35de39f40a51cdc9422195a98"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "22d536b71ef457d1"
+            ],
+            [
+              "elibrary_item_id",
+              "44505904"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=44505904"
+            ]
+          ],
+          "title": "Приоритеты качества жизни в нормализации социально — демографических процессов территорий",
+          "url": "https://www.elibrary.ru/item.asp?id=44505904",
+          "protected_fields_sha256": "0e424d070de288083325cf9bc7477b2e24b7b4e4d0ae8321f2f794c40005e44d"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "f4214b9107d0829a"
+            ],
+            [
+              "elibrary_item_id",
+              "44548233"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=44548233"
+            ]
+          ],
+          "title": "Пространственная дифференциация миграционных процессов в контексте локального экономического кризиса на примере Челябинской области",
+          "url": "https://www.elibrary.ru/item.asp?id=44548233",
+          "protected_fields_sha256": "ad6a246c3a96b76b727d6e3a53a171e4f03009f2a42439ba1d96217fa28b1f12"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "71793156ff5cf075"
+            ],
+            [
+              "doi",
+              "10.1051/e3sconf/202021707021"
+            ],
+            [
+              "elibrary_item_id",
+              "45066549"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=45066549"
+            ]
+          ],
+          "title": "Visualization in models of transformation of social space of the eurasian macroregion: the example of the urals",
+          "url": "https://www.elibrary.ru/item.asp?id=45066549",
+          "protected_fields_sha256": "e3066c9185be3c3609a778865d3981cb113f2c4b9bfdcd659bc08fe86d907197"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "46b3006e3903d142"
+            ],
+            [
+              "elibrary_item_id",
+              "42493918"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=42493918"
+            ]
+          ],
+          "title": "Changing the structure of the working-age population projected by the cohort component method (on the example of a megacity)",
+          "url": "https://www.elibrary.ru/item.asp?id=42493918",
+          "protected_fields_sha256": "42871de054508a8fc40491ee9e2b401f0c9916ee4969448bf1a1c709d752a0b6"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "db61420745b9796c"
+            ],
+            [
+              "elibrary_item_id",
+              "42325217"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=42325217"
+            ]
+          ],
+          "title": "Взаимосвязь экономических и демографических процессов малого моногорода урала",
+          "url": "https://www.elibrary.ru/item.asp?id=42325217",
+          "protected_fields_sha256": "4f2b42d7b7dfd34d3bf5c95912df14b4882411d1baf973a3bc7a26598f915a3c"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "5fa21971aec48c4a"
+            ],
+            [
+              "elibrary_item_id",
+              "42325239"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=42325239"
+            ]
+          ],
+          "title": "Обновление методик и инструментария для подготовки программ пространственного развития муниципальных образований",
+          "url": "https://www.elibrary.ru/item.asp?id=42325239",
+          "protected_fields_sha256": "8b4c0c06be449723d1e5d8be9f562260dd150bfa06a9c4f86cb091f67b8294aa"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "54b0bf1a3deeb827"
+            ],
+            [
+              "elibrary_item_id",
+              "41509538"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=41509538"
+            ]
+          ],
+          "title": "Оценки качества жизни и социальных приоритетов развития территорий",
+          "url": "https://www.elibrary.ru/item.asp?id=41509538",
+          "protected_fields_sha256": "2686b3ede609fdabaa4ded7e9a8c4a65a08aaddba1987e710f967d6771fde863"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "fcbc9f74d1f2e725"
+            ],
+            [
+              "elibrary_item_id",
+              "42358409"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=42358409"
+            ]
+          ],
+          "title": "Методические аспекты развития малых центров социальных услуг муниципального образования",
+          "url": "https://www.elibrary.ru/item.asp?id=42358409",
+          "protected_fields_sha256": "fed03d526f870390f52528ae4dd56df2fc7952233f0094929b937cb59d765b3a"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "e2090412ef6977f4"
+            ],
+            [
+              "elibrary_item_id",
+              "42358410"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=42358410"
+            ]
+          ],
+          "title": "\"Эффект колеи\" в пространственном межмуниципальном развитии",
+          "url": "https://www.elibrary.ru/item.asp?id=42358410",
+          "protected_fields_sha256": "806bfae66d8bb02d3c68998ae43a3d49d31604ef76eebe0c5d762c07ae36665f"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "9acf6b6a7ed4dead"
+            ],
+            [
+              "elibrary_item_id",
+              "42445903"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=42445903"
+            ]
+          ],
+          "title": "Методика и практика формирования многоуровневой системы центров социальных услуг",
+          "url": "https://www.elibrary.ru/item.asp?id=42445903",
+          "protected_fields_sha256": "8cf42baadbba2f40a802c15f6ffd88dafc0b4592004f89be4ecbb42657eff52b"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "efe2d6c56dd8fbbc"
+            ],
+            [
+              "elibrary_item_id",
+              "36888017"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=36888017"
+            ]
+          ],
+          "title": "Некоторые парадоксы современных демографических процессов",
+          "url": "https://www.elibrary.ru/item.asp?id=36888017",
+          "protected_fields_sha256": "35b2868ad9861953fe2da3efef3a2f2ab1f618139177b89c337bf4786f82f4e0"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "d0d9ab520875ad57"
+            ],
+            [
+              "elibrary_item_id",
+              "36808832"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=36808832"
+            ]
+          ],
+          "title": "Демографический фактор в обеспечении устойчивого развития мегаполиса",
+          "url": "https://www.elibrary.ru/item.asp?id=36808832",
+          "protected_fields_sha256": "f76a4f6b07fa90763c4c9bac7a8b7600a14f559a43f3f4096ce663e057b641cb"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "ef0ff3591d699967"
+            ],
+            [
+              "elibrary_item_id",
+              "34954854"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=34954854"
+            ]
+          ],
+          "title": "Демографическая политика Российской Федерации",
+          "url": "https://www.elibrary.ru/item.asp?id=34954854",
+          "protected_fields_sha256": "107f02cac6ef13a09f9d64fec3f9bfee0163ecff2d94a489d02f4e067ec25a4b"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "75c9e387e40d7b10"
+            ],
+            [
+              "elibrary_item_id",
+              "34954475"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=34954475"
+            ]
+          ],
+          "title": "Сохранение репродуктивного здоровья как одно из условий увеличения средней ожидаемой продолжительности жизни женщин",
+          "url": "https://www.elibrary.ru/item.asp?id=34954475",
+          "protected_fields_sha256": "72d0f073cf8509cfb7120178dc9a48d62030e642e4ba9085b6eb6b8ba499ef8f"
+        },
+        {
+          "identity": [
+            [
+              "dedupe_fingerprint",
+              "ceb269b240e51856"
+            ],
+            [
+              "elibrary_item_id",
+              "30111055"
+            ],
+            [
+              "url",
+              "https://www.elibrary.ru/item.asp?id=30111055"
+            ]
+          ],
+          "title": "Основа здоровья человека — репродуктивное здоровье",
+          "url": "https://www.elibrary.ru/item.asp?id=30111055",
+          "protected_fields_sha256": "c2e8a6042b9720444661831090775203dadd76ab8bfb67d7312387a38215a90d"
+        }
+      ]
+    },
+    "data/media/published.json": {
+      "count": 20,
+      "records": [
+        {
+          "identity": [
+            [
+              "id",
+              "aa29e51cf3112fee"
+            ],
+            [
+              "url",
+              "https://kaluga-zaprava.ru/biblioteka/rf/hossijan-molozhe-35-let-ostanetsja-lish-chetvert-naselenija"
+            ]
+          ],
+          "title": "Россиян моложе 35 лет останется лишь четверть населения",
+          "url": "https://kaluga-zaprava.ru/biblioteka/rf/hossijan-molozhe-35-let-ostanetsja-lish-chetvert-naselenija/",
+          "protected_fields_sha256": "65f14161713423d12dd7ae5df20326a87cab5ecf5104fc61a04354fb21c232bf"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "4a71034530769dcd"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii"
+            ]
+          ],
+          "title": "Влияние государственной политики агломерирования на долгосрочные тенденции изменения численности населения России",
+          "url": "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii",
+          "protected_fields_sha256": "2a7645b117ffb8106af9b2910133f201403af7ff6505489e277066619f16620e"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "b6fc596eca2728c6"
+            ],
+            [
+              "url",
+              "https://www.sobaka.ru/city/society/210740"
+            ]
+          ],
+          "title": "Очень скоро россиян моложе 35 лет останется лишь четверть населения — в 1990-м они составляли его половину. Что будет дальше?",
+          "url": "https://www.sobaka.ru/city/society/210740",
+          "protected_fields_sha256": "65ba18402d4508bf741aa4dcda8dfafb1a68a762f0a4218a975ffd38de012768"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "a4c62d3dc74e07ca"
+            ],
+            [
+              "url",
+              "https://www.rosbalt.ru/news/2026-01-31/obschestvo-superzrelosti-my-stremitelno-stareem-5543743"
+            ]
+          ],
+          "title": "Общество суперзрелости: мы стремительно стареем",
+          "url": "https://www.rosbalt.ru/news/2026-01-31/obschestvo-superzrelosti-my-stremitelno-stareem-5543743",
+          "protected_fields_sha256": "9bf9a5931908ae8d043250780aead5336a78b9477ded1e6b71f8afd34f319c57"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "414faf210745728c"
+            ],
+            [
+              "url",
+              "https://t.me/tolk_tolk/27280"
+            ]
+          ],
+          "title": "Толкователь",
+          "url": "https://t.me/tolk_tolk/27280",
+          "protected_fields_sha256": "c35497cf1ede8461c553f1a6b60c2ae81226d6de5c7e560ed10012dc9d742952"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "7afe6c3e1110f2f7"
+            ],
+            [
+              "url",
+              "https://t.me/tolk_tolk/27274"
+            ]
+          ],
+          "title": "Толкователь",
+          "url": "https://t.me/tolk_tolk/27274",
+          "protected_fields_sha256": "fa97f9cd6212a027bf1663d707d93a73e9ce18fd79b79161ac71ceb32ce08f85"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "4e7b2f54b868d4b8"
+            ],
+            [
+              "url",
+              "https://new.ras.ru/press-center/vi-vserossiyskiy-demograficheskiy-forum-s-mezhdunarodnym-uchastiem"
+            ]
+          ],
+          "title": "VI Всероссийский демографический форум с международным участием",
+          "url": "https://new.ras.ru/press-center/vi-vserossiyskiy-demograficheskiy-forum-s-mezhdunarodnym-uchastiem/",
+          "protected_fields_sha256": "090e663201680f0f3e3673791b8ebc2f17d835c6fafa973a0d4566a769f27a04"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "ff0e149b620976c8"
+            ],
+            [
+              "url",
+              "https://chelyabinsk.bezformata.com/listnews/konferentciya-molodyozh/152835280"
+            ]
+          ],
+          "title": "Всероссийская конференция «Молодёжь как ресурс развития российских регионов»",
+          "url": "https://chelyabinsk.bezformata.com/listnews/konferentciya-molodyozh/152835280/",
+          "protected_fields_sha256": "b0236e3c81818fafd3a05736537400f5da1b09f67073f5ea942ebeed97a82cfc"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "b453d2d75d995c21"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/demograficheskiye-resursy-rossii-variativnost-podkhodov-i-otsenok"
+            ]
+          ],
+          "title": "Демографические ресурсы России: вариативность подходов и оценок",
+          "url": "https://deminform.ru/analytics/demograficheskiye-resursy-rossii-variativnost-podkhodov-i-otsenok",
+          "protected_fields_sha256": "3811aa3c39c774d8b32d4f862a79efea2214b443cceef2b30fd7390ac1049e7b"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "6e48b1825bdc427e"
+            ],
+            [
+              "url",
+              "https://www.demoscope.ru/weekly/2025/01081/gazeta03.php"
+            ]
+          ],
+          "title": "Газеты пишут об образовательной миграции",
+          "url": "https://www.demoscope.ru/weekly/2025/01081/gazeta03.php",
+          "protected_fields_sha256": "71cfe726bf9675833584e79d6c2334bb711e31a38c22b1323c7886ca81ea296c"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "3e9e02887f4e1703"
+            ],
+            [
+              "url",
+              "https://phil.rudn.ru/ru/media/news/123574"
+            ]
+          ],
+          "title": "Делегация филологического факультета и ИСЯМКиМ приняла участие во Всероссийской научно-практической конференции",
+          "url": "https://phil.rudn.ru/ru/media/news/123574/",
+          "protected_fields_sha256": "cb5d93e847d54fa2293e0945314af00ff4818504185293d18b220e48783b72e7"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "1c37bb1089f52e88"
+            ],
+            [
+              "url",
+              "https://phil.rudn.ru/ru/media/news/123453"
+            ]
+          ],
+          "title": "В Институте демографических исследований РАН презентован Национальный демографический доклад — 2024",
+          "url": "https://phil.rudn.ru/ru/media/news/123453/",
+          "protected_fields_sha256": "341492d933efc59b8e7079f20561bdd069fe88726e088d2441722cc0a57a862c"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "4f013516d981a1b7"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda"
+            ]
+          ],
+          "title": "Урбанизация против рождаемости: стратегия пространственного развития России до 2030 года",
+          "url": "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda",
+          "protected_fields_sha256": "8c71d9657b84f4bc2f18d27e932f298a7c412dc6693dc67f80dd60640e0b8f04"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "76917ca96c460960"
+            ],
+            [
+              "url",
+              "https://mgimo.ru/about/news/departments/geodata-and-geoinformation-systems"
+            ]
+          ],
+          "title": "Геоданные и ГИС: методический семинар программы Цифровой кафедры",
+          "url": "https://mgimo.ru/about/news/departments/geodata-and-geoinformation-systems/",
+          "protected_fields_sha256": "8508ab54579beeaf28bab7c9b79e8dfbf48bf55a7174cc09cf4c326bbfbb180e"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "3a1978611b411757"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi"
+            ]
+          ],
+          "title": "Семейная ипотека 2024: инфраструктурное обеспечение многодетной семьи",
+          "url": "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi",
+          "protected_fields_sha256": "e70bf3e842c88c31209495d6765d365d7d4bdd3af5600163b2918da87fda77bd"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "be3991667c784f69"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit"
+            ]
+          ],
+          "title": "Демографическое чудо Израиля: можем повторить?",
+          "url": "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit",
+          "protected_fields_sha256": "eb54421e5a50fdf639def1e4a4f129f4709ead72f42c54d9563880a879669155"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "b84dccef5ac352a4"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/voprosy-sistemy-rasseleniya-rossii-kotorym-ochen-nuzhny-otvety"
+            ]
+          ],
+          "title": "Вопросы системы расселения России, которым очень нужны ответы",
+          "url": "https://deminform.ru/analytics/voprosy-sistemy-rasseleniya-rossii-kotorym-ochen-nuzhny-otvety",
+          "protected_fields_sha256": "cef5909216bb84c0a149169670085b246e604627745db35f77d2c040955392e7"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "0231993f9de96e61"
+            ],
+            [
+              "url",
+              "https://ion.ranepa.ru/news/studenty-ion-posetili-shirakskiy-gosudarstvennyy-universitet-v-armenii"
+            ]
+          ],
+          "title": "Студенты ИОН посетили Ширакский государственный университет в Армении",
+          "url": "https://ion.ranepa.ru/news/studenty-ion-posetili-shirakskiy-gosudarstvennyy-universitet-v-armenii/",
+          "protected_fields_sha256": "d541469404a4cc51e253552771b7b7c6b8cc4e755d26f4bc9b95678201264082"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "6de04edc860ab81f"
+            ],
+            [
+              "url",
+              "https://demografplatforma.ru?p=1033"
+            ]
+          ],
+          "title": "Международная научная конференция молодых демографов",
+          "url": "https://demografplatforma.ru/?p=1033",
+          "protected_fields_sha256": "7c6258465880f172960800ffd90d8b151227ed3c7d911962e04ba64417cee731"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "29492b8749f38204"
+            ],
+            [
+              "url",
+              "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3106523"
+            ]
+          ],
+          "title": "Демографическая Политика Российской Федерации",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+          "protected_fields_sha256": "29eaa2c41906fe116c6d50cba410c4bf5810f6f58598cf5b31624f056740b7ec"
+        }
+      ]
+    },
+    "data/media/published-fallback.json": {
+      "count": 20,
+      "records": [
+        {
+          "identity": [
+            [
+              "id",
+              "aa29e51cf3112fee"
+            ],
+            [
+              "url",
+              "https://kaluga-zaprava.ru/biblioteka/rf/hossijan-molozhe-35-let-ostanetsja-lish-chetvert-naselenija"
+            ]
+          ],
+          "title": "Россиян моложе 35 лет останется лишь четверть населения",
+          "url": "https://kaluga-zaprava.ru/biblioteka/rf/hossijan-molozhe-35-let-ostanetsja-lish-chetvert-naselenija/",
+          "protected_fields_sha256": "65f14161713423d12dd7ae5df20326a87cab5ecf5104fc61a04354fb21c232bf"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "4a71034530769dcd"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii"
+            ]
+          ],
+          "title": "Влияние государственной политики агломерирования на долгосрочные тенденции изменения численности населения России",
+          "url": "https://deminform.ru/analytics/vliyaniye-gosudarstvennoy-politiki-aglomerirovaniya-na-dolgosrochnye-tendentsii-izmeneniya-chislennosti-naseleniya-rossii",
+          "protected_fields_sha256": "2a7645b117ffb8106af9b2910133f201403af7ff6505489e277066619f16620e"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "b6fc596eca2728c6"
+            ],
+            [
+              "url",
+              "https://www.sobaka.ru/city/society/210740"
+            ]
+          ],
+          "title": "Очень скоро россиян моложе 35 лет останется лишь четверть населения — в 1990-м они составляли его половину. Что будет дальше?",
+          "url": "https://www.sobaka.ru/city/society/210740",
+          "protected_fields_sha256": "65ba18402d4508bf741aa4dcda8dfafb1a68a762f0a4218a975ffd38de012768"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "a4c62d3dc74e07ca"
+            ],
+            [
+              "url",
+              "https://www.rosbalt.ru/news/2026-01-31/obschestvo-superzrelosti-my-stremitelno-stareem-5543743"
+            ]
+          ],
+          "title": "Общество суперзрелости: мы стремительно стареем",
+          "url": "https://www.rosbalt.ru/news/2026-01-31/obschestvo-superzrelosti-my-stremitelno-stareem-5543743",
+          "protected_fields_sha256": "9bf9a5931908ae8d043250780aead5336a78b9477ded1e6b71f8afd34f319c57"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "414faf210745728c"
+            ],
+            [
+              "url",
+              "https://t.me/tolk_tolk/27280"
+            ]
+          ],
+          "title": "Толкователь",
+          "url": "https://t.me/tolk_tolk/27280",
+          "protected_fields_sha256": "c35497cf1ede8461c553f1a6b60c2ae81226d6de5c7e560ed10012dc9d742952"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "7afe6c3e1110f2f7"
+            ],
+            [
+              "url",
+              "https://t.me/tolk_tolk/27274"
+            ]
+          ],
+          "title": "Толкователь",
+          "url": "https://t.me/tolk_tolk/27274",
+          "protected_fields_sha256": "fa97f9cd6212a027bf1663d707d93a73e9ce18fd79b79161ac71ceb32ce08f85"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "4e7b2f54b868d4b8"
+            ],
+            [
+              "url",
+              "https://new.ras.ru/press-center/vi-vserossiyskiy-demograficheskiy-forum-s-mezhdunarodnym-uchastiem"
+            ]
+          ],
+          "title": "VI Всероссийский демографический форум с международным участием",
+          "url": "https://new.ras.ru/press-center/vi-vserossiyskiy-demograficheskiy-forum-s-mezhdunarodnym-uchastiem/",
+          "protected_fields_sha256": "090e663201680f0f3e3673791b8ebc2f17d835c6fafa973a0d4566a769f27a04"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "ff0e149b620976c8"
+            ],
+            [
+              "url",
+              "https://chelyabinsk.bezformata.com/listnews/konferentciya-molodyozh/152835280"
+            ]
+          ],
+          "title": "Всероссийская конференция «Молодёжь как ресурс развития российских регионов»",
+          "url": "https://chelyabinsk.bezformata.com/listnews/konferentciya-molodyozh/152835280/",
+          "protected_fields_sha256": "b0236e3c81818fafd3a05736537400f5da1b09f67073f5ea942ebeed97a82cfc"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "b453d2d75d995c21"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/demograficheskiye-resursy-rossii-variativnost-podkhodov-i-otsenok"
+            ]
+          ],
+          "title": "Демографические ресурсы России: вариативность подходов и оценок",
+          "url": "https://deminform.ru/analytics/demograficheskiye-resursy-rossii-variativnost-podkhodov-i-otsenok",
+          "protected_fields_sha256": "3811aa3c39c774d8b32d4f862a79efea2214b443cceef2b30fd7390ac1049e7b"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "6e48b1825bdc427e"
+            ],
+            [
+              "url",
+              "https://www.demoscope.ru/weekly/2025/01081/gazeta03.php"
+            ]
+          ],
+          "title": "Газеты пишут об образовательной миграции",
+          "url": "https://www.demoscope.ru/weekly/2025/01081/gazeta03.php",
+          "protected_fields_sha256": "71cfe726bf9675833584e79d6c2334bb711e31a38c22b1323c7886ca81ea296c"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "3e9e02887f4e1703"
+            ],
+            [
+              "url",
+              "https://phil.rudn.ru/ru/media/news/123574"
+            ]
+          ],
+          "title": "Делегация филологического факультета и ИСЯМКиМ приняла участие во Всероссийской научно-практической конференции",
+          "url": "https://phil.rudn.ru/ru/media/news/123574/",
+          "protected_fields_sha256": "cb5d93e847d54fa2293e0945314af00ff4818504185293d18b220e48783b72e7"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "1c37bb1089f52e88"
+            ],
+            [
+              "url",
+              "https://phil.rudn.ru/ru/media/news/123453"
+            ]
+          ],
+          "title": "В Институте демографических исследований РАН презентован Национальный демографический доклад — 2024",
+          "url": "https://phil.rudn.ru/ru/media/news/123453/",
+          "protected_fields_sha256": "341492d933efc59b8e7079f20561bdd069fe88726e088d2441722cc0a57a862c"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "4f013516d981a1b7"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda"
+            ]
+          ],
+          "title": "Урбанизация против рождаемости: стратегия пространственного развития России до 2030 года",
+          "url": "https://deminform.ru/analytics/urbanizatsiya-protiv-rozhdayemosti-strategiya-prostranstvennogo-razvitiya-rossii-do-2030-goda",
+          "protected_fields_sha256": "8c71d9657b84f4bc2f18d27e932f298a7c412dc6693dc67f80dd60640e0b8f04"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "76917ca96c460960"
+            ],
+            [
+              "url",
+              "https://mgimo.ru/about/news/departments/geodata-and-geoinformation-systems"
+            ]
+          ],
+          "title": "Геоданные и ГИС: методический семинар программы Цифровой кафедры",
+          "url": "https://mgimo.ru/about/news/departments/geodata-and-geoinformation-systems/",
+          "protected_fields_sha256": "8508ab54579beeaf28bab7c9b79e8dfbf48bf55a7174cc09cf4c326bbfbb180e"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "3a1978611b411757"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi"
+            ]
+          ],
+          "title": "Семейная ипотека 2024: инфраструктурное обеспечение многодетной семьи",
+          "url": "https://deminform.ru/analytics/semeynaya-ipoteka-2024-infrastrukturnoye-obespecheniye-mnogodetnoy-semyi",
+          "protected_fields_sha256": "e70bf3e842c88c31209495d6765d365d7d4bdd3af5600163b2918da87fda77bd"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "be3991667c784f69"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit"
+            ]
+          ],
+          "title": "Демографическое чудо Израиля: можем повторить?",
+          "url": "https://deminform.ru/analytics/demograficheskoye-chudo-izrailya-mozhem-povtorit",
+          "protected_fields_sha256": "eb54421e5a50fdf639def1e4a4f129f4709ead72f42c54d9563880a879669155"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "b84dccef5ac352a4"
+            ],
+            [
+              "url",
+              "https://deminform.ru/analytics/voprosy-sistemy-rasseleniya-rossii-kotorym-ochen-nuzhny-otvety"
+            ]
+          ],
+          "title": "Вопросы системы расселения России, которым очень нужны ответы",
+          "url": "https://deminform.ru/analytics/voprosy-sistemy-rasseleniya-rossii-kotorym-ochen-nuzhny-otvety",
+          "protected_fields_sha256": "cef5909216bb84c0a149169670085b246e604627745db35f77d2c040955392e7"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "0231993f9de96e61"
+            ],
+            [
+              "url",
+              "https://ion.ranepa.ru/news/studenty-ion-posetili-shirakskiy-gosudarstvennyy-universitet-v-armenii"
+            ]
+          ],
+          "title": "Студенты ИОН посетили Ширакский государственный университет в Армении",
+          "url": "https://ion.ranepa.ru/news/studenty-ion-posetili-shirakskiy-gosudarstvennyy-universitet-v-armenii/",
+          "protected_fields_sha256": "d541469404a4cc51e253552771b7b7c6b8cc4e755d26f4bc9b95678201264082"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "6de04edc860ab81f"
+            ],
+            [
+              "url",
+              "https://demografplatforma.ru?p=1033"
+            ]
+          ],
+          "title": "Международная научная конференция молодых демографов",
+          "url": "https://demografplatforma.ru/?p=1033",
+          "protected_fields_sha256": "7c6258465880f172960800ffd90d8b151227ed3c7d911962e04ba64417cee731"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "29492b8749f38204"
+            ],
+            [
+              "url",
+              "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3106523"
+            ]
+          ],
+          "title": "Демографическая Политика Российской Федерации",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
+          "protected_fields_sha256": "29eaa2c41906fe116c6d50cba410c4bf5810f6f58598cf5b31624f056740b7ec"
+        }
+      ]
+    },
+    "data/risi/articles.json": {
+      "count": 13,
+      "records": [
+        {
+          "identity": [
+            [
+              "id",
+              "vliyanie-prostitutsii-na-demografiyu"
+            ]
+          ],
+          "title": "Влияние проституции на демографию",
+          "url": null,
+          "protected_fields_sha256": "35aa48392d22032d2772b9724efc4e317ad9b4de7b0973d2371f5d4e1a497160"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "vysokaya-rozhdaemost-klyuch-k-ekonomicheskomu-rostu"
+            ]
+          ],
+          "title": "Высокая рождаемость — ключ к экономическому росту",
+          "url": null,
+          "protected_fields_sha256": "053f6d0324e2d4bd4b3548821af94642cbbcde3ebf8fd8557441345577278be1"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "demografiya-v-rossiyskoy-imperii"
+            ]
+          ],
+          "title": "Демография в Российской Империи",
+          "url": null,
+          "protected_fields_sha256": "aa4b5dff57dca34168eb46dc0fb911d452c00e17438e626957e83edcde52f5da"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "dostizhenie-ekonomicheskoy-stabilnosti-uvelicheniem-rozhdaemosti"
+            ]
+          ],
+          "title": "Достижение экономической стабильности увеличением рождаемости",
+          "url": null,
+          "protected_fields_sha256": "44490c6c2e44e686baeb9f27070d9402c9edfbe5c9cd6f31fb3b9f3747a9d9aa"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "svyaz-rozhdaemosti-i-ekonomicheskogo-rosta"
+            ]
+          ],
+          "title": "Связь рождаемости и экономического роста",
+          "url": null,
+          "protected_fields_sha256": "7b76b83ccd580f7720c79120ea2f498b81ab744144be5da8af5419f425e9ab23"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "kachestvennoe-vosproizvodstvo-naseleniya"
+            ]
+          ],
+          "title": "Качественное воспроизводство населения",
+          "url": null,
+          "protected_fields_sha256": "22350e6be2c0dff474269cd7a31b5a282819841696dac745858094c673b22530"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "osnova-zdorovya-cheloveka-reproduktivnoe-zdorove"
+            ]
+          ],
+          "title": "Основа здоровья человека — репродуктивное здоровье",
+          "url": null,
+          "protected_fields_sha256": "96e47289800315079579633e3c67f7b49715631bdd33eebf024612091ca9fa3a"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "situatsiya-s-kureniem-tabaka-v-rossiyskoy-federatsii"
+            ]
+          ],
+          "title": "Ситуация с курением табака в Российской Федерации",
+          "url": null,
+          "protected_fields_sha256": "67f7e1d13eb1466fec1afef5ba85dba61ce065503a9cb203938946874e5ef9dc"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "demograficheskie-posledstviya-porno-zavisimosti-na-primere-yaponii"
+            ]
+          ],
+          "title": "Демографические последствия порно-зависимости на примере Японии",
+          "url": null,
+          "protected_fields_sha256": "014cd5bd7d78e969030219c0627b6c5103870a4261c31f448d8fe105ee7bcf69"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "optimalnaya-chislennost-gosudarstvennyh-sluzhashchih-v-rossii"
+            ]
+          ],
+          "title": "Оптимальная численность государственных служащих в России",
+          "url": null,
+          "protected_fields_sha256": "e07a57cbfc3c371fb4410e4939b1872d9244b795aac7790e625b9017de20f57b"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "ugrozy-neestestvennogo-prirosta-naseleniya"
+            ]
+          ],
+          "title": "Угрозы «неестественного» прироста населения",
+          "url": null,
+          "protected_fields_sha256": "29cff38fef80aa6db38173ae0598439ca58d2056ac53475e23f7af62f744e33e"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "filosofiya-sovremennoy-evgeniki-domysly-i-fakty"
+            ]
+          ],
+          "title": "Философия современной евгеники: домыслы и факты",
+          "url": null,
+          "protected_fields_sha256": "737554a89b1b51cef2aed7d929b0a1d7c2035c291545c20a2f1ababf7c300d77"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "chislennost-naseleniya-v-rossii-2016-estestvennyy-prirost-ili-statisticheskiy-obman"
+            ]
+          ],
+          "title": "Численность населения в России 2016: естественный прирост или статистический обман",
+          "url": null,
+          "protected_fields_sha256": "b7d64d20a136532ad006aef83f2121864e5bdbde89f1f6eda72be3297dc0e06b"
+        }
+      ]
+    },
+    "data/diplomas/gallery.json": {
+      "count": 57,
+      "records": [
+        {
+          "identity": [
+            [
+              "id",
+              "2026-nauchnyy-rezultat-serifikat-sitkovskiy-a-m"
+            ]
+          ],
+          "title": "Научный результат. Серификат. Ситковский А.М.",
+          "url": null,
+          "protected_fields_sha256": "f129d5e7adf3ee3a3c89da7be92de021a12ff5ea5fc6714199006abba3d86a67"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2025-blagodarnost-dnr"
+            ]
+          ],
+          "title": "Благодарность ДНР",
+          "url": null,
+          "protected_fields_sha256": "ebe87329a635a7ad699103d1313d572693b99857a7977f33f8bbe97f59cbc5ec"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2025-idi-sertifikat-eaes-sitkovskiy-am"
+            ]
+          ],
+          "title": "ИДИ Сертификат ЕАЭС Ситковский АМ",
+          "url": null,
+          "protected_fields_sha256": "e1135b45c63716c5a83eece72085215a0e371959b6b4b0641ce3ab9b7a18fbc8"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2025-rudn-blagodarnost-sitkovskii-am"
+            ]
+          ],
+          "title": "РУДН Благодарность СитковскийАМ",
+          "url": null,
+          "protected_fields_sha256": "b2c4876dd1b5650c842679a71d3c4f9e5600834b0d15238cd52162f58b1a5951"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2025-uralskiy-demforum-2025-sitkovskiy-a-m"
+            ]
+          ],
+          "title": "Уральский Демфорум 2025 Ситковский А.М.",
+          "url": null,
+          "protected_fields_sha256": "0f82c0648f8881d570668464247b3bca3502d738011ed460fec18a60f33a8d97"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2023-sertifikat-psiholog-konsultant"
+            ]
+          ],
+          "title": "Сертификат психолог-консультант",
+          "url": null,
+          "protected_fields_sha256": "0137c6a264e91e6c6269dae98eb0ea43baa216a55f6235632f62257a94832257"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2022-120-credit-certificate-for-graduate"
+            ]
+          ],
+          "title": "120_Credit_Certificate_for_Graduate",
+          "url": null,
+          "protected_fields_sha256": "fb0036151ebc019f18a5479634c0be1f38cad90d65a775aecc9f64d62a730e7c"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2022-gamedesign-documentation-devtodev-certificate"
+            ]
+          ],
+          "title": "Gamedesign Documentation DevToDev certificate",
+          "url": null,
+          "protected_fields_sha256": "4bef49833c5d4d60aab10e28282efb26e7daf6bb741b27a38f27673cca093d46"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2022-gamedev-buisness-devtodev-certificate"
+            ]
+          ],
+          "title": "Gamedev Buisness DevToDev certificate",
+          "url": null,
+          "protected_fields_sha256": "bfefb273d34b4030dfed9c0428217048b08fa9d7d7a4ee57cee95e86a7783dd9"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2022-institut-genplana-moskvy"
+            ]
+          ],
+          "title": "Институт генплана Москвы",
+          "url": null,
+          "protected_fields_sha256": "49e42fd2e42c848b74746de5a8867509d5a6469890ccb819d6cf12f7ed247c53"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2021-120-credit-certificate-for-graduate"
+            ]
+          ],
+          "title": "120_Credit_Certificate_for_Graduate",
+          "url": null,
+          "protected_fields_sha256": "05dab46ebe108b77b2c68c60aac504f31d7433475d3a343e37b8a041fd34e80a"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2021-gamedesign-documentation-devtodev-certificate"
+            ]
+          ],
+          "title": "Gamedesign Documentation DevToDev certificate",
+          "url": null,
+          "protected_fields_sha256": "e138a21b50fbdb35cf24a530da1a76d99e91f71a6473907450e30e55fb171ef5"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2021-gamedev-buisness-devtodev-certificate"
+            ]
+          ],
+          "title": "Gamedev Buisness DevToDev certificate",
+          "url": null,
+          "protected_fields_sha256": "4de1a3e5a9b634269cd7efa3dfbc668041fab19311528312c9889ef7f5f8a15f"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2021-institut-genplana-moskvy"
+            ]
+          ],
+          "title": "Институт генплана Москвы",
+          "url": null,
+          "protected_fields_sha256": "87a8955d9b1d176f06eec01e35c4c4d1114777ebb9f3d94f33fc92af85be6262"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2020-blagodarstvennoe-pismo-glavy-rayona"
+            ]
+          ],
+          "title": "Благодарственное письмо главы района",
+          "url": null,
+          "protected_fields_sha256": "e3bf3c996994e6e0a42d6da7ebbd207d04fd370f44ef229a81d5a7cb94700105"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2020-diplom-sno-za-2019-2020-tsch-god"
+            ]
+          ],
+          "title": "Диплом СНО - за 2019-2020 цч. год",
+          "url": null,
+          "protected_fields_sha256": "45b1fbe3331d2bb40bfc1e83a7b3ca960ccd4841fc621840fd08c2af4ad019f8"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2020-sertifikat-sitkovskiy"
+            ]
+          ],
+          "title": "сертификат Ситковский",
+          "url": null,
+          "protected_fields_sha256": "811e5619fb36742f1ee4255da6a6132e028a4a3831f2ac3a7b775e4130504814"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2020-sitkovskiy-am-sertifikat-uchastnika-konferentsii"
+            ]
+          ],
+          "title": "Ситковский АМ Сертификат участника конференции",
+          "url": null,
+          "protected_fields_sha256": "d25e5f60d1a6c7569c7b724b1a636d35b0a2bacd04d3a12c2431937f781ccb15"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2020-student-goda-1-mesto"
+            ]
+          ],
+          "title": "Студент года - 1 место",
+          "url": null,
+          "protected_fields_sha256": "d571c525257993396f662502bf4c724e8c6fd3cac3b37e0e7ef73b0775c3efec"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-blagodarnost-ranhigs-za-razvitie-sno"
+            ]
+          ],
+          "title": "Благодарность РАНХиГС за развитие СНО",
+          "url": null,
+          "protected_fields_sha256": "b38906de27374da0dbebc45a59403ffa5f3366927820e5da501ae08f9af68d09"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-gramota-za-razvitie-sno-2019"
+            ]
+          ],
+          "title": "Грамота за развитие СНО 2019",
+          "url": null,
+          "protected_fields_sha256": "6fb31d949f5300851c89b5ff071fcad9759528669a51108c67f2d2f4784007ed"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-gramota-za-razvitie-sno-2019-2"
+            ]
+          ],
+          "title": "Грамота за развитие СНО 2019-2",
+          "url": null,
+          "protected_fields_sha256": "ea18891c568a571fc5e50aac8cda36b88786c910cb41ae1e20b6060d6d4a5286"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-diplom-bypasing-2019"
+            ]
+          ],
+          "title": "Диплом Bypasing 2019",
+          "url": null,
+          "protected_fields_sha256": "fc652cc656fef7c0338263571c0961b9fc6423fc95d3e962578aedd2a937af37"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-diplom-v-nominatsii-tseleustremlennost"
+            ]
+          ],
+          "title": "Диплом в номинации Целеустремлённость",
+          "url": null,
+          "protected_fields_sha256": "dc399587d9abf6ec250f0d6cf05b274f20541c1cf26868266ad2f82aebcf83da"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-diplom-vebinar-po-publikatsiyam-ranhigs-2019"
+            ]
+          ],
+          "title": "Диплом Вебинар по публикациям РАНХиГС 2019",
+          "url": null,
+          "protected_fields_sha256": "28beb7eeb3678c761e9338c9dd46dcc848905cccb7b214403116442f4db92174"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-diplom-za-uchastie-chelgu-2019"
+            ]
+          ],
+          "title": "Диплом за участие ЧелГУ 2019",
+          "url": null,
+          "protected_fields_sha256": "8887b72f2c3267688e083c1e2f2302818b1aceb8f5634b2c3612e6dfa785325e"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-diplom-laureata-premii-im-m-a-sergeeva"
+            ]
+          ],
+          "title": "Диплом лауреата премии им. М.А. Сергеева",
+          "url": null,
+          "protected_fields_sha256": "0ead899bfaa48520bde03b5086cd41c071ef22dfa86147229baee4906c74a369"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-diplom-rabota-buduschego-2019"
+            ]
+          ],
+          "title": "Диплом Работа будущего 2019",
+          "url": null,
+          "protected_fields_sha256": "6d864a44d94bf1c3e6df46d8c62780d231cf559ce77c12f9f8d74bda3e4053e1"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-diplom-chelgu-2-mesto-2019"
+            ]
+          ],
+          "title": "Диплом ЧелГУ - 2 место 2019",
+          "url": null,
+          "protected_fields_sha256": "8a6eabc0c48ed1295d54b64be95fd8d332cb4bc0c11c55342b8e0e66328746ba"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-zhivaya-istoiya-1-mesto"
+            ]
+          ],
+          "title": "Живая истоия - 1 место",
+          "url": null,
+          "protected_fields_sha256": "0e6a44d64c6af46df134aec315d0e43d7a976a2fe23fbd9c5080c68d3b428a8b"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-konferentsiya-ranhigs-sertifikat"
+            ]
+          ],
+          "title": "Конференция РАНХиГС - сертификат",
+          "url": null,
+          "protected_fields_sha256": "df2ccf4081a55d55f6f980edc9313bb2d10e6760dc9ac286aaabe9a16a24b754"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-potanin-sertifikat-2019"
+            ]
+          ],
+          "title": "Потанин сертификат - 2019",
+          "url": null,
+          "protected_fields_sha256": "b9ec8c673986a8ae541c9f32621d0e224c4cfedfaed13b4d0caef41616bf10da"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-sertifikat-konferentsii-sankt-peterburg-2019"
+            ]
+          ],
+          "title": "Сертификат конференции Санкт-Петербург 2019",
+          "url": null,
+          "protected_fields_sha256": "6e8c2ab9b6e6d1f292480046cb8fb1c00ba7c69d0f05dad34a5848ac129ce9f4"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-sertifikat-ranhigs-noyabr-2019"
+            ]
+          ],
+          "title": "Сертификат РАНХиГС ноябрь 2019",
+          "url": null,
+          "protected_fields_sha256": "68d801c1f7e87d110fd9e15edde1ab177f5db4f8498b5d7635926f662face8cb"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-sertifikat-uchastnika-zak-initsiativa-2019"
+            ]
+          ],
+          "title": "Сертификат участника Зак. инициатива 2019",
+          "url": null,
+          "protected_fields_sha256": "6b61bcab4c0cd19e9c8b38628eda83f045ae8e6df700f075b9af4826b631f486"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-sertifikat-chgik-2019"
+            ]
+          ],
+          "title": "Сертификат ЧГИК 2019",
+          "url": null,
+          "protected_fields_sha256": "0e862c1e26ee6f7bb04bdc74be66637ef79e6d5bf7cfc0dd9d613812917c3b93"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-student-goda-1-mesto"
+            ]
+          ],
+          "title": "Студент года 1 место",
+          "url": null,
+          "protected_fields_sha256": "e4d3f85afc7adddd56b2288d20dca366498de98db850df4997281af075822add"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-uchastnik-foruma-pmif-2019"
+            ]
+          ],
+          "title": "Участник Форума ПМИФ 2019",
+          "url": null,
+          "protected_fields_sha256": "22d0c603227aab545355d9ae69692d713556aa853b6741e3215a3689e844a398"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2018-2-mesto-konferentsiya-ranhigs-2018"
+            ]
+          ],
+          "title": "2 место Конференция РАНХиГС 2018",
+          "url": null,
+          "protected_fields_sha256": "8048759aa3cd5d37b13eff8a9fb0b025e6d70bbd97290dede668f4b8b9dffbb0"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2018-biblioteki-sertifikat-2018"
+            ]
+          ],
+          "title": "Библиотеки - сертификат 2018",
+          "url": null,
+          "protected_fields_sha256": "40d62412e581dadcfe11ae9d6601b98b42c45342dc72f9ad402ec2f0d3d772e1"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2018-biznesbatl-uchastnik-2018"
+            ]
+          ],
+          "title": "БизнесБатл - участник 2018",
+          "url": null,
+          "protected_fields_sha256": "8f7f59123ef122854087893c5effc7f16705aa5d80184f4c5345d69f053dcfd6"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2018-zimnyaya-shkola-ranhigs-sertifikat-uchastnika"
+            ]
+          ],
+          "title": "Зимняя школа РАНХиГС - сертификат участника",
+          "url": null,
+          "protected_fields_sha256": "82a7bab81bac46f9b2df3606ab8c1e48bddd075a401a39bd52c624501f16dfca"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2018-sertifikat"
+            ]
+          ],
+          "title": "Сертификат",
+          "url": null,
+          "protected_fields_sha256": "b74040c725126454dea2219302ff31afa3090fda1e413fd6f02d8eff7e59c8e7"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2018-upravlyay-ekaterinburg-2018"
+            ]
+          ],
+          "title": "Управляй - Екатеринбург 2018",
+          "url": null,
+          "protected_fields_sha256": "4f2d1718c788e4eb14ba1acc74df931e21a29ea435550e73be583017d3e68bdd"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2018-upravlyay-uchastnik-2017-2018"
+            ]
+          ],
+          "title": "Управляй! - участник 2017-2018",
+          "url": null,
+          "protected_fields_sha256": "52cef85261b0db7ed10f12d8d40243afd6d2a78f827272979fbcc97658f7ded9"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2018-ya-professional-sertifikat-uchastnika"
+            ]
+          ],
+          "title": "Я-профессионал. Сертификат участника",
+          "url": null,
+          "protected_fields_sha256": "2461874706567b5de8143ed9d1bea91d1313c05124e96e029360d08aba25099b"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2017-blagodarnost-proekt-eko-spasatel-2017"
+            ]
+          ],
+          "title": "Благодарность - Проект Эко Спасатель 2017",
+          "url": null,
+          "protected_fields_sha256": "ca8d18fb4f86f8ecf8dd0fc534f937b4ed763656df55aeaab95b6fd2b7b748d3"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2017-diplom-konferentsiya-ranhigs-2017"
+            ]
+          ],
+          "title": "Диплом - Конференция РАНХиГС 2017",
+          "url": null,
+          "protected_fields_sha256": "dfb4a2498929d40d602781169440b059a4ae10138eac546781379dd996d6de9e"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2017-diplom-3-mesto-znatoki-vov-2017"
+            ]
+          ],
+          "title": "Диплом 3 место - Знатоки ВОВ 2017",
+          "url": null,
+          "protected_fields_sha256": "3a2ec711cd43e0c1c66673d76c46e44e82d1f7dfeb50b884b2a34eec18b4ba4e"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2017-sertifikat-uchastnika-konferentsiya-ranhigs-2017"
+            ]
+          ],
+          "title": "Сертификат участника - Конференция РАНХиГС 2017",
+          "url": null,
+          "protected_fields_sha256": "023b07a1246100453060c42eb4ecd039ab364765e3cf9d1f8d6213bd65c1bca3"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2016-blagodarnost-ot-za-vozrozhdenie-urala-2016"
+            ]
+          ],
+          "title": "Благодарность от За Возрождение Урала -2016",
+          "url": null,
+          "protected_fields_sha256": "5f0634e4d1fbd46eadc3e17d66921f1be02358fcdf1b0b6ac3f2c605df9222ac"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2016-diplom-konferentsii-ranhigs-2016"
+            ]
+          ],
+          "title": "Диплом конференции РАНХиГС 2016",
+          "url": null,
+          "protected_fields_sha256": "734a0f026596291cd6b9c0beaa03d9a88b4e8b438633c9f7510a3def83c3545d"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2016-diplom-konferentsii-urao-2015"
+            ]
+          ],
+          "title": "Диплом конференции УРАО 2015",
+          "url": null,
+          "protected_fields_sha256": "68fac70751591d39cf1816aa29eea2bf49653201695678647adb1b70a2295c7f"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2016-pochetnaya-gramota-ufas-2015"
+            ]
+          ],
+          "title": "Почётная грамота - УФАС 2015",
+          "url": null,
+          "protected_fields_sha256": "ef0de667d5ade92886ffa0909cb50888cacd0c6917ddb0259a21a45b2899c414"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2016-sertifikat-konferentsii-chelgu-2016"
+            ]
+          ],
+          "title": "Сертификат конференции ЧелГУ 2016",
+          "url": null,
+          "protected_fields_sha256": "54055abf1014a5f66f2ebc55ae7728fcae1e7ed8dd44b8933cf416ff3eac3eb3"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2016-sertifikaty-konferentsii-ranhigs-2016"
+            ]
+          ],
+          "title": "Сертификаты конференции РАНХиГС 2016",
+          "url": null,
+          "protected_fields_sha256": "5065a39dd9c3f10181915a85288ede7e282c6bb0ec7415380de26e503739ec19"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2016-uchastnik-foruma-soobschestvo-2016-g-ekaterinburg"
+            ]
+          ],
+          "title": "Участник форума Сообщество 2016 (г. Екатеринбург)",
+          "url": null,
+          "protected_fields_sha256": "1a3d6c29f7d648a60ee595bc58c3ff06586226a0ab1e123265d94e009851c342"
+        }
+      ]
+    },
+    "data/dpo/gallery.json": {
+      "count": 10,
+      "records": [
+        {
+          "identity": [
+            [
+              "id",
+              "2026-mgimo-2026-ii-agenty"
+            ]
+          ],
+          "title": "МГИМО 2026 ИИ агенты",
+          "url": null,
+          "protected_fields_sha256": "c1d099088aa021c51a60fe8b9b9d37ad8c2faa8f56ea254eda63ecbf97823b0e"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2025-rudn-2025-angliyskiy-yazyk"
+            ]
+          ],
+          "title": "РУДН 2025 Английский язык",
+          "url": null,
+          "protected_fields_sha256": "780e2b53a9e4a8364a6f7fd601df406cc7024b074d3c80f329243e32a1d3b88c"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2025-rudn-2025-ispolzovanie-informatsionnyh-baz"
+            ]
+          ],
+          "title": "РУДН 2025 Использование информационных баз",
+          "url": null,
+          "protected_fields_sha256": "9b17fa1caa9f43907c6952393c6178b1354cb54058836eb47ae8983b7b6a0cda"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2025-rudn-2025-elektronnye-obr-kursy"
+            ]
+          ],
+          "title": "РУДН 2025 Электронные обр. курсы",
+          "url": null,
+          "protected_fields_sha256": "59d2337930390b69e08e8b8c8fd8762966f3b19855063fd31b9e4c87ca82c9bc"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2025-fnists-ran-2025-demogrf-perepodgotovka"
+            ]
+          ],
+          "title": "ФНИСЦ РАН 2025 Демогрф переподготовка",
+          "url": null,
+          "protected_fields_sha256": "8fc2e43419a33826098744f7351a955445ed1a7086cc2c7017ad73531030c7da"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2024-ranhigs-2024-vovlechenie-gorozhan-v-programmy-razvitiya-gorodskoy-sredy"
+            ]
+          ],
+          "title": "РАНХиГС 2024 Вовлечение горожан в программы развития городской среды",
+          "url": null,
+          "protected_fields_sha256": "9bca861dfb5fc09efc572da739dca8ea77cf39ddfc2bd48313fae0b1d9a5141d"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2024-tyumgu-2024-metodika-antikorruptsionnogo-prosvyascheniya"
+            ]
+          ],
+          "title": "ТюмГУ 2024 Методика антикоррупционного просвящения",
+          "url": null,
+          "protected_fields_sha256": "397013ae5ffa8fc19b82e8f6fc0e8fc18f94b855002d701788e980d588dde5c6"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2022-sitkovskiy-master-of-public-policy"
+            ]
+          ],
+          "title": "Ситковский. Master of Public Policy",
+          "url": null,
+          "protected_fields_sha256": "43c3531d3342ac8256a4d0475c6777e60e65f97043c6fad1c5ed7c27011fc72f"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2020-innopolis-2020-intellekt-sobstvennost"
+            ]
+          ],
+          "title": "Иннополис 2020 (интеллект. собственность)",
+          "url": null,
+          "protected_fields_sha256": "09aec2b762cc04041c151c1535f031702723dc5f2146991eb8c6529128c2c293"
+        },
+        {
+          "identity": [
+            [
+              "id",
+              "2019-ranhigs-2019-eksport-obrazovaniya"
+            ]
+          ],
+          "title": "РАНХиГС 2019 Экспорт образования",
+          "url": null,
+          "protected_fields_sha256": "d04fe0f4293e5d7cbedf744ce03007204feb6249f524cfb82563c1cba7f4b2a2"
+        }
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "assets/additions.css",
+      "git_blob_sha1": "eb73c7cc782b88ac49555758cfb09077c4b6b815"
+    },
+    {
+      "path": "assets/career/chelyabinsk-government-career.png",
+      "git_blob_sha1": "a60f0acd070afa9b3ea43588393cdb7884d79953"
+    },
+    {
+      "path": "assets/career/fnisc-career.png",
+      "git_blob_sha1": "679cd4aa3218001c1c4dd3fba41e565a12af6dcb"
+    },
+    {
+      "path": "assets/career/ranepa-career.png",
+      "git_blob_sha1": "0340cdd56dceda973df7ea4215cd51168f346301"
+    },
+    {
+      "path": "assets/career/rudn-career.png",
+      "git_blob_sha1": "e69d39bdfc3d163e41a3ae0c2926105f90b39b54"
+    },
+    {
+      "path": "assets/craftum/chuvashia-settlement-system.pdf",
+      "git_blob_sha1": "c95302c31250d46310467ecde501d1cb341f3413"
+    },
+    {
+      "path": "assets/craftum/chuvashia-settlement-system.png",
+      "git_blob_sha1": "1f661956b8373073e395136a06399c91b611da2b"
+    },
+    {
+      "path": "assets/craftum/cities-of-the-future.jpeg",
+      "git_blob_sha1": "7a14d9d177dd99a582383de5c2300b97875adce3"
+    },
+    {
+      "path": "assets/craftum/karabash-strategy.pdf",
+      "git_blob_sha1": "e37b9db62b0ad6b6ceb573dd6cafdab0238b2aad"
+    },
+    {
+      "path": "assets/craftum/karabash.webp",
+      "git_blob_sha1": "27cff9a02e6b7ff814bb7c0b0434729b1c645a61"
+    },
+    {
+      "path": "assets/craftum/portrait-library.jpeg",
+      "git_blob_sha1": "fcd601348ddc37bd8990db2598e885ec960341a1"
+    },
+    {
+      "path": "assets/craftum/rfbr-19-010-00964.pdf",
+      "git_blob_sha1": "930637ff43d80d5b1aaa1c741f791db6f6d3bc6b"
+    },
+    {
+      "path": "assets/craftum/rfbr-19-010-00964.webp",
+      "git_blob_sha1": "c6b4f6a6518f8b8b517baaf0698e07dbedf8a823"
+    },
+    {
+      "path": "assets/craftum/rsf-24-28-01314.png",
+      "git_blob_sha1": "5b62ead301d665bf4fb3f120b5bc55b44801ee53"
+    },
+    {
+      "path": "assets/craftum/support-settlements-methodology.pdf",
+      "git_blob_sha1": "06e5cf2e7d52fb8701d1eca7b7fc2d27f071e5dc"
+    },
+    {
+      "path": "assets/craftum/support-settlements.png",
+      "git_blob_sha1": "c8acbb431b05f7808529ab0a824b6e195adcc18c"
+    },
+    {
+      "path": "assets/craftum/troitsky-strategy.pdf",
+      "git_blob_sha1": "7dcf71cffbcbdaa893f37a227c71ebc96bf83ea5"
+    },
+    {
+      "path": "assets/craftum/troitsky.webp",
+      "git_blob_sha1": "2d6a1f55e5551234e36e06b858b8ab776c1cb628"
+    },
+    {
+      "path": "assets/craftum/uysky-strategy.pdf",
+      "git_blob_sha1": "94b330c87819bb2992fc1ce7458ad84c237b6ed3"
+    },
+    {
+      "path": "assets/craftum/uysky.webp",
+      "git_blob_sha1": "6ed327362c01f65fad6455efb160c4af0aebde0c"
+    },
+    {
+      "path": "assets/craftum/varna-correct.webp",
+      "git_blob_sha1": "46c7d58cba6b25aedc68c2311eacc2a38cba4f0f"
+    },
+    {
+      "path": "assets/craftum/varna-strategy.pdf",
+      "git_blob_sha1": "d4da6c775f7f1a22078dece8586a1aab19a09965"
+    },
+    {
+      "path": "assets/craftum/varna.webp",
+      "git_blob_sha1": "53859ed1d979d828bc4b0156871666660018188c"
+    },
+    {
+      "path": "assets/craftum/verkhny-ufaley-strategy.pdf",
+      "git_blob_sha1": "7bd10f968d60e7cfa22ac685bd6bcbc9606a4fb1"
+    },
+    {
+      "path": "assets/craftum/verkhny-ufaley.webp",
+      "git_blob_sha1": "53859ed1d979d828bc4b0156871666660018188c"
+    },
+    {
+      "path": "assets/diplomas.css",
+      "git_blob_sha1": "d93b5879802bf79ce50441f76fe5fa8ae1b9500f"
+    },
+    {
+      "path": "assets/diplomas/full/2016-blagodarnost-ot-za-vozrozhdenie-urala-2016.webp",
+      "git_blob_sha1": "850db1e50a62f0a48fbf01603717444b1747ff06"
+    },
+    {
+      "path": "assets/diplomas/full/2016-diplom-konferentsii-ranhigs-2016.webp",
+      "git_blob_sha1": "8755cb6846ed23ee105b1235292a67593baff411"
+    },
+    {
+      "path": "assets/diplomas/full/2016-diplom-konferentsii-urao-2015.webp",
+      "git_blob_sha1": "43a88b5f095f73661bff819d0df70eca3981b512"
+    },
+    {
+      "path": "assets/diplomas/full/2016-pochetnaya-gramota-ufas-2015.webp",
+      "git_blob_sha1": "4d4b1a6833547449a9a819168e076d7d4afb03eb"
+    },
+    {
+      "path": "assets/diplomas/full/2016-sertifikat-konferentsii-chelgu-2016.webp",
+      "git_blob_sha1": "a25aa838c70293dc0b40f1edeb99d2a2b5ba670e"
+    },
+    {
+      "path": "assets/diplomas/full/2016-sertifikaty-konferentsii-ranhigs-2016.webp",
+      "git_blob_sha1": "e52f1857b10a0302832df4284c30d56e1a002036"
+    },
+    {
+      "path": "assets/diplomas/full/2016-uchastnik-foruma-soobschestvo-2016-g-ekaterinburg.webp",
+      "git_blob_sha1": "3ae85c053973457be13bfd494736bcc809b546f4"
+    },
+    {
+      "path": "assets/diplomas/full/2017-blagodarnost-proekt-eko-spasatel-2017.webp",
+      "git_blob_sha1": "81e3f5ee200a980034c8989bc7c47a4b2ae70812"
+    },
+    {
+      "path": "assets/diplomas/full/2017-diplom-3-mesto-znatoki-vov-2017.webp",
+      "git_blob_sha1": "c3a8990b81679e9aef621cdc7a5c58fefa3672b8"
+    },
+    {
+      "path": "assets/diplomas/full/2017-diplom-konferentsiya-ranhigs-2017.webp",
+      "git_blob_sha1": "5417799230a7afb7b8d52fb6ad05eed587a56a9d"
+    },
+    {
+      "path": "assets/diplomas/full/2017-sertifikat-uchastnika-konferentsiya-ranhigs-2017.webp",
+      "git_blob_sha1": "c81f6f03fe50a506b8a061cf7bf0c49aed845f45"
+    },
+    {
+      "path": "assets/diplomas/full/2018-2-mesto-konferentsiya-ranhigs-2018.webp",
+      "git_blob_sha1": "0ee85160fed224dde68de08c127ea9a4313f8012"
+    },
+    {
+      "path": "assets/diplomas/full/2018-biblioteki-sertifikat-2018.webp",
+      "git_blob_sha1": "f2f60e9663ccec94ddd37b4c35082d6dd81cf2bd"
+    },
+    {
+      "path": "assets/diplomas/full/2018-biznesbatl-uchastnik-2018.webp",
+      "git_blob_sha1": "71cb580002e2cf01b3cc7b43ad75b68e5def2799"
+    },
+    {
+      "path": "assets/diplomas/full/2018-sertifikat.webp",
+      "git_blob_sha1": "e5799bac3dda1b03c9ebe46c1fdac983a807cf4f"
+    },
+    {
+      "path": "assets/diplomas/full/2018-upravlyay-ekaterinburg-2018.webp",
+      "git_blob_sha1": "954858387c55df07bdf5a58fc55be3a994ce8a17"
+    },
+    {
+      "path": "assets/diplomas/full/2018-upravlyay-uchastnik-2017-2018.webp",
+      "git_blob_sha1": "cf4f281dcbc91859d2518d95c52f7992323decc9"
+    },
+    {
+      "path": "assets/diplomas/full/2018-ya-professional-sertifikat-uchastnika.webp",
+      "git_blob_sha1": "51d83163003b1176016b20c941c518d79392d6ed"
+    },
+    {
+      "path": "assets/diplomas/full/2018-zimnyaya-shkola-ranhigs-sertifikat-uchastnika.webp",
+      "git_blob_sha1": "0f7d495f575f2798892d6dd08cb03b2c06da703b"
+    },
+    {
+      "path": "assets/diplomas/full/2019-blagodarnost-ranhigs-za-razvitie-sno.webp",
+      "git_blob_sha1": "7471041841de299799d85e5df3edb7b743f62fa0"
+    },
+    {
+      "path": "assets/diplomas/full/2019-diplom-bypasing-2019.webp",
+      "git_blob_sha1": "57c4e8df061846ed1fe2c0c2c48ec78947530035"
+    },
+    {
+      "path": "assets/diplomas/full/2019-diplom-chelgu-2-mesto-2019.webp",
+      "git_blob_sha1": "a6adfbb74d79ec18a7eeee7f5919d9c4b7220b71"
+    },
+    {
+      "path": "assets/diplomas/full/2019-diplom-laureata-premii-im-m-a-sergeeva.webp",
+      "git_blob_sha1": "9b8a4f7d34e754ac4a6163ff53b73dd68e20bcfb"
+    },
+    {
+      "path": "assets/diplomas/full/2019-diplom-rabota-buduschego-2019.webp",
+      "git_blob_sha1": "4885d65bf47deb601395de91493a611e96266e1c"
+    },
+    {
+      "path": "assets/diplomas/full/2019-diplom-v-nominatsii-tseleustremlennost.webp",
+      "git_blob_sha1": "bf42c8c2ea5ca367e67dbeecfc3d81aae640a446"
+    },
+    {
+      "path": "assets/diplomas/full/2019-diplom-vebinar-po-publikatsiyam-ranhigs-2019.webp",
+      "git_blob_sha1": "2a61f2819683be43cf8fe7e9ed64c0fdc4e1a5d3"
+    },
+    {
+      "path": "assets/diplomas/full/2019-diplom-za-uchastie-chelgu-2019.webp",
+      "git_blob_sha1": "2f218ac85dc9f495a95ad5864c255228b616d462"
+    },
+    {
+      "path": "assets/diplomas/full/2019-gramota-za-razvitie-sno-2019-2.webp",
+      "git_blob_sha1": "39161006b2e1636343391cadfdca7bfe5fd80650"
+    },
+    {
+      "path": "assets/diplomas/full/2019-gramota-za-razvitie-sno-2019.webp",
+      "git_blob_sha1": "ae3161731a4c9d46ba7b10a13ed1fc97c8452837"
+    },
+    {
+      "path": "assets/diplomas/full/2019-konferentsiya-ranhigs-sertifikat.webp",
+      "git_blob_sha1": "15995a0fa7a3b812a46620737b6cdcd7340c2e9b"
+    },
+    {
+      "path": "assets/diplomas/full/2019-potanin-sertifikat-2019.webp",
+      "git_blob_sha1": "3b3b6b69a2a7f282aa5b438d07f64b1cfd51c2b0"
+    },
+    {
+      "path": "assets/diplomas/full/2019-sertifikat-chgik-2019.webp",
+      "git_blob_sha1": "5fb782e58607dc594b55ef699239f6c200a104c4"
+    },
+    {
+      "path": "assets/diplomas/full/2019-sertifikat-konferentsii-sankt-peterburg-2019.webp",
+      "git_blob_sha1": "4e3e14feada92da9e64c6b4f55b10105d63ddb47"
+    },
+    {
+      "path": "assets/diplomas/full/2019-sertifikat-ranhigs-noyabr-2019.webp",
+      "git_blob_sha1": "8bbe40df09842d7e3a3b501c4aed39d33e1e095e"
+    },
+    {
+      "path": "assets/diplomas/full/2019-sertifikat-uchastnika-zak-initsiativa-2019.webp",
+      "git_blob_sha1": "2ccb02acf6547bdc08f12bbc3101d8867609bb36"
+    },
+    {
+      "path": "assets/diplomas/full/2019-student-goda-1-mesto.webp",
+      "git_blob_sha1": "48da00e5c1b25e85731be5fa79de18b9a240352b"
+    },
+    {
+      "path": "assets/diplomas/full/2019-uchastnik-foruma-pmif-2019.webp",
+      "git_blob_sha1": "a29be7f6944a1285342f09a96eda02d98fce977f"
+    },
+    {
+      "path": "assets/diplomas/full/2019-zhivaya-istoiya-1-mesto.webp",
+      "git_blob_sha1": "67c8555ec28c12984b3b71069db7be6083924a29"
+    },
+    {
+      "path": "assets/diplomas/full/2020-blagodarstvennoe-pismo-glavy-rayona.webp",
+      "git_blob_sha1": "70a4994255b48f28e603d179e7d78fced588cf9a"
+    },
+    {
+      "path": "assets/diplomas/full/2020-diplom-sno-za-2019-2020-tsch-god.webp",
+      "git_blob_sha1": "f8da50578fead93e06038e1916cb2ad99a353117"
+    },
+    {
+      "path": "assets/diplomas/full/2020-sertifikat-sitkovskiy.webp",
+      "git_blob_sha1": "1da6f0634f6d2d1a05de5a9e4ffc305825eb1cfa"
+    },
+    {
+      "path": "assets/diplomas/full/2020-sitkovskiy-am-sertifikat-uchastnika-konferentsii.webp",
+      "git_blob_sha1": "666bbd6b94d2a9489c8feaa0fdb89e8f6559c5a1"
+    },
+    {
+      "path": "assets/diplomas/full/2020-student-goda-1-mesto.webp",
+      "git_blob_sha1": "f654370bd826607a2094df7d8625a550e6d16e39"
+    },
+    {
+      "path": "assets/diplomas/full/2021-120-credit-certificate-for-graduate.webp",
+      "git_blob_sha1": "2a434634d5da2e5d1686c284ce99a19435c15deb"
+    },
+    {
+      "path": "assets/diplomas/full/2021-gamedesign-documentation-devtodev-certificate.webp",
+      "git_blob_sha1": "aee565091c0ad8ef7abddbbe182f5903847fe22a"
+    },
+    {
+      "path": "assets/diplomas/full/2021-gamedev-buisness-devtodev-certificate.webp",
+      "git_blob_sha1": "82ef93b8325e0e570cef227e3c0b5028bf4f1a47"
+    },
+    {
+      "path": "assets/diplomas/full/2021-institut-genplana-moskvy.webp",
+      "git_blob_sha1": "1f4f4e43a5d2b99fc866b161dbb3024c64879665"
+    },
+    {
+      "path": "assets/diplomas/full/2022-120-credit-certificate-for-graduate.webp",
+      "git_blob_sha1": "2a434634d5da2e5d1686c284ce99a19435c15deb"
+    },
+    {
+      "path": "assets/diplomas/full/2022-gamedesign-documentation-devtodev-certificate.webp",
+      "git_blob_sha1": "aee565091c0ad8ef7abddbbe182f5903847fe22a"
+    },
+    {
+      "path": "assets/diplomas/full/2022-gamedev-buisness-devtodev-certificate.webp",
+      "git_blob_sha1": "82ef93b8325e0e570cef227e3c0b5028bf4f1a47"
+    },
+    {
+      "path": "assets/diplomas/full/2022-institut-genplana-moskvy.webp",
+      "git_blob_sha1": "1f4f4e43a5d2b99fc866b161dbb3024c64879665"
+    },
+    {
+      "path": "assets/diplomas/full/2023-sertifikat-psiholog-konsultant.webp",
+      "git_blob_sha1": "0890b7cffbd3601747ad8c5860e979a8ec3f4867"
+    },
+    {
+      "path": "assets/diplomas/full/2025-blagodarnost-dnr.webp",
+      "git_blob_sha1": "b84b9772885e96544379d909681240d5ca632161"
+    },
+    {
+      "path": "assets/diplomas/full/2025-idi-sertifikat-eaes-sitkovskiy-am.webp",
+      "git_blob_sha1": "853a738c4462efcb54219ed4ee7a65776aa77f29"
+    },
+    {
+      "path": "assets/diplomas/full/2025-rudn-blagodarnost-sitkovskii-am.webp",
+      "git_blob_sha1": "8e6513680b8660f0a0247a303c9a528d662c1170"
+    },
+    {
+      "path": "assets/diplomas/full/2025-uralskiy-demforum-2025-sitkovskiy-a-m.webp",
+      "git_blob_sha1": "df0bfd4f4a119570b1d5de8098d214c8b79c1a3d"
+    },
+    {
+      "path": "assets/diplomas/full/2026-nauchnyy-rezultat-serifikat-sitkovskiy-a-m.webp",
+      "git_blob_sha1": "568f6105b1f6d6b188159320173f3eaafaec50a1"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2016-blagodarnost-ot-za-vozrozhdenie-urala-2016.webp",
+      "git_blob_sha1": "6b7b050723db9e1c2be62e82f6f71cd74190ef42"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2016-diplom-konferentsii-ranhigs-2016.webp",
+      "git_blob_sha1": "134ed24cd66d5c7059a2681397f49da2d53e6c28"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2016-diplom-konferentsii-urao-2015.webp",
+      "git_blob_sha1": "9e4cb072b9be5d46ed6a6c1a96a506e8c8fa21c2"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2016-pochetnaya-gramota-ufas-2015.webp",
+      "git_blob_sha1": "33220528739c54f4be33cac8c87e862dfb226412"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2016-sertifikat-konferentsii-chelgu-2016.webp",
+      "git_blob_sha1": "b03bed0bd27c1f1509de7c90f411222e699be33c"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2016-sertifikaty-konferentsii-ranhigs-2016.webp",
+      "git_blob_sha1": "df6413f402c4c953485796e95bbd1a0dd2aaf468"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2016-uchastnik-foruma-soobschestvo-2016-g-ekaterinburg.webp",
+      "git_blob_sha1": "d0e6a2600a6174329940a11a9231e5804a0df157"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2017-blagodarnost-proekt-eko-spasatel-2017.webp",
+      "git_blob_sha1": "945c4af43f22892ffd0d70ff1a4af9525e13718f"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2017-diplom-3-mesto-znatoki-vov-2017.webp",
+      "git_blob_sha1": "deb297b9be87434f0f7622f257e5692bf439b195"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2017-diplom-konferentsiya-ranhigs-2017.webp",
+      "git_blob_sha1": "13d4b4ed58855bd3cc4df844690e50fd94b94882"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2017-sertifikat-uchastnika-konferentsiya-ranhigs-2017.webp",
+      "git_blob_sha1": "05dabc6a3f63c1a2e7138dcbd30bd6e2944db440"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2018-2-mesto-konferentsiya-ranhigs-2018.webp",
+      "git_blob_sha1": "ee952e5cbbc978b12ffbeb22dc26fb61757b83a4"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2018-biblioteki-sertifikat-2018.webp",
+      "git_blob_sha1": "4442105326e4a0bcef9986da5ea87fe888314b59"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2018-biznesbatl-uchastnik-2018.webp",
+      "git_blob_sha1": "2241c9b5f4cb813d73fc4462c7b760bd7eb66e66"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2018-sertifikat.webp",
+      "git_blob_sha1": "703f24eeac489e2e081a0f207b90f057d6b9c85e"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2018-upravlyay-ekaterinburg-2018.webp",
+      "git_blob_sha1": "b4dd8c9bcfbdc8d8492c9589c6f212763a6f608e"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2018-upravlyay-uchastnik-2017-2018.webp",
+      "git_blob_sha1": "2f691304afa076f5d6a17a831b4cfe2ac1434fd5"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2018-ya-professional-sertifikat-uchastnika.webp",
+      "git_blob_sha1": "a179b2ad0907955b86e26c98188707ff297a3be1"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2018-zimnyaya-shkola-ranhigs-sertifikat-uchastnika.webp",
+      "git_blob_sha1": "3caa1c2f7581260f1e69bf1e7394303f768c31b9"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-blagodarnost-ranhigs-za-razvitie-sno.webp",
+      "git_blob_sha1": "bd01d38d242b05b4368dc561d0079557e88aacb7"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-diplom-bypasing-2019.webp",
+      "git_blob_sha1": "3afbadd286118ba59eb7768ec9a0cec78fefb24e"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-diplom-chelgu-2-mesto-2019.webp",
+      "git_blob_sha1": "b7e004ca66f6c45a497291bf202f5115643cfbb7"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-diplom-laureata-premii-im-m-a-sergeeva.webp",
+      "git_blob_sha1": "14201aa8c7e255bb958855b230a2e333c1aaa487"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-diplom-rabota-buduschego-2019.webp",
+      "git_blob_sha1": "5246aa883b71d5d07cb1914982290a680dbe6a4f"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-diplom-v-nominatsii-tseleustremlennost.webp",
+      "git_blob_sha1": "dec42d7f7e27bcf4166a632bd57dec01a82c155a"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-diplom-vebinar-po-publikatsiyam-ranhigs-2019.webp",
+      "git_blob_sha1": "5f02677eacae4cb102ad18f0f1e19f92876e79f1"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-diplom-za-uchastie-chelgu-2019.webp",
+      "git_blob_sha1": "e6adc9833cb125260808239d24bf1bf06986383b"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-gramota-za-razvitie-sno-2019-2.webp",
+      "git_blob_sha1": "4547cdd580e40671b77fc6061ce4fc3457dc2920"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-gramota-za-razvitie-sno-2019.webp",
+      "git_blob_sha1": "a7dcafa8c4ebd1b315716751e4be331c4db948b7"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-konferentsiya-ranhigs-sertifikat.webp",
+      "git_blob_sha1": "a1d6182e563f4e617e57712ddae6751a9a887bf4"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-potanin-sertifikat-2019.webp",
+      "git_blob_sha1": "0d8d9896dde76fd1abaac6f21dc64527d6ab7770"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-sertifikat-chgik-2019.webp",
+      "git_blob_sha1": "baf4d2684a315e3a9c14c961312d40a4141c0d41"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-sertifikat-konferentsii-sankt-peterburg-2019.webp",
+      "git_blob_sha1": "fbc1fac206573b298df76be3a9661db42461d5c4"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-sertifikat-ranhigs-noyabr-2019.webp",
+      "git_blob_sha1": "a0e56435defc58d41408898c951cf3ddc821b424"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-sertifikat-uchastnika-zak-initsiativa-2019.webp",
+      "git_blob_sha1": "5b8d0d43ecaf9f8ba0478dd462f1eba84004d46b"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-student-goda-1-mesto.webp",
+      "git_blob_sha1": "d8f4e182a5f2b017d0c4448349bb1c7f17b71ebf"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-uchastnik-foruma-pmif-2019.webp",
+      "git_blob_sha1": "1b51c9fef2ab51c2bfdc50d5d6c7e05a950e7a06"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2019-zhivaya-istoiya-1-mesto.webp",
+      "git_blob_sha1": "889e04704c3a53713a0e470026bfb798687fc01b"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2020-blagodarstvennoe-pismo-glavy-rayona.webp",
+      "git_blob_sha1": "8407d18a5929c20f1ac3e0d0b9b6f60457d0ab51"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2020-diplom-sno-za-2019-2020-tsch-god.webp",
+      "git_blob_sha1": "f50c609fc0dcf4701e3d562d98efe70b6c73fedb"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2020-sertifikat-sitkovskiy.webp",
+      "git_blob_sha1": "fbf08e704358a6d61608f1c776a2c537fe5be9d3"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2020-sitkovskiy-am-sertifikat-uchastnika-konferentsii.webp",
+      "git_blob_sha1": "0b27df54260b45a9830dc77964d2fbdab0019e60"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2020-student-goda-1-mesto.webp",
+      "git_blob_sha1": "cd1d887f7a8a6f6e61512ab7d4a636feb1d2bf2a"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2021-120-credit-certificate-for-graduate.webp",
+      "git_blob_sha1": "0fc6c0f91accd9380b2135be97b1d8b0a6ab1933"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2021-gamedesign-documentation-devtodev-certificate.webp",
+      "git_blob_sha1": "fcecf5d7005ab67c5143f7ae00b5fc307c1f3c64"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2021-gamedev-buisness-devtodev-certificate.webp",
+      "git_blob_sha1": "c3ddf830590037ca88251ff8f2a1c08ce8d2c351"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2021-institut-genplana-moskvy.webp",
+      "git_blob_sha1": "4fb32b1894752a8f301bd95f5fb8eab841c80b91"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2022-120-credit-certificate-for-graduate.webp",
+      "git_blob_sha1": "0fc6c0f91accd9380b2135be97b1d8b0a6ab1933"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2022-gamedesign-documentation-devtodev-certificate.webp",
+      "git_blob_sha1": "fcecf5d7005ab67c5143f7ae00b5fc307c1f3c64"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2022-gamedev-buisness-devtodev-certificate.webp",
+      "git_blob_sha1": "c3ddf830590037ca88251ff8f2a1c08ce8d2c351"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2022-institut-genplana-moskvy.webp",
+      "git_blob_sha1": "4fb32b1894752a8f301bd95f5fb8eab841c80b91"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2023-sertifikat-psiholog-konsultant.webp",
+      "git_blob_sha1": "dc1cbe83f84872e6ba17284fece11eab75eb446e"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2025-blagodarnost-dnr.webp",
+      "git_blob_sha1": "545743354b148ee5917d6377dff05e25ce85cf89"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2025-idi-sertifikat-eaes-sitkovskiy-am.webp",
+      "git_blob_sha1": "9ebc5264b76072cd149f033060607f0ca595c174"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2025-rudn-blagodarnost-sitkovskii-am.webp",
+      "git_blob_sha1": "d073cee8e72c7c193a9e48da87cdc69af92e96c4"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2025-uralskiy-demforum-2025-sitkovskiy-a-m.webp",
+      "git_blob_sha1": "1648923d1238d7b7760d2aea6c37dade2005d3e3"
+    },
+    {
+      "path": "assets/diplomas/thumbs/2026-nauchnyy-rezultat-serifikat-sitkovskiy-a-m.webp",
+      "git_blob_sha1": "059dc3a64de65fb1fdfdc4a6fdd60a52a606da77"
+    },
+    {
+      "path": "assets/dpo.js",
+      "git_blob_sha1": "ef64f969b8f462e124df2dcd5a49a01a7744bea3"
+    },
+    {
+      "path": "assets/dpo/pages/2019-ranhigs-2019-eksport-obrazovaniya-p01.webp",
+      "git_blob_sha1": "1b75c09a841498f27e9084d0b9c975f8d771a4ea"
+    },
+    {
+      "path": "assets/dpo/pages/2020-innopolis-2020-intellekt-sobstvennost-p01.webp",
+      "git_blob_sha1": "cc5af08b0dafa55c8672d27af8572952273198a6"
+    },
+    {
+      "path": "assets/dpo/pages/2022-sitkovskiy-master-of-public-policy-p01.webp",
+      "git_blob_sha1": "8ba1bcad598b377386b3381dfdbcda01a7a88e77"
+    },
+    {
+      "path": "assets/dpo/pages/2022-sitkovskiy-master-of-public-policy-p02.webp",
+      "git_blob_sha1": "fb7a0d120bb800f6702b8de698ead53bdab7ebb3"
+    },
+    {
+      "path": "assets/dpo/pages/2022-sitkovskiy-master-of-public-policy-p03.webp",
+      "git_blob_sha1": "d1f118ac3f50a71463d3703df06ac91ccef0542f"
+    },
+    {
+      "path": "assets/dpo/pages/2024-ranhigs-2024-vovlechenie-gorozhan-v-programmy-razvitiya-gorodskoy-sredy-p01.webp",
+      "git_blob_sha1": "2a414ef56e5b4965c6c977bfb8e274af53ddc7c8"
+    },
+    {
+      "path": "assets/dpo/pages/2024-tyumgu-2024-metodika-antikorruptsionnogo-prosvyascheniya-p01.webp",
+      "git_blob_sha1": "84f96eff85096056b079968a5d73acf75062de77"
+    },
+    {
+      "path": "assets/dpo/pages/2025-fnists-ran-2025-demogrf-perepodgotovka-p01.webp",
+      "git_blob_sha1": "cd88c0e7c7b3f5224143e293c8d55e07a1f1e956"
+    },
+    {
+      "path": "assets/dpo/pages/2025-fnists-ran-2025-demogrf-perepodgotovka-p02.webp",
+      "git_blob_sha1": "a9bc6fde64efe029bf72cec7363d31f70363bd23"
+    },
+    {
+      "path": "assets/dpo/pages/2025-fnists-ran-2025-demogrf-perepodgotovka-p03.webp",
+      "git_blob_sha1": "056cfc34da0eefd8d40fd02a4df9f47b17bf3e77"
+    },
+    {
+      "path": "assets/dpo/pages/2025-rudn-2025-angliyskiy-yazyk-p01.webp",
+      "git_blob_sha1": "89235371a3ae2905ac6d352d184603bfa7504e45"
+    },
+    {
+      "path": "assets/dpo/pages/2025-rudn-2025-elektronnye-obr-kursy-p01.webp",
+      "git_blob_sha1": "b4da506e6349077f7144c5f8878f8dfc76b80ccc"
+    },
+    {
+      "path": "assets/dpo/pages/2025-rudn-2025-ispolzovanie-informatsionnyh-baz-p01.webp",
+      "git_blob_sha1": "1d899be0e5da79cdeb3dbfb248cf606ac02f8c2b"
+    },
+    {
+      "path": "assets/dpo/pages/2026-mgimo-2026-ii-agenty-p01.webp",
+      "git_blob_sha1": "0bd9dfff54486bb86afade5560ba312d02eae168"
+    },
+    {
+      "path": "assets/dpo/thumbs/2019-ranhigs-2019-eksport-obrazovaniya.webp",
+      "git_blob_sha1": "b291965e4837fb728a99c56353f6ecad325db2a2"
+    },
+    {
+      "path": "assets/dpo/thumbs/2020-innopolis-2020-intellekt-sobstvennost.webp",
+      "git_blob_sha1": "cf2a725c5907b3dd95b377fffabc616ff76fa783"
+    },
+    {
+      "path": "assets/dpo/thumbs/2022-sitkovskiy-master-of-public-policy.webp",
+      "git_blob_sha1": "49aaba9fcf3dcdfc624f6051fd05d57e05432bfb"
+    },
+    {
+      "path": "assets/dpo/thumbs/2024-ranhigs-2024-vovlechenie-gorozhan-v-programmy-razvitiya-gorodskoy-sredy.webp",
+      "git_blob_sha1": "f98bc5031948d0b09c90efff70df5604b195542d"
+    },
+    {
+      "path": "assets/dpo/thumbs/2024-tyumgu-2024-metodika-antikorruptsionnogo-prosvyascheniya.webp",
+      "git_blob_sha1": "6041bb7565a24d72a5ef5e3d8bb89ee5f4757ff7"
+    },
+    {
+      "path": "assets/dpo/thumbs/2025-fnists-ran-2025-demogrf-perepodgotovka.webp",
+      "git_blob_sha1": "22f12dc32c52cf239ecab65242b5d0d8b879bdce"
+    },
+    {
+      "path": "assets/dpo/thumbs/2025-rudn-2025-angliyskiy-yazyk.webp",
+      "git_blob_sha1": "a6df7fd72b3b885f4c2b461f3b2a1929cfe88d4a"
+    },
+    {
+      "path": "assets/dpo/thumbs/2025-rudn-2025-elektronnye-obr-kursy.webp",
+      "git_blob_sha1": "1de593cea6898b94c0698af8b63a7a35d265121c"
+    },
+    {
+      "path": "assets/dpo/thumbs/2025-rudn-2025-ispolzovanie-informatsionnyh-baz.webp",
+      "git_blob_sha1": "88202cedfcd70b22fae0448d395cdac67ee419c4"
+    },
+    {
+      "path": "assets/dpo/thumbs/2026-mgimo-2026-ii-agenty.webp",
+      "git_blob_sha1": "8d53a6492b0b1839dafdd62fd5ccb9e79a9f09a5"
+    },
+    {
+      "path": "assets/favicon.svg",
+      "git_blob_sha1": "70f628e0efa763c38a169b3525ff9faef25ba9f6"
+    },
+    {
+      "path": "assets/identifiers/SOURCES.md",
+      "git_blob_sha1": "880ea808fd9149b7b6a851df035fad0c905e68cc"
+    },
+    {
+      "path": "assets/identifiers/academia.svg",
+      "git_blob_sha1": "d688f9a3f5de364d04a54f173b2c33b449a640c3"
+    },
+    {
+      "path": "assets/identifiers/cyberleninka.ico",
+      "git_blob_sha1": "4dec06d6a3783e85ed896888a2bc7e053c84651b"
+    },
+    {
+      "path": "assets/identifiers/elibrary.ico",
+      "git_blob_sha1": "4c6f8d474f8bf6713860b16df3df5c2a23dcc780"
+    },
+    {
+      "path": "assets/identifiers/github.svg",
+      "git_blob_sha1": "538ec5bf2a9a5724899daf728577cd0b8beaae90"
+    },
+    {
+      "path": "assets/identifiers/google-scholar.svg",
+      "git_blob_sha1": "775383090809a4f40e674677c8284c9758520efc"
+    },
+    {
+      "path": "assets/identifiers/orcid.svg",
+      "git_blob_sha1": "8aec5959e5a713db6aef4c4ed7a74783cc7a56a0"
+    },
+    {
+      "path": "assets/identifiers/researchgate.svg",
+      "git_blob_sha1": "ecfb5a4aa05dae61eff717160253beb74fa71deb"
+    },
+    {
+      "path": "assets/identifiers/scopus.svg",
+      "git_blob_sha1": "f3acf59454196fe6a27015ce57e710e346e32c12"
+    },
+    {
+      "path": "assets/identifiers/webofscience.ico",
+      "git_blob_sha1": "3a7faf3e45551a3d06977f3798e592ef7e54a16f"
+    },
+    {
+      "path": "assets/it.css",
+      "git_blob_sha1": "f8867e84fedee16b528acc6ebadac7cc9621ecf2"
+    },
+    {
+      "path": "assets/it/thumbs/bayes-correlations-of-russia.png",
+      "git_blob_sha1": "7f9922d2a9283ce08aa674816c161daf3fda027f"
+    },
+    {
+      "path": "assets/it/thumbs/career-guidance-for-civil-servants.png",
+      "git_blob_sha1": "5dfac7154326f003431fc9ca4b68013d1327e1b3"
+    },
+    {
+      "path": "assets/it/thumbs/datalens-regional-socioeconomic-dashboard.png",
+      "git_blob_sha1": "0bd24c1d21ab1f996a42b71913360af7429b0df9"
+    },
+    {
+      "path": "assets/it/thumbs/datalens-settlement-system-okr-dashboard.png",
+      "git_blob_sha1": "37939b8dd8da56412e76fe7d6ecaa4ed37e1ed6d"
+    },
+    {
+      "path": "assets/it/thumbs/evergis-settlements-support-framework-map.png",
+      "git_blob_sha1": "269c6342b6e441e6f87a5e2d0a47305ca6ee7193"
+    },
+    {
+      "path": "assets/it/thumbs/foreign-labor-migration.png",
+      "git_blob_sha1": "b9ee0b89d607e2864669c8a93bcefeadb0fb149c"
+    },
+    {
+      "path": "assets/it/thumbs/government-budget-simulator.jpg",
+      "git_blob_sha1": "423d5e4fb042feb0d323737cefad818e21ea952c"
+    },
+    {
+      "path": "assets/it/thumbs/population-forecast-dashboard-russia-2100.png",
+      "git_blob_sha1": "a55863ff1030065c949be2dbdeb35971a141126b"
+    },
+    {
+      "path": "assets/it/thumbs/russia-regions-puzzle.png",
+      "git_blob_sha1": "ed419405b85c9b6cbb57cad974af2dc71446919b"
+    },
+    {
+      "path": "assets/it/thumbs/settlements-projection-dashboard.png",
+      "git_blob_sha1": "c5c91f4d9b46b4e389a73d81ca3640ed917568f7"
+    },
+    {
+      "path": "assets/lang-init.js",
+      "git_blob_sha1": "d490f33669ec98985fba1464f671ed9230d7c27f"
+    },
+    {
+      "path": "assets/logos/fnisc.png",
+      "git_blob_sha1": "679cd4aa3218001c1c4dd3fba41e565a12af6dcb"
+    },
+    {
+      "path": "assets/logos/mgimo.png",
+      "git_blob_sha1": "8a716bafa62a67ab2de42d093c78c52b722c5ba3"
+    },
+    {
+      "path": "assets/logos/ranepa.png",
+      "git_blob_sha1": "0340cdd56dceda973df7ea4215cd51168f346301"
+    },
+    {
+      "path": "assets/logos/rfbr.jpg",
+      "git_blob_sha1": "a4be83587f2b466d16357fac5224cf331524e792"
+    },
+    {
+      "path": "assets/logos/rscf.png",
+      "git_blob_sha1": "80a743c9da842a453cff564bf7887abcff3b6c1c"
+    },
+    {
+      "path": "assets/logos/rudn.png",
+      "git_blob_sha1": "e69d39bdfc3d163e41a3ae0c2926105f90b39b54"
+    },
+    {
+      "path": "assets/media/mentions/3a1978611b411757.jpg",
+      "git_blob_sha1": "6497ffa57ae345222ab83702d67ace3234c2d960"
+    },
+    {
+      "path": "assets/media/mentions/414faf210745728c.jpg",
+      "git_blob_sha1": "01a9015d3dec209b71a17eeef4236af6134bbf54"
+    },
+    {
+      "path": "assets/media/mentions/4a71034530769dcd.jpg",
+      "git_blob_sha1": "d0134f4cfd739a09252c0defd1c969e31773b846"
+    },
+    {
+      "path": "assets/media/mentions/4e7b2f54b868d4b8.png",
+      "git_blob_sha1": "225c8a46b83f62c0a7035f5e8e31541fcff0aab9"
+    },
+    {
+      "path": "assets/media/mentions/4f013516d981a1b7.jpg",
+      "git_blob_sha1": "bf14106dbb15e2339b51661df702c1cb73a26bab"
+    },
+    {
+      "path": "assets/media/mentions/6de04edc860ab81f.jpg",
+      "git_blob_sha1": "4a7d7e4d006a44211e629b479bce34e06307a8c2"
+    },
+    {
+      "path": "assets/media/mentions/6e48b1825bdc427e.jpg",
+      "git_blob_sha1": "093e918c4f89fbcc0c10f060751c3c409fb3fb69"
+    },
+    {
+      "path": "assets/media/mentions/7afe6c3e1110f2f7.jpg",
+      "git_blob_sha1": "581a81ec403b4b463e36b310fee57a69433f30df"
+    },
+    {
+      "path": "assets/media/mentions/aa29e51cf3112fee.jpg",
+      "git_blob_sha1": "c99c84d492ea58d616b992f3a2ed2eac918ec2ca"
+    },
+    {
+      "path": "assets/media/mentions/b453d2d75d995c21.jpg",
+      "git_blob_sha1": "9c59b686bb6e578efa8582b26680659b1a65ac17"
+    },
+    {
+      "path": "assets/media/mentions/b6fc596eca2728c6.jpg",
+      "git_blob_sha1": "663c6f9c214bad1182d164d809716096391c82fe"
+    },
+    {
+      "path": "assets/media/mentions/b84dccef5ac352a4.png",
+      "git_blob_sha1": "1250041deeb49471016992b905be8ad154d74203"
+    },
+    {
+      "path": "assets/media/mentions/be3991667c784f69.jpg",
+      "git_blob_sha1": "c60fed1f93dcaf5197bc35b55d680d86ebfbe931"
+    },
+    {
+      "path": "assets/projects/dnr-demographic-expertise-thumb.webp",
+      "git_blob_sha1": "bd08577cc85e71d704f797661115a07aa47b5b63"
+    },
+    {
+      "path": "assets/projects/np-family-expertise-presentation.pdf",
+      "git_blob_sha1": "7d3f0726dff7c8994b3edd95a3a026ace77a4f08"
+    },
+    {
+      "path": "assets/projects/np-family-expertise-thumb.webp",
+      "git_blob_sha1": "c11c392e0a86308cda465e46a378d97b1bcb68c7"
+    },
+    {
+      "path": "assets/projects/sevastopol-demographic-study-thumb.webp",
+      "git_blob_sha1": "b07144dee1df55096e4ed73c18780cdf711ecbfc"
+    },
+    {
+      "path": "assets/publications.js",
+      "git_blob_sha1": "6cc6ed7e198108a33ee67c335c29e31540ab73d6"
+    },
+    {
+      "path": "assets/risi/risi.css",
+      "git_blob_sha1": "bdb9bd4f176e71594622e24b2571e7c198e40cb3"
+    },
+    {
+      "path": "assets/risi/risi.js",
+      "git_blob_sha1": "03ef3f6ce8e52b7edf109caa1158fa42b1f3105e"
+    },
+    {
+      "path": "assets/risi/screenshots/demografiya-v-rossiyskoy-imperii.webp",
+      "git_blob_sha1": "bd19ed689f5db95ad34bf89c46e2b83ffe40504f"
+    },
+    {
+      "path": "assets/risi/screenshots/dostizhenie-ekonomicheskoy-stabilnosti-uvelicheniem-rozhdaemosti.webp",
+      "git_blob_sha1": "d150a25af2d79c9e7a10ecd7f07e0b6fcabab6a5"
+    },
+    {
+      "path": "assets/risi/screenshots/situatsiya-s-kureniem-tabaka-v-rossiyskoy-federatsii.webp",
+      "git_blob_sha1": "50a2faaffb3687debbcad1cec187c539f5cf06dd"
+    },
+    {
+      "path": "assets/risi/screenshots/vliyanie-prostitutsii-na-demografiyu.webp",
+      "git_blob_sha1": "2f4673ee6185a2c7c489b29eac888c1318aa3a15"
+    },
+    {
+      "path": "assets/risi/screenshots/vysokaya-rozhdaemost-klyuch-k-ekonomicheskomu-rostu.webp",
+      "git_blob_sha1": "32a3786dca6050645630e7c5e11fce65dac5c69a"
+    },
+    {
+      "path": "assets/risi/thumbnails/demografiya-v-rossiyskoy-imperii.webp",
+      "git_blob_sha1": "294070f7f50cfccace0947667e12f154d46814ca"
+    },
+    {
+      "path": "assets/risi/thumbnails/dostizhenie-ekonomicheskoy-stabilnosti-uvelicheniem-rozhdaemosti.webp",
+      "git_blob_sha1": "04b8dcf02ec82da0af10a556197d39d4e3905b1b"
+    },
+    {
+      "path": "assets/risi/thumbnails/situatsiya-s-kureniem-tabaka-v-rossiyskoy-federatsii.webp",
+      "git_blob_sha1": "d7762b7b6d0df35e9988254665af4480486ec135"
+    },
+    {
+      "path": "assets/risi/thumbnails/vliyanie-prostitutsii-na-demografiyu.webp",
+      "git_blob_sha1": "f95a123830dd30af5832cb6f182d574b5932298d"
+    },
+    {
+      "path": "assets/risi/thumbnails/vysokaya-rozhdaemost-klyuch-k-ekonomicheskomu-rostu.webp",
+      "git_blob_sha1": "a7c76d50642d6565d7864c45bce4c89a19b15c3a"
+    },
+    {
+      "path": "assets/scientometrics.css",
+      "git_blob_sha1": "680b00bf614c69abd7f75f3a4e877ccc823cb080"
+    },
+    {
+      "path": "assets/site.css",
+      "git_blob_sha1": "6392482ef995ef7db96be5f7e6a075e14116b103"
+    },
+    {
+      "path": "assets/site.js",
+      "git_blob_sha1": "a6a768db625053ef169592d762dca75df6181a5d"
+    },
+    {
+      "path": "assets/social/telegram.svg",
+      "git_blob_sha1": "e21093ee3e2563f44b54eeffd7eafba6dc41fd2b"
+    },
+    {
+      "path": "assets/social/vk.svg",
+      "git_blob_sha1": "034e15bf809549326ba5c8a174bad5acf5945655"
+    },
+    {
+      "path": "assets/teaching.js",
+      "git_blob_sha1": "a7e78d73fa71a03d204b1dade94bb86dda6a1489"
+    },
+    {
+      "path": "assets/teaching/evergis.jpg",
+      "git_blob_sha1": "1ef962a02616b121fe4afae0e2aa3cc9e48bfab4"
+    },
+    {
+      "path": "assets/teaching/geodata-gis.jpg",
+      "git_blob_sha1": "db99a0594e2c583d77755fc4f19f423335cacc33"
+    },
+    {
+      "path": "assets/teaching/intro-specialty.png",
+      "git_blob_sha1": "be6e5cf1faa11d95c180acfd81079535079df776"
+    },
+    {
+      "path": "assets/teaching/spatial-demography.png",
+      "git_blob_sha1": "98b5fb737a1c2af3ab919a2fe058e7910a52b46d"
+    },
+    {
+      "path": "assets/teaching/stepik.png",
+      "git_blob_sha1": "6fa30abfc795891e204549dd261003fa9b3835ff"
+    },
+    {
+      "path": "assets/teaching/thumbs/LAv2I5vwKB0.jpg",
+      "git_blob_sha1": "17d021df0ef6d55365dacecd7eaac3b9f4b54435"
+    },
+    {
+      "path": "assets/teaching/thumbs/QgkiVMhKQh8.jpg",
+      "git_blob_sha1": "0909ae0a4963a96383a69841dab1d9d014868b7f"
+    },
+    {
+      "path": "assets/teaching/thumbs/QmzwUWfjIM4.jpg",
+      "git_blob_sha1": "f2c73cb430318d93f99a3a00b9ef0daa1abc81ce"
+    },
+    {
+      "path": "assets/teaching/thumbs/TTplZATRU54.jpg",
+      "git_blob_sha1": "2ed2433155e4255d6a5536111e2a4c4e20d180d5"
+    },
+    {
+      "path": "assets/teaching/thumbs/cVgbtU7AyqQ.jpg",
+      "git_blob_sha1": "df6ebe01ebc9b92c329ce3506ed70a8c59a642fb"
+    },
+    {
+      "path": "assets/teaching/thumbs/gSuhgKVUdPs.jpg",
+      "git_blob_sha1": "5e6a3cac85b195564dbf30ce358315bc034ce28e"
+    },
+    {
+      "path": "assets/teaching/thumbs/ilbTCLs-Eio.jpg",
+      "git_blob_sha1": "a589743e28b5043fe9467e938efec43bc9295aee"
+    },
+    {
+      "path": "assets/teaching/thumbs/ut1SxXLWh30.jpg",
+      "git_blob_sha1": "48f45fcff7c2a3f018ee2fe20e0cb658bceb7693"
+    },
+    {
+      "path": "assets/visuals/readme/admin-automation-en.gif",
+      "git_blob_sha1": "675f182eea71cac2ded5423444f9b97dd01977ab"
+    },
+    {
+      "path": "assets/visuals/readme/admin-automation-ru.gif",
+      "git_blob_sha1": "457c941ccd027afed5a0f5b1eed80882e455188b"
+    },
+    {
+      "path": "assets/visuals/readme/admin-en.png",
+      "git_blob_sha1": "f13eeb3449c5ce0f2379886b6c89e5eab4eed666"
+    },
+    {
+      "path": "assets/visuals/readme/admin-ru.png",
+      "git_blob_sha1": "3f68a23f1a9a13fc9d9af92392b2c27894070f43"
+    },
+    {
+      "path": "assets/visuals/readme/diplomas-en.png",
+      "git_blob_sha1": "e749c37f58dadbf8165b574d3283d27fcffacd9c"
+    },
+    {
+      "path": "assets/visuals/readme/diplomas-gallery-en.gif",
+      "git_blob_sha1": "f819b17024098660b14cbb8a8ad7583c1a2cea67"
+    },
+    {
+      "path": "assets/visuals/readme/diplomas-gallery-ru.gif",
+      "git_blob_sha1": "7efa350af94507cd703251c41bc783f0355fcca0"
+    },
+    {
+      "path": "assets/visuals/readme/diplomas-pipeline-en.svg",
+      "git_blob_sha1": "e64bc8369ab1e342d34cd0cf4b1146446228654d"
+    },
+    {
+      "path": "assets/visuals/readme/diplomas-pipeline-ru.svg",
+      "git_blob_sha1": "a022def08609450b1bed8236ce602b96c5102c44"
+    },
+    {
+      "path": "assets/visuals/readme/diplomas-ru.png",
+      "git_blob_sha1": "02a7c416f3b85ba59ada58fe3dbdbaef671574b0"
+    },
+    {
+      "path": "assets/visuals/readme/home-en.png",
+      "git_blob_sha1": "e2e8df720a0f6d91273f2bcbf5b8264dcb3f58e2"
+    },
+    {
+      "path": "assets/visuals/readme/home-ru.png",
+      "git_blob_sha1": "4aa41fe652771a8884bd568e2c6873aae8c0f74c"
+    },
+    {
+      "path": "assets/visuals/readme/media-cards-en.gif",
+      "git_blob_sha1": "915713e6cefade2e2b45e06c0e64fdcb683232ab"
+    },
+    {
+      "path": "assets/visuals/readme/media-cards-ru.gif",
+      "git_blob_sha1": "24aade9bfa89d6cef83fd4678567aef9f1b7b945"
+    },
+    {
+      "path": "assets/visuals/readme/media-en.png",
+      "git_blob_sha1": "472058b22ebfac7a89480eeea9ffab30eba3819c"
+    },
+    {
+      "path": "assets/visuals/readme/media-pipeline-en.svg",
+      "git_blob_sha1": "212de0700de2e3d7df822ee04bff6171bb972cb9"
+    },
+    {
+      "path": "assets/visuals/readme/media-pipeline-ru.svg",
+      "git_blob_sha1": "7b3405f911bdb5bc9473cb1b5ddfda040d931d90"
+    },
+    {
+      "path": "assets/visuals/readme/media-ru.png",
+      "git_blob_sha1": "0c56b5c5059bb16bf223fb6a50685a1a97d4cf7f"
+    },
+    {
+      "path": "assets/visuals/readme/metrics-en.png",
+      "git_blob_sha1": "83a2003c0c96373b633e47138d870a71d2549a1f"
+    },
+    {
+      "path": "assets/visuals/readme/metrics-ru.png",
+      "git_blob_sha1": "64f27cb7edf57bb0910f6d74b01d582818dbd5de"
+    },
+    {
+      "path": "assets/visuals/readme/platform-architecture-en.svg",
+      "git_blob_sha1": "0b72f884521c68e0e87e7c39cdafe4030b93d924"
+    },
+    {
+      "path": "assets/visuals/readme/platform-architecture-ru.svg",
+      "git_blob_sha1": "973132df6312408a0cfc932bb0c1aa81dbd011a7"
+    },
+    {
+      "path": "assets/visuals/readme/publications-en.png",
+      "git_blob_sha1": "83590acacf8edb1686d9ce4cfe990b1fef8aa2da"
+    },
+    {
+      "path": "assets/visuals/readme/publications-metrics-en.gif",
+      "git_blob_sha1": "2455b4646c9eecc66cc1f6998786ffd4e0db6a8c"
+    },
+    {
+      "path": "assets/visuals/readme/publications-metrics-ru.gif",
+      "git_blob_sha1": "3b3bfc129f6b4167a632cd12185accf4fb2eb4c2"
+    },
+    {
+      "path": "assets/visuals/readme/publications-ru.png",
+      "git_blob_sha1": "8f026ba09c543dbe7390bbae1863e5c963fcf4d5"
+    },
+    {
+      "path": "assets/visuals/readme/scientometric-pipeline-en.svg",
+      "git_blob_sha1": "6af8078365a0eab8f440b6710be3faaf22119642"
+    },
+    {
+      "path": "assets/visuals/readme/scientometric-pipeline-ru.svg",
+      "git_blob_sha1": "5010c1e3d76b2ca7df323ea1231c6a4c5fb294b7"
+    },
+    {
+      "path": "content/risi/docx/chislennost-naseleniya-v-rossii-2016-estestvennyy-prirost-ili-statisticheskiy-obman.docx",
+      "git_blob_sha1": "ba0b558b04b778cc49ee771b0709a62938d8baf8"
+    },
+    {
+      "path": "content/risi/docx/demograficheskie-posledstviya-porno-zavisimosti-na-primere-yaponii.docx",
+      "git_blob_sha1": "330b3d9050312d2b28ce0c3c2449d351b4ce3135"
+    },
+    {
+      "path": "content/risi/docx/demografiya-v-rossiyskoy-imperii.docx",
+      "git_blob_sha1": "96f9088073b1c6b20d4048a41a9eae07d06ffb0c"
+    },
+    {
+      "path": "content/risi/docx/dostizhenie-ekonomicheskoy-stabilnosti-uvelicheniem-rozhdaemosti.docx",
+      "git_blob_sha1": "09c50e599b99e4ca95a7c0a09f5f871009a092db"
+    },
+    {
+      "path": "content/risi/docx/filosofiya-sovremennoy-evgeniki-domysly-i-fakty.docx",
+      "git_blob_sha1": "d7d6ae524e138946af1a5c759ee7b3c6c7bdcf1e"
+    },
+    {
+      "path": "content/risi/docx/kachestvennoe-vosproizvodstvo-naseleniya.docx",
+      "git_blob_sha1": "d807b4e03273d453c8532afdeef038ced60f74da"
+    },
+    {
+      "path": "content/risi/docx/optimalnaya-chislennost-gosudarstvennyh-sluzhashchih-v-rossii.docx",
+      "git_blob_sha1": "a12a0cff41b6b8f5ed1cf1f20b81c0b3d38e1ae9"
+    },
+    {
+      "path": "content/risi/docx/osnova-zdorovya-cheloveka-reproduktivnoe-zdorove.docx",
+      "git_blob_sha1": "017bf7068e0ddbbcafbca9de20ed48b78ab441b2"
+    },
+    {
+      "path": "content/risi/docx/situatsiya-s-kureniem-tabaka-v-rossiyskoy-federatsii.docx",
+      "git_blob_sha1": "9f7e4393af24e495ff474140f91c2c2110fe8180"
+    },
+    {
+      "path": "content/risi/docx/svyaz-rozhdaemosti-i-ekonomicheskogo-rosta.docx",
+      "git_blob_sha1": "6320e9f8285948237de677c212bc02acabeb655f"
+    },
+    {
+      "path": "content/risi/docx/ugrozy-neestestvennogo-prirosta-naseleniya.docx",
+      "git_blob_sha1": "7a7da5a9f8b8191bf228366a335bc7ed416f6898"
+    },
+    {
+      "path": "content/risi/docx/vliyanie-prostitutsii-na-demografiyu.docx",
+      "git_blob_sha1": "2cb85c638a60d7d6e80f30e1b833c269104b09d2"
+    },
+    {
+      "path": "content/risi/docx/vysokaya-rozhdaemost-klyuch-k-ekonomicheskomu-rostu.docx",
+      "git_blob_sha1": "dce797f3e7ce2abaa39be46d41af6abb0af0f815"
+    },
+    {
+      "path": "data/risi/articles/html/chislennost-naseleniya-v-rossii-2016-estestvennyy-prirost-ili-statisticheskiy-obman.html",
+      "git_blob_sha1": "f8a341dbb428ceb425f141260cb4d9dab2671c3a"
+    },
+    {
+      "path": "data/risi/articles/html/demograficheskie-posledstviya-porno-zavisimosti-na-primere-yaponii.html",
+      "git_blob_sha1": "78c866638f5bb111ab81dac9adf6ae3e8cc90907"
+    },
+    {
+      "path": "data/risi/articles/html/demografiya-v-rossiyskoy-imperii.html",
+      "git_blob_sha1": "8ea3ea9858b145c10011dc70e4255e346ce92fed"
+    },
+    {
+      "path": "data/risi/articles/html/dostizhenie-ekonomicheskoy-stabilnosti-uvelicheniem-rozhdaemosti.html",
+      "git_blob_sha1": "5c79e63923df62e3bf8587d32d220de44583e52f"
+    },
+    {
+      "path": "data/risi/articles/html/filosofiya-sovremennoy-evgeniki-domysly-i-fakty.html",
+      "git_blob_sha1": "5e3338179aa67ee4ed07dcf2874ca56189b4efa9"
+    },
+    {
+      "path": "data/risi/articles/html/kachestvennoe-vosproizvodstvo-naseleniya.html",
+      "git_blob_sha1": "eaeb542d5348d5fea6a444bec8dc3ba486c1b1d8"
+    },
+    {
+      "path": "data/risi/articles/html/optimalnaya-chislennost-gosudarstvennyh-sluzhashchih-v-rossii.html",
+      "git_blob_sha1": "293d9fd27800057d79b4be968bc0f808b95b5460"
+    },
+    {
+      "path": "data/risi/articles/html/osnova-zdorovya-cheloveka-reproduktivnoe-zdorove.html",
+      "git_blob_sha1": "58c5183e32a1c4f1a7fb295d1e209eeee7854aa1"
+    },
+    {
+      "path": "data/risi/articles/html/situatsiya-s-kureniem-tabaka-v-rossiyskoy-federatsii.html",
+      "git_blob_sha1": "fed4f4fc4908ae78972b3db133ab3647a66ddd99"
+    },
+    {
+      "path": "data/risi/articles/html/svyaz-rozhdaemosti-i-ekonomicheskogo-rosta.html",
+      "git_blob_sha1": "39f45620896ea741528fba44683832d4d668df09"
+    },
+    {
+      "path": "data/risi/articles/html/ugrozy-neestestvennogo-prirosta-naseleniya.html",
+      "git_blob_sha1": "e366074b568af3f97ca71d8a28a1e8d9e63a6302"
+    },
+    {
+      "path": "data/risi/articles/html/vliyanie-prostitutsii-na-demografiyu.html",
+      "git_blob_sha1": "d1c3cc2033d34201b357412f80b754406d4fb733"
+    },
+    {
+      "path": "data/risi/articles/html/vysokaya-rozhdaemost-klyuch-k-ekonomicheskomu-rostu.html",
+      "git_blob_sha1": "02e1dbc5c9115b0a005725568db0c0b0a80f60dc"
+    },
+    {
+      "path": "data/risi/articles/media/chislennost-naseleniya-v-rossii-2016-estestvennyy-prirost-ili-statisticheskiy-obman/image1.png",
+      "git_blob_sha1": "f163bfe49fb172fe09873261f36322acae73f8f5"
+    },
+    {
+      "path": "data/risi/articles/media/demografiya-v-rossiyskoy-imperii/image1.jpeg",
+      "git_blob_sha1": "2e4acf81849029847dcaf121bacd556b7b04a816"
+    },
+    {
+      "path": "data/risi/articles/media/demografiya-v-rossiyskoy-imperii/image2.gif",
+      "git_blob_sha1": "48cf2f92e8db59a306e840ee457d64b1b60ab138"
+    },
+    {
+      "path": "data/risi/articles/media/situatsiya-s-kureniem-tabaka-v-rossiyskoy-federatsii/image1.png",
+      "git_blob_sha1": "777a7625d88e51f8bde07b292abc9d6770dc786b"
+    },
+    {
+      "path": "data/risi/articles/media/situatsiya-s-kureniem-tabaka-v-rossiyskoy-federatsii/image2.png",
+      "git_blob_sha1": "01c44a2a18e1aaa8f18462352a29153934906cbc"
+    },
+    {
+      "path": "data/risi/articles/media/ugrozy-neestestvennogo-prirosta-naseleniya/image1.png",
+      "git_blob_sha1": "d54457926172b9e9daf5c078ab3ee0e8a9b90fe0"
+    },
+    {
+      "path": "data/risi/articles/media/vliyanie-prostitutsii-na-demografiyu/image1.png",
+      "git_blob_sha1": "33ddd2b72e9708e939c6d2105ff64247b9ed60e2"
+    },
+    {
+      "path": "data/risi/articles/media/vysokaya-rozhdaemost-klyuch-k-ekonomicheskomu-rostu/image1.png",
+      "git_blob_sha1": "a17b63c2ad59628a30bbe4652c9e3c2ffa5c4d6b"
+    }
+  ]
+}

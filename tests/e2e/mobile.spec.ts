@@ -60,10 +60,51 @@ test.describe('mobile portfolio layout', () => {
     await page.goto('/en/media.html');
     await page.waitForFunction(() => document.querySelectorAll('#media-list .media-card').length >= 20);
     await expect(page.locator('#media-list .note')).toHaveCount(0);
-    const mediaText = await page.locator('#media-list').innerText();
-    expect(mediaText).not.toMatch(cyrillic);
-    await expect(page.locator('#media-list .media-card')).toHaveCount(20);
+    for (const card of await page.locator('#media-list .media-card:not([data-translation-status="pending"])').all()) {
+      expect(await card.innerText()).not.toMatch(cyrillic);
+    }
+    for (const card of await page.locator('#media-list .media-card[data-translation-status="pending"]').all()) {
+      await expect(card.locator('.media-translation-note')).toContainText('English translation pending');
+    }
+    expect(await page.locator('#media-list .media-card').count()).toBeGreaterThanOrEqual(22);
     await expect(page.getByRole('link', { name: /Tolk: Russia.s shrinking younger population/ })).toBeVisible();
+  });
+
+  test('new Russian media remains visible with an explicit pending English translation', async ({ page }) => {
+    const record = {
+      id: 'pending-fixture', url: 'https://example.org/academic-news',
+      title: 'Новая научная публикация', title_ru: 'Новая научная публикация',
+      description_ru: 'Информация о новом исследовании Арсения Ситковского.',
+      source_name: 'Научный институт',
+      translation_state: { status: 'pending', fields: ['title_en', 'description_en', 'source_name_en'], reason: 'model_unavailable' },
+    };
+    await page.route('**/data/media/published.json', route => route.fulfill({
+      contentType: 'application/json', body: JSON.stringify({ records: [record] }),
+    }));
+    await page.goto('/en/media.html');
+    await expect(page.locator('#media-list h2')).toHaveText(record.title_ru);
+    await expect(page.locator('.media-translation-note')).toContainText('English translation pending');
+    await expect(page.locator('#media-list .media-link')).toHaveAttribute('href', record.url);
+    await page.goto('/media.html');
+    await expect(page.locator('#media-list h2')).toHaveText(record.title_ru);
+    await expect(page.locator('.media-translation-note')).toHaveCount(0);
+  });
+
+  for (const path of ['/media.html', '/en/media.html']) {
+    test(`${path} retains the archive and displays both September news items`, async ({page}) => {
+      await page.goto(path);
+      for (const suffix of ['pervaya-zashchita-dissovet-24124405-2026', 'sitkovskij-zashhitil-kandidatskuyu-dissertaciyu/']) {
+        await expect(page.locator(`#media-list h2 a[href$="${suffix}"]`)).toBeVisible();
+      }
+      await expect(page.locator('#risi-archive')).toBeVisible();
+    });
+  }
+
+  test('publication source dates distinguish collection from saved snapshots', async ({page}) => {
+    await page.goto('/publications.html');
+    await expect(page.locator('[data-source-health]')).toContainText('Scopus');
+    await page.locator('#q').fill('10.17853/1994-5639-2026-1-33-64');
+    await expect(page.locator('#count')).toHaveText('1');
   });
 
   test('teaching lecture thumbnails render from local assets', async ({ page }) => {

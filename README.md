@@ -17,7 +17,7 @@
 
 The platform is built for an academic profile where evidence matters. It aggregates and normalizes publication and metric data from ORCID, OpenAlex, Crossref, Scopus, Web of Science and eLibrary/RSCI; renders publication lists and scientometric indicators; builds a visual collage of diplomas and certificates from raw ZIP/PDF/JPEG/PNG uploads; and generates media cards from monitored public sources.
 
-The public site remains static and can be hosted by GitHub Pages, while data collection, enrichment and conversion run in GitHub Actions. Private API keys and cookies stay in Actions secrets and never need to be exposed in browser-side JavaScript.
+The public site remains static and can be hosted by GitHub Pages, while data collection, enrichment and conversion run in GitHub Actions. API keys and login credentials stay in Actions secrets; fresh browser sessions are private to each run.
 
 ### Public Website
 
@@ -79,7 +79,7 @@ Versioned JSON, thumbnails and static assets
 GitHub Pages website
 ```
 
-The main data refresh workflow updates bibliographic and media data. Separate workflows refresh the confirmed media corpus and build the diplomas gallery from uploaded archives. The design is deliberately best-effort: if one external provider fails, other providers can still refresh and previously stronger snapshots can be preserved.
+One weekly workflow refreshes bibliographic and media data through the home VPN, on Monday at 06:17 Moscow time. Manual media refresh calls the same workflow; gallery updates share its write lock. Validated results can publish when a provider fails, with previous records retained and the failure visible in Actions and source freshness labels. See [refresh operations](docs/REFRESH_OPERATIONS.md).
 
 ### Repository Map
 
@@ -123,7 +123,7 @@ Code is released under the MIT License. Website text, documentation, figures, ge
 
 Платформа сделана для академического портфолио, где важны проверяемость и доказательная база. Она агрегирует и нормализует сведения о публикациях и метриках из ORCID, OpenAlex, Crossref, Scopus, Web of Science и eLibrary/РИНЦ; формирует страницы публикаций и наукометрических показателей; автоматически строит визуальный коллаж дипломов и сертификатов из сырых ZIP/PDF/JPEG/PNG-архивов; а также создаёт карточки материалов СМИ на основе мониторинга публичных источников.
 
-Публичный сайт остаётся статическим и может работать на GitHub Pages, а сбор, обогащение и преобразование данных выполняются в GitHub Actions. Приватные API-ключи и cookie хранятся в Actions secrets и не попадают в клиентский JavaScript.
+Публичный сайт остаётся статическим и может работать на GitHub Pages, а сбор, обогащение и преобразование данных выполняются в GitHub Actions. API-ключи и данные входа хранятся в Actions secrets; новая браузерная сессия создаётся внутри каждого запуска.
 
 ### Публичный Сайт
 
@@ -185,7 +185,7 @@ Python-сборщики, парсеры и конвертеры
 Сайт GitHub Pages
 ```
 
-Основной workflow обновляет библиографические и медийные данные. Отдельные workflow обновляют подтверждённый корпус СМИ и собирают галерею дипломов из загруженных архивов. Архитектура сделана устойчивой: если один внешний источник временно недоступен, остальные источники всё равно могут обновиться, а более сильные прежние snapshot-данные могут быть сохранены.
+Единый workflow обновляет научные данные и СМИ через домашний VPN по понедельникам в 06:17 по Москве. Ручное обновление СМИ вызывает тот же процесс; обновления галерей используют общую блокировку записи. Проверенные результаты публикуются и при отказе отдельного источника, с сохранением прежних записей и явным статусом отказа в Actions и датах получения данных. Подробнее — в [инструкции по обновлению](docs/REFRESH_OPERATIONS.md).
 
 ### Структура Репозитория
 

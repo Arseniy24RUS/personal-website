@@ -2,17 +2,16 @@
 """Enrich publication records with English titles.
 
 Priority for title_en:
-1. Scopus
-2. OpenAlex
-3. Crossref
-4. ORCID
-5. existing Latin title_en/title
+1. Existing published title_en, preserved verbatim
+2. Scopus
+3. OpenAlex
+4. Crossref
+5. ORCID or existing Latin title
 6. cached machine translation in data/curation/publication_title_translations.json
 7. new offline Argos Translate ru->en translation, saved to the cache
 
-The script is best-effort. If Argos Translate or its ru->en model cannot be
-installed during a workflow run, the script preserves existing official English
-metadata and marks unresolved records for the next run.
+The script is best-effort. Models are provisioned before collection; this script
+uses a bounded offline worker and keeps existing text when no model is available.
 """
 from __future__ import annotations
 
@@ -25,6 +24,7 @@ import os
 import re
 import sys
 from typing import Any
+from translation_runtime import BoundedArgosTranslator
 
 DATA = Path('data')
 PUBLIC = DATA / 'public'
@@ -34,7 +34,7 @@ PUBLICATIONS_TSV = PUBLIC / 'publications.tsv'
 TRANSLATIONS_JSON = CURATION / 'publication_title_translations.json'
 REPORT_JSON = DATA / 'audit' / 'publication_title_translation_report.json'
 
-SOURCE_PRIORITY = ['scopus', 'openalex_api', 'crossref_api', 'orcid_public_api', 'existing_latin', 'cached_machine_translation', 'argos_translate_ru_en']
+SOURCE_PRIORITY = ['existing_publication', 'scopus', 'openalex_api', 'crossref_api', 'orcid_public_api', 'existing_latin', 'cached_machine_translation', 'argos_translate_ru_en']
 
 
 def now() -> str:
@@ -132,6 +132,8 @@ def source_venue_from_open_sources(pub: dict, source_name: str) -> str:
 
 
 def official_title_candidate(pub: dict) -> tuple[str, str]:
+    if clean(pub.get('title_en')):
+        return pub['title_en'], pub.get('title_en_source') or 'existing_publication'
     scopus_title = latin_value((pub.get('scopus') or {}).get('title'))
     if scopus_title:
         return sentence_case(scopus_title), 'scopus'
@@ -146,6 +148,8 @@ def official_title_candidate(pub: dict) -> tuple[str, str]:
 
 
 def official_venue_candidate(pub: dict) -> tuple[str, str]:
+    if clean(pub.get('venue_en')):
+        return pub['venue_en'], pub.get('venue_en_source') or 'existing_publication'
     scopus = pub.get('scopus') or {}
     venue = latin_value(scopus.get('journal_or_source') or scopus.get('source_title'))
     if venue:
@@ -160,56 +164,9 @@ def official_venue_candidate(pub: dict) -> tuple[str, str]:
     return '', ''
 
 
-class ArgosTranslator:
-    def __init__(self) -> None:
-        self.status = 'not_initialized'
-        self._translate = None
-
-    def ensure(self) -> bool:
-        if self._translate:
-            return True
-        try:
-            import argostranslate.package  # type: ignore
-            import argostranslate.translate  # type: ignore
-        except Exception as exc:
-            self.status = f'argostranslate_import_failed: {exc!r}'
-            return False
-        from_code = 'ru'
-        to_code = 'en'
-        try:
-            installed = argostranslate.translate.get_installed_languages()
-            from_lang = next((x for x in installed if x.code == from_code), None)
-            to_lang = next((x for x in installed if x.code == to_code), None)
-            if not from_lang or not to_lang or not from_lang.get_translation(to_lang):
-                argostranslate.package.update_package_index()
-                available = argostranslate.package.get_available_packages()
-                package = next((x for x in available if x.from_code == from_code and x.to_code == to_code), None)
-                if package is None:
-                    self.status = 'argos_ru_en_package_not_found'
-                    return False
-                argostranslate.package.install_from_path(package.download())
-                installed = argostranslate.translate.get_installed_languages()
-                from_lang = next((x for x in installed if x.code == from_code), None)
-                to_lang = next((x for x in installed if x.code == to_code), None)
-            translation = from_lang.get_translation(to_lang) if from_lang and to_lang else None
-            if not translation:
-                self.status = 'argos_ru_en_translation_not_available'
-                return False
-            self._translate = translation.translate
-            self.status = 'ok'
-            return True
-        except Exception as exc:
-            self.status = f'argos_setup_failed: {exc!r}'
-            return False
-
+class ArgosTranslator(BoundedArgosTranslator):
     def translate(self, text: str) -> str:
-        if not self.ensure() or not self._translate:
-            return ''
-        try:
-            return sentence_case(clean(self._translate(text)))
-        except Exception as exc:
-            self.status = f'argos_translate_failed: {exc!r}'
-            return ''
+        return sentence_case(clean(super().translate(text)))
 
 
 def update_publications_tsv(publications: list[dict]) -> None:
@@ -246,7 +203,7 @@ def update_publications_tsv(publications: list[dict]) -> None:
 
 
 def main() -> int:
-    publications = read_json(PUBLICATIONS_JSON, [])
+    publications = read_json(PUBLICATIONS_JSON, None)
     if not isinstance(publications, list):
         print(f'{PUBLICATIONS_JSON} is missing or invalid', file=sys.stderr)
         return 1
@@ -254,7 +211,7 @@ def main() -> int:
     cache = cache_payload()
     items = cache.setdefault('items', {})
     translator = ArgosTranslator()
-    stats = {'official': 0, 'cached_machine_translation': 0, 'new_machine_translation': 0, 'unresolved': 0, 'venue_enriched': 0}
+    stats = {'official': 0, 'preserved_existing': 0, 'cached_machine_translation': 0, 'new_machine_translation': 0, 'unresolved': 0, 'venue_enriched': 0}
 
     for pub in publications:
         if not pub.get('title_ru'):
@@ -267,7 +224,7 @@ def main() -> int:
             title_source = cache_item.get('title_en_source') or 'cached_machine_translation'
             stats['cached_machine_translation'] += 1
         elif title_en:
-            stats['official'] += 1
+            stats['preserved_existing' if clean(pub.get('title_en')) else 'official'] += 1
         elif has_cyrillic(pub.get('title_ru') or pub.get('title')):
             translated = translator.translate(pub.get('title_ru') or pub.get('title') or '')
             if translated and not has_cyrillic(translated):
@@ -293,12 +250,14 @@ def main() -> int:
 
         venue_en, venue_source = official_venue_candidate(pub)
         if venue_en:
+            if not clean(pub.get('venue_en')):
+                stats['venue_enriched'] += 1
             pub['venue_en'] = venue_en
             pub['venue_en_source'] = venue_source
-            stats['venue_enriched'] += 1
 
     cache['generated_at'] = now()
     cache['schema'] = 'publication_title_translations/v1'
+    translator.close()
     write_json(TRANSLATIONS_JSON, cache)
     write_json(PUBLICATIONS_JSON, publications)
     update_publications_tsv(publications)
