@@ -184,3 +184,24 @@ challenge. A bounded, observation-only readiness wait may let an automatic check
 finish naturally. It must never click, hide or modify the widget, and a persistent
 or interactive challenge remains a blocking failure. Collection and checkpointing
 still require the normal positive account and author checks afterward.
+
+## Publication rendering, 20 September 2026
+
+Run [35529362324](https://github.com/Arseniy24RUS/personal-website/actions/runs/35529362324)
+verified the existing WoS session, collected fresh metrics and saved a confirmed
+encrypted session. Publication collection then timed out with
+`profile_records_not_ready`. This was a separate failure after successful login.
+
+The same condition was reproduced in an authorized desktop-browser tab: the
+selected Core Collection scope reported 13 publications, but all 13 `app-record`
+elements had no text and zero height below the viewport. Ordinary scrolling that
+brought the list into view caused all 13 cards to render, without another login
+or CAPTCHA. The current parser reads all 13 rendered cards correctly. Collection
+therefore needs to bring the actual list into view before waiting for its contents;
+longer HTML polling alone does not resolve lazy rendering. This action does not
+change authentication or challenge handling.
+
+That run proves one successful cloud authentication and metric collection, not
+durable renewal. A separate runner must restore its confirmed artifact without a
+new browser bootstrap and collect the complete list. Expiry-boundary validation
+remains necessary afterward.
