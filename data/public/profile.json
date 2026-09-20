@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T19:15:50+00:00",
+  "generated_at": "2026-09-20T19:44:00+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
@@ -821,7 +821,7 @@
     "note": "Search metrics are calculated from a complete Search response. Missing citation counts remain unknown."
   },
   "scientometrics": {
-    "generated_at": "2026-09-20T19:15:50+00:00",
+    "generated_at": "2026-09-20T19:44:00+00:00",
     "columns": [
       "rinc",
       "scopus",
@@ -901,12 +901,12 @@
         "citations": 8,
         "h_index": 2,
         "status": "blocked",
-        "attempted_at": "2026-09-20T19:15:50+00:00",
+        "attempted_at": "2026-09-20T19:43:59+00:00",
         "last_success_at": "2026-09-20T15:28:23.031Z",
         "origin": "snapshot",
         "complete": false,
         "record_count": 0,
-        "reason": "human_verification_required",
+        "reason": "challenge_observation_incomplete",
         "metric_observed_at": {
           "publications": "2026-09-20T15:28:23.031Z",
           "citations": "2026-09-20T15:28:23.031Z",
@@ -1009,6 +1009,15 @@
           "fetched": 59,
           "failed": 0
         },
+        "metrics": {
+          "status": "success",
+          "attempted_at": "2026-09-20T16:25:44+00:00",
+          "last_success_at": "2026-09-20T16:25:44+00:00",
+          "origin": "live",
+          "complete": true,
+          "record_count": 1,
+          "reason": null
+        },
         "publications": {
           "status": "success",
           "attempted_at": "2026-09-20T16:25:44+00:00",
@@ -1019,45 +1028,36 @@
           "reason": null,
           "last_observation_at": "2026-09-20T16:25:47+00:00",
           "observed_count": 59
-        },
-        "metrics": {
-          "status": "success",
-          "attempted_at": "2026-09-20T16:25:44+00:00",
-          "last_success_at": "2026-09-20T16:25:44+00:00",
-          "origin": "live",
-          "complete": true,
-          "record_count": 1,
-          "reason": null
         }
       }
     },
     "wos": {
       "status": "blocked",
-      "attempted_at": "2026-09-20T19:15:50+00:00",
+      "attempted_at": "2026-09-20T19:43:59+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
       "record_count": 13,
-      "reason": "human_verification_required",
+      "reason": "challenge_observation_incomplete",
       "stage": "login",
       "components": {
-        "metrics": {
-          "status": "blocked",
-          "attempted_at": "2026-09-20T19:15:50+00:00",
-          "last_success_at": "2026-09-20T15:28:23.031Z",
-          "origin": "snapshot",
-          "complete": false,
-          "record_count": 0,
-          "reason": "human_verification_required"
-        },
         "publications": {
           "status": "blocked",
-          "attempted_at": "2026-09-20T19:15:50+00:00",
+          "attempted_at": "2026-09-20T19:43:59+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
-          "reason": "human_verification_required"
+          "reason": "challenge_observation_incomplete"
+        },
+        "metrics": {
+          "status": "blocked",
+          "attempted_at": "2026-09-20T19:43:59+00:00",
+          "last_success_at": "2026-09-20T15:28:23.031Z",
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "challenge_observation_incomplete"
         }
       }
     },
@@ -1109,7 +1109,7 @@
     }
   },
   "wos_public_merge_report": {
-    "generated_at": "2026-09-20T19:15:50+00:00",
+    "generated_at": "2026-09-20T19:44:00+00:00",
     "records_seen": 13,
     "enriched": 13,
     "added": 0,
