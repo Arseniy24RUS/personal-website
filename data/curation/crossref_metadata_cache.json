@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T14:39:46+00:00",
+  "generated_at": "2026-09-20T16:29:40+00:00",
   "items": {
     "10.17853/1994-5639-2026-1-33-64": {
       "fetched_at": "2026-06-03T20:08:47+00:00",
@@ -597,6 +597,266 @@
         "isbn": null,
         "url": "https://doi.org/10.25178/nit.2026.3.13"
       }
+    },
+    "10.26456/2226-7719-2022-4-6-16": {
+      "fetched_at": "2026-09-20T16:29:23+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.26456/2226-7719-2022-4-6-16",
+        "type": "journal-article",
+        "title": "THE ROLE OF MIGRATION MOVEMENT IN FORMING THE POPULATION OF THE TVER REGION",
+        "subtitle": null,
+        "container_title": "Вестник Тверского государственного университета. Серия: География и геоэкология",
+        "publisher": "Tver State University",
+        "volume": null,
+        "issue": "4(40)",
+        "page": "6–16",
+        "year": 2022,
+        "issn": [
+          "2226-7719"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.26456/2226-7719-2022-4-6-16"
+      }
+    },
+    "10.21686/2500-3925-2018-6-69-79": {
+      "fetched_at": "2026-09-20T16:29:24+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.21686/2500-3925-2018-6-69-79",
+        "type": "journal-article",
+        "title": "Demographic potential of sex-age structure  as a factor of population dynamics",
+        "subtitle": null,
+        "container_title": "Statistics and Economics",
+        "publisher": "Plekhanov Russian University of Economics (PRUE)",
+        "volume": "15",
+        "issue": "6",
+        "page": "69–79",
+        "year": 2019,
+        "issn": [
+          "2500-3925"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.21686/2500-3925-2018-6-69-79"
+      }
+    },
+    "10.3389/fpos.2025.1715504": {
+      "fetched_at": "2026-09-20T16:29:25+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.3389/fpos.2025.1715504",
+        "type": "journal-article",
+        "title": "The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance",
+        "subtitle": null,
+        "container_title": "Frontiers in Political Science",
+        "publisher": "Frontiers Media SA",
+        "volume": "7",
+        "issue": null,
+        "page": "",
+        "year": 2025,
+        "issn": [
+          "2673-3145"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.3389/fpos.2025.1715504"
+      }
+    },
+    "10.15838/esc.2024.1.91.10": {
+      "fetched_at": "2026-09-20T16:29:27+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.15838/esc.2024.1.91.10",
+        "type": "journal-article",
+        "title": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
+        "subtitle": null,
+        "container_title": "Economic and Social Changes: Facts, Trends, Forecast / Экономические и социальные перемены: факты, тенденции, прогноз",
+        "publisher": "Vologda Research Center of the RAS",
+        "volume": null,
+        "issue": "1 (91)",
+        "page": "",
+        "year": 2024,
+        "issn": [
+          "2307-0331",
+          "2312-9824"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.15838/esc.2024.1.91.10"
+      }
+    },
+    "10.52452/18115942_2023_3_44": {
+      "fetched_at": "2026-09-20T16:29:28+00:00",
+      "status": 404,
+      "metadata": {}
+    },
+    "10.31166/voprosyistorii202309statyi16": {
+      "fetched_at": "2026-09-20T16:29:29+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.31166/voprosyistorii202309statyi16",
+        "type": "journal-article",
+        "title": "Features of demographic  development of indigenous  small-numbered peoples of the  North of the KhMAO in 2002–2022",
+        "subtitle": null,
+        "container_title": "OOO \"Zhurnal \"Voprosy Istorii\"",
+        "publisher": "OOO Zhurnal Voprosy Istorii",
+        "volume": "2023",
+        "issue": "9-1",
+        "page": "172–187",
+        "year": 2023,
+        "issn": [
+          "0042-8779",
+          "1938-2561"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.31166/voprosyistorii202309statyi16"
+      }
+    },
+    "10.17213/2075-2067-2023-4-118-133": {
+      "fetched_at": "2026-09-20T16:29:31+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.17213/2075-2067-2023-4-118-133",
+        "type": "journal-article",
+        "title": "СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИЕ АСПЕКТЫ ОПРЕДЕЛЕНИЯ ОПОРНОГО КАРКАСА РАССЕЛЕНИЯ",
+        "subtitle": null,
+        "container_title": "Bulletin of the South-Russian state technical University (NPI) Series Socio-economic Sciences",
+        "publisher": "South Russian State Polytechnic University (NPI)",
+        "volume": "16",
+        "issue": "4",
+        "page": "118–133",
+        "year": 2023,
+        "issn": [
+          "2075-2067"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.17213/2075-2067-2023-4-118-133"
+      }
+    },
+    "10.17213/2075-2067-2022-6-189-203": {
+      "fetched_at": "2026-09-20T16:29:32+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.17213/2075-2067-2022-6-189-203",
+        "type": "journal-article",
+        "title": "СИСТЕМА РАССЕЛЕНИЯ ЧУВАШСКОЙ РЕСПУБЛИКИ: ЧЕБОКСАРСКАЯ АГЛОМЕРАЦИЯ",
+        "subtitle": null,
+        "container_title": "Bulletin of the South-Russian state technical University (NPI) Series Socio-economic Sciences",
+        "publisher": "South Russian State Polytechnic University (NPI)",
+        "volume": "15",
+        "issue": "6",
+        "page": "189–203",
+        "year": 2022,
+        "issn": [
+          "2075-2067"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.17213/2075-2067-2022-6-189-203"
+      }
+    },
+    "10.17323/1811-038x-2020-29-3-121-141": {
+      "fetched_at": "2026-09-20T16:29:34+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.17323/1811-038x-2020-29-3-121-141",
+        "type": "journal-article",
+        "title": "Стратегии планирования в условиях городского сжатия  в России: исследование малых и средних городов",
+        "subtitle": null,
+        "container_title": "Мир России",
+        "publisher": "National Research University, Higher School of Economics (HSE)",
+        "volume": "29",
+        "issue": "3",
+        "page": "121–141",
+        "year": 2020,
+        "issn": [
+          "1811-0398",
+          "1811-038X"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.17323/1811-038x-2020-29-3-121-141"
+      }
+    },
+    "10.47475/1994-2796-2021-10312": {
+      "fetched_at": "2026-09-20T16:29:35+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.47475/1994-2796-2021-10312",
+        "type": "journal-article",
+        "title": "Multilevel Models of Transformation of the Social Space of the Eurasian Macroregion: the Example of the Urals",
+        "subtitle": null,
+        "container_title": "Bulletin of Chelyabinsk State University",
+        "publisher": "Chelyabinsk State University",
+        "volume": null,
+        "issue": "3",
+        "page": "106–114",
+        "year": 2021,
+        "issn": [
+          "1994-2796"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.47475/1994-2796-2021-10312"
+      }
+    },
+    "10.26653/1993-4947-2021-103-104-03": {
+      "fetched_at": "2026-09-20T16:29:36+00:00",
+      "status": 404,
+      "metadata": {}
+    },
+    "10.15405/epsbs.2021.04.13": {
+      "fetched_at": "2026-09-20T16:29:37+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.15405/epsbs.2021.04.13",
+        "type": "proceedings-article",
+        "title": "“Path Dependence”: The Transformation Of The Social Space Of The Eurasian Macroregion",
+        "subtitle": null,
+        "container_title": "European Proceedings of Social and Behavioural Sciences",
+        "publisher": "European Publisher",
+        "volume": null,
+        "issue": null,
+        "page": "120–128",
+        "year": 2021,
+        "issn": [
+          "2357-1330"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.15405/epsbs.2021.04.13"
+      }
+    },
+    "10.34755/irok.2020.31.36.248": {
+      "fetched_at": "2026-09-20T16:29:39+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.34755/irok.2020.31.36.248",
+        "type": "journal-article",
+        "title": "Пространственная дифференциация миграционных процессов в контексте локального экономического кризиса на примере Челябинской области",
+        "subtitle": null,
+        "container_title": "Актуальные вопросы современной экономики",
+        "publisher": "Institute for Education and Consulting Development, LLC",
+        "volume": null,
+        "issue": "11",
+        "page": "",
+        "year": 2020,
+        "issn": [
+          "2311-4320"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.34755/irok.2020.31.36.248"
+      }
+    },
+    "10.24411/1994-2796-2019-11105": {
+      "fetched_at": "2026-09-20T16:29:40+00:00",
+      "status": 404,
+      "metadata": {}
     }
   },
   "schema": "crossref_metadata_cache/v1"

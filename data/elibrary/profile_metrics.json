@@ -4,7 +4,7 @@
   "authorid": "1012909",
   "spin": "9559-1803",
   "author_name": "Ситковский Арсений Михайлович",
-  "snapshot_generated_at": "2026-09-20T15:23:41.046Z",
+  "snapshot_generated_at": "2026-09-20T16:25:44+00:00",
   "source_file_sha256": null,
   "elibrary_updated_at": "20.09.2026",
   "summary": {
@@ -331,5 +331,24 @@
       "publications": 22
     }
   ],
-  "observation_method": "authorized_browser_capture"
+  "observation_method": "authorized_browser_capture",
+  "metric_observed_at": {
+    "publications_elibrary": "2026-09-20T16:25:44+00:00",
+    "publications_rinc": "2026-09-20T16:25:44+00:00",
+    "publications_core_rinc": "2026-09-20T16:25:44+00:00",
+    "citations_elibrary": "2026-09-20T16:25:44+00:00",
+    "citations_rinc": "2026-09-20T16:25:44+00:00",
+    "citations_core_rinc": "2026-09-20T16:25:44+00:00",
+    "h_index_elibrary": "2026-09-20T16:25:44+00:00",
+    "h_index_rinc": "2026-09-20T16:25:44+00:00",
+    "h_index_core_rinc": "2026-09-20T16:25:44+00:00",
+    "h_index_without_self_citations": "2026-09-20T16:25:44+00:00",
+    "h_index_core_without_self_citations": "2026-09-20T16:25:44+00:00",
+    "h_index_journal_articles": "2026-09-20T16:25:44+00:00",
+    "first_publication_year": "2026-09-20T16:25:44+00:00",
+    "coauthors_count": "2026-09-20T16:25:44+00:00",
+    "core_rinc_percentile": "2026-09-20T16:25:44+00:00"
+  },
+  "retained_metric_fields": [],
+  "last_success_at": "2026-09-20T16:25:44+00:00"
 }

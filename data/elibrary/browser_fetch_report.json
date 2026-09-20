@@ -1,22 +1,16 @@
 {
   "status": "success",
-  "attempted_at": "2026-09-20T15:23:41.046Z",
-  "last_success_at": "2026-09-20T15:23:41.046Z",
+  "attempted_at": "2026-09-20T16:25:44+00:00",
+  "last_success_at": "2026-09-20T16:25:44+00:00",
   "origin": "live",
   "complete": true,
   "record_count": 59,
   "reason": null,
-  "provider": "elibrary",
-  "authentication": {
-    "verified": true,
-    "method": "user_authorized_browser_capture"
-  },
-  "observation_method": "authorized_browser_capture",
   "components": {
     "metrics": {
       "status": "success",
-      "attempted_at": "2026-09-20T15:23:41.046Z",
-      "last_success_at": "2026-09-20T15:23:41.046Z",
+      "attempted_at": "2026-09-20T16:25:44+00:00",
+      "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 1,
@@ -24,12 +18,43 @@
     },
     "publications": {
       "status": "success",
-      "attempted_at": "2026-09-20T15:23:41.046Z",
-      "last_success_at": "2026-09-20T15:23:41.046Z",
+      "attempted_at": "2026-09-20T16:25:44+00:00",
+      "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 59,
-      "reason": null
+      "reason": null,
+      "observed_count": 59,
+      "last_observation_at": "2026-09-20T16:25:47+00:00"
+    },
+    "details": {
+      "status": "success",
+      "attempted_at": "2026-09-20T16:25:44+00:00",
+      "last_success_at": "2026-09-20T16:25:44+00:00",
+      "origin": "live",
+      "complete": true,
+      "record_count": 59,
+      "reason": null,
+      "fetched": 59,
+      "failed": 0,
+      "pending": 0,
+      "observed_count": 59,
+      "last_observation_at": "2026-09-20T16:28:47+00:00"
     }
+  },
+  "target_author_id": "1012909",
+  "generated_at": "2026-09-20T16:28:47+00:00",
+  "authentication": "existing_session_verified",
+  "session_checkpoint": {
+    "status": "checkpointed",
+    "validated_at": "2026-09-20T16:28:48+00:00",
+    "cookie_expires_at": "2027-09-20T14:47:02.947447+00:00",
+    "cookie_expiry_extended": false
+  },
+  "session_restore": {
+    "status": "restored",
+    "kind": "confirmed",
+    "validated_at": "2026-09-20T16:18:34+00:00",
+    "cookie_expires_at": "2027-09-20T14:47:02.947447+00:00"
   }
 }

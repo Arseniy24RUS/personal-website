@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T15:34:08+00:00",
+  "generated_at": "2026-09-20T16:29:44+00:00",
   "status": "partial",
   "checks": {
     "publications_count": 72,
@@ -21,36 +21,93 @@
     },
     "elibrary_browser_status": "success",
     "reference_enrichment_stats": {
-      "records": 69,
+      "records": 72,
       "titles_fixed": 0,
-      "title_fields_added": 0,
-      "elibrary_detail_fields_added": 0,
-      "metadata_fields_added": 0,
-      "gost_built": 0,
-      "apa_built": 0,
-      "crossref_cache_hit": 28,
-      "crossref_fetched": 0,
-      "crossref_failed": 0
+      "title_fields_added": 3,
+      "elibrary_detail_fields_added": 119,
+      "metadata_fields_added": 14,
+      "gost_built": 3,
+      "apa_built": 3,
+      "crossref_cache_hit": 29,
+      "crossref_fetched": 11,
+      "crossref_failed": 3
     }
   },
   "source_health": {
     "elibrary": {
       "status": "success",
-      "attempted_at": "2026-09-20T15:23:41.046Z",
-      "last_success_at": "2026-09-20T15:23:41.046Z",
+      "attempted_at": "2026-09-20T16:25:44+00:00",
+      "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 59,
-      "reason": null
+      "reason": null,
+      "components": {
+        "details": {
+          "status": "success",
+          "attempted_at": "2026-09-20T16:25:44+00:00",
+          "last_success_at": "2026-09-20T16:25:44+00:00",
+          "origin": "live",
+          "complete": true,
+          "record_count": 59,
+          "reason": null,
+          "last_observation_at": "2026-09-20T16:28:47+00:00",
+          "observed_count": 59,
+          "pending": 0,
+          "fetched": 59,
+          "failed": 0
+        },
+        "publications": {
+          "status": "success",
+          "attempted_at": "2026-09-20T16:25:44+00:00",
+          "last_success_at": "2026-09-20T16:25:44+00:00",
+          "origin": "live",
+          "complete": true,
+          "record_count": 59,
+          "reason": null,
+          "last_observation_at": "2026-09-20T16:25:47+00:00",
+          "observed_count": 59
+        },
+        "metrics": {
+          "status": "success",
+          "attempted_at": "2026-09-20T16:25:44+00:00",
+          "last_success_at": "2026-09-20T16:25:44+00:00",
+          "origin": "live",
+          "complete": true,
+          "record_count": 1,
+          "reason": null
+        }
+      }
     },
     "wos": {
-      "status": "success",
-      "attempted_at": "2026-09-20T15:28:23.031Z",
+      "status": "blocked",
+      "attempted_at": "2026-09-20T16:29:19+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
-      "origin": "live",
-      "complete": true,
+      "origin": "snapshot",
+      "complete": false,
       "record_count": 13,
-      "reason": null
+      "reason": "human_verification_required",
+      "stage": "login",
+      "components": {
+        "publications": {
+          "status": "blocked",
+          "attempted_at": "2026-09-20T16:29:19+00:00",
+          "last_success_at": "2026-09-20T15:28:23.031Z",
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "human_verification_required"
+        },
+        "metrics": {
+          "status": "blocked",
+          "attempted_at": "2026-09-20T16:29:19+00:00",
+          "last_success_at": "2026-09-20T15:28:23.031Z",
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "human_verification_required"
+        }
+      }
     },
     "scopus": {
       "status": "success",
@@ -68,7 +125,8 @@
       "origin": "live",
       "complete": false,
       "record_count": 23,
-      "reason": "source_failures_or_pending"
+      "reason": "source_failures_or_pending",
+      "pending": 454
     },
     "orcid": {
       "status": "success",
@@ -100,13 +158,36 @@
   },
   "warnings": [
     {
-      "code": "missing_ready_references",
-      "count": 3,
-      "sample": [
-        "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ ГОРОДА СЕВАСТОПОЛЯ: КОМПЛЕКСНОЕ ИССЛЕДОВАНИЕ",
-        "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
-        "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels"
-      ]
+      "code": "source_not_fresh",
+      "provider": "wos",
+      "status": "blocked",
+      "attempted_at": "2026-09-20T16:29:19+00:00",
+      "last_success_at": "2026-09-20T15:28:23.031Z",
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 13,
+      "reason": "human_verification_required",
+      "stage": "login",
+      "components": {
+        "publications": {
+          "status": "blocked",
+          "attempted_at": "2026-09-20T16:29:19+00:00",
+          "last_success_at": "2026-09-20T15:28:23.031Z",
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "human_verification_required"
+        },
+        "metrics": {
+          "status": "blocked",
+          "attempted_at": "2026-09-20T16:29:19+00:00",
+          "last_success_at": "2026-09-20T15:28:23.031Z",
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "human_verification_required"
+        }
+      }
     },
     {
       "code": "source_not_fresh",
@@ -117,7 +198,8 @@
       "origin": "live",
       "complete": false,
       "record_count": 23,
-      "reason": "source_failures_or_pending"
+      "reason": "source_failures_or_pending",
+      "pending": 454
     }
   ],
   "issues": []
