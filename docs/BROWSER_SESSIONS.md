@@ -205,3 +205,22 @@ That run proves one successful cloud authentication and metric collection, not
 durable renewal. A separate runner must restore its confirmed artifact without a
 new browser bootstrap and collect the complete list. Expiry-boundary validation
 remains necessary afterward.
+
+Run [35531006362](https://github.com/Arseniy24RUS/personal-website/actions/runs/35531006362)
+then restored the confirmed checkpoint without bootstrap, verified authorization,
+collected all 13 records and fresh metrics, and saved its own confirmed state.
+The production repeat
+[35531406985](https://github.com/Arseniy24RUS/personal-website/actions/runs/35531406985)
+restored that new state but encountered a visible hCaptcha frame on profile entry.
+The frame remained after the ten-second observation budget; recognized checkbox,
+challenge controls and text markers were absent. This proves intermittent
+interruption despite successful state portability, not reliable avoidance of
+CAPTCHA. The published values and last confirmed state were retained.
+
+A single bounded observation of up to 60 seconds at WoS profile entry is a
+diagnostic check for slower automatic verification. It must retain the normal
+short budget elsewhere, fail on explicit or incompletely observed challenges,
+and never interpret loaded metrics behind a remaining frame as success. Safe
+numeric observations can distinguish disappearance after ten seconds from a
+persistent interruption; further timeout increases without such evidence do not
+establish a cause or solve the challenge.

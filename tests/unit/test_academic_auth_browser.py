@@ -160,7 +160,7 @@ class AuthBrowserTests(unittest.TestCase):
         page.set_content('<body>private page text Please verify you are human<button onclick="window.clicked=true">Continue</button></body>')
         with self.assertRaisesRegex(auth.AuthFailure, '^human_verification_required$') as caught:
             auth.assert_no_challenge(page)
-        self.assertEqual(caught.exception.verification_evidence, {'trigger': 'page_marker', 'marker_ids': ['verify_you_are_human']})
+        self.assertEqual({key: caught.exception.verification_evidence[key] for key in ('trigger', 'marker_ids')}, {'trigger': 'page_marker', 'marker_ids': ['verify_you_are_human']})
         self.assertIsNone(page.evaluate('window.clicked'))
 
     def test_normal_recaptcha_widget_evidence_does_not_weaken_guard(self):
