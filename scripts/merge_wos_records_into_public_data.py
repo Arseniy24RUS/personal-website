@@ -6,7 +6,8 @@ from datetime import datetime, timezone
 import hashlib
 import json
 import re
-from build_public_data import is_fresh, normalize_health
+from build_public_data import is_fresh, normalize_health, citation_is_new, mark_citation_observation
+from source_health import component_state
 from typing import Any
 
 DATA = Path('data')
@@ -161,10 +162,11 @@ def enrich_existing(pub: dict, record: dict, fresh: bool = False) -> int:
     if set_missing(pub, 'issn', record.get('issn')): changed += 1
     if set_missing(pub, 'eissn', record.get('eissn')): changed += 1
     if set_missing(pub, 'isbn', record.get('isbn')): changed += 1
-    if fresh and record.get('wos_citations') is not None:
+    if citation_is_new(record, pub, 'wos', fresh) and record.get('wos_citations') is not None:
         if pub.get('wos_citations') != record['wos_citations']:
             pub['wos_citations'] = record['wos_citations']
             changed += 1
+        mark_citation_observation(pub, record, 'wos')
     elif set_missing(pub, 'wos_citations', record.get('wos_citations')):
         changed += 1
     if set_missing(pub, 'references_count', record.get('references_count')): changed += 1
@@ -183,7 +185,7 @@ def auto_record(record: dict) -> dict:
         'number': None,
         'elibrary_item_id': None,
         'year': record.get('year'),
-        'rinc_citations': 0,
+        'rinc_citations': None,
         'title': title,
         'title_en': title,
         'title_en_source': 'web_of_science',
@@ -248,7 +250,7 @@ def main() -> int:
             continue
         target = find_target(record, idx)
         if target:
-            changed_fields += enrich_existing(target, record, fresh=is_fresh(health))
+            changed_fields += enrich_existing(target, record, fresh=is_fresh(component_state(health, 'publications')))
             enriched += 1
             matched.append({'title': record.get('title_en') or record.get('title'), 'doi': record.get('doi'), 'wos_uid': record.get('wos_uid')})
         else:

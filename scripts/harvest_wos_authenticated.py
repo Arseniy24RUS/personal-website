@@ -8,20 +8,26 @@ attempt, not as a successful login.
 from __future__ import annotations
 
 import json
+import copy
 import os
 import re
 import time
 from pathlib import Path
+from urllib.parse import urlparse
 
 from parse_wos_author_profile import parse_wos_author_profile_html
-from provider_auth import AuthFailure, login_wos, assert_no_challenge, verify_browser_egress, visible, browser_initialization_diagnostics, safe_browser_diagnostics
-from source_health import read_json, write_json, source_result, merge_records, now, snapshot_time
+from provider_auth import AuthFailure, login_wos, assert_no_challenge, verify_browser_egress, visible, browser_initialization_diagnostics, safe_browser_diagnostics, wos_authenticated, provider_host
+from source_health import read_json, write_json, source_result, merge_records, now, snapshot_time, component_state, load_checkpoint, write_checkpoint, materialize_checkpoint
 
 RESEARCHER_ID = os.environ.get('WOS_RESEARCHER_ID', 'AAG-1530-2021')
 PROFILE_URL = f'https://www.webofscience.com/wos/author/record/{RESEARCHER_ID}'
 OUT = Path(os.environ.get('WOS_PROFILE_OUT', 'data/wos/profile_metrics.json'))
 REPORT = Path(os.environ.get('WOS_HARVEST_REPORT', 'data/wos/harvest_report.json'))
 WAIT_SEC = int(os.environ.get('WOS_BROWSER_WAIT_SEC', '180'))
+
+
+class CheckpointWriteError(RuntimeError):
+    pass
 
 
 def record_key(record):
@@ -54,36 +60,80 @@ def read_records(page, previous_keys=None):
         assert_no_challenge(page)
         data = parse_wos_author_profile_html(page.content(), RESEARCHER_ID)
         records = data.get('records', [])
+        if not records and not previous_keys and expected_publications(data) == 0:
+            return data
         if records and (not previous_keys or {record_key(r) for r in records} - previous_keys):
             return data
         page.wait_for_timeout(1000)
     raise AuthFailure('profile_records_not_ready')
 
 
-def collect_profile(page, previous):
+def expected_publications(data):
+    value = data.get('summary', {}).get('core_collection_publications')
+    return value if value is not None else data.get('summary', {}).get('publications')
+
+
+def select_core_collection(page):
+    """The official metric total must describe the publication list's active scope."""
+    assert_no_challenge(page)
+    controls = page.get_by_role('button', name=re.compile(r'^Web of Science Core Collection(?:\s*\(\s*\d+\s*\))?$', re.I))
+    control = next((controls.nth(i) for i in range(controls.count()) if controls.nth(i).is_visible()), None)
+    if control is None:
+        raise AuthFailure('publication_scope_control_missing')
+    selected = lambda: 'selected-round-chip' in (control.get_attribute('class') or '').split() or control.get_attribute('aria-pressed') == 'true' or control.get_attribute('aria-selected') == 'true'
+    if not selected():
+        control.click(timeout=15000)
+    deadline = time.monotonic() + min(WAIT_SEC, 30)
+    while time.monotonic() < deadline:
+        assert_no_challenge(page)
+        if selected():
+            return
+        page.wait_for_timeout(500)
+    raise AuthFailure('publication_scope_not_confirmed')
+
+
+def collect_publications(page, *, on_batch=None):
     data = read_records(page)
-    records = data['records']
-    expected = data.get('summary', {}).get('core_collection_publications')
-    if expected is None:
-        expected = data.get('summary', {}).get('publications')
+    records = merge_records([], data['records'], record_key)
+    expected = expected_publications(data)
+    stamp = now()
+    for row in records:
+        row['observed_at'] = stamp
+    if on_batch:
+        on_batch(records, expected is not None and len(records) == int(expected))
     if expected is None:
         raise AuthFailure('profile_total_missing')
     for _ in range(1000):
+        if len(records) == int(expected):
+            break
         keys = {record_key(r) for r in records}
-        next_button = visible(page, ['button[data-ta="next-page-button"]', 'button[aria-label*="Next Page"]'])
+        next_button = visible(page, ['button[data-ta="next-page-button"]', 'button[aria-label*="Next Page" i]', 'button[aria-label*="Следующая" i]'])
         if next_button is None or not next_button.is_enabled():
             break
         next_button.click()
         batch = read_records(page, keys)
+        if expected_publications(batch) not in (None, expected):
+            raise AuthFailure('publication_total_changed')
+        for row in batch['records']:
+            row['observed_at'] = now()
         records = merge_records(records, batch['records'], record_key)
+        if on_batch:
+            on_batch(batch['records'], len(records) == int(expected))
     else:
         raise AuthFailure('pagination_limit')
-    if len(records) < int(expected):
+    if len(records) != int(expected):
         raise AuthFailure('incomplete_pagination')
+    data['records'] = records
+    return data
+
+
+def collect_profile(page, previous):
+    """Compatibility API; independent component collection uses collect_from_page."""
+    data = collect_publications(page)
     if any(data.get('summary', {}).get(key) is None for key in ('publications', 'citations', 'h_index')):
         raise AuthFailure('profile_metrics_missing')
     # Preserve withdrawn or temporarily hidden old works while refreshing new data.
-    data['records'] = merge_records(previous.get('records', []), records, record_key)
+    data['records'] = merge_records(previous.get('records', []), data['records'], record_key)
     data['records_count_on_page'] = len(data['records'])
     data['source'] = 'web_of_science_authenticated_orcid'
     # Missing metrics are not genuine zero, and must not replace the last value.
@@ -92,10 +142,188 @@ def collect_profile(page, previous):
     return data
 
 
+def explicitly_logged_out(page):
+    host = urlparse(page.url).hostname or ''
+    if any(provider_host(host, domain) for domain in ('clarivate.com', 'orcid.org')):
+        return visible(page, ['input[type="password"]']) is not None
+    if provider_host(host, 'webofscience.com'):
+        for role in ('button', 'link'):
+            controls = page.get_by_role(role, name=re.compile(r'^\s*(?:Sign in|Войти)\s*$', re.I))
+            if any(controls.nth(i).is_visible() for i in range(controls.count())):
+                return True
+    return False
+
+
+def target_profile_html(page, target=RESEARCHER_ID):
+    path = f'/wos/author/record/{target}'
+    if urlparse(page.url).path.rstrip('/') != path:
+        page.goto(f'https://www.webofscience.com{path}', wait_until='domcontentloaded', timeout=90000)
+    deadline = time.monotonic() + WAIT_SEC
+    while time.monotonic() < deadline:
+        assert_no_challenge(page)
+        address = urlparse(page.url)
+        if provider_host(address.hostname or '', 'webofscience.com') and wos_authenticated(page):
+            if address.path.rstrip('/') != path:
+                raise AuthFailure('wrong_author_profile')
+            # The parser's researcher_id argument is not identity evidence.
+            # Require the requested ResearcherID in the rendered profile itself.
+            if re.search(r'(?<![A-Z0-9-])' + re.escape(str(target)) + r'(?![A-Z0-9-])', page.locator('body').inner_text()):
+                return page.content()
+        elif explicitly_logged_out(page):
+            raise AuthFailure('session_expired')
+        page.wait_for_timeout(1000)
+    raise AuthFailure('profile_not_authenticated_or_changed')
+
+
+def authenticated_page(context, session_info, target=RESEARCHER_ID, *, fresh_context=None):
+    if session_info.get('status') == 'invalid':
+        raise AuthFailure('invalid_session_checkpoint')
+
+    def verify(page):
+        try:
+            return target_profile_html(page, target)
+        except Exception as exc:
+            failure = exc if isinstance(exc, AuthFailure) else AuthFailure(type(exc).__name__)
+            failure.diagnostics = safe_browser_diagnostics(context)
+            raise failure from None
+
+    if session_info.get('status') == 'restored':
+        page = context.new_page()
+        try:
+            verify(page)
+            return page, 'existing_session_verified'
+        except AuthFailure as exc:
+            if exc.reason != 'session_expired':
+                raise
+            page.close()
+            if fresh_context is None:
+                raise
+            context = fresh_context()
+    page = login_wos(context, f'https://www.webofscience.com/wos/author/record/{target}', WAIT_SEC)
+    verify(page)
+    return page, 'fresh_orcid_login'
+
+
+def read_profile_metrics(page, target=RESEARCHER_ID):
+    html = target_profile_html(page, target)
+    deadline = time.monotonic() + WAIT_SEC
+    while time.monotonic() < deadline:
+        assert_no_challenge(page)
+        data = parse_wos_author_profile_html(html, target)
+        if all(data.get('summary', {}).get(key) is not None for key in ('publications', 'citations', 'h_index')):
+            return {key: value for key, value in data.items() if key not in {'records', 'records_count_on_page'}}
+        page.wait_for_timeout(1000)
+        html = page.content()
+    raise AuthFailure('profile_metrics_missing')
+
+
+def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report=None, *, on_checkpoint=None):
+    payloads = copy.deepcopy(previous or {'metrics': {}, 'publications': [], 'details': {}})
+    for key, default in [('metrics', {}), ('publications', []), ('details', {})]:
+        payloads.setdefault(key, default)
+    previous_report = previous_report or {}
+    attempted = now()
+    components = {key: source_result(component_state(previous_report, key), status='blocked', reason='not_attempted', attempted_at=attempted) for key in ('metrics', 'publications')}
+    report = {}
+
+    def emit():
+        complete = all(state.get('complete') for state in components.values())
+        successful = any(state.get('complete') or state.get('observed_count') for state in components.values())
+        failed = next((state for state in components.values() if not state.get('complete')), {})
+        report.clear()
+        report.update(source_result(previous_report, status='success' if complete else ('partial' if successful else failed.get('status', 'error')), count=len(payloads['publications']), reason=None if complete else failed.get('reason'), attempted_at=attempted))
+        report.update(components=components, researcher_id=str(target), generated_at=now())
+        if on_checkpoint:
+            try:
+                on_checkpoint(copy.deepcopy(report), copy.deepcopy(payloads))
+            except Exception as exc:
+                raise CheckpointWriteError(type(exc).__name__) from None
+
+    def fail(key, exc):
+        prior = components[key]
+        state = source_result(component_state(previous_report, key), status='blocked' if isinstance(exc, AuthFailure) else 'error', count=prior.get('record_count', 0), reason=getattr(exc, 'reason', type(exc).__name__), attempted_at=attempted)
+        for field in ('observed_count', 'last_observation_at'):
+            if prior.get(field):
+                state[field] = prior[field]
+                state['status'] = 'partial'
+        if getattr(exc, 'verification_evidence', None):
+            state['verification_evidence'] = exc.verification_evidence
+        components[key] = state
+        emit()
+
+    try:
+        data = read_profile_metrics(page, target)
+        observed = dict(data.get('summary', {}))
+        old = payloads['metrics']
+        for field in ('summary', 'summary_metrics', 'core_collection_metrics'):
+            data[field] = {**payloads['metrics'].get(field, {}), **{key: value for key, value in data.get(field, {}).items() if value is not None}}
+        components['metrics'] = source_result(component_state(previous_report, 'metrics'), status='success', count=1, attempted_at=attempted)
+        data['last_success_at'] = components['metrics']['last_success_at']
+        data['metric_observed_at'] = {key: data['last_success_at'] if observed.get(key) is not None else old.get('metric_observed_at', {}).get(key, component_state(previous_report, 'metrics').get('last_success_at')) for key in data['summary']}
+        data['retained_metric_fields'] = [key for key in data['summary'] if observed.get(key) is None]
+        payloads['metrics'] = data
+        emit()
+    except Exception as exc:
+        if isinstance(exc, CheckpointWriteError):
+            raise
+        fail('metrics', exc)
+        if not isinstance(exc, AuthFailure) or exc.reason != 'profile_metrics_missing':
+            return report, payloads
+
+    observed = set()
+
+    def batch(rows, complete):
+        stamp = now()
+        fresh = [{**row, 'observed_at': row.get('observed_at') or stamp} for row in rows]
+        observed.update(record_key(row) for row in fresh)
+        payloads['publications'] = merge_records(payloads['publications'], fresh, record_key)
+        components['publications'] = source_result(component_state(previous_report, 'publications'), status='success' if complete else 'partial', count=len(payloads['publications']), reason=None if complete else 'pagination_in_progress', attempted_at=attempted)
+        components['publications'].update(observed_count=len(observed), last_observation_at=stamp)
+        components['publications']['scope'] = 'web_of_science_core_collection'
+        emit()
+
+    try:
+        select_core_collection(page)
+        collect_publications(page, on_batch=batch)
+    except Exception as exc:
+        if isinstance(exc, CheckpointWriteError):
+            raise
+        fail('publications', exc)
+    return report, payloads
+
+
 def main():
+    from browser_sessions import restore_context, checkpoint_session
+    maintenance = os.environ.get('BROWSER_SESSION_MAINTENANCE') == '1'
+    checkpoint_path = REPORT.parent / 'collection_checkpoint.json'
+    existing = load_checkpoint(checkpoint_path)
     previous = read_json(OUT, {})
-    previous_report = read_json(REPORT, {})
-    stage = 'initialization'
+    previous_report = existing['report'] if existing else read_json(REPORT, {})
+    payloads = existing['payloads'] if existing else {'metrics': {key: value for key, value in previous.items() if key not in {'records', 'records_count_on_page'}}, 'publications': previous.get('records', []), 'details': {}}
+    if not previous_report.get('last_success_at'):
+        snapshots = sorted(Path('data/snapshots/wos').glob(f'author_profile_{RESEARCHER_ID}_????????T??????Z.html'))
+        previous_report['last_success_at'] = previous.get('last_success_at') or snapshot_time(snapshots[-1] if snapshots else None)
+    report, stage, session, restored = {}, 'initialization', {}, {}
+    authentication = None
+    persisted = False
+    saved_components = set()
+
+    def persist(state, data):
+        nonlocal persisted, session
+        successful = {(name, result.get('last_success_at')) for name, result in state.get('components', {}).items() if result.get('status') == 'success' and result.get('complete')}
+        if successful - saved_components:
+            try:
+                assert_no_challenge(page)
+                authenticated = wos_authenticated(page)
+            except Exception:
+                authenticated = False
+            session = checkpoint_session(context, 'wos', authenticated=authenticated, target_verified=True, target_id=RESEARCHER_ID)
+            saved_components.update(successful)
+        state.update(authentication=authentication, session_checkpoint=session, session_restore=restored)
+        write_checkpoint(checkpoint_path, state, data)
+        persisted = True
+        materialize_checkpoint(checkpoint_path, 'wos')
+
     try:
         from playwright.sync_api import sync_playwright
         with sync_playwright() as playwright:
@@ -103,53 +331,58 @@ def main():
             if os.environ.get('WOS_BROWSER_CHANNEL'):
                 launch['channel'] = os.environ['WOS_BROWSER_CHANNEL']
             browser = playwright.chromium.launch(**launch)
-            context = browser.new_context(locale='en-US', timezone_id='Europe/Moscow', viewport={'width': 1440, 'height': 1100})
+            options = {'locale': 'en-US', 'timezone_id': 'Europe/Moscow', 'viewport': {'width': 1440, 'height': 1100}}
+            context, restored = restore_context(browser, 'wos', **options)
+
+            def replace_expired_context():
+                nonlocal context
+                context.close()
+                context = browser.new_context(**options)
+                verify_browser_egress(context)
+                return context
+
             stage = 'route_verification'
             verify_browser_egress(context)
             stage = 'login'
-            page = login_wos(context, PROFILE_URL, WAIT_SEC)
-            stage = 'profile'
+            page, authentication = authenticated_page(context, restored, fresh_context=replace_expired_context)
+            session = checkpoint_session(context, 'wos', authenticated=True, target_verified=True, target_id=RESEARCHER_ID)
+            if maintenance:
+                report = {'provider': 'wos', 'status': 'success' if session.get('status') == 'checkpointed' else 'error', 'reason': session.get('reason'), 'authentication': authentication, 'target_verified': True, 'session_checkpoint': session, 'session_restore': restored, 'attempted_at': now()}
+            else:
+                stage = 'collection'
+                report, payloads = collect_from_page(page, previous=payloads, previous_report=previous_report, on_checkpoint=persist)
+                report.update(authentication=authentication, session_checkpoint=session)
             try:
-                data = collect_profile(page, previous)
-            except Exception as exc:
-                failure = exc if isinstance(exc, AuthFailure) else AuthFailure(type(exc).__name__)
-                failure.diagnostics = safe_browser_diagnostics(context)
-                failure.profile_diagnostics = safe_profile_diagnostics(page)
-                raise failure from None
-            context.close()
-            browser.close()
-        report = source_result(previous_report, status='success', count=len(data['records']))
-        report['authentication'] = 'fresh_orcid_login'
-        data['last_success_at'] = report['last_success_at']
-        write_json(OUT, data)
-    except AuthFailure as exc:
-        report = source_result(previous_report, status='blocked', count=len(previous.get('records', [])), reason=exc.reason)
-        report['stage'] = stage
-        if getattr(exc, 'diagnostics', None):
-            report['diagnostics'] = exc.diagnostics
-        if getattr(exc, 'verification_evidence', None):
-            report['verification_evidence'] = exc.verification_evidence
-        if getattr(exc, 'authentication_evidence', None):
-            report['authentication_evidence'] = exc.authentication_evidence
-        if stage == 'profile':
-            report['authentication'] = 'fresh_orcid_login'
-            report['authentication_evidence'] = {**report.get('authentication_evidence', {}), 'login_confirmed': True}
-        if getattr(exc, 'profile_diagnostics', None):
-            report['profile_diagnostics'] = exc.profile_diagnostics
+                context.close()
+                browser.close()
+            except Exception:
+                report['cleanup_reason'] = 'browser_close_failed'
     except Exception as exc:
-        initialization = browser_initialization_diagnostics(exc) if stage == 'initialization' else None
-        report = source_result(previous_report, status='error', count=len(previous.get('records', [])), reason=initialization['reason'] if initialization else type(exc).__name__)
-        report['stage'] = stage
-        if initialization:
-            report['initialization'] = initialization
-    if not report.get('last_success_at'):
-        # Only actual record snapshots count; bootstrap HTML contains no works.
-        snapshots = sorted(Path('data/snapshots/wos').glob(f'author_profile_{RESEARCHER_ID}_????????T??????Z.html'))
-        report['last_success_at'] = previous.get('last_success_at') or snapshot_time(snapshots[-1] if snapshots else None)
-    report['generated_at'] = now()
-    write_json(REPORT, report)
+        init = browser_initialization_diagnostics(exc) if stage == 'initialization' else None
+        reason = init['reason'] if init else getattr(exc, 'reason', type(exc).__name__)
+        current = load_checkpoint(checkpoint_path) if persisted else None
+        if maintenance:
+            report = {'provider': 'wos', 'status': 'blocked' if isinstance(exc, AuthFailure) else 'error', 'reason': reason, 'attempted_at': now()}
+        elif current:
+            report, payloads = current['report'], current['payloads']
+            report.update(status='partial', complete=False, reason=reason)
+        else:
+            report = source_result(previous_report, status='blocked' if isinstance(exc, AuthFailure) else 'error', count=len(payloads['publications']), reason=reason)
+            report['components'] = {key: source_result(component_state(previous_report, key), status=report['status'], reason=reason) for key in ('metrics', 'publications')}
+        report.update(stage=stage, session_checkpoint=session, session_restore=restored)
+        for field in ('diagnostics', 'verification_evidence', 'authentication_evidence'):
+            if getattr(exc, field, None):
+                report[field] = getattr(exc, field)
+        if init:
+            report['initialization'] = init
+    if maintenance:
+        output = os.environ.get('BROWSER_SESSION_REPORT_DIR')
+        if output:
+            write_json(Path(output) / 'wos.json', report)
+    else:
+        persist(report, payloads)
     print(json.dumps(report))
-    return 0 if report['complete'] else 2
+    return 0 if (report.get('status') == 'success' if maintenance else report.get('complete')) else 2
 
 
 if __name__ == '__main__':

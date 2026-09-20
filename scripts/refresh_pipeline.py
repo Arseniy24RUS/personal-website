@@ -16,6 +16,7 @@ import sys
 import tempfile
 
 from report_safety import sanitize, sanitize_public_tree
+from source_health import component_state, is_verified, load_checkpoint, materialize_checkpoint, write_checkpoint
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = [
@@ -158,6 +159,13 @@ def collect(stage: Path, only: str):
         attempted = now()
         before = read(stage / report_path, {})
         code, reason = run(script, stage, timeout)
+        checkpoint_path = stage / 'data' / source / 'collection_checkpoint.json'
+        checkpoint = load_checkpoint(checkpoint_path) if source in ('elibrary', 'wos') else None
+        recovered = checkpoint and current_observation(checkpoint['report'], before, attempted)
+        if recovered:
+            # The atomic envelope may have been committed just before a timeout
+            # or interruption during legacy-file materialization.
+            materialize_checkpoint(checkpoint_path, source)
         report = read(stage / report_path, {})
         current = current_observation(report, before, attempted)
         if not current or (code and report.get('status') == 'success'):
@@ -165,6 +173,24 @@ def collect(stage: Path, only: str):
             report.update(status='error', attempted_at=attempted,
                           last_success_at=before.get('last_success_at'), origin='snapshot',
                           complete=False, reason=reason, record_count=before.get('record_count'))
+        component_names = set((report.get('components') or {})) | set((before.get('components') or {}))
+        if component_names:
+            components = report.setdefault('components', {})
+            for name in component_names:
+                prior = component_state(before, name)
+                state_component = components.get(name) or {}
+                uncommitted = bool(code and source in ('elibrary', 'wos') and not recovered)
+                if uncommitted or not current_observation(state_component, prior, attempted):
+                    state_component = {**state_component, 'status': 'error', 'attempted_at': attempted,
+                                       'last_success_at': prior.get('last_success_at'), 'origin': 'snapshot',
+                                       'complete': False, 'record_count': prior.get('record_count'),
+                                       'reason': 'missing_atomic_checkpoint' if uncommitted else 'missing_current_component_report'}
+                components[name] = state_component
+            core = [components.get(name, {}) for name in ('metrics', 'publications')]
+            if not all(is_verified(item) for item in core):
+                report.update(status='partial' if any(is_verified(item) for item in core) else
+                              (report.get('status') if report.get('status') in ('blocked', 'error') else 'error'),
+                              complete=False, reason=report.get('reason') or 'incomplete_components')
         stale_providers = False
         for key, provider in report.get('providers', {}).items() if isinstance(report.get('providers'), dict) else []:
             previous = (before.get('providers') or {}).get(key, {})
@@ -179,6 +205,8 @@ def collect(stage: Path, only: str):
                           origin='snapshot', last_success_at=before.get('last_success_at'),
                           reason='one_or_more_providers_not_current')
         write(stage / report_path, report)
+        if recovered:
+            write_checkpoint(checkpoint_path, report, checkpoint['payloads'])
         steps.append({'source': source, 'exit_code': code, 'reason': reason, 'attempted_at': attempted})
         print(f'{source}: {report.get("status", "error")} (exit {code})', flush=True)
     write(stage / 'data/audit/collector_steps.json', {'attempted_at': now(), 'steps': steps})
@@ -213,8 +241,7 @@ def health(root: Path = ROOT):
         if key in selected:
             state = sources.get(key, {})
             observations[key] = state
-            results[key] = (state.get('status') == 'success' and state.get('origin') == 'live'
-                            and state.get('complete') is True and bool(state.get('last_success_at')))
+            results[key] = all(is_verified(component_state(state, name)) for name in ('metrics', 'publications'))
     if 'media' in selected:
         media = read(root / 'data/media/harvest_report.json', {})
         observations['media'] = media
@@ -230,6 +257,9 @@ def health(root: Path = ROOT):
         results['pipeline_completed'] = False
     details = {key: {field: value.get(field) for field in ('status', 'origin', 'complete', 'record_count', 'pending', 'reason')}
                for key, value in observations.items()}
+    for key, value in observations.items():
+        if isinstance(value.get('components'), dict):
+            details[key]['components'] = value['components']
     report = {'checked_at': now(), 'healthy': all(results.values()), 'checks': results, 'details': details}
     write(root / 'data/audit/source_health_check.json', report)
     summary = os.environ.get('GITHUB_STEP_SUMMARY')
@@ -240,6 +270,10 @@ def health(root: Path = ROOT):
         if detail.get('pending'):
             coverage += f'; pending: {detail["pending"]}'
         lines.append(f'| {key} | {"PASS" if ok else "NEEDS ATTENTION — previous data preserved"} | {coverage} |')
+        for name, component in detail.get('components', {}).items():
+            observed = component.get('last_success_at') or 'no verified date'
+            component_coverage = 'complete' if is_verified(component) else component.get('reason') or 'incomplete'
+            lines.append(f'| {key} / {name} | {"PASS" if is_verified(component) else "NEEDS ATTENTION"} | {component_coverage}; last verified: {observed} |')
     enrichment = read(root / 'data/audit/derived_steps.json', {}).get('steps', [])
     incomplete = [step for step in enrichment if step.get('status') != 'success']
     if incomplete:

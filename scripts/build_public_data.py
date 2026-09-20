@@ -7,6 +7,9 @@ import csv
 import copy
 import json
 import re
+from source_health import component_state, is_verified, observation_time, load_checkpoint, materialize_checkpoint
+from report_safety import clean_url
+from parse_wos_author_profile import normalized_summary as normalized_wos_summary
 
 try:
     import yaml  # type: ignore
@@ -46,8 +49,7 @@ def first_number(*values):
 
 
 def is_fresh(health):
-    return ((health or {}).get('status') == 'success' and health.get('origin') == 'live'
-            and health.get('complete') is True and bool(health.get('last_success_at')))
+    return is_verified(health)
 
 
 def normalize_health(report, previous=None, record_count=0):
@@ -63,10 +65,31 @@ def normalize_health(report, previous=None, record_count=0):
         match = re.search(r'_(\d{8})T(\d{6})Z', str(report.get('snapshot_path') or ''))
         if match:
             successful = datetime.strptime(''.join(match.groups()), '%Y%m%d%H%M%S').replace(tzinfo=timezone.utc).isoformat()
-    return {'status': status, 'attempted_at': attempted, 'last_success_at': successful,
+    result = {'status': status, 'attempted_at': attempted, 'last_success_at': successful,
             'origin': origin, 'complete': report.get('complete') is True,
             'record_count': report.get('record_count', record_count),
             'reason': report.get('reason') or ('legacy_report_without_verified_freshness' if status != 'success' else None)}
+    for key in ('last_observation_at', 'observed_count', 'expected_count', 'pending', 'fetched', 'failed', 'stage'):
+        if key in report:
+            result[key] = report[key]
+    components = report.get('components')
+    if isinstance(components, dict):
+        names = set(components) | set(previous.get('components') or {})
+        result['components'] = {name: normalize_health(components.get(name), component_state(previous, name))
+                                for name in names}
+    return result
+
+
+def citation_is_new(record, target, provider, fresh=False):
+    observed = record.get('observed_at')
+    if observed:
+        return observation_time(observed) > observation_time((target.get('citation_observed_at') or {}).get(provider))
+    return fresh
+
+
+def mark_citation_observation(target, record, provider):
+    if record.get('observed_at'):
+        target.setdefault('citation_observed_at', {})[provider] = record['observed_at']
 
 
 def load_source_health(ids, previous=None):
@@ -85,6 +108,15 @@ def load_source_health(ids, previous=None):
         fallback = normalize_health(read_json(DATA / 'elibrary/items_fetch_report.json', {}))
         reports['elibrary']['last_success_at'] = fallback.get('last_success_at')
     return {name: normalize_health(report, previous.get(name)) for name, report in reports.items()}
+
+
+def recover_source_checkpoints():
+    for provider, filename in [('elibrary', 'browser_fetch_report.json'), ('wos', 'harvest_report.json')]:
+        path = DATA / provider / 'collection_checkpoint.json'
+        checkpoint = load_checkpoint(path)
+        legacy = read_json(DATA / provider / filename, {})
+        if checkpoint and observation_time(checkpoint['report'].get('attempted_at')) >= observation_time(legacy.get('attempted_at')):
+            materialize_checkpoint(path, provider)
 
 
 def clean(value) -> str:
@@ -310,7 +342,7 @@ def load_elib_tsv():
             'number': int(r[0]) if r[0].isdigit() else None,
             'elibrary_item_id': m.group(1) if m else None,
             'year': int(r[1]) if r[1].isdigit() else None,
-            'rinc_citations': int(r[2]) if r[2].isdigit() else 0,
+            'rinc_citations': int(r[2]) if r[2].isdigit() else None,
             'title': r[3],
             'title_ru': r[3],
             'authors_raw': r[4],
@@ -354,6 +386,12 @@ def load_existing_publications_for_profile(ids):
     rows = json.loads(path.read_text(encoding='utf-8')) if path.exists() else []
     if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
         raise ValueError('Published bibliography is invalid; refusing to overwrite it')
+    previous = read_json(DATA / 'public/profile.json', {})
+    for row in rows:
+        for provider, field in [('elibrary', 'rinc_citations'), ('wos', 'wos_citations'), ('scopus', 'scopus')]:
+            state = component_state((previous.get('source_health') or {}).get(provider), 'publications')
+            if row.get(field) is not None and state.get('last_success_at'):
+                row.setdefault('citation_observed_at', {}).setdefault(provider, state['last_success_at'])
     return rows
 
 
@@ -368,12 +406,13 @@ def load_elib(ids):
     public_existing = load_existing_publications_for_profile(ids)
     merged = merge_publication_sets(public_existing, tsv, processed)
     health = normalize_health(read_json(DATA / 'elibrary/browser_fetch_report.json', {}))
-    if is_fresh(health):
-        fresh_citations = {str(row.get('elibrary_item_id')): row.get('rinc_citations') for row in processed if row.get('elibrary_item_id') and row.get('rinc_citations') is not None}
-        for row in merged:
-            key = str(row.get('elibrary_item_id'))
-            if key in fresh_citations:
-                row['rinc_citations'] = fresh_citations[key]
+    state = component_state(health, 'publications')
+    observations = {str(row.get('elibrary_item_id')): row for row in processed if row.get('elibrary_item_id')}
+    for row in merged:
+        observation = observations.get(str(row.get('elibrary_item_id')), {})
+        if observation.get('rinc_citations') is not None and citation_is_new(observation, row, 'elibrary', is_fresh(state)):
+            row['rinc_citations'] = observation['rinc_citations']
+            mark_citation_observation(row, observation, 'elibrary')
     best_count = max(len(processed), len(tsv), len([p for p in public_existing if 'elibrary' in ','.join(p.get('sources', []) if isinstance(p.get('sources'), list) else [str(p.get('sources') or '')]) or p.get('elibrary_item_id')]), len(merged))
     if best_count >= MIN_ELIBRARY_RECORDS and len(merged) < MIN_ELIBRARY_RECORDS:
         candidates = [x for x in [tsv, public_existing, processed] if len(x) >= MIN_ELIBRARY_RECORDS]
@@ -408,8 +447,9 @@ def merge_scopus(canon, works, fresh=False):
             target = by_ty.get((nt(w.get('title')), str(w.get('year') or w.get('cover_date') or '')[:4]))
         if target:
             addsrc(target, 'scopus')
-            if fresh or not target.get('scopus'):
+            if citation_is_new(w, target, 'scopus', fresh) or not target.get('scopus'):
                 target['scopus'] = copy.deepcopy(w)
+                mark_citation_observation(target, w, 'scopus')
             if doi and not target.get('doi'):
                 target['doi'] = doi
             set_lang_field(target, 'title', w.get('title'), 'en')
@@ -420,7 +460,7 @@ def merge_scopus(canon, works, fresh=False):
                 'number': None,
                 'elibrary_item_id': None,
                 'year': int(str(w.get('year') or w.get('cover_date') or '')[:4]) if str(w.get('year') or w.get('cover_date') or '')[:4].isdigit() else None,
-                'rinc_citations': 0,
+                'rinc_citations': None,
                 'title': w.get('title'),
                 'authors_raw': w.get('creator') or '',
                 'venue': w.get('journal_or_source') or w.get('source_title'),
@@ -472,7 +512,7 @@ def merge_open(canon, records):
             set_lang_field(target, 'venue', r.get('venue'))
             enriched += 1
         else:
-            rec = {'source': src + '_auto', 'number': None, 'elibrary_item_id': None, 'year': int(r.get('year')) if str(r.get('year') or '').isdigit() else None, 'rinc_citations': 0, 'title': r.get('title'), 'authors_raw': '', 'venue': r.get('venue'), 'pages': None, 'doi': doi, 'url': r.get('url') or r.get('landing_page_url'), 'sources': [src], 'open_sources': [r], 'auto_accept_reason': 'author-scoped ORCID/OpenAlex/Crossref record'}
+            rec = {'source': src + '_auto', 'number': None, 'elibrary_item_id': None, 'year': int(r.get('year')) if str(r.get('year') or '').isdigit() else None, 'rinc_citations': None, 'title': r.get('title'), 'authors_raw': '', 'venue': r.get('venue'), 'pages': None, 'doi': doi, 'url': r.get('url') or r.get('landing_page_url'), 'sources': [src], 'open_sources': [r], 'auto_accept_reason': 'author-scoped ORCID/OpenAlex/Crossref record'}
             for provider in r.get('sources') or []:
                 addsrc(rec, provider)
             enrich_localized_fields(rec)
@@ -516,8 +556,9 @@ def enrich_from_wos(target, r, fresh=False):
     set_missing(target, 'issn', r.get('issn'))
     set_missing(target, 'eissn', r.get('eissn'))
     set_missing(target, 'isbn', r.get('isbn'))
-    if fresh and r.get('wos_citations') is not None:
+    if citation_is_new(r, target, 'wos', fresh) and r.get('wos_citations') is not None:
         target['wos_citations'] = r['wos_citations']
+        mark_citation_observation(target, r, 'wos')
     else:
         set_missing(target, 'wos_citations', r.get('wos_citations'))
     set_missing(target, 'references_count', r.get('references_count'))
@@ -546,7 +587,7 @@ def merge_wos(canon, records, fresh=False):
                 'number': None,
                 'elibrary_item_id': None,
                 'year': r.get('year'),
-                'rinc_citations': 0,
+                'rinc_citations': None,
                 'title': r.get('title_en') or r.get('title'),
                 'title_en': r.get('title_en') or r.get('title'),
                 'title_en_source': 'web_of_science',
@@ -582,8 +623,7 @@ def merge_wos(canon, records, fresh=False):
 def wos_metric(wos_profile, kind):
     summary = (wos_profile or {}).get('summary') or {}
     core = (wos_profile or {}).get('core_collection_metrics') or {}
-    labels = {'publications': ('Publications',), 'citations': ('Sum of Times Cited', 'Times Cited'), 'h_index': ('H-Index', 'h-index')}
-    return first_number(summary.get(kind), metric_value(core, *labels[kind]))
+    return first_number(summary.get(kind), normalized_wos_summary({}, core).get(kind))
 
 
 def build_scientometrics(canon, elib_profile, scopus_metrics, wos_profile, health=None, previous=None):
@@ -616,7 +656,7 @@ def build_scientometrics(canon, elib_profile, scopus_metrics, wos_profile, healt
               'wos': ('Web of Science', 'Web of Science', 'Web of Science Researcher Profile', 'wos')}
     sources = {}
     for name, (ru, en, source, provider) in labels.items():
-        state = health.get(provider) or normalize_health({})
+        state = component_state(health.get(provider), 'metrics') or normalize_health({})
         old = previous_sources.get(name) or {}
         metrics = values[name]
         observed = {
@@ -666,6 +706,7 @@ def ensure_queue():
 
 
 def main():
+    recover_source_checkpoints()
     prof = profile()
     ids = prof.get('identifiers', {}) or {}
     sid = ids.get('scopus_author_id', '')
@@ -674,15 +715,17 @@ def main():
     canon = load_elib(ids)
     scopus_metrics = read_json(DATA / f'scopus/scopus_author_{sid}_metrics.json', None) if sid else None
     scopus_works = read_json(DATA / f'scopus/scopus_author_{sid}_works.json', []) if sid else []
-    scopus_added = merge_scopus(canon, scopus_works, fresh=is_fresh(health['scopus']))
+    scopus_added = merge_scopus(canon, scopus_works, fresh=is_fresh(component_state(health['scopus'], 'publications')))
     open_records = (read_json(DATA / 'open/open_publications.json', {}) or {}).get('records', [])
     open_enriched, open_added = merge_open(canon, open_records)
     wos_profile = read_json(DATA / 'wos/profile_metrics.json', {})
     wos_records = (wos_profile or {}).get('records', [])
-    wos_enriched, wos_added = merge_wos(canon, wos_records, fresh=is_fresh(health['wos']))
+    wos_enriched, wos_added = merge_wos(canon, wos_records, fresh=is_fresh(component_state(health['wos'], 'publications')))
     elib_profile = read_json(DATA / 'elibrary/profile_metrics.json', {})
     for p in canon:
         enrich_localized_fields(p)
+        if p.get('url'):
+            p['url'] = clean_url(p['url'])
     scientometrics = build_scientometrics(canon, elib_profile, scopus_metrics, wos_profile, health, previous_profile.get('scientometrics'))
     public_profile = {
         'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
