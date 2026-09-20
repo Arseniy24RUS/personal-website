@@ -95,11 +95,11 @@ def diagnostic_login(function):
     return wrapped
 
 
-def page_text(page):
-    return page.locator('body').inner_text(timeout=10000)
+def page_text(page, *, timeout=10000):
+    return page.locator('body').inner_text(timeout=timeout)
 
 
-def in_visible_viewport(locator):
+def in_visible_viewport(locator, *, timeout=None):
     """Playwright is_visible also accepts offscreen and transparent elements."""
     return locator.evaluate("""el => {
         const box = el.getBoundingClientRect();
@@ -119,7 +119,7 @@ def in_visible_viewport(locator):
             }
         }
         return right > left && bottom > top;
-    }""")
+    }""", timeout=timeout)
 
 
 HUMAN_MARKERS = {
@@ -131,6 +131,23 @@ HUMAN_MARKERS = {
     'not_robot_ru': 'проверка, что вы не робот',
 }
 
+# A known hCaptcha frame may briefly display automatic verification before
+# disappearing. This is only an observation budget, never challenge interaction.
+CHALLENGE_SETTLE_SECONDS = 10.0
+CHALLENGE_POLL_SECONDS = 0.25
+
+
+class _ChallengeObservationTimeout(RuntimeError):
+    pass
+
+
+def _observation_timeout(deadline):
+    """Bound locator auto-waiting and check the shared observation deadline."""
+    remaining = 1.0 if deadline is None else deadline - time.monotonic()
+    if remaining <= 0:
+        raise _ChallengeObservationTimeout()
+    return min(1000.0, remaining * 1000)
+
 
 def human_marker_ids(text, url=''):
     markers = [key for key, value in HUMAN_MARKERS.items() if value in str(text).lower()]
@@ -139,21 +156,22 @@ def human_marker_ids(text, url=''):
     return markers
 
 
-def challenge_frame_evidence(locator):
+def challenge_frame_evidence(locator, *, deadline=None):
     """Read geometry and fixed challenge signals; never emit frame text/values."""
     result = {'frame_dom_observed': False, 'checkbox_present': None, 'checkbox_visible': None, 'checkbox_checked': None, 'active_challenge_controls': None}
     try:
         # Only known static provider paths are retained. In particular, do not
         # export src query parameters, fragments, arbitrary paths or frame names.
-        address = urlparse(locator.get_attribute('src') or '')
+        src = locator.get_attribute('src', timeout=_observation_timeout(deadline)) or ''
+        address = urlparse(src)
         host = (address.hostname or '').lower()
         allowed = ('google.com', 'recaptcha.net', 'hcaptcha.com')
         result['provider_host'] = host if any(provider_host(host, domain) for domain in allowed) else 'other'
         result['provider_path'] = address.path if re.fullmatch(r'/recaptcha/(?:api2|enterprise)/(?:anchor|bframe)', address.path) else 'other'
-        result['title_challenge'] = 'challenge' in (locator.get_attribute('title') or '').lower()
-        result['src_recaptcha'] = 'recaptcha' in (locator.get_attribute('src') or '')
-        result['size_normal'] = 'size=normal' in (locator.get_attribute('src') or '')
-        result['in_visible_viewport'] = in_visible_viewport(locator)
+        result['title_challenge'] = 'challenge' in (locator.get_attribute('title', timeout=_observation_timeout(deadline)) or '').lower()
+        result['src_recaptcha'] = 'recaptcha' in src
+        result['size_normal'] = 'size=normal' in src
+        result['in_visible_viewport'] = in_visible_viewport(locator, timeout=_observation_timeout(deadline))
         result.update(locator.evaluate("""el => {
             const box = el.getBoundingClientRect();
             const number = value => Math.round(Math.max(-1000000, Math.min(1000000, value)));
@@ -174,18 +192,30 @@ def challenge_frame_evidence(locator):
                 viewport: {width:innerWidth, height:innerHeight}, effective_opacity: Math.round(opacity * 1000) / 1000,
                 visibility_hidden:hidden, display_none:undisplayed, css_clip_present:clipped, ancestor_modal:modal,
                 viewport_intersects:intersects, center_hit_iframe:hit === el};
-        }"""))
-        handle = locator.element_handle(timeout=1000)
+        }""", timeout=_observation_timeout(deadline)))
+        handle = locator.element_handle(timeout=_observation_timeout(deadline))
         frame = handle.content_frame() if handle else None
         if frame is not None:
             result['frame_dom_observed'] = True
+            result['frame_host_matches_provider'] = (urlparse(frame.url).hostname or '').lower() == host
             checkboxes = frame.locator('#recaptcha-anchor, .recaptcha-checkbox, [role="checkbox"], input[type="checkbox"]')
             count = checkboxes.count()
             result['checkbox_present'] = count > 0
-            result['checkbox_visible'] = any(in_visible_viewport(checkboxes.nth(i)) for i in range(min(count, 10)))
-            result['checkbox_checked'] = any(checkboxes.nth(i).evaluate("el => el.checked === true || el.getAttribute('aria-checked') === 'true'") for i in range(min(count, 10))) if count else None
+            result['checkbox_visible'] = any(in_visible_viewport(checkboxes.nth(i), timeout=_observation_timeout(deadline)) for i in range(min(count, 10)))
+            result['checkbox_checked'] = any(checkboxes.nth(i).evaluate("el => el.checked === true || el.getAttribute('aria-checked') === 'true'", timeout=_observation_timeout(deadline)) for i in range(min(count, 10))) if count else None
             controls = frame.locator('.rc-imageselect, #recaptcha-verify-button, #audio-response, .rc-audiochallenge-input, .hcaptcha-challenge')
-            result['active_challenge_controls'] = any(in_visible_viewport(controls.nth(i)) for i in range(min(controls.count(), 10)))
+            control_count = controls.count()
+            result['active_challenge_controls'] = any(in_visible_viewport(controls.nth(i), timeout=_observation_timeout(deadline)) for i in range(min(control_count, 10)))
+            # A capped/incomplete scan must never qualify for settling grace.
+            if count > 10 or control_count > 10:
+                result['observation_incomplete'] = True
+            body = frame.locator('body')
+            if body.count() == 1:
+                result['marker_ids'] = human_marker_ids(body.inner_text(timeout=_observation_timeout(deadline)), frame.url)
+            else:
+                result['observation_incomplete'] = True
+    except _ChallengeObservationTimeout:
+        raise
     except Exception:
         result['observation_incomplete'] = True
     return result
@@ -210,8 +240,9 @@ def challenge_reason(text, url=''):
     return None
 
 
-def assert_no_challenge(page, *, form_submitted=True):
-    text = page_text(page)
+def _challenge_observation(page, *, form_submitted, deadline):
+    """One read-only pass; return an error and whether it may settle naturally."""
+    text = page_text(page, timeout=_observation_timeout(deadline))
     reason = challenge_reason(text, page.url)
     evidence = {'trigger': 'page_marker', 'marker_ids': human_marker_ids(text, page.url)} if reason == 'human_verification_required' else None
     if not form_submitted and reason in {'invalid_credentials', 'invalid_username_format'}:
@@ -220,21 +251,76 @@ def assert_no_challenge(page, *, form_submitted=True):
         # ORCID's initial help text is not a server rejection. Its actual
         # validation messages live in mat-error / app-alert-message nodes.
         errors = page.locator('mat-error, app-alert-message, [role="alert"], #dialogTitle')
-        reason = next((challenge_reason(errors.nth(i).inner_text()) for i in range(errors.count()) if errors.nth(i).is_visible() and challenge_reason(errors.nth(i).inner_text())), None)
+        reason = None
+        for index in range(errors.count()):
+            _observation_timeout(deadline)
+            error = errors.nth(index)
+            if error.is_visible():
+                reason = challenge_reason(error.inner_text(timeout=_observation_timeout(deadline)))
+                if reason:
+                    break
     # An embedded challenge script alone is not a challenge. Only visible forms count.
     # The ubiquitous invisible reCAPTCHA badge is not an interactive challenge.
     selector = 'iframe[title*="challenge" i], iframe[src*="recaptcha"][src*="size=normal"]'
-    if not reason and page.locator(selector).count():
-        frames = page.locator(selector)
-        for index in range(frames.count()):
-            frame = frames.nth(index)
-            if in_visible_viewport(frame):
-                reason = 'human_verification_required'
-                observed = challenge_frame_evidence(frame)
-                evidence = {'trigger': 'iframe_title' if observed.get('title_challenge') else 'recaptcha_normal_widget', 'frame': observed}
-                break
     if reason:
-        raise AuthFailure(reason, verification_evidence=evidence)
+        return reason, evidence, False
+    pending = None
+    frames = page.locator(selector)
+    for index in range(frames.count()):
+        frame = frames.nth(index)
+        if not in_visible_viewport(frame, timeout=_observation_timeout(deadline)):
+            continue
+        observed = challenge_frame_evidence(frame, deadline=deadline)
+        evidence = {'trigger': 'iframe_title' if observed.get('title_challenge') else 'recaptcha_normal_widget', 'frame': observed}
+        loading = (
+            provider_host(observed.get('provider_host', ''), 'hcaptcha.com')
+            and observed.get('title_challenge') is True
+            and observed.get('frame_dom_observed') is True
+            and observed.get('frame_host_matches_provider') is True
+            and observed.get('checkbox_present') is False
+            and observed.get('checkbox_visible') is False
+            and observed.get('active_challenge_controls') is False
+            and observed.get('marker_ids') == []
+            and not observed.get('observation_incomplete')
+        )
+        if not loading:
+            return 'human_verification_required', evidence, False
+        # Inspect every other visible frame before waiting: an interactive
+        # challenge must fail immediately even beside an automatic loader.
+        pending = pending or evidence
+    return ('human_verification_required', pending, True) if pending else (None, None, False)
+
+
+def assert_no_challenge(page, *, form_submitted=True):
+    """Allow only bounded, passive observation of known automatic verification.
+
+    A single deadline covers every frame and every observation in this call.
+    Disappearance is readiness only; callers must still prove authentication.
+    """
+    deadline = time.monotonic() + CHALLENGE_SETTLE_SECONDS
+    pending = None
+    while True:
+        try:
+            reason, evidence, may_settle = _challenge_observation(page, form_submitted=form_submitted, deadline=deadline)
+        except _ChallengeObservationTimeout:
+            reason = 'human_verification_required' if pending else 'challenge_observation_incomplete'
+            evidence, may_settle = pending, True
+        except Exception:
+            raise AuthFailure('challenge_observation_incomplete', verification_evidence={'trigger': 'observation_incomplete'}) from None
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            failure_reason = reason or ('human_verification_required' if pending else 'challenge_observation_incomplete')
+            observed = evidence or pending or {'trigger': 'observation_deadline'}
+            raise AuthFailure(failure_reason, verification_evidence={**observed, 'settling': 'timed_out'}) from None
+        if not reason:
+            return
+        if not may_settle:
+            if pending is not None and evidence is not None:
+                evidence = {**evidence, 'settling': 'stopped_by_guard'}
+            raise AuthFailure(reason, verification_evidence=evidence)
+        pending = evidence
+        # No click, submission, navigation, token mutation or challenge solving.
+        page.wait_for_timeout(min(CHALLENGE_POLL_SECONDS, remaining) * 1000)
 
 
 def verify_browser_egress(context):
@@ -349,7 +435,7 @@ def wos_account_names():
 
 
 def wos_logout_visible(page):
-    pattern = re.compile(r'^\s*(?:(?:logout|exit_to_app)\s+)?(?:Sign out|Log out|Выйти|Выход|Завершить сеанс(?: и выйти)?)\s*$', re.I)
+    pattern = re.compile(r'^\s*(?:(?:logout|exit_to_app)\s+)?(?:Sign out|Log out|End session|Выйти|Выход|Завершить сеанс(?: и выйти)?)\s*$', re.I)
     for role in ('button', 'link', 'menuitem'):
         controls = page.get_by_role(role, name=pattern)
         if any(controls.nth(index).is_visible() for index in range(controls.count())):
@@ -530,9 +616,9 @@ def _login_wos(context, profile_url, timeout, evidence):
                 evidence['submit_clicked'] = True
                 continue
             # The authorization page is the standard ORCID OAuth consent for WoS.
-            if submitted and click_named(page, r'^Authorize(?: access)?$|^Разрешить доступ$'):
+            if (submitted or selected_orcid) and click_named(page, r'^Authorize(?: access)?$|^Разрешить доступ$'):
                 continue
-        elif provider_host(host, 'webofscience.com') and submitted and wos_authenticated(page):
+        elif provider_host(host, 'webofscience.com') and wos_authenticated(page):
             page.goto(profile_url, wait_until='domcontentloaded', timeout=90000)
             return page
         elif not selected_signin:

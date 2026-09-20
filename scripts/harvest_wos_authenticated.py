@@ -200,8 +200,8 @@ def authenticated_page(context, session_info, target=RESEARCHER_ID, *, fresh_con
         except AuthFailure as exc:
             if exc.reason != 'session_expired':
                 raise
-            page.close()
             if fresh_context is None:
+                page.close()
                 raise
             context = fresh_context()
     page = login_wos(context, f'https://www.webofscience.com/wos/author/record/{target}', WAIT_SEC)
@@ -298,7 +298,7 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
 
 
 def main():
-    from browser_sessions import restore_context, checkpoint_session
+    from browser_sessions import restore_context, checkpoint_session, create_wos_reauthentication_context, SessionError
     maintenance = os.environ.get('BROWSER_SESSION_MAINTENANCE') == '1'
     checkpoint_path = REPORT.parent / 'collection_checkpoint.json'
     existing = load_checkpoint(checkpoint_path)
@@ -341,8 +341,10 @@ def main():
 
             def replace_expired_context():
                 nonlocal context
-                context.close()
-                context = browser.new_context(**options)
+                try:
+                    context = create_wos_reauthentication_context(browser, context, **options)
+                except SessionError as exc:
+                    raise AuthFailure(str(exc)) from None
                 verify_browser_egress(context)
                 return context
 

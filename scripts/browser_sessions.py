@@ -219,6 +219,15 @@ def private_write(path, value):
     path.chmod(0o600)
 
 
+def hydrate_session_storage(context, saved):
+    """Hydrate each allowed origin once per tab without replacing renewed values."""
+    if not saved:
+        return
+    encoded = json.dumps(json.dumps(saved, ensure_ascii=True))
+    marker = json.dumps(HYDRATION_MARKER)
+    context.add_init_script(script=f'(() => {{ const saved = JSON.parse({encoded}); const data = saved[location.origin]; const marker = {marker}; if (data && sessionStorage.getItem(marker) !== "1") {{ for (const [k,v] of Object.entries(data)) if (k !== marker) sessionStorage.setItem(k,v); sessionStorage.setItem(marker,"1"); }} }})();')
+
+
 def restore_context(browser, provider, **options):
     """Missing/corrupt state still allows the collector's ordinary login path."""
     info = {'status': 'missing'}
@@ -235,10 +244,8 @@ def restore_context(browser, provider, **options):
     context = None
     try:
         context = browser.new_context(**options)
-        if payload and payload.get('session_storage'):
-            encoded = json.dumps(json.dumps(payload['session_storage'], ensure_ascii=True))
-            marker = json.dumps(HYDRATION_MARKER)
-            context.add_init_script(script=f'(() => {{ const saved = JSON.parse({encoded}); const data = saved[location.origin]; const marker = {marker}; if (data && sessionStorage.getItem(marker) !== "1") {{ for (const [k,v] of Object.entries(data)) if (k !== marker) sessionStorage.setItem(k,v); sessionStorage.setItem(marker,"1"); }} }})();')
+        if payload:
+            hydrate_session_storage(context, payload.get('session_storage'))
     except Exception:
         if not payload:
             raise
@@ -250,7 +257,7 @@ def restore_context(browser, provider, **options):
     return context, info
 
 
-def capture_session_storage(context, provider, verified_page=None):
+def capture_session_storage(context, provider, verified_page=None, *, excluded_hosts=()):
     """Resolve tab-local storage without choosing an arbitrary last tab.
 
     The verified page is authoritative for its origin. Other origins must agree
@@ -277,12 +284,12 @@ def capture_session_storage(context, provider, verified_page=None):
     verified_origin = None
     if verified_page is not None:
         verified_origin = origin_of(verified_page)
-        if not _origin_allowed(provider, verified_origin):
+        if not _origin_allowed(provider, verified_origin) or urlparse(verified_origin).hostname in excluded_hosts:
             raise SessionError('verified_page_origin_invalid')
         captured[verified_origin] = read_page(verified_page, verified_origin)
     for page in pages:
         origin = origin_of(page)
-        if origin == verified_origin or not _origin_allowed(provider, origin):
+        if origin == verified_origin or not _origin_allowed(provider, origin) or urlparse(origin).hostname in excluded_hosts:
             continue
         values = read_page(page, origin)
         if origin in captured and captured[origin] != values:
@@ -291,6 +298,41 @@ def capture_session_storage(context, provider, verified_page=None):
     if verified_page is not None and origin_of(verified_page) != verified_origin:
         raise SessionError('session_storage_origin_changed')
     return captured
+
+
+def create_wos_reauthentication_context(browser, context, **options):
+    """Discard expired WoS state while retaining the approved identity-provider SSO.
+
+    This helper is only for a positively expired WoS session. It must not be used
+    to retry challenges or to turn an unreadable SSO state into an empty login.
+    """
+    wos_hosts = {'webofscience.com', 'www.webofscience.com'}
+    try:
+        state = scoped_state('wos', context.storage_state(indexed_db=True))
+        state['cookies'] = [cookie for cookie in state['cookies']
+                            if cookie['domain'].lstrip('.').lower() not in wos_hosts]
+        state['origins'] = [origin for origin in state['origins']
+                            if urlparse(origin['origin']).hostname not in wos_hosts]
+        session_storage = capture_session_storage(context, 'wos', excluded_hosts=wos_hosts)
+    except Exception:
+        raise SessionError('wos_sso_state_capture_failed') from None
+    try:
+        context.close()
+    except Exception:
+        raise SessionError('wos_expired_context_close_failed') from None
+    replacement = None
+    try:
+        options['storage_state'] = state
+        replacement = browser.new_context(**options)
+        hydrate_session_storage(replacement, session_storage)
+        return replacement
+    except Exception:
+        if replacement is not None:
+            try:
+                replacement.close()
+            except Exception:
+                pass
+        raise SessionError('wos_sso_state_restore_failed') from None
 
 
 def checkpoint_session(context, provider, *, authenticated, target_verified, target_id, verified_page=None):

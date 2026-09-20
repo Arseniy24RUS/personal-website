@@ -153,3 +153,34 @@ account menu, not just the user's name. Its visible logout entries are
 these entries is authorization evidence; seeing the account button alone is not.
 The collector only observes logout entries and never activates them. This fixes
 a false-negative authentication check without relaxing challenge detection.
+
+## Authentication investigation, 20 September 2026
+
+The deployment remains GitHub Actions through the home VPN. The proposed local
+Windows worker was declined; do not install one or change the hosting model.
+
+The [hCaptcha FAQ](https://docs.hcaptcha.com/faq) says repeat challenges depend
+on confidence, site difficulty and other security factors. A working home-browser
+visit does not establish which factor caused an Actions challenge. The workflow
+already runs a headed browser through the verified home route. Fingerprint
+spoofing, synthetic human behavior and CAPTCHA solvers are not part of this system.
+
+A CAPTCHA response is distinct from a WoS login session. The
+[hCaptcha developer guide](https://docs.hcaptcha.com/#siteverify-error-codes-table)
+documents single-use responses and expiry. Saving such a response is not a way
+to authorize future weekly runs. Passing one challenge does not establish that
+another runner will never receive one.
+
+[WoS sign-in guidance](https://webofscience.zendesk.com/hc/en-us/articles/20011617329425-Registering-and-Signing-in-to-the-Web-of-Science)
+documents the English `End session` action and stale localStorage tokens.
+On explicit WoS expiry, reset WoS state only; retain allowlisted identity-provider
+state for ordinary SSO. The [ORCID OAuth guide](https://info.orcid.org/documentation/integration-guide/customizing-the-sign-in-register-screen/)
+allows authorization without another password form. Password submission is not
+an authentication requirement: the live account and target profile are.
+
+Run 35524641785 observed a visible hCaptcha frame without recognized interactive
+controls. This alone cannot distinguish a transient loader from a persistent
+challenge. A bounded, observation-only readiness wait may let an automatic check
+finish naturally. It must never click, hide or modify the widget, and a persistent
+or interactive challenge remains a blocking failure. Collection and checkpointing
+still require the normal positive account and author checks afterward.
