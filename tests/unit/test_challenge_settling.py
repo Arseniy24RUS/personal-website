@@ -181,6 +181,40 @@ class ChallengeSettlingTests(unittest.TestCase):
         self.assertEqual(caught.exception.verification_evidence['trigger'], 'observation_incomplete')
         self.assertNotIn('private', str(caught.exception))
 
+    def test_locator_timeout_at_pending_deadline_preserves_known_challenge(self):
+        from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+        for error_type in (TimeoutError, PlaywrightTimeoutError):
+            with self.subTest(error_type=error_type.__module__):
+                page = self.observe([{'frames': [loading_frame()]}])
+                read = page.inner_text
+                def timeout_after_first_read(**kwargs):
+                    if page.step:
+                        page.clock = 1.0
+                        raise error_type('private timeout detail')
+                    return read(**kwargs)
+                with patch.object(page, 'inner_text', side_effect=timeout_after_first_read), self.assertRaises(auth.AuthFailure) as caught:
+                    auth.assert_no_challenge(page, passive_wait_seconds=1.0)
+                evidence = caught.exception.verification_evidence
+                self.assertEqual(caught.exception.reason, 'human_verification_required')
+                self.assertEqual(evidence['settling'], 'timed_out')
+                self.assertEqual(evidence['trigger'], 'iframe_title')
+                self.assertEqual(evidence['observation_timeline'][-1]['category'], 'timed_out')
+                self.assertNotIn('private', str(evidence))
+                self.assertEqual(page.waits, [250.0])
+
+    def test_early_locator_timeout_does_not_claim_pending_deadline(self):
+        page = self.observe([{'frames': [loading_frame()]}])
+        read = page.inner_text
+        def timeout_after_first_read(**kwargs):
+            if page.step:
+                raise TimeoutError('private timeout detail')
+            return read(**kwargs)
+        with patch.object(page, 'inner_text', side_effect=timeout_after_first_read), self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page, passive_wait_seconds=1.0)
+        self.assertEqual(caught.exception.reason, 'challenge_observation_incomplete')
+        self.assertNotIn('settling', caught.exception.verification_evidence)
+        self.assertEqual(page.waits, [250.0])
+
     def test_unrecognized_or_incompletely_observed_frame_never_gets_grace(self):
         cases = [
             {'provider_host': 'hcaptcha.com.example.test'},
@@ -263,6 +297,20 @@ class ChallengeFrameBrowserTests(unittest.TestCase):
         self.assertGreater(frame['frame_text_length'], 0)
         self.assertIn(frame['ready_state'], ('loading', 'interactive', 'complete'))
         self.assertEqual(evidence['observation_timeline'][-1]['frame_canvas_count'], 1)
+
+    def test_visible_native_or_role_buttons_inside_known_frame_stop_immediately(self):
+        for markup in ('<button>Continue</button>', '<div role="button" tabindex="0">Continue</div>',
+                       '<button>Continue</button>' + '<div role="button">Tile</div>' * 15):
+            with self.subTest(markup=markup):
+                evidence = self.inspect_fixture('<body>' + markup + '</body>')
+                self.assertTrue(evidence['frame']['active_challenge_controls'])
+                self.assertNotIn('settling', evidence)
+                self.assertEqual(evidence['observation_timeline'][-1]['category'], 'interactive')
+
+    def test_hidden_native_and_role_buttons_do_not_count_as_active_controls(self):
+        evidence = self.inspect_fixture('<body><button hidden>Continue</button><div role="button" style="display:none">Tile</div></body>')
+        self.assertFalse(evidence['frame']['active_challenge_controls'])
+        self.assertEqual(evidence['settling'], 'timed_out')
 
 
 if __name__ == '__main__':
