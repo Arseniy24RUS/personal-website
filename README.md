@@ -79,7 +79,7 @@ Versioned JSON, thumbnails and static assets
 GitHub Pages website
 ```
 
-One weekly workflow refreshes bibliographic and media data through the home VPN, on Monday at 06:17 Moscow time. Manual media refresh calls the same workflow; gallery updates share its write lock. Validated results can publish when a provider fails, with previous records retained and the failure visible in Actions and source freshness labels. See [refresh operations](docs/REFRESH_OPERATIONS.md).
+One weekly workflow refreshes bibliographic and media data through the home VPN, on Monday at 06:17 Moscow time. Manual media refresh calls the same workflow; gallery updates share its write lock. Validated results can publish when a provider fails, with previous records retained and the failure visible in Actions. Source diagnostics remain outside visitor pages. See [refresh operations](docs/REFRESH_OPERATIONS.md) and [WoS API access](docs/WOS_API.md).
 
 ### Repository Map
 

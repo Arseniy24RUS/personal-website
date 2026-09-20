@@ -23,7 +23,7 @@ SOURCES = [
     ('open', 'harvest_open_sources.py', 'data/open/harvest_report.json', 360),
     ('media', 'harvest_media_mentions.py', 'data/media/harvest_report.json', 1200),
     ('elibrary', 'harvest_elibrary_browser.py', 'data/elibrary/browser_fetch_report.json', 900),
-    ('wos', 'harvest_wos_authenticated.py', 'data/wos/harvest_report.json', 900),
+    ('wos', 'harvest_wos.py', 'data/wos/harvest_report.json', 1380),
     ('scopus', 'harvest_scopus.py', 'data/scopus/scopus_author_57220956828_access_report.json', 360),
 ]
 DERIVED = [

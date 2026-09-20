@@ -92,28 +92,86 @@ def source_row_key(row):
 
 def merge_observed_rows(previous, incoming, previous_state, incoming_state):
     """Union verified partial pages; never erase a row missing from a response."""
+    from build_public_data import (index_source_aliases, match_source_aliases,
+                                   remember_source_aliases, citation_observation)
     output = copy.deepcopy(previous)
     keys = {source_row_key(row): i for i, row in enumerate(output)}
+    aliases = {}
+    for position, row in enumerate(output):
+        index_source_aliases(aliases, row, position)
     new_snapshot = timestamp(incoming_state.get('last_success_at')) > timestamp(previous_state.get('last_success_at'))
     for row in incoming:
         key = source_row_key(row)
         observed = timestamp(row.get('observed_at'))
         if not new_snapshot and observed == float('-inf'):
             continue
-        if key not in keys:
+        position, ambiguous = match_source_aliases(aliases, row)
+        if ambiguous:
+            continue
+        if position is None and key[0] == 'title':
+            position = keys.get(key)
+        if position is None:
             keys[key] = len(output)
             output.append(copy.deepcopy(row))
+            index_source_aliases(aliases, output[-1], len(output) - 1)
             continue
-        old = output[keys[key]]
+        old = output[position]
         prior = timestamp(old.get('observed_at') or previous_state.get('last_success_at'))
         newer = observed > prior if row.get('observed_at') else new_snapshot
+        old_citation = old.get('wos_citations')
+        old_stamp = citation_observation(old, 'wos')
+        if (not old_stamp and 'wos' not in (old.get('citation_observed_at') or {})
+                and 'wos_citations' not in (old.get('retained_citation_fields') or [])):
+            old_stamp = previous_state.get('last_success_at')
+        retained = 'wos_citations' in (row.get('retained_citation_fields') or [])
+        explicit = row.get('citation_observed_at') or {}
+        new_stamp = (explicit.get('wos') if 'wos' in explicit else
+                     None if retained else row.get('observed_at') or incoming_state.get('last_success_at'))
+        remember_source_aliases(old, row)
         def enrich(target, values):
             for field, value in values.items():
+                if target is old and field in {'wos_citations', 'citation_observed_at', 'retained_citation_fields',
+                                                'wos_uid_aliases', 'doi_aliases'}:
+                    continue
+                if target is old and field in {'id', 'elibrary_item_id', 'wos_uid', 'eid', 'doi', 'source'} and target.get(field):
+                    continue
+                if field == 'sources':
+                    existing = target.get(field) or []
+                    existing = [existing] if isinstance(existing, str) else existing
+                    additions = [value] if isinstance(value, str) else value or []
+                    target[field] = list(dict.fromkeys([*existing, *additions]))
+                    continue
                 if isinstance(value, dict) and isinstance(target.get(field), dict):
                     enrich(target[field], value)
                 elif value not in (None, '', [], {}) and (newer or target.get(field) in (None, '')):
                     target[field] = copy.deepcopy(value)
         enrich(old, row)
+        sources = old.get('sources') or []
+        sources = [sources] if isinstance(sources, str) else sources
+        if row.get('source') or old.get('source'):
+            old['sources'] = list(dict.fromkeys([*sources, *filter(None, (old.get('source'), row.get('source')))]))
+        stamps = old.setdefault('citation_observed_at', {}) if old.get('citation_observed_at') or explicit else {}
+        for provider, stamp in explicit.items():
+            if provider != 'wos' and timestamp(stamp) > timestamp(stamps.get(provider)):
+                stamps[provider] = stamp
+        has_citation = row.get('wos_citations') is not None
+        accept_citation = has_citation and (
+            old_citation is None or timestamp(new_stamp) > timestamp(old_stamp))
+        if accept_citation:
+            old['wos_citations'] = copy.deepcopy(row['wos_citations'])
+            if timestamp(new_stamp) > float('-inf'):
+                old.setdefault('citation_observed_at', {})['wos'] = new_stamp
+        elif old_citation is not None and timestamp(old_stamp) > float('-inf'):
+            # Anchor retained counts before the metadata clock advances again.
+            old.setdefault('citation_observed_at', {}).setdefault('wos', old_stamp)
+        if newer and 'retained_citation_fields' in row:
+            old['retained_citation_fields'] = copy.deepcopy(row['retained_citation_fields'])
+        if has_citation and not retained and timestamp(new_stamp) >= timestamp(old_stamp):
+            if 'retained_citation_fields' in old or 'retained_citation_fields' in row:
+                old['retained_citation_fields'] = [field for field in old.get('retained_citation_fields', [])
+                                                   if field != 'wos_citations']
+        index_source_aliases(aliases, old, position)
+        keys.setdefault(source_row_key(old), position)
     return output
 
 
