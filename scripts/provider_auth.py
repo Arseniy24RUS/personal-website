@@ -349,7 +349,7 @@ def wos_account_names():
 
 
 def wos_logout_visible(page):
-    pattern = re.compile(r'^\s*(?:(?:logout|exit_to_app)\s+)?(?:Sign out|Log out|Выйти|Выход)\s*$', re.I)
+    pattern = re.compile(r'^\s*(?:(?:logout|exit_to_app)\s+)?(?:Sign out|Log out|Выйти|Выход|Завершить сеанс(?: и выйти)?)\s*$', re.I)
     for role in ('button', 'link', 'menuitem'):
         controls = page.get_by_role(role, name=pattern)
         if any(controls.nth(index).is_visible() for index in range(controls.count())):
@@ -362,6 +362,7 @@ def wos_authenticated(page):
     if wos_logout_visible(page):
         return True
     account = visible(page, [
+        'button[data-ta="wos-header-user_name"]',
         '[data-ta="user-menu"]', '[data-ta="user-menu-button"]',
         'button[aria-label*="user menu" i]', 'button[aria-label*="account menu" i]',
     ])

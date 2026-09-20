@@ -9,8 +9,9 @@ the existing verified home VPN. GitHub schedules can be delayed or skipped.
 ## Storage and credentials
 
 Set the repository Secret `BROWSER_SESSION_KEY` to base64 of 32 random bytes.
-Keep the existing provider login and VPN Secrets. No PAT, local worker or
-always-on browser is needed. Never put the key in a command argument or print it.
+Keep the existing provider login and VPN Secrets. This architecture uses no PAT,
+local worker or always-on browser. Its WoS portability and renewal still require
+the live acceptance checks below. Never put the key in a command argument or print it.
 
 Each provider gets an AES-256-GCM artifact named `browser-session-v1-elibrary`
 or `browser-session-v1-wos`, retained for 90 days. The authenticated envelope
@@ -42,11 +43,31 @@ Do not broaden this list without observing why an origin is required.
 
 ## Bootstrap an authorized session
 
-Use the supported browser's scoped cookie export. Do not export the whole user's
-browser profile or unrelated tabs. Preserve the cookie domain/path, expiry,
-HttpOnly, Secure and SameSite attributes. The input file is standard Playwright
-storage state: `{"cookies": [...], "origins": []}`. IAB currently provides the
-required cookies; localStorage/IndexedDB export is not assumed available there.
+Use the supported browser's scoped export of cookies and observed authentication
+storage. Do not export the whole user's browser profile or unrelated tabs.
+Preserve cookie domain/path, expiry, HttpOnly, Secure and SameSite attributes.
+The input is standard Playwright storage state: `{"cookies": [...], "origins": [...]}`.
+Cookies alone must not be described as a complete authenticated session.
+
+The working WoS tab contains a localStorage entry named `wos_sid`: its value is a
+JSON-encoded string, and that decoded string matched the WOSSID cookie during the
+20 September inspection. Preserve the original storage value, including its JSON
+encoding, under origin `https://www.webofscience.com`. Initial cookie-only seeds
+omitted this entry. Do not infer that restoring this entry guarantees server-side
+account authorization; the live profile and account checks remain mandatory.
+
+In the current IAB, the supported tab-scoped CDP `Runtime.evaluate` command can
+read localStorage. An unsupported `DOMStorage.getDOMStorageItems` command does not
+establish that all storage export is unavailable. Read names/counts first; keep
+actual values in memory or the restricted temporary directory and encrypt them
+before passing them to Actions. Never print the CDP response containing values.
+Only the observed authentication entry is needed for this controlled comparison;
+do not include search history or analytics. The observed IndexedDB database and
+sessionStorage names were analytics/navigation state, with no established auth
+requirement. No full browser-profile export is assumed.
+
+See [Playwright authentication](https://playwright.dev/python/docs/auth) for the
+storage-state format and the separate handling required by sessionStorage.
 
 In a private temporary directory, with `BROWSER_SESSION_KEY` provided through the
 environment, run:
@@ -115,3 +136,20 @@ Tests cover altered ciphertext, wrong keys/author/provider, allowed origins,
 64-bit expiry, bootstrap vs confirmed state, a thirty-day gap, failed trusted
 runs, fork/branch rejection, prior-key migration, checkpoint preservation,
 archive path rejection, and maintenance isolation from public data.
+
+## Preserving the verified tab
+
+A confirmed checkpoint must take tab-specific sessionStorage from the actual
+verified profile page. A later empty tab for the same origin must not overwrite
+that state. Other same-origin conflicts fail the checkpoint without replacing the
+last confirmed artifact; they are not resolved by picking whichever tab is last.
+
+## Recognizing the current WoS account menu
+
+The authorized Russian interface observed on 20 September uses
+`button[data-ta="wos-header-user_name"]` with an accessible label describing the
+account menu, not just the user's name. Its visible logout entries are
+`Завершить сеанс` and `Завершить сеанс и выйти`. Opening this menu and checking
+these entries is authorization evidence; seeing the account button alone is not.
+The collector only observes logout entries and never activates them. This fixes
+a false-negative authentication check without relaxing challenge detection.

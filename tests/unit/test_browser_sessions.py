@@ -151,6 +151,97 @@ class BrowserSessionsTests(unittest.TestCase):
                 script = browser.new_context.return_value.add_init_script.call_args.kwargs['script']
                 self.assertNotIn('other-account', script)
 
+    def test_verified_page_wins_over_empty_or_different_same_origin_tab(self):
+        context = Mock()
+        context.storage_state.return_value = payload()['storage_state']
+        target = Mock(url='https://www.webofscience.com/wos/author/record/AAG-1530-2021')
+        target.evaluate.return_value = {'token': 'verified-target-token', sessions.HYDRATION_MARKER: '1'}
+        other = Mock(url='https://www.webofscience.com/wos/')
+        for alternative in ({}, {'token': 'unrelated-tab-token'}):
+            for order in ([target, other], [other, target]):
+                with self.subTest(alternative=bool(alternative), target_first=order[0] is target), tempfile.TemporaryDirectory() as directory, patch.dict(os.environ, {'BROWSER_SESSION_OUTBOX': directory}):
+                    other.evaluate.reset_mock()
+                    other.evaluate.return_value = alternative
+                    context.pages = order
+                    result = sessions.checkpoint_session(context, 'wos', authenticated=True, target_verified=True,
+                                                         target_id=sessions.DEFAULT_TARGET['wos'], verified_page=target)
+                    self.assertEqual(result['status'], 'checkpointed')
+                    envelope = json.loads((Path(directory) / 'wos.enc.json').read_text())
+                    restored = sessions.decrypt_payload(envelope, 'wos')
+                    self.assertEqual(restored['session_storage'], {'https://www.webofscience.com': {'token': 'verified-target-token'}})
+                    other.evaluate.assert_not_called()
+
+    def test_cross_tab_conflict_does_not_replace_confirmed_checkpoint(self):
+        context = Mock()
+        context.storage_state.return_value = payload()['storage_state']
+        target = Mock(url='https://www.webofscience.com/wos/author/record/AAG-1530-2021')
+        target.evaluate.return_value = {'token': 'verified-token'}
+        first = Mock(url='https://orcid.org/signin')
+        first.evaluate.return_value = {'token': 'first-tab-token'}
+        second = Mock(url='https://orcid.org/my-orcid')
+        with tempfile.TemporaryDirectory() as directory, patch.dict(os.environ, {'BROWSER_SESSION_OUTBOX': directory}):
+            context.pages = [target]
+            result = sessions.checkpoint_session(context, 'wos', authenticated=True, target_verified=True,
+                                                 target_id=sessions.DEFAULT_TARGET['wos'], verified_page=target)
+            self.assertEqual(result['status'], 'checkpointed')
+            path = Path(directory) / 'wos.enc.json'
+            before = path.read_bytes()
+            for alternative in ({}, {'token': 'different-tab-token'}):
+                second.evaluate.return_value = alternative
+                for order in ([target, first, second], [second, first, target]):
+                    context.pages = order
+                    result = sessions.checkpoint_session(context, 'wos', authenticated=True, target_verified=True,
+                                                         target_id=sessions.DEFAULT_TARGET['wos'], verified_page=target)
+                    self.assertEqual(result, {'status': 'error', 'reason': 'session_storage_conflict'})
+                    self.assertEqual(path.read_bytes(), before)
+
+    def test_unselected_conflicting_tabs_never_create_confirmed_checkpoint(self):
+        context = Mock()
+        context.storage_state.return_value = payload()['storage_state']
+        first = Mock(url='https://www.webofscience.com/wos/')
+        second = Mock(url='https://www.webofscience.com/wos/author/')
+        first.evaluate.return_value = {'token': 'one'}
+        second.evaluate.return_value = {'token': 'two'}
+        context.pages = [first, second]
+        with tempfile.TemporaryDirectory() as directory, patch.dict(os.environ, {'BROWSER_SESSION_OUTBOX': directory}):
+            result = sessions.checkpoint_session(context, 'wos', authenticated=True, target_verified=True,
+                                                 target_id=sessions.DEFAULT_TARGET['wos'])
+            self.assertEqual(result, {'status': 'error', 'reason': 'session_storage_conflict'})
+            self.assertFalse((Path(directory) / 'wos.enc.json').exists())
+            second.evaluate.return_value = {'token': 'one'}
+            result = sessions.checkpoint_session(context, 'wos', authenticated=True, target_verified=True,
+                                                 target_id=sessions.DEFAULT_TARGET['wos'])
+            self.assertEqual(result['status'], 'checkpointed')
+
+    def test_verified_page_must_belong_to_context_and_keep_its_origin(self):
+        context = Mock()
+        context.storage_state.return_value = payload()['storage_state']
+        target = Mock(url='https://www.webofscience.com/wos/')
+        target.evaluate.return_value = {'token': 'verified-token'}
+        context.pages = []
+        with tempfile.TemporaryDirectory() as directory, patch.dict(os.environ, {'BROWSER_SESSION_OUTBOX': directory}):
+            result = sessions.checkpoint_session(context, 'wos', authenticated=True, target_verified=True,
+                                                 target_id=sessions.DEFAULT_TARGET['wos'], verified_page=target)
+            self.assertEqual(result['reason'], 'verified_page_unavailable')
+            context.pages = [target]
+            def changed_origin(_):
+                target.url = 'https://orcid.org/signin'
+                return {'token': 'another-origin-token'}
+            target.evaluate.side_effect = changed_origin
+            result = sessions.checkpoint_session(context, 'wos', authenticated=True, target_verified=True,
+                                                 target_id=sessions.DEFAULT_TARGET['wos'], verified_page=target)
+            self.assertEqual(result, {'status': 'error', 'reason': 'session_storage_origin_changed'})
+            self.assertFalse((Path(directory) / 'wos.enc.json').exists())
+            target.url = 'https://www.webofscience.com/wos/'
+            target.evaluate.side_effect = None
+            other = Mock(url='https://orcid.org/signin')
+            other.evaluate.side_effect = changed_origin
+            context.pages = [target, other]
+            result = sessions.checkpoint_session(context, 'wos', authenticated=True, target_verified=True,
+                                                 target_id=sessions.DEFAULT_TARGET['wos'], verified_page=target)
+            self.assertEqual(result, {'status': 'error', 'reason': 'session_storage_origin_changed'})
+            self.assertFalse((Path(directory) / 'wos.enc.json').exists())
+
     def test_artifact_zip_does_not_extract_paths(self):
         content = io.BytesIO()
         with zipfile.ZipFile(content, 'w') as archive:
@@ -253,6 +344,26 @@ if (values.get('token') !== 'server-renewed-token') process.exit(2);'''
         for name in ('Save confirmed eLibrary session', 'Save confirmed WoS session'):
             self.assertEqual(by_name[name]['with']['retention-days'], 90)
             self.assertLess(steps.index(by_name[name]), steps.index(by_name['Stop tunnel and remove private state']))
+
+    def test_profile_diagnostics_export_only_numeric_summary_and_field_names(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, destination = Path(directory) / 'source', Path(directory) / 'destination'
+            sessions.private_write(source / 'wos.json', {'status': 'blocked', 'profile_diagnostics': {
+                'parsed_record_count': 0, 'summary_metric_count': 3, 'core_metric_count': 2,
+                'summary': {'publications': 13, 'citations': 0, 'h_index': None,
+                            'total_documents': 28, 'indexed_publications': 19,
+                            'core_collection_publications': 'private-not-numeric', 'cookie': 'private-cookie'},
+                'schema_fields': ['summary', 'records', 'https://private.invalid/?SID=secret'],
+                'record_fields': ['title', 'year', 'private-token-123'],
+                'raw_html': '<html>private</html>', 'session': 'private-session'}})
+            sessions.export_diagnostics(source, destination)
+            result = json.loads((destination / 'wos.json').read_text())['profile_diagnostics']
+            self.assertEqual(result['parsed_record_count'], 0)
+            self.assertEqual(result['summary'], {'publications': 13, 'citations': 0, 'h_index': None,
+                                                'total_documents': 28, 'indexed_publications': 19})
+            self.assertEqual(result['schema_fields'], ['summary', 'records'])
+            self.assertEqual(result['record_fields'], ['title', 'year'])
+            self.assertNotIn('private', json.dumps(result))
 
 
 if __name__ == '__main__':

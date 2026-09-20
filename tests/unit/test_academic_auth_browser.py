@@ -129,6 +129,32 @@ class AuthBrowserTests(unittest.TestCase):
         page.set_content('<body><button data-ta="user-menu" onclick="document.getElementById(\'menu\').hidden=false">Account</button><div id="menu" hidden><button>Sign in</button></div></body>')
         self.assertFalse(auth.wos_authenticated(page))
 
+    def test_wos_current_russian_account_menu_confirms_without_ending_session(self):
+        page = self.context.new_page()
+        for label in ('Завершить сеанс', 'Завершить сеанс и выйти'):
+            with self.subTest(label=label):
+                page.set_content(f'''<body><button data-ta="wos-header-user_name"
+                    aria-label="Раскрывающееся меню параметров учетной записи для пользователя Arseniy Sitkovskiy"
+                    onclick="document.getElementById('menu').hidden=false">Arseniy Sitkovskiy</button>
+                    <div id="menu" role="menu" hidden><button role="menuitem">Мой профиль</button>
+                    <button role="menuitem">Настройки</button>
+                    <button role="menuitem" onclick="window.sessionEnded=true">{label}</button></div></body>''')
+                self.assertFalse(auth.wos_logout_visible(page))
+                self.assertTrue(auth.wos_authenticated(page))
+                self.assertTrue(auth.wos_logout_visible(page))
+                self.assertIsNone(page.evaluate('window.sessionEnded'))
+
+    def test_wos_current_russian_account_button_without_visible_logout_is_not_proof(self):
+        page = self.context.new_page()
+        page.set_content('''<body><button data-ta="wos-header-user_name"
+            aria-label="Раскрывающееся меню параметров учетной записи для пользователя Arseniy Sitkovskiy"
+            onclick="document.getElementById('menu').hidden=false">Arseniy Sitkovskiy</button>
+            <div id="menu" role="menu" hidden><button role="menuitem">Мой профиль</button>
+            <button role="menuitem">Настройки</button>
+            <button role="menuitem" hidden>Завершить сеанс и выйти</button></div></body>''')
+        self.assertFalse(auth.wos_authenticated(page))
+        self.assertFalse(auth.wos_logout_visible(page))
+
     def test_captcha_is_explicit_and_not_interacted_with(self):
         page = self.context.new_page()
         page.set_content('<body>private page text Please verify you are human<button onclick="window.clicked=true">Continue</button></body>')

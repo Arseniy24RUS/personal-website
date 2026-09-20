@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import copy
+import math
 import os
 import re
 import time
@@ -41,12 +42,14 @@ def safe_profile_diagnostics(page):
         records = data.get('records', [])
         summary = data.get('summary', {})
         keys = ('publications', 'citations', 'h_index', 'total_documents', 'indexed_publications', 'core_collection_publications')
-        field_names = lambda value: sorted(key for key in value if isinstance(key, str) and re.fullmatch('[a-z][a-z_]{0,60}', key))
+        schema_fields = {'source', 'source_url', 'researcher_id', 'generated_at', 'page_title', 'summary', 'summary_metrics', 'core_collection_metrics', 'records_count_on_page', 'records'}
+        record_fields = {'source', 'wos_uid', 'document_type', 'title', 'title_en', 'authors_raw', 'venue', 'venue_en', 'publisher', 'year', 'volume', 'issue', 'pages', 'doi', 'url', 'metadata_raw', 'dedupe_fingerprint', 'sources'}
+        numeric = lambda value: type(value) in (int, float) and math.isfinite(value)
         return {
             'parsed_record_count': len(records),
-            'summary': {key: summary.get(key) if isinstance(summary.get(key), (int, float)) else None for key in keys},
-            'schema_fields': field_names(data),
-            'record_fields': field_names({key: None for record in records[:5] if isinstance(record, dict) for key in record}),
+            'summary': {key: summary.get(key) if numeric(summary.get(key)) else None for key in keys},
+            'schema_fields': sorted(schema_fields.intersection(data)),
+            'record_fields': sorted(record_fields.intersection(key for record in records[:5] if isinstance(record, dict) for key in record)),
             'summary_metric_count': len(data.get('summary_metrics', {})),
             'core_metric_count': len(data.get('core_collection_metrics', {})),
         }
@@ -185,6 +188,8 @@ def authenticated_page(context, session_info, target=RESEARCHER_ID, *, fresh_con
         except Exception as exc:
             failure = exc if isinstance(exc, AuthFailure) else AuthFailure(type(exc).__name__)
             failure.diagnostics = safe_browser_diagnostics(context)
+            if failure.reason in {'profile_not_authenticated_or_changed', 'wrong_author_profile', 'TimeoutError'}:
+                failure.profile_diagnostics = safe_profile_diagnostics(page)
             raise failure from None
 
     if session_info.get('status') == 'restored':
@@ -317,7 +322,7 @@ def main():
                 authenticated = wos_authenticated(page)
             except Exception:
                 authenticated = False
-            session = checkpoint_session(context, 'wos', authenticated=authenticated, target_verified=True, target_id=RESEARCHER_ID)
+            session = checkpoint_session(context, 'wos', authenticated=authenticated, target_verified=True, target_id=RESEARCHER_ID, verified_page=page)
             saved_components.update(successful)
         state.update(authentication=authentication, session_checkpoint=session, session_restore=restored)
         write_checkpoint(checkpoint_path, state, data)
@@ -345,7 +350,7 @@ def main():
             verify_browser_egress(context)
             stage = 'login'
             page, authentication = authenticated_page(context, restored, fresh_context=replace_expired_context)
-            session = checkpoint_session(context, 'wos', authenticated=True, target_verified=True, target_id=RESEARCHER_ID)
+            session = checkpoint_session(context, 'wos', authenticated=True, target_verified=True, target_id=RESEARCHER_ID, verified_page=page)
             if maintenance:
                 report = {'provider': 'wos', 'status': 'success' if session.get('status') == 'checkpointed' else 'error', 'reason': session.get('reason'), 'authentication': authentication, 'target_verified': True, 'session_checkpoint': session, 'session_restore': restored, 'attempted_at': now()}
             else:
@@ -370,7 +375,7 @@ def main():
             report = source_result(previous_report, status='blocked' if isinstance(exc, AuthFailure) else 'error', count=len(payloads['publications']), reason=reason)
             report['components'] = {key: source_result(component_state(previous_report, key), status=report['status'], reason=reason) for key in ('metrics', 'publications')}
         report.update(stage=stage, session_checkpoint=session, session_restore=restored)
-        for field in ('diagnostics', 'verification_evidence', 'authentication_evidence'):
+        for field in ('diagnostics', 'verification_evidence', 'authentication_evidence', 'profile_diagnostics'):
             if getattr(exc, field, None):
                 report[field] = getattr(exc, field)
         if init:

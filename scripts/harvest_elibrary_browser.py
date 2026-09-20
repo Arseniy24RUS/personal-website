@@ -327,7 +327,7 @@ def main():
                 authenticated = elibrary_authenticated(page)
             except Exception:
                 authenticated = False
-            session = checkpoint_session(context, 'elibrary', authenticated=authenticated, target_verified=True, target_id=AUTHOR_ID)
+            session = checkpoint_session(context, 'elibrary', authenticated=authenticated, target_verified=True, target_id=AUTHOR_ID, verified_page=page)
             saved_components.update(successful)
         state.update(authentication=authentication, session_checkpoint=session, session_restore=restored)
         write_checkpoint(checkpoint_path, state, data)
@@ -355,7 +355,7 @@ def main():
             verify_browser_egress(context)
             stage = 'login'
             page, authentication = authenticated_page(context, restored, fresh_context=replace_expired_context)
-            session = checkpoint_session(context, 'elibrary', authenticated=True, target_verified=True, target_id=AUTHOR_ID)
+            session = checkpoint_session(context, 'elibrary', authenticated=True, target_verified=True, target_id=AUTHOR_ID, verified_page=page)
             if maintenance:
                 report = {'provider': 'elibrary', 'status': 'success' if session.get('status') == 'checkpointed' else 'error', 'reason': session.get('reason'), 'authentication': authentication, 'target_verified': True, 'session_checkpoint': session, 'session_restore': restored, 'attempted_at': now()}
             else:
