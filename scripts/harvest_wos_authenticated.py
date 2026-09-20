@@ -57,8 +57,42 @@ def safe_profile_diagnostics(page):
         return {'parser_failed': True}
 
 
+def safe_record_dom_diagnostics(page):
+    """Only counts and geometry: no DOM text, attribute values or record URLs."""
+    try:
+        observed = page.locator('app-record').evaluate_all("""elements => {
+            const first = elements[0];
+            const rect = first ? first.getBoundingClientRect() : null;
+            const integer = value => Math.round(Math.max(-1000000, Math.min(1000000, value)));
+            return {
+                app_record_count: elements.length,
+                nonempty_app_record_count: elements.filter(el => (el.innerText || '').trim().length > 0).length,
+                record_title_link_count: elements.reduce((count, el) => count + el.querySelectorAll('app-summary-title a[data-ta="summary-record-title-link"]').length, 0),
+                record_shadow_root_count: elements.filter(el => el.shadowRoot !== null).length,
+                first_record_top: rect ? integer(rect.top) : null,
+                first_record_height: rect ? integer(rect.height) : null,
+                viewport_height: innerHeight,
+                first_record_intersects_viewport: rect ? Number(rect.top < innerHeight && rect.bottom >= 0 && rect.left < innerWidth && rect.right >= 0) : 0
+            };
+        }""")
+        fields = {'app_record_count', 'nonempty_app_record_count', 'record_title_link_count',
+                  'record_shadow_root_count', 'first_record_top', 'first_record_height',
+                  'viewport_height', 'first_record_intersects_viewport'}
+        return {key: value for key, value in observed.items()
+                if key in fields and (value is None or type(value) in (int, float) and math.isfinite(value))}
+    except Exception:
+        return {'dom_observation_failed': True}
+
+
+def record_read_failure(page, reason):
+    failure = AuthFailure(reason)
+    failure.profile_diagnostics = {**safe_profile_diagnostics(page), **safe_record_dom_diagnostics(page)}
+    return failure
+
+
 def read_records(page, previous_keys=None):
     deadline = time.monotonic() + WAIT_SEC
+    scrolled_to_records = False
     while time.monotonic() < deadline:
         assert_no_challenge(page)
         data = parse_wos_author_profile_html(page.content(), RESEARCHER_ID)
@@ -67,8 +101,20 @@ def read_records(page, previous_keys=None):
             return data
         if records and (not previous_keys or {record_key(r) for r in records} - previous_keys):
             return data
+        if not records and not scrolled_to_records:
+            cards = page.locator('app-record')
+            if cards.count():
+                # WoS leaves even zero-height shells empty until their first
+                # IntersectionObserver target enters the viewport. Use the same
+                # ordinary scroll as a reader; do not change or synthesize DOM.
+                scrolled_to_records = True
+                remaining_ms = int(max(1, (deadline - time.monotonic()) * 1000))
+                try:
+                    cards.first.scroll_into_view_if_needed(timeout=min(5000, remaining_ms))
+                except Exception:
+                    raise record_read_failure(page, 'publication_list_scroll_failed') from None
         page.wait_for_timeout(1000)
-    raise AuthFailure('profile_records_not_ready')
+    raise record_read_failure(page, 'profile_records_not_ready')
 
 
 def expected_publications(data):
@@ -251,8 +297,9 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
             if prior.get(field):
                 state[field] = prior[field]
                 state['status'] = 'partial'
-        if getattr(exc, 'verification_evidence', None):
-            state['verification_evidence'] = exc.verification_evidence
+        for field in ('verification_evidence', 'profile_diagnostics'):
+            if getattr(exc, field, None):
+                state[field] = getattr(exc, field)
         components[key] = state
         emit()
 
