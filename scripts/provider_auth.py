@@ -206,7 +206,12 @@ def challenge_frame_evidence(locator, *, deadline=None):
             result['checkbox_present'] = count > 0
             result['checkbox_visible'] = any(in_visible_viewport(checkboxes.nth(i), timeout=_observation_timeout(deadline)) for i in range(min(count, 10)))
             result['checkbox_checked'] = any(checkboxes.nth(i).evaluate("el => el.checked === true || el.getAttribute('aria-checked') === 'true'", timeout=_observation_timeout(deadline)) for i in range(min(count, 10))) if count else None
-            controls = frame.locator('.rc-imageselect, #recaptcha-verify-button, #audio-response, .rc-audiochallenge-input, .hcaptcha-challenge')
+            control_selector = '.rc-imageselect, #recaptcha-verify-button, #audio-response, .rc-audiochallenge-input, .hcaptcha-challenge'
+            if result['provider_host'] != 'other' and result['frame_host_matches_provider']:
+                # Provider markup changes; ordinary visible controls inside a
+                # known challenge frame must never receive loading grace.
+                control_selector += ', button, [role="button"]'
+            controls = frame.locator(control_selector)
             control_count = controls.count()
             result['active_challenge_controls'] = any(in_visible_viewport(controls.nth(i), timeout=_observation_timeout(deadline)) for i in range(min(control_count, 10)))
             # A capped/incomplete scan must never qualify for settling grace.
@@ -381,10 +386,18 @@ def assert_no_challenge(page, *, form_submitted=True, passive_wait_seconds=10.0,
         except _ChallengeObservationTimeout:
             reason = 'human_verification_required' if pending else 'challenge_observation_incomplete'
             evidence, may_settle = pending, True
-        except Exception:
-            evidence = {'trigger': 'observation_incomplete'}
-            trace = observe('challenge_observation_incomplete', evidence, False, terminal='incomplete')
-            raise AuthFailure('challenge_observation_incomplete', verification_evidence={**evidence, **trace}) from None
+        except Exception as exc:
+            read_timeout = isinstance(exc, TimeoutError) or (
+                type(exc).__name__ == 'TimeoutError' and type(exc).__module__.startswith('playwright.')
+            )
+            if pending is not None and read_timeout and time.monotonic() >= deadline:
+                # A locator may raise its own timeout just as the shared budget
+                # expires. Preserve the challenge already observed in this call.
+                reason, evidence, may_settle = 'human_verification_required', pending, True
+            else:
+                evidence = {'trigger': 'observation_incomplete'}
+                trace = observe('challenge_observation_incomplete', evidence, False, terminal='incomplete')
+                raise AuthFailure('challenge_observation_incomplete', verification_evidence={**evidence, **trace}) from None
         remaining = deadline - time.monotonic()
         if remaining <= 0:
             failure_reason = reason or ('human_verification_required' if pending else 'challenge_observation_incomplete')

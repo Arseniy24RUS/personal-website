@@ -224,3 +224,20 @@ and never interpret loaded metrics behind a remaining frame as success. Safe
 numeric observations can distinguish disappearance after ten seconds from a
 persistent interruption; further timeout increases without such evidence do not
 establish a cause or solve the challenge.
+
+The bounded experiment
+[35532934440](https://github.com/Arseniy24RUS/personal-website/actions/runs/35532934440)
+restored the same confirmed session, but the visible hCaptcha frame remained
+throughout observation. Its document was already `complete`, with one native
+button and 15 button roles in the DOM. The former narrow CSS selectors did not
+recognize these controls, so absence of their matches was not evidence of an
+empty automatic loader. Increasing the entry window did not establish a fix.
+Visible native/ARIA buttons in a recognized challenge frame must therefore stop
+collection immediately. A read timeout at an already-known pending challenge's
+deadline must retain the challenge classification.
+
+Session portability and one complete automatic collection are confirmed;
+reliable CAPTCHA-free collection is not. Do not report the repeated interruptions
+as success, extend waits indefinitely, or claim that changing the runner OS
+reproduces a trusted home PC. Daily maintenance and the post-expiry acceptance
+monitor remain enabled, with the last verified data and session preserved.
