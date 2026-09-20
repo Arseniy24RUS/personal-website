@@ -5,6 +5,23 @@ import re
 from translation_runtime import BoundedArgosTranslator
 
 
+def pending_translation_fields(record):
+    """Only absent English fields with a usable Russian original may wait."""
+    return [field + '_en' for field in ('title', 'description', 'source_name')
+            if not str(record.get(field + '_en') or '').strip()
+            and re.search('[А-Яа-яЁё]', str(record.get(field + '_ru') or record.get(field) or ''))]
+
+
+def update_translation_state(record, reason=None):
+    fields = pending_translation_fields(record)
+    previous = record.get('translation_state') or {}
+    if fields:
+        record['translation_state'] = {'status': 'pending', 'fields': fields,
+                                       'reason': reason or previous.get('reason') or 'translation_unavailable'}
+    elif previous:
+        record['translation_state'] = {'status': 'complete', 'fields': [], 'reason': None}
+
+
 class MediaTranslator:
     def __init__(self, path):
         self.path = path
@@ -27,7 +44,7 @@ class MediaTranslator:
         return successful
 
     def enrich(self, record):
-        for field in ('title', 'description'):
+        for field in ('title', 'description', 'source_name'):
             if record.get(field + '_en'):
                 continue
             original = record.get(field + '_ru') or record.get(field) or ''
@@ -55,6 +72,7 @@ class MediaTranslator:
                     self._changed = True
             except Exception as exc:
                 self.status = 'translation_failed_' + type(exc).__name__
+        update_translation_state(record, self.status)
 
     def save(self):
         if self._runtime is not None:

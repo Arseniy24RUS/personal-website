@@ -25,7 +25,7 @@ import requests
 import yaml
 
 from media_postprocess import mirror_image, parse_date_value, is_blocked_record, usable_image_url
-from media_translation import MediaTranslator
+from media_translation import MediaTranslator, update_translation_state
 
 OUT = Path('data/media')
 QUEUE = Path('data/admin_queue')
@@ -364,7 +364,8 @@ def discover_sitemaps(cfg, reports, state):
     for source in source_slices(cfg.get('sitemap_sources', [])):
         urls, source_reports = fetch_sitemap_urls(source['sitemap_url'], int(source.get('max_urls', 100)), source.get('url_allow_regex'), state=state)
         reports.extend(source_reports)
-        items.extend({'url': url, 'source': 'sitemap_scan', 'source_name': source['name']} for url in urls)
+        items.extend({'url': url, 'source': 'sitemap_scan', 'source_name': source['name'],
+                      'source_name_en': source.get('name_en')} for url in urls)
     return items
 
 
@@ -391,7 +392,8 @@ def discover_sites(cfg, reports, state):
                     continue
                 if is_blocked_record({'url': link}):
                     continue
-                items.append({'url': link, 'source': 'institutional_site_scan', 'source_name': source['name']})
+                items.append({'url': link, 'source': 'institutional_site_scan', 'source_name': source['name'],
+                              'source_name_en': source.get('name_en')})
                 if depth < int(source.get('max_depth', 0)):
                     pending.append((link, depth + 1))
     return items
@@ -453,6 +455,10 @@ def merge_records(existing, incoming):
                     merged[key][field] = value
         if merged[key].get('id'):
             ids[merged[key]['id']] = key
+        if merged[key].get('translation_state'):
+            # A concurrent merge may fill the last missing translation. This
+            # operational state must follow the merged fields, not old metadata.
+            update_translation_state(merged[key])
     return sorted(merged.values(), key=lambda r: (r.get('published_at') or '', r.get('title') or ''), reverse=True)
 
 
@@ -600,7 +606,7 @@ def run(cfg, providers=None, max_articles=None, seeds_only=False, mirror=True, t
         # Never re-fetch/rewrite a previously cached image merely to touch its timestamp.
         image = record.get('image')
         if mirror and canonical(record['url']) not in existing_urls and image and not (image.startswith('assets/') and Path(image).exists()):
-            post_reports.append({'id': record['id'], 'image': mirror_image(record, image)['status']})
+            post_reports.append({'id': record['id'], 'image': mirror_image(record, image, deadline=FETCH_DEADLINE)['status']})
     if translator:
         translator.save()
     published_urls = {canonical(r['url']) for r in published}
@@ -617,11 +623,13 @@ def run(cfg, providers=None, max_articles=None, seeds_only=False, mirror=True, t
               'published': len(published), 'new_records': len(published) - len(current),
               'low_confidence': len(queue), 'pending': len(pending), 'providers': reports,
               'discovery_budgets': discovery_budgets,
+              'translation_pending': sum((r.get('translation_state') or {}).get('status') == 'pending' for r in published),
               'images': post_reports, 'translation': translator.status if translator else 'disabled'}
     # Assert identity-level retention before promoting any public file.
     for old in current:
         kept = next((r for r in published if r.get('id') == old.get('id') and r.get('url') == old.get('url')), None)
-        if kept is None or any(kept.get(k) != v for k, v in old.items() if v is not None and v != ''):
+        if kept is None or any(kept.get(k) != v for k, v in old.items()
+                               if k != 'translation_state' and v is not None and v != ''):
             raise ValueError('media_retention_failed')
     payload = {'generated_at': stamp, 'records': published}
     for filename in ('published.json', 'news_mentions.json', 'published-fallback.json'):

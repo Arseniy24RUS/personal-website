@@ -10,7 +10,8 @@ from unittest.mock import Mock, patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
 import harvest_media_mentions as media
 import media_postprocess as images
-from media_translation import MediaTranslator
+import check_seo as seo
+from media_translation import MediaTranslator, pending_translation_fields
 
 ISESP = {'name': 'ISESP', 'url': 'https://www.isesp-ras.ru/news/',
          'link_selector': '.news .title a', 'item_class': 'news', 'date_selector': '.date'}
@@ -228,11 +229,16 @@ class MediaTests(unittest.TestCase):
         record = media.build_record(candidate, media.article_meta(ISD_ARTICLE, original), CFG)
         self.assertEqual(record['status'], 'published')
 
-    def test_repository_published_english_is_complete(self):
+    def test_repository_published_english_is_complete_or_explicitly_pending(self):
         published = Path(__file__).resolve().parents[2] / 'data/media/published.json'
         records = json.loads(published.read_text(encoding='utf-8'))['records']
         for record in records:
+            state = record.get('translation_state') or {}
+            pending = (set(state.get('fields') or []) & set(pending_translation_fields(record))
+                       if state.get('status') == 'pending' and state.get('reason') else set())
             for field in ('title_en', 'description_en'):
+                if not record.get(field) and field in pending:
+                    continue
                 self.assertTrue(record.get(field), (record['url'], field))
                 self.assertIsNone(media.re.search('[А-Яа-яЁё]', record[field]), (record['url'], field))
 
@@ -305,6 +311,82 @@ class MediaTests(unittest.TestCase):
         with patch.object(cached, 'ensure', side_effect=AssertionError('No model call needed')):
             cached.enrich(again)
         self.assertEqual(again['description_en'], 'Description')
+
+    def test_new_russian_card_survives_translation_outage_and_later_recovers(self):
+        old = {'id': 'manual', 'url': 'https://site.org/manual', 'title_ru': 'Ручной заголовок',
+               'title_en': 'Reviewed title', 'description_ru': 'Ручное описание',
+               'description_en': 'Reviewed description', 'source_name': 'Источник', 'source_name_en': 'Reviewed source'}
+        media.write_json(media.OUT / 'published.json', {'records': [old]})
+
+        def unavailable(translator):
+            translator.status = 'unavailable_ru_en_model'
+            return False
+
+        with patch.object(media, 'fetch_text', side_effect=self.fake_fetch), patch.object(MediaTranslator, 'ensure', unavailable):
+            media.run(CFG, ['listings'], mirror=False)
+        records = self.read('published.json')['records']
+        self.assertEqual(next(r for r in records if r['id'] == 'manual'), old)
+        new = [r for r in records if r['id'] != 'manual']
+        self.assertEqual(len(new), 2)
+        self.assertTrue(all(r['translation_state']['status'] == 'pending' for r in new))
+        self.assertTrue(all(r['title_ru'] and r['description_ru'] for r in new))
+        self.assertTrue(all(r['source_name_en'] for r in new))
+        errors = []
+        for name in ('published.json', 'news_mentions.json'):
+            media.write_json(self.root / 'data/media' / name, {'records': records})
+        with patch.object(seo, 'ROOT', self.root), patch.object(seo, 'ERRORS', errors):
+            seo.check_media_english_localization()
+        self.assertEqual(errors, [])
+
+        def available(translator):
+            translator._translation = Mock()
+            translator._translation.translate.return_value = 'Translated academic news'
+            return True
+
+        with patch.object(media, 'fetch_text', side_effect=self.fake_fetch), patch.object(MediaTranslator, 'ensure', available):
+            media.run(CFG, ['listings'], mirror=False)
+        recovered = self.read('published.json')['records']
+        self.assertEqual(next(r for r in recovered if r['id'] == 'manual'), old)
+        self.assertTrue(all(r['translation_state']['status'] == 'complete' for r in recovered if r['id'] != 'manual'))
+        # Concurrent publication must clear stale pending state after filling EN.
+        merged = media.merge_records(records, recovered)
+        self.assertTrue(all(r['translation_state']['status'] == 'complete' for r in merged if r['id'] != 'manual'))
+
+    def test_pending_marker_cannot_excuse_invalid_english_or_missing_original(self):
+        cases = [
+            {'title_ru': 'Русский заголовок', 'description_ru': 'Русское описание'},
+            {'title_en': 'Русский заголовок', 'description_en': 'Reviewed description',
+             'translation_state': {'status': 'pending', 'fields': ['title_en'], 'reason': 'unavailable'}},
+            {'title_en': 'Reviewed title',
+             'translation_state': {'status': 'pending', 'fields': ['description_en'], 'reason': 'unavailable'}},
+        ]
+        for record in cases:
+            for name in ('published.json', 'news_mentions.json'):
+                media.write_json(self.root / 'data/media' / name, {'records': [record]})
+            errors = []
+            with patch.object(seo, 'ROOT', self.root), patch.object(seo, 'ERRORS', errors):
+                seo.check_media_english_localization()
+            self.assertTrue(errors, record)
+
+    def test_source_name_english_uses_config_or_cached_translation(self):
+        cfg = {'sitemap_sources': [{'name': 'Институт', 'name_en': 'Research Institute', 'sitemap_url': 'https://site.org/map.xml'}]}
+        with patch.object(media, 'fetch_text', return_value=('<urlset><url><loc>https://site.org/news</loc></url></urlset>', {'status': 'ok'})):
+            found = media.discover_sitemaps(cfg, [], {})
+        self.assertEqual(found[0]['source_name_en'], 'Research Institute')
+        translator = MediaTranslator(self.root / 'translation.json')
+        translator._translation = Mock()
+        translator._translation.translate.return_value = 'Research Institute'
+        record = {'title_en': 'Reviewed title', 'description_en': 'Reviewed description', 'source_name': 'Научный институт'}
+        with patch.object(translator, 'ensure', return_value=True):
+            translator.enrich(record)
+        self.assertEqual(record['source_name_en'], 'Research Institute')
+        self.assertNotIn('translation_state', record)
+        translator.save()
+        cached = MediaTranslator(self.root / 'translation.json')
+        restored = {'source_name': 'Научный институт'}
+        with patch.object(cached, 'ensure', side_effect=AssertionError('Use source-name cache')):
+            cached.enrich(restored)
+        self.assertEqual(restored['source_name_en'], 'Research Institute')
 
     def test_image_transport_or_invalid_content_keeps_previous(self):
         old = {'id': 'image', 'image': 'https://site.org/old.jpg', 'url': 'https://site.org/story'}

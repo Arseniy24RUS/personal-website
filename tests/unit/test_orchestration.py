@@ -76,6 +76,21 @@ class ReportSafetyTests(unittest.TestCase):
 
 
 class RefreshStageTests(unittest.TestCase):
+    def test_diagnostics_excludes_unattempted_sources_and_old_enrichment(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            stage, destination = Path(temporary) / 'stage', Path(temporary) / 'diagnostics'
+            dump(stage / 'data/audit/refresh_run.json', {
+                'attempted_at': ATTEMPT, 'state': 'collecting', 'selected_sources': ['wos']})
+            dump(stage / 'data/wos/harvest_report.json', {**FRESH, 'attempted_at': ATTEMPT})
+            dump(stage / 'data/elibrary/browser_fetch_report.json', {**FRESH, 'attempted_at': LAST_SUCCESS})
+            dump(stage / 'data/audit/publication_title_translation_report.json', {'generated_at': LAST_SUCCESS})
+            pipeline.diagnostics(stage, destination)
+            self.assertTrue((destination / 'data/wos/harvest_report.json').exists())
+            self.assertFalse((destination / 'data/elibrary/browser_fetch_report.json').exists())
+            self.assertFalse((destination / 'data/audit/publication_title_translation_report.json').exists())
+            self.assertIn('data/audit/publication_title_translation_report.json',
+                          load(destination / 'data/audit/diagnostic_manifest.json')['omitted_previous_run_reports'])
+
     def test_prepare_does_not_reuse_prior_run_validation(self):
         with tempfile.TemporaryDirectory() as temporary:
             root, stage = Path(temporary) / 'checkout', Path(temporary) / 'stage'

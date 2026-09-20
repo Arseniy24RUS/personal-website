@@ -108,7 +108,8 @@ def prepare(destination: Path):
     write(destination / 'data/audit/refresh_run.json', {'attempted_at': now(), 'base_sha': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), 'state': 'collecting'})
     # A failed run must not export yesterday's validation as its own evidence.
     for name in ('collector_steps.json', 'derived_steps.json', 'refresh_pipeline_audit.json',
-                 'retention_report.json', 'translation_model_setup.json'):
+                 'retention_report.json', 'translation_model_setup.json',
+                 'publication_title_translation_report.json', 'publication_metadata_enrichment_report.json'):
         (destination / 'data/audit' / name).unlink(missing_ok=True)
     print('Isolated source and content snapshot prepared.')
 
@@ -207,27 +208,38 @@ def health(root: Path = ROOT):
     run_state = read(root / 'data/audit/refresh_run.json', {})
     selected = set(run_state.get('selected_sources') or (s[0] for s in SOURCES))
     results = {}
+    observations = {}
     for key in ('elibrary', 'wos', 'scopus'):
         if key in selected:
             state = sources.get(key, {})
+            observations[key] = state
             results[key] = (state.get('status') == 'success' and state.get('origin') == 'live'
                             and state.get('complete') is True and bool(state.get('last_success_at')))
     if 'media' in selected:
         media = read(root / 'data/media/harvest_report.json', {})
+        observations['media'] = media
         results['media'] = (media.get('status') in ('success', 'partial') and media.get('origin') == 'live'
                             and bool(media.get('last_success_at'))
                             and media.get('required_sources_ok', media.get('status') == 'success') is True)
     if 'open' in selected:
         opening = read(root / 'data/open/harvest_report.json', {})
+        observations['open'] = opening
         results['open'] = (opening.get('status') == 'success' and opening.get('origin') == 'live'
                            and opening.get('complete') is True and bool(opening.get('last_success_at')))
     if run_state.get('state') not in (None, 'ready'):
         results['pipeline_completed'] = False
-    report = {'checked_at': now(), 'healthy': all(results.values()), 'checks': results}
+    details = {key: {field: value.get(field) for field in ('status', 'origin', 'complete', 'record_count', 'pending', 'reason')}
+               for key, value in observations.items()}
+    report = {'checked_at': now(), 'healthy': all(results.values()), 'checks': results, 'details': details}
     write(root / 'data/audit/source_health_check.json', report)
     summary = os.environ.get('GITHUB_STEP_SUMMARY')
-    lines = ['### Source collection', '', '| Source | Fresh collection |', '|---|---|']
-    lines += [f'| {key} | {"PASS" if ok else "NEEDS ATTENTION — previous data preserved"} |' for key, ok in results.items()]
+    lines = ['### Source collection', '', '| Source | Availability | Coverage / reason |', '|---|---|---|']
+    for key, ok in results.items():
+        detail = details.get(key, {})
+        coverage = 'complete' if detail.get('complete') else (detail.get('reason') or 'incomplete')
+        if detail.get('pending'):
+            coverage += f'; pending: {detail["pending"]}'
+        lines.append(f'| {key} | {"PASS" if ok else "NEEDS ATTENTION — previous data preserved"} | {coverage} |')
     enrichment = read(root / 'data/audit/derived_steps.json', {}).get('steps', [])
     incomplete = [step for step in enrichment if step.get('status') != 'success']
     if incomplete:
@@ -240,11 +252,25 @@ def health(root: Path = ROOT):
     return 0 if report['healthy'] else 2
 
 def diagnostics(stage: Path, destination: Path):
-    paths = [item[2] for item in SOURCES] + ['data/audit/refresh_run.json', 'data/audit/collector_steps.json', 'data/audit/derived_steps.json', 'data/audit/translation_model_setup.json', 'data/audit/publication_title_translation_report.json', 'data/audit/publication_metadata_enrichment_report.json', 'data/audit/refresh_pipeline_audit.json', 'data/audit/retention_report.json']
+    state = read(stage / 'data/audit/refresh_run.json', {})
+    selected = set(state.get('selected_sources', []))
+    paths = [item[2] for item in SOURCES if item[0] in selected] + ['data/audit/refresh_run.json', 'data/audit/collector_steps.json', 'data/audit/derived_steps.json', 'data/audit/translation_model_setup.json', 'data/audit/publication_title_translation_report.json', 'data/audit/publication_metadata_enrichment_report.json', 'data/audit/refresh_pipeline_audit.json', 'data/audit/retention_report.json']
+    exported, omitted = [], []
     for name in paths:
         path = stage / name
         if path.exists():
-            write(destination / name, read(path, {}))
+            payload = read(path, {})
+            observed = payload.get('attempted_at') or payload.get('generated_at')
+            if observed and observed < state.get('attempted_at', ''):
+                omitted.append(name)
+                continue
+            write(destination / name, payload)
+            exported.append(name)
+    write(destination / 'data/audit/diagnostic_manifest.json', {
+        'attempted_at': state.get('attempted_at'), 'state': state.get('state'),
+        'selected_sources': sorted(selected), 'exported': exported,
+        'omitted_previous_run_reports': omitted,
+    })
     print('Only sanitized diagnostic JSON exported; sessions and raw responses excluded.')
 
 def main():

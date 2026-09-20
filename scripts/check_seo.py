@@ -9,6 +9,7 @@ from pathlib import Path
 sys.dont_write_bytecode = True
 
 from seo_config import ALTERNATE_NAMES, BASE_URL, PAGES, ROBOTS_META, SAME_AS, page_url
+from media_translation import pending_translation_fields
 
 ROOT = Path(__file__).resolve().parents[1]
 NS = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
@@ -241,16 +242,20 @@ def check_media_english_localization() -> None:
             continue
         for index, record in enumerate(records, start=1):
             label = record.get("url") or record.get("id") or f"record #{index}"
+            state = record.get('translation_state') or {}
+            pending = set(pending_translation_fields(record))
+            allowed_pending = (set(state.get('fields') or []) & pending
+                               if state.get('status') == 'pending' and state.get('reason') else set())
             for key in ("title_en", "description_en"):
                 value = str(record.get(key) or "").strip()
-                if not value:
+                if not value and key not in allowed_pending:
                     fail(f"Missing {key} in data/media/{name}: {label}")
                 elif cyrillic.search(value):
                     fail(f"Cyrillic text found in {key} in data/media/{name}: {label}")
             source_en = str(record.get("source_name_en") or "").strip()
             source = str(record.get("source_name") or "")
             if cyrillic.search(source):
-                if not source_en:
+                if not source_en and 'source_name_en' not in allowed_pending:
                     fail(f"Missing source_name_en for Cyrillic source in data/media/{name}: {label}")
                 elif cyrillic.search(source_en):
                     fail(f"Cyrillic text found in source_name_en in data/media/{name}: {label}")

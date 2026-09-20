@@ -9,7 +9,9 @@ import hashlib
 import html
 import io
 import json
+import queue
 import re
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -111,9 +113,12 @@ def safe_url(url: str) -> str:
     return urlunsplit((parts.scheme, parts.netloc, path, query, parts.fragment))
 
 
-def fetch_bytes(url: str, *, max_bytes: int = 8_000_000) -> tuple[bytes | None, dict]:
+def _fetch_image_bytes(url: str, max_bytes: int, deadline: float) -> tuple[bytes | None, dict]:
     info = {'url': url}
     try:
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            return None, {**info, 'status': 'timeout'}
         req = urllib.request.Request(
             safe_url(url),
             headers={
@@ -122,8 +127,21 @@ def fetch_bytes(url: str, *, max_bytes: int = 8_000_000) -> tuple[bytes | None, 
                 'Accept-Language': 'ru-RU,ru;q=0.9,en;q=0.8',
             },
         )
-        with urllib.request.urlopen(req, timeout=35) as resp:
-            data = resp.read(max_bytes + 1)
+        with urllib.request.urlopen(req, timeout=remaining) as resp:
+            # read1 returns after one underlying read, so a drip-fed response
+            # cannot keep an unbounded read(max_bytes) alive indefinitely.
+            chunks, size = [], 0
+            while size <= max_bytes:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    return None, {**info, 'status': 'timeout'}
+                read = getattr(resp, 'read1', resp.read)
+                chunk = read(min(65_536, max_bytes + 1 - size))
+                if not chunk:
+                    break
+                chunks.append(chunk)
+                size += len(chunk)
+            data = b''.join(chunks)
             raw_ctype = resp.headers.get('content-type') or ''
             ctype = raw_ctype.split(';')[0].lower().strip()
             info.update({'status': 'ok', 'http_status': resp.status, 'content_type': ctype, 'raw_content_type': raw_ctype, 'bytes': len(data)})
@@ -134,6 +152,34 @@ def fetch_bytes(url: str, *, max_bytes: int = 8_000_000) -> tuple[bytes | None, 
         return None, {**info, 'status': 'http_error', 'http_status': exc.code}
     except Exception as exc:
         return None, {**info, 'status': 'error', 'error': repr(exc)[:240]}
+
+
+def fetch_bytes(url: str, *, max_bytes: int = 8_000_000, deadline: float | None = None) -> tuple[bytes | None, dict]:
+    """Bound the whole optional download, including DNS and redirects.
+
+    urllib's socket timeout does not bound DNS, redirect chains or a slow
+    response. A daemon worker may finish its read after the deadline, but it
+    only returns bytes: it never writes assets or modifies a published record.
+    """
+    started = time.monotonic()
+    if deadline is not None and deadline <= started:
+        return None, {'url': url, 'status': 'budget_exhausted'}
+    request_deadline = min(started + 35, deadline) if deadline is not None else started + 35
+    result = queue.Queue(maxsize=1)
+
+    def download():
+        result.put(_fetch_image_bytes(url, max_bytes, request_deadline))
+
+    threading.Thread(target=download, daemon=True, name='optional-media-image').start()
+    try:
+        response = result.get(timeout=max(0, request_deadline - time.monotonic()))
+    except queue.Empty:
+        response = (None, {'url': url, 'status': 'timeout'})
+    if deadline is not None and time.monotonic() >= deadline:
+        return None, {'url': url, 'status': 'budget_exhausted'}
+    if time.monotonic() >= request_deadline:
+        return None, {'url': url, 'status': 'timeout'}
+    return response
 
 
 def fetch_text(url: str) -> tuple[str, dict]:
@@ -366,17 +412,19 @@ def image_ext(url: str, ctype: str, data: bytes) -> str:
     return '.jpg'
 
 
-def mirror_image(record: dict, image_url: str | None) -> dict:
+def mirror_image(record: dict, image_url: str | None, *, deadline: float | None = None) -> dict:
     """Keep a usable previous image for every transport/validation failure."""
     previous = record.get('image')
     if previous and previous.startswith('assets/media/mentions/') and Path(previous).exists():
         return {'status': 'cached', 'local': previous}
+    if deadline is not None and time.monotonic() >= deadline:
+        return {'status': 'budget_exhausted'}
     if not image_url:
         return {'status': 'missing'}
     image_url = urljoin(record.get('url') or '', image_url)
     if not usable_image_url(image_url):
         return {'status': 'invalid_url'}
-    data, info = fetch_bytes(image_url)
+    data, info = fetch_bytes(image_url, deadline=deadline)
     if not data:
         return info
     signature_ok = data.startswith((b'\xff\xd8', b'\x89PNG', b'GIF')) or (data.startswith(b'RIFF') and b'WEBP' in data[:16])
@@ -390,6 +438,8 @@ def mirror_image(record: dict, image_url: str | None) -> dict:
         return {'status': 'validation_unavailable'}
     except Exception:
         return {'status': 'invalid_image'}
+    if deadline is not None and time.monotonic() >= deadline:
+        return {'status': 'budget_exhausted'}
     IMAGE_DIR.mkdir(parents=True, exist_ok=True)
     rec_id = record.get('id') or hashlib.sha256((record.get('url') or image_url).encode()).hexdigest()[:16]
     ext = image_ext(image_url, str(info.get('content_type') or ''), data)

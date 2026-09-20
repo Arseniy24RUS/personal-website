@@ -167,4 +167,11 @@ jobs:
         run: python scripts/verify_published.py --wait 600
       - name: Report source availability separately
         if: ${{ always() && !cancelled() }}
-        run: python scripts/refresh_pipeline.py health --stage "$PORTFOLIO_RUN_DIR/portfolio-stage"
+        env:
+          PUBLICATION_OUTCOME: ${{ steps.publish.outcome }}
+        run: |
+          if test "$PUBLICATION_OUTCOME" = success; then
+            python scripts/refresh_pipeline.py health
+          else
+            python scripts/refresh_pipeline.py health --stage "$PORTFOLIO_RUN_DIR/portfolio-stage"
+          fi
