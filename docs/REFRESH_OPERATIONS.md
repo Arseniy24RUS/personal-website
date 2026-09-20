@@ -2,8 +2,9 @@
 
 The weekly workflow runs Monday at 03:17 UTC (06:17 Moscow). It uses the existing
 home OpenVPN connection for every source and every network enrichment step.
-Installation happens before the tunnel is opened. No local always-on agent or
-paid API is needed.
+Installation happens before the tunnel is opened. No local always-on agent is
+installed. WoS can use an entitled Clarivate API before the browser collector;
+the API plans and activation checks are described in [WoS API access](WOS_API.md).
 
 ## Credentials and network
 
@@ -12,10 +13,12 @@ Repository Actions secrets: `ELIBRARY_OPENVPN_CONFIG_B64`, `ELIBRARY_USERNAME`,
 `SCOPUS_INST_TOKEN` is optional and only useful if Elsevier issues institutional
 entitlement. A valid Search API key does not guarantee Author Retrieval access.
 
-The new browser collectors log in normally on every run and reuse their session
-within that run. Legacy cookie/storage secrets are no longer injected. MFA,
-human verification, account linking and changed forms have distinct failure
-reasons; a saved snapshot is never reported as a fresh successful login.
+Browser collectors first restore the last confirmed encrypted session and verify
+the account and author. If it has expired, they attempt ordinary login once.
+Legacy cookie/storage secrets are not injected over the restored state. See
+[browser session operations](BROWSER_SESSIONS.md) for the encryption key and
+daily maintenance. MFA, human verification, account linking and changed forms
+have distinct failure reasons; a snapshot is never a fresh successful login.
 
 Collectors run under a dedicated runner account whose outbound traffic is
 restricted to `tun0`. Direct IPv4/IPv6 traffic is rejected; DNS uses the tunnel.
@@ -36,8 +39,10 @@ All galleries are additive: a new upload or broken input cannot erase old items.
 
 Each provider reports `status`, `attempted_at`, `last_success_at`, `origin`,
 `complete`, `record_count`, and `reason`. `generated_at` is only a build date.
-Public profile `source_health` and scientometric columns carry observation dates.
-Scopus metrics identify official profile values versus complete-search estimates.
+Public JSON `source_health` and metric data retain observation dates. Source
+diagnostics and raw provider identifiers are not rendered on visitor pages.
+Metric metadata distinguishes official profile values from complete-search
+estimates, including Scopus and citation-enabled WoS Starter results.
 
 The media pipeline polls institution news lists, RSS, nested sitemaps and configured
 sources. Article body identity checks understand inflected names and initials.

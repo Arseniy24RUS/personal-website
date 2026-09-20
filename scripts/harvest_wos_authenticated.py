@@ -350,9 +350,35 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
 
     def batch(rows, complete):
         stamp = now()
-        fresh = [{**row, 'observed_at': row.get('observed_at') or stamp} for row in rows]
+        prior_rows = {record_key(row): row for row in payloads['publications']}
+        fresh = []
+        for row in rows:
+            record = {**row, 'observed_at': row.get('observed_at') or stamp}
+            prior = prior_rows.get(record_key(row), {})
+            citation_stamps = dict(prior.get('citation_observed_at') or {})
+            retained = set(prior.get('retained_citation_fields') or [])
+            if row.get('wos_citations') is not None:
+                citation_stamps['wos'] = record['observed_at']
+                retained.discard('wos_citations')
+            else:
+                retained.add('wos_citations')
+                previous_stamp = (citation_stamps['wos'] if 'wos' in citation_stamps else
+                                  None if 'wos_citations' in (prior.get('retained_citation_fields') or [])
+                                  else prior.get('observed_at'))
+                if previous_stamp:
+                    citation_stamps['wos'] = previous_stamp
+            if citation_stamps:
+                record['citation_observed_at'] = citation_stamps
+            record['retained_citation_fields'] = sorted(retained)
+            fresh.append(record)
         observed.update(record_key(row) for row in fresh)
         payloads['publications'] = merge_records(payloads['publications'], fresh, record_key)
+        # merge_records keeps empty fields by design; a confirmed count must
+        # nevertheless clear a previous metadata-only API observation's marker.
+        fresh_by_key = {record_key(row): row for row in fresh}
+        for row in payloads['publications']:
+            if record_key(row) in fresh_by_key:
+                row['retained_citation_fields'] = fresh_by_key[record_key(row)]['retained_citation_fields']
         components['publications'] = source_result(component_state(previous_report, 'publications'), status='success' if complete else 'partial', count=len(payloads['publications']), reason=None if complete else 'pagination_in_progress', attempted_at=attempted)
         components['publications'].update(observed_count=len(observed), last_observation_at=stamp)
         components['publications']['scope'] = 'web_of_science_core_collection'

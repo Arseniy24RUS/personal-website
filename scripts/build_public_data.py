@@ -81,15 +81,34 @@ def normalize_health(report, previous=None, record_count=0):
 
 
 def citation_is_new(record, target, provider, fresh=False):
-    observed = record.get('observed_at')
+    field = {'wos': 'wos_citations', 'elibrary': 'rinc_citations', 'scopus': 'scopus'}.get(provider)
+    explicit = record.get('citation_observed_at') or {}
+    if provider in explicit:
+        return observation_time(explicit[provider]) > observation_time((target.get('citation_observed_at') or {}).get(provider))
+    if field in (record.get('retained_citation_fields') or []):
+        return False
+    observed = citation_observation(record, provider)
     if observed:
         return observation_time(observed) > observation_time((target.get('citation_observed_at') or {}).get(provider))
     return fresh
 
 
+def citation_observation(record, provider):
+    # A fresh metadata response does not renew an older citation observation.
+    explicit = record.get('citation_observed_at') or {}
+    if provider in explicit:
+        return explicit[provider]
+    field = {'wos': 'wos_citations', 'elibrary': 'rinc_citations', 'scopus': 'scopus'}.get(provider)
+    return None if field in (record.get('retained_citation_fields') or []) else record.get('observed_at')
+
+
 def mark_citation_observation(target, record, provider):
-    if record.get('observed_at'):
-        target.setdefault('citation_observed_at', {})[provider] = record['observed_at']
+    field = {'wos': 'wos_citations', 'elibrary': 'rinc_citations', 'scopus': 'scopus'}.get(provider)
+    if field in (record.get('retained_citation_fields') or []) and provider not in (record.get('citation_observed_at') or {}):
+        return
+    observed = citation_observation(record, provider)
+    if observation_time(observed) > float('-inf'):
+        target.setdefault('citation_observed_at', {})[provider] = observed
 
 
 def load_source_health(ids, previous=None):
@@ -131,6 +150,60 @@ def nd(doi):
     if not doi:
         return None
     return re.sub(r'^https?://(dx\.)?doi\.org/', '', clean(doi).lower()).rstrip('.,;') or None
+
+
+def source_identity_aliases(row):
+    """Index every strong identifier, including former WoS UIDs and DOI forms."""
+    aliases = set()
+    for field in ('elibrary_item_id', 'eid', 'id'):
+        if row.get(field):
+            aliases.add((field, clean(row[field]).lower()))
+    for item in [row, *(row.get('wos_records') or [])]:
+        if not isinstance(item, dict):
+            continue
+        for field, normalizer in (('wos_uid', lambda value: clean(value).upper()), ('doi', nd)):
+            values = [item.get(field), *(item.get(field + '_aliases') or [])]
+            for value in values:
+                normalized = normalizer(value)
+                if normalized:
+                    aliases.add((field, normalized))
+    return aliases
+
+
+def index_source_aliases(index, row, position):
+    for alias in source_identity_aliases(row):
+        index.setdefault(alias, set()).add(position)
+
+
+def match_source_aliases(index, row):
+    """An exact UID may narrow a shared DOI; contradictory bridges stay separate."""
+    matches = [index[alias] for alias in source_identity_aliases(row) if alias in index]
+    if not matches:
+        return None, False
+    candidates = set.intersection(*matches)
+    if len(candidates) == 1:
+        return next(iter(candidates)), False
+    # Existing separately published records are never collapsed to resolve a tie.
+    return None, True
+
+
+def remember_source_aliases(target, incoming):
+    aliases = source_identity_aliases(target) | source_identity_aliases(incoming)
+    for field, normalizer in (('wos_uid', lambda value: clean(value).upper()), ('doi', nd)):
+        primary = normalizer(target.get(field))
+        extra = sorted(value for kind, value in aliases if kind == field and value != primary)
+        if extra:
+            target[field + '_aliases'] = extra
+
+
+def conflicting_source_identity(previous, incoming):
+    old, new = source_identity_aliases(previous), source_identity_aliases(incoming)
+    for field in ('wos_uid', 'doi'):
+        known = {value for kind, value in old if kind == field}
+        observed = {value for kind, value in new if kind == field}
+        if known and observed and not known & observed:
+            return True
+    return False
 
 
 def has_cyrillic(s):
@@ -292,8 +365,10 @@ def merge_publication_sets(*datasets):
     # intentional duplicates; later sources may enrich it, never coalesce it away.
     rows = copy.deepcopy(list(datasets[0] or [])) if datasets else []
     by_key = {}
-    for row in rows:
+    aliases = {}
+    for position, row in enumerate(rows):
         by_key.setdefault(elib_key(row), []).append(row)
+        index_source_aliases(aliases, row, position)
     for dataset in datasets[1:]:
         for original in dataset or []:
             if not isinstance(original, dict) or not (original.get('title') or original.get('title_ru') or original.get('title_en') or original.get('elibrary_item_id')):
@@ -303,11 +378,22 @@ def merge_publication_sets(*datasets):
                 if incoming.get(field) and not usable_source_pages(incoming[field]):
                     incoming.pop(field)
             key = elib_key(incoming)
-            if key not in by_key:
+            targets = by_key.get(key, [])
+            if any(kind == 'wos_uid' for kind, _ in source_identity_aliases(incoming)):
+                position, ambiguous = match_source_aliases(aliases, incoming)
+                if ambiguous:
+                    continue
+                if position is not None:
+                    targets = [rows[position]]
+                else:
+                    targets = [target for target in targets if not conflicting_source_identity(target, incoming)]
+            if not targets:
                 rows.append(incoming)
                 by_key[key] = [incoming]
+                index_source_aliases(aliases, incoming, len(rows) - 1)
                 continue
-            for target in by_key[key]:
+            for target in targets:
+                remember_source_aliases(target, incoming)
                 for name, value in incoming.items():
                     if name == 'open_sources':
                         for observation in value or []:
@@ -322,6 +408,8 @@ def merge_publication_sets(*datasets):
                                 existing.append(copy.deepcopy(item))
                     else:
                         set_missing(target, name, value)
+                position = next(i for i, row in enumerate(rows) if row is target)
+                index_source_aliases(aliases, target, position)
     for row in rows:
         enrich_localized_fields(row)
     rows.sort(key=lambda row: (-(int(row.get('year') or 0) if str(row.get('year') or '').isdigit() else 0), int(row.get('number') or 999999)))
@@ -541,7 +629,13 @@ def append_unique_wos_record(pub, record):
 
 
 def enrich_from_wos(target, r, fresh=False):
+    remember_source_aliases(target, r)
     addsrc(target, 'wos')
+    incoming_sources = r.get('sources') or []
+    if isinstance(incoming_sources, str):
+        incoming_sources = [incoming_sources]
+    for source in [*incoming_sources, r.get('source')]:
+        addsrc(target, source)
     append_unique_wos_record(target, r)
     set_missing(target, 'wos_uid', r.get('wos_uid'))
     set_missing(target, 'doi', nd(r.get('doi')))
@@ -569,17 +663,27 @@ def enrich_from_wos(target, r, fresh=False):
 
 def merge_wos(canon, records, fresh=False):
     by_item, by_title, by_ty, by_doi = indexes(canon)
+    aliases = {}
+    for position, row in enumerate(canon):
+        index_source_aliases(aliases, row, position)
     enriched = added = 0
     for r in records or []:
         doi = nd(r.get('doi'))
         title = nt(r.get('title_en') or r.get('title'))
-        target = None
-        if doi:
-            target = by_doi.get(doi)
+        position, ambiguous = match_source_aliases(aliases, r)
+        if ambiguous:
+            continue
+        target = canon[position] if position is not None else None
         if target is None and title:
             target = by_ty.get((title, str(r.get('year') or ''))) or by_title.get(title)
+            # Same titles cannot override contradictory provider identities.
+            if target is not None and conflicting_source_identity(target, r):
+                target = None
         if target:
             enrich_from_wos(target, r, fresh=fresh)
+            if position is None:
+                position = next(i for i, row in enumerate(canon) if row is target)
+            index_source_aliases(aliases, target, position)
             enriched += 1
         else:
             rec = {
@@ -609,8 +713,14 @@ def merge_wos(canon, records, fresh=False):
                 'wos_records': [r],
                 'auto_accept_reason': 'author-scoped Web of Science ResearcherID record',
             }
+            remember_source_aliases(rec, r)
+            for source in ([r['sources']] if isinstance(r.get('sources'), str) else r.get('sources') or []):
+                addsrc(rec, source)
+            addsrc(rec, r.get('source'))
+            mark_citation_observation(rec, r, 'wos')
             enrich_localized_fields(rec)
             canon.append(rec)
+            index_source_aliases(aliases, rec, len(canon) - 1)
             added += 1
             if doi:
                 by_doi[doi] = rec
@@ -670,10 +780,15 @@ def build_scientometrics(canon, elib_profile, scopus_metrics, wos_profile, healt
             metrics = {key: old.get(key) for key in ('publications', 'citations', 'h_index')}
         else:
             metrics = {key: value if value is not None else old.get(key) for key, value in metrics.items()}
+        method = old.get('method', sc_methods if name == 'scopus' else 'provider_profile')
+        if is_fresh(state):
+            if name == 'scopus':
+                method = sc_methods
+            elif name == 'wos':
+                method = copy.deepcopy((wos_profile or {}).get('metric_methods') or 'provider_profile')
         sources[name] = {'label_ru': ru, 'label_en': en, 'source': source, **metrics, **state,
                          'metric_observed_at': observed, 'retained_metrics': retained,
-                         'method': sc_methods if name == 'scopus' and is_fresh(state)
-                         else old.get('method', sc_methods if name == 'scopus' else 'provider_profile')}
+                         'method': method}
     return {'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
             'columns': ['rinc', 'scopus', 'wos'],
             'rows': [{'key': 'publications', 'label_ru': 'Количество публикаций', 'label_en': 'Publications'},
