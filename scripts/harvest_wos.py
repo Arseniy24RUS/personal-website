@@ -38,7 +38,7 @@ SAFE_REASONS = API_REASONS | frozenset({
     'username_input_not_applied', 'orcid_submit_changed', 'wos_login_not_confirmed',
     'publication_scope_control_missing', 'publication_scope_not_confirmed', 'profile_total_missing',
     'publication_total_changed', 'pagination_limit', 'incomplete_pagination', 'profile_metrics_missing',
-    'wrong_author_profile', 'session_expired', 'profile_not_authenticated_or_changed',
+    'wrong_author_profile', 'session_expired', 'profile_not_authenticated_or_changed', 'rate_limited',
     'invalid_session_checkpoint', 'profile_records_not_ready', 'publication_list_scroll_failed',
     'pagination_in_progress', 'wos_sso_state_capture_failed', 'wos_sso_state_restore_failed',
     'display_unavailable', 'filesystem_permission_denied', 'crashpad_initialization_failed',

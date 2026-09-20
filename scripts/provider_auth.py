@@ -618,6 +618,46 @@ def choose_orcid_signin(page, host):
     return click_named(page, r'sign in (?:with|using) ORCID|ORCID sign in')
 
 
+WOS_LOGIN_HOSTS = frozenset({'webofscience.com', 'www.webofscience.com',
+    'access.clarivate.com', 'signin.clarivate.com', 'orcid.org', 'www.orcid.org'})
+
+
+def _wos_login_page(context, existing_pages):
+    """Follow this attempt's same-tab redirects or its latest still-open popup."""
+    pages = [page for page in context.pages if page not in existing_pages and not page.is_closed()]
+    if not pages:
+        return None
+    page = pages[-1]
+    if page.url != 'about:blank':
+        try:
+            address = urlparse(page.url)
+            allowed = (address.scheme == 'https' and address.hostname in WOS_LOGIN_HOSTS
+                       and address.port in (None, 443) and address.username is None and address.password is None)
+        except ValueError:
+            allowed = False
+        if not allowed:
+            raise AuthFailure('unexpected_login_origin')
+    return page
+
+
+def _wait_wos_login_navigation(page, deadline):
+    """Navigation waiting belongs to the original login budget, including popups."""
+    remaining = deadline - time.monotonic()
+    if remaining <= 0 or page.is_closed():
+        return
+    try:
+        page.wait_for_load_state('domcontentloaded', timeout=min(15000, remaining * 1000))
+    except Exception:
+        pass
+    remaining = deadline - time.monotonic()
+    if remaining > 0 and not page.is_closed():
+        try:
+            page.wait_for_timeout(min(1000, remaining * 1000))
+        except Exception:
+            if not page.is_closed():
+                raise
+
+
 @diagnostic_login
 def login_wos(context, profile_url, timeout=180):
     evidence = {'submit_clicked': False, 'input_matches_configured': False}
@@ -639,6 +679,7 @@ def _login_wos(context, profile_url, timeout, evidence):
     evidence['username_normalized'] = username != configured_username
     if not evidence['username_format_valid']:
         raise AuthFailure('username_configuration_invalid')
+    existing_pages = tuple(context.pages)
     page = context.new_page()
     page.goto('https://www.webofscience.com/', wait_until='domcontentloaded', timeout=90000)
     deadline = time.monotonic() + timeout
@@ -662,11 +703,15 @@ def _login_wos(context, profile_url, timeout, evidence):
 
     context.on('response', record_auth_response)
     while time.monotonic() < deadline:
-        if page.is_closed():
-            page = context.pages[0]
-        wait_navigation(page)
-        if page.is_closed():
-            page = context.pages[0]
+        page = _wos_login_page(context, existing_pages)
+        if page is None:
+            break
+        _wait_wos_login_navigation(page, deadline)
+        # A popup may arrive or close while the previous page was loading.
+        page = _wos_login_page(context, existing_pages)
+        if page is None or time.monotonic() >= deadline:
+            break
+        if page.url == 'about:blank':
             continue
         if auth_responses and auth_responses[-1].get('reason'):
             reason = auth_responses[-1]['reason']
@@ -734,12 +779,5 @@ def _login_wos(context, profile_url, timeout, evidence):
                         item.click()
                         break
             if selected_orcid:
-                page.wait_for_timeout(1000)
-                # Some sign-in variants open the identity provider in a popup.
-                if len(context.pages) > 1:
-                    page = context.pages[-1]
                 continue
-        # ORCID may close a popup when redirecting the original tab.
-        if page.is_closed():
-            page = context.pages[0]
     raise AuthFailure('wos_login_not_confirmed' if submitted else 'wos_login_form_changed', authentication_evidence=auth_responses[-1] if auth_responses else {'response_observed': False, 'submit_clicked': submitted})

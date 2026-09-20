@@ -292,7 +292,7 @@ def read_profile_metrics(page, target=RESEARCHER_ID):
     raise AuthFailure('profile_metrics_missing')
 
 
-def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report=None, *, on_checkpoint=None):
+def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report=None, *, on_checkpoint=None, cv_export=None):
     payloads = copy.deepcopy(previous or {'metrics': {}, 'publications': [], 'details': {}})
     for key, default in [('metrics', {}), ('publications', []), ('details', {})]:
         payloads.setdefault(key, default)
@@ -300,6 +300,8 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
     attempted = now()
     components = {key: source_result(component_state(previous_report, key), status='blocked', reason='not_attempted', attempted_at=attempted) for key in ('metrics', 'publications')}
     report = {}
+    publication_transport = 'rendered_profile'
+    cv_attempt = None
 
     def emit():
         complete = all(state.get('complete') for state in components.values())
@@ -308,6 +310,9 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
         report.clear()
         report.update(source_result(previous_report, status='success' if complete else ('partial' if successful else failed.get('status', 'error')), count=len(payloads['publications']), reason=None if complete else failed.get('reason'), attempted_at=attempted))
         report.update(components=components, researcher_id=str(target), generated_at=now())
+        report['publication_transport'] = publication_transport
+        if cv_attempt is not None:
+            report['cv_export'] = dict(cv_attempt)
         if on_checkpoint:
             try:
                 on_checkpoint(copy.deepcopy(report), copy.deepcopy(payloads))
@@ -327,18 +332,22 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
         components[key] = state
         emit()
 
-    try:
-        data = read_profile_metrics(page, target)
+    def save_metrics(data, *, observed_at=None):
+        data = copy.deepcopy(data)
         observed = dict(data.get('summary', {}))
         old = payloads['metrics']
         for field in ('summary', 'summary_metrics', 'core_collection_metrics'):
             data[field] = {**payloads['metrics'].get(field, {}), **{key: value for key, value in data.get(field, {}).items() if value is not None}}
         components['metrics'] = source_result(component_state(previous_report, 'metrics'), status='success', count=1, attempted_at=attempted)
+        components['metrics']['last_success_at'] = observed_at or now()
         data['last_success_at'] = components['metrics']['last_success_at']
         data['metric_observed_at'] = {key: data['last_success_at'] if observed.get(key) is not None else old.get('metric_observed_at', {}).get(key, component_state(previous_report, 'metrics').get('last_success_at')) for key in data['summary']}
         data['retained_metric_fields'] = [key for key in data['summary'] if observed.get(key) is None]
         payloads['metrics'] = data
         emit()
+
+    try:
+        save_metrics(read_profile_metrics(page, target))
     except Exception as exc:
         if isinstance(exc, CheckpointWriteError):
             raise
@@ -384,7 +393,45 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
         components['publications']['scope'] = 'web_of_science_core_collection'
         emit()
 
+    if cv_export is not None:
+        from parse_wos_cv import parse_wos_cv
+        try:
+            # Export follows the site's own UI and belongs to this login. The
+            # profile metrics above have already been durably checkpointed.
+            document = cv_export(page)
+            if not isinstance(document, dict) or document.get('author', {}).get('rid') != str(target):
+                raise AuthFailure('wrong_author_profile')
+            result = parse_wos_cv(document, researcher_id=str(target), observed_at=now())
+            cv_state, cv_payload = result['report'], result['payloads']
+            cv_metrics = cv_payload['metrics']
+            cv_core_total = cv_metrics.get('summary', {}).get('publications')
+            profile_core_total = payloads['metrics'].get('summary', {}).get('publications')
+            if components['metrics'].get('complete') and cv_core_total is not None and cv_core_total != profile_core_total:
+                raise ValueError('cv_profile_count_changed')
+            if not components['metrics'].get('complete') and component_state(cv_state, 'metrics').get('complete'):
+                save_metrics(cv_metrics, observed_at=component_state(cv_state, 'metrics')['last_success_at'])
+            complete = component_state(cv_state, 'publications').get('complete') is True
+            cv_attempt = {'status': 'success' if complete else 'partial'}
+            publication_transport = 'cv_export'
+            batch(cv_payload['publications'], complete)
+            if complete:
+                return report, payloads
+        except CheckpointWriteError:
+            raise
+        except AuthFailure as exc:
+            cv_attempt = {'status': 'blocked', 'reason': exc.reason}
+            fail('publications', exc)
+            return report, payloads
+        except Exception:
+            # Raw export exceptions can include download URLs or CV sections.
+            cv_attempt = {'status': 'error', 'reason': 'cv_export_unavailable'}
+
     try:
+        if cv_export is not None:
+            # Re-establish account, author and challenge checks after leaving
+            # the export page; a blocked export never enters this fallback.
+            target_profile_html(page, target)
+        publication_transport = 'rendered_profile'
         select_core_collection(page)
         collect_publications(page, on_batch=batch)
     except Exception as exc:
@@ -396,6 +443,7 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
 
 def main():
     from browser_sessions import restore_context, checkpoint_session, create_wos_reauthentication_context, SessionError
+    from wos_cv_export import fetch_wos_cv
     maintenance = os.environ.get('BROWSER_SESSION_MAINTENANCE') == '1'
     checkpoint_path = REPORT.parent / 'collection_checkpoint.json'
     existing = load_checkpoint(checkpoint_path)
@@ -458,7 +506,7 @@ def main():
                 report = {'provider': 'wos', 'status': 'success' if session.get('status') == 'checkpointed' else 'error', 'reason': session.get('reason'), 'authentication': authentication, 'target_verified': True, 'session_checkpoint': session, 'session_restore': restored, 'attempted_at': now()}
             else:
                 stage = 'collection'
-                report, payloads = collect_from_page(page, previous=payloads, previous_report=previous_report, on_checkpoint=persist)
+                report, payloads = collect_from_page(page, previous=payloads, previous_report=previous_report, on_checkpoint=persist, cv_export=fetch_wos_cv)
                 report.update(authentication=authentication, session_checkpoint=session)
             entry_observation = getattr(page, '_profile_entry_observation', None)
             if isinstance(entry_observation, dict):
