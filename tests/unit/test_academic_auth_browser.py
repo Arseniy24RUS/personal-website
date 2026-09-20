@@ -131,9 +131,44 @@ class AuthBrowserTests(unittest.TestCase):
 
     def test_captcha_is_explicit_and_not_interacted_with(self):
         page = self.context.new_page()
-        page.set_content('<body>Please verify you are human<button>Continue</button></body>')
-        with self.assertRaisesRegex(auth.AuthFailure, '^human_verification_required$'):
+        page.set_content('<body>private page text Please verify you are human<button onclick="window.clicked=true">Continue</button></body>')
+        with self.assertRaisesRegex(auth.AuthFailure, '^human_verification_required$') as caught:
             auth.assert_no_challenge(page)
+        self.assertEqual(caught.exception.verification_evidence, {'trigger': 'page_marker', 'marker_ids': ['verify_you_are_human']})
+        self.assertIsNone(page.evaluate('window.clicked'))
+
+    def test_normal_recaptcha_widget_evidence_does_not_weaken_guard(self):
+        self.context.route('**/*', lambda route: route.fulfill(content_type='text/html', body='<body>private frame text<div id="recaptcha-anchor" role="checkbox" aria-checked="true" onclick="window.clicked=true">private checkbox</div><input value="private value"></body>'))
+        page = self.context.new_page()
+        page.set_content('<body><iframe src="https://www.google.com/recaptcha/api2/anchor?size=normal&amp;token=private#private" title="private title"></iframe></body>')
+        with self.assertRaisesRegex(auth.AuthFailure, '^human_verification_required$') as caught:
+            auth.assert_no_challenge(page)
+        evidence = caught.exception.verification_evidence
+        self.assertEqual(evidence['trigger'], 'recaptcha_normal_widget')
+        frame = evidence['frame']
+        self.assertEqual(frame['provider_path'], '/recaptcha/api2/anchor')
+        self.assertTrue(frame['checkbox_present'])
+        self.assertTrue(frame['checkbox_visible'])
+        self.assertTrue(frame['checkbox_checked'])
+        self.assertFalse(frame['active_challenge_controls'])
+        self.assertTrue(frame['center_hit_iframe'])
+        self.assertNotIn('private', str(evidence))
+        self.assertIsNone(page.frames[1].evaluate('window.clicked'))
+
+    def test_active_frame_and_occlusion_are_diagnostic_only(self):
+        self.context.route('**/*', lambda route: route.fulfill(content_type='text/html', body='<body><div class="rc-imageselect">private challenge</div><button id="recaptcha-verify-button" onclick="window.clicked=true">Verify</button></body>'))
+        page = self.context.new_page()
+        page.set_content('<body><div role="dialog" aria-modal="true"><iframe title="private challenge title" src="https://www.google.com/recaptcha/api2/bframe?token=private"></iframe></div><div style="position:fixed;inset:0;z-index:999">Overlay</div></body>')
+        with self.assertRaisesRegex(auth.AuthFailure, '^human_verification_required$') as caught:
+            auth.assert_no_challenge(page)
+        evidence = caught.exception.verification_evidence
+        self.assertEqual(evidence['trigger'], 'iframe_title')
+        self.assertTrue(evidence['frame']['active_challenge_controls'])
+        self.assertTrue(evidence['frame']['ancestor_modal'])
+        self.assertFalse(evidence['frame']['center_hit_iframe'])
+        self.assertFalse(evidence['frame']['checkbox_present'])
+        self.assertNotIn('private', str(evidence))
+        self.assertIsNone(page.frames[1].evaluate('window.clicked'))
 
     def test_wos_direct_clarivate_redirect_chooses_orcid_first(self):
         visited = []

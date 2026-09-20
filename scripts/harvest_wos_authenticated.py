@@ -127,6 +127,8 @@ def main():
         report['stage'] = stage
         if getattr(exc, 'diagnostics', None):
             report['diagnostics'] = exc.diagnostics
+        if getattr(exc, 'verification_evidence', None):
+            report['verification_evidence'] = exc.verification_evidence
         if getattr(exc, 'authentication_evidence', None):
             report['authentication_evidence'] = exc.authentication_evidence
         if stage == 'profile':

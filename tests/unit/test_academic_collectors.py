@@ -284,6 +284,25 @@ class CollectionTests(unittest.TestCase):
         self.assertEqual(diagnostic['record_fields'], ['title', 'url'])
         self.assertNotIn('private', str(diagnostic))
 
+    def test_verification_evidence_survives_diagnostic_export(self):
+        import refresh_pipeline
+        evidence = {'trigger': 'iframe_title', 'frame': {'provider_host': 'www.google.com', 'provider_path': '/recaptcha/api2/bframe', 'active_challenge_controls': True, 'checkbox_checked': None, 'rect': {'x': 0, 'y': 0, 'width': 300, 'height': 200}}}
+        with tempfile.TemporaryDirectory() as directory:
+            stage, output = Path(directory) / 'stage', Path(directory) / 'output'
+            write_json(stage / 'data/audit/refresh_run.json', {'attempted_at': '2026-09-20T15:00:00Z', 'selected_sources': ['wos', 'elibrary']})
+            for filename in ('wos/harvest_report.json', 'elibrary/browser_fetch_report.json'):
+                write_json(stage / 'data' / filename, {'attempted_at': '2026-09-20T15:01:00Z', 'verification_evidence': evidence})
+            refresh_pipeline.diagnostics(stage, output)
+            for filename in ('wos/harvest_report.json', 'elibrary/browser_fetch_report.json'):
+                self.assertEqual(read_json(output / 'data' / filename, {})['verification_evidence'], evidence)
+
+    def test_elibrary_detail_challenge_evidence_is_preserved(self):
+        evidence = {'trigger': 'page_marker', 'marker_ids': ['turing_test_ru']}
+        with patch.object(elibrary, 'needs_details', return_value=True), patch.object(elibrary, 'assert_no_challenge', side_effect=auth.AuthFailure('human_verification_required', verification_evidence=evidence)):
+            _, report = elibrary.collect_details(MagicMock(), [{'elibrary_item_id': '123'}], {})
+        self.assertEqual(report['verification_evidence'], evidence)
+        self.assertEqual(report['failed'], 1)
+
 
 if __name__ == '__main__':
     unittest.main()
