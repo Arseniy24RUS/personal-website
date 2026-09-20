@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T14:39:45+00:00",
+  "generated_at": "2026-09-20T16:29:21+00:00",
   "items": {
     "elibrary:89181881": {
       "title_ru": "ФОРМИРОВАНИЕ ТЕХНОЛОГИЙ РЕШЕНИЯ ЖИЛИЩНЫХ ПРОБЛЕМ СЕМЬИ В РАМКАХ ДЕМОГРАФИЧЕСКОЙ ПОЛИТИКИ: ПРОБЛЕМЫ И ПЕРСПЕКТИВЫ",
@@ -327,6 +327,14 @@
       "title_en_source": "argos_translate_ru_en",
       "created_at": "2026-06-02T13:42:07+00:00",
       "updated_at": "2026-06-02T13:42:07+00:00",
+      "review_status": "machine"
+    },
+    "elibrary:91715753": {
+      "title_ru": "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ ГОРОДА СЕВАСТОПОЛЯ: КОМПЛЕКСНОЕ ИССЛЕДОВАНИЕ",
+      "title_en": "Demographic development of the city of Sevastopol: a comprehensive study",
+      "title_en_source": "argos_translate_ru_en",
+      "created_at": "2026-09-20T16:29:21+00:00",
+      "updated_at": "2026-09-20T16:29:21+00:00",
       "review_status": "machine"
     }
   },

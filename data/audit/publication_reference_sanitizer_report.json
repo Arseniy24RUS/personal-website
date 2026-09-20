@@ -1,11 +1,39 @@
 {
   "records": 72,
-  "changed_records": 0,
-  "field_changes": 0,
-  "excluded_reference_fields": 21,
-  "bad_references_before": 0,
+  "changed_records": 1,
+  "field_changes": 4,
+  "excluded_reference_fields": 56,
+  "bad_references_before": 1,
   "bad_references_after": 0,
   "samples": [
+    {
+      "title": "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ ГОРОДА СЕВАСТОПОЛЯ: КОМПЛЕКСНОЕ ИССЛЕДОВАНИЕ",
+      "changes": [
+        {
+          "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "volume",
+          "old": "К",
+          "reason": "invalid_volume"
+        },
+        {
+          "field": "gost_ru",
+          "old": "Ростовская Т.К., Архангельский В.Н., Васильева Е.Н., Иванова А.Е., Семенова В.Г., Кучмаева О.В., Ситковский А.М. ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ ГОРОДА СЕВАСТОПОЛЯ: КОМПЛЕКСНОЕ ИССЛЕДОВАНИЕ. // Ы. — 2026. — Т. К. — № 400. — URL: https://www.elibrary.ru/item.asp?id=91715753.",
+          "reason": "bad_reference_text"
+        },
+        {
+          "field": "apa_en",
+          "old": "Rostovskaya, T. K., Arkhangelskii, V. N., Vasileva, E. N., Ivanova, A. E., Semenova, V. G., Kuchmaeva, O. V., & Sitkovskii, A. M. (2026). Demographic development of the city of Sevastopol: a comprehensive study. Y, К(400). https://www.elibrary.ru/item.asp?id=91715753",
+          "reason": "bad_reference_text"
+        }
+      ],
+      "published_metadata_preserved": true,
+      "gost_ru": "Ростовская Т.К., Архангельский В.Н., Васильева Е.Н., Иванова А.Е., Семенова В.Г., Кучмаева О.В., Ситковский А.М. ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ ГОРОДА СЕВАСТОПОЛЯ: КОМПЛЕКСНОЕ ИССЛЕДОВАНИЕ. — Общество с ограниченной ответственностью \"Центркаталог\". — 2026. — № 400. — URL: https://www.elibrary.ru/item.asp?id=91715753.",
+      "apa_en": "Rostovskaya, T. K., Arkhangelskii, V. N., Vasileva, E. N., Ivanova, A. E., Semenova, V. G., Kuchmaeva, O. V., & Sitkovskii, A. M. (2026). Demographic development of the city of Sevastopol: a comprehensive study. Obshchestvo s ogranichennoi otvetstvennostyu \"Tsentrkatalog\", (400). https://www.elibrary.ru/item.asp?id=91715753"
+    },
     {
       "title": "Формирование технологий решения жилищных проблем семьи в рамках демографической политики: проблемы и перспективы",
       "changes": [
@@ -36,6 +64,11 @@
           "field": "volume",
           "old": "К",
           "reason": "invalid_volume"
+        },
+        {
+          "field": "issue",
+          "old": "ает свою следующую монографию под названием «Региональный анализ миграций» [4]...",
+          "reason": "invalid_issue"
         }
       ],
       "published_metadata_preserved": true,
@@ -45,6 +78,11 @@
     {
       "title": "Демографическое самочувствие регионов России. национальный демографический доклад — 2024",
       "changes": [
+        {
+          "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
         {
           "field": "volume",
           "old": ".",
@@ -104,6 +142,11 @@
     {
       "title": "Корреляционный анализ социальноэкономических факторов демографических изменений",
       "changes": [
+        {
+          "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
         {
           "field": "volume",
           "old": ".",
@@ -206,8 +249,65 @@
       "apa_en": "Rostovskaya, T. K., Sitkovskii, A. M., & Gishkaeva, L. N. (2025). Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”. New Research of Tuva, (4), 233–253. https://doi.org/10.25178/nit.2025.4.13"
     },
     {
+      "title": "The impact of population density on the socio-economic development of russian regions: from correlation portraits to the cluster-differentiated density governance",
+      "changes": [
+        {
+          "field": "issue",
+          "old": "а",
+          "reason": "invalid_issue"
+        }
+      ],
+      "published_metadata_preserved": true,
+      "gost_ru": "Bezverbny V., Rostovskaya T., Sitkovsky A., Roslavtsev S. The impact of population density on the socio-economic development of russian regions: from correlation portraits to the cluster-differentiated density governance. // Frontiers in Political Science. — 2025. — Т. 7. — С. 1715504. — URL: https://www.elibrary.ru/item.asp?id=88139507.",
+      "apa_en": "Bezverbny V., Rostovskaya T., Sitkovsky A., & Roslavtsev S. (2025). The impact of population density on the socio-economic development of russian regions: from correlation portraits to the cluster-differentiated density governance. Frontiers in Political Science, 7, 1715504. https://www.elibrary.ru/item.asp?id=88139507"
+    },
+    {
+      "title": "Образовательные межрегиональные миграции в России в 2017 — 2019 гг. : гендерные и пространственные аспекты",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "ской областях за 2017-2019 гг.[5] Table 1...",
+          "reason": "invalid_volume"
+        }
+      ],
+      "published_metadata_preserved": true,
+      "gost_ru": "Безвербный В.А., Микрюков Н.Ю., Ситковский А.М. Образовательные межрегиональные миграции в России в 2017 — 2019 гг. : гендерные и пространственные аспекты. // Новые исследования Тувы. — 2024. — № 3. — С. 226–239. — DOI: 10.25178/nit.2024.3.13.",
+      "apa_en": "Bezverbnyi, V. A., Mikryukov N.Yu., & Sitkovskii, A. M. (2024). Inter-regional educational migrations in Russia in 2017–2019: gender and spatial aspects. New Research of Tuva, (3), 226–239. https://doi.org/10.25178/nit.2024.3.13"
+    },
+    {
+      "title": "Особенности демографического развития коренных малочисленных народов севера хмао в период 20022022 гг",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "числе демографические процессы муниципальных образований ХМАО-Югры, половозрастные особенности, медико-демографические показатели. Выявлены тенденции развития демографической ситуации как региона в целом, так и КМНС. Исследованы вопросы государственного регулирования в сфере социально-экономического развития КМНС, перспективы динамики демографических процессов КМНС, а также перспективы устойчивого позитивного социально-экономического развития КМНС в ХМАО-Югре.",
+          "reason": "invalid_volume"
+        }
+      ],
+      "published_metadata_preserved": true,
+      "gost_ru": "Ростовская Т.К., Плеханова Л.В., Ситковский А.М. Особенности демографического развития коренных малочисленных народов севера хмао в период 20022022 гг. // Вопросы истории. — 2023. — № 9-1. — С. 172–187. — URL: https://www.elibrary.ru/item.asp?id=54485757.",
+      "apa_en": "Rostovskaya, T. K., Plekhanova, L. V., & Sitkovskii, A. M. (2023). Features of the Demographic Development of the Indigenous Small Peoples of North Khmao in the Period 2002-2022. Voprosy istorii, (9-1), 172–187. https://www.elibrary.ru/item.asp?id=54485757"
+    },
+    {
+      "title": "Методический подход к анализу социально — демографических факторов формирования опорного каркаса расселения",
+      "changes": [
+        {
+          "field": "volume",
+          "old": "изированным характером системы расселения, инфраструктурная обеспеченность Чувашии оценивается как высокая, в некоторых случаях - избыточная. Обсуждение. Социально-демографические факторы могут быть использованы для анализа системы расселения и формирования «опорного каркаса расселения». Представленная в статье методика анализа «опорного каркаса расселения» на примере Республики Чувашии может служить инструментом для принятия обоснованных управленческих решений по формированию приоритетов в финансировании и модернизации узловых центров. Данный подход позволит создать ситуацию «управляемого сжатия» и обеспечить подавляющее большинство населения региона качественными услугами социальной сферы.",
+          "reason": "invalid_volume"
+        }
+      ],
+      "published_metadata_preserved": true,
+      "gost_ru": "Козлова О.А., Ситковский А.М. Методический подход к анализу социально — демографических факторов формирования опорного каркаса расселения. // Вопросы управления. — 2023. — № 4. — С. 33–52. — DOI: 10.22394/2304-3369-2023-4-33-52.",
+      "apa_en": "Kozlova, O. A. & Sitkovskii, A. M. (2023). Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern. Management Issues, (4), 33–52. https://doi.org/10.22394/2304-3369-2023-4-33-52"
+    },
+    {
       "title": "Половозрастная пирамида миграционного сальдо как инструмент углубленного анализа миграционныхпроцессов",
       "changes": [
+        {
+          "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
         {
           "field": "volume",
           "old": "К",
@@ -219,17 +319,17 @@
       "apa_en": "Sitkovskii, A. M. (2022). The Sexual Age Pyramid of Migration Soldo as an Instrument of In-depth Analysis of Migration Processes. https://www.elibrary.ru/item.asp?id=49832359"
     },
     {
-      "title": "Пространственное сжатие территорий Российской Федерации: понятие, критерии, система показателей",
+      "title": "Города будущего: пространственное развитие, соучаствующее управление и творческие индустрии",
       "changes": [
         {
-          "field": "volume",
-          "old": "В",
-          "reason": "invalid_volume"
+          "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
         }
       ],
       "published_metadata_preserved": true,
-      "gost_ru": "Маркварт Э., Безвербный В.А., Ситковский А.М. Пространственное сжатие территорий Российской Федерации: понятие, критерии, система показателей. — 2021. — С. 63–93. — URL: https://www.elibrary.ru/item.asp?id=48271056.",
-      "apa_en": "Markvart E., Bezverbnyi, V. A., & Sitkovskii, A. M. (2021). Spatial compression of the territories of the Russian Federation: concept, criteria, system of indicators. https://www.elibrary.ru/item.asp?id=48271056"
+      "gost_ru": "Безвербный В.А., Белкин С.В., Блинов Г.Н., Бойко Д.О., Гарнага А.Ф., Жирков О.А., Зеленцова Е.В., Иванова К.А., Ивановская Н.Е., Климкович Е.В., Королева Д.О., Маркварт Э., Мартынова Я.А., Моисеев Ю.М., Орлова О.Н., Полещук М.Н., Пушкарева Т.В., Самойлова Н.А., Синицына И.А., Ситковский А.М. и др. Города будущего: пространственное развитие, соучаствующее управление и творческие индустрии. — 2021. — URL: https://www.elibrary.ru/item.asp?id=48075389.",
+      "apa_en": "Bezverbnyi, V. A. et al. (2021). Cities of the Future: Spacious Development, Participatory Management and Creative Industries. https://www.elibrary.ru/item.asp?id=48075389"
     }
   ]
 }

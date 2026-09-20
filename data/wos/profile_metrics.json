@@ -102,7 +102,7 @@
       "descriptor": "Цитирующие политически документы"
     }
   },
-  "records_count_on_page": 13,
+  "observation_method": "authorized_browser_capture",
   "records": [
     {
       "source": "web_of_science_free_view_author_profile",
@@ -402,5 +402,5 @@
       "observed_at": "2026-09-20T15:28:23.031Z"
     }
   ],
-  "observation_method": "authorized_browser_capture"
+  "records_count_on_page": 13
 }

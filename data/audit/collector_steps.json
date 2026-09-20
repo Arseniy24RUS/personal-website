@@ -1,17 +1,17 @@
 {
-  "attempted_at": "2026-09-20T14:39:45+00:00",
+  "attempted_at": "2026-09-20T16:29:19+00:00",
   "steps": [
     {
-      "source": "open",
+      "source": "elibrary",
       "exit_code": 0,
       "reason": "completed",
-      "attempted_at": "2026-09-20T14:39:35+00:00"
+      "attempted_at": "2026-09-20T16:25:34+00:00"
     },
     {
-      "source": "scopus",
-      "exit_code": 0,
-      "reason": "completed",
-      "attempted_at": "2026-09-20T14:39:41+00:00"
+      "source": "wos",
+      "exit_code": 2,
+      "reason": "nonzero_exit",
+      "attempted_at": "2026-09-20T16:28:48+00:00"
     }
   ]
 }
