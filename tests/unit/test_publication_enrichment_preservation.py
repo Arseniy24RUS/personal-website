@@ -1,6 +1,5 @@
 """Derived publication formatting must preserve published editorial content."""
 import contextlib
-import copy
 import io
 import json
 import os
@@ -48,6 +47,18 @@ def offline_workspace():
 
 
 class PublicationEnrichmentTests(unittest.TestCase):
+    def test_unknown_provider_pagination_is_not_added_but_existing_values_survive(self):
+        old = [{'id': 'old', 'elibrary_item_id': '1', 'title': 'Old'},
+               {'id': 'manual', 'elibrary_item_id': '2', 'title': 'Manual', 'pages': 'без номера'}]
+        incoming = [{'id': 'old', 'elibrary_item_id': '1', 'title': 'Old', 'pages': 'без номера'},
+                    {'id': 'new', 'elibrary_item_id': '3', 'title': 'New', 'pages': 'без номера'}]
+        result = {row['id']: row for row in builder.merge_publication_sets(old, incoming)}
+        self.assertFalse(result['old'].get('pages'))
+        self.assertFalse(result['new'].get('pages'))
+        self.assertEqual(result['manual']['pages'], 'без номера')
+        self.assertFalse(enrichment.set_if_missing(result['old'], 'pages', 'без номера'))
+        self.assertTrue(enrichment.set_if_missing(result['old'], 'pages', 'S1–S9'))
+
     def test_translation_retains_manual_text_and_provenance_verbatim(self):
         original = {'id': 'manual', 'title': 'Ручной заголовок',
                     'title_en': 'ESG and R&D: a Manual TITLE', 'title_en_source': 'editorial',

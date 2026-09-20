@@ -13,6 +13,7 @@ import time
 from typing import Any
 
 import requests
+from build_public_data import usable_source_pages
 
 DATA = Path('data')
 PUBLIC = DATA / 'public'
@@ -173,6 +174,8 @@ def merge_elibrary_item_details(pub: dict, details: dict) -> int:
         ('volume', 'volume'), ('issue', 'issue'), ('pages', 'pages'), ('doi', 'doi'), ('isbn', 'isbn'), ('issn', 'issn')
     ]:
         value = parsed.get(src)
+        if dst == 'pages' and not usable_source_pages(value):
+            continue
         if value not in (None, '', []) and not pub.get(dst):
             pub[dst] = normalize_doi(value) if dst == 'doi' else page_range(value) if dst == 'pages' else value
             added += 1
@@ -236,6 +239,8 @@ def fetch_crossref_by_doi(doi: str, cache: dict, stats: dict) -> dict:
 
 def set_if_missing(pub: dict, key: str, value: Any) -> bool:
     if value in (None, '', []):
+        return False
+    if key in ('pages', 'page') and not usable_source_pages(value):
         return False
     if pub.get(key) in (None, '', []):
         pub[key] = page_range(value) if key == 'pages' else value

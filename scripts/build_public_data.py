@@ -142,8 +142,17 @@ def metric_value(mapping, *labels):
     return None
 
 
+def usable_source_pages(value) -> bool:
+    text = clean(value)
+    # Unknown pagination is not a page range. Keep existing editorial values;
+    # validate only values being newly added from a provider.
+    return bool(re.search(r'\d', text) or re.fullmatch(r'[ivxlcdm]+(?:\s*[-–—]\s*[ivxlcdm]+)?', text, re.I))
+
+
 def set_missing(p: dict, key: str, value) -> bool:
     if value in (None, '', []):
+        return False
+    if key in ('pages', 'page') and not usable_source_pages(value):
         return False
     if p.get(key) in (None, '', []):
         p[key] = value
@@ -219,6 +228,9 @@ def merge_publication_sets(*datasets):
             if not isinstance(original, dict) or not (original.get('title') or original.get('title_ru') or original.get('title_en') or original.get('elibrary_item_id')):
                 continue
             incoming = copy.deepcopy(original)
+            for field in ('pages', 'page'):
+                if incoming.get(field) and not usable_source_pages(incoming[field]):
+                    incoming.pop(field)
             key = elib_key(incoming)
             if key not in by_key:
                 rows.append(incoming)
@@ -501,7 +513,7 @@ def merge_wos(canon, records, fresh=False):
                 'publisher': r.get('publisher'),
                 'volume': r.get('volume'),
                 'issue': r.get('issue'),
-                'pages': r.get('pages'),
+                'pages': r.get('pages') if usable_source_pages(r.get('pages')) else None,
                 'doi': doi,
                 'url': r.get('url'),
                 'wos_uid': r.get('wos_uid'),
