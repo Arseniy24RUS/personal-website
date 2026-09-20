@@ -89,6 +89,7 @@ def collect_details(page, records, previous):
     limit = int(os.environ.get('ELIBRARY_ITEM_DETAILS_LIMIT', '100'))
     failed = 0
     completed = 0
+    stopped = {}
     for row in todo[:limit]:
         item_id = item_id_from_pub(row)
         try:
@@ -112,12 +113,15 @@ def collect_details(page, records, previous):
         except AuthFailure as exc:
             failed += 1
             if exc.reason in {'session_expired', 'human_verification_required', 'mfa_required', 'ip_blocked'}:
+                stopped['reason'] = exc.reason
+                if getattr(exc, 'verification_evidence', None):
+                    stopped['verification_evidence'] = exc.verification_evidence
                 break
         except Exception:
             failed += 1
         page.wait_for_timeout(int(float(os.environ.get('ELIBRARY_ITEM_DETAILS_DELAY_SEC', '1.5')) * 1000))
     payload.update({'generated_at': now(), 'schema': 'elibrary_item_details/v1'})
-    return payload, {'fetched': completed, 'failed': failed, 'pending': max(0, len(todo) - completed)}
+    return payload, {'fetched': completed, 'failed': failed, 'pending': max(0, len(todo) - completed), **stopped}
 
 
 def main():
@@ -179,6 +183,8 @@ def main():
         report['stage'] = stage
         if getattr(exc, 'diagnostics', None):
             report['diagnostics'] = exc.diagnostics
+        if getattr(exc, 'verification_evidence', None):
+            report['verification_evidence'] = exc.verification_evidence
     except Exception as exc:
         initialization = browser_initialization_diagnostics(exc) if stage == 'initialization' else None
         report = source_result(previous_report, status='error', count=count, reason=initialization['reason'] if initialization else type(exc).__name__)

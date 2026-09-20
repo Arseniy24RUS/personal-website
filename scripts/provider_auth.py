@@ -14,9 +14,10 @@ from urllib.parse import urlparse
 
 
 class AuthFailure(RuntimeError):
-    def __init__(self, reason, authentication_evidence=None):
+    def __init__(self, reason, authentication_evidence=None, verification_evidence=None):
         self.reason = reason
         self.authentication_evidence = authentication_evidence
+        self.verification_evidence = verification_evidence
         super().__init__(reason)
 
 
@@ -121,9 +122,78 @@ def in_visible_viewport(locator):
     }""")
 
 
+HUMAN_MARKERS = {
+    'turing_test_ru': 'тест тьюринга',
+    'verify_you_are_human': 'verify you are human',
+    'verify_that_you_are_human': 'verify that you are human',
+    'unusual_activity': 'unusual activity',
+    'challenge_expired': 'challenge has expired',
+    'not_robot_ru': 'проверка, что вы не робот',
+}
+
+
+def human_marker_ids(text, url=''):
+    markers = [key for key, value in HUMAN_MARKERS.items() if value in str(text).lower()]
+    if 'page_captcha' in url:
+        markers.append('page_captcha_url')
+    return markers
+
+
+def challenge_frame_evidence(locator):
+    """Read geometry and fixed challenge signals; never emit frame text/values."""
+    result = {'frame_dom_observed': False, 'checkbox_present': None, 'checkbox_visible': None, 'checkbox_checked': None, 'active_challenge_controls': None}
+    try:
+        # Only known static provider paths are retained. In particular, do not
+        # export src query parameters, fragments, arbitrary paths or frame names.
+        address = urlparse(locator.get_attribute('src') or '')
+        host = (address.hostname or '').lower()
+        allowed = ('google.com', 'recaptcha.net', 'hcaptcha.com')
+        result['provider_host'] = host if any(provider_host(host, domain) for domain in allowed) else 'other'
+        result['provider_path'] = address.path if re.fullmatch(r'/recaptcha/(?:api2|enterprise)/(?:anchor|bframe)', address.path) else 'other'
+        result['title_challenge'] = 'challenge' in (locator.get_attribute('title') or '').lower()
+        result['src_recaptcha'] = 'recaptcha' in (locator.get_attribute('src') or '')
+        result['size_normal'] = 'size=normal' in (locator.get_attribute('src') or '')
+        result['in_visible_viewport'] = in_visible_viewport(locator)
+        result.update(locator.evaluate("""el => {
+            const box = el.getBoundingClientRect();
+            const number = value => Math.round(Math.max(-1000000, Math.min(1000000, value)));
+            let opacity = 1, hidden = false, undisplayed = false, clipped = false, modal = false;
+            for (let node = el; node; node = node.parentElement) {
+                const style = getComputedStyle(node);
+                opacity *= Number(style.opacity);
+                hidden ||= style.visibility !== 'visible';
+                undisplayed ||= style.display === 'none';
+                clipped ||= style.clipPath !== 'none' || style.clip !== 'auto';
+                modal ||= node.getAttribute('aria-modal') === 'true' || node.getAttribute('role') === 'dialog' || node.tagName === 'DIALOG';
+            }
+            const left = Math.max(0, box.left), right = Math.min(innerWidth, box.right);
+            const top = Math.max(0, box.top), bottom = Math.min(innerHeight, box.bottom);
+            const intersects = right > left && bottom > top;
+            const hit = intersects ? document.elementFromPoint((left + right) / 2, (top + bottom) / 2) : null;
+            return {rect: {x:number(box.x), y:number(box.y), width:number(box.width), height:number(box.height)},
+                viewport: {width:innerWidth, height:innerHeight}, effective_opacity: Math.round(opacity * 1000) / 1000,
+                visibility_hidden:hidden, display_none:undisplayed, css_clip_present:clipped, ancestor_modal:modal,
+                viewport_intersects:intersects, center_hit_iframe:hit === el};
+        }"""))
+        handle = locator.element_handle(timeout=1000)
+        frame = handle.content_frame() if handle else None
+        if frame is not None:
+            result['frame_dom_observed'] = True
+            checkboxes = frame.locator('#recaptcha-anchor, .recaptcha-checkbox, [role="checkbox"], input[type="checkbox"]')
+            count = checkboxes.count()
+            result['checkbox_present'] = count > 0
+            result['checkbox_visible'] = any(in_visible_viewport(checkboxes.nth(i)) for i in range(min(count, 10)))
+            result['checkbox_checked'] = any(checkboxes.nth(i).evaluate("el => el.checked === true || el.getAttribute('aria-checked') === 'true'") for i in range(min(count, 10))) if count else None
+            controls = frame.locator('.rc-imageselect, #recaptcha-verify-button, #audio-response, .rc-audiochallenge-input, .hcaptcha-challenge')
+            result['active_challenge_controls'] = any(in_visible_viewport(controls.nth(i)) for i in range(min(controls.count(), 10)))
+    except Exception:
+        result['observation_incomplete'] = True
+    return result
+
+
 def challenge_reason(text, url=''):
     text = str(text).lower()
-    if any(x in text for x in ('тест тьюринга', 'verify you are human', 'verify that you are human', 'unusual activity', 'challenge has expired', 'проверка, что вы не робот')) or 'page_captcha' in url:
+    if human_marker_ids(text, url):
         return 'human_verification_required'
     if any(x in text for x in ('two-factor', 'two factor', 'authentication code', 'verification code', 'одноразовый код', 'двухфактор')):
         return 'mfa_required'
@@ -141,7 +211,9 @@ def challenge_reason(text, url=''):
 
 
 def assert_no_challenge(page, *, form_submitted=True):
-    reason = challenge_reason(page_text(page), page.url)
+    text = page_text(page)
+    reason = challenge_reason(text, page.url)
+    evidence = {'trigger': 'page_marker', 'marker_ids': human_marker_ids(text, page.url)} if reason == 'human_verification_required' else None
     if not form_submitted and reason in {'invalid_credentials', 'invalid_username_format'}:
         reason = None
     elif reason in {'invalid_credentials', 'invalid_username_format'} and provider_host(urlparse(page.url).hostname or '', 'orcid.org'):
@@ -154,10 +226,15 @@ def assert_no_challenge(page, *, form_submitted=True):
     selector = 'iframe[title*="challenge" i], iframe[src*="recaptcha"][src*="size=normal"]'
     if not reason and page.locator(selector).count():
         frames = page.locator(selector)
-        if any(in_visible_viewport(frames.nth(i)) for i in range(frames.count())):
-            reason = 'human_verification_required'
+        for index in range(frames.count()):
+            frame = frames.nth(index)
+            if in_visible_viewport(frame):
+                reason = 'human_verification_required'
+                observed = challenge_frame_evidence(frame)
+                evidence = {'trigger': 'iframe_title' if observed.get('title_challenge') else 'recaptcha_normal_widget', 'frame': observed}
+                break
     if reason:
-        raise AuthFailure(reason)
+        raise AuthFailure(reason, verification_evidence=evidence)
 
 
 def verify_browser_egress(context):

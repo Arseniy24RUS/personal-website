@@ -216,6 +216,45 @@ def elib_key(p):
     return ('title_year', nt(p.get('title') or p.get('title_ru') or p.get('title_en')), str(p.get('year') or ''))
 
 
+def same_open_observation(previous, incoming):
+    if previous.get('source') != incoming.get('source'):
+        return False
+    for field in ('put_code', 'openalex_id'):
+        if previous.get(field) and incoming.get(field):
+            return str(previous[field]) == str(incoming[field])
+    if previous.get('doi') and incoming.get('doi'):
+        return nd(previous['doi']) == nd(incoming['doi'])
+    return bool(nt(previous.get('title'))) and (
+        nt(previous.get('title')), str(previous.get('year') or '')
+    ) == (nt(incoming.get('title')), str(incoming.get('year') or ''))
+
+
+def merge_open_observation(target, incoming, prefer_incoming=True):
+    """One current observation per provider/work; retain old published snapshots.
+
+    Raw fields, metrics, and additional DOI provenance can change independently
+    of work identity. Historical duplicates are kept, but new versions enrich
+    the last matching observation rather than append another identical work.
+    Concurrent publication merging keeps the destination's existing values.
+    """
+    observations = target.setdefault('open_sources', [])
+    matched = next((row for row in reversed(observations) if same_open_observation(row, incoming)), None)
+    if matched is None:
+        observations.append(copy.deepcopy(incoming))
+        return
+    for field, value in incoming.items():
+        if value in (None, '', [], {}):
+            continue
+        previous = matched.get(field)
+        if field == 'sources' and isinstance(value, list):
+            matched[field] = list(dict.fromkeys((previous or []) + value))
+        elif isinstance(previous, dict) and isinstance(value, dict):
+            matched[field] = ({**previous, **copy.deepcopy(value)} if prefer_incoming
+                              else {**copy.deepcopy(value), **previous})
+        elif prefer_incoming or previous in (None, '', [], {}):
+            matched[field] = copy.deepcopy(value)
+
+
 def merge_publication_sets(*datasets):
     # The first dataset is the published baseline. Preserve every row, including
     # intentional duplicates; later sources may enrich it, never coalesce it away.
@@ -238,7 +277,10 @@ def merge_publication_sets(*datasets):
                 continue
             for target in by_key[key]:
                 for name, value in incoming.items():
-                    if name in {'sources', 'open_sources', 'wos_records'}:
+                    if name == 'open_sources':
+                        for observation in value or []:
+                            merge_open_observation(target, observation, prefer_incoming=False)
+                    elif name in {'sources', 'wos_records'}:
                         existing = target.setdefault(name, [])
                         if isinstance(existing, str):
                             existing = target[name] = [part.strip() for part in existing.split(',') if part.strip()]
@@ -419,9 +461,9 @@ def merge_open(canon, records):
             target = by_ty.get((title, str(r.get('year') or ''))) or by_title.get(title)
         src = r.get('source') or 'open_api'
         if target:
-            addsrc(target, src)
-            if r not in target.setdefault('open_sources', []):
-                target['open_sources'].append(copy.deepcopy(r))
+            for provider in list(r.get('sources') or []) + [src]:
+                addsrc(target, provider)
+            merge_open_observation(target, r)
             if doi and not target.get('doi'):
                 target['doi'] = doi
             if r.get('venue') and not target.get('venue'):
@@ -431,6 +473,8 @@ def merge_open(canon, records):
             enriched += 1
         else:
             rec = {'source': src + '_auto', 'number': None, 'elibrary_item_id': None, 'year': int(r.get('year')) if str(r.get('year') or '').isdigit() else None, 'rinc_citations': 0, 'title': r.get('title'), 'authors_raw': '', 'venue': r.get('venue'), 'pages': None, 'doi': doi, 'url': r.get('url') or r.get('landing_page_url'), 'sources': [src], 'open_sources': [r], 'auto_accept_reason': 'author-scoped ORCID/OpenAlex/Crossref record'}
+            for provider in r.get('sources') or []:
+                addsrc(rec, provider)
             enrich_localized_fields(rec)
             canon.append(rec)
             added += 1
