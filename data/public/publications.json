@@ -1,5 +1,23 @@
 [
   {
+    "source": "elibrary_authenticated_browser",
+    "number": 1,
+    "elibrary_item_id": "91715753",
+    "url": "https://www.elibrary.ru/item.asp?id=91715753",
+    "title": "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ ГОРОДА СЕВАСТОПОЛЯ: КОМПЛЕКСНОЕ ИССЛЕДОВАНИЕ",
+    "title_ru": "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ ГОРОДА СЕВАСТОПОЛЯ: КОМПЛЕКСНОЕ ИССЛЕДОВАНИЕ",
+    "authors_raw": "Ростовская Т.К., Архангельский В.Н., Васильева Е.Н., Иванова А.Е., Семенова В.Г., Кучмаева О.В., Ситковский А.М.",
+    "year": 2026,
+    "metadata_raw": "Москва, 2026.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "2a2e573f745533d9",
+    "sources": [
+      "elibrary"
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z",
+    "venue_ru": null
+  },
+  {
     "source": "elibrary_rinc_saved_html",
     "number": 1,
     "elibrary_item_id": "88771337",
@@ -19,7 +37,8 @@
       "elibrary",
       "scopus",
       "orcid_public_api",
-      "crossref_api"
+      "crossref_api",
+      "wos"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -819,7 +838,35 @@
       "volume": "28",
       "issue": "1",
       "pages": "33-64"
-    }
+    },
+    "observed_at": "2026-09-20T15:22:34.224Z",
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001705010300002",
+        "position": 1,
+        "document_type": "Article",
+        "title": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
+        "title_en": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
+        "authors_raw": "Rostovskaya, TK and Sitkovskiy, AM",
+        "venue": "OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE",
+        "venue_en": "OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE",
+        "publisher": "RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV",
+        "year": 2026,
+        "volume": "28",
+        "issue": "1",
+        "pages": "33-64",
+        "doi": "10.17853/1994-5639-2026-1-33-64",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
+        "dedupe_fingerprint": "af68ebb410a957de",
+        "sources": [
+          "wos"
+        ],
+        "metadata_raw": "4 | Article | Comparative content analysis of master's and doctoral programmes in demography at world-class universities | Rostovskaya, TK | and | Sitkovskiy, AM | Jan 2026 | arrow_back | Информация о журнале | clear | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | Название издателя | RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | EDUCATION & EDUCATIONAL RESEARCH | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.25 | 2024 | 0.31 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | 28 | (1) | , pp.33-64 | Introduction. Global demographic challenges necessitate training specialists who possess both traditional and advanced digital and managerial competencies. However, the structure and content of demographic programmes at leading universities have not previously undergone comprehensive comparative | Бесплатный полный текст от издателя | for Comparative content analysis of master's and doctoral programmes in demography at world-class universities | 0 | Ссылки",
+        "observed_at": "2026-09-20T15:28:23.031Z"
+      }
+    ],
+    "wos_uid": "WOS:001705010300002"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -835,7 +882,7 @@
     "pages": "32-48",
     "doi": "10.21064/winrs.2026.1.3",
     "metadata_raw": "Женщина в российском обществе . 2026. № 1 . С. 32-48.",
-    "rinc_citations": 0,
+    "rinc_citations": 1,
     "dedupe_fingerprint": "b429d24e66fd8706",
     "sources": [
       "elibrary"
@@ -881,7 +928,8 @@
     "venue_en": "Woman in russian society",
     "venue_en_source": "existing_latin",
     "gost_ru": "Ростовская Т.К., Васильева Е.Н., Ситковский А.М. Формирование технологий решения жилищных проблем семьи в рамках демографической политики: проблемы и перспективы. // Женщина в российском обществе. — 2026. — № 1. — С. 32–48. — DOI: 10.21064/winrs.2026.1.3.",
-    "apa_en": "Rostovskaya, T. K., Vasileva, E. N., & Sitkovskii, A. M. (2026). Forming technological solutions of housing family problems in the from demographic policy: problems and perspectives. Woman in russian society, (1), 32–48. https://doi.org/10.21064/winrs.2026.1.3"
+    "apa_en": "Rostovskaya, T. K., Vasileva, E. N., & Sitkovskii, A. M. (2026). Forming technological solutions of housing family problems in the from demographic policy: problems and perspectives. Woman in russian society, (1), 32–48. https://doi.org/10.21064/winrs.2026.1.3",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -1505,7 +1553,59 @@
       "volume": "13",
       "issue": "1",
       "pages": "86-95"
-    }
+    },
+    "observed_at": "2026-09-20T15:22:34.224Z"
+  },
+  {
+    "source": "wos_free_view_auto",
+    "number": null,
+    "elibrary_item_id": null,
+    "year": 2026,
+    "rinc_citations": 0,
+    "title": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+    "title_en": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+    "title_en_source": "web_of_science",
+    "authors_raw": "Sitkovskiy, AM",
+    "venue": "FRONTIERS IN HUMAN DYNAMICS",
+    "venue_en": "FRONTIERS IN HUMAN DYNAMICS",
+    "venue_en_source": "web_of_science",
+    "publisher": null,
+    "volume": "8",
+    "issue": null,
+    "pages": null,
+    "doi": null,
+    "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001766714000001",
+    "wos_uid": "WOS:001766714000001",
+    "wos_citations": null,
+    "references_count": null,
+    "publication_type": "Article",
+    "sources": [
+      "wos"
+    ],
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001766714000001",
+        "document_type": "Article",
+        "title": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+        "title_en": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+        "authors_raw": "Sitkovskiy, AM",
+        "venue": "FRONTIERS IN HUMAN DYNAMICS",
+        "venue_en": "FRONTIERS IN HUMAN DYNAMICS",
+        "year": 2026,
+        "volume": "8",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001766714000001",
+        "metadata_raw": "3 | Article | Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition | Sitkovskiy, AM | May 4 2026 | arrow_back | Информация о журнале | clear | FRONTIERS IN HUMAN DYNAMICS | Название издателя | FRONTIERS MEDIA SA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | DEMOGRAPHY | в ESCI редакция | Q1 | SOCIAL ISSUES | в ESCI редакция | Q1 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.91 | 2024 | 0.68 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | FRONTIERS IN HUMAN DYNAMICS | 8 | Demographic structure does not determine intergenerational cultural continuity, but it conditions its opportunities and constraints. Using Rosstat's 2020 All-Russian Population Census tabulations, this study assembles non-overlapping national and regional age-sex profiles for legally recognized I | Бесплатный полный текст от издателя | for Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition | 0 | Ссылки",
+        "dedupe_fingerprint": "fcbe356d2da588c7",
+        "sources": [
+          "wos"
+        ],
+        "observed_at": "2026-09-20T15:28:23.031Z"
+      }
+    ],
+    "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
+    "title_ru": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+    "venue_ru": "FRONTIERS IN HUMAN DYNAMICS"
   },
   {
     "source": "wos_free_view_auto",
@@ -1524,14 +1624,16 @@
     "volume": "28",
     "issue": "1",
     "pages": "33-64",
-    "doi": null,
+    "doi": "10.17853/1994-5639-2026-1-33-64",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
     "wos_uid": "WOS:001705010300002",
     "wos_citations": null,
     "references_count": null,
     "publication_type": "Article",
     "sources": [
-      "wos"
+      "wos",
+      "crossref_api",
+      "orcid_public_api"
     ],
     "wos_records": [
       {
@@ -1549,12 +1651,14 @@
         "volume": "28",
         "issue": "1",
         "pages": "33-64",
-        "doi": null,
+        "doi": "10.17853/1994-5639-2026-1-33-64",
         "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
-        "dedupe_fingerprint": "260c00ca0ca1b704",
+        "dedupe_fingerprint": "af68ebb410a957de",
         "sources": [
           "wos"
-        ]
+        ],
+        "metadata_raw": "4 | Article | Comparative content analysis of master's and doctoral programmes in demography at world-class universities | Rostovskaya, TK | and | Sitkovskiy, AM | Jan 2026 | arrow_back | Информация о журнале | clear | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | Название издателя | RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | EDUCATION & EDUCATIONAL RESEARCH | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.25 | 2024 | 0.31 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | 28 | (1) | , pp.33-64 | Introduction. Global demographic challenges necessitate training specialists who possess both traditional and advanced digital and managerial competencies. However, the structure and content of demographic programmes at leading universities have not previously undergone comprehensive comparative | Бесплатный полный текст от издателя | for Comparative content analysis of master's and doctoral programmes in demography at world-class universities | 0 | Ссылки",
+        "observed_at": "2026-09-20T15:28:23.031Z"
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -1562,7 +1666,555 @@
     "venue_ru": "OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE",
     "title_ru_display": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
     "gost_ru": "Rostovskaya, TK and Sitkovskiy, AM. Comparative content analysis of master's and doctoral programmes in demography at world-class universities. // OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE. — 2026. — Т. 28. — № 1. — С. 33–64. — URL: https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002.",
-    "apa_en": "Rostovskaya, TK and Sitkovskiy, & AM (2026). Comparative content analysis of master's and doctoral programmes in demography at world-class universities. OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE, 28(1), 33–64. https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002"
+    "apa_en": "Rostovskaya, TK and Sitkovskiy, & AM (2026). Comparative content analysis of master's and doctoral programmes in demography at world-class universities. OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE, 28(1), 33–64. https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
+    "open_sources": [
+      {
+        "source": "orcid_public_api",
+        "title": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities",
+        "year": 2026,
+        "doi": "10.17853/1994-5639-2026-1-33-64",
+        "url": "https://doi.org/10.17853/1994-5639-2026-1-33-64",
+        "venue": "The Education and science journal",
+        "type": "journal-article",
+        "publisher": "Russian State Vocational Pedagogical University",
+        "is_referenced_by_count": 0,
+        "raw": {
+          "put-code": 202525133,
+          "created-date": {
+            "value": 1768479836642
+          },
+          "last-modified-date": {
+            "value": 1768479836642
+          },
+          "source": {
+            "source-orcid": null,
+            "source-client-id": {
+              "uri": "https://orcid.org/client/0000-0001-9884-1913",
+              "path": "0000-0001-9884-1913",
+              "host": "orcid.org"
+            },
+            "source-name": {
+              "value": "Crossref"
+            },
+            "assertion-origin-orcid": null,
+            "assertion-origin-client-id": null,
+            "assertion-origin-name": null
+          },
+          "title": {
+            "title": {
+              "value": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.17853/1994-5639-2026-1-33-64",
+                "external-id-normalized": {
+                  "value": "10.17853/1994-5639-2026-1-33-64",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "url": {
+            "value": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
+          },
+          "type": "journal-article",
+          "publication-date": {
+            "year": {
+              "value": "2026"
+            },
+            "month": {
+              "value": "01"
+            },
+            "day": {
+              "value": "01"
+            }
+          },
+          "journal-title": {
+            "value": "The Education and science journal"
+          },
+          "visibility": "public",
+          "path": "/0000-0002-8725-6580/work/202525133",
+          "display-index": "1"
+        },
+        "orcid": "0000-0002-8725-6580",
+        "put_code": 202525133,
+        "sources": [
+          "crossref_api",
+          "orcid_public_api"
+        ],
+        "provider_records": {
+          "orcid_public_api": {
+            "source": "orcid_public_api",
+            "orcid": "0000-0002-8725-6580",
+            "title": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities",
+            "year": 2026,
+            "doi": "10.17853/1994-5639-2026-1-33-64",
+            "type": "journal-article",
+            "url": "https://doi.org/10.17853/1994-5639-2026-1-33-64",
+            "put_code": 202525133,
+            "raw": {
+              "put-code": 202525133,
+              "created-date": {
+                "value": 1768479836642
+              },
+              "last-modified-date": {
+                "value": 1768479836642
+              },
+              "source": {
+                "source-orcid": null,
+                "source-client-id": {
+                  "uri": "https://orcid.org/client/0000-0001-9884-1913",
+                  "path": "0000-0001-9884-1913",
+                  "host": "orcid.org"
+                },
+                "source-name": {
+                  "value": "Crossref"
+                },
+                "assertion-origin-orcid": null,
+                "assertion-origin-client-id": null,
+                "assertion-origin-name": null
+              },
+              "title": {
+                "title": {
+                  "value": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities"
+                },
+                "subtitle": null,
+                "translated-title": null
+              },
+              "external-ids": {
+                "external-id": [
+                  {
+                    "external-id-type": "doi",
+                    "external-id-value": "10.17853/1994-5639-2026-1-33-64",
+                    "external-id-normalized": {
+                      "value": "10.17853/1994-5639-2026-1-33-64",
+                      "transient": true
+                    },
+                    "external-id-normalized-error": null,
+                    "external-id-url": {
+                      "value": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
+                    },
+                    "external-id-relationship": "self"
+                  }
+                ]
+              },
+              "url": {
+                "value": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
+              },
+              "type": "journal-article",
+              "publication-date": {
+                "year": {
+                  "value": "2026"
+                },
+                "month": {
+                  "value": "01"
+                },
+                "day": {
+                  "value": "01"
+                }
+              },
+              "journal-title": {
+                "value": "The Education and science journal"
+              },
+              "visibility": "public",
+              "path": "/0000-0002-8725-6580/work/202525133",
+              "display-index": "1"
+            }
+          },
+          "crossref_api": {
+            "source": "crossref_api",
+            "title": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities",
+            "year": 2026,
+            "doi": "10.17853/1994-5639-2026-1-33-64",
+            "url": "https://doi.org/10.17853/1994-5639-2026-1-33-64",
+            "venue": "The Education and science journal",
+            "type": "journal-article",
+            "publisher": "Russian State Vocational Pedagogical University",
+            "is_referenced_by_count": 0,
+            "raw": {
+              "indexed": {
+                "date-parts": [
+                  [
+                    2026,
+                    1,
+                    16
+                  ]
+                ],
+                "date-time": "2026-01-16T03:33:43Z",
+                "timestamp": 1768534423434,
+                "version": "3.49.0"
+              },
+              "reference-count": 37,
+              "publisher": "Russian State Vocational Pedagogical University",
+              "issue": "1",
+              "license": [
+                {
+                  "start": {
+                    "date-parts": [
+                      [
+                        2026,
+                        1,
+                        1
+                      ]
+                    ],
+                    "date-time": "2026-01-01T00:00:00Z",
+                    "timestamp": 1767225600000
+                  },
+                  "content-version": "vor",
+                  "delay-in-days": 0,
+                  "URL": "https://www.edscience.ru/jour/about/editorialPolicies#openAccessPolicy"
+                }
+              ],
+              "content-domain": {
+                "domain": [],
+                "crossmark-restriction": false
+              },
+              "short-container-title": [
+                "Obraz. nauka"
+              ],
+              "abstract": "<jats:p>\n                    <jats:italic>Introduction.</jats:italic>\n                    Global demographic challenges necessitate training specialists who possess both traditional and advanced digital and managerial competencies. However, the structure and content of demographic programmes at leading universities have not previously undergone comprehensive comparative analysis\n                    <jats:bold>.</jats:bold>\n                    <jats:italic>Aim</jats:italic>\n                    <jats:bold>.</jats:bold>\n                    The present study aimed to conduct both quantitative and qualitative content analyses of master’s and doctoral programmes in demography at universities across Europe, North America, Latin America, Australia, Africa, and Russia. It sought to identify the core and variable components of their curricula, thereby enabling the compilation of a list of key competencies acquired by graduates upon completion of these programmes.\n                    <jats:italic>Methodology and research methods</jats:italic>\n                    . The analysis involved automated processing of complete programme texts (tokenisation, lemmatisation), construction of a TF-IDF matrix, calculation of cosine similarity between programmes, and cluster analysis (Ward’s method) based on a binary matrix of key competencies. Thematic similarity networks and a programme dendrogram were visualised, and a bilingual comparative table of competencies was provided.\n                    <jats:italic>Results</jats:italic>\n                    . The analysis conducted revealed that all the educational programmes considered provide a fundamental set of competencies, including: comprehensive theoretical knowledge in the field of demographic processes; proficiency in modern analytical methods; the ability to conduct independent research; skills in interdisciplinary collaboration; and the capability to work with big data. Additionally, 30% of the programmes available in the public domain are distinguished by the integration of management and ethical modules, alongside an emphasis on digital demography and project-based activities, which enhances their competitiveness in the international educational arena. It is noteworthy that programmes developed in Western countries exhibit a shift in focus towards applied tasks, accompanied by a reduction in the volume of theoretical and research components.\n                    <jats:italic>Scientific novelty</jats:italic>\n                    . For the first time, a comparable quantitative and qualitative analysis of educational pathways in demography has been conducted on a corpus of original programme texts, employing contemporary methods of textual data processing and visualisation.\n                    <jats:italic>Practical significance</jats:italic>\n                    . The results obtained facilitate the optimisation of new demography programme development, ensuring a balance between fundamental, research, and applied training, while also broadening the range of competencies through digital and managerial modules.\n                  </jats:p>",
+              "DOI": "10.17853/1994-5639-2026-1-33-64",
+              "type": "journal-article",
+              "created": {
+                "date-parts": [
+                  [
+                    2026,
+                    1,
+                    15
+                  ]
+                ],
+                "date-time": "2026-01-15T10:37:18Z",
+                "timestamp": 1768473438000
+              },
+              "page": "33-64",
+              "source": "Crossref",
+              "is-referenced-by-count": 0,
+              "title": [
+                "Comparative content analysis of master’s and doctoral  programmes in demography at world-class universities"
+              ],
+              "prefix": "10.17853",
+              "volume": "28",
+              "author": [
+                {
+                  "ORCID": "https://orcid.org/0000-0002-1629-7780",
+                  "authenticated-orcid": true,
+                  "given": "T. K.",
+                  "family": "Rostovskaya",
+                  "sequence": "first",
+                  "affiliation": [
+                    {
+                      "name": "Institute of Social Demography, Federal Research Sociological Centre of the Russian Academy of Sciences"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                },
+                {
+                  "ORCID": "https://orcid.org/0000-0002-8725-6580",
+                  "authenticated-orcid": true,
+                  "given": "A. M.",
+                  "family": "Sitkovskiy",
+                  "sequence": "additional",
+                  "affiliation": [
+                    {
+                      "name": "Institute of Social Demography, Federal Research Sociological Centre of the Russian Academy of Sciences; Peoples’ Friendship University of Russia named after P. Lumumba"
+                    }
+                  ],
+                  "role": [
+                    {
+                      "role": "author",
+                      "vocabulary": "crossref"
+                    }
+                  ]
+                }
+              ],
+              "member": "7191",
+              "published-online": {
+                "date-parts": [
+                  [
+                    2026,
+                    1,
+                    1
+                  ]
+                ]
+              },
+              "reference": [
+                {
+                  "key": "ref1",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Blake J. Issues in the training and recruitment of demographers. Demography. 1964;1:258–263. doi:10.2307/2060068",
+                  "DOI": "10.1007/BF03208466"
+                },
+                {
+                  "key": "ref2",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Okonjo C. Demographic research and training in Africa. The Journal of Modern African Studies. 1966;4(4):540–548. doi:10.1017/S0022278X00013847",
+                  "DOI": "10.1017/S0022278X00013847"
+                },
+                {
+                  "key": "ref3",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Dasvarma G.L. The importance of population studies and the state of technical demographic training in Asia. Asian Population Studies. 2010;6(1):1–2. doi:10.1080/17441731003603330",
+                  "DOI": "10.1080/17441731003603330"
+                },
+                {
+                  "key": "ref4",
+                  "unstructured": "IUSSP/UNFPA Seminar on demographic training in developing countries: towards an agenda for revitalisation. Summary Report. The Hague; 2009. Accessed August 18, 2025. https://archive.iussp.org/Activities/infodata/report09.pdf"
+                },
+                {
+                  "key": "ref5",
+                  "unstructured": "Teaching demography in the early 21st century. Genus. 2002;58(3/4). Accessed August 18, 2025. https://www.jstor.org/stable/i29788731"
+                },
+                {
+                  "key": "ref6",
+                  "unstructured": "Burch T.K. Teaching demography: ten principles and two rationales. Genus. 2002;58(3/4):21–34. Accessed August 18, 2025. https://www.jstor.org/stable/29788735"
+                },
+                {
+                  "key": "ref7",
+                  "unstructured": "Burch T.K. Teaching the fundamentals of demography: a model-based approach to family and fertility. Genus. 2002;58(3/4):73–90. Accessed August 18, 2025. https://www.jstor.org/stable/29788737"
+                },
+                {
+                  "key": "ref8",
+                  "unstructured": "Palloni A. Rethinking the teaching of demography: new challenges and opportunities. Genus. 2002;58(3/4):35–70. Accessed August 18, 2025. https://www.jstor.org/stable/29788736"
+                },
+                {
+                  "key": "ref9",
+                  "unstructured": "Caselli G. Teaching demography: a number of priorities from the IUSSP Working Group. Genus. 2002;58(3/4):11–17. Accessed August 18, 2025. https://www.jstor.org/stable/29788734"
+                },
+                {
+                  "key": "ref10",
+                  "unstructured": "Goldman N. Incorporating health into demographic training. Genus. 2002;58(3/4):91–107. Accessed August 18, 2025. https://www.jstor.org/stable/29788738"
+                },
+                {
+                  "key": "ref11",
+                  "unstructured": "Presser H.B., Das M.B. Mainstreaming gender in demographic training: benefits and constraints. Genus. 2002;58(3/4):165–187. Accessed August 18, 2025. https://www.jstor.org/stable/29788741"
+                },
+                {
+                  "key": "ref12",
+                  "unstructured": "Carey J.R. The importance of including biodemography in the demography curriculum. Genus. 2002;58(3/4):189–199. Accessed August 18, 2025. https://www.jstor.org/stable/29788742"
+                },
+                {
+                  "key": "ref13",
+                  "unstructured": "Simmons A., Piché V. Teaching migration and globalisation. Genus. 2002;58(3/4):109–133. Accessed August 18, 2025. https://www.jstor.org/stable/29788739"
+                },
+                {
+                  "key": "ref14",
+                  "unstructured": "Golini A. Teaching demography of aging. Genus. 2002;58(3/4):135–163. Accessed August 18, 2025. https://www.jstor.org/stable/29788740"
+                },
+                {
+                  "key": "ref15",
+                  "unstructured": "Ordorica Mellado M. México en el contexto de la enseñanza de la demografía en América Latina. Papeles de Población. 2003;(36):47–77. Accessed August 18, 2025. https://www.researchgate.net/publication/26421023_Mexico_en_el_contexto_de_la_ensenanza_de_la_demografia_en_America_Latina"
+                },
+                {
+                  "key": "ref16",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Abowitz D.A. Teaching demography to undergraduates: a pedagogical dilemma. Teaching Sociology. 1990;18(1):63–68. doi:10.2307/1318233",
+                  "DOI": "10.2307/1318233"
+                },
+                {
+                  "key": "ref17",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Tabutin D. Whither demography? Strengths and weaknesses of the discipline over fifty years of change. Population. 2007;62(1):15–31. doi:10.3917/popu.701.0015",
+                  "DOI": "10.3917/pope.701.0015"
+                },
+                {
+                  "key": "ref18",
+                  "unstructured": "Wajnman S., Gonçalves E.L. Is there a basic framework for training in demography? Papeles de Población. 2003;(36):21–40. Accessed August 18, 2025. https://www.researchgate.net/publication/26421020_Is_there_a_basic_framework_for_training_in_demography"
+                },
+                {
+                  "key": "ref19",
+                  "unstructured": "Preston S.H., Heuveline P., Guillot M. Demography: Measuring and Modeling Population Processes. Malden, MA: Blackwell; 2001. Accessed August 18, 2025. https://archive.org/details/demographymeasur0000pres"
+                },
+                {
+                  "key": "ref20",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Keyfitz N., Caswell H. Applied Mathematical Demography. 3rd ed. New York: Springer; 2005. doi:10.1007/b139042",
+                  "DOI": "10.1007/b139042"
+                },
+                {
+                  "key": "ref21",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Valentei D.I. Population knowledge system (1973). Vestnik Moskovskogo universiteta. Seriya 6. Ekonomika = Moscow University Economics Bulletin. 2016;4:134–148. (In Russ.) doi:10.38050/013001052016411",
+                  "DOI": "10.38050/013001052016411"
+                },
+                {
+                  "key": "ref22",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Kalabikhina I.E. An interdisciplinary approach to the demography teaching at universities. Vestnik Moskovskogo universiteta. Seriya 6: Ekonomika = Moscow University Economics Bulletin. 2017;1:169-173. (In Russ.) doi:10.38050/01300105201719",
+                  "DOI": "10.38050/01300105201719"
+                },
+                {
+                  "key": "ref23",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Rostovskaya T.K., Bedrina E.B., Zolotareva O.A. Razvitie demograficheskogo obrazovaniya v Rossii i za rubezhom = Development of Demographic Education in Russia and Abroad. Moscow: FCTAS RAS; 2024. (In Russ.) doi:10.19181/monogr.978-5-89697-421-5.2023",
+                  "DOI": "10.31085/9785392405954-2023-224"
+                },
+                {
+                  "key": "ref24",
+                  "unstructured": "Tkachenko A.A. History and current problems of teaching the course “Demography”: Russian specifics. In: Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017:195–204. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment"
+                },
+                {
+                  "key": "ref25",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Bedrina E.B., Chernova K.V. The system of demographic education in federal universities of Russia. In: Global’nye vyzovy demograficheskomu razvitiyu: sbornik nauchnykh statei. Vol. II = Global Challenges to Demographic Development: Collected Scientific Articles. Vol. II. Ekaterinburg: Institute of Economics, Ural Branch of RAS; 2022:50–63. (In Russ.) doi:10.17059/udf-2022-4-5",
+                  "DOI": "10.17059/udf-2022-4-5"
+                },
+                {
+                  "key": "ref26",
+                  "unstructured": "Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017. 632 p. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment"
+                },
+                {
+                  "key": "ref27",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Kalabikhina I.E. Interdisciplinary approach to teaching demographic disciplines. In: Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017:174–176. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment",
+                  "DOI": "10.38050/01300105201719"
+                },
+                {
+                  "key": "ref28",
+                  "unstructured": "Mikheeva A.R. Demography and sociology of the family as a field of interdisciplinary analysis. In: Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017:177–184. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment"
+                },
+                {
+                  "key": "ref29",
+                  "unstructured": "Sakhvadze A.Sh. Demographic education and population studies in universities of Georgia. In: Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017:185–194. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment"
+                },
+                {
+                  "key": "ref30",
+                  "unstructured": "Tozhieva Z.N., Alekperova Sh.T. Demographic education of Uzbekistan: history and modernity. In: Demograficheskoe obrazovanie i izuchenie narodonaseleniya v universitetakh. Devyatye Valenteevskie chteniya: materialy mezhdunarodnoi nauchnoi konferentsii = Demographic Education and Population Studies at Universities. Ninth Valenteev Readings: Proceedings of the International Scientific Conference. Moscow: Lomonosov Moscow State University; 2017:207–208. (In Russ.) Accessed August 18, 2025. https://demography.econ.msu.ru/sys/raw.php?o=1819&p=attachment"
+                },
+                {
+                  "key": "ref31",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Rostovskaya T.K., Zolotareva O.A. The professional standard “Demographer” as a factor in shaping a new model of human resources. Sotsiologicheskaya nauka i sotsial’naya praktika = Sociological Science and Social Practice. 2021;9(2):82–95. (In Russ.) doi:10.19181/snsp.2021.9.2.8106",
+                  "DOI": "10.19181/snsp.2021.9.2.8106"
+                },
+                {
+                  "key": "ref32",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Bedrina E.B., Chernova K.V. Professional standards as a basis for the development and improvement of knowledge in demography. Human Progress. 2021;7(3):1–14. (In Russ.) doi:10.34709/IM.173.5",
+                  "DOI": "10.34709/IM.173.5"
+                },
+                {
+                  "key": "ref33",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Rostovskaya T.K., Shabunova A.A., Davletshina L.A. demographic education in modern Russia: mismatch between the needs and opportunities. Economic and Social Changes: Facts, Trends, Forecast. 2022;15(2):55–72. doi:10.15838/esc.2022.2.80.4",
+                  "DOI": "10.15838/esc.2022.2.80.4"
+                },
+                {
+                  "key": "ref34",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Chernova K.V., Bedrina E.B. Development of demographic education in Russian higher education institutions. Narodonaselenie = Population. 2020;23(4):125–139. (In Russ.) doi:10.19181/population.2020.23.4.12",
+                  "DOI": "10.19181/population.2020.23.4.12"
+                },
+                {
+                  "key": "ref35",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Ryazantsev S.V., Rostovskaya T.K., Davletshina L.A. Current issues of demography and training of demographers in Tuva. Novye issledovaniya Tuvy = New Research of Tuva. 2022;(4):146–168. (In Russ.) doi:10.25178/nit.2022.4.12",
+                  "DOI": "10.25178/nit.2022.4.12"
+                },
+                {
+                  "key": "ref36",
+                  "unstructured": "Bagirova A., Voroshilova A. The formation of demographic competencies of public servants as a new feature of Russian education. In: International Multidisciplinary Scientific Conferences on Social Sciences and Arts (SGEM 2014): Conference Proceedings. 2014;2:955–962. doi:10.5593/sgemso cial2014/B12/S2.122"
+                },
+                {
+                  "key": "ref37",
+                  "doi-asserted-by": "crossref",
+                  "unstructured": "Williams J.R., Schatz E.J., Clark B.D., Collinson M.A., Clark S.J., Menken J., et al. Improving public health training and research capacity in Africa: a replicable model for linking training to health and socio-demographic surveillance data. Global Health Action. 2010;3:5287. doi:10.3402/gha.v3i0.5287",
+                  "DOI": "10.3402/gha.v3i0.5287"
+                }
+              ],
+              "container-title": [
+                "The Education and science journal"
+              ],
+              "link": [
+                {
+                  "URL": "https://www.edscience.ru/jour/article/viewFile/4810/1371",
+                  "content-type": "application/pdf",
+                  "content-version": "vor",
+                  "intended-application": "text-mining"
+                }
+              ],
+              "deposited": {
+                "date-parts": [
+                  [
+                    2026,
+                    1,
+                    15
+                  ]
+                ],
+                "date-time": "2026-01-15T10:38:14Z",
+                "timestamp": 1768473494000
+              },
+              "score": 0.0,
+              "resource": {
+                "primary": {
+                  "URL": "https://www.edscience.ru/jour/article/view/4810"
+                }
+              },
+              "issued": {
+                "date-parts": [
+                  [
+                    2026,
+                    1,
+                    1
+                  ]
+                ]
+              },
+              "references-count": 37,
+              "journal-issue": {
+                "issue": "1",
+                "published-online": {
+                  "date-parts": [
+                    [
+                      2026,
+                      1,
+                      1
+                    ]
+                  ]
+                }
+              },
+              "URL": "https://doi.org/10.17853/1994-5639-2026-1-33-64",
+              "ISSN": [
+                "2310-5828",
+                "1994-5639"
+              ],
+              "issn-type": [
+                {
+                  "value": "2310-5828",
+                  "type": "electronic"
+                },
+                {
+                  "value": "1994-5639",
+                  "type": "print"
+                }
+              ],
+              "published": {
+                "date-parts": [
+                  [
+                    2026,
+                    1,
+                    1
+                  ]
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
   },
   {
     "source": "scopus_api_auto",
@@ -1783,7 +2435,8 @@
     "doi": "10.3389/fdata.2026.1842233",
     "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-105046947039",
     "sources": [
-      "scopus"
+      "scopus",
+      "wos"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -1877,7 +2530,80 @@
     "publisher": "Frontiers Media SA",
     "publication_type": "journal-article",
     "gost_ru": "Dozhdikov A.V. Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization. // Frontiers in Big Data. — 2026. — Т. 9. — DOI: 10.3389/fdata.2026.1842233.",
-    "apa_en": "Dozhdikov, A. V. (2026). Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization. Frontiers in Big Data, 9. https://doi.org/10.3389/fdata.2026.1842233"
+    "apa_en": "Dozhdikov, A. V. (2026). Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization. Frontiers in Big Data, 9. https://doi.org/10.3389/fdata.2026.1842233",
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001826272100001",
+        "document_type": "Article",
+        "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+        "title_en": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+        "authors_raw": "Dozhdikov, AV and Sitkovskiy, AM",
+        "venue": "FRONTIERS IN BIG DATA",
+        "venue_en": "FRONTIERS IN BIG DATA",
+        "year": 2026,
+        "volume": "9",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001826272100001",
+        "metadata_raw": "1 | Article | Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization | Dozhdikov, AV | and | Sitkovskiy, AM | Jul 8 2026 | arrow_back | Информация о журнале | clear | FRONTIERS IN BIG DATA | Название издателя | FRONTIERS MEDIA SA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | COMPUTER SCIENCE, INFORMATION SYSTEMS | в ESCI редакция | Q2 | COMPUTER SCIENCE, INTERDISCIPLINARY APPLICATIONS | в ESCI редакция | Q2 | MULTIDISCIPLINARY SCIENCES | в ESCI редакция | Q1 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.52 | 2024 | 0.47 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | FRONTIERS IN BIG DATA | 9 | Demographic systems face unprecedented challenges from simultaneous crises. Conventional statistical demography techniques and agent-based models often struggle to capture nonlinear inter-regional interactions during periods of severe socio-economic disruption. To address this, we propose MADDPG- | Бесплатный полный текст от издателя | for Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization | 0 | Ссылки",
+        "dedupe_fingerprint": "c5e2c3ac93e0fc9f",
+        "sources": [
+          "wos"
+        ],
+        "observed_at": "2026-09-20T15:28:23.031Z"
+      }
+    ],
+    "wos_uid": "WOS:001826272100001"
+  },
+  {
+    "source": "wos_free_view_auto",
+    "number": null,
+    "elibrary_item_id": null,
+    "year": 2026,
+    "rinc_citations": 0,
+    "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+    "title_en": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+    "title_en_source": "web_of_science",
+    "authors_raw": "Raysikh, A ; Bezverbny, V ; (...); Zenkov, D",
+    "venue": "FRONTIERS IN SUSTAINABLE CITIES",
+    "venue_en": "FRONTIERS IN SUSTAINABLE CITIES",
+    "venue_en_source": "web_of_science",
+    "publisher": null,
+    "volume": "8",
+    "issue": null,
+    "pages": null,
+    "doi": null,
+    "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001",
+    "wos_uid": "WOS:001767258700001",
+    "wos_citations": null,
+    "references_count": null,
+    "publication_type": "Article",
+    "sources": [
+      "wos"
+    ],
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001767258700001",
+        "document_type": "Article",
+        "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+        "title_en": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+        "authors_raw": "Raysikh, A ; Bezverbny, V ; (...); Zenkov, D",
+        "venue": "FRONTIERS IN SUSTAINABLE CITIES",
+        "venue_en": "FRONTIERS IN SUSTAINABLE CITIES",
+        "year": 2026,
+        "volume": "8",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001",
+        "metadata_raw": "2 | Article | The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels | Raysikh, A | ; | Bezverbny, V | ; | (...); | Zenkov, D | May 4 2026 | arrow_back | Информация о журнале | clear | FRONTIERS IN SUSTAINABLE CITIES | Название издателя | FRONTIERS MEDIA SA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ENVIRONMENTAL SCIENCES | в ESCI редакция | Q3 | ENVIRONMENTAL STUDIES | в ESCI редакция | Q2 | GREEN & SUSTAINABLE SCIENCE & TECHNOLOGY | в ESCI редакция | Q3 | URBAN STUDIES | в ESCI редакция | Q1 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.49 | 2024 | 0.47 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | FRONTIERS IN SUSTAINABLE CITIES | 8 | This study provides the first quantitative assessment of how transport accessibility affects population dynamics in 73 Russian urban agglomerations across the intercensal periods 1989-2021. Using OpenStreetMap data, we calculated accessibility to agglomeration centers for more than 2,800 settleme | Бесплатный полный текст от издателя | for The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels | 0 | Ссылки",
+        "dedupe_fingerprint": "79e3c3fa3a492d6f",
+        "sources": [
+          "wos"
+        ],
+        "observed_at": "2026-09-20T15:28:23.031Z"
+      }
+    ],
+    "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
+    "title_ru": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+    "venue_ru": "FRONTIERS IN SUSTAINABLE CITIES"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -1893,7 +2619,7 @@
     "pages": null,
     "doi": null,
     "metadata_raw": "Ярославль, 2025.",
-    "rinc_citations": 5,
+    "rinc_citations": 8,
     "dedupe_fingerprint": "2dd81613294bdfd0",
     "sources": [
       "elibrary"
@@ -1915,7 +2641,8 @@
       "publisher": "Филигрань",
       "year": "издания:",
       "volume": "К"
-    }
+    },
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -1931,7 +2658,7 @@
     "pages": "8",
     "doi": null,
     "metadata_raw": "Москва, Вологда, 2025.",
-    "rinc_citations": 18,
+    "rinc_citations": 27,
     "dedupe_fingerprint": "248dc58342acce5c",
     "sources": [
       "elibrary"
@@ -1952,7 +2679,8 @@
       "pages": "8"
     },
     "gost_ru": "Ростовская Т.К., Шабунова А.А., Архангельский В.Н., Ахметова Г.Ф., Багирова А.П., Белозеров В.С., Валиахметов Р.М., Васильева Е.Н., Васильев Е.С., Григоричев К.В., Грицких Н.В., Егорова Н.Ю., Емельянова Н.В., Ершова Г.Н., Зимовина Е.П., Ильдарханова Ч.И., Калачикова О.Н., Колесов А.А., Комарова Т.М., Комлева Р.Н. и др. Демографическое самочувствие регионов России. национальный демографический доклад — 2024. — Вологодский научный центр Российской академии наук. — 2025. — С. 8. — URL: https://www.elibrary.ru/item.asp?id=82280485.",
-    "apa_en": "Rostovskaya, T. K. et al. (2025). Demographic self-feeling of regions of Russia. National Demographic Report - 2024. Vologodskii nauchnyi tsentr Rossiiskoi akademii nauk, 8. https://www.elibrary.ru/item.asp?id=82280485"
+    "apa_en": "Rostovskaya, T. K. et al. (2025). Demographic self-feeling of regions of Russia. National Demographic Report - 2024. Vologodskii nauchnyi tsentr Rossiiskoi akademii nauk, 8. https://www.elibrary.ru/item.asp?id=82280485",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -1968,7 +2696,7 @@
     "pages": null,
     "doi": "10.19181/monogr.978-5-89697-443-7.2025",
     "metadata_raw": "Москва, 2025.",
-    "rinc_citations": 3,
+    "rinc_citations": 10,
     "dedupe_fingerprint": "059488b9751640fe",
     "sources": [
       "elibrary"
@@ -2008,7 +2736,8 @@
       ],
       "url": "https://doi.org/10.19181/monogr.978-5-89697-443-7.2025"
     },
-    "publication_type": "edited-book"
+    "publication_type": "edited-book",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -2044,7 +2773,8 @@
       "year": "публикации:",
       "issue": "свидетельства:",
       "volume": "К"
-    }
+    },
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -2078,7 +2808,8 @@
       "year": "2025",
       "pages": "169-170"
     },
-    "volume": "."
+    "volume": ".",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -2118,7 +2849,8 @@
       "volume": "К"
     },
     "gost_ru": "Ростовская Т.К., Ситковский А.М. Цифровые технологии в профессиональной деятельности демографа. // Информационное общество. — 2025. — № 5. — С. 116–123. — DOI: 10.52605/16059921_2025_05_116.",
-    "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2025). Digital Technologies in the Professional Activity of the Demograph. Informatsionnoe obshchestvo, (5), 116–123. https://doi.org/10.52605/16059921_2025_05_116"
+    "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2025). Digital Technologies in the Professional Activity of the Demograph. Informatsionnoe obshchestvo, (5), 116–123. https://doi.org/10.52605/16059921_2025_05_116",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -2157,7 +2889,8 @@
     },
     "gost_ru": "Безвербный В.А., Погребняк Е.В., Шевчуков С.П., Ситковский А.М. Цифровая демография: современные методы исследования демографических процессов. // Информационное общество. — 2025. — № 6. — С. 121–128. — DOI: 10.52605/16059921_2025_06_121.",
     "apa_en": "Bezverbnyi, V. A., Pogrebnyak, E. V., Shevchukov, S. P., & Sitkovskii, A. M. (2025). Digital Demographics: Modern Methods of Studying Demographic Processes. Informatsionnoe obshchestvo, (6), 121–128. https://doi.org/10.52605/16059921_2025_06_121",
-    "volume": "."
+    "volume": ".",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -2173,7 +2906,7 @@
     "pages": "63-74",
     "doi": "10.7868/s3034520025040127",
     "metadata_raw": "Вестник Российской академии наук . 2025. № 4 . С. 63-74.",
-    "rinc_citations": 7,
+    "rinc_citations": 12,
     "dedupe_fingerprint": "addb493ce7bcd300",
     "sources": [
       "elibrary"
@@ -2216,7 +2949,8 @@
       "isbn": null,
       "url": "https://doi.org/10.7868/s3034520025040127"
     },
-    "publication_type": "journal-article"
+    "publication_type": "journal-article",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -2232,7 +2966,7 @@
     "pages": "1280-1285",
     "doi": "10.32687/0869-866x-2025-33-5-1280-1285",
     "metadata_raw": "Problems of Social Hygiene, Public Health and History of Medicine . 2025. Т. 33. № 5 . С. 1280-1285.",
-    "rinc_citations": 0,
+    "rinc_citations": 1,
     "dedupe_fingerprint": "d78142ac2078e055",
     "sources": [
       "elibrary",
@@ -2332,7 +3066,8 @@
     },
     "publication_type": "journal-article",
     "gost_ru": "Rostovskaya T.K., Sitkovskiy A.M. The attitudes of foreign students to their further life and career in russia. // Problems of Social Hygiene, Public Health and History of Medicine. — 2025. — Т. 33. — № 5. — С. 1280–1285. — DOI: 10.32687/0869-866x-2025-33-5-1280-1285.",
-    "apa_en": "Rostovskaya, T. K. & Sitkovskiy, A. M. (2025). The attitudes of foreign students to their further life and career in russia. Problemy Sotsial Noi Gigieny Zdravookhraneniia I Istorii Meditsiny, 33(5), 1280–1285. https://doi.org/10.32687/0869-866x-2025-33-5-1280-1285"
+    "apa_en": "Rostovskaya, T. K. & Sitkovskiy, A. M. (2025). The attitudes of foreign students to their further life and career in russia. Problemy Sotsial Noi Gigieny Zdravookhraneniia I Istorii Meditsiny, 33(5), 1280–1285. https://doi.org/10.32687/0869-866x-2025-33-5-1280-1285",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -2348,7 +3083,7 @@
     "pages": "602-617",
     "doi": "10.52180/1999-9836_2025_21_4_8_602_617",
     "metadata_raw": "Уровень жизни населения регионов России . 2025. Т. 21. № 4 . С. 602-617.",
-    "rinc_citations": 4,
+    "rinc_citations": 11,
     "dedupe_fingerprint": "41919311581fea7e",
     "sources": [
       "elibrary",
@@ -3990,7 +4725,8 @@
     },
     "publication_type": "journal-article",
     "gost_ru": "Безвербный В.А., Ростовская Т.К., Ситковский А.М., Рославцев С.В. Взаимосвязи демографических и социально — экономических показателей развития регионов России. // Уровень жизни населения регионов России. — 2025. — Т. 21. — № 4. — С. 602–617. — DOI: 10.52180/1999-9836_2025_21_4_8_602_617.",
-    "apa_en": "Bezverbnyi, V. A., Rostovskaya, T. K., Sitkovskii, A. M., & Roslavtsev, S. V. (2025). The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia. Living Standards of the Population in the Regions of Russia, 21(4), 602–617. https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617"
+    "apa_en": "Bezverbnyi, V. A., Rostovskaya, T. K., Sitkovskii, A. M., & Roslavtsev, S. V. (2025). The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia. Living Standards of the Population in the Regions of Russia, 21(4), 602–617. https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -4006,7 +4742,7 @@
     "pages": "149-179",
     "doi": "10.17853/1994-5639-2025-6-149-179",
     "metadata_raw": "Образование и наука . 2025. Т. 27. № 6 . С. 149-179.",
-    "rinc_citations": 5,
+    "rinc_citations": 8,
     "dedupe_fingerprint": "58ad60face9469ed",
     "sources": [
       "elibrary",
@@ -6066,7 +6802,8 @@
       "volume": "27",
       "issue": "6",
       "pages": "149-179"
-    }
+    },
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -6082,7 +6819,7 @@
     "pages": "122-138",
     "doi": null,
     "metadata_raw": "Социум и власть . 2025. Т. 22. № 4 . С. 122-138.",
-    "rinc_citations": 0,
+    "rinc_citations": 1,
     "dedupe_fingerprint": "6c348dccce8e4c7d",
     "sources": [
       "elibrary"
@@ -6105,7 +6842,8 @@
       "pages": "122-138"
     },
     "gost_ru": "Нечаева С.В., Богданова Д.В., Ситковский А.М. Молодёжь как ресурс развития российских регионов: государственные и корпоративные стратегии. // Социум и власть. — 2025. — Т. 22. — № 4. — С. 122–138. — URL: https://www.elibrary.ru/item.asp?id=88812395.",
-    "apa_en": "Nechaeva, S. V., Bogdanova, D. V., & Sitkovskii, A. M. (2025). Youth as Development Resources of Russian Regions: State and Corporate Strategies. Sotsium i vlast, 22(4), 122–138. https://www.elibrary.ru/item.asp?id=88812395"
+    "apa_en": "Nechaeva, S. V., Bogdanova, D. V., & Sitkovskii, A. M. (2025). Youth as Development Resources of Russian Regions: State and Corporate Strategies. Sotsium i vlast, 22(4), 122–138. https://www.elibrary.ru/item.asp?id=88812395",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -6167,7 +6905,8 @@
     },
     "publication_type": "journal-article",
     "venue_en": "Woman in russian society",
-    "venue_en_source": "existing_latin"
+    "venue_en_source": "existing_latin",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -6229,7 +6968,8 @@
     },
     "publication_type": "journal-article",
     "venue_en": "Woman in russian society",
-    "venue_en_source": "existing_latin"
+    "venue_en_source": "existing_latin",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -6245,7 +6985,7 @@
     "pages": "183-202",
     "doi": "10.15838/esc.2025.3.99.10",
     "metadata_raw": "Экономические и социальные перемены: факты, тенденции, прогноз . 2025. Т. 18. № 3 . С. 183-202.",
-    "rinc_citations": 5,
+    "rinc_citations": 10,
     "dedupe_fingerprint": "e344883e06272cb3",
     "sources": [
       "elibrary"
@@ -6289,7 +7029,8 @@
     },
     "publication_type": "journal-article",
     "gost_ru": "Ростовская Т.К., Ситковский А.М. Демографические ресурсы России: вариативность подходов и оценок. // Экономические и социальные перемены: факты, тенденции, прогноз. — 2025. — Т. 18. — № 3. — С. 183–202. — DOI: 10.15838/esc.2025.3.99.10.",
-    "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2025). Russia’s Demographic Resources: Variability in Approaches and Evaluations. Ekonomicheskie i sotsialnye peremeny: fakty, tendentsii, prognoz, 18(3), 183–202. https://doi.org/10.15838/esc.2025.3.99.10"
+    "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2025). Russia’s Demographic Resources: Variability in Approaches and Evaluations. Ekonomicheskie i sotsialnye peremeny: fakty, tendentsii, prognoz, 18(3), 183–202. https://doi.org/10.15838/esc.2025.3.99.10",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -6349,7 +7090,8 @@
       "isbn": null,
       "url": "https://doi.org/10.15838/esc.2025.6.102.4"
     },
-    "publication_type": "journal-article"
+    "publication_type": "journal-article",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -7848,7 +8590,8 @@
       "volume": "для принятия обоснованных управленческих решений по формированию приоритетов в финансировании и модернизации узловых центров.",
       "issue": "2",
       "pages": "70-91"
-    }
+    },
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -7864,7 +8607,7 @@
     "pages": "233-253",
     "doi": "10.25178/nit.2025.4.13",
     "metadata_raw": "Новые исследования Тувы . 2025. № 4 . С. 233-253.",
-    "rinc_citations": 0,
+    "rinc_citations": 2,
     "dedupe_fingerprint": "409efe2a904a8be1",
     "sources": [
       "elibrary",
@@ -9541,7 +10284,8 @@
     },
     "publication_type": "journal-article",
     "gost_ru": "Ростовская Т.К., Ситковский А.М., Гишкаева Л.Н. Методология и практика проведения демографической экспертизы на примере региональной программы \"повышение рождаемости в Республике Тыва на период 2023 — 2025 годов\". // Новые исследования Тувы. — 2025. — № 4. — С. 233–253. — DOI: 10.25178/nit.2025.4.13.",
-    "apa_en": "Rostovskaya, T. K., Sitkovskii, A. M., & Gishkaeva, L. N. (2025). Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”. New Research of Tuva, (4), 233–253. https://doi.org/10.25178/nit.2025.4.13"
+    "apa_en": "Rostovskaya, T. K., Sitkovskii, A. M., & Gishkaeva, L. N. (2025). Methodology and practice of demographic expertise based on the example of the regional program “Increasing Birth Rates in the Republic of Tuva for the Period 2023–2025”. New Research of Tuva, (4), 233–253. https://doi.org/10.25178/nit.2025.4.13",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -10662,7 +11406,8 @@
       "volume": "12",
       "issue": "3",
       "pages": "319-327"
-    }
+    },
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -10678,7 +11423,7 @@
     "pages": "375-385",
     "doi": "10.22363/2312-8313-2025-12-3-375-385",
     "metadata_raw": "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление . 2025. Т. 12. № 3 . С. 375-385.",
-    "rinc_citations": 1,
+    "rinc_citations": 4,
     "dedupe_fingerprint": "7d41f4757ddfd95b",
     "sources": [
       "elibrary",
@@ -12534,7 +13279,8 @@
     },
     "publication_type": "journal-article",
     "gost_ru": "Ситковский А.М. Влияние государственной политики агломерирования на долгосрочные тенденции изменения численности населения России. // Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление. — 2025. — Т. 12. — № 3. — С. 375–385. — DOI: 10.22363/2312-8313-2025-12-3-375-385.",
-    "apa_en": "Sitkovskii, A. M. (2025). The impact of state agglomeration policy on long-term trends of population changes in Russia. RUDN Journal of Public Administration, 12(3), 375–385. https://doi.org/10.22363/2312-8313-2025-12-3-375-385"
+    "apa_en": "Sitkovskii, A. M. (2025). The impact of state agglomeration policy on long-term trends of population changes in Russia. RUDN Journal of Public Administration, 12(3), 375–385. https://doi.org/10.22363/2312-8313-2025-12-3-375-385",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -13628,7 +14374,8 @@
     },
     "publication_type": "journal-article",
     "gost_ru": "Ситковский А.М., Ростовская Т.К. Социологическая диагностика неудовлетворённости населения как инструмент управления развитием территорий. // Научный результат. Социология и управление. — 2025. — Т. 11. — № 4. — С. 242–259. — DOI: 10.18413/2408-9338-2025-11-4-1-4.",
-    "apa_en": "Sitkovskii, A. M. & Rostovskaya, T. K. (2025). Sociological diagnostics of population dissatisfaction as a tool for managing territorial development. Research Result Sociology and Management, 11(4), 242–259. https://doi.org/10.18413/2408-9338-2025-11-4-1-4"
+    "apa_en": "Sitkovskii, A. M. & Rostovskaya, T. K. (2025). Sociological diagnostics of population dissatisfaction as a tool for managing territorial development. Research Result Sociology and Management, 11(4), 242–259. https://doi.org/10.18413/2408-9338-2025-11-4-1-4",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -13644,7 +14391,7 @@
     "pages": "188-215",
     "doi": "10.19181/demis.2025.5.4.11",
     "metadata_raw": "ДЕМИС. Демографические исследования . 2025. Т. 5. № 4 . С. 188-215.",
-    "rinc_citations": 0,
+    "rinc_citations": 1,
     "dedupe_fingerprint": "89fd29fe20d215b1",
     "sources": [
       "elibrary",
@@ -14264,7 +15011,8 @@
       "volume": "5",
       "issue": "4",
       "pages": "188-215"
-    }
+    },
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -14280,7 +15028,7 @@
     "pages": "1715504",
     "doi": null,
     "metadata_raw": "Frontiers in Political Science . 2025. Т. 7. С. 1715504.",
-    "rinc_citations": 0,
+    "rinc_citations": 3,
     "dedupe_fingerprint": "94de25b9d60208a4",
     "sources": [
       "elibrary",
@@ -14316,12 +15064,15 @@
         "dedupe_fingerprint": "37492320529d23f6",
         "sources": [
           "wos"
-        ]
+        ],
+        "metadata_raw": "5 | Article | The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance | Bezverbny, V | ; | Rostovskaya, T | ; | (...); | Roslavtsev, S | Dec 8 2025 | arrow_back | Информация о журнале | clear | FRONTIERS IN POLITICAL SCIENCE | Название издателя | FRONTIERS MEDIA SA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | INTERNATIONAL RELATIONS | в ESCI редакция | Q2 | POLITICAL SCIENCE | в ESCI редакция | Q2 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.87 | 2024 | 1.02 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | FRONTIERS IN POLITICAL SCIENCE | 7 | This article quantifies how population density shapes the socio-economic trajectories of Russian regions and translates the results into an operational framework for place-sensitive policy (\"cluster-differentiated density governance\"). Using annual official statistics for 89 federal subjects over | Бесплатный полный текст от издателя | for The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance | 0 | Ссылки",
+        "observed_at": "2026-09-20T15:28:23.031Z"
       }
     ],
     "wos_uid": "WOS:001643513900001",
     "publisher": "FRONTIERS MEDIA SA",
-    "publication_type": "Article"
+    "publication_type": "Article",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "wos_free_view_auto",
@@ -14370,7 +15121,9 @@
         "dedupe_fingerprint": "cedfa5f82e69128a",
         "sources": [
           "wos"
-        ]
+        ],
+        "metadata_raw": "9 | Article | Demographic Resources of Russia: Variability of Approaches and Assessments | Rostovskaya, TK | and | Sitkovskiy, AM | 2025 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 18 | (3) | , pp.183-202 | In the context of a deep demographic crisis faced by many countries in the world, the issue of identifying and using demographic development resources as a key component of national security is becoming important. This article continues a series of publications by the authors devoted to the study | Бесплатный полный текст от издателя | for Demographic Resources of Russia: Variability of Approaches and Assessments | 0 | Ссылки",
+        "observed_at": "2026-09-20T15:28:23.031Z"
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -14427,7 +15180,9 @@
         "dedupe_fingerprint": "c1dbcbc6033e9767",
         "sources": [
           "wos"
-        ]
+        ],
+        "metadata_raw": "6 | Article | Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education | Sitkovskiy, AM | and | Dozhdikov, AV | Jun 2025 | arrow_back | Информация о журнале | clear | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | Название издателя | RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | EDUCATION & EDUCATIONAL RESEARCH | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.25 | 2024 | 0.31 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | 27 | (6) | , pp.149-179 | Introduction. Intra-Russian educational migration among young people is significant due to the necessity for balanced spatial development within the educational system and the need to enhance the appeal of regional universities. The absence of an effective regional educational policy results in a | Бесплатный полный текст от издателя | for Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education | 1 | Цитирования | 0 | Ссылки",
+        "observed_at": "2026-09-20T15:28:23.031Z"
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -14484,7 +15239,9 @@
         "dedupe_fingerprint": "e1cadb326aba0857",
         "sources": [
           "wos"
-        ]
+        ],
+        "metadata_raw": "8 | Article | Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\" | Rostovskaya, TK | ; | Sitkovskiy, AM | and | Gishkaeva, LN | 2025 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (4) | , pp.233-253 | The article presents an evaluation of the authors' original methodology for conducting demographic expertise of documents in the field of demographic policy. The authors tested this methodology using the regional program of the Republic of Tuva, \"Increasing Birth Rates in the Republic of Tuva for | Бесплатный полный текст от издателя | for Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\" | 0 | Ссылки",
+        "observed_at": "2026-09-20T15:28:23.031Z"
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -14541,7 +15298,9 @@
         "dedupe_fingerprint": "6916a7362204b95c",
         "sources": [
           "wos"
-        ]
+        ],
+        "metadata_raw": "7 | Article | The Influence of the Agglomeration Effect on the Demographic Policy of Territories | Sitkovskiy, AM | ; | Raisikh, AE | ; | (...); | Bezverbnaya, NA | 2025 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 18 | (6) | , pp.90-109 | In the context of increasing spatial polarization and uneven urbanization, the central question becomes the empirical assessment of the agglomeration effect's influence on the demographic dynamics of peripheral settlements. This study is devoted to a quantitative analysis of the relationship betw | Бесплатный полный текст от издателя | for The Influence of the Agglomeration Effect on the Demographic Policy of Territories | 0 | Ссылки",
+        "observed_at": "2026-09-20T15:28:23.031Z"
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -14598,7 +15357,9 @@
         "dedupe_fingerprint": "ccb4f8962953567f",
         "sources": [
           "wos"
-        ]
+        ],
+        "metadata_raw": "10 | Article | The settlement system of the Republic of Tuva: central places | Sitkovskiy, AM | and | Delovarova, LF | 2025 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (2) | , pp.70-91 | The article presents an analysis of the settlement framework of the Republic of Tuva. The methodological basis includes statistical research methods and geoinformation methods (such as schematic mapping and the isochrone method). Data preparation and processing were carried out usingMS Excel and | Бесплатный полный текст от издателя | for The settlement system of the Republic of Tuva: central places | 0 | Ссылки",
+        "observed_at": "2026-09-20T15:28:23.031Z"
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -14622,7 +15383,7 @@
     "pages": "178-200",
     "doi": null,
     "metadata_raw": "Экономические и социальные перемены: факты, тенденции, прогноз . 2024. Т. 17. № 1 . С. 178-200.",
-    "rinc_citations": 22,
+    "rinc_citations": 28,
     "dedupe_fingerprint": "eb00ba5f977054de",
     "sources": [
       "elibrary"
@@ -14634,7 +15395,8 @@
     "volume": "17",
     "issue": "1",
     "gost_ru": "Ростовская Т.К., Ситковский А.М. Ресурсы демографического развития: к вопросу об унификации понятий в демографических исследованиях. // Экономические и социальные перемены: факты, тенденции, прогноз. — 2024. — Т. 17. — № 1. — С. 178–200. — URL: https://www.elibrary.ru/item.asp?id=62766619.",
-    "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2024). Resources for Demographic Development: Towards the Unification of Concepts in Demographic Research. Ekonomicheskie i sotsialnye peremeny: fakty, tendentsii, prognoz, 17(1), 178–200. https://www.elibrary.ru/item.asp?id=62766619"
+    "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2024). Resources for Demographic Development: Towards the Unification of Concepts in Demographic Research. Ekonomicheskie i sotsialnye peremeny: fakty, tendentsii, prognoz, 17(1), 178–200. https://www.elibrary.ru/item.asp?id=62766619",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -15272,7 +16034,8 @@
     "publisher": "The New Research of Tuva Editorial Board",
     "publication_type": "journal-article",
     "gost_ru": "Безвербный В.А., Микрюков Н.Ю., Ситковский А.М. Образовательные межрегиональные миграции в России в 2017 — 2019 гг. : гендерные и пространственные аспекты. // Новые исследования Тувы. — 2024. — № 3. — С. 226–239. — DOI: 10.25178/nit.2024.3.13.",
-    "apa_en": "Bezverbnyi, V. A., Mikryukov N.Yu., & Sitkovskii, A. M. (2024). Inter-regional educational migrations in Russia in 2017–2019: gender and spatial aspects. New Research of Tuva, (3), 226–239. https://doi.org/10.25178/nit.2024.3.13"
+    "apa_en": "Bezverbnyi, V. A., Mikryukov N.Yu., & Sitkovskii, A. M. (2024). Inter-regional educational migrations in Russia in 2017–2019: gender and spatial aspects. New Research of Tuva, (3), 226–239. https://doi.org/10.25178/nit.2024.3.13",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "wos_free_view_auto",
@@ -15321,7 +16084,9 @@
         "dedupe_fingerprint": "1e4db15b8571e214",
         "sources": [
           "wos"
-        ]
+        ],
+        "metadata_raw": "12 | Article | Demographic Development Resources: On the Unification of Concepts in Demographic Research | Rostovskaya, TK | and | Sitkovskiy, AM | 2024 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 17 | (1) | , pp.178-200 | The article attempts to distinguish a variety of related and consonant fundamental demographic terms, including: demographic development, demographic policy, demographic development (policy) tools, demographic development (policy) mechanism, demographic potential, demographic resilience. We also | Бесплатный полный текст от издателя | for Demographic Development Resources: On the Unification of Concepts in Demographic Research | 4 | Цитирования | 0 | Ссылки",
+        "observed_at": "2026-09-20T15:28:23.031Z"
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -15378,7 +16143,9 @@
         "dedupe_fingerprint": "3afa3efd22c8b75c",
         "sources": [
           "wos"
-        ]
+        ],
+        "metadata_raw": "11 | Article | Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects | Bezverbny, VA | ; | Mikryukov, NY | and | Sitkovskiy, AM | 2024 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (3) | , pp.226-239 | The article explores the gender and spatial aspects of interregional educational migration in Russia between 2017 and 2019, with a particular focus on young people aged 15-16 and 17-18. The study uncovers trends in the appeal of different regions for educational migrants and identifies gender dif | Бесплатный полный текст от издателя | for Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects | 3 | Цитирования | 0 | Ссылки",
+        "observed_at": "2026-09-20T15:28:23.031Z"
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -15402,7 +16169,7 @@
     "pages": "44-55",
     "doi": null,
     "metadata_raw": "Вестник Нижегородского университета им. Н.И. Лобачевского. Серия: Социальные науки . 2023. № 3 (71) . С. 44-55.",
-    "rinc_citations": 8,
+    "rinc_citations": 5,
     "dedupe_fingerprint": "8ff2a5b19f31c0e6",
     "sources": [
       "elibrary"
@@ -15413,7 +16180,8 @@
     "title_ru_display": "Использование векторных оценок и графоаналитических методов в исследовании демографического поведения населения региона",
     "issue": "3",
     "gost_ru": "Ситковский А.М., Козлова О.А. Использование векторных оценок и графоаналитических методов в исследовании демографического поведения населения региона. // Вестник Нижегородского университета им. Н.И. Лобачевского. Серия: Социальные науки. — 2023. — № 3. — С. 44–55. — URL: https://www.elibrary.ru/item.asp?id=54756601.",
-    "apa_en": "Sitkovskii, A. M. & Kozlova, O. A. (2023). Use of Vector Assessments and Grafoanalytic Methods in the Study of the Demographic Behavior of the Region’s Population. Vestnik Nizhegorodskogo universiteta im. N.I. Lobachevskogo. Seriya: Sotsialnye nauki, (3), 44–55. https://www.elibrary.ru/item.asp?id=54756601"
+    "apa_en": "Sitkovskii, A. M. & Kozlova, O. A. (2023). Use of Vector Assessments and Grafoanalytic Methods in the Study of the Demographic Behavior of the Region’s Population. Vestnik Nizhegorodskogo universiteta im. N.I. Lobachevskogo. Seriya: Sotsialnye nauki, (3), 44–55. https://www.elibrary.ru/item.asp?id=54756601",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -15429,7 +16197,7 @@
     "pages": "172-187",
     "doi": null,
     "metadata_raw": "Вопросы истории . 2023. № 9-1 . С. 172-187.",
-    "rinc_citations": 5,
+    "rinc_citations": 6,
     "dedupe_fingerprint": "5c76ced8179dcb36",
     "sources": [
       "elibrary"
@@ -15440,7 +16208,8 @@
     "title_ru_display": "Особенности демографического развития коренных малочисленных народов севера хмао в период 20022022 гг",
     "issue": "9-1",
     "gost_ru": "Ростовская Т.К., Плеханова Л.В., Ситковский А.М. Особенности демографического развития коренных малочисленных народов севера хмао в период 20022022 гг. // Вопросы истории. — 2023. — № 9-1. — С. 172–187. — URL: https://www.elibrary.ru/item.asp?id=54485757.",
-    "apa_en": "Rostovskaya, T. K., Plekhanova, L. V., & Sitkovskii, A. M. (2023). Features of the Demographic Development of the Indigenous Small Peoples of North Khmao in the Period 2002-2022. Voprosy istorii, (9-1), 172–187. https://www.elibrary.ru/item.asp?id=54485757"
+    "apa_en": "Rostovskaya, T. K., Plekhanova, L. V., & Sitkovskii, A. M. (2023). Features of the Demographic Development of the Indigenous Small Peoples of North Khmao in the Period 2002-2022. Voprosy istorii, (9-1), 172–187. https://www.elibrary.ru/item.asp?id=54485757",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -15456,7 +16225,7 @@
     "pages": "118-133",
     "doi": null,
     "metadata_raw": "Вестник Южно-Российского государственного технического университета (НПИ). Серия: Социально-экономические науки . 2023. Т. 16. № 4 . С. 118-133.",
-    "rinc_citations": 4,
+    "rinc_citations": 5,
     "dedupe_fingerprint": "c98316796b68ea53",
     "sources": [
       "elibrary"
@@ -15468,7 +16237,8 @@
     "volume": "16",
     "issue": "4",
     "gost_ru": "Козлова О.А., Ситковский А.М. Социально — демографические аспекты определения опорного каркаса расселения. // Вестник Южно-Российского государственного технического университета (НПИ). Серия: Социально-экономические науки. — 2023. — Т. 16. — № 4. — С. 118–133. — URL: https://www.elibrary.ru/item.asp?id=54305933.",
-    "apa_en": "Kozlova, O. A. & Sitkovskii, A. M. (2023). Social and Demographic Aspects of the Definition of the Resettlement Framework. Vestnik Yuzhno-Rossiiskogo gosudarstvennogo tekhnicheskogo universiteta (NPI). Seriya: Sotsialno-ekonomicheskie nauki, 16(4), 118–133. https://www.elibrary.ru/item.asp?id=54305933"
+    "apa_en": "Kozlova, O. A. & Sitkovskii, A. M. (2023). Social and Demographic Aspects of the Definition of the Resettlement Framework. Vestnik Yuzhno-Rossiiskogo gosudarstvennogo tekhnicheskogo universiteta (NPI). Seriya: Sotsialno-ekonomicheskie nauki, 16(4), 118–133. https://www.elibrary.ru/item.asp?id=54305933",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -15484,7 +16254,7 @@
     "pages": "33-52",
     "doi": "10.22394/2304-3369-2023-4-33-52",
     "metadata_raw": "Вопросы управления . 2023. № 4 (83) . С. 33-52.",
-    "rinc_citations": 5,
+    "rinc_citations": 6,
     "dedupe_fingerprint": "1ea1b99c17a65875",
     "sources": [
       "elibrary",
@@ -16450,7 +17220,8 @@
     "publisher": "The Russian Presidential Academy of National Economy and Public Administration",
     "publication_type": "journal-article",
     "gost_ru": "Козлова О.А., Ситковский А.М. Методический подход к анализу социально — демографических факторов формирования опорного каркаса расселения. // Вопросы управления. — 2023. — № 4. — С. 33–52. — DOI: 10.22394/2304-3369-2023-4-33-52.",
-    "apa_en": "Kozlova, O. A. & Sitkovskii, A. M. (2023). Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern. Management Issues, (4), 33–52. https://doi.org/10.22394/2304-3369-2023-4-33-52"
+    "apa_en": "Kozlova, O. A. & Sitkovskii, A. M. (2023). Methodological approach to analyzing socio-demographic factors of developing the framework of settlement pattern. Management Issues, (4), 33–52. https://doi.org/10.22394/2304-3369-2023-4-33-52",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -16477,7 +17248,8 @@
     "title_ru_display": "Половозрастная пирамида миграционного сальдо как инструмент углубленного анализа миграционныхпроцессов",
     "volume": "К",
     "gost_ru": "Ситковский А.М. Половозрастная пирамида миграционного сальдо как инструмент углубленного анализа миграционныхпроцессов. — 2022. — С. 91–92. — URL: https://www.elibrary.ru/item.asp?id=49832359.",
-    "apa_en": "Sitkovskii, A. M. (2022). The Sexual Age Pyramid of Migration Soldo as an Instrument of In-depth Analysis of Migration Processes. https://www.elibrary.ru/item.asp?id=49832359"
+    "apa_en": "Sitkovskii, A. M. (2022). The Sexual Age Pyramid of Migration Soldo as an Instrument of In-depth Analysis of Migration Processes. https://www.elibrary.ru/item.asp?id=49832359",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -16505,7 +17277,8 @@
     "volume": "15",
     "issue": "6",
     "gost_ru": "Ситковский А.М. Система расселения чувашской республики: чебоксарская агломерация. // Вестник Южно-Российского государственного технического университета (НПИ). Серия: Социально-экономические науки. — 2022. — Т. 15. — № 6. — С. 189–203. — URL: https://www.elibrary.ru/item.asp?id=50094227.",
-    "apa_en": "Sitkovskii, A. M. (2022). Settlement system of Chuvash Republic: Cheboksar agglomeration. Vestnik Yuzhno-Rossiiskogo gosudarstvennogo tekhnicheskogo universiteta (NPI). Seriya: Sotsialno-ekonomicheskie nauki, 15(6), 189–203. https://www.elibrary.ru/item.asp?id=50094227"
+    "apa_en": "Sitkovskii, A. M. (2022). Settlement system of Chuvash Republic: Cheboksar agglomeration. Vestnik Yuzhno-Rossiiskogo gosudarstvennogo tekhnicheskogo universiteta (NPI). Seriya: Sotsialno-ekonomicheskie nauki, 15(6), 189–203. https://www.elibrary.ru/item.asp?id=50094227",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -16521,7 +17294,7 @@
     "pages": null,
     "doi": null,
     "metadata_raw": "Москва, 2021.",
-    "rinc_citations": 4,
+    "rinc_citations": 5,
     "dedupe_fingerprint": "3eca897efa4c444d",
     "sources": [
       "elibrary"
@@ -16531,7 +17304,8 @@
     "title_ru_original": "ГОРОДА БУДУЩЕГО: ПРОСТРАНСТВЕННОЕ РАЗВИТИЕ, СОУЧАСТВУЮЩЕЕ УПРАВЛЕНИЕ И ТВОРЧЕСКИЕ ИНДУСТРИИ",
     "title_ru_display": "Города будущего: пространственное развитие, соучаствующее управление и творческие индустрии",
     "gost_ru": "Безвербный В.А., Белкин С.В., Блинов Г.Н., Бойко Д.О., Гарнага А.Ф., Жирков О.А., Зеленцова Е.В., Иванова К.А., Ивановская Н.Е., Климкович Е.В., Королева Д.О., Маркварт Э., Мартынова Я.А., Моисеев Ю.М., Орлова О.Н., Полещук М.Н., Пушкарева Т.В., Самойлова Н.А., Синицына И.А., Ситковский А.М. и др. Города будущего: пространственное развитие, соучаствующее управление и творческие индустрии. — 2021. — URL: https://www.elibrary.ru/item.asp?id=48075389.",
-    "apa_en": "Bezverbnyi, V. A. et al. (2021). Cities of the Future: Spacious Development, Participatory Management and Creative Industries. https://www.elibrary.ru/item.asp?id=48075389"
+    "apa_en": "Bezverbnyi, V. A. et al. (2021). Cities of the Future: Spacious Development, Participatory Management and Creative Industries. https://www.elibrary.ru/item.asp?id=48075389",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -16547,7 +17321,7 @@
     "pages": "63-93",
     "doi": null,
     "metadata_raw": "В книге: Города будущего: пространственное развитие, соучаствующее управление и творческие индустрии. Безвербный В.А., Белкин С.В., Блинов Г.Н., Бойко Д.О., Гарнага А.Ф., Жирков О.А., Зеленцова Е.В., Иванова К.А., Ивановская Н.Е., Климкович Е.В., Королева Д.О., Маркварт Э., Мартынова Я.А., Моисеев Ю.М., Орлова О.Н., Полещук М.Н., Пушкарева Т.В., Самойлова Н.А., Синицына И.А., Ситковский А.М. и др. Москва, 2021. С. 63-93.",
-    "rinc_citations": 22,
+    "rinc_citations": 23,
     "dedupe_fingerprint": "3736aa250dcb758d",
     "sources": [
       "elibrary"
@@ -16558,7 +17332,8 @@
     "title_ru_display": "Пространственное сжатие территорий Российской Федерации: понятие, критерии, система показателей",
     "volume": "В",
     "gost_ru": "Маркварт Э., Безвербный В.А., Ситковский А.М. Пространственное сжатие территорий Российской Федерации: понятие, критерии, система показателей. — 2021. — С. 63–93. — URL: https://www.elibrary.ru/item.asp?id=48271056.",
-    "apa_en": "Markvart E., Bezverbnyi, V. A., & Sitkovskii, A. M. (2021). Spatial compression of the territories of the Russian Federation: concept, criteria, system of indicators. https://www.elibrary.ru/item.asp?id=48271056"
+    "apa_en": "Markvart E., Bezverbnyi, V. A., & Sitkovskii, A. M. (2021). Spatial compression of the territories of the Russian Federation: concept, criteria, system of indicators. https://www.elibrary.ru/item.asp?id=48271056",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -16585,7 +17360,8 @@
     "title_ru_display": "Многоуровневые модели трансформации социального пространства Евразийского макрорегиона: на примере урала",
     "issue": "3",
     "gost_ru": "Гордеев С.С., Зырянов С.Г., Ситковский А.М. Многоуровневые модели трансформации социального пространства Евразийского макрорегиона: на примере урала. // Вестник Челябинского государственного университета. — 2021. — № 3. — С. 106–114. — URL: https://www.elibrary.ru/item.asp?id=45763932.",
-    "apa_en": "Gordeev, S. S., Zyryanov, S. G., & Sitkovskii, A. M. (2021). Multilevel Models of Transformation of the Social Space of the Eurasian Macroregion: on the Example of the Ural. Vestnik Chelyabinskogo gosudarstvennogo universiteta, (3), 106–114. https://www.elibrary.ru/item.asp?id=45763932"
+    "apa_en": "Gordeev, S. S., Zyryanov, S. G., & Sitkovskii, A. M. (2021). Multilevel Models of Transformation of the Social Space of the Eurasian Macroregion: on the Example of the Ural. Vestnik Chelyabinskogo gosudarstvennogo universiteta, (3), 106–114. https://www.elibrary.ru/item.asp?id=45763932",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -16612,7 +17388,8 @@
     "title_ru_display": "Многомерная типологизация субъектов РФ на основе социально — экономических и природно — климатических характеристи",
     "issue": "103-104",
     "gost_ru": "Ситковский А.М. Многомерная типологизация субъектов РФ на основе социально — экономических и природно — климатических характеристи. // Сегодня и завтра Российской экономики. — 2021. — № 103-104. — С. 43–61. — URL: https://www.elibrary.ru/item.asp?id=48333690.",
-    "apa_en": "Sitkovskii, A. M. (2021). Multidimensional typology of subjects of the Russian Federation on the basis of socio-economic and natural-climatic characteristics. Segodnya i zavtra Rossiiskoi ekonomiki, (103-104), 43–61. https://www.elibrary.ru/item.asp?id=48333690"
+    "apa_en": "Sitkovskii, A. M. (2021). Multidimensional typology of subjects of the Russian Federation on the basis of socio-economic and natural-climatic characteristics. Segodnya i zavtra Rossiiskoi ekonomiki, (103-104), 43–61. https://www.elibrary.ru/item.asp?id=48333690",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -16628,7 +17405,7 @@
     "pages": "92-111",
     "doi": "10.26653/2076-4650-2021-6-08",
     "metadata_raw": "Научное обозрение. Серия 1: Экономика и право . 2021. № 6 . С. 92-111.",
-    "rinc_citations": 2,
+    "rinc_citations": 4,
     "dedupe_fingerprint": "b71b03779c42f4e3",
     "sources": [
       "elibrary",
@@ -18266,7 +19043,8 @@
     "publisher": "Publishing House Economic Education",
     "publication_type": "journal-article",
     "gost_ru": "Ситковский А.М. Выявление экономической специализации и потенциала кооперации субъектов РФ. // Научное обозрение. Серия 1: Экономика и право. — 2021. — № 6. — С. 92–111. — DOI: 10.26653/2076-4650-2021-6-08.",
-    "apa_en": "Sitkovskii, A. M. (2021). Identification of economic specialization and cooperation potential of the regions of the russian federation. Scientific Review. Series 1. Economics and Law, (6), 92–111. https://doi.org/10.26653/2076-4650-2021-6-08"
+    "apa_en": "Sitkovskii, A. M. (2021). Identification of economic specialization and cooperation potential of the regions of the russian federation. Scientific Review. Series 1. Economics and Law, (6), 92–111. https://doi.org/10.26653/2076-4650-2021-6-08",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -18282,7 +19060,7 @@
     "pages": "102-119",
     "doi": "10.22394/2304-3369-2021-2-102-119",
     "metadata_raw": "Вопросы управления . 2021. № 2 (69) . С. 102-119.",
-    "rinc_citations": 13,
+    "rinc_citations": 14,
     "dedupe_fingerprint": "8fa4022d53cba9b3",
     "sources": [
       "elibrary",
@@ -19141,7 +19919,8 @@
     "publisher": "The Russian Presidential Academy of National Economy and Public Administration",
     "publication_type": "journal-article",
     "gost_ru": "Ситковский А.М. Моделирование многокритериальной оценки социо — эколого — экономического состояния и динамики территории. // Вопросы управления. — 2021. — № 2. — С. 102–119. — DOI: 10.22394/2304-3369-2021-2-102-119.",
-    "apa_en": "Sitkovskii, A. M. (2021). Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory. Management Issues, (2), 102–119. https://doi.org/10.22394/2304-3369-2021-2-102-119"
+    "apa_en": "Sitkovskii, A. M. (2021). Modeling of multi-criteria evaluation of social, ecological and economic conditions and development of a territory. Management Issues, (2), 102–119. https://doi.org/10.22394/2304-3369-2021-2-102-119",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19167,7 +19946,8 @@
     "title_ru_original": "THE TRANSFORMATION OF SOCIAL AND CULTURAL SPACE IN THE CONTEXT OF THE DEVELOPMENT OF TRANSPORT CORRIDORS",
     "title_ru_display": "The transformation of social and cultural space in the context of the development of transport corridors",
     "gost_ru": "Gordeev S., Zyryanov S., Sitkovskiy A. The transformation of social and cultural space in the context of the development of transport corridors. — 2020. — С. 111–118. — URL: https://www.elibrary.ru/item.asp?id=43996074.",
-    "apa_en": "Gordeev S., Zyryanov S., & Sitkovskiy A. (2020). The transformation of social and cultural space in the context of the development of transport corridors. https://www.elibrary.ru/item.asp?id=43996074"
+    "apa_en": "Gordeev S., Zyryanov S., & Sitkovskiy A. (2020). The transformation of social and cultural space in the context of the development of transport corridors. https://www.elibrary.ru/item.asp?id=43996074",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19193,7 +19973,8 @@
     "title_ru_original": "«ЭФФЕКТ КОЛЕИ» И ТРАНСФОРМАЦИЯ СОЦИАЛЬНОГО ПРОСТРАНСТВА ЕВРАЗИЙСКОГО МАКРОРЕГИОНА: НА ПРИМЕРЕ УРАЛА",
     "title_ru_display": "«Эффект колеи» и трансформация социального пространства Евразийского макрорегиона: на примере урала",
     "gost_ru": "Гордеев С.С., Ситковский А.М. «Эффект колеи» и трансформация социального пространства Евразийского макрорегиона: на примере урала. — 2020. — С. 222–223. — URL: https://www.elibrary.ru/item.asp?id=44238615.",
-    "apa_en": "Gordeev, S. S. & Sitkovskii, A. M. (2020). \"The RELIGION EFFECT\" And Transformation of the Social Space of the Eurasian Macroregion: for the example of the Urals. https://www.elibrary.ru/item.asp?id=44238615"
+    "apa_en": "Gordeev, S. S. & Sitkovskii, A. M. (2020). \"The RELIGION EFFECT\" And Transformation of the Social Space of the Eurasian Macroregion: for the example of the Urals. https://www.elibrary.ru/item.asp?id=44238615",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19207,7 +19988,7 @@
     "venue_ru": null,
     "year": 2020,
     "pages": "120-128",
-    "doi": null,
+    "doi": "10.15405/epsbs.2021.04.13",
     "metadata_raw": "В сборнике: Competitiveness and the Development of Socio-Economic Systems. Proceedings of the IV International Scientific Conference, dedicated to the memory of Alexander Tatarkin. Series: European Proceedings of Social and Behavioural Sciences. Chelyabinsk, 2020. С. 120-128.",
     "rinc_citations": 0,
     "dedupe_fingerprint": "3adcac2daa085839",
@@ -19237,19 +20018,22 @@
         "volume": "105",
         "issue": null,
         "pages": "120-128",
-        "doi": null,
+        "doi": "10.15405/epsbs.2021.04.13",
         "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:000773381800013",
-        "dedupe_fingerprint": "b8be076729284a92",
+        "dedupe_fingerprint": "a36eda1831b53d35",
         "sources": [
           "wos"
-        ]
+        ],
+        "metadata_raw": "13 | Proceedings Paper | \"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION | Gordeev, S | and | Sitkovskiy, A | 4th International Scientific Conference on Competitiveness and the Development of Socio-Economic Systems dedicated to the Memory of Alexander Tatarkin (CDSES) | 2021 | COMPETITIVENESS AND THE DEVELOPMENT OF SOCIO-ECONOMIC SYSTEMS | 105 | , pp.120-128 | The article discusses the issues of updating the foundations of the toolkit methodology associated with spatial development research. These issues are related to structural changes in the economy and inevitably affect various aspects of spatial development. Further, these changes predetermine the | Бесплатный полный текст от издателя | for \"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION | 0 | Ссылки",
+        "observed_at": "2026-09-20T15:28:23.031Z"
       }
     ],
     "wos_uid": "WOS:000773381800013",
     "venue_en": "COMPETITIVENESS AND THE DEVELOPMENT OF SOCIO-ECONOMIC SYSTEMS",
     "volume": "105",
     "publication_type": "Proceedings Paper",
-    "venue_en_source": "existing_latin"
+    "venue_en_source": "existing_latin",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19275,7 +20059,8 @@
     "title_ru_original": "ПРИОРИТЕТЫ КАЧЕСТВА ЖИЗНИ В НОРМАЛИЗАЦИИ СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ ТЕРРИТОРИЙ",
     "title_ru_display": "Приоритеты качества жизни в нормализации социально — демографических процессов территорий",
     "gost_ru": "Гордеев С.С., Зырянов С.Г., Ситковский А.М. Приоритеты качества жизни в нормализации социально — демографических процессов территорий. — 2020. — С. 129–135. — URL: https://www.elibrary.ru/item.asp?id=44505904.",
-    "apa_en": "Gordeev, S. S., Zyryanov, S. G., & Sitkovskii, A. M. (2020). Priorities of quality of life in the normalization of social and demographic processes of territories. https://www.elibrary.ru/item.asp?id=44505904"
+    "apa_en": "Gordeev, S. S., Zyryanov, S. G., & Sitkovskii, A. M. (2020). Priorities of quality of life in the normalization of social and demographic processes of territories. https://www.elibrary.ru/item.asp?id=44505904",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19291,7 +20076,7 @@
     "pages": "165-171",
     "doi": null,
     "metadata_raw": "Актуальные вопросы современной экономики . 2020. № 11 . С. 165-171.",
-    "rinc_citations": 2,
+    "rinc_citations": 4,
     "dedupe_fingerprint": "f4214b9107d0829a",
     "sources": [
       "elibrary"
@@ -19302,7 +20087,8 @@
     "title_ru_display": "Пространственная дифференциация миграционных процессов в контексте локального экономического кризиса на примере Челябинской области",
     "issue": "11",
     "gost_ru": "Ситковский А.М. Пространственная дифференциация миграционных процессов в контексте локального экономического кризиса на примере Челябинской области. // Актуальные вопросы современной экономики. — 2020. — № 11. — С. 165–171. — URL: https://www.elibrary.ru/item.asp?id=44548233.",
-    "apa_en": "Sitkovskii, A. M. (2020). Spatial Differentiation of Migration Processes in the Context of Local Economic Crisis in the Example of the Chelyabinsk Region. Aktualnye voprosy sovremennoi ekonomiki, (11), 165–171. https://www.elibrary.ru/item.asp?id=44548233"
+    "apa_en": "Sitkovskii, A. M. (2020). Spatial Differentiation of Migration Processes in the Context of Local Economic Crisis in the Example of the Chelyabinsk Region. Aktualnye voprosy sovremennoi ekonomiki, (11), 165–171. https://www.elibrary.ru/item.asp?id=44548233",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19822,7 +20608,8 @@
     "publisher": "EDP Sciences",
     "publication_type": "journal-article",
     "gost_ru": "Gordeev S., Zyryanov S., Sitkovskiy A. Visualization in models of transformation of social space of the eurasian macroregion: the example of the urals. // E3s Web of Conferences. — 2020. — Т. 217. — С. 07021. — DOI: 10.1051/e3sconf/202021707021.",
-    "apa_en": "Gordeev S., Zyryanov S., & Sitkovskiy A. (2020). Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals. E3s Web of Conferences, 217, 07021. https://doi.org/10.1051/e3sconf/202021707021"
+    "apa_en": "Gordeev S., Zyryanov S., & Sitkovskiy A. (2020). Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals. E3s Web of Conferences, 217, 07021. https://doi.org/10.1051/e3sconf/202021707021",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19848,7 +20635,8 @@
     "title_ru_original": "CHANGING THE STRUCTURE OF THE WORKING-AGE POPULATION PROJECTED BY THE COHORT COMPONENT METHOD (ON THE EXAMPLE OF A MEGACITY)",
     "title_ru_display": "Changing the structure of the working-age population projected by the cohort component method (on the example of a megacity)",
     "gost_ru": "Sitkovskiy A.M. Changing the structure of the working-age population projected by the cohort component method (on the example of a megacity). — 2019. — С. 260–269. — URL: https://www.elibrary.ru/item.asp?id=42493918.",
-    "apa_en": "Sitkovskiy, A. M. (2019). Changing the structure of the working-age population projected by the cohort component method (on the example of a megacity). https://www.elibrary.ru/item.asp?id=42493918"
+    "apa_en": "Sitkovskiy, A. M. (2019). Changing the structure of the working-age population projected by the cohort component method (on the example of a megacity). https://www.elibrary.ru/item.asp?id=42493918",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19874,7 +20662,8 @@
     "title_ru_original": "ВЗАИМОСВЯЗЬ ЭКОНОМИЧЕСКИХ И ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ МАЛОГО МОНОГОРОДА УРАЛА",
     "title_ru_display": "Взаимосвязь экономических и демографических процессов малого моногорода урала",
     "gost_ru": "Ситковский А.М. Взаимосвязь экономических и демографических процессов малого моногорода урала. — 2019. — С. 27–31. — URL: https://www.elibrary.ru/item.asp?id=42325217.",
-    "apa_en": "Sitkovskii, A. M. (2019). Interrelationships between economic and demographic processes of the Ural small city. https://www.elibrary.ru/item.asp?id=42325217"
+    "apa_en": "Sitkovskii, A. M. (2019). Interrelationships between economic and demographic processes of the Ural small city. https://www.elibrary.ru/item.asp?id=42325217",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19900,7 +20689,8 @@
     "title_ru_original": "ОБНОВЛЕНИЕ МЕТОДИК И ИНСТРУМЕНТАРИЯ ДЛЯ ПОДГОТОВКИ ПРОГРАММ ПРОСТРАНСТВЕННОГО РАЗВИТИЯ МУНИЦИПАЛЬНЫХ ОБРАЗОВАНИЙ",
     "title_ru_display": "Обновление методик и инструментария для подготовки программ пространственного развития муниципальных образований",
     "gost_ru": "Ситковский А.М., Ситковская С.М. Обновление методик и инструментария для подготовки программ пространственного развития муниципальных образований. — 2019. — С. 91–96. — URL: https://www.elibrary.ru/item.asp?id=42325239.",
-    "apa_en": "Sitkovskii, A. M. & Sitkovskaya, S. M. (2019). Updating Methodologies and Instructions for the Development of Municipal Education Programmes. https://www.elibrary.ru/item.asp?id=42325239"
+    "apa_en": "Sitkovskii, A. M. & Sitkovskaya, S. M. (2019). Updating Methodologies and Instructions for the Development of Municipal Education Programmes. https://www.elibrary.ru/item.asp?id=42325239",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19927,7 +20717,8 @@
     "title_ru_display": "Оценки качества жизни и социальных приоритетов развития территорий",
     "issue": "11",
     "gost_ru": "Гордеев С.С., Зырянов С.Г., Ситковский А.М. Оценки качества жизни и социальных приоритетов развития территорий. // Вестник Челябинского государственного университета. — 2019. — № 11. — С. 38–47. — URL: https://www.elibrary.ru/item.asp?id=41509538.",
-    "apa_en": "Gordeev, S. S., Zyryanov, S. G., & Sitkovskii, A. M. (2019). Quality of Life and Social Priorities for the Development of Territories. Vestnik Chelyabinskogo gosudarstvennogo universiteta, (11), 38–47. https://www.elibrary.ru/item.asp?id=41509538"
+    "apa_en": "Gordeev, S. S., Zyryanov, S. G., & Sitkovskii, A. M. (2019). Quality of Life and Social Priorities for the Development of Territories. Vestnik Chelyabinskogo gosudarstvennogo universiteta, (11), 38–47. https://www.elibrary.ru/item.asp?id=41509538",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19954,7 +20745,8 @@
     "title_ru_display": "Методические аспекты развития малых центров социальных услуг муниципального образования",
     "issue": "4",
     "gost_ru": "Ситковский А.М. Методические аспекты развития малых центров социальных услуг муниципального образования. // Муниципалитет: экономика и управление. — 2019. — № 4. — С. 31–39. — URL: https://www.elibrary.ru/item.asp?id=42358409.",
-    "apa_en": "Sitkovskii, A. M. (2019). Methodological Aspects for the Development of Small Social Services Centers in Municipal Education. Munitsipalitet: ekonomika i upravlenie, (4), 31–39. https://www.elibrary.ru/item.asp?id=42358409"
+    "apa_en": "Sitkovskii, A. M. (2019). Methodological Aspects for the Development of Small Social Services Centers in Municipal Education. Munitsipalitet: ekonomika i upravlenie, (4), 31–39. https://www.elibrary.ru/item.asp?id=42358409",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -19981,7 +20773,8 @@
     "title_ru_display": "\"Эффект колеи\" в пространственном межмуниципальном развитии",
     "issue": "4",
     "gost_ru": "Гордеев С.С., Зырянов С.Г., Ситковский А.М. \"Эффект колеи\" в пространственном межмуниципальном развитии. // Муниципалитет: экономика и управление. — 2019. — № 4. — С. 40–55. — URL: https://www.elibrary.ru/item.asp?id=42358410.",
-    "apa_en": "Gordeev, S. S., Zyryanov, S. G., & Sitkovskii, A. M. (2019). The Efficiency of the Ring in Interstate Development. Munitsipalitet: ekonomika i upravlenie, (4), 40–55. https://www.elibrary.ru/item.asp?id=42358410"
+    "apa_en": "Gordeev, S. S., Zyryanov, S. G., & Sitkovskii, A. M. (2019). The Efficiency of the Ring in Interstate Development. Munitsipalitet: ekonomika i upravlenie, (4), 40–55. https://www.elibrary.ru/item.asp?id=42358410",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -28770,7 +29563,8 @@
     "title_ru_display": "Методика и практика формирования многоуровневой системы центров социальных услуг",
     "issue": "1",
     "gost_ru": "Ситковский А.М. Методика и практика формирования многоуровневой системы центров социальных услуг. // Научный ежегодник Центра анализа и прогнозирования. — 2019. — № 1. — С. 48–62. — URL: https://www.elibrary.ru/item.asp?id=42445903.",
-    "apa_en": "Sitkovskii, A. M. (2019). Methods and Practices of Forming a Multilevel System of Social Services Centers. SSRN Electronic Journal, (1), 48–62. https://www.elibrary.ru/item.asp?id=42445903"
+    "apa_en": "Sitkovskii, A. M. (2019). Methods and Practices of Forming a Multilevel System of Social Services Centers. SSRN Electronic Journal, (1), 48–62. https://www.elibrary.ru/item.asp?id=42445903",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -28796,7 +29590,8 @@
     "title_ru_original": "НЕКОТОРЫЕ ПАРАДОКСЫ СОВРЕМЕННЫХ ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ",
     "title_ru_display": "Некоторые парадоксы современных демографических процессов",
     "gost_ru": "Ситковский А.М., Лобастов А.А. Некоторые парадоксы современных демографических процессов. — 2018. — С. 70–74. — URL: https://www.elibrary.ru/item.asp?id=36888017.",
-    "apa_en": "Sitkovskii, A. M. & Lobastov, A. A. (2018). Some Paradoxes of Modern Demographic Processes. https://www.elibrary.ru/item.asp?id=36888017"
+    "apa_en": "Sitkovskii, A. M. & Lobastov, A. A. (2018). Some Paradoxes of Modern Demographic Processes. https://www.elibrary.ru/item.asp?id=36888017",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -34615,7 +35410,8 @@
     "title_ru_display": "Демографический фактор в обеспечении устойчивого развития мегаполиса",
     "issue": "1",
     "gost_ru": "Ситковский А.М. Демографический фактор в обеспечении устойчивого развития мегаполиса. // Научный ежегодник Центра анализа и прогнозирования. — 2018. — № 1. — С. 81–87. — URL: https://www.elibrary.ru/item.asp?id=36808832.",
-    "apa_en": "Sitkovskii, A. M. (2018). Demographic Factor in Ensuring Sustainable Development of Megapolis. SSRN Electronic Journal, (1), 81–87. https://www.elibrary.ru/item.asp?id=36808832"
+    "apa_en": "Sitkovskii, A. M. (2018). Demographic Factor in Ensuring Sustainable Development of Megapolis. SSRN Electronic Journal, (1), 81–87. https://www.elibrary.ru/item.asp?id=36808832",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -39097,7 +39893,8 @@
     "title_ru_original": "ДЕМОГРАФИЧЕСКАЯ ПОЛИТИКА РОССИЙСКОЙ ФЕДЕРАЦИИ",
     "title_ru_display": "Демографическая политика Российской Федерации",
     "gost_ru": "Лобастов А.А., Ситковский А.М. Демографическая политика Российской Федерации. // SSRN Electronic Journal. — 2017. — С. 279–281. — URL: https://www.elibrary.ru/item.asp?id=34954854.",
-    "apa_en": "Lobastov, A. A. & Sitkovskii, A. M. (2017). Demographic Policy of the Russian Federation. SSRN Electronic Journal, 279–281. https://www.elibrary.ru/item.asp?id=34954854"
+    "apa_en": "Lobastov, A. A. & Sitkovskii, A. M. (2017). Demographic Policy of the Russian Federation. SSRN Electronic Journal, 279–281. https://www.elibrary.ru/item.asp?id=34954854",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -39123,7 +39920,8 @@
     "title_ru_original": "СОХРАНЕНИЕ РЕПРОДУКТИВНОГО ЗДОРОВЬЯ КАК ОДНО ИЗ УСЛОВИЙ УВЕЛИЧЕНИЯ СРЕДНЕЙ ОЖИДАЕМОЙ ПРОДОЛЖИТЕЛЬНОСТИ ЖИЗНИ ЖЕНЩИН",
     "title_ru_display": "Сохранение репродуктивного здоровья как одно из условий увеличения средней ожидаемой продолжительности жизни женщин",
     "gost_ru": "Ситковский А.М. Сохранение репродуктивного здоровья как одно из условий увеличения средней ожидаемой продолжительности жизни женщин. — 2017. — С. 290–293. — URL: https://www.elibrary.ru/item.asp?id=34954475.",
-    "apa_en": "Sitkovskii, A. M. (2017). Preservation of reproductive health as one of the conditions for increasing the average expected life expectancy of women. https://www.elibrary.ru/item.asp?id=34954475"
+    "apa_en": "Sitkovskii, A. M. (2017). Preservation of reproductive health as one of the conditions for increasing the average expected life expectancy of women. https://www.elibrary.ru/item.asp?id=34954475",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -39150,6 +39948,7 @@
     "title_ru_display": "Основа здоровья человека — репродуктивное здоровье",
     "issue": "8",
     "gost_ru": "Ситковский А.М. Основа здоровья человека — репродуктивное здоровье. // Семья и демографические исследования. — 2017. — № 8. — URL: https://www.elibrary.ru/item.asp?id=30111055.",
-    "apa_en": "Sitkovskii, A. M. (2017). The basis of human health – reproductive health. Semya i demograficheskie issledovaniya, (8). https://www.elibrary.ru/item.asp?id=30111055"
+    "apa_en": "Sitkovskii, A. M. (2017). The basis of human health – reproductive health. Semya i demograficheskie issledovaniya, (8). https://www.elibrary.ru/item.asp?id=30111055",
+    "observed_at": "2026-09-20T15:22:34.224Z"
   }
 ]

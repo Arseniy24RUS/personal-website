@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-09-20T14:39:48+00:00",
+  "generated_at": "2026-09-20T15:34:08+00:00",
   "status": "partial",
   "checks": {
-    "publications_count": 69,
-    "canonical_publications_count": 69,
+    "publications_count": 72,
+    "canonical_publications_count": 72,
     "source_counts": {
-      "elibrary": 58,
+      "elibrary": 59,
       "scopus": 10,
-      "wos": 10,
-      "open": 15
+      "wos": 14,
+      "open": 16
     },
-    "wos_records_count": 10,
-    "wos_public_profile_records_count": 10,
-    "wos_enriched_publications_count": 10,
+    "wos_records_count": 13,
+    "wos_public_profile_records_count": 13,
+    "wos_enriched_publications_count": 13,
     "wos_auto_added_publications_count": 0,
     "wos_metrics": {
-      "publications": 10,
-      "citations": 7,
+      "publications": 13,
+      "citations": 8,
       "h_index": 2
     },
-    "elibrary_browser_status": "blocked",
+    "elibrary_browser_status": "success",
     "reference_enrichment_stats": {
       "records": 69,
       "titles_fixed": 0,
@@ -35,22 +35,22 @@
   },
   "source_health": {
     "elibrary": {
-      "status": "blocked",
-      "attempted_at": "2026-09-20T14:15:51+00:00",
-      "last_success_at": "2026-06-02T19:47:04+00:00",
-      "origin": "snapshot",
-      "complete": false,
-      "record_count": 58,
-      "reason": "human_verification_required"
+      "status": "success",
+      "attempted_at": "2026-09-20T15:23:41.046Z",
+      "last_success_at": "2026-09-20T15:23:41.046Z",
+      "origin": "live",
+      "complete": true,
+      "record_count": 59,
+      "reason": null
     },
     "wos": {
-      "status": "blocked",
-      "attempted_at": "2026-09-20T14:16:19+00:00",
-      "last_success_at": "2026-06-03T14:54:55+00:00",
-      "origin": "snapshot",
-      "complete": false,
-      "record_count": 10,
-      "reason": "human_verification_required"
+      "status": "success",
+      "attempted_at": "2026-09-20T15:28:23.031Z",
+      "last_success_at": "2026-09-20T15:28:23.031Z",
+      "origin": "live",
+      "complete": true,
+      "record_count": 13,
+      "reason": null
     },
     "scopus": {
       "status": "success",
@@ -100,26 +100,13 @@
   },
   "warnings": [
     {
-      "code": "source_not_fresh",
-      "provider": "elibrary",
-      "status": "blocked",
-      "attempted_at": "2026-09-20T14:15:51+00:00",
-      "last_success_at": "2026-06-02T19:47:04+00:00",
-      "origin": "snapshot",
-      "complete": false,
-      "record_count": 58,
-      "reason": "human_verification_required"
-    },
-    {
-      "code": "source_not_fresh",
-      "provider": "wos",
-      "status": "blocked",
-      "attempted_at": "2026-09-20T14:16:19+00:00",
-      "last_success_at": "2026-06-03T14:54:55+00:00",
-      "origin": "snapshot",
-      "complete": false,
-      "record_count": 10,
-      "reason": "human_verification_required"
+      "code": "missing_ready_references",
+      "count": 3,
+      "sample": [
+        "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ ГОРОДА СЕВАСТОПОЛЯ: КОМПЛЕКСНОЕ ИССЛЕДОВАНИЕ",
+        "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+        "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels"
+      ]
     },
     {
       "code": "source_not_fresh",
