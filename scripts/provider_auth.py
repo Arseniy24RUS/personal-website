@@ -127,7 +127,11 @@ def wait_navigation(page):
         page.wait_for_load_state('domcontentloaded', timeout=15000)
     except Exception:
         pass
-    page.wait_for_timeout(1000)
+    try:
+        page.wait_for_timeout(1000)
+    except Exception:
+        if not page.is_closed():
+            raise
 
 
 def elibrary_authenticated(page):
@@ -217,6 +221,9 @@ def login_wos(context, profile_url, timeout=180):
         if page.is_closed():
             page = context.pages[0]
         wait_navigation(page)
+        if page.is_closed():
+            page = context.pages[0]
+            continue
         assert_no_challenge(page)
         dismiss = visible(page, ['#onetrust-reject-all-handler', '#onetrust-accept-btn-handler'])
         if dismiss is not None:

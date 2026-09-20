@@ -2,11 +2,11 @@
 """Enrich publication records with English titles.
 
 Priority for title_en:
-1. Scopus
-2. OpenAlex
-3. Crossref
-4. ORCID
-5. existing Latin title_en/title
+1. Existing published title_en, preserved verbatim
+2. Scopus
+3. OpenAlex
+4. Crossref
+5. ORCID or existing Latin title
 6. cached machine translation in data/curation/publication_title_translations.json
 7. new offline Argos Translate ru->en translation, saved to the cache
 
@@ -34,7 +34,7 @@ PUBLICATIONS_TSV = PUBLIC / 'publications.tsv'
 TRANSLATIONS_JSON = CURATION / 'publication_title_translations.json'
 REPORT_JSON = DATA / 'audit' / 'publication_title_translation_report.json'
 
-SOURCE_PRIORITY = ['scopus', 'openalex_api', 'crossref_api', 'orcid_public_api', 'existing_latin', 'cached_machine_translation', 'argos_translate_ru_en']
+SOURCE_PRIORITY = ['existing_publication', 'scopus', 'openalex_api', 'crossref_api', 'orcid_public_api', 'existing_latin', 'cached_machine_translation', 'argos_translate_ru_en']
 
 
 def now() -> str:
@@ -132,6 +132,8 @@ def source_venue_from_open_sources(pub: dict, source_name: str) -> str:
 
 
 def official_title_candidate(pub: dict) -> tuple[str, str]:
+    if clean(pub.get('title_en')):
+        return pub['title_en'], pub.get('title_en_source') or 'existing_publication'
     scopus_title = latin_value((pub.get('scopus') or {}).get('title'))
     if scopus_title:
         return sentence_case(scopus_title), 'scopus'
@@ -146,6 +148,8 @@ def official_title_candidate(pub: dict) -> tuple[str, str]:
 
 
 def official_venue_candidate(pub: dict) -> tuple[str, str]:
+    if clean(pub.get('venue_en')):
+        return pub['venue_en'], pub.get('venue_en_source') or 'existing_publication'
     scopus = pub.get('scopus') or {}
     venue = latin_value(scopus.get('journal_or_source') or scopus.get('source_title'))
     if venue:
@@ -246,7 +250,7 @@ def update_publications_tsv(publications: list[dict]) -> None:
 
 
 def main() -> int:
-    publications = read_json(PUBLICATIONS_JSON, [])
+    publications = read_json(PUBLICATIONS_JSON, None)
     if not isinstance(publications, list):
         print(f'{PUBLICATIONS_JSON} is missing or invalid', file=sys.stderr)
         return 1
@@ -254,7 +258,7 @@ def main() -> int:
     cache = cache_payload()
     items = cache.setdefault('items', {})
     translator = ArgosTranslator()
-    stats = {'official': 0, 'cached_machine_translation': 0, 'new_machine_translation': 0, 'unresolved': 0, 'venue_enriched': 0}
+    stats = {'official': 0, 'preserved_existing': 0, 'cached_machine_translation': 0, 'new_machine_translation': 0, 'unresolved': 0, 'venue_enriched': 0}
 
     for pub in publications:
         if not pub.get('title_ru'):
@@ -267,7 +271,7 @@ def main() -> int:
             title_source = cache_item.get('title_en_source') or 'cached_machine_translation'
             stats['cached_machine_translation'] += 1
         elif title_en:
-            stats['official'] += 1
+            stats['preserved_existing' if clean(pub.get('title_en')) else 'official'] += 1
         elif has_cyrillic(pub.get('title_ru') or pub.get('title')):
             translated = translator.translate(pub.get('title_ru') or pub.get('title') or '')
             if translated and not has_cyrillic(translated):
@@ -293,9 +297,10 @@ def main() -> int:
 
         venue_en, venue_source = official_venue_candidate(pub)
         if venue_en:
+            if not clean(pub.get('venue_en')):
+                stats['venue_enriched'] += 1
             pub['venue_en'] = venue_en
             pub['venue_en_source'] = venue_source
-            stats['venue_enriched'] += 1
 
     cache['generated_at'] = now()
     cache['schema'] = 'publication_title_translations/v1'

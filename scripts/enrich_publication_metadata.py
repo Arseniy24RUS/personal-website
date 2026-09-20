@@ -5,6 +5,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 from urllib.parse import quote
 import csv
+import hashlib
 import json
 import os
 import re
@@ -242,6 +243,17 @@ def set_if_missing(pub: dict, key: str, value: Any) -> bool:
     return False
 
 
+def mark_generated_reference(pub: dict, key: str) -> None:
+    pub[key + '_source'] = 'generated'
+    pub[key + '_generated_sha256'] = hashlib.sha256(pub[key].encode('utf-8')).hexdigest()
+
+
+def reference_is_generated(pub: dict, key: str) -> bool:
+    """A manual edit invalidates provenance even when its source label remains."""
+    return (pub.get(key + '_source') == 'generated' and bool(pub.get(key))
+            and pub.get(key + '_generated_sha256') == hashlib.sha256(pub[key].encode('utf-8')).hexdigest())
+
+
 def authors_gost(raw: str) -> str:
     return clean(raw).rstrip('.')
 
@@ -395,23 +407,19 @@ def update_publications_tsv(publications: list[dict]) -> None:
 
 
 def main() -> int:
-    publications = read_json(PUBLICATIONS_JSON, [])
+    publications = read_json(PUBLICATIONS_JSON, None)
     if not isinstance(publications, list):
         raise SystemExit(f'{PUBLICATIONS_JSON} is missing or invalid')
     item_details = load_elibrary_item_details()
     cache = crossref_cache_payload()
-    stats = {'records': len(publications), 'titles_fixed': 0, 'elibrary_detail_fields_added': 0, 'metadata_fields_added': 0, 'gost_built': 0, 'apa_built': 0, 'crossref_cache_hit': 0, 'crossref_fetched': 0, 'crossref_failed': 0}
+    stats = {'records': len(publications), 'titles_fixed': 0, 'title_fields_added': 0, 'elibrary_detail_fields_added': 0, 'metadata_fields_added': 0, 'gost_built': 0, 'apa_built': 0, 'crossref_cache_hit': 0, 'crossref_fetched': 0, 'crossref_failed': 0}
     for pub in publications:
         raw_title_ru = pub.get('title_ru') or pub.get('title') or ''
-        display_title = smart_ru_title(raw_title_ru)
-        if display_title and display_title != raw_title_ru:
-            pub.setdefault('title_ru_original', raw_title_ru)
-            pub['title_ru'] = display_title
-            if pub.get('title') == raw_title_ru:
-                pub['title'] = display_title
-            stats['titles_fixed'] += 1
-        if display_title:
-            pub['title_ru_display'] = display_title
+        # Published wording and identifiers may contain editorial corrections.
+        # Enrichment fills gaps; a new provider observation cannot rewrite them.
+        for field in ('title_ru', 'title_ru_display'):
+            if set_if_missing(pub, field, raw_title_ru):
+                stats['title_fields_added'] += 1
         stats['elibrary_detail_fields_added'] += merge_elibrary_item_details(pub, item_details)
         parsed = parse_elibrary_metadata(pub.get('metadata_raw') or '')
         for key, value in parsed.items():
@@ -419,7 +427,6 @@ def main() -> int:
                 stats['metadata_fields_added'] += 1
         doi = normalize_doi(pub.get('doi'))
         if doi:
-            pub['doi'] = doi
             cr = fetch_crossref_by_doi(doi, cache, stats)
             if cr:
                 pub['crossref_metadata'] = cr
@@ -430,12 +437,10 @@ def main() -> int:
                     pub['venue_en'] = cr.get('container_title')
                     pub['venue_en_source'] = 'crossref_api'
                     stats['metadata_fields_added'] += 1
-        pub['gost_ru'] = format_gost(pub)
-        pub['apa_en'] = format_apa(pub)
-        if pub['gost_ru']:
-            stats['gost_built'] += 1
-        if pub['apa_en']:
-            stats['apa_built'] += 1
+        for field, formatter, statistic in (('gost_ru', format_gost, 'gost_built'), ('apa_en', format_apa, 'apa_built')):
+            if set_if_missing(pub, field, formatter(pub)):
+                mark_generated_reference(pub, field)
+                stats[statistic] += 1
     cache['generated_at'] = now()
     cache['schema'] = 'crossref_metadata_cache/v1'
     write_json(CROSSREF_CACHE, cache)

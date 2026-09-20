@@ -31,6 +31,7 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   PYTHONUNBUFFERED: '1'
   PLAYWRIGHT_BROWSERS_PATH: /opt/portfolio-browsers
+  PORTFOLIO_RUN_DIR: /opt/portfolio-runner
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -55,6 +56,7 @@ jobs:
           npm ci
           sudo mkdir -p "$PLAYWRIGHT_BROWSERS_PATH"
           sudo chown "$USER" "$PLAYWRIGHT_BROWSERS_PATH"
+          sudo install -d -o "$USER" -g "$(id -gn)" -m 755 "$PORTFOLIO_RUN_DIR"
           python -m playwright install --with-deps chromium
           npx playwright install --with-deps
       - name: Unit and baseline checks
@@ -65,7 +67,7 @@ jobs:
       - name: Load profile identifiers
         run: python scripts/export_profile_env.py
       - name: Prepare isolated candidate
-        run: python scripts/refresh_pipeline.py prepare --stage "$RUNNER_TEMP/portfolio-stage"
+        run: python scripts/refresh_pipeline.py prepare --stage "$PORTFOLIO_RUN_DIR/portfolio-stage"
       - name: Establish verified home route
         env:
           ELIBRARY_OPENVPN_CONFIG_B64: ${{ secrets.ELIBRARY_OPENVPN_CONFIG_B64 }}
@@ -73,12 +75,12 @@ jobs:
           chmod +x scripts/home_vpn_dns.sh
           bash scripts/home_vpn.sh start
           bash scripts/home_vpn.sh test-isolation
-          sudo chown -R portfolio:portfolio "$RUNNER_TEMP/portfolio-stage"
-          sudo install -d -o portfolio -g portfolio -m 700 "$RUNNER_TEMP/portfolio-runtime"
+          sudo chown -R portfolio:portfolio "$PORTFOLIO_RUN_DIR/portfolio-stage"
+          sudo install -d -o portfolio -g portfolio -m 700 "$PORTFOLIO_RUN_DIR/portfolio-runtime"
       - name: Collect and build candidate through home route
         env:
           HOME_VPN_REQUIRED: '1'
-          HOME_VPN_EXPECTED_IP_FILE: ${{ runner.temp }}/portfolio-private/expected-ip
+          HOME_VPN_EXPECTED_IP_FILE: /opt/portfolio-runner/portfolio-private/expected-ip
           ELIBRARY_USERNAME: ${{ secrets.ELIBRARY_USERNAME }}
           ELIBRARY_PASSWORD: ${{ secrets.ELIBRARY_PASSWORD }}
           WOS_ORCID_USERNAME: ${{ secrets.WOS_ORCID_USERNAME }}
@@ -92,18 +94,26 @@ jobs:
           REFRESH_SOURCES: ${{ inputs.sources }}
         run: |
           bash scripts/home_vpn.sh check
-          export RUNNER_TEMP="$RUNNER_TEMP/portfolio-runtime"
+          stage="$PORTFOLIO_RUN_DIR/portfolio-stage"
+          export RUNNER_TEMP="$PORTFOLIO_RUN_DIR/portfolio-runtime"
           sudo --preserve-env=PATH,RUNNER_TEMP,PLAYWRIGHT_BROWSERS_PATH,PYTHONUNBUFFERED,HOME_VPN_REQUIRED,HOME_VPN_EXPECTED_IP_FILE,ELIBRARY_USERNAME,ELIBRARY_PASSWORD,WOS_ORCID_USERNAME,WOS_ORCID_PASSWORD,SCOPUS_API_KEY,SCOPUS_INST_TOKEN,OPENALEX_MAILTO,CROSSREF_MAILTO,ELIBRARY_AUTHOR_ID,ELIBRARY_PROFILE_URL,ELIBRARY_ITEMS_URL,ELIBRARY_SPIN,ORCID_ID,SCOPUS_AUTHOR_ID,WOS_RESEARCHER_ID,WOS_PROFILE_URL,ELIBRARY_BROWSER_HEADLESS,WOS_BROWSER_HEADLESS \
-            -u portfolio xvfb-run -a "$(command -v python)" scripts/refresh_pipeline.py collect --stage "$(dirname "$RUNNER_TEMP")/portfolio-stage" --only "$REFRESH_SOURCES"
+            -u portfolio /bin/bash -c 'cd "$1" && exec xvfb-run -a "$2" scripts/refresh_pipeline.py collect --stage "$1" --only "$3"' \
+            portfolio-collect "$stage" "$(command -v python)" "$REFRESH_SOURCES"
+      - name: Return candidate ownership to runner
+        if: always()
+        run: |
+          if test -d "$PORTFOLIO_RUN_DIR/portfolio-stage"; then
+            sudo chown -R "$(id -u):$(id -g)" "$PORTFOLIO_RUN_DIR/portfolio-stage"
+          fi
       - name: Export safe collection diagnostics
         if: always()
-        run: python scripts/refresh_pipeline.py diagnostics --stage "$RUNNER_TEMP/portfolio-stage" --output "$RUNNER_TEMP/refresh-diagnostics"
+        run: python scripts/refresh_pipeline.py diagnostics --stage "$PORTFOLIO_RUN_DIR/portfolio-stage" --output "$RUNNER_TEMP/refresh-diagnostics"
       - name: Stop tunnel and remove private state
         if: always()
         run: bash scripts/home_vpn.sh stop
       - name: Promote and validate safe candidate
         run: |
-          python scripts/refresh_pipeline.py promote --stage "$RUNNER_TEMP/portfolio-stage"
+          python scripts/refresh_pipeline.py promote --stage "$PORTFOLIO_RUN_DIR/portfolio-stage"
           python scripts/validate_retention.py --baseline-ref "$REFRESH_BASE_SHA" --report data/audit/retention_report.json
           python scripts/check_seo.py
           git diff --check
@@ -130,4 +140,4 @@ jobs:
         run: python scripts/verify_published.py --wait 600
       - name: Report source availability separately
         if: ${{ always() && !cancelled() }}
-        run: python scripts/refresh_pipeline.py health --stage "$RUNNER_TEMP/portfolio-stage"
+        run: python scripts/refresh_pipeline.py health --stage "$PORTFOLIO_RUN_DIR/portfolio-stage"

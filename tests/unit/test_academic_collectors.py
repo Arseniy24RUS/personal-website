@@ -183,6 +183,15 @@ class CollectionTests(unittest.TestCase):
         self.assertFalse(auth.provider_host('not-orcid.org', 'orcid.org'))
         self.assertTrue(auth.provider_host('orcid.org', 'orcid.org'))
 
+    def test_oauth_popup_may_close_during_navigation_wait(self):
+        page = MagicMock()
+        page.wait_for_timeout.side_effect = RuntimeError('Target closed')
+        page.is_closed.return_value = True
+        auth.wait_navigation(page)
+        page.is_closed.return_value = False
+        with self.assertRaises(RuntimeError):
+            auth.wait_navigation(page)
+
     def test_wos_partial_pagination_is_not_accepted(self):
         page = MagicMock()
         data = {'summary': {'publications': 2}, 'records': [{'wos_uid': 'WOS:1'}]}

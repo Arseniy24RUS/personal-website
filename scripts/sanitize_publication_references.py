@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import copy
 import json
 import re
 
@@ -87,44 +88,57 @@ def sanitize_pub(pub: dict) -> list[dict]:
 
 
 def main() -> int:
-    publications = enrich.read_json(PUBLICATIONS_JSON, [])
+    publications = enrich.read_json(PUBLICATIONS_JSON, None)
     if not isinstance(publications, list):
         raise SystemExit(f'{PUBLICATIONS_JSON} is missing or invalid')
     report = {
         'records': len(publications),
         'changed_records': 0,
         'field_changes': 0,
+        'excluded_reference_fields': 0,
         'bad_references_before': 0,
         'bad_references_after': 0,
         'samples': [],
     }
     for pub in publications:
+        before = copy.deepcopy(pub)
         before_bad = bad_reference_text(pub.get('gost_ru')) or bad_reference_text(pub.get('apa_en'))
         if before_bad:
             report['bad_references_before'] += 1
-        changes = sanitize_pub(pub)
+        # Published metadata is durable. Invalid source values are excluded from
+        # newly generated references without deleting them from the publication.
+        reference_data = copy.deepcopy(pub)
+        changes = sanitize_pub(reference_data)
         if changes or before_bad:
-            pub['gost_ru'] = enrich.format_gost(pub)
-            pub['apa_en'] = enrich.format_apa(pub)
+            # Structural cleanup must not replace a valid published/manual
+            # reference. Only missing, invalid or newly generated text is rebuilt.
+            for key, formatter in (('gost_ru', enrich.format_gost), ('apa_en', enrich.format_apa)):
+                if not pub.get(key) or enrich.reference_is_generated(pub, key):
+                    pub[key] = formatter(reference_data)
+                    enrich.mark_generated_reference(pub, key)
             # One more pass: if regenerated text is still suspicious, drop the
             # offending structural fields and regenerate a shorter safe reference.
             if bad_reference_text(pub.get('gost_ru')) or bad_reference_text(pub.get('apa_en')):
                 for key in ['venue', 'venue_ru', 'venue_en', 'book_title', 'volume', 'issue']:
-                    if pub.get(key):
-                        changes.append({'field': key, 'old': pub.get(key), 'reason': 'second_pass_bad_reference_text'})
-                        pub[key] = ''
-                pub['gost_ru'] = enrich.format_gost(pub)
-                pub['apa_en'] = enrich.format_apa(pub)
+                    if reference_data.get(key):
+                        changes.append({'field': key, 'old': reference_data.get(key), 'reason': 'second_pass_bad_reference_text'})
+                        reference_data[key] = ''
+                for key, formatter in (('gost_ru', enrich.format_gost), ('apa_en', enrich.format_apa)):
+                    if not pub.get(key) or enrich.reference_is_generated(pub, key):
+                        pub[key] = formatter(reference_data)
+                        enrich.mark_generated_reference(pub, key)
         after_bad = bad_reference_text(pub.get('gost_ru')) or bad_reference_text(pub.get('apa_en'))
         if after_bad:
             report['bad_references_after'] += 1
         if changes:
-            report['changed_records'] += 1
-            report['field_changes'] += len(changes)
+            report['excluded_reference_fields'] += len(changes)
+            report['changed_records'] += int(pub != before)
+            report['field_changes'] += sum(value != before.get(key) for key, value in pub.items())
             if len(report['samples']) < 20:
                 report['samples'].append({
                     'title': pub.get('title_ru') or pub.get('title') or pub.get('title_en'),
                     'changes': changes,
+                    'published_metadata_preserved': True,
                     'gost_ru': pub.get('gost_ru'),
                     'apa_en': pub.get('apa_en'),
                 })

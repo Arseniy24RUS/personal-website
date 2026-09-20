@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Ephemeral Actions runner only. Never print the configuration, addresses or log.
 set -euo pipefail
-private="${RUNNER_TEMP:?}/portfolio-private"
+runtime_root="${PORTFOLIO_RUN_DIR:-${RUNNER_TEMP:?}}"
+private="$runtime_root/portfolio-private"
 collector="portfolio"
 interface="tun0"
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
@@ -105,8 +106,11 @@ case "${1:-}" in
     sudo iptables -X PORTFOLIO_DNS 2>/dev/null || true
     sudo ip6tables -D OUTPUT -p udp --dport 53 ! -o lo -j REJECT 2>/dev/null || true
     sudo ip6tables -D OUTPUT -p tcp --dport 53 ! -o lo -j REJECT 2>/dev/null || true
-    # Exact private directory below RUNNER_TEMP, never a repository directory.
-    test "$private" = "$RUNNER_TEMP/portfolio-private" && sudo rm -rf -- "$private"
+    # Exact private directory below the dedicated runtime root, never a repository directory.
+    test "$private" = "$runtime_root/portfolio-private" && sudo rm -rf -- "$private"
+    # Interrupted browser runs can leave their temporary profile behind.
+    # This dedicated runtime directory contains no checkout or public data.
+    sudo rm -rf -- "$runtime_root/portfolio-runtime"
     echo 'Home tunnel stopped and temporary credentials removed.'
     ;;
   *) echo 'Usage: home_vpn.sh start|check|test-isolation|stop'; exit 2 ;;
