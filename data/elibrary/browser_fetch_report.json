@@ -1,25 +1,35 @@
 {
-  "status": "blocked",
-  "attempted_at": "2026-09-20T14:15:51+00:00",
-  "last_success_at": "2026-06-02T19:47:04+00:00",
-  "origin": "snapshot",
-  "complete": false,
-  "record_count": 58,
-  "reason": "human_verification_required",
-  "stage": "login",
-  "diagnostics": [
-    {
-      "host": "www.elibrary.ru",
-      "path": "/page_captcha.asp",
-      "controls": [
-        {
-          "tag": "input",
-          "type": "submit",
-          "name": "",
-          "id": "",
-          "label": ""
-        }
-      ]
+  "status": "success",
+  "attempted_at": "2026-09-20T15:23:41.046Z",
+  "last_success_at": "2026-09-20T15:23:41.046Z",
+  "origin": "live",
+  "complete": true,
+  "record_count": 59,
+  "reason": null,
+  "provider": "elibrary",
+  "authentication": {
+    "verified": true,
+    "method": "user_authorized_browser_capture"
+  },
+  "observation_method": "authorized_browser_capture",
+  "components": {
+    "metrics": {
+      "status": "success",
+      "attempted_at": "2026-09-20T15:23:41.046Z",
+      "last_success_at": "2026-09-20T15:23:41.046Z",
+      "origin": "live",
+      "complete": true,
+      "record_count": 1,
+      "reason": null
+    },
+    "publications": {
+      "status": "success",
+      "attempted_at": "2026-09-20T15:23:41.046Z",
+      "last_success_at": "2026-09-20T15:23:41.046Z",
+      "origin": "live",
+      "complete": true,
+      "record_count": 59,
+      "reason": null
     }
-  ]
+  }
 }

@@ -1,7 +1,7 @@
 [
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 1,
+    "source": "elibrary_authenticated_browser",
+    "number": 2,
     "elibrary_item_id": "88771337",
     "url": "https://www.elibrary.ru/item.asp?id=88771337",
     "title": "СРАВНИТЕЛЬНЫЙ КОНТЕНТ-АНАЛИЗ МАГИСТЕРСКИХ И ДОКТОРСКИХ ПРОГРАММ В СФЕРЕ ДЕМОГРАФИИ УНИВЕРСИТЕТОВ МИРОВОГО УРОВНЯ",
@@ -17,11 +17,12 @@
     "dedupe_fingerprint": "b4cd1d011899f196",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 2,
+    "source": "elibrary_authenticated_browser",
+    "number": 3,
     "elibrary_item_id": "89181881",
     "url": "https://www.elibrary.ru/item.asp?id=89181881",
     "title": "ФОРМИРОВАНИЕ ТЕХНОЛОГИЙ РЕШЕНИЯ ЖИЛИЩНЫХ ПРОБЛЕМ СЕМЬИ В РАМКАХ ДЕМОГРАФИЧЕСКОЙ ПОЛИТИКИ: ПРОБЛЕМЫ И ПЕРСПЕКТИВЫ",
@@ -33,15 +34,16 @@
     "pages": "32-48",
     "doi": null,
     "metadata_raw": "Женщина в российском обществе . 2026. № 1 . С. 32-48.",
-    "rinc_citations": 0,
+    "rinc_citations": 1,
     "dedupe_fingerprint": "b429d24e66fd8706",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 3,
+    "source": "elibrary_authenticated_browser",
+    "number": 4,
     "elibrary_item_id": "90401152",
     "url": "https://www.elibrary.ru/item.asp?id=90401152",
     "title": "ДЕМОГРАФИЧЕСКАЯ ТИПОЛОГИЯ КОРЕННЫХ МАЛОЧИСЛЕННЫХ НАРОДОВ РОССИИ: КЛАСТЕРНЫЙ АНАЛИЗ ВОЗРАСТНОЙ СТРУКТУРЫ",
@@ -57,11 +59,12 @@
     "dedupe_fingerprint": "fdf63ff96d949f05",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 4,
+    "source": "elibrary_authenticated_browser",
+    "number": 5,
     "elibrary_item_id": "80640587",
     "url": "https://www.elibrary.ru/item.asp?id=80640587",
     "title": "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ РОССИИ: СТАНОВЛЕНИЕ И ЭВОЛЮЦИЯ НАУЧНОЙ ШКОЛЫ Л. Л. РЫБАКОВСКОГО",
@@ -73,15 +76,16 @@
     "pages": null,
     "doi": null,
     "metadata_raw": "Ярославль, 2025.",
-    "rinc_citations": 5,
+    "rinc_citations": 8,
     "dedupe_fingerprint": "2dd81613294bdfd0",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 5,
+    "source": "elibrary_authenticated_browser",
+    "number": 6,
     "elibrary_item_id": "82280485",
     "url": "https://www.elibrary.ru/item.asp?id=82280485",
     "title": "ДЕМОГРАФИЧЕСКОЕ САМОЧУВСТВИЕ РЕГИОНОВ РОССИИ. НАЦИОНАЛЬНЫЙ ДЕМОГРАФИЧЕСКИЙ ДОКЛАД - 2024",
@@ -93,15 +97,16 @@
     "pages": null,
     "doi": null,
     "metadata_raw": "Москва, Вологда, 2025.",
-    "rinc_citations": 18,
+    "rinc_citations": 27,
     "dedupe_fingerprint": "248dc58342acce5c",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 6,
+    "source": "elibrary_authenticated_browser",
+    "number": 7,
     "elibrary_item_id": "82935261",
     "url": "https://www.elibrary.ru/item.asp?id=82935261",
     "title": "УСТОЙЧИВОСТЬ РОССИЙСКОГО ГОСУДАРСТВА И ОБЩЕСТВА В УСЛОВИЯХ УКРЕПЛЕНИЯ ТРАДИЦИОННЫХ ЦЕННОСТЕЙ И СТАНОВЛЕНИЯ МНОГОПОЛЯРНОГО МИРА. СОЦИАЛЬНАЯ И СОЦИАЛЬНО-ПОЛИТИЧЕСКАЯ СИТУАЦИЯ",
@@ -113,15 +118,16 @@
     "pages": null,
     "doi": null,
     "metadata_raw": "Москва, 2025.",
-    "rinc_citations": 3,
+    "rinc_citations": 10,
     "dedupe_fingerprint": "059488b9751640fe",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 7,
+    "source": "elibrary_authenticated_browser",
+    "number": 8,
     "elibrary_item_id": "83120230",
     "url": "https://www.elibrary.ru/item.asp?id=83120230",
     "title": "РЕПРОДУКТИВНЫЕ УСТАНОВКИ НАСЕЛЕНИЯ Г. СЕВАСТОПОЛЯ И УСЛОВИЯ, ВЛИЯЮЩИЕ НА РОЖДАЕМОСТЬ",
@@ -137,11 +143,12 @@
     "dedupe_fingerprint": "1742da56f32ae510",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 8,
+    "source": "elibrary_authenticated_browser",
+    "number": 9,
     "elibrary_item_id": "89267026",
     "url": "https://www.elibrary.ru/item.asp?id=89267026",
     "title": "КОРРЕЛЯЦИОННЫЙ АНАЛИЗ СОЦИАЛЬНОЭКОНОМИЧЕСКИХ ФАКТОРОВ ДЕМОГРАФИЧЕСКИХ ИЗМЕНЕНИЙ",
@@ -157,11 +164,12 @@
     "dedupe_fingerprint": "2c4d6b7d806d7b33",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 9,
+    "source": "elibrary_authenticated_browser",
+    "number": 10,
     "elibrary_item_id": "83193628",
     "url": "https://www.elibrary.ru/item.asp?id=83193628",
     "title": "ЦИФРОВЫЕ ТЕХНОЛОГИИ В ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ ДЕМОГРАФА",
@@ -177,11 +185,12 @@
     "dedupe_fingerprint": "00ba17719fdf2ebc",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 10,
+    "source": "elibrary_authenticated_browser",
+    "number": 11,
     "elibrary_item_id": "88811236",
     "url": "https://www.elibrary.ru/item.asp?id=88811236",
     "title": "ЦИФРОВАЯ ДЕМОГРАФИЯ: СОВРЕМЕННЫЕ МЕТОДЫ ИССЛЕДОВАНИЯ ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ",
@@ -197,11 +206,12 @@
     "dedupe_fingerprint": "5a935f3e4cf11720",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 11,
+    "source": "elibrary_authenticated_browser",
+    "number": 12,
     "elibrary_item_id": "82376416",
     "url": "https://www.elibrary.ru/item.asp?id=82376416",
     "title": "МНОГОДЕТНАЯ МНОГОПОКОЛЕННАЯ СЕМЬЯ КАК КЛЮЧЕВОЙ РЕСУРС НОВОЙ ДОЛГОСРОЧНОЙ СТРАТЕГИИ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ РОССИИ",
@@ -213,15 +223,16 @@
     "pages": "63-74",
     "doi": null,
     "metadata_raw": "Вестник Российской академии наук . 2025. № 4 . С. 63-74.",
-    "rinc_citations": 7,
+    "rinc_citations": 12,
     "dedupe_fingerprint": "addb493ce7bcd300",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 12,
+    "source": "elibrary_authenticated_browser",
+    "number": 13,
     "elibrary_item_id": "83174967",
     "url": "https://www.elibrary.ru/item.asp?id=83174967",
     "title": "THE ATTITUDES OF FOREIGN STUDENTS TO THEIR FURTHER LIFE AND CAREER IN RUSSIA",
@@ -233,15 +244,16 @@
     "pages": "1280-1285",
     "doi": null,
     "metadata_raw": "Problems of Social Hygiene, Public Health and History of Medicine . 2025. Т. 33. № 5 . С. 1280-1285.",
-    "rinc_citations": 0,
+    "rinc_citations": 1,
     "dedupe_fingerprint": "d78142ac2078e055",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 13,
+    "source": "elibrary_authenticated_browser",
+    "number": 14,
     "elibrary_item_id": "83896667",
     "url": "https://www.elibrary.ru/item.asp?id=83896667",
     "title": "ВЗАИМОСВЯЗИ ДЕМОГРАФИЧЕСКИХ И СОЦИАЛЬНО-ЭКОНОМИЧЕСКИХ ПОКАЗАТЕЛЕЙ РАЗВИТИЯ РЕГИОНОВ РОССИИ",
@@ -253,15 +265,16 @@
     "pages": "602-617",
     "doi": null,
     "metadata_raw": "Уровень жизни населения регионов России . 2025. Т. 21. № 4 . С. 602-617.",
-    "rinc_citations": 4,
+    "rinc_citations": 11,
     "dedupe_fingerprint": "41919311581fea7e",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 14,
+    "source": "elibrary_authenticated_browser",
+    "number": 15,
     "elibrary_item_id": "82678054",
     "url": "https://www.elibrary.ru/item.asp?id=82678054",
     "title": "ВНУТРИРОССИЙСКАЯ ОБРАЗОВАТЕЛЬНАЯ МИГРАЦИЯ МОЛОДЕЖИ: ПРИВЛЕКАТЕЛЬНОСТЬ РЕГИОНОВ ДЛЯ ПОЛУЧЕНИЯ ВЫСШЕГО ОБРАЗОВАНИЯ",
@@ -273,15 +286,16 @@
     "pages": "149-179",
     "doi": null,
     "metadata_raw": "Образование и наука . 2025. Т. 27. № 6 . С. 149-179.",
-    "rinc_citations": 5,
+    "rinc_citations": 8,
     "dedupe_fingerprint": "58ad60face9469ed",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 15,
+    "source": "elibrary_authenticated_browser",
+    "number": 16,
     "elibrary_item_id": "88812395",
     "url": "https://www.elibrary.ru/item.asp?id=88812395",
     "title": "МОЛОДЁЖЬ КАК РЕСУРС РАЗВИТИЯ РОССИЙСКИХ РЕГИОНОВ: ГОСУДАРСТВЕННЫЕ И КОРПОРАТИВНЫЕ СТРАТЕГИИ",
@@ -293,15 +307,16 @@
     "pages": "122-138",
     "doi": null,
     "metadata_raw": "Социум и власть . 2025. Т. 22. № 4 . С. 122-138.",
-    "rinc_citations": 0,
+    "rinc_citations": 1,
     "dedupe_fingerprint": "6c348dccce8e4c7d",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 16,
+    "source": "elibrary_authenticated_browser",
+    "number": 17,
     "elibrary_item_id": "82921380",
     "url": "https://www.elibrary.ru/item.asp?id=82921380",
     "title": "РЕПРОДУКТИВИСТИКА В ТРУДАХ УРАЛЬСКИХ ДЕМОГРАФОВ",
@@ -317,11 +332,12 @@
     "dedupe_fingerprint": "2340cb41f705a868",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 17,
+    "source": "elibrary_authenticated_browser",
+    "number": 18,
     "elibrary_item_id": "87233267",
     "url": "https://www.elibrary.ru/item.asp?id=87233267",
     "title": "ЦИФРОВАЯ ДЕМОГРАФИЧЕСКАЯ ОБСЕРВАТОРИЯ: НОВЫЕ ПОДХОДЫ К МОНИТОРИНГУ МИГРАЦИОННЫХ ПОТОКОВ",
@@ -337,11 +353,12 @@
     "dedupe_fingerprint": "f046f50fa09045f1",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 18,
+    "source": "elibrary_authenticated_browser",
+    "number": 19,
     "elibrary_item_id": "82579805",
     "url": "https://www.elibrary.ru/item.asp?id=82579805",
     "title": "ДЕМОГРАФИЧЕСКИЕ РЕСУРСЫ РОССИИ: ВАРИАТИВНОСТЬ ПОДХОДОВ И ОЦЕНОК",
@@ -353,15 +370,16 @@
     "pages": "183-202",
     "doi": null,
     "metadata_raw": "Экономические и социальные перемены: факты, тенденции, прогноз . 2025. Т. 18. № 3 . С. 183-202.",
-    "rinc_citations": 5,
+    "rinc_citations": 10,
     "dedupe_fingerprint": "e344883e06272cb3",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 19,
+    "source": "elibrary_authenticated_browser",
+    "number": 20,
     "elibrary_item_id": "88778278",
     "url": "https://www.elibrary.ru/item.asp?id=88778278",
     "title": "ВЛИЯНИЕ АГЛОМЕРАЦИОННОГО ЭФФЕКТА НА ДЕМОГРАФИЧЕСКУЮ ПОЛИТИКУ ТЕРРИТОРИЙ",
@@ -377,11 +395,12 @@
     "dedupe_fingerprint": "568e73e9e25c6aa2",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 20,
+    "source": "elibrary_authenticated_browser",
+    "number": 21,
     "elibrary_item_id": "82491287",
     "url": "https://www.elibrary.ru/item.asp?id=82491287",
     "title": "СИСТЕМА РАССЕЛЕНИЯ РЕСПУБЛИКИ ТЫВА: ОПОРНЫЕ НАСЕЛЁННЫЕ ПУНКТЫ",
@@ -397,11 +416,12 @@
     "dedupe_fingerprint": "8787a11d6c0aee7d",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 21,
+    "source": "elibrary_authenticated_browser",
+    "number": 22,
     "elibrary_item_id": "85423263",
     "url": "https://www.elibrary.ru/item.asp?id=85423263",
     "title": "МЕТОДОЛОГИЯ И ПРАКТИКА ПРОВЕДЕНИЯ ДЕМОГРАФИЧЕСКОЙ ЭКСПЕРТИЗЫ НА ПРИМЕРЕ РЕГИОНАЛЬНОЙ ПРОГРАММЫ \"ПОВЫШЕНИЕ РОЖДАЕМОСТИ В РЕСПУБЛИКЕ ТЫВА НА ПЕРИОД 2023-2025 ГОДОВ\"",
@@ -413,15 +433,16 @@
     "pages": "233-253",
     "doi": null,
     "metadata_raw": "Новые исследования Тувы . 2025. № 4 . С. 233-253.",
-    "rinc_citations": 0,
+    "rinc_citations": 2,
     "dedupe_fingerprint": "409efe2a904a8be1",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 22,
+    "source": "elibrary_authenticated_browser",
+    "number": 23,
     "elibrary_item_id": "83217146",
     "url": "https://www.elibrary.ru/item.asp?id=83217146",
     "title": "ГОСУДАРСТВЕННАЯ СЕМЕЙНО-ДЕМОГРАФИЧЕСКАЯ ПОЛИТИКА: ОБЗОР АКТУАЛЬНЫХ ИССЛЕДОВАНИЙ И ПРАКТИК",
@@ -437,11 +458,12 @@
     "dedupe_fingerprint": "e30afe7f9194bc7b",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 23,
+    "source": "elibrary_authenticated_browser",
+    "number": 24,
     "elibrary_item_id": "83217152",
     "url": "https://www.elibrary.ru/item.asp?id=83217152",
     "title": "ВЛИЯНИЕ ГОСУДАРСТВЕННОЙ ПОЛИТИКИ АГЛОМЕРИРОВАНИЯ НА ДОЛГОСРОЧНЫЕ ТЕНДЕНЦИИ ИЗМЕНЕНИЯ ЧИСЛЕННОСТИ НАСЕЛЕНИЯ РОССИИ",
@@ -453,15 +475,16 @@
     "pages": "375-385",
     "doi": null,
     "metadata_raw": "Вестник Российского университета дружбы народов. Серия: Государственное и муниципальное управление . 2025. Т. 12. № 3 . С. 375-385.",
-    "rinc_citations": 1,
+    "rinc_citations": 4,
     "dedupe_fingerprint": "7d41f4757ddfd95b",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 24,
+    "source": "elibrary_authenticated_browser",
+    "number": 25,
     "elibrary_item_id": "88751490",
     "url": "https://www.elibrary.ru/item.asp?id=88751490",
     "title": "СОЦИОЛОГИЧЕСКАЯ ДИАГНОСТИКА НЕУДОВЛЕТВОРЁННОСТИ НАСЕЛЕНИЯ КАК ИНСТРУМЕНТ УПРАВЛЕНИЯ РАЗВИТИЕМ ТЕРРИТОРИЙ",
@@ -477,11 +500,12 @@
     "dedupe_fingerprint": "41a007210647f0a6",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 25,
+    "source": "elibrary_authenticated_browser",
+    "number": 26,
     "elibrary_item_id": "88766941",
     "url": "https://www.elibrary.ru/item.asp?id=88766941",
     "title": "МЕТОДОЛОГИЧЕСКИЕ АСПЕКТЫ ПРОВЕДЕНИЯ ДЕМОГРАФИЧЕСКОЙ ЭКСПЕРТИЗЫ ПРОЕКТОВ И РАБОТ",
@@ -493,15 +517,16 @@
     "pages": "188-215",
     "doi": null,
     "metadata_raw": "ДЕМИС. Демографические исследования . 2025. Т. 5. № 4 . С. 188-215.",
-    "rinc_citations": 0,
+    "rinc_citations": 1,
     "dedupe_fingerprint": "89fd29fe20d215b1",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 26,
+    "source": "elibrary_authenticated_browser",
+    "number": 27,
     "elibrary_item_id": "88139507",
     "url": "https://www.elibrary.ru/item.asp?id=88139507",
     "title": "THE IMPACT OF POPULATION DENSITY ON THE SOCIO-ECONOMIC DEVELOPMENT OF RUSSIAN REGIONS: FROM CORRELATION PORTRAITS TO THE CLUSTER-DIFFERENTIATED DENSITY GOVERNANCE",
@@ -513,15 +538,16 @@
     "pages": "1715504",
     "doi": null,
     "metadata_raw": "Frontiers in Political Science . 2025. Т. 7. С. 1715504.",
-    "rinc_citations": 0,
+    "rinc_citations": 3,
     "dedupe_fingerprint": "94de25b9d60208a4",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 27,
+    "source": "elibrary_authenticated_browser",
+    "number": 28,
     "elibrary_item_id": "62766619",
     "url": "https://www.elibrary.ru/item.asp?id=62766619",
     "title": "РЕСУРСЫ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ: К ВОПРОСУ ОБ УНИФИКАЦИИ ПОНЯТИЙ В ДЕМОГРАФИЧЕСКИХ ИССЛЕДОВАНИЯХ",
@@ -533,15 +559,16 @@
     "pages": "178-200",
     "doi": null,
     "metadata_raw": "Экономические и социальные перемены: факты, тенденции, прогноз . 2024. Т. 17. № 1 . С. 178-200.",
-    "rinc_citations": 22,
+    "rinc_citations": 28,
     "dedupe_fingerprint": "eb00ba5f977054de",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 28,
+    "source": "elibrary_authenticated_browser",
+    "number": 29,
     "elibrary_item_id": "72083389",
     "url": "https://www.elibrary.ru/item.asp?id=72083389",
     "title": "ОБРАЗОВАТЕЛЬНЫЕ МЕЖРЕГИОНАЛЬНЫЕ МИГРАЦИИ В РОССИИ В 2017-2019 ГГ.: ГЕНДЕРНЫЕ И ПРОСТРАНСТВЕННЫЕ АСПЕКТЫ",
@@ -557,11 +584,12 @@
     "dedupe_fingerprint": "b2d5a1c5020a3cc3",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 29,
+    "source": "elibrary_authenticated_browser",
+    "number": 30,
     "elibrary_item_id": "54756601",
     "url": "https://www.elibrary.ru/item.asp?id=54756601",
     "title": "ИСПОЛЬЗОВАНИЕ ВЕКТОРНЫХ ОЦЕНОК И ГРАФОАНАЛИТИЧЕСКИХ МЕТОДОВ В ИССЛЕДОВАНИИ ДЕМОГРАФИЧЕСКОГО ПОВЕДЕНИЯ НАСЕЛЕНИЯ РЕГИОНА",
@@ -573,15 +601,16 @@
     "pages": "44-55",
     "doi": null,
     "metadata_raw": "Вестник Нижегородского университета им. Н.И. Лобачевского. Серия: Социальные науки . 2023. № 3 (71) . С. 44-55.",
-    "rinc_citations": 8,
+    "rinc_citations": 5,
     "dedupe_fingerprint": "8ff2a5b19f31c0e6",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 30,
+    "source": "elibrary_authenticated_browser",
+    "number": 31,
     "elibrary_item_id": "54485757",
     "url": "https://www.elibrary.ru/item.asp?id=54485757",
     "title": "ОСОБЕННОСТИ ДЕМОГРАФИЧЕСКОГО РАЗВИТИЯ КОРЕННЫХ МАЛОЧИСЛЕННЫХ НАРОДОВ СЕВЕРА ХМАО В ПЕРИОД 20022022 ГГ",
@@ -593,15 +622,16 @@
     "pages": "172-187",
     "doi": null,
     "metadata_raw": "Вопросы истории . 2023. № 9-1 . С. 172-187.",
-    "rinc_citations": 5,
+    "rinc_citations": 6,
     "dedupe_fingerprint": "5c76ced8179dcb36",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 31,
+    "source": "elibrary_authenticated_browser",
+    "number": 32,
     "elibrary_item_id": "54305933",
     "url": "https://www.elibrary.ru/item.asp?id=54305933",
     "title": "СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИЕ АСПЕКТЫ ОПРЕДЕЛЕНИЯ ОПОРНОГО КАРКАСА РАССЕЛЕНИЯ",
@@ -613,15 +643,16 @@
     "pages": "118-133",
     "doi": null,
     "metadata_raw": "Вестник Южно-Российского государственного технического университета (НПИ). Серия: Социально-экономические науки . 2023. Т. 16. № 4 . С. 118-133.",
-    "rinc_citations": 4,
+    "rinc_citations": 5,
     "dedupe_fingerprint": "c98316796b68ea53",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 32,
+    "source": "elibrary_authenticated_browser",
+    "number": 33,
     "elibrary_item_id": "54353108",
     "url": "https://www.elibrary.ru/item.asp?id=54353108",
     "title": "МЕТОДИЧЕСКИЙ ПОДХОД К АНАЛИЗУ СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИХ ФАКТОРОВ ФОРМИРОВАНИЯ ОПОРНОГО КАРКАСА РАССЕЛЕНИЯ",
@@ -633,15 +664,16 @@
     "pages": "33-52",
     "doi": null,
     "metadata_raw": "Вопросы управления . 2023. № 4 (83) . С. 33-52.",
-    "rinc_citations": 5,
+    "rinc_citations": 6,
     "dedupe_fingerprint": "1ea1b99c17a65875",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 33,
+    "source": "elibrary_authenticated_browser",
+    "number": 34,
     "elibrary_item_id": "49832359",
     "url": "https://www.elibrary.ru/item.asp?id=49832359",
     "title": "ПОЛОВОЗРАСТНАЯ ПИРАМИДА МИГРАЦИОННОГО САЛЬДО КАК ИНСТРУМЕНТ УГЛУБЛЕННОГО АНАЛИЗА МИГРАЦИОННЫХПРОЦЕССОВ",
@@ -657,11 +689,12 @@
     "dedupe_fingerprint": "722bf6bf79e405f5",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 34,
+    "source": "elibrary_authenticated_browser",
+    "number": 35,
     "elibrary_item_id": "50094227",
     "url": "https://www.elibrary.ru/item.asp?id=50094227",
     "title": "СИСТЕМА РАССЕЛЕНИЯ ЧУВАШСКОЙ РЕСПУБЛИКИ: ЧЕБОКСАРСКАЯ АГЛОМЕРАЦИЯ",
@@ -677,11 +710,12 @@
     "dedupe_fingerprint": "0d65ca49ecb4e9df",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 35,
+    "source": "elibrary_authenticated_browser",
+    "number": 36,
     "elibrary_item_id": "48075389",
     "url": "https://www.elibrary.ru/item.asp?id=48075389",
     "title": "ГОРОДА БУДУЩЕГО: ПРОСТРАНСТВЕННОЕ РАЗВИТИЕ, СОУЧАСТВУЮЩЕЕ УПРАВЛЕНИЕ И ТВОРЧЕСКИЕ ИНДУСТРИИ",
@@ -693,15 +727,16 @@
     "pages": null,
     "doi": null,
     "metadata_raw": "Москва, 2021.",
-    "rinc_citations": 4,
+    "rinc_citations": 5,
     "dedupe_fingerprint": "3eca897efa4c444d",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 36,
+    "source": "elibrary_authenticated_browser",
+    "number": 37,
     "elibrary_item_id": "48271056",
     "url": "https://www.elibrary.ru/item.asp?id=48271056",
     "title": "ПРОСТРАНСТВЕННОЕ СЖАТИЕ ТЕРРИТОРИЙ РОССИЙСКОЙ ФЕДЕРАЦИИ: ПОНЯТИЕ, КРИТЕРИИ, СИСТЕМА ПОКАЗАТЕЛЕЙ",
@@ -713,15 +748,16 @@
     "pages": "63-93",
     "doi": null,
     "metadata_raw": "В книге: Города будущего: пространственное развитие, соучаствующее управление и творческие индустрии. Безвербный В.А., Белкин С.В., Блинов Г.Н., Бойко Д.О., Гарнага А.Ф., Жирков О.А., Зеленцова Е.В., Иванова К.А., Ивановская Н.Е., Климкович Е.В., Королева Д.О., Маркварт Э., Мартынова Я.А., Моисеев Ю.М., Орлова О.Н., Полещук М.Н., Пушкарева Т.В., Самойлова Н.А., Синицына И.А., Ситковский А.М. и др. Москва, 2021. С. 63-93.",
-    "rinc_citations": 22,
+    "rinc_citations": 23,
     "dedupe_fingerprint": "3736aa250dcb758d",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 37,
+    "source": "elibrary_authenticated_browser",
+    "number": 38,
     "elibrary_item_id": "45763932",
     "url": "https://www.elibrary.ru/item.asp?id=45763932",
     "title": "МНОГОУРОВНЕВЫЕ МОДЕЛИ ТРАНСФОРМАЦИИ СОЦИАЛЬНОГО ПРОСТРАНСТВА ЕВРАЗИЙСКОГО МАКРОРЕГИОНА: НА ПРИМЕРЕ УРАЛА",
@@ -737,11 +773,12 @@
     "dedupe_fingerprint": "8272e0e1c7cdf192",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 38,
+    "source": "elibrary_authenticated_browser",
+    "number": 39,
     "elibrary_item_id": "48333690",
     "url": "https://www.elibrary.ru/item.asp?id=48333690",
     "title": "МНОГОМЕРНАЯ ТИПОЛОГИЗАЦИЯ СУБЪЕКТОВ РФ НА ОСНОВЕ СОЦИАЛЬНО-ЭКОНОМИЧЕСКИХ И ПРИРОДНО-КЛИМАТИЧЕСКИХ ХАРАКТЕРИСТИ",
@@ -757,11 +794,12 @@
     "dedupe_fingerprint": "809571a7882fbdac",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 39,
+    "source": "elibrary_authenticated_browser",
+    "number": 40,
     "elibrary_item_id": "48126823",
     "url": "https://www.elibrary.ru/item.asp?id=48126823",
     "title": "ВЫЯВЛЕНИЕ ЭКОНОМИЧЕСКОЙ СПЕЦИАЛИЗАЦИИ И ПОТЕНЦИАЛА КООПЕРАЦИИ СУБЪЕКТОВ РФ",
@@ -773,15 +811,16 @@
     "pages": "92-111",
     "doi": null,
     "metadata_raw": "Научное обозрение. Серия 1: Экономика и право . 2021. № 6 . С. 92-111.",
-    "rinc_citations": 2,
+    "rinc_citations": 4,
     "dedupe_fingerprint": "b71b03779c42f4e3",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 40,
+    "source": "elibrary_authenticated_browser",
+    "number": 41,
     "elibrary_item_id": "45651388",
     "url": "https://www.elibrary.ru/item.asp?id=45651388",
     "title": "МОДЕЛИРОВАНИЕ МНОГОКРИТЕРИАЛЬНОЙ ОЦЕНКИ СОЦИО-ЭКОЛОГО-ЭКОНОМИЧЕСКОГО СОСТОЯНИЯ И ДИНАМИКИ ТЕРРИТОРИИ",
@@ -793,15 +832,16 @@
     "pages": "102-119",
     "doi": null,
     "metadata_raw": "Вопросы управления . 2021. № 2 (69) . С. 102-119.",
-    "rinc_citations": 13,
+    "rinc_citations": 14,
     "dedupe_fingerprint": "8fa4022d53cba9b3",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 41,
+    "source": "elibrary_authenticated_browser",
+    "number": 42,
     "elibrary_item_id": "43996074",
     "url": "https://www.elibrary.ru/item.asp?id=43996074",
     "title": "THE TRANSFORMATION OF SOCIAL AND CULTURAL SPACE IN THE CONTEXT OF THE DEVELOPMENT OF TRANSPORT CORRIDORS",
@@ -817,11 +857,12 @@
     "dedupe_fingerprint": "4682e5ee518dc06f",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 42,
+    "source": "elibrary_authenticated_browser",
+    "number": 43,
     "elibrary_item_id": "44238615",
     "url": "https://www.elibrary.ru/item.asp?id=44238615",
     "title": "«ЭФФЕКТ КОЛЕИ» И ТРАНСФОРМАЦИЯ СОЦИАЛЬНОГО ПРОСТРАНСТВА ЕВРАЗИЙСКОГО МАКРОРЕГИОНА: НА ПРИМЕРЕ УРАЛА",
@@ -837,11 +878,12 @@
     "dedupe_fingerprint": "b4947f53ad19ec0a",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 43,
+    "source": "elibrary_authenticated_browser",
+    "number": 44,
     "elibrary_item_id": "48727518",
     "url": "https://www.elibrary.ru/item.asp?id=48727518",
     "title": "“PATH DEPENDENCE”: THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
@@ -857,11 +899,12 @@
     "dedupe_fingerprint": "3adcac2daa085839",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 44,
+    "source": "elibrary_authenticated_browser",
+    "number": 45,
     "elibrary_item_id": "44505904",
     "url": "https://www.elibrary.ru/item.asp?id=44505904",
     "title": "ПРИОРИТЕТЫ КАЧЕСТВА ЖИЗНИ В НОРМАЛИЗАЦИИ СОЦИАЛЬНО-ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ ТЕРРИТОРИЙ",
@@ -877,11 +920,12 @@
     "dedupe_fingerprint": "22d536b71ef457d1",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 45,
+    "source": "elibrary_authenticated_browser",
+    "number": 46,
     "elibrary_item_id": "44548233",
     "url": "https://www.elibrary.ru/item.asp?id=44548233",
     "title": "ПРОСТРАНСТВЕННАЯ ДИФФЕРЕНЦИАЦИЯ МИГРАЦИОННЫХ ПРОЦЕССОВ В КОНТЕКСТЕ ЛОКАЛЬНОГО ЭКОНОМИЧЕСКОГО КРИЗИСА НА ПРИМЕРЕ ЧЕЛЯБИНСКОЙ ОБЛАСТИ",
@@ -893,15 +937,16 @@
     "pages": "165-171",
     "doi": null,
     "metadata_raw": "Актуальные вопросы современной экономики . 2020. № 11 . С. 165-171.",
-    "rinc_citations": 2,
+    "rinc_citations": 4,
     "dedupe_fingerprint": "f4214b9107d0829a",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 46,
+    "source": "elibrary_authenticated_browser",
+    "number": 47,
     "elibrary_item_id": "45066549",
     "url": "https://www.elibrary.ru/item.asp?id=45066549",
     "title": "VISUALIZATION IN MODELS OF TRANSFORMATION OF SOCIAL SPACE OF THE EURASIAN MACROREGION: THE EXAMPLE OF THE URALS",
@@ -917,11 +962,12 @@
     "dedupe_fingerprint": "71793156ff5cf075",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 47,
+    "source": "elibrary_authenticated_browser",
+    "number": 48,
     "elibrary_item_id": "42493918",
     "url": "https://www.elibrary.ru/item.asp?id=42493918",
     "title": "CHANGING THE STRUCTURE OF THE WORKING-AGE POPULATION PROJECTED BY THE COHORT COMPONENT METHOD (ON THE EXAMPLE OF A MEGACITY)",
@@ -937,11 +983,12 @@
     "dedupe_fingerprint": "46b3006e3903d142",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 48,
+    "source": "elibrary_authenticated_browser",
+    "number": 49,
     "elibrary_item_id": "42325217",
     "url": "https://www.elibrary.ru/item.asp?id=42325217",
     "title": "ВЗАИМОСВЯЗЬ ЭКОНОМИЧЕСКИХ И ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ МАЛОГО МОНОГОРОДА УРАЛА",
@@ -957,11 +1004,12 @@
     "dedupe_fingerprint": "db61420745b9796c",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 49,
+    "source": "elibrary_authenticated_browser",
+    "number": 50,
     "elibrary_item_id": "42325239",
     "url": "https://www.elibrary.ru/item.asp?id=42325239",
     "title": "ОБНОВЛЕНИЕ МЕТОДИК И ИНСТРУМЕНТАРИЯ ДЛЯ ПОДГОТОВКИ ПРОГРАММ ПРОСТРАНСТВЕННОГО РАЗВИТИЯ МУНИЦИПАЛЬНЫХ ОБРАЗОВАНИЙ",
@@ -977,11 +1025,12 @@
     "dedupe_fingerprint": "5fa21971aec48c4a",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 50,
+    "source": "elibrary_authenticated_browser",
+    "number": 51,
     "elibrary_item_id": "41509538",
     "url": "https://www.elibrary.ru/item.asp?id=41509538",
     "title": "ОЦЕНКИ КАЧЕСТВА ЖИЗНИ И СОЦИАЛЬНЫХ ПРИОРИТЕТОВ РАЗВИТИЯ ТЕРРИТОРИЙ",
@@ -997,11 +1046,12 @@
     "dedupe_fingerprint": "54b0bf1a3deeb827",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 51,
+    "source": "elibrary_authenticated_browser",
+    "number": 52,
     "elibrary_item_id": "42358409",
     "url": "https://www.elibrary.ru/item.asp?id=42358409",
     "title": "МЕТОДИЧЕСКИЕ АСПЕКТЫ РАЗВИТИЯ МАЛЫХ ЦЕНТРОВ СОЦИАЛЬНЫХ УСЛУГ МУНИЦИПАЛЬНОГО ОБРАЗОВАНИЯ",
@@ -1017,11 +1067,12 @@
     "dedupe_fingerprint": "fcbc9f74d1f2e725",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 52,
+    "source": "elibrary_authenticated_browser",
+    "number": 53,
     "elibrary_item_id": "42358410",
     "url": "https://www.elibrary.ru/item.asp?id=42358410",
     "title": "\"ЭФФЕКТ КОЛЕИ\" В ПРОСТРАНСТВЕННОМ МЕЖМУНИЦИПАЛЬНОМ РАЗВИТИИ",
@@ -1037,11 +1088,12 @@
     "dedupe_fingerprint": "e2090412ef6977f4",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 53,
+    "source": "elibrary_authenticated_browser",
+    "number": 54,
     "elibrary_item_id": "42445903",
     "url": "https://www.elibrary.ru/item.asp?id=42445903",
     "title": "МЕТОДИКА И ПРАКТИКА ФОРМИРОВАНИЯ МНОГОУРОВНЕВОЙ СИСТЕМЫ ЦЕНТРОВ СОЦИАЛЬНЫХ УСЛУГ",
@@ -1057,11 +1109,12 @@
     "dedupe_fingerprint": "9acf6b6a7ed4dead",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 54,
+    "source": "elibrary_authenticated_browser",
+    "number": 55,
     "elibrary_item_id": "36888017",
     "url": "https://www.elibrary.ru/item.asp?id=36888017",
     "title": "НЕКОТОРЫЕ ПАРАДОКСЫ СОВРЕМЕННЫХ ДЕМОГРАФИЧЕСКИХ ПРОЦЕССОВ",
@@ -1077,11 +1130,12 @@
     "dedupe_fingerprint": "efe2d6c56dd8fbbc",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 55,
+    "source": "elibrary_authenticated_browser",
+    "number": 56,
     "elibrary_item_id": "36808832",
     "url": "https://www.elibrary.ru/item.asp?id=36808832",
     "title": "ДЕМОГРАФИЧЕСКИЙ ФАКТОР В ОБЕСПЕЧЕНИИ УСТОЙЧИВОГО РАЗВИТИЯ МЕГАПОЛИСА",
@@ -1097,11 +1151,12 @@
     "dedupe_fingerprint": "d0d9ab520875ad57",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 56,
+    "source": "elibrary_authenticated_browser",
+    "number": 57,
     "elibrary_item_id": "34954854",
     "url": "https://www.elibrary.ru/item.asp?id=34954854",
     "title": "ДЕМОГРАФИЧЕСКАЯ ПОЛИТИКА РОССИЙСКОЙ ФЕДЕРАЦИИ",
@@ -1117,11 +1172,12 @@
     "dedupe_fingerprint": "ef0ff3591d699967",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 57,
+    "source": "elibrary_authenticated_browser",
+    "number": 58,
     "elibrary_item_id": "34954475",
     "url": "https://www.elibrary.ru/item.asp?id=34954475",
     "title": "СОХРАНЕНИЕ РЕПРОДУКТИВНОГО ЗДОРОВЬЯ КАК ОДНО ИЗ УСЛОВИЙ УВЕЛИЧЕНИЯ СРЕДНЕЙ ОЖИДАЕМОЙ ПРОДОЛЖИТЕЛЬНОСТИ ЖИЗНИ ЖЕНЩИН",
@@ -1137,11 +1193,12 @@
     "dedupe_fingerprint": "75c9e387e40d7b10",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   },
   {
-    "source": "elibrary_rinc_saved_html",
-    "number": 58,
+    "source": "elibrary_authenticated_browser",
+    "number": 59,
     "elibrary_item_id": "30111055",
     "url": "https://www.elibrary.ru/item.asp?id=30111055",
     "title": "ОСНОВА ЗДОРОВЬЯ ЧЕЛОВЕКА – РЕПРОДУКТИВНОЕ ЗДОРОВЬЕ",
@@ -1157,6 +1214,24 @@
     "dedupe_fingerprint": "ceb269b240e51856",
     "sources": [
       "elibrary"
-    ]
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
+  },
+  {
+    "source": "elibrary_authenticated_browser",
+    "number": 1,
+    "elibrary_item_id": "91715753",
+    "url": "https://www.elibrary.ru/item.asp?id=91715753",
+    "title": "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ ГОРОДА СЕВАСТОПОЛЯ: КОМПЛЕКСНОЕ ИССЛЕДОВАНИЕ",
+    "title_ru": "ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ ГОРОДА СЕВАСТОПОЛЯ: КОМПЛЕКСНОЕ ИССЛЕДОВАНИЕ",
+    "authors_raw": "Ростовская Т.К., Архангельский В.Н., Васильева Е.Н., Иванова А.Е., Семенова В.Г., Кучмаева О.В., Ситковский А.М.",
+    "year": 2026,
+    "metadata_raw": "Москва, 2026.",
+    "rinc_citations": 0,
+    "dedupe_fingerprint": "2a2e573f745533d9",
+    "sources": [
+      "elibrary"
+    ],
+    "observed_at": "2026-09-20T15:22:34.224Z"
   }
 ]
