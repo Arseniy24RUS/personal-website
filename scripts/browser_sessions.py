@@ -11,8 +11,10 @@ import base64
 from datetime import datetime, timedelta, timezone
 import io
 import json
+import math
 import os
 from pathlib import Path
+import re
 import secrets
 import subprocess
 import sys
@@ -248,7 +250,50 @@ def restore_context(browser, provider, **options):
     return context, info
 
 
-def checkpoint_session(context, provider, *, authenticated, target_verified, target_id):
+def capture_session_storage(context, provider, verified_page=None):
+    """Resolve tab-local storage without choosing an arbitrary last tab.
+
+    The verified page is authoritative for its origin. Other origins must agree
+    across tabs; a conflict must not create a supposedly confirmed checkpoint.
+    """
+    pages = list(context.pages)
+    if verified_page is not None and not any(page is verified_page for page in pages):
+        raise SessionError('verified_page_unavailable')
+
+    def origin_of(page):
+        parsed = urlparse(page.url)
+        port = f':{parsed.port}' if parsed.port not in (None, 443) else ''
+        return f'{parsed.scheme}://{parsed.hostname}{port}'
+
+    def read_page(page, origin):
+        values = page.evaluate('() => Object.fromEntries(Object.entries(sessionStorage))')
+        if origin_of(page) != origin:
+            raise SessionError('session_storage_origin_changed')
+        if not isinstance(values, dict) or not all(isinstance(key, str) and isinstance(value, str) for key, value in values.items()):
+            raise SessionError('invalid_session_storage')
+        return {key: value for key, value in values.items() if key != HYDRATION_MARKER}
+
+    captured = {}
+    verified_origin = None
+    if verified_page is not None:
+        verified_origin = origin_of(verified_page)
+        if not _origin_allowed(provider, verified_origin):
+            raise SessionError('verified_page_origin_invalid')
+        captured[verified_origin] = read_page(verified_page, verified_origin)
+    for page in pages:
+        origin = origin_of(page)
+        if origin == verified_origin or not _origin_allowed(provider, origin):
+            continue
+        values = read_page(page, origin)
+        if origin in captured and captured[origin] != values:
+            raise SessionError('session_storage_conflict')
+        captured[origin] = values
+    if verified_page is not None and origin_of(verified_page) != verified_origin:
+        raise SessionError('session_storage_origin_changed')
+    return captured
+
+
+def checkpoint_session(context, provider, *, authenticated, target_verified, target_id, verified_page=None):
     """The caller must establish both proofs from the current live page."""
     if authenticated is not True or target_verified is not True or str(target_id) != target_for(provider):
         return {'status': 'rejected', 'reason': 'session_not_verified'}
@@ -256,13 +301,7 @@ def checkpoint_session(context, provider, *, authenticated, target_verified, tar
         return {'status': 'disabled', 'reason': 'session_storage_not_configured'}
     try:
         state = scoped_state(provider, context.storage_state(indexed_db=True))
-        session_storage = {}
-        for page in context.pages:
-            parsed = urlparse(page.url)
-            origin = f'{parsed.scheme}://{parsed.netloc}'
-            if _origin_allowed(provider, origin):
-                values = page.evaluate('() => Object.fromEntries(Object.entries(sessionStorage))')
-                session_storage[origin] = {key: value for key, value in values.items() if key != HYDRATION_MARKER}
+        session_storage = capture_session_storage(context, provider, verified_page)
         stamp = now()
         payload = {'schema': SCHEMA, 'repository': repository_for(), 'provider': provider, 'target_id': str(target_id),
                    'kind': 'confirmed', 'created_at': stamp, 'validated_at': stamp,
@@ -279,6 +318,11 @@ def checkpoint_session(context, provider, *, authenticated, target_verified, tar
                 pass
         return {'status': 'checkpointed', 'validated_at': stamp, 'cookie_expires_at': expiry,
                 'cookie_expiry_extended': bool(expiry and previous_expiry and _timestamp(expiry) > _timestamp(previous_expiry))}
+    except SessionError as exc:
+        reason = str(exc)
+        safe_reasons = {'session_storage_conflict', 'verified_page_unavailable', 'verified_page_origin_invalid',
+                        'session_storage_origin_changed', 'invalid_session_storage'}
+        return {'status': 'error', 'reason': reason if reason in safe_reasons else 'checkpoint_write_failed'}
     except Exception:
         return {'status': 'error', 'reason': 'checkpoint_write_failed'}
 
@@ -435,11 +479,33 @@ def export_diagnostics(source, destination):
                'validated_at', 'cookie_expires_at', 'cookie_expiry_extended', 'target_verified',
                'session_restore', 'session_checkpoint', 'checkpoint', 'restoration', 'kind',
                'providers', 'elibrary', 'wos', 'exit_code', 'origin', 'complete', 'schema',
-               'authentication_evidence', 'login_confirmed', 'target_author_id', 'target_researcher_id'}
+               'authentication_evidence', 'login_confirmed', 'target_author_id', 'target_researcher_id',
+               'profile_diagnostics'}
+
+    def profile_fields(value):
+        if not isinstance(value, dict):
+            return {}
+        result = {}
+        for name in ('parsed_record_count', 'summary_metric_count', 'core_metric_count'):
+            if type(value.get(name)) is int:
+                result[name] = value[name]
+        if isinstance(value.get('parser_failed'), bool):
+            result['parser_failed'] = value['parser_failed']
+        summary = value.get('summary')
+        if isinstance(summary, dict):
+            result['summary'] = {name: summary[name] for name in (
+                'publications', 'citations', 'h_index', 'total_documents', 'indexed_publications', 'core_collection_publications')
+                if name in summary and (summary[name] is None or (type(summary[name]) in (int, float) and math.isfinite(summary[name])))}
+        for name in ('schema_fields', 'record_fields'):
+            values = value.get(name)
+            if isinstance(values, list):
+                result[name] = [field for field in values[:64] if isinstance(field, str) and re.fullmatch(r'[a-z][a-z_]{0,60}', field)]
+        return result
 
     def keep(value):
         if isinstance(value, dict):
-            return {key: keep(item) for key, item in value.items() if key in allowed}
+            return {key: profile_fields(item) if key == 'profile_diagnostics' else keep(item)
+                    for key, item in value.items() if key in allowed}
         if isinstance(value, (str, int, float, bool)) or value is None:
             return value
         return None
