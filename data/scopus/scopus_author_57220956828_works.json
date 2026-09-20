@@ -177,7 +177,7 @@
     "cover_date": "2025-12-01",
     "year": "2025",
     "doi": "10.25178/nit.2025.4.13",
-    "cited_by_count": 0,
+    "cited_by_count": 2,
     "aggregation_type": "Journal",
     "subtype": "Article",
     "openaccess": "1",
@@ -192,7 +192,7 @@
       "prism:publicationName": "New Research of Tuva",
       "prism:coverDate": "2025-12-01",
       "prism:doi": "10.25178/nit.2025.4.13",
-      "citedby-count": "0",
+      "citedby-count": "2",
       "prism:aggregationType": "Journal",
       "subtype": "ar",
       "subtypeDescription": "Article",
@@ -292,7 +292,7 @@
     "cover_date": "2025-01-01",
     "year": "2025",
     "doi": "10.25178/nit.2025.2.4",
-    "cited_by_count": 0,
+    "cited_by_count": 2,
     "aggregation_type": "Journal",
     "subtype": "Article",
     "openaccess": "1",
@@ -307,7 +307,7 @@
       "prism:publicationName": "New Research of Tuva",
       "prism:coverDate": "2025-01-01",
       "prism:doi": "10.25178/nit.2025.2.4",
-      "citedby-count": "0",
+      "citedby-count": "2",
       "prism:aggregationType": "Journal",
       "subtype": "ar",
       "subtypeDescription": "Article",
@@ -463,6 +463,110 @@
           },
           {
             "$": "Green"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "source": "scopus_api",
+    "eid": "2-s2.0-105049859541",
+    "scopus_id": "105049859541",
+    "title": "Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990–2024)",
+    "creator": "Sitkovskiy A.M.",
+    "journal_or_source": "New Research of Tuva",
+    "cover_date": "2026-09-01",
+    "year": "2026",
+    "doi": "10.25178/nit.2026.3.15",
+    "cited_by_count": 0,
+    "aggregation_type": "Journal",
+    "subtype": "Article",
+    "openaccess": "1",
+    "raw": {
+      "@_fa": "true",
+      "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105049859541",
+      "dc:identifier": "SCOPUS_ID:105049859541",
+      "eid": "2-s2.0-105049859541",
+      "dc:title": "Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990–2024)",
+      "dc:creator": "Sitkovskiy A.M.",
+      "prism:publicationName": "New Research of Tuva",
+      "prism:coverDate": "2026-09-01",
+      "prism:doi": "10.25178/nit.2026.3.15",
+      "citedby-count": "0",
+      "prism:aggregationType": "Journal",
+      "subtype": "ar",
+      "subtypeDescription": "Article",
+      "openaccess": "1",
+      "openaccessFlag": true,
+      "freetoread": {
+        "value": [
+          {
+            "$": "all"
+          },
+          {
+            "$": "publisherfullgold"
+          }
+        ]
+      },
+      "freetoreadLabel": {
+        "value": [
+          {
+            "$": "All Open Access"
+          },
+          {
+            "$": "Gold"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "source": "scopus_api",
+    "eid": "2-s2.0-105049919505",
+    "scopus_id": "105049919505",
+    "title": "Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census",
+    "creator": "Sitkovskiy A.M.",
+    "journal_or_source": "New Research of Tuva",
+    "cover_date": "2026-09-01",
+    "year": "2026",
+    "doi": "10.25178/nit.2026.3.13",
+    "cited_by_count": 0,
+    "aggregation_type": "Journal",
+    "subtype": "Article",
+    "openaccess": "1",
+    "raw": {
+      "@_fa": "true",
+      "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105049919505",
+      "dc:identifier": "SCOPUS_ID:105049919505",
+      "eid": "2-s2.0-105049919505",
+      "dc:title": "Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census",
+      "dc:creator": "Sitkovskiy A.M.",
+      "prism:publicationName": "New Research of Tuva",
+      "prism:coverDate": "2026-09-01",
+      "prism:doi": "10.25178/nit.2026.3.13",
+      "citedby-count": "0",
+      "prism:aggregationType": "Journal",
+      "subtype": "ar",
+      "subtypeDescription": "Article",
+      "openaccess": "1",
+      "openaccessFlag": true,
+      "freetoread": {
+        "value": [
+          {
+            "$": "all"
+          },
+          {
+            "$": "publisherfullgold"
+          }
+        ]
+      },
+      "freetoreadLabel": {
+        "value": [
+          {
+            "$": "All Open Access"
+          },
+          {
+            "$": "Gold"
           }
         ]
       }

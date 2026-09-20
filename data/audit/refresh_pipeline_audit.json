@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-20T12:16:59+00:00",
+  "generated_at": "2026-09-20T14:16:31+00:00",
   "status": "partial",
   "checks": {
-    "publications_count": 67,
-    "canonical_publications_count": 67,
+    "publications_count": 69,
+    "canonical_publications_count": 69,
     "source_counts": {
       "elibrary": 58,
-      "scopus": 8,
+      "scopus": 10,
       "wos": 10,
       "open": 15
     },
@@ -19,162 +19,118 @@
       "citations": 7,
       "h_index": 2
     },
-    "elibrary_browser_status": "not_ready",
+    "elibrary_browser_status": "blocked",
     "reference_enrichment_stats": {
-      "records": 67,
+      "records": 69,
       "titles_fixed": 0,
+      "title_fields_added": 2,
       "elibrary_detail_fields_added": 16,
-      "metadata_fields_added": 2,
-      "gost_built": 67,
-      "apa_built": 67,
+      "metadata_fields_added": 10,
+      "gost_built": 2,
+      "apa_built": 2,
       "crossref_cache_hit": 26,
-      "crossref_fetched": 0,
+      "crossref_fetched": 2,
       "crossref_failed": 0
     }
   },
   "source_health": {
     "elibrary": {
       "status": "blocked",
-      "attempted_at": "2026-09-14T09:00:32+00:00",
-      "last_success_at": "2026-06-02T19:47:01+00:00",
+      "attempted_at": "2026-09-20T14:15:51+00:00",
+      "last_success_at": "2026-06-02T19:47:04+00:00",
       "origin": "snapshot",
       "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
+      "record_count": 58,
+      "reason": "human_verification_required"
     },
     "wos": {
       "status": "blocked",
-      "attempted_at": "2026-09-14T09:04:16+00:00",
+      "attempted_at": "2026-09-20T14:16:19+00:00",
       "last_success_at": "2026-06-03T14:54:55+00:00",
       "origin": "snapshot",
       "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
+      "record_count": 10,
+      "reason": "human_verification_required"
     },
     "scopus": {
-      "status": "partial",
-      "attempted_at": "2026-09-14T09:05:19+00:00",
-      "last_success_at": null,
-      "origin": "snapshot",
-      "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
-    },
-    "media": {
       "status": "success",
-      "attempted_at": "2026-09-20T12:16:08+00:00",
-      "last_success_at": "2026-09-20T12:16:08+00:00",
+      "attempted_at": "2026-09-20T14:16:23+00:00",
+      "last_success_at": "2026-09-20T14:16:23+00:00",
       "origin": "live",
       "complete": true,
-      "record_count": 23,
+      "record_count": 10,
       "reason": null
     },
-    "orcid": {
+    "media": {
       "status": "partial",
-      "attempted_at": "2026-09-14T08:54:26+00:00",
-      "last_success_at": null,
-      "origin": "snapshot",
+      "attempted_at": "2026-09-20T14:15:46+00:00",
+      "last_success_at": "2026-09-20T14:15:46+00:00",
+      "origin": "live",
       "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
+      "record_count": 23,
+      "reason": "source_failures_or_pending"
+    },
+    "orcid": {
+      "status": "success",
+      "attempted_at": "2026-09-20T14:13:05+00:00",
+      "last_success_at": "2026-09-20T14:13:05+00:00",
+      "origin": "live",
+      "complete": true,
+      "record_count": 15,
+      "reason": null
     },
     "openalex": {
-      "status": "partial",
-      "attempted_at": "2026-09-14T08:54:26+00:00",
-      "last_success_at": null,
-      "origin": "snapshot",
-      "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
+      "status": "success",
+      "attempted_at": "2026-09-20T14:13:07+00:00",
+      "last_success_at": "2026-09-20T14:13:07+00:00",
+      "origin": "live",
+      "complete": true,
+      "record_count": 13,
+      "reason": null
     },
     "crossref": {
-      "status": "partial",
-      "attempted_at": "2026-09-14T08:54:26+00:00",
-      "last_success_at": null,
-      "origin": "snapshot",
-      "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
+      "status": "success",
+      "attempted_at": "2026-09-20T14:13:10+00:00",
+      "last_success_at": "2026-09-20T14:13:10+00:00",
+      "origin": "live",
+      "complete": true,
+      "record_count": 14,
+      "reason": null
     }
   },
   "warnings": [
     {
-      "code": "wos_live_fallback_used",
-      "message": "Live WoS harvest was weak, but preserved records are available.",
-      "details": [
-        {
-          "section": "browser",
-          "route": "browser_dom_first_public_profile_route",
-          "status": "human_verification_required",
-          "excerpt": ""
-        }
-      ]
-    },
-    {
       "code": "source_not_fresh",
       "provider": "elibrary",
       "status": "blocked",
-      "attempted_at": "2026-09-14T09:00:32+00:00",
-      "last_success_at": "2026-06-02T19:47:01+00:00",
+      "attempted_at": "2026-09-20T14:15:51+00:00",
+      "last_success_at": "2026-06-02T19:47:04+00:00",
       "origin": "snapshot",
       "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
+      "record_count": 58,
+      "reason": "human_verification_required"
     },
     {
       "code": "source_not_fresh",
       "provider": "wos",
       "status": "blocked",
-      "attempted_at": "2026-09-14T09:04:16+00:00",
+      "attempted_at": "2026-09-20T14:16:19+00:00",
       "last_success_at": "2026-06-03T14:54:55+00:00",
       "origin": "snapshot",
       "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
+      "record_count": 10,
+      "reason": "human_verification_required"
     },
     {
       "code": "source_not_fresh",
-      "provider": "scopus",
+      "provider": "media",
       "status": "partial",
-      "attempted_at": "2026-09-14T09:05:19+00:00",
-      "last_success_at": null,
-      "origin": "snapshot",
+      "attempted_at": "2026-09-20T14:15:46+00:00",
+      "last_success_at": "2026-09-20T14:15:46+00:00",
+      "origin": "live",
       "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
-    },
-    {
-      "code": "source_not_fresh",
-      "provider": "orcid",
-      "status": "partial",
-      "attempted_at": "2026-09-14T08:54:26+00:00",
-      "last_success_at": null,
-      "origin": "snapshot",
-      "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
-    },
-    {
-      "code": "source_not_fresh",
-      "provider": "openalex",
-      "status": "partial",
-      "attempted_at": "2026-09-14T08:54:26+00:00",
-      "last_success_at": null,
-      "origin": "snapshot",
-      "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
-    },
-    {
-      "code": "source_not_fresh",
-      "provider": "crossref",
-      "status": "partial",
-      "attempted_at": "2026-09-14T08:54:26+00:00",
-      "last_success_at": null,
-      "origin": "snapshot",
-      "complete": false,
-      "record_count": 0,
-      "reason": "legacy_report_without_verified_freshness"
+      "record_count": 23,
+      "reason": "source_failures_or_pending"
     }
   ],
   "issues": []

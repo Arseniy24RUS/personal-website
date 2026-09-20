@@ -1,909 +1,354 @@
 {
-  "generated_at": "2026-09-14T09:04:16+00:00",
-  "strategy": "dom_first_public_profile_route",
-  "previous_records": 10,
-  "previous_records_or_publications": 10,
-  "browser": {
-    "route": "browser_dom_first_public_profile_route",
-    "url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-    "public_profile_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-    "optional_claimed_url": null,
-    "dom_wait_sec": 180,
-    "input_state": {
-      "cookie_secret_present": true,
-      "storage_state_secret_present": true,
-      "persistent_user_data_dir_env_present": false,
-      "cdp_endpoint_env_present": false,
-      "storage_state_path": "artifacts/wos_live/wos_input_storage_state.json",
-      "cookie_names": [
-        "WOSSID",
-        "__cf_bm",
-        "_sp_id.840c",
-        "_sp_ses.840c",
-        "dotmatics.elementalKey",
-        "group",
-        "sessionid"
-      ],
-      "cookie_domains_count": 35
-    },
-    "browser_mode": "new_context",
-    "network_events_sample": [
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "document",
-        "url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "stylesheet",
-        "url": "https://www.webofscience.com/wos/static/font/source-sans-pro.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "stylesheet",
-        "url": "https://www.webofscience.com/wos/static/font/clarivate-regular-font.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "stylesheet",
-        "url": "https://www.webofscience.com/wos/static/font/noto-kufi-arabic.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "stylesheet",
-        "url": "https://www.webofscience.com/wos/static/font/icons.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "stylesheet",
-        "url": "https://www.webofscience.com/wos/static/styles.2337a5d2fd1ae4f0.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "script",
-        "url": "https://www.webofscience.com/wos/static/runtime.a28eba1f376213c7.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "script",
-        "url": "https://www.webofscience.com/wos/static/polyfills.340d609cb17ea841.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "script",
-        "url": "https://www.webofscience.com/wos/static/main.108e5edd6a106ff6.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/styles.2337a5d2fd1ae4f0.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/font/noto-kufi-arabic.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/font/clarivate-regular-font.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/font/icons.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/font/source-sans-pro.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/runtime.a28eba1f376213c7.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/polyfills.340d609cb17ea841.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "script",
-        "url": "https://www.webofscience.com/wos/static/scripts/snowplow.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/scripts/snowplow.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/main.108e5edd6a106ff6.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "POST",
-        "resource_type": "fetch",
-        "url": "https://www.webofscience.com/api/esti/Session/getSessionData",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "POST",
-        "resource_type": "fetch",
-        "url": "https://www.webofscience.com/api/esti/SearchEngine/getAllLoadDates",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "POST",
-        "resource_type": "fetch",
-        "url": "https://www.webofscience.com/api/esti/Personalization/preferences",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "POST",
-        "resource_type": "xhr",
-        "url": "https://www.webofscience.com/cdn-cgi/rum?",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "other",
-        "url": "https://www.webofscience.com/wos/static/favicon.png",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 204,
-        "url": "https://www.webofscience.com/cdn-cgi/rum?",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/favicon.png",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 401,
-        "url": "https://www.webofscience.com/api/esti/SearchEngine/getAllLoadDates",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "document",
-        "url": "https://www.webofknowledge.com/?mode=Nextgen&action=transfer&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&DestApp=UA&DestParams=",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 401,
-        "url": "https://www.webofscience.com/api/esti/Personalization/preferences",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 401,
-        "url": "https://www.webofscience.com/api/esti/Session/getSessionData",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "document",
-        "url": "https://www.webofknowledge.com/?mode=Nextgen&action=transfer&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&DestApp=UA&DestParams=",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 302,
-        "url": "https://www.webofknowledge.com/?mode=Nextgen&action=transfer&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&DestApp=UA&DestParams=",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "document",
-        "url": "https://access.clarivate.com/login?app=wos&detectSession=true&referrer=path%3D%252Fwos%252Fauthor%252Frecord%252FAAG-1530-2021%26detectSessionComplete%3Dtrue%26mode%3DNextgen%26action%3Dtransfer%26DestParams%3D%26DestApp%3DUA",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 302,
-        "url": "https://access.clarivate.com/login?app=wos&detectSession=true&referrer=path%3D%252Fwos%252Fauthor%252Frecord%252FAAG-1530-2021%26detectSessionComplete%3Dtrue%26mode%3DNextgen%26action%3Dtransfer%26DestParams%3D%26DestApp%3DUA",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "document",
-        "url": "https://www.webofknowledge.com/?authCode=null&referrer=path%3D%252Fwos%252Fauthor%252Frecord%252FAAG-1530-2021%26detectSessionComplete%3Dtrue%26mode%3DNextgen%26action%3Dtransfer%26DestParams%3D%26DestApp%3DUA",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 302,
-        "url": "https://www.webofknowledge.com/?authCode=null&referrer=path%3D%252Fwos%252Fauthor%252Frecord%252FAAG-1530-2021%26detectSessionComplete%3Dtrue%26mode%3DNextgen%26action%3Dtransfer%26DestParams%3D%26DestApp%3DUA",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "document",
-        "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=[REDACTED]",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=[REDACTED]",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "stylesheet",
-        "url": "https://www.webofscience.com/wos/static/font/source-sans-pro.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/font/source-sans-pro.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "stylesheet",
-        "url": "https://www.webofscience.com/wos/static/font/clarivate-regular-font.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/font/clarivate-regular-font.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "stylesheet",
-        "url": "https://www.webofscience.com/wos/static/font/noto-kufi-arabic.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/font/noto-kufi-arabic.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "stylesheet",
-        "url": "https://www.webofscience.com/wos/static/font/icons.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/font/icons.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "stylesheet",
-        "url": "https://www.webofscience.com/wos/static/styles.2337a5d2fd1ae4f0.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/styles.2337a5d2fd1ae4f0.css",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "script",
-        "url": "https://www.webofscience.com/wos/static/runtime.a28eba1f376213c7.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/runtime.a28eba1f376213c7.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "script",
-        "url": "https://www.webofscience.com/wos/static/polyfills.340d609cb17ea841.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/polyfills.340d609cb17ea841.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "script",
-        "url": "https://www.webofscience.com/wos/static/main.108e5edd6a106ff6.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/main.108e5edd6a106ff6.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "GET",
-        "resource_type": "script",
-        "url": "https://www.webofscience.com/wos/static/scripts/snowplow.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "response",
-        "status": 200,
-        "url": "https://www.webofscience.com/wos/static/scripts/snowplow.js",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "POST",
-        "resource_type": "fetch",
-        "url": "https://www.webofscience.com/api/esti/SearchEngine/getAllLoadDates",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "POST",
-        "resource_type": "fetch",
-        "url": "https://www.webofscience.com/api/esti/Personalization/preferences",
-        "headers": "[REDACTED]"
-      },
-      {
-        "kind": "request",
-        "method": "POST",
-        "resource_type": "xhr",
-        "url": "https://www.webofscience.com/cdn-cgi/rum?",
-        "headers": "[REDACTED]"
-      }
-    ],
-    "browser_environment_initial": {
-      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36",
-      "webdriver": true,
-      "platform": "Linux x86_64",
-      "languages": [
-        "en-US"
-      ],
-      "language": "en-US",
-      "hardwareConcurrency": 4,
-      "deviceMemory": 16,
-      "maxTouchPoints": 0,
-      "pluginsLength": 5,
-      "mimeTypesLength": 2,
-      "screen": {
-        "width": 1440,
-        "height": 1400,
-        "availWidth": 1440,
-        "availHeight": 1400,
-        "colorDepth": 24,
-        "pixelDepth": 24
-      },
-      "inner": {
-        "width": 1440,
-        "height": 1400,
-        "devicePixelRatio": 1
-      },
-      "timezone": "Europe/Moscow",
-      "userAgentData": {
-        "brands": [
-          {
-            "brand": "Google Chrome",
-            "version": "153"
-          },
-          {
-            "brand": "Not_A Brand",
-            "version": "8"
-          },
-          {
-            "brand": "Chromium",
-            "version": "153"
-          }
-        ],
-        "mobile": false,
-        "platform": "Windows",
-        "highEntropy": {
-          "architecture": "x86",
-          "bitness": "64",
-          "brands": [
-            {
-              "brand": "Google Chrome",
-              "version": "153"
-            },
-            {
-              "brand": "Not_A Brand",
-              "version": "8"
-            },
-            {
-              "brand": "Chromium",
-              "version": "153"
-            }
-          ],
-          "fullVersionList": [
-            {
-              "brand": "Google Chrome",
-              "version": "153.0.8010.36"
-            },
-            {
-              "brand": "Not_A Brand",
-              "version": "8.0.0.0"
-            },
-            {
-              "brand": "Chromium",
-              "version": "153.0.8010.36"
-            }
-          ],
-          "mobile": false,
-          "model": "",
-          "platform": "Windows",
-          "platformVersion": "10.0",
-          "uaFullVersion": "153.0.8010.36",
-          "wow64": false
+  "status": "blocked",
+  "attempted_at": "2026-09-20T14:16:19+00:00",
+  "last_success_at": "2026-06-03T14:54:55+00:00",
+  "origin": "snapshot",
+  "complete": false,
+  "record_count": 10,
+  "reason": "human_verification_required",
+  "stage": "login",
+  "diagnostics": [
+    {
+      "host": "www.webofscience.com",
+      "path": "/wos/author/author-search",
+      "controls": [
+        {
+          "tag": "div",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Clarivate"
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "skip-nav",
+          "label": "expand_more\nПропустить меню навигации\nskipToNav"
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Русский"
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "apps\nПродукты"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "headerLogo",
+          "label": "Web of Science™"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "snHeaderLinkNavigation",
+          "label": "Поиск"
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Arseniy Sitkovskiy"
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "МЕНЮ"
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Профиль исследователя"
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "ДОКУМЕНТЫ"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "snResearcherSearch",
+          "label": "ИССЛЕДОВАТЕЛИ"
+        },
+        {
+          "tag": "button",
+          "type": "button",
+          "name": "",
+          "id": "",
+          "label": "Поиск по имени"
+        },
+        {
+          "tag": "input",
+          "type": "text",
+          "name": "lastName",
+          "id": "mat-input-0",
+          "label": "Фамилия"
+        },
+        {
+          "tag": "input",
+          "type": "text",
+          "name": "firstName",
+          "id": "mat-input-1",
+          "label": "Имя"
+        },
+        {
+          "tag": "button",
+          "type": "button",
+          "name": "",
+          "id": "",
+          "label": "Добавить вариант имени"
+        },
+        {
+          "tag": "button",
+          "type": "button",
+          "name": "",
+          "id": "",
+          "label": "clear\nОчистить"
+        },
+        {
+          "tag": "button",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "label": "Поиск"
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "См. раздел \"Мой профиль\""
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Скрыть эту карточку"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "add-full-name",
+          "label": "Добавить полное имя"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "add-org-name",
+          "label": "Добавить организацию"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Добавить публикацию"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Добавление гранта"
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Больше"
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Нажмите здесь, чтобы свернуть виджет"
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Просмотреть мой профиль исследователя"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "addPublication-profile-link",
+          "label": "Добавить публикации"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "addReview-profile-link",
+          "label": "Добавить экспертные оценки"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "export-profile-link",
+          "label": "Экспортировать мое резюме"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "wos-academy-link",
+          "label": "Web of Science Academy"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Настройка главной страницы"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "InstLogoTa-0",
+          "label": "More information for new users"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Юридический центр"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Заявление о конфиденциальности"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Уведомление об авторских правах"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Обучающий портал"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Поддержка продукта"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Информационный бюллетень"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Политика в отношении файлов Cookie"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "ot-sdk-btn",
+          "label": "Настройки Cookie"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Исправление данных"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Доступность"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Справка"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Условия использования"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Нажмите, чтобы посетить Web of Science в Twitter."
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Нажмите, чтобы посетить страницу Web of Science на Facebook."
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "Обратиться в Службу поддержки пользователей"
         }
-      },
-      "webgl": {
-        "vendor": "Google Inc. (Google)",
-        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
-      }
-    },
-    "initial_app_record_wait": "TimeoutError('Page.wait_for_selector: Timeout 45000ms exceeded.\\nCall log:\\n  - waiting for locator(\"app-record\") to be visible\\n    - waiting for navigation to finish...\\n    - navigated to \"https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=[REDACTED]",
-    "route_forcing": [
-      {
-        "reason": "after_initial_app_record_timeout",
-        "from": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=[REDACTED]",
-        "to": "https://www.webofscience.com/wos/author/record/AAG-1530-2021"
-      }
-    ],
-    "dom_progress_tail": [
-      {
-        "elapsed_sec": 0,
-        "url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-        "selector_counts": {
-          "app_record": 0,
-          "summary_item": 0,
-          "author_metric": 0,
-          "app_author_profile": 0,
-          "spinner": 0,
-          "cookie_banner": 0,
-          "free_view_dialog": 2
-        },
-        "not_found": false,
-        "human_verification": null,
-        "parsed_records": 0,
-        "parsed_records_or_publications": 0,
-        "content_length": 262131,
-        "body_text_sample": "WOS Top Header expand_more Skip navigation menu skipToNav English apps Products Web of Science™ Research Assistant Sign In Register You are accessing a free view of the Web of Science Learn More MENU © 2026 Clarivate. All rights reserved. Legal Center Privacy Statement Copyright Notice Training Portal Product Support Newsletter Cookie Policy Manage cookie preferences Data Correction Accessibility Help Terms of Use Follow Us "
-      },
-      {
-        "elapsed_sec": 5,
-        "url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-        "selector_counts": {
-          "app_record": 0,
-          "summary_item": 0,
-          "author_metric": 0,
-          "app_author_profile": 0,
-          "spinner": 0,
-          "cookie_banner": 0,
-          "free_view_dialog": 2
-        },
-        "not_found": false,
-        "human_verification": {
-          "required": true,
-          "signals": [
-            "unusual_activity",
-            "verify_human",
-            "customer_support_challenge"
-          ],
-          "message": "Web of Science is asking for human verification; live DOM records cannot be collected in this non-interactive run."
-        },
-        "parsed_records": 0,
-        "parsed_records_or_publications": 0,
-        "content_length": 262516,
-        "body_text_sample": "WOS Top Header expand_more Skip navigation menu skipToNav English apps Products Web of Science™ Research Assistant Sign In Register You are accessing a free view of the Web of Science Learn More MENU © 2026 Clarivate. All rights reserved. Legal Center Privacy Statement Copyright Notice Training Portal Product Support Newsletter Cookie Policy Manage cookie preferences Data Correction Accessibility Help Terms of Use Follow Us There is unusual activity coming from your institution. Please verify you are human to proceed. Can't solve this? Contact Customer Support"
-      }
-    ],
-    "candidate_dom_records": 0,
-    "candidate_dom_records_or_publications": 0,
-    "free_view_dialog_clicked": "button:has-text(\"Got it\")",
-    "status": "human_verification_required",
-    "human_verification": {
-      "required": true,
-      "signals": [
-        "unusual_activity",
-        "verify_human",
-        "customer_support_challenge"
-      ],
-      "message": "Web of Science is asking for human verification; live DOM records cannot be collected in this non-interactive run."
-    },
-    "elapsed_sec": 5,
-    "records": 0,
-    "records_or_publications": 0,
-    "final_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-    "content_length": 262516,
-    "diagnostic_artifacts": [
-      {
-        "label": "human_verification_required",
-        "url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-        "title": "Web of Science",
-        "selector_counts": {
-          "app_record": 0,
-          "summary_item": 0,
-          "author_metric": 0,
-          "app_author_profile": 0,
-          "spinner": 0,
-          "cookie_banner": 0,
-          "free_view_dialog": 2
-        },
-        "content_length": 262516,
-        "human_verification": {
-          "required": true,
-          "signals": [
-            "unusual_activity",
-            "verify_human",
-            "customer_support_challenge"
-          ],
-          "message": "Web of Science is asking for human verification; live DOM records cannot be collected in this non-interactive run."
-        },
-        "browser_environment": {
-          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 YaBrowser/26.4.0.0 Safari/537.36",
-          "webdriver": true,
-          "platform": "Linux x86_64",
-          "languages": [
-            "en-US"
-          ],
-          "language": "en-US",
-          "hardwareConcurrency": 4,
-          "deviceMemory": 16,
-          "maxTouchPoints": 0,
-          "pluginsLength": 5,
-          "mimeTypesLength": 2,
-          "screen": {
-            "width": 1440,
-            "height": 1400,
-            "availWidth": 1440,
-            "availHeight": 1400,
-            "colorDepth": 24,
-            "pixelDepth": 24
-          },
-          "inner": {
-            "width": 1440,
-            "height": 1400,
-            "devicePixelRatio": 1
-          },
-          "timezone": "Europe/Moscow",
-          "userAgentData": {
-            "brands": [
-              {
-                "brand": "Google Chrome",
-                "version": "153"
-              },
-              {
-                "brand": "Not_A Brand",
-                "version": "8"
-              },
-              {
-                "brand": "Chromium",
-                "version": "153"
-              }
-            ],
-            "mobile": false,
-            "platform": "Windows",
-            "highEntropy": {
-              "architecture": "x86",
-              "bitness": "64",
-              "brands": [
-                {
-                  "brand": "Google Chrome",
-                  "version": "153"
-                },
-                {
-                  "brand": "Not_A Brand",
-                  "version": "8"
-                },
-                {
-                  "brand": "Chromium",
-                  "version": "153"
-                }
-              ],
-              "fullVersionList": [
-                {
-                  "brand": "Google Chrome",
-                  "version": "153.0.8010.36"
-                },
-                {
-                  "brand": "Not_A Brand",
-                  "version": "8.0.0.0"
-                },
-                {
-                  "brand": "Chromium",
-                  "version": "153.0.8010.36"
-                }
-              ],
-              "mobile": false,
-              "model": "",
-              "platform": "Windows",
-              "platformVersion": "10.0",
-              "uaFullVersion": "153.0.8010.36",
-              "wow64": false
-            }
-          },
-          "webgl": {
-            "vendor": "Google Inc. (Google)",
-            "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
-          }
-        },
-        "network_events_sample": [
-          {
-            "kind": "response",
-            "status": 401,
-            "url": "https://www.webofscience.com/api/esti/Session/getSessionData",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "document",
-            "url": "https://www.webofknowledge.com/?mode=Nextgen&action=transfer&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&DestApp=UA&DestParams=",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 302,
-            "url": "https://www.webofknowledge.com/?mode=Nextgen&action=transfer&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&DestApp=UA&DestParams=",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "document",
-            "url": "https://access.clarivate.com/login?app=wos&detectSession=true&referrer=path%3D%252Fwos%252Fauthor%252Frecord%252FAAG-1530-2021%26detectSessionComplete%3Dtrue%26mode%3DNextgen%26action%3Dtransfer%26DestParams%3D%26DestApp%3DUA",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 302,
-            "url": "https://access.clarivate.com/login?app=wos&detectSession=true&referrer=path%3D%252Fwos%252Fauthor%252Frecord%252FAAG-1530-2021%26detectSessionComplete%3Dtrue%26mode%3DNextgen%26action%3Dtransfer%26DestParams%3D%26DestApp%3DUA",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "document",
-            "url": "https://www.webofknowledge.com/?authCode=null&referrer=path%3D%252Fwos%252Fauthor%252Frecord%252FAAG-1530-2021%26detectSessionComplete%3Dtrue%26mode%3DNextgen%26action%3Dtransfer%26DestParams%3D%26DestApp%3DUA",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 302,
-            "url": "https://www.webofknowledge.com/?authCode=null&referrer=path%3D%252Fwos%252Fauthor%252Frecord%252FAAG-1530-2021%26detectSessionComplete%3Dtrue%26mode%3DNextgen%26action%3Dtransfer%26DestParams%3D%26DestApp%3DUA",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "document",
-            "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=[REDACTED]",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 200,
-            "url": "https://www.webofscience.com/wos/?mode=Nextgen&path=%2Fwos%2Fauthor%2Frecord%2FAAG-1530-2021&IsProductCode=Yes&Init=Yes&DestApp=UA&Func=Frame&action=transfer&SrcApp=CR&SID=[REDACTED]",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "stylesheet",
-            "url": "https://www.webofscience.com/wos/static/font/source-sans-pro.css",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 200,
-            "url": "https://www.webofscience.com/wos/static/font/source-sans-pro.css",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "stylesheet",
-            "url": "https://www.webofscience.com/wos/static/font/clarivate-regular-font.css",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 200,
-            "url": "https://www.webofscience.com/wos/static/font/clarivate-regular-font.css",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "stylesheet",
-            "url": "https://www.webofscience.com/wos/static/font/noto-kufi-arabic.css",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 200,
-            "url": "https://www.webofscience.com/wos/static/font/noto-kufi-arabic.css",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "stylesheet",
-            "url": "https://www.webofscience.com/wos/static/font/icons.css",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 200,
-            "url": "https://www.webofscience.com/wos/static/font/icons.css",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "stylesheet",
-            "url": "https://www.webofscience.com/wos/static/styles.2337a5d2fd1ae4f0.css",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 200,
-            "url": "https://www.webofscience.com/wos/static/styles.2337a5d2fd1ae4f0.css",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "script",
-            "url": "https://www.webofscience.com/wos/static/runtime.a28eba1f376213c7.js",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 200,
-            "url": "https://www.webofscience.com/wos/static/runtime.a28eba1f376213c7.js",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "script",
-            "url": "https://www.webofscience.com/wos/static/polyfills.340d609cb17ea841.js",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 200,
-            "url": "https://www.webofscience.com/wos/static/polyfills.340d609cb17ea841.js",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "script",
-            "url": "https://www.webofscience.com/wos/static/main.108e5edd6a106ff6.js",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 200,
-            "url": "https://www.webofscience.com/wos/static/main.108e5edd6a106ff6.js",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "GET",
-            "resource_type": "script",
-            "url": "https://www.webofscience.com/wos/static/scripts/snowplow.js",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "response",
-            "status": 200,
-            "url": "https://www.webofscience.com/wos/static/scripts/snowplow.js",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "POST",
-            "resource_type": "fetch",
-            "url": "https://www.webofscience.com/api/esti/SearchEngine/getAllLoadDates",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "POST",
-            "resource_type": "fetch",
-            "url": "https://www.webofscience.com/api/esti/Personalization/preferences",
-            "headers": "[REDACTED]"
-          },
-          {
-            "kind": "request",
-            "method": "POST",
-            "resource_type": "xhr",
-            "url": "https://www.webofscience.com/cdn-cgi/rum?",
-            "headers": "[REDACTED]"
-          }
-        ],
-        "body_text_sample": "WOS Top Header expand_more Skip navigation menu skipToNav English apps Products Web of Science™ Research Assistant Sign In Register You are accessing a free view of the Web of Science Learn More MENU © 2026 Clarivate. All rights reserved. Legal Center Privacy Statement Copyright Notice Training Portal Product Support Newsletter Cookie Policy Manage cookie preferences Data Correction Accessibility Help Terms of Use Follow Us There is unusual activity coming from your institution. Please verify you are human to proceed. Can't solve this? Contact Customer Support",
-        "screenshot_path": "artifacts/wos_live/wos_AAG-1530-2021_20260914T090517Z_human_verification_required.png",
-        "html_path": "artifacts/wos_live/wos_AAG-1530-2021_20260914T090517Z_human_verification_required.html",
-        "json_path": "artifacts/wos_live/wos_AAG-1530-2021_20260914T090517Z_human_verification_required.json"
-      }
-    ]
+      ]
+    }
+  ],
+  "authentication_evidence": {
+    "submit_clicked": true,
+    "input_matches_configured": true,
+    "username_format_valid": true,
+    "username_normalized": false
   },
-  "human_verification_required": true,
-  "snapshot_path": "data/snapshots/wos/author_profile_AAG-1530-2021_20260603T145455Z.html",
-  "used_source": "human_verification_saved_snapshot",
-  "warning": "Live WoS payload had fewer records than previous normalized data; previous records were preserved while fresh metrics were kept.",
-  "written_records": 10,
-  "written_records_or_publications": 10
+  "generated_at": "2026-09-20T14:16:19+00:00"
 }

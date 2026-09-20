@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T09:05:20+00:00",
+  "generated_at": "2026-09-20T14:16:26+00:00",
   "items": {
     "10.17853/1994-5639-2026-1-33-64": {
       "fetched_at": "2026-06-03T20:08:47+00:00",
@@ -552,6 +552,50 @@
         ],
         "isbn": null,
         "url": "https://doi.org/10.3389/fdata.2026.1842233"
+      }
+    },
+    "10.25178/nit.2026.3.15": {
+      "fetched_at": "2026-09-20T14:16:25+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.25178/nit.2026.3.15",
+        "type": "journal-article",
+        "title": "Корреляционный анализ влияния отдельных социально-экономических показателей на рождаемость Тувы (1990–2024 гг.)",
+        "subtitle": null,
+        "container_title": "The New Research of Tuva",
+        "publisher": "The New Research of Tuva Editorial Board",
+        "volume": null,
+        "issue": "3",
+        "page": "254–271",
+        "year": 2026,
+        "issn": [
+          "2079-8482"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.25178/nit.2026.3.15"
+      }
+    },
+    "10.25178/nit.2026.3.13": {
+      "fetched_at": "2026-09-20T14:16:26+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.25178/nit.2026.3.13",
+        "type": "journal-article",
+        "title": "Этническая гомогамия и межэтнические браки в Туве: по материалам Всероссийской переписи населения 2021 года",
+        "subtitle": null,
+        "container_title": "The New Research of Tuva",
+        "publisher": "The New Research of Tuva Editorial Board",
+        "volume": null,
+        "issue": "3",
+        "page": "222–235",
+        "year": 2026,
+        "issn": [
+          "2079-8482"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.25178/nit.2026.3.13"
       }
     }
   },

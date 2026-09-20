@@ -1,74 +1,25 @@
 {
-  "generated_at": "2026-09-14T09:00:32+00:00",
-  "route": "authors_search_route",
-  "min_records": 50,
-  "pages": {
-    "items": {
-      "source": "authors_search_path",
-      "authors_url": "https://www.elibrary.ru/authors.asp",
-      "search_name": "Ситковский Арсений Михайлович",
-      "status": "form_fill_failed",
-      "fill_author_search": {
-        "ok": false,
-        "reason": "no_visible_text_input",
-        "inputs": 0
-      },
-      "elapsed_sec": 88.87,
-      "fingerprint": {
-        "content_length": 1121,
-        "has_suspicious_ip_text": false,
-        "has_cookie_text": false,
-        "has_captcha_text": false,
-        "excerpt": "<!DOCTYPE html><html><head></head><body bgcolor=\"#f5f5f5\"> <div id=\"blockedip\" style=\"position:absolute; width:500px; text-align:center; top:50%; left:50%; margin-top:-100px; margin-left:-250px;\"> <img src=\"/images/stop.gif\" border=\"0\" width=\"40\" height=\"40\" vspace=\"8\"><br> Из-за нарушения <a href=\"/access_terms.asp\">правил пользования</a> сайтом <br>eLIBRARY.RU доступ к данной странице для незарегистрированных пользователей <br>с IP-адреса 5.228.55.159 ограничен.<br><br> Для доступа к данной странице, пожалуйста, <br>перейдите на <a href=\"/defaultx.asp?rpage=https://www.elibrary.ru/authors.asp\">главную страницу сайта</a> и <br>укажите имя пользователя и пароль. <br><br>За дополнительной информацией обращайтесь по адресу <a href=\"mailto:support@elibrary.ru\">support@elibrary.ru</a>, указав данный IP-адрес 5.228.55.159. </div>   </body></html>"
-      },
-      "debug": {
-        "html_path": "artifacts/elibrary_debug/20260914T090204Z_authors_search_form_fill_failed.html",
-        "screenshot_path": "artifacts/elibrary_debug/20260914T090204Z_authors_search_form_fill_failed.png"
-      },
-      "debug_final": {
-        "html_path": "artifacts/elibrary_debug/20260914T090204Z_authors_route_items_not_ready.html",
-        "screenshot_path": "artifacts/elibrary_debug/20260914T090204Z_authors_route_items_not_ready.png"
-      }
+  "status": "blocked",
+  "attempted_at": "2026-09-20T14:15:51+00:00",
+  "last_success_at": "2026-06-02T19:47:04+00:00",
+  "origin": "snapshot",
+  "complete": false,
+  "record_count": 58,
+  "reason": "human_verification_required",
+  "stage": "login",
+  "diagnostics": [
+    {
+      "host": "www.elibrary.ru",
+      "path": "/page_captcha.asp",
+      "controls": [
+        {
+          "tag": "input",
+          "type": "submit",
+          "name": "",
+          "id": "",
+          "label": ""
+        }
+      ]
     }
-  },
-  "headless": false,
-  "manual_cookie_present": true,
-  "cookies_injected_count": 21,
-  "cookies_injected_names": [
-    "SCookieGUID",
-    "SUserID",
-    "__utma",
-    "__utmz",
-    "_ym_d",
-    "_ym_isad",
-    "_ym_uid"
-  ],
-  "authors_search_path": {
-    "source": "authors_search_path",
-    "authors_url": "https://www.elibrary.ru/authors.asp",
-    "search_name": "Ситковский Арсений Михайлович",
-    "status": "form_fill_failed",
-    "fill_author_search": {
-      "ok": false,
-      "reason": "no_visible_text_input",
-      "inputs": 0
-    },
-    "elapsed_sec": 88.87,
-    "fingerprint": {
-      "content_length": 1121,
-      "has_suspicious_ip_text": false,
-      "has_cookie_text": false,
-      "has_captcha_text": false,
-      "excerpt": "<!DOCTYPE html><html><head></head><body bgcolor=\"#f5f5f5\"> <div id=\"blockedip\" style=\"position:absolute; width:500px; text-align:center; top:50%; left:50%; margin-top:-100px; margin-left:-250px;\"> <img src=\"/images/stop.gif\" border=\"0\" width=\"40\" height=\"40\" vspace=\"8\"><br> Из-за нарушения <a href=\"/access_terms.asp\">правил пользования</a> сайтом <br>eLIBRARY.RU доступ к данной странице для незарегистрированных пользователей <br>с IP-адреса 5.228.55.159 ограничен.<br><br> Для доступа к данной странице, пожалуйста, <br>перейдите на <a href=\"/defaultx.asp?rpage=https://www.elibrary.ru/authors.asp\">главную страницу сайта</a> и <br>укажите имя пользователя и пароль. <br><br>За дополнительной информацией обращайтесь по адресу <a href=\"mailto:support@elibrary.ru\">support@elibrary.ru</a>, указав данный IP-адрес 5.228.55.159. </div>   </body></html>"
-    },
-    "debug": {
-      "html_path": "artifacts/elibrary_debug/20260914T090204Z_authors_search_form_fill_failed.html",
-      "screenshot_path": "artifacts/elibrary_debug/20260914T090204Z_authors_search_form_fill_failed.png"
-    },
-    "debug_final": {
-      "html_path": "artifacts/elibrary_debug/20260914T090204Z_authors_route_items_not_ready.html",
-      "screenshot_path": "artifacts/elibrary_debug/20260914T090204Z_authors_route_items_not_ready.png"
-    }
-  },
-  "status": "not_ready"
+  ]
 }

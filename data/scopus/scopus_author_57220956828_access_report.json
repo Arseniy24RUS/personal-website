@@ -1,63 +1,25 @@
 {
-  "generated_at": "2026-09-14T09:05:19+00:00",
-  "author_headers": {
-    "Content-Type": "application/json;charset=UTF-8",
-    "X-ELS-ReqId": "69724a36b19065e6",
-    "X-ELS-ResourceVersion": "default",
-    "X-ELS-Status": "AUTHORIZATION_ERROR - The requestor is not authorized to access the requested view or fields of the resource",
-    "X-ELS-TransId": "69724a36b19065e6",
-    "X-RateLimit-Limit": "5000",
-    "X-RateLimit-Remaining": "5000",
-    "X-RateLimit-Reset": "1789981518"
-  },
-  "search_headers": [
-    {
-      "Content-Type": "application/json;charset=UTF-8",
-      "X-ELS-ReqId": "5e4379a92c9af2c5",
-      "X-ELS-ResourceVersion": "default",
-      "X-ELS-Status": "OK",
-      "X-ELS-TransId": "5e4379a92c9af2c5",
-      "X-RateLimit-Limit": "20000",
-      "X-RateLimit-Remaining": "20000",
-      "X-RateLimit-Reset": "1789981519"
-    }
-  ],
-  "author_error": {
-    "service-error": {
-      "status": {
-        "statusCode": "AUTHORIZATION_ERROR",
-        "statusText": "The requestor is not authorized to access the requested view or fields of the resource"
-      }
+  "status": "success",
+  "attempted_at": "2026-09-20T14:16:23+00:00",
+  "last_success_at": "2026-09-20T14:16:23+00:00",
+  "origin": "live",
+  "complete": true,
+  "record_count": 10,
+  "reason": null,
+  "generated_at": "2026-09-20T14:16:23+00:00",
+  "author_attempts": {
+    "STANDARD": {
+      "status": "error",
+      "http_status": 401,
+      "reason": "http_401"
     },
-    "_http_status": 401,
-    "_url_path": "/content/author/author_id/57220956828",
-    "_params": {
-      "view": "ENHANCED"
-    },
-    "_headers": {
-      "Date": "Mon, 14 Sep 2026 09:05:18 GMT",
-      "Content-Type": "application/json;charset=UTF-8",
-      "Content-Length": "167",
-      "Connection": "close",
-      "allow": "GET",
-      "tdm-policy": "https://www.elsevier.com/tdm/tdmrep-policy.json",
-      "tdm-reservation": "1",
-      "Vary": "Access-Control-Request-Headers",
-      "X-ELS-ReqId": "69724a36b19065e6",
-      "X-ELS-ResourceVersion": "default",
-      "X-ELS-Status": "AUTHORIZATION_ERROR - The requestor is not authorized to access the requested view or fields of the resource",
-      "X-ELS-TransId": "69724a36b19065e6",
-      "X-RateLimit-Limit": "5000",
-      "X-RateLimit-Remaining": "5000",
-      "X-RateLimit-Reset": "1789981518",
-      "Pragma": "no-cache",
-      "cf-cache-status": "DYNAMIC",
-      "set-cookie": "[REDACTED]",
-      "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
-      "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
-      "Server": "cloudflare",
-      "CF-RAY": "a3ae3aaa6e4d9343-SEA"
+    "ENHANCED": {
+      "status": "error",
+      "http_status": 401,
+      "reason": "http_401"
     }
   },
-  "search_error": null
+  "author_profile_status": 401,
+  "search_status": 200,
+  "search_pages": 1
 }

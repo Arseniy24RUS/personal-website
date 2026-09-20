@@ -1,14 +1,16 @@
 {
-  "generated_at": "2026-09-14T09:05:19+00:00",
+  "generated_at": "2026-09-20T14:16:23+00:00",
   "stats": {
-    "official": 67,
+    "official": 0,
+    "preserved_existing": 69,
     "cached_machine_translation": 0,
     "new_machine_translation": 0,
     "unresolved": 0,
-    "venue_enriched": 33
+    "venue_enriched": 0
   },
   "argos_status": "not_initialized",
   "source_priority": [
+    "existing_publication",
     "scopus",
     "openalex_api",
     "crossref_api",

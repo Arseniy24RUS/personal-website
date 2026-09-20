@@ -1,46 +1,10 @@
 {
-  "author_payload": {
-    "service-error": {
-      "status": {
-        "statusCode": "AUTHORIZATION_ERROR",
-        "statusText": "The requestor is not authorized to access the requested view or fields of the resource"
-      }
-    },
-    "_http_status": 401,
-    "_url_path": "/content/author/author_id/57220956828",
-    "_params": {
-      "view": "ENHANCED"
-    },
-    "_headers": {
-      "Date": "Mon, 14 Sep 2026 09:05:18 GMT",
-      "Content-Type": "application/json;charset=UTF-8",
-      "Content-Length": "167",
-      "Connection": "close",
-      "allow": "GET",
-      "tdm-policy": "https://www.elsevier.com/tdm/tdmrep-policy.json",
-      "tdm-reservation": "1",
-      "Vary": "Access-Control-Request-Headers",
-      "X-ELS-ReqId": "69724a36b19065e6",
-      "X-ELS-ResourceVersion": "default",
-      "X-ELS-Status": "AUTHORIZATION_ERROR - The requestor is not authorized to access the requested view or fields of the resource",
-      "X-ELS-TransId": "69724a36b19065e6",
-      "X-RateLimit-Limit": "5000",
-      "X-RateLimit-Remaining": "5000",
-      "X-RateLimit-Reset": "1789981518",
-      "Pragma": "no-cache",
-      "cf-cache-status": "DYNAMIC",
-      "set-cookie": "[REDACTED]",
-      "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
-      "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
-      "Server": "cloudflare",
-      "CF-RAY": "a3ae3aaa6e4d9343-SEA"
-    }
-  },
+  "author_payload": {},
   "search_first_payload": {
     "search-results": {
-      "opensearch:totalResults": "8",
+      "opensearch:totalResults": "10",
       "opensearch:startIndex": "0",
-      "opensearch:itemsPerPage": "8",
+      "opensearch:itemsPerPage": "10",
       "opensearch:Query": {
         "@role": "request",
         "@searchTerms": "AU-ID(57220956828)",
@@ -63,14 +27,51 @@
       "entry": [
         {
           "@_fa": "true",
-          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105026678596",
-          "dc:identifier": "SCOPUS_ID:105026678596",
-          "eid": "2-s2.0-105026678596",
-          "dc:title": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities",
-          "dc:creator": "Rostovskaya T.K.",
-          "prism:publicationName": "Obrazovanie I Nauka",
-          "prism:coverDate": "2026-01-01",
-          "prism:doi": "10.17853/1994-5639-2026-1-33-64",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105049859541",
+          "dc:identifier": "SCOPUS_ID:105049859541",
+          "eid": "2-s2.0-105049859541",
+          "dc:title": "Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990–2024)",
+          "dc:creator": "Sitkovskiy A.M.",
+          "prism:publicationName": "New Research of Tuva",
+          "prism:coverDate": "2026-09-01",
+          "prism:doi": "10.25178/nit.2026.3.15",
+          "citedby-count": "0",
+          "prism:aggregationType": "Journal",
+          "subtype": "ar",
+          "subtypeDescription": "Article",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherfullgold"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Gold"
+              }
+            ]
+          }
+        },
+        {
+          "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105049919505",
+          "dc:identifier": "SCOPUS_ID:105049919505",
+          "eid": "2-s2.0-105049919505",
+          "dc:title": "Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census",
+          "dc:creator": "Sitkovskiy A.M.",
+          "prism:publicationName": "New Research of Tuva",
+          "prism:coverDate": "2026-09-01",
+          "prism:doi": "10.25178/nit.2026.3.13",
           "citedby-count": "0",
           "prism:aggregationType": "Journal",
           "subtype": "ar",
@@ -146,6 +147,43 @@
         },
         {
           "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105026678596",
+          "dc:identifier": "SCOPUS_ID:105026678596",
+          "eid": "2-s2.0-105026678596",
+          "dc:title": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities",
+          "dc:creator": "Rostovskaya T.K.",
+          "prism:publicationName": "Obrazovanie I Nauka",
+          "prism:coverDate": "2026-01-01",
+          "prism:doi": "10.17853/1994-5639-2026-1-33-64",
+          "citedby-count": "0",
+          "prism:aggregationType": "Journal",
+          "subtype": "ar",
+          "subtypeDescription": "Article",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherfullgold"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Gold"
+              }
+            ]
+          }
+        },
+        {
+          "@_fa": "true",
           "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105021702108",
           "dc:identifier": "SCOPUS_ID:105021702108",
           "eid": "2-s2.0-105021702108",
@@ -191,7 +229,7 @@
           "prism:publicationName": "New Research of Tuva",
           "prism:coverDate": "2025-12-01",
           "prism:doi": "10.25178/nit.2025.4.13",
-          "citedby-count": "0",
+          "citedby-count": "2",
           "prism:aggregationType": "Journal",
           "subtype": "ar",
           "subtypeDescription": "Article",
@@ -274,7 +312,7 @@
           "prism:publicationName": "New Research of Tuva",
           "prism:coverDate": "2025-01-01",
           "prism:doi": "10.25178/nit.2025.2.4",
-          "citedby-count": "0",
+          "citedby-count": "2",
           "prism:aggregationType": "Journal",
           "subtype": "ar",
           "subtypeDescription": "Article",

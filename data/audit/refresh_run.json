@@ -1,0 +1,13 @@
+{
+  "attempted_at": "2026-09-20T14:12:22+00:00",
+  "base_sha": "6bc8badc2df55ed0b774e3721abd1f9b1bb7c134",
+  "state": "ready",
+  "selected_sources": [
+    "elibrary",
+    "media",
+    "open",
+    "scopus",
+    "wos"
+  ],
+  "completed_at": "2026-09-20T14:16:31+00:00"
+}

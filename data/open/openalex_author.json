@@ -240,7 +240,7 @@
     {
       "id": "https://openalex.org/T14019",
       "display_name": "Socioeconomic and Demographic Analysis",
-      "value": 0.0001348,
+      "value": 0.0001281,
       "subfield": {
         "id": "https://openalex.org/subfields/2308",
         "display_name": "Management, Monitoring, Policy and Law"
@@ -257,7 +257,7 @@
     {
       "id": "https://openalex.org/T13618",
       "display_name": "Regional Socio-Economic Development Trends",
-      "value": 6.47e-05,
+      "value": 6.44e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/3317",
         "display_name": "Demography"
@@ -274,7 +274,7 @@
     {
       "id": "https://openalex.org/T13432",
       "display_name": "Environmental Sustainability and Technology",
-      "value": 3.29e-05,
+      "value": 3.23e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/2308",
         "display_name": "Management, Monitoring, Policy and Law"
@@ -291,7 +291,7 @@
     {
       "id": "https://openalex.org/T13384",
       "display_name": "Regional Economic Development and Innovation",
-      "value": 2.52e-05,
+      "value": 2.41e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/1408",
         "display_name": "Strategy and Management"
@@ -308,7 +308,7 @@
     {
       "id": "https://openalex.org/T13588",
       "display_name": "Regional resilience and development",
-      "value": 2.31e-05,
+      "value": 1.99e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/2002",
         "display_name": "Economics and Econometrics"
@@ -403,6 +403,7 @@
   ],
   "block_key": "10.26653/2076-4650-2021-6-08",
   "works_api_url": "https://api.openalex.org/works?filter=author.id:A5007601767",
-  "updated_date": "2026-07-19T12:17:05",
-  "created_date": "2022-05-12T00:00:00"
+  "updated_date": "2026-09-19T12:19:47",
+  "created_date": "2022-05-12T00:00:00",
+  "last_success_at": "2026-09-20T14:13:06+00:00"
 }

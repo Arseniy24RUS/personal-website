@@ -129,8 +129,2917 @@
       "processed_at": "2026-09-20T12:14:34+00:00",
       "status": "low_confidence",
       "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=5": {
+      "processed_at": "2026-09-20T14:15:28+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=3125": {
+      "processed_at": "2026-09-20T14:15:34+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=2459": {
+      "processed_at": "2026-09-20T14:15:37+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=3158": {
+      "processed_at": "2026-09-20T14:15:39+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
     }
   },
-  "pending": {},
-  "initial_cutoff": "2026-06-22"
+  "pending": {
+    "https://fnisc.ru": {
+      "url": "https://www.fnisc.ru/",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:26+00:00",
+      "reason": "article_template_changed"
+    },
+    "https://fnisc.ru/index.php?page_id=2458": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2458",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:31+00:00",
+      "reason": "article_template_changed"
+    },
+    "https://fnisc.ru/index.php?page_id=2785": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2785",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:32+00:00",
+      "reason": "article_template_changed"
+    },
+    "https://fnisc.ru/index.php?page_id=3134": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3134",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "error"
+    },
+    "https://fnisc.ru/index.php?page_id=3214": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3214",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=6": {
+      "url": "https://www.fnisc.ru/index.php?page_id=6",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=1085": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1085",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2461": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2461",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=46": {
+      "url": "https://www.fnisc.ru/index.php?page_id=46",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=44": {
+      "url": "https://www.fnisc.ru/index.php?page_id=44",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2462": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2462",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3270": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3270",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3138": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3138",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2524": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2524",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=7": {
+      "url": "https://www.fnisc.ru/index.php?page_id=7",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3176": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3176",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2475": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2475",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2472": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2472",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=25": {
+      "url": "https://www.fnisc.ru/index.php?page_id=25",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3271": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3271",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2473": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2473",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3182": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3182",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3191": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3191",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3016": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3016",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=1257": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1257",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2474": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2474",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3262": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3262",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3215": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3215",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2457": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2457",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=1201": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1201",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=652": {
+      "url": "https://www.fnisc.ru/index.php?page_id=652",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=1109": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1109",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3153": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3153",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=1188": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1188",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2366": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2366",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2561": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2561",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2483": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2483",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2362": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2362",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3278": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3278",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2485": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2485",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2486": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2486",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3046": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3046",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3047": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3047",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3244": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3244",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3245": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3245",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2547": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2547",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3070": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3070",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3062": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3062",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=12": {
+      "url": "https://www.fnisc.ru/index.php?page_id=12",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=1072": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1072",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=3221": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3221",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2848": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2848",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2545": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2545",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=39": {
+      "url": "https://www.fnisc.ru/index.php?page_id=39",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=265": {
+      "url": "https://www.fnisc.ru/index.php?page_id=265",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=2557": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2557",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:15:46+00:00",
+      "reason": "circuit_open"
+    },
+    "https://fnisc.ru/index.php?page_id=43": {
+      "url": "https://www.fnisc.ru/index.php?page_id=43",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=651": {
+      "url": "https://www.fnisc.ru/index.php?page_id=651",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=658": {
+      "url": "https://www.fnisc.ru/index.php?page_id=658",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=535": {
+      "url": "https://www.fnisc.ru/index.php?page_id=535",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1256": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1256",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2533": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2533",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1258": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1258",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2719": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2719",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1259": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1259",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1292": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1292",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2499": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2499",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2501": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2501",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2504": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2504",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2507": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2507",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2694": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2694",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2508": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2508",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2788": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2788",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1339": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1339",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3126": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3126",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3127": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3127",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3128": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3128",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3129": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3129",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3130": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3130",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=755": {
+      "url": "https://www.fnisc.ru/index.php?page_id=755",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=558": {
+      "url": "https://www.fnisc.ru/index.php?page_id=558",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1077": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1077",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3157": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3157",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1560": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1560",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3085": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3085",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3151": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3151",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2556": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2556",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2749": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2749",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2522": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2522",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1410": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1410",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3277": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3277",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2687": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2687",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2464": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2464",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2466": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2466",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2463": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2463",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3174": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3174",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2381": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2381",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3282": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3282",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2791": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2791",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2477": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2477",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2298": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2298",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2559": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2559",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2681": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2681",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3140": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3140",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3137": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3137",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3155": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3155",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3178": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3178",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3195": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3195",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3261": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3261",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3272": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3272",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3273": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3273",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3274": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3274",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2238": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2238",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=528": {
+      "url": "https://www.fnisc.ru/index.php?page_id=528",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=569": {
+      "url": "https://www.fnisc.ru/index.php?page_id=569",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3183": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3183",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3267": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3267",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3192": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3192",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3193": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3193",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3246": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3246",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1272": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1272",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3226": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3226",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3072": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3072",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1284": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1284",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1271": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1271",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3071": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3071",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3073": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3073",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2591": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2591",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3248": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3248",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3175": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3175",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3263": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3263",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3216": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3216",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3217": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3217",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3218": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3218",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3219": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3219",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3220": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3220",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1214": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1214",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1342": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1342",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2369": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2369",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1212": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1212",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1217": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1217",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1222": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1222",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=28": {
+      "url": "https://www.fnisc.ru/index.php?page_id=28",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3076": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3076",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3280": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3280",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3080": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3080",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3079": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3079",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3065": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3065",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3066": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3066",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1110": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1110",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1220": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1220",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=822": {
+      "url": "https://www.fnisc.ru/index.php?page_id=822",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1059": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1059",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2367": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2367",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2368": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2368",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2955": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2955",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3074": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3074",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3078": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3078",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1951": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1951",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=529": {
+      "url": "https://www.fnisc.ru/index.php?page_id=529",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=33": {
+      "url": "https://www.fnisc.ru/index.php?page_id=33",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2489": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2489",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3019": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3019",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3032": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3032",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1826": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1826",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=207": {
+      "url": "https://www.fnisc.ru/index.php?page_id=207",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2983": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2983",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=247": {
+      "url": "https://www.fnisc.ru/index.php?page_id=247",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3121": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3121",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3061": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3061",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1697": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1697",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3211": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3211",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3241": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3241",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3242": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3242",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3063": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3063",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3279": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3279",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14037&page_id=536": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14037",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=376&page_id=538": {
+      "url": "https://www.fnisc.ru/index.php?page_id=538&id=376",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2288": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2288",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3224": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3224",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=1587": {
+      "url": "https://www.fnisc.ru/index.php?page_id=1587",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=31&page_id=3223": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3223&id=31",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14979&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14979&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=15082&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=15082&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=15121&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=15121&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14874&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14874&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14968&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14968&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=15211&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=15211&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=15111&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=15111&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=15154&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=15154&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14507&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14507&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14779&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14779&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14504&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14504&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14075&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14075&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14505&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14505&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=13966&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=13966&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14196&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14196&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=9199&jn=97&page_id=2384&type=ojs3_demis": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2384&id=9199&type=ojs3_demis&jn=97",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14782&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14782&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14082&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14082&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=13965&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=13965&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14777&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14777&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14041&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14041&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14245&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14245&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14040&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14040&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14605&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14605&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14604&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14604&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14778&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14778&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14506&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14506&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14508&page_id=536&type=publ": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14508&type=publ",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=2472&page_id=943": {
+      "url": "https://www.fnisc.ru/index.php?page_id=943&id=2472",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2458&printmode=": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2458&printmode",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3125&printmode=": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3125&printmode",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=2459&printmode=": {
+      "url": "https://www.fnisc.ru/index.php?page_id=2459&printmode",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media": {
+      "url": "https://www.rudn.ru/media",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/staff/1045": {
+      "url": "https://www.rudn.ru/staff/1045",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education": {
+      "url": "https://www.rudn.ru/education",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments": {
+      "url": "https://www.rudn.ru/education/schools-and-departments",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/organizaciya-uchebnogo-processa": {
+      "url": "https://www.rudn.ru/education/organizaciya-uchebnogo-processa",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs": {
+      "url": "https://www.rudn.ru/education/educational-programs",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/raspisanie": {
+      "url": "https://www.rudn.ru/education/raspisanie",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/nauchnaya-biblioteka": {
+      "url": "https://www.rudn.ru/education/nauchnaya-biblioteka",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/continuing": {
+      "url": "https://www.rudn.ru/education/continuing",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages": {
+      "url": "https://www.rudn.ru/education/foreign-languages",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/mooc": {
+      "url": "https://www.rudn.ru/education/mooc",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/fee-paying-education": {
+      "url": "https://www.rudn.ru/education/fee-paying-education",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/rki": {
+      "url": "https://www.rudn.ru/education/rki",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system": {
+      "url": "https://www.rudn.ru/education/learning-quality-system",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/students-with-disabilities": {
+      "url": "https://www.rudn.ru/education/students-with-disabilities",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science": {
+      "url": "https://www.rudn.ru/science",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dad": {
+      "url": "https://www.rudn.ru/science/dad",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/grants": {
+      "url": "https://www.rudn.ru/science/grants",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dissovet": {
+      "url": "https://www.rudn.ru/science/dissovet",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/laboratories-and-centers": {
+      "url": "https://www.rudn.ru/science/laboratories-and-centers",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/conferences": {
+      "url": "https://www.rudn.ru/science/conferences",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/smu": {
+      "url": "https://www.rudn.ru/science/smu",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/library": {
+      "url": "https://www.rudn.ru/science/library",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/library/science-journal": {
+      "url": "https://www.rudn.ru/science/library/science-journal",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/research-institutes": {
+      "url": "https://www.rudn.ru/science/research-institutes",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/nacionalnyy-proekt-nauka-i-universitety": {
+      "url": "https://www.rudn.ru/science/nacionalnyy-proekt-nauka-i-universitety",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/research-partnerships": {
+      "url": "https://www.rudn.ru/science/research-partnerships",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/patents": {
+      "url": "https://www.rudn.ru/science/patents",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/poleznye-resursy": {
+      "url": "https://www.rudn.ru/science/poleznye-resursy",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/seminars": {
+      "url": "https://www.rudn.ru/science/seminars",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/priority_research_areas": {
+      "url": "https://www.rudn.ru/science/priority_research_areas",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/research-projects": {
+      "url": "https://www.rudn.ru/science/research-projects",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/students-and-research": {
+      "url": "https://www.rudn.ru/science/students-and-research",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/rudn-scientists": {
+      "url": "https://www.rudn.ru/science/rudn-scientists",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/about/ekologicheskaya-politika/science-projects": {
+      "url": "https://www.rudn.ru/about/ekologicheskaya-politika/science-projects",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/politics": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/politics",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/quality-management-model": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/quality-management-model",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/quality-assurance-service": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/quality-assurance-service",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/quality-assurance-program": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/quality-assurance-program",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/international-accreditation-of-educational-programs-rudn": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/international-accreditation-of-educational-programs-rudn",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/faq": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/faq",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/normativnoe-obespechenie-obrazovatelnoy-deyatelnosti": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/normativnoe-obespechenie-obrazovatelnoy-deyatelnosti",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/obratnaya-svyaz-v-sisteme-kachestva-obucheniya": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/obratnaya-svyaz-v-sisteme-kachestva-obucheniya",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dad/aspirantura": {
+      "url": "https://www.rudn.ru/science/dad/aspirantura",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dad/konkurs": {
+      "url": "https://www.rudn.ru/science/dad/konkurs",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dad/doctorantura": {
+      "url": "https://www.rudn.ru/science/dad/doctorantura",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dad/prikreplenie": {
+      "url": "https://www.rudn.ru/science/dad/prikreplenie",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dad/vakansii": {
+      "url": "https://www.rudn.ru/science/dad/vakansii",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/grants/konkurs": {
+      "url": "https://www.rudn.ru/science/grants/konkurs",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/grants/granty-rudn-dlya-uchenyh": {
+      "url": "https://www.rudn.ru/science/grants/granty-rudn-dlya-uchenyh",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/grants/vneshnie-granty-dlya-uchenyh": {
+      "url": "https://www.rudn.ru/science/grants/vneshnie-granty-dlya-uchenyh",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/grants/studencheskie-granty-i-konkursy": {
+      "url": "https://www.rudn.ru/science/grants/studencheskie-granty-i-konkursy",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dissovet/ads": {
+      "url": "https://www.rudn.ru/science/dissovet/ads",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dissovet/rudn-kak-vedushchaya-organizaciya": {
+      "url": "https://www.rudn.ru/science/dissovet/rudn-kak-vedushchaya-organizaciya",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dissovet/orders": {
+      "url": "https://www.rudn.ru/science/dissovet/orders",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dissovet/local-docs": {
+      "url": "https://www.rudn.ru/science/dissovet/local-docs",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dissovet/attestacionnaya-komissiya": {
+      "url": "https://www.rudn.ru/science/dissovet/attestacionnaya-komissiya",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dissovet/lokalnye-normativnye-dokumenty": {
+      "url": "https://www.rudn.ru/science/dissovet/lokalnye-normativnye-dokumenty",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dissovet/archive-diss-research": {
+      "url": "https://www.rudn.ru/science/dissovet/archive-diss-research",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dissovet/informaciya-dlya-soiskateley-uchenyh-stepeney": {
+      "url": "https://www.rudn.ru/science/dissovet/informaciya-dlya-soiskateley-uchenyh-stepeney",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/science/dissovet/informaciya-dlya-soiskateley-uchenyh-zvaniy": {
+      "url": "https://www.rudn.ru/science/dissovet/informaciya-dlya-soiskateley-uchenyh-zvaniy",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news": {
+      "url": "https://www.rudn.ru/media/news",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events": {
+      "url": "https://www.rudn.ru/media/events",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/gallery": {
+      "url": "https://www.rudn.ru/media/gallery",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/rudn-in-media": {
+      "url": "https://www.rudn.ru/media/rudn-in-media",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/corporate-publications": {
+      "url": "https://www.rudn.ru/media/corporate-publications",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/tv": {
+      "url": "https://www.rudn.ru/media/tv",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/complete-survey": {
+      "url": "https://www.rudn.ru/media/complete-survey",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/social-network": {
+      "url": "https://www.rudn.ru/media/social-network",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/dlya-smi": {
+      "url": "https://www.rudn.ru/media/dlya-smi",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/ipk": {
+      "url": "https://www.rudn.ru/media/ipk",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/cooperation/education-partnerships": {
+      "url": "https://www.rudn.ru/cooperation/education-partnerships",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news?category=5943": {
+      "url": "https://www.rudn.ru/media/news?category=5943",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/life-in-rudn/zabota-o-zdorove-kak-pervokursnikam-rudn-prikrepitsya-k-kdc-poluchit-medicinskuyu-i-psihologicheskuyu-pomoshch": {
+      "url": "https://www.rudn.ru/media/news/life-in-rudn/zabota-o-zdorove-kak-pervokursnikam-rudn-prikrepitsya-k-kdc-poluchit-medicinskuyu-i-psihologicheskuyu-pomoshch",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/life-in-rudn/pamyatka-pervokursniku-rudn-chto-nujno-znat-dlya-legkogo-starta": {
+      "url": "https://www.rudn.ru/media/news/life-in-rudn/pamyatka-pervokursniku-rudn-chto-nujno-znat-dlya-legkogo-starta",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/life-in-rudn/studentam-iz-stran-s-bezvizovym-rejimom-procedura-migracionnogo-ucheta-perevoditsya-polnostyu-v-cifrovoy-format": {
+      "url": "https://www.rudn.ru/media/news/life-in-rudn/studentam-iz-stran-s-bezvizovym-rejimom-procedura-migracionnogo-ucheta-perevoditsya-polnostyu-v-cifrovoy-format",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news?category=217": {
+      "url": "https://www.rudn.ru/media/news?category=217",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/education/perevodchik-kak-vtoraya-professiya-intervyu-s-prorektorom-rudn-po-mnogoyazychnomu-razvitiyu-o-glavnoy-yazykovoy-programme-universiteta": {
+      "url": "https://www.rudn.ru/media/news/education/perevodchik-kak-vtoraya-professiya-intervyu-s-prorektorom-rudn-po-mnogoyazychnomu-razvitiyu-o-glavnoy-yazykovoy-programme-universiteta",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/education/kontakt-centr-podderjki-abiturientov": {
+      "url": "https://www.rudn.ru/media/news/education/kontakt-centr-podderjki-abiturientov",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news?category=5944": {
+      "url": "https://www.rudn.ru/media/news?category=5944",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/karera/bpla": {
+      "url": "https://www.rudn.ru/media/news/karera/bpla",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/education/vnedrenie-tehnologiy-bez-vreda-ekosisteme-studentka-rudn-rasskazala-ob-uchastii-v-letney-shkole-kitayskogo-universiteta-nefti-v-cindao": {
+      "url": "https://www.rudn.ru/media/news/education/vnedrenie-tehnologiy-bez-vreda-ekosisteme-studentka-rudn-rasskazala-ob-uchastii-v-letney-shkole-kitayskogo-universiteta-nefti-v-cindao",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/life-in-rudn/skaji-da-studenchestvu-intervyu-s-novym-predsedatelem-studencheskogo-soveta-rudn": {
+      "url": "https://www.rudn.ru/media/news/life-in-rudn/skaji-da-studenchestvu-intervyu-s-novym-predsedatelem-studencheskogo-soveta-rudn",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/life-in-rudn/byt-vojatym--znachit-zajigat-glaza-prodoljaem-delitsya-istoriyami-studentov-rudn-iz-orlenka": {
+      "url": "https://www.rudn.ru/media/news/life-in-rudn/byt-vojatym--znachit-zajigat-glaza-prodoljaem-delitsya-istoriyami-studentov-rudn-iz-orlenka",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/karera/holod-sposobstvuet-rabote-mozga-kak-prepodavatel-rudn-iz-benina-vyuchil-russkiy-zashchitil-dissertaciyu-i-sozdal-semyu-v-rossii": {
+      "url": "https://www.rudn.ru/media/news/karera/holod-sposobstvuet-rabote-mozga-kak-prepodavatel-rudn-iz-benina-vyuchil-russkiy-zashchitil-dissertaciyu-i-sozdal-semyu-v-rossii",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a188d8bd-eea2-420a-9e20-ea906e71f5bd": {
+      "url": "https://www.rudn.ru/media/events?events_id=a188d8bd-eea2-420a-9e20-ea906e71f5bd&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a188d8bd-eea2-420a-9e20-ea906e71f5bd": {
+      "url": "https://www.rudn.ru/media/events/a188d8bd-eea2-420a-9e20-ea906e71f5bd",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a2c407d0-7229-4ac0-b6f2-a7aea0242940": {
+      "url": "https://www.rudn.ru/media/events?events_id=a2c407d0-7229-4ac0-b6f2-a7aea0242940&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a2c407d0-7229-4ac0-b6f2-a7aea0242940": {
+      "url": "https://www.rudn.ru/media/events/a2c407d0-7229-4ac0-b6f2-a7aea0242940",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a2b62ae0-cb89-41e5-8d0a-21fa9bb4a4d6": {
+      "url": "https://www.rudn.ru/media/events?events_id=a2b62ae0-cb89-41e5-8d0a-21fa9bb4a4d6&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a2b62ae0-cb89-41e5-8d0a-21fa9bb4a4d6": {
+      "url": "https://www.rudn.ru/media/events/a2b62ae0-cb89-41e5-8d0a-21fa9bb4a4d6",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a28df2d0-4313-482f-a130-a7722a1c16d7": {
+      "url": "https://www.rudn.ru/media/events?events_id=a28df2d0-4313-482f-a130-a7722a1c16d7&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a28df2d0-4313-482f-a130-a7722a1c16d7": {
+      "url": "https://www.rudn.ru/media/events/a28df2d0-4313-482f-a130-a7722a1c16d7",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a1e5250c-0805-426f-9e23-476a22d8e54c": {
+      "url": "https://www.rudn.ru/media/events?events_id=a1e5250c-0805-426f-9e23-476a22d8e54c&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a1e5250c-0805-426f-9e23-476a22d8e54c": {
+      "url": "https://www.rudn.ru/media/events/a1e5250c-0805-426f-9e23-476a22d8e54c",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/personal-data-processing-and-protection-policy": {
+      "url": "https://www.rudn.ru/personal-data-processing-and-protection-policy",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/life-in-rudn/s-detmi-nujno-nayti-kontakt-i-stat-im-drugom-inostrannye-studenty-rudn-o-rabote-vojatymi-v-orlenke": {
+      "url": "https://www.rudn.ru/media/news/life-in-rudn/s-detmi-nujno-nayti-kontakt-i-stat-im-drugom-inostrannye-studenty-rudn-o-rabote-vojatymi-v-orlenke",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/education/uchashchiesya-rudn-zavoevali-shest-prizovyh-mest-na-pervom-vserossiyskom-forume-inostrannyh-studentov-medikov-medunity-russia": {
+      "url": "https://www.rudn.ru/media/news/education/uchashchiesya-rudn-zavoevali-shest-prizovyh-mest-na-pervom-vserossiyskom-forume-inostrannyh-studentov-medikov-medunity-russia",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?direction=97015974-5ec7-4e39-9cfb-57349ea21d2b": {
+      "url": "https://www.rudn.ru/media/events?direction=97015974-5ec7-4e39-9cfb-57349ea21d2b",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?format=9c9adcd9-c6b6-49ea-87ff-6af69d626d73": {
+      "url": "https://www.rudn.ru/media/events?format=9c9adcd9-c6b6-49ea-87ff-6af69d626d73",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?organizers=97015976-0833-4ca3-b471-78b042555263": {
+      "url": "https://www.rudn.ru/media/events?organizers=97015976-0833-4ca3-b471-78b042555263",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?direction=97015974-397e-4edd-a379-320fa959bca2": {
+      "url": "https://www.rudn.ru/media/events?direction=97015974-397e-4edd-a379-320fa959bca2",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?format=97015975-d294-42d8-857a-0aad48ef7390": {
+      "url": "https://www.rudn.ru/media/events?format=97015975-d294-42d8-857a-0aad48ef7390",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?organizers=97015976-0921-4bee-a6ea-51aed661bcfc": {
+      "url": "https://www.rudn.ru/media/events?organizers=97015976-0921-4bee-a6ea-51aed661bcfc",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?organizers=97015976-1062-4657-82d6-97a954574d6b": {
+      "url": "https://www.rudn.ru/media/events?organizers=97015976-1062-4657-82d6-97a954574d6b",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?format=97015975-ebcb-460d-ae09-b5ddd9f26548": {
+      "url": "https://www.rudn.ru/media/events?format=97015975-ebcb-460d-ae09-b5ddd9f26548",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a2b639d3-c788-4f40-a918-e38ce60c454c": {
+      "url": "https://www.rudn.ru/media/events/a2b639d3-c788-4f40-a918-e38ce60c454c",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a2b639d3-c788-4f40-a918-e38ce60c454c": {
+      "url": "https://www.rudn.ru/media/events?events_id=a2b639d3-c788-4f40-a918-e38ce60c454c&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?direction=97015974-3f16-445e-bead-80ddb6193367": {
+      "url": "https://www.rudn.ru/media/events?direction=97015974-3f16-445e-bead-80ddb6193367",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?format=9abc9f72-f20e-4299-8c3a-6582f55ba648": {
+      "url": "https://www.rudn.ru/media/events?format=9abc9f72-f20e-4299-8c3a-6582f55ba648",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?organizers=9b4335d3-59bb-423d-8458-202990486721": {
+      "url": "https://www.rudn.ru/media/events?organizers=9b4335d3-59bb-423d-8458-202990486721",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a277d384-9bb8-4ff0-b9df-ce7f28907323": {
+      "url": "https://www.rudn.ru/media/events/a277d384-9bb8-4ff0-b9df-ce7f28907323",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a277d384-9bb8-4ff0-b9df-ce7f28907323": {
+      "url": "https://www.rudn.ru/media/events?events_id=a277d384-9bb8-4ff0-b9df-ce7f28907323&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?format=97015975-d834-4819-af73-86be1e3d5672": {
+      "url": "https://www.rudn.ru/media/events?format=97015975-d834-4819-af73-86be1e3d5672",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/gallery/jizn-v-rudn/jizn-dlinoyu-v-rudn-universitetu-65-let": {
+      "url": "https://www.rudn.ru/media/gallery/jizn-v-rudn/jizn-dlinoyu-v-rudn-universitetu-65-let",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/gallery/jizn-v-rudn/puteshestvie-po-rudn-2024": {
+      "url": "https://www.rudn.ru/media/gallery/jizn-v-rudn/puteshestvie-po-rudn-2024",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/gallery/rektor-rudn/rektor-rudn": {
+      "url": "https://www.rudn.ru/media/gallery/rektor-rudn/rektor-rudn",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/gallery/meropriyatiya/vizit-delegacii-iz-zimbabve": {
+      "url": "https://www.rudn.ru/media/gallery/meropriyatiya/vizit-delegacii-iz-zimbabve",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/staff": {
+      "url": "https://www.rudn.ru/staff",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/education/studenty-geologi-rudn-proshli-praktiku-v-vedushchem-kernohranilishche-strany--aprelevskom-otdelenii-vnigni": {
+      "url": "https://www.rudn.ru/media/news/education/studenty-geologi-rudn-proshli-praktiku-v-vedushchem-kernohranilishche-strany--aprelevskom-otdelenii-vnigni",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a2b67802-a2ab-4ff4-9f8e-35ad1ee32c2e": {
+      "url": "https://www.rudn.ru/media/events/a2b67802-a2ab-4ff4-9f8e-35ad1ee32c2e",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a2b67802-a2ab-4ff4-9f8e-35ad1ee32c2e": {
+      "url": "https://www.rudn.ru/media/events?events_id=a2b67802-a2ab-4ff4-9f8e-35ad1ee32c2e&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?organizers=97015976-02b3-452d-8b25-3e5b7cac7704": {
+      "url": "https://www.rudn.ru/media/events?organizers=97015976-02b3-452d-8b25-3e5b7cac7704",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a24165ec-d55c-4745-9531-c970105d1239": {
+      "url": "https://www.rudn.ru/media/events/a24165ec-d55c-4745-9531-c970105d1239",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a24165ec-d55c-4745-9531-c970105d1239": {
+      "url": "https://www.rudn.ru/media/events?events_id=a24165ec-d55c-4745-9531-c970105d1239&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a2456ad9-c2e4-4f94-9782-c4335304cc3b": {
+      "url": "https://www.rudn.ru/media/events/a2456ad9-c2e4-4f94-9782-c4335304cc3b",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a2456ad9-c2e4-4f94-9782-c4335304cc3b": {
+      "url": "https://www.rudn.ru/media/events?events_id=a2456ad9-c2e4-4f94-9782-c4335304cc3b&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/faculties/podgotovitelnyy-fakultet": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/faculties/podgotovitelnyy-fakultet",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/faculties/fakultet-iskusstvennogo-intellekta": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/faculties/fakultet-iskusstvennogo-intellekta",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/faculties/faculty-of-humanities-and-social-sciences": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/faculties/faculty-of-humanities-and-social-sciences",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/faculties/faculty-of-physics-and-mathematics-and-natural-sciences": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/faculties/faculty-of-physics-and-mathematics-and-natural-sciences",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/faculties/faculty-of-philology": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/faculties/faculty-of-philology",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/faculties/cifrovoy-podgotovitelnyy-fakultet-2": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/faculties/cifrovoy-podgotovitelnyy-fakultet-2",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/faculties/faculty-of-economics": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/faculties/faculty-of-economics",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/institutions/agricultural-technology-institute": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/institutions/agricultural-technology-institute",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/institutions/institut-farmacii-i-biotehnologii": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/institutions/institut-farmacii-i-biotehnologii",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/institutions/institut-vneshneekonomicheskoy-bezopasnosti-i-tamojennogo-dela": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/institutions/institut-vneshneekonomicheskoy-bezopasnosti-i-tamojennogo-dela",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/institutions/institut-russkogo-yazyka": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/institutions/institut-russkogo-yazyka",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/institutions/university-of-the-foreign-languages": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/institutions/university-of-the-foreign-languages",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/institutions/institute-of-world-economics-and-business-international-business-school": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/institutions/institute-of-world-economics-and-business-international-business-school",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/institutions/faculty-of-ecology": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/institutions/faculty-of-ecology",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/institutions/institute-of-medicine": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/institutions/institute-of-medicine",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/institutions/uchebno-nauchnyy-institut-sravnitelnoy-obrazovatelnoy-politiki": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/institutions/uchebno-nauchnyy-institut-sravnitelnoy-obrazovatelnoy-politiki",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/institutions/law-institute": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/institutions/law-institute",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/institutions/uchebno-nauchnyy-institut-klinicheskoy-mediciny": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/institutions/uchebno-nauchnyy-institut-klinicheskoy-mediciny",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/akademiya/engineering-academy-rudn": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/akademiya/engineering-academy-rudn",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schools-and-departments/vysshaya-shkola/vysshaya-shkola-upravleniya": {
+      "url": "https://www.rudn.ru/education/schools-and-departments/vysshaya-shkola/vysshaya-shkola-upravleniya",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/ae5f066e-bf21-11ed-8192-00155d320f02": {
+      "url": "https://www.rudn.ru/education/educational-programs/ae5f066e-bf21-11ed-8192-00155d320f02",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/38f83324-c962-11ed-8194-00155d320e03": {
+      "url": "https://www.rudn.ru/education/educational-programs/38f83324-c962-11ed-8194-00155d320e03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8b0-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8b0-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8ae-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8ae-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/8b1c326f-21ac-11ef-81df-00155d320d03": {
+      "url": "https://www.rudn.ru/education/educational-programs/8b1c326f-21ac-11ef-81df-00155d320d03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/d1889cdc-0123-11ee-81a3-00155d320e03": {
+      "url": "https://www.rudn.ru/education/educational-programs/d1889cdc-0123-11ee-81a3-00155d320e03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/e824c097-d5ef-11ec-8163-00155d320f01": {
+      "url": "https://www.rudn.ru/education/educational-programs/e824c097-d5ef-11ec-8163-00155d320f01",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/e824c084-d5ef-11ec-8163-00155d320f01": {
+      "url": "https://www.rudn.ru/education/educational-programs/e824c084-d5ef-11ec-8163-00155d320f01",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/e824c5a3-d5ef-11ec-8163-00155d320f01": {
+      "url": "https://www.rudn.ru/education/educational-programs/e824c5a3-d5ef-11ec-8163-00155d320f01",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/89fad38a-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/89fad38a-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/89fad399-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/89fad399-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/88c29e60-16b8-11f0-8eba-00155deaeb29": {
+      "url": "https://www.rudn.ru/education/educational-programs/88c29e60-16b8-11f0-8eba-00155deaeb29",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/e824c63b-d5ef-11ec-8163-00155d320f01": {
+      "url": "https://www.rudn.ru/education/educational-programs/e824c63b-d5ef-11ec-8163-00155d320f01",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/89fad38b-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/89fad38b-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8ef-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8ef-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8f1-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8f1-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/05f679a3-1126-11f0-b543-00155d53e11e": {
+      "url": "https://www.rudn.ru/education/educational-programs/05f679a3-1126-11f0-b543-00155d53e11e",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/5e442792-8f4f-11ee-81c6-00155d320f02": {
+      "url": "https://www.rudn.ru/education/educational-programs/5e442792-8f4f-11ee-81c6-00155d320f02",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/e824c226-d5ef-11ec-8163-00155d320f01": {
+      "url": "https://www.rudn.ru/education/educational-programs/e824c226-d5ef-11ec-8163-00155d320f01",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/df1827d8-1133-11ef-81dc-00155d320d03": {
+      "url": "https://www.rudn.ru/education/educational-programs/df1827d8-1133-11ef-81dc-00155d320d03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/d5805e06-0124-11ee-81a3-00155d320e03": {
+      "url": "https://www.rudn.ru/education/educational-programs/d5805e06-0124-11ee-81a3-00155d320e03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/b986e40d-c962-11ed-8194-00155d320e03": {
+      "url": "https://www.rudn.ru/education/educational-programs/b986e40d-c962-11ed-8194-00155d320e03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8f0-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8f0-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8f2-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8f2-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8c1-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8c1-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/5d51a86c-bf51-11ee-81cf-00155d320f02": {
+      "url": "https://www.rudn.ru/education/educational-programs/5d51a86c-bf51-11ee-81cf-00155d320f02",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/47681ffc-bf4e-11ee-81cf-00155d320f02": {
+      "url": "https://www.rudn.ru/education/educational-programs/47681ffc-bf4e-11ee-81cf-00155d320f02",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/83ffff2f-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/83ffff2f-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/83ffff32-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/83ffff32-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8f6-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8f6-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/83fffefb-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/83fffefb-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8a3-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8a3-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8a0-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8a0-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/cd48ede9-e484-11ef-8223-00155d320f01": {
+      "url": "https://www.rudn.ru/education/educational-programs/cd48ede9-e484-11ef-8223-00155d320f01",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8b4-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8b4-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/59b24e3e-befc-11ec-815b-00155d320d03": {
+      "url": "https://www.rudn.ru/education/educational-programs/59b24e3e-befc-11ec-815b-00155d320d03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/89fad460-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/89fad460-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/89fad461-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/89fad461-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/89fad462-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/89fad462-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/83ffff0c-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/83ffff0c-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/4777b155-a8c6-11ef-8206-00155d320e03": {
+      "url": "https://www.rudn.ru/education/educational-programs/4777b155-a8c6-11ef-8206-00155d320e03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/433345b2-c963-11ed-8194-00155d320e03": {
+      "url": "https://www.rudn.ru/education/educational-programs/433345b2-c963-11ed-8194-00155d320e03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/b4d2bae0-0125-11ee-81a3-00155d320e03": {
+      "url": "https://www.rudn.ru/education/educational-programs/b4d2bae0-0125-11ee-81a3-00155d320e03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/32fa86e1-22fa-11ea-80e8-00155dfbaa09": {
+      "url": "https://www.rudn.ru/education/educational-programs/32fa86e1-22fa-11ea-80e8-00155dfbaa09",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8ba-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8ba-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/790161c1-bf4f-11ee-81cf-00155d320f02": {
+      "url": "https://www.rudn.ru/education/educational-programs/790161c1-bf4f-11ee-81cf-00155d320f02",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/f8203ab6-dcb7-11ec-8164-00155d320e03": {
+      "url": "https://www.rudn.ru/education/educational-programs/f8203ab6-dcb7-11ec-8164-00155d320e03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8a1-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8a1-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8a4-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8a4-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/936584e1-82fd-11ee-81c0-00155d320f02": {
+      "url": "https://www.rudn.ru/education/educational-programs/936584e1-82fd-11ee-81c0-00155d320f02",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/83f98e3d-6652-11ed-8180-00155d320e03": {
+      "url": "https://www.rudn.ru/education/educational-programs/83f98e3d-6652-11ed-8180-00155d320e03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/19924be6-6971-11ed-8181-00155d320e03": {
+      "url": "https://www.rudn.ru/education/educational-programs/19924be6-6971-11ed-8181-00155d320e03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8b7-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8b7-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7e07a8b5-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/7e07a8b5-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/83ffff0d-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/83ffff0d-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/758a45fe-bf41-11ee-81cd-00155d320d03": {
+      "url": "https://www.rudn.ru/education/educational-programs/758a45fe-bf41-11ee-81cd-00155d320d03",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/7ddcf345-b704-11ef-81fe-00155d320f02": {
+      "url": "https://www.rudn.ru/education/educational-programs/7ddcf345-b704-11ef-81fe-00155d320f02",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/89fad47e-f0ed-11e9-80e1-00155d6c1c04": {
+      "url": "https://www.rudn.ru/education/educational-programs/89fad47e-f0ed-11e9-80e1-00155d6c1c04",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/cee6b9bb-d318-11ef-8215-00155d320f02": {
+      "url": "https://www.rudn.ru/education/educational-programs/cee6b9bb-d318-11ef-8215-00155d320f02",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/educational-programs/d68ab90e-fdba-11ef-823b-00155d320e02": {
+      "url": "https://www.rudn.ru/education/educational-programs/d68ab90e-fdba-11ef-823b-00155d320e02",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/continuing/international-center-for-language-testing-and-educational-training-of-migrants": {
+      "url": "https://www.rudn.ru/education/continuing/international-center-for-language-testing-and-educational-training-of-migrants",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages/ati": {
+      "url": "https://www.rudn.ru/education/foreign-languages/ati",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages/vsu": {
+      "url": "https://www.rudn.ru/education/foreign-languages/vsu",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages/ia": {
+      "url": "https://www.rudn.ru/education/foreign-languages/ia",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages/iiya": {
+      "url": "https://www.rudn.ru/education/foreign-languages/iiya",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages/ie": {
+      "url": "https://www.rudn.ru/education/foreign-languages/ie",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages/mi": {
+      "url": "https://www.rudn.ru/education/foreign-languages/mi",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages/fgsn": {
+      "url": "https://www.rudn.ru/education/foreign-languages/fgsn",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages/fmien": {
+      "url": "https://www.rudn.ru/education/foreign-languages/fmien",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages/ff": {
+      "url": "https://www.rudn.ru/education/foreign-languages/ff",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages/ef": {
+      "url": "https://www.rudn.ru/education/foreign-languages/ef",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/foreign-languages/yui": {
+      "url": "https://www.rudn.ru/education/foreign-languages/yui",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/mooc?platform=9c9d3d53-8a84-4b32-a6a0-f01d100ad6aa": {
+      "url": "https://www.rudn.ru/education/mooc?platform=9c9d3d53-8a84-4b32-a6a0-f01d100ad6aa",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/mooc?page=2": {
+      "url": "https://www.rudn.ru/education/mooc?page=2",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/mooc?page=3": {
+      "url": "https://www.rudn.ru/education/mooc?page=3",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/mooc?page=25": {
+      "url": "https://www.rudn.ru/education/mooc?page=25",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/fee-paying-education/faq": {
+      "url": "https://www.rudn.ru/education/fee-paying-education/faq",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/rki/advantages": {
+      "url": "https://www.rudn.ru/education/rki/advantages",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/rki/history": {
+      "url": "https://www.rudn.ru/education/rki/history",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/rki/teaching": {
+      "url": "https://www.rudn.ru/education/rki/teaching",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/rki/additional-education": {
+      "url": "https://www.rudn.ru/education/rki/additional-education",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/rki/testing": {
+      "url": "https://www.rudn.ru/education/rki/testing",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/rki/quality-commission": {
+      "url": "https://www.rudn.ru/education/rki/quality-commission",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/novosti": {
+      "url": "https://chel.ranepa.ru/novosti/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/alfa-budushchee-stipendii": {
+      "url": "https://chel.ranepa.ru/news/alfa-budushchee-stipendii/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/v-chelyabinske-eksperty-obsudili-pravovye-mekhanizmy-peremeny-imeni-i-predlozhili-popravki-v-zakonodatelstvo": {
+      "url": "https://chel.ranepa.ru/news/v-chelyabinske-eksperty-obsudili-pravovye-mekhanizmy-peremeny-imeni-i-predlozhili-popravki-v-zakonodatelstvo/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/velikaya-pobeda-ozhivaet-v-russkom-slove-itogi-mezhdunarodnoi-olimpiady-po-russkomu-yazyku": {
+      "url": "https://chel.ranepa.ru/news/velikaya-pobeda-ozhivaet-v-russkom-slove-itogi-mezhdunarodnoi-olimpiady-po-russkomu-yazyku/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/prosemeinoe-pravo-tretii-sezon": {
+      "url": "https://chel.ranepa.ru/news/prosemeinoe-pravo-tretii-sezon/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/v-ritme-odnogo-dnya-studentov-chelyabinskogo-filiala-prezidentskoi-akademii": {
+      "url": "https://chel.ranepa.ru/news/v-ritme-odnogo-dnya-studentov-chelyabinskogo-filiala-prezidentskoi-akademii/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/znat-pdd-kazhdomu": {
+      "url": "https://chel.ranepa.ru/news/znat-pdd-kazhdomu/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/23-24-aprelya-2026-g-v-ramkah-desyatiletiya-nauki-i-tekhnologii-v-chelyabinskom-kampuse-prezidentskoi-akademii-prohodit-xxiv-vserossiiskaya-studencheskaya-nauchno-prakticheskaya-konferenciya-sovremenn": {
+      "url": "https://chel.ranepa.ru/news/23-24-aprelya-2026-g-v-ramkah-desyatiletiya-nauki-i-tekhnologii-v-chelyabinskom-kampuse-prezidentskoi-akademii-prohodit-xxiv-vserossiiskaya-studencheskaya-nauchno-prakticheskaya-konferenciya-sovremenn/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/mezhdunarodnaya-nauchno-prakticheskaya-konferenciya-ispolzovanie-sovremennyh-didakticheskih-modelei-v-usloviyah-cifrovizacii": {
+      "url": "https://chel.ranepa.ru/news/mezhdunarodnaya-nauchno-prakticheskaya-konferenciya-ispolzovanie-sovremennyh-didakticheskih-modelei-v-usloviyah-cifrovizacii/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/sekretnyi-kod-pokupki": {
+      "url": "https://chel.ranepa.ru/news/sekretnyi-kod-pokupki/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/mezhdunarodnaya-nauchno-prakticheskaya-konferenciya-profilnoe-i-professionalnoe-obrazovanie-v-usloviyah-sovremennogo-polikulturnogo-prostranstva-2": {
+      "url": "https://chel.ranepa.ru/news/mezhdunarodnaya-nauchno-prakticheskaya-konferenciya-profilnoe-i-professionalnoe-obrazovanie-v-usloviyah-sovremennogo-polikulturnogo-prostranstva-2/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/novosti/page/2": {
+      "url": "https://chel.ranepa.ru/novosti/page/2/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/novosti/page/3": {
+      "url": "https://chel.ranepa.ru/novosti/page/3/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/novosti/page/7": {
+      "url": "https://chel.ranepa.ru/novosti/page/7/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    }
+  },
+  "initial_cutoff": "2026-06-22",
+  "rss_cursor": {
+    "next_index": 1,
+    "attempted_at": "2026-09-20T14:13:47+00:00"
+  },
+  "sitemap_pending": {
+    "https://deminform.ru/sitemap.xml": [
+      "https://deminform.ru/sitemap.xml"
+    ],
+    "https://www.sobaka.ru/sitemap.xml": [
+      "https://www.sobaka.ru/sitemaps/old-posts-nvr-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-krd-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-krsk-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-irk-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-smr-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-kzn-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-omsk-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-rnd-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-spb-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-chlb-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-kostroma-jaroslavl-ivanovo-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-kursk-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-ufa-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-belgorod-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-ekb-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-nsk-1.xml"
+    ],
+    "https://www.rosbalt.ru/sitemap.xml": []
+  }
 }

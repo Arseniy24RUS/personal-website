@@ -4,6 +4,7 @@
   "message-version": "1.0.0",
   "message": {
     "facets": {},
+    "next-cursor": "MTc3NTgyNzc1MDAwMCwxMC4yMjM2MyUyRjIzMTItODMxMy0yMDI2LTEzLTEtODYtOTU=",
     "total-results": 14,
     "items": [
       {
@@ -3099,10 +3100,11 @@
         }
       }
     ],
-    "items-per-page": 100,
+    "items-per-page": 1000,
     "query": {
       "start-index": 0,
       "search-terms": null
     }
-  }
+  },
+  "last_success_at": "2026-09-20T14:13:10+00:00"
 }

@@ -1,18 +1,18 @@
 {
   "status": "success",
-  "baseline_ref": "audit/pre-refresh-repair-20260920",
-  "baseline_commit": "58d9b9ac0c95ca42a3885f7bd1a86284505dfa10",
+  "baseline_ref": "6bc8badc2df55ed0b774e3721abd1f9b1bb7c134",
+  "baseline_commit": "6bc8badc2df55ed0b774e3721abd1f9b1bb7c134",
   "datasets": {
     "data/public/publications.json": {
       "before": 67,
-      "after": 67
+      "after": 69
     },
     "data/media/published.json": {
-      "before": 20,
+      "before": 23,
       "after": 23
     },
     "data/media/published-fallback.json": {
-      "before": 20,
+      "before": 23,
       "after": 23
     },
     "data/risi/articles.json": {
@@ -28,6 +28,7 @@
       "after": 10
     }
   },
-  "assets_checked": 305,
+  "assets_checked": 309,
+  "assets_content_checked": 309,
   "issues": []
 }
