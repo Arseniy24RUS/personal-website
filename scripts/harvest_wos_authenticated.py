@@ -203,20 +203,41 @@ def explicitly_logged_out(page):
     return False
 
 
-def target_profile_html(page, target=RESEARCHER_ID):
+def target_profile_html(page, target=RESEARCHER_ID, *, profile_entry_wait_seconds=10.0):
     path = f'/wos/author/record/{target}'
     if urlparse(page.url).path.rstrip('/') != path:
         page.goto(f'https://www.webofscience.com{path}', wait_until='domcontentloaded', timeout=90000)
     deadline = time.monotonic() + WAIT_SEC
+    entry_deadline = time.monotonic() + profile_entry_wait_seconds
+
+    def guard():
+        # The one profile-entry window survives an initially clear scan and
+        # later menu-triggered rendering; it is never restarted by another frame.
+        options = {}
+        if profile_entry_wait_seconds != 10.0 and time.monotonic() < entry_deadline:
+            options = {'passive_wait_seconds': profile_entry_wait_seconds, 'passive_deadline': entry_deadline}
+        observation = assert_no_challenge(page, **options)
+        if profile_entry_wait_seconds != 10.0 and isinstance(observation, dict):
+            page._profile_entry_observation = observation
+        return observation
+
     while time.monotonic() < deadline:
-        assert_no_challenge(page)
+        guard()
         address = urlparse(page.url)
         if provider_host(address.hostname or '', 'webofscience.com') and wos_authenticated(page):
-            if address.path.rstrip('/') != path:
+            # Account-menu rendering may navigate while authorization is checked.
+            address = urlparse(page.url)
+            if not provider_host(address.hostname or '', 'webofscience.com') or address.path.rstrip('/') != path:
                 raise AuthFailure('wrong_author_profile')
             # The parser's researcher_id argument is not identity evidence.
             # Require the requested ResearcherID in the rendered profile itself.
             if re.search(r'(?<![A-Z0-9-])' + re.escape(str(target)) + r'(?![A-Z0-9-])', page.locator('body').inner_text()):
+                # Opening the account menu may reveal a new challenge after
+                # the initial scan. Readiness is required at the return boundary.
+                if guard():
+                    # A passive wait can include navigation or session expiry.
+                    # Prove origin, target and authorization again after it.
+                    continue
                 return page.content()
         elif explicitly_logged_out(page):
             raise AuthFailure('session_expired')
@@ -230,10 +251,13 @@ def authenticated_page(context, session_info, target=RESEARCHER_ID, *, fresh_con
 
     def verify(page):
         try:
-            return target_profile_html(page, target)
+            return target_profile_html(page, target, profile_entry_wait_seconds=60.0)
         except Exception as exc:
             failure = exc if isinstance(exc, AuthFailure) else AuthFailure(type(exc).__name__)
             failure.diagnostics = safe_browser_diagnostics(context)
+            entry_observation = getattr(page, '_profile_entry_observation', None)
+            if isinstance(entry_observation, dict):
+                failure.profile_entry_observation = entry_observation
             if failure.reason in {'profile_not_authenticated_or_changed', 'wrong_author_profile', 'TimeoutError'}:
                 failure.profile_diagnostics = safe_profile_diagnostics(page)
             raise failure from None
@@ -357,6 +381,7 @@ def main():
         previous_report['last_success_at'] = previous.get('last_success_at') or snapshot_time(snapshots[-1] if snapshots else None)
     report, stage, session, restored = {}, 'initialization', {}, {}
     authentication = None
+    page = None
     persisted = False
     saved_components = set()
 
@@ -372,6 +397,9 @@ def main():
             session = checkpoint_session(context, 'wos', authenticated=authenticated, target_verified=True, target_id=RESEARCHER_ID, verified_page=page)
             saved_components.update(successful)
         state.update(authentication=authentication, session_checkpoint=session, session_restore=restored)
+        entry_observation = getattr(page, '_profile_entry_observation', None)
+        if isinstance(entry_observation, dict):
+            state['profile_entry_observation'] = entry_observation
         write_checkpoint(checkpoint_path, state, data)
         persisted = True
         materialize_checkpoint(checkpoint_path, 'wos')
@@ -406,6 +434,9 @@ def main():
                 stage = 'collection'
                 report, payloads = collect_from_page(page, previous=payloads, previous_report=previous_report, on_checkpoint=persist)
                 report.update(authentication=authentication, session_checkpoint=session)
+            entry_observation = getattr(page, '_profile_entry_observation', None)
+            if isinstance(entry_observation, dict):
+                report['profile_entry_observation'] = entry_observation
             try:
                 context.close()
                 browser.close()
@@ -424,7 +455,7 @@ def main():
             report = source_result(previous_report, status='blocked' if isinstance(exc, AuthFailure) else 'error', count=len(payloads['publications']), reason=reason)
             report['components'] = {key: source_result(component_state(previous_report, key), status=report['status'], reason=reason) for key in ('metrics', 'publications')}
         report.update(stage=stage, session_checkpoint=session, session_restore=restored)
-        for field in ('diagnostics', 'verification_evidence', 'authentication_evidence', 'profile_diagnostics'):
+        for field in ('diagnostics', 'verification_evidence', 'authentication_evidence', 'profile_diagnostics', 'profile_entry_observation'):
             if getattr(exc, field, None):
                 report[field] = getattr(exc, field)
         if init:

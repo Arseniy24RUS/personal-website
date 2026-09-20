@@ -522,7 +522,61 @@ def export_diagnostics(source, destination):
                'session_restore', 'session_checkpoint', 'checkpoint', 'restoration', 'kind',
                'providers', 'elibrary', 'wos', 'exit_code', 'origin', 'complete', 'schema',
                'authentication_evidence', 'login_confirmed', 'target_author_id', 'target_researcher_id',
-               'profile_diagnostics'}
+               'profile_diagnostics', 'profile_entry_observation', 'verification_evidence'}
+
+    def observation_fields(value):
+        """Fixed trace vocabulary only; never copy frame text, paths or tokens."""
+        if not isinstance(value, dict):
+            return {}
+        result = {}
+        enums = {
+            'settling': {'cleared', 'timed_out', 'stopped_by_guard'},
+            'trigger': {'page_marker', 'iframe_title', 'recaptcha_normal_widget',
+                        'observation_incomplete', 'observation_deadline'},
+        }
+        for key, choices in enums.items():
+            if isinstance(value.get(key), str) and value[key] in choices:
+                result[key] = value[key]
+        for key in ('elapsed_seconds', 'observation_budget_seconds'):
+            item = value.get(key)
+            if type(item) in (int, float) and math.isfinite(item) and item >= 0:
+                result[key] = item
+        markers = value.get('marker_ids')
+        if isinstance(markers, list):
+            allowed_markers = {'turing_test_ru', 'verify_you_are_human', 'verify_that_you_are_human',
+                               'unusual_activity', 'challenge_expired', 'not_robot_ru', 'page_captcha_url'}
+            result['marker_ids'] = [item for item in markers[:16] if isinstance(item, str) and item in allowed_markers]
+        timeline = value.get('observation_timeline')
+        if isinstance(timeline, list):
+            samples = []
+            # Keep the terminal observation as the producer does when capped.
+            bounded = timeline[:15] + timeline[-1:] if len(timeline) > 16 else timeline
+            for row in bounded:
+                if not isinstance(row, dict):
+                    continue
+                sample = {}
+                for key, choices in (
+                    ('category', {'clear', 'passive', 'marker', 'interactive', 'incomplete', 'blocked', 'timed_out'}),
+                    ('ready_state', {'loading', 'interactive', 'complete', 'unavailable'}),
+                ):
+                    if isinstance(row.get(key), str) and row[key] in choices:
+                        sample[key] = row[key]
+                elapsed = row.get('elapsed_seconds')
+                if type(elapsed) in (int, float) and math.isfinite(elapsed) and elapsed >= 0:
+                    sample['elapsed_seconds'] = elapsed
+                for key in ('frame_dom_observed', 'checkbox_present', 'checkbox_visible',
+                            'active_challenge_controls', 'observation_incomplete'):
+                    if key in row and (row[key] is None or (type(row[key]) is int and row[key] in (0, 1))):
+                        sample[key] = row[key]
+                for key in ('frame_text_length', 'frame_tag_count', 'frame_button_count',
+                            'frame_role_button_count', 'frame_input_count', 'frame_canvas_count',
+                            'hcaptcha_frame_count', 'recaptcha_frame_count', 'other_frame_count'):
+                    if key in row and (row[key] is None or (type(row[key]) is int and 0 <= row[key] <= 1000000)):
+                        sample[key] = row[key]
+                if sample:
+                    samples.append(sample)
+            result['observation_timeline'] = samples
+        return result
 
     def profile_fields(value):
         if not isinstance(value, dict):
@@ -546,8 +600,15 @@ def export_diagnostics(source, destination):
 
     def keep(value):
         if isinstance(value, dict):
-            return {key: profile_fields(item) if key == 'profile_diagnostics' else keep(item)
-                    for key, item in value.items() if key in allowed}
+            result = {}
+            for key, item in value.items():
+                if key in {'profile_entry_observation', 'verification_evidence'}:
+                    result[key] = observation_fields(item)
+                elif key == 'profile_diagnostics':
+                    result[key] = profile_fields(item)
+                elif key in allowed:
+                    result[key] = keep(item)
+            return result
         if isinstance(value, (str, int, float, bool)) or value is None:
             return value
         return None

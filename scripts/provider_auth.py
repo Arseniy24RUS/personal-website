@@ -7,6 +7,7 @@ Verification challenges are reported, never solved or bypassed.
 from __future__ import annotations
 
 import os
+import math
 import re
 import time
 from pathlib import Path
@@ -135,6 +136,8 @@ HUMAN_MARKERS = {
 # disappearing. This is only an observation budget, never challenge interaction.
 CHALLENGE_SETTLE_SECONDS = 10.0
 CHALLENGE_POLL_SECONDS = 0.25
+CHALLENGE_TIMELINE_SECONDS = (0, 2, 5, 10, 20, 40, 60)
+CHALLENGE_TIMELINE_LIMIT = 16
 
 
 class _ChallengeObservationTimeout(RuntimeError):
@@ -212,6 +215,14 @@ def challenge_frame_evidence(locator, *, deadline=None):
             body = frame.locator('body')
             if body.count() == 1:
                 result['marker_ids'] = human_marker_ids(body.inner_text(timeout=_observation_timeout(deadline)), frame.url)
+                result.update(body.evaluate("""el => {
+                    const count = selector => Math.min(1000000, el.querySelectorAll(selector).length);
+                    return {ready_state: el.ownerDocument.readyState,
+                        frame_text_length: Math.min(1000000, (el.innerText || '').length),
+                        frame_tag_count: count('*'), frame_button_count: count('button'),
+                        frame_role_button_count: count('[role="button"]'),
+                        frame_input_count: count('input'), frame_canvas_count: count('canvas')};
+                }""", timeout=_observation_timeout(deadline)))
             else:
                 result['observation_incomplete'] = True
     except _ChallengeObservationTimeout:
@@ -265,13 +276,17 @@ def _challenge_observation(page, *, form_submitted, deadline):
     if reason:
         return reason, evidence, False
     pending = None
+    counts = {'hcaptcha_frame_count': 0, 'recaptcha_frame_count': 0, 'other_frame_count': 0}
     frames = page.locator(selector)
     for index in range(frames.count()):
         frame = frames.nth(index)
         if not in_visible_viewport(frame, timeout=_observation_timeout(deadline)):
             continue
         observed = challenge_frame_evidence(frame, deadline=deadline)
-        evidence = {'trigger': 'iframe_title' if observed.get('title_challenge') else 'recaptcha_normal_widget', 'frame': observed}
+        host = observed.get('provider_host', '')
+        category = 'hcaptcha' if provider_host(host, 'hcaptcha.com') else 'recaptcha' if any(provider_host(host, domain) for domain in ('google.com', 'recaptcha.net')) else 'other'
+        counts[f'{category}_frame_count'] += 1
+        evidence = {'trigger': 'iframe_title' if observed.get('title_challenge') else 'recaptcha_normal_widget', 'frame': observed, 'frame_counts': dict(counts)}
         loading = (
             provider_host(observed.get('provider_host', ''), 'hcaptcha.com')
             and observed.get('title_challenge') is True
@@ -288,17 +303,78 @@ def _challenge_observation(page, *, form_submitted, deadline):
         # Inspect every other visible frame before waiting: an interactive
         # challenge must fail immediately even beside an automatic loader.
         pending = pending or evidence
+    if pending:
+        pending['frame_counts'] = counts
     return ('human_verification_required', pending, True) if pending else (None, None, False)
 
 
-def assert_no_challenge(page, *, form_submitted=True):
+def _verification_sample(elapsed, reason, evidence, may_settle, *, terminal=None):
+    """Fixed categories and numeric observations; never copy arbitrary strings."""
+    evidence = evidence or {}
+    frame = evidence.get('frame') or {}
+    if terminal:
+        category = terminal
+    elif not reason:
+        category = 'clear'
+    elif may_settle:
+        category = 'passive'
+    elif evidence.get('trigger') == 'page_marker' or frame.get('marker_ids'):
+        category = 'marker'
+    elif frame.get('checkbox_present') or frame.get('active_challenge_controls'):
+        category = 'interactive'
+    elif frame.get('observation_incomplete') or reason == 'challenge_observation_incomplete':
+        category = 'incomplete'
+    else:
+        category = 'blocked'
+    sample = {'elapsed_seconds': round(max(0, elapsed), 3), 'category': category,
+              'ready_state': frame.get('ready_state') if frame.get('ready_state') in {'loading', 'interactive', 'complete'} else 'unavailable'}
+    numeric = ('frame_text_length', 'frame_tag_count', 'frame_button_count', 'frame_role_button_count', 'frame_input_count', 'frame_canvas_count')
+    for key in numeric:
+        value = frame.get(key)
+        sample[key] = min(1000000, value) if type(value) in (int, float) and 0 <= value <= 1000000 else None
+    for key in ('frame_dom_observed', 'checkbox_present', 'checkbox_visible', 'active_challenge_controls', 'observation_incomplete'):
+        sample[key] = int(frame[key]) if type(frame.get(key)) is bool else None
+    for key in ('hcaptcha_frame_count', 'recaptcha_frame_count', 'other_frame_count'):
+        value = 0 if not reason else (evidence.get('frame_counts') or {}).get(key)
+        sample[key] = value if type(value) is int and 0 <= value <= 1000000 else None
+    return sample
+
+
+def assert_no_challenge(page, *, form_submitted=True, passive_wait_seconds=10.0, passive_deadline=None):
     """Allow only bounded, passive observation of known automatic verification.
 
     A single deadline covers every frame and every observation in this call.
     Disappearance is readiness only; callers must still prove authentication.
     """
-    deadline = time.monotonic() + CHALLENGE_SETTLE_SECONDS
+    if type(passive_wait_seconds) not in (int, float) or not 0 < passive_wait_seconds <= 60:
+        raise AuthFailure('challenge_observation_budget_invalid')
+    started = time.monotonic()
+    deadline = started + passive_wait_seconds
+    if passive_deadline is not None:
+        if type(passive_deadline) not in (int, float) or not math.isfinite(passive_deadline):
+            raise AuthFailure('challenge_observation_budget_invalid')
+        deadline = min(deadline, passive_deadline)
+    timeline = []
+    next_sample = 0
+    previous_category = None
     pending = None
+
+    def observe(reason, evidence, may_settle, *, terminal=None):
+        nonlocal next_sample, previous_category
+        elapsed = max(0, time.monotonic() - started)
+        sample = _verification_sample(elapsed, reason, evidence, may_settle, terminal=terminal)
+        signature = (sample['category'], sample['ready_state'])
+        due = next_sample < len(CHALLENGE_TIMELINE_SECONDS) and elapsed >= CHALLENGE_TIMELINE_SECONDS[next_sample]
+        if terminal or due or signature != previous_category:
+            if len(timeline) < CHALLENGE_TIMELINE_LIMIT:
+                timeline.append(sample)
+            else:
+                timeline[-1] = sample
+        while next_sample < len(CHALLENGE_TIMELINE_SECONDS) and elapsed >= CHALLENGE_TIMELINE_SECONDS[next_sample]:
+            next_sample += 1
+        previous_category = signature
+        return {'elapsed_seconds': round(elapsed, 3), 'observation_budget_seconds': round(max(0, deadline - started), 3), 'observation_timeline': list(timeline)}
+
     while True:
         try:
             reason, evidence, may_settle = _challenge_observation(page, form_submitted=form_submitted, deadline=deadline)
@@ -306,18 +382,25 @@ def assert_no_challenge(page, *, form_submitted=True):
             reason = 'human_verification_required' if pending else 'challenge_observation_incomplete'
             evidence, may_settle = pending, True
         except Exception:
-            raise AuthFailure('challenge_observation_incomplete', verification_evidence={'trigger': 'observation_incomplete'}) from None
+            evidence = {'trigger': 'observation_incomplete'}
+            trace = observe('challenge_observation_incomplete', evidence, False, terminal='incomplete')
+            raise AuthFailure('challenge_observation_incomplete', verification_evidence={**evidence, **trace}) from None
         remaining = deadline - time.monotonic()
         if remaining <= 0:
             failure_reason = reason or ('human_verification_required' if pending else 'challenge_observation_incomplete')
             observed = evidence or pending or {'trigger': 'observation_deadline'}
-            raise AuthFailure(failure_reason, verification_evidence={**observed, 'settling': 'timed_out'}) from None
+            trace = observe(failure_reason, observed, False, terminal='timed_out')
+            raise AuthFailure(failure_reason, verification_evidence={**observed, **trace, 'settling': 'timed_out'}) from None
         if not reason:
+            if pending:
+                return {'settling': 'cleared', **observe(None, None, False, terminal='clear')}
             return
         if not may_settle:
+            evidence = {**(evidence or {}), **observe(reason, evidence, False)}
             if pending is not None and evidence is not None:
                 evidence = {**evidence, 'settling': 'stopped_by_guard'}
             raise AuthFailure(reason, verification_evidence=evidence)
+        observe(reason, evidence, True)
         pending = evidence
         # No click, submission, navigation, token mutation or challenge solving.
         page.wait_for_timeout(min(CHALLENGE_POLL_SECONDS, remaining) * 1000)

@@ -91,13 +91,13 @@ class ChallengeSettlingTests(unittest.TestCase):
 
     def test_transient_frame_disappears_naturally(self):
         page = self.observe([{'frames': [loading_frame()]}, {}])
-        self.assertIsNone(auth.assert_no_challenge(page))
+        self.assertEqual(auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)['settling'], 'cleared')
         self.assertEqual(page.waits, [250.0])
 
     def test_persistent_frame_fails_at_one_deadline(self):
         page = self.observe([{'frames': [loading_frame()]}])
         with self.assertRaises(auth.AuthFailure) as caught:
-            auth.assert_no_challenge(page)
+            auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
         self.assertEqual(caught.exception.reason, 'human_verification_required')
         self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
         self.assertEqual(sum(page.waits), 1000.0)
@@ -108,15 +108,15 @@ class ChallengeSettlingTests(unittest.TestCase):
             {'frames': [loading_frame(active_challenge_controls=True)]},
         ])
         with self.assertRaises(auth.AuthFailure) as caught:
-            auth.assert_no_challenge(page)
+            auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
         self.assertEqual(caught.exception.verification_evidence['settling'], 'stopped_by_guard')
         self.assertEqual(page.waits, [250.0])
 
     def test_page_human_marker_fails_without_wait(self):
         page = self.observe([{'text': 'Please verify you are human', 'frames': [loading_frame()]}])
         with self.assertRaises(auth.AuthFailure) as caught:
-            auth.assert_no_challenge(page)
-        self.assertEqual(caught.exception.verification_evidence, {
+            auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
+        self.assertEqual({key: caught.exception.verification_evidence[key] for key in ('trigger', 'marker_ids')}, {
             'trigger': 'page_marker', 'marker_ids': ['verify_you_are_human'],
         })
         self.assertEqual(page.waits, [])
@@ -124,14 +124,14 @@ class ChallengeSettlingTests(unittest.TestCase):
     def test_page_marker_appearing_during_wait_is_rechecked(self):
         page = self.observe([{'frames': [loading_frame()]}, {'text': 'Authentication code required'}])
         with self.assertRaises(auth.AuthFailure) as caught:
-            auth.assert_no_challenge(page)
+            auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
         self.assertEqual(caught.exception.reason, 'mfa_required')
         self.assertEqual(page.waits, [250.0])
 
     def test_other_interactive_frame_is_not_hidden_by_loader(self):
         page = self.observe([{'frames': [loading_frame(), loading_frame(checkbox_present=True, checkbox_visible=True)]}])
         with self.assertRaises(auth.AuthFailure):
-            auth.assert_no_challenge(page)
+            auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
         self.assertEqual(page.waits, [])
 
     def test_replaced_loader_does_not_restart_deadline(self):
@@ -141,7 +141,7 @@ class ChallengeSettlingTests(unittest.TestCase):
             {'frames': [loading_frame(), loading_frame()]},
         ])
         with self.assertRaises(auth.AuthFailure) as caught:
-            auth.assert_no_challenge(page)
+            auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
         self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
         self.assertEqual(sum(page.waits), 1000.0)
 
@@ -151,7 +151,7 @@ class ChallengeSettlingTests(unittest.TestCase):
             {'frames': [loading_frame()]},
         ])
         with self.assertRaises(auth.AuthFailure) as caught:
-            auth.assert_no_challenge(page)
+            auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
         self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
         self.assertAlmostEqual(sum(page.waits), 400.0)
         self.assertLessEqual(max(page.read_timeouts), 1000.0)
@@ -159,7 +159,7 @@ class ChallengeSettlingTests(unittest.TestCase):
     def test_slow_initial_observation_cannot_succeed_after_deadline(self):
         page = self.observe([{'read_seconds': 1.2}])
         with self.assertRaises(auth.AuthFailure) as caught:
-            auth.assert_no_challenge(page)
+            auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
         self.assertEqual(caught.exception.reason, 'challenge_observation_incomplete')
         self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
         self.assertEqual(page.waits, [])
@@ -167,7 +167,7 @@ class ChallengeSettlingTests(unittest.TestCase):
     def test_late_disappearance_cannot_succeed_after_deadline(self):
         page = self.observe([{'frames': [loading_frame()]}, {'read_seconds': 1.0}])
         with self.assertRaises(auth.AuthFailure) as caught:
-            auth.assert_no_challenge(page)
+            auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
         self.assertEqual(caught.exception.reason, 'human_verification_required')
         self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
         self.assertEqual(page.waits, [250.0])
@@ -176,9 +176,9 @@ class ChallengeSettlingTests(unittest.TestCase):
         page = self.observe([{}])
         with patch.object(page, 'inner_text', side_effect=RuntimeError('private observation detail')):
             with self.assertRaises(auth.AuthFailure) as caught:
-                auth.assert_no_challenge(page)
+                auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
         self.assertEqual(caught.exception.reason, 'challenge_observation_incomplete')
-        self.assertEqual(caught.exception.verification_evidence, {'trigger': 'observation_incomplete'})
+        self.assertEqual(caught.exception.verification_evidence['trigger'], 'observation_incomplete')
         self.assertNotIn('private', str(caught.exception))
 
     def test_unrecognized_or_incompletely_observed_frame_never_gets_grace(self):
@@ -198,7 +198,7 @@ class ChallengeSettlingTests(unittest.TestCase):
             with self.subTest(change=change):
                 page = self.observe([{'frames': [loading_frame(**change)]}])
                 with self.assertRaises(auth.AuthFailure):
-                    auth.assert_no_challenge(page)
+                    auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
                 self.assertEqual(page.waits, [])
 
 
@@ -230,9 +230,11 @@ class ChallengeFrameBrowserTests(unittest.TestCase):
         context.route('**/*', lambda route: route.fulfill(status=200, content_type='text/html', body=body))
         page = context.new_page()
         page.set_content('<iframe title="hCaptcha challenge" src="https://newassets.hcaptcha.com/captcha/private?token=private"></iframe>')
-        with patch.object(auth, 'CHALLENGE_SETTLE_SECONDS', 0.5):
+        # Real browser protocol round trips must fit inside the fixture budget.
+        # Exact deadline behavior is covered by the deterministic clock tests.
+        with patch.object(auth, 'CHALLENGE_SETTLE_SECONDS', 2.0):
             with self.assertRaises(auth.AuthFailure) as caught:
-                auth.assert_no_challenge(page)
+                auth.assert_no_challenge(page, passive_wait_seconds=auth.CHALLENGE_SETTLE_SECONDS)
         self.assertNotIn('private', str(caught.exception.verification_evidence))
         self.assertIsNone(page.evaluate('window.clicked'))
         return caught.exception.verification_evidence
@@ -248,6 +250,19 @@ class ChallengeFrameBrowserTests(unittest.TestCase):
         evidence = self.inspect_fixture('<body>Verify you are human<button onclick="window.clicked=true">Continue</button></body>')
         self.assertNotIn('settling', evidence)
         self.assertEqual(evidence['frame']['marker_ids'], ['verify_you_are_human'])
+
+    def test_dom_counts_are_safe_observations_and_static_canvas_is_not_interaction(self):
+        evidence = self.inspect_fixture('<body>private<canvas></canvas><svg><path></path></svg></body>')
+        frame = evidence['frame']
+        self.assertEqual(evidence['settling'], 'timed_out')
+        self.assertFalse(frame['active_challenge_controls'])
+        self.assertEqual(frame['frame_canvas_count'], 1)
+        self.assertEqual(frame['frame_button_count'], 0)
+        self.assertEqual(frame['frame_input_count'], 0)
+        self.assertGreaterEqual(frame['frame_tag_count'], 3)
+        self.assertGreater(frame['frame_text_length'], 0)
+        self.assertIn(frame['ready_state'], ('loading', 'interactive', 'complete'))
+        self.assertEqual(evidence['observation_timeline'][-1]['frame_canvas_count'], 1)
 
 
 if __name__ == '__main__':
