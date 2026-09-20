@@ -2,7 +2,7 @@
   "schema": "provider_collection/v1",
   "report": {
     "status": "blocked",
-    "attempted_at": "2026-09-20T16:29:19+00:00",
+    "attempted_at": "2026-09-20T19:15:50+00:00",
     "last_success_at": "2026-09-20T15:28:23.031Z",
     "origin": "snapshot",
     "complete": false,
@@ -11,7 +11,7 @@
     "components": {
       "metrics": {
         "status": "blocked",
-        "attempted_at": "2026-09-20T16:29:19+00:00",
+        "attempted_at": "2026-09-20T19:15:50+00:00",
         "last_success_at": "2026-09-20T15:28:23.031Z",
         "origin": "snapshot",
         "complete": false,
@@ -20,7 +20,7 @@
       },
       "publications": {
         "status": "blocked",
-        "attempted_at": "2026-09-20T16:29:19+00:00",
+        "attempted_at": "2026-09-20T19:15:50+00:00",
         "last_success_at": "2026-09-20T15:28:23.031Z",
         "origin": "snapshot",
         "complete": false,
@@ -31,12 +31,15 @@
     "stage": "login",
     "session_checkpoint": {},
     "session_restore": {
-      "status": "missing"
+      "status": "restored",
+      "kind": "confirmed",
+      "validated_at": "2026-09-20T19:07:41+00:00",
+      "cookie_expires_at": "2026-09-27T14:50:01.180420+00:00"
     },
     "diagnostics": [
       {
         "host": "www.webofscience.com",
-        "path": "/wos/author/author-search",
+        "path": "/wos/author/record/AAG-1530-2021",
         "controls": [
           {
             "tag": "div",
@@ -100,167 +103,6 @@
             "name": "",
             "id": "",
             "label": "Профиль исследователя"
-          },
-          {
-            "tag": "button",
-            "type": "",
-            "name": "",
-            "id": "",
-            "label": "ДОКУМЕНТЫ"
-          },
-          {
-            "tag": "a",
-            "type": "",
-            "name": "",
-            "id": "snResearcherSearch",
-            "label": "ИССЛЕДОВАТЕЛИ"
-          },
-          {
-            "tag": "button",
-            "type": "button",
-            "name": "",
-            "id": "",
-            "label": "Поиск по имени"
-          },
-          {
-            "tag": "input",
-            "type": "text",
-            "name": "lastName",
-            "id": "mat-input-0",
-            "label": "Фамилия"
-          },
-          {
-            "tag": "input",
-            "type": "text",
-            "name": "firstName",
-            "id": "mat-input-1",
-            "label": "Имя"
-          },
-          {
-            "tag": "button",
-            "type": "button",
-            "name": "",
-            "id": "",
-            "label": "Добавить вариант имени"
-          },
-          {
-            "tag": "button",
-            "type": "button",
-            "name": "",
-            "id": "",
-            "label": "clear\nОчистить"
-          },
-          {
-            "tag": "button",
-            "type": "submit",
-            "name": "",
-            "id": "",
-            "label": "Поиск"
-          },
-          {
-            "tag": "button",
-            "type": "",
-            "name": "",
-            "id": "",
-            "label": "См. раздел \"Мой профиль\""
-          },
-          {
-            "tag": "button",
-            "type": "",
-            "name": "",
-            "id": "",
-            "label": "Скрыть эту карточку"
-          },
-          {
-            "tag": "a",
-            "type": "",
-            "name": "",
-            "id": "add-full-name",
-            "label": "Добавить полное имя"
-          },
-          {
-            "tag": "a",
-            "type": "",
-            "name": "",
-            "id": "add-org-name",
-            "label": "Добавить организацию"
-          },
-          {
-            "tag": "a",
-            "type": "",
-            "name": "",
-            "id": "",
-            "label": "Добавить публикацию"
-          },
-          {
-            "tag": "a",
-            "type": "",
-            "name": "",
-            "id": "",
-            "label": "Добавление гранта"
-          },
-          {
-            "tag": "button",
-            "type": "",
-            "name": "",
-            "id": "",
-            "label": "Больше"
-          },
-          {
-            "tag": "button",
-            "type": "",
-            "name": "",
-            "id": "",
-            "label": "Нажмите здесь, чтобы свернуть виджет"
-          },
-          {
-            "tag": "button",
-            "type": "",
-            "name": "",
-            "id": "",
-            "label": "Просмотреть мой профиль исследователя"
-          },
-          {
-            "tag": "a",
-            "type": "",
-            "name": "",
-            "id": "addPublication-profile-link",
-            "label": "Добавить публикации"
-          },
-          {
-            "tag": "a",
-            "type": "",
-            "name": "",
-            "id": "addReview-profile-link",
-            "label": "Добавить экспертные оценки"
-          },
-          {
-            "tag": "a",
-            "type": "",
-            "name": "",
-            "id": "export-profile-link",
-            "label": "Экспортировать мое резюме"
-          },
-          {
-            "tag": "a",
-            "type": "",
-            "name": "",
-            "id": "wos-academy-link",
-            "label": "Web of Science Academy"
-          },
-          {
-            "tag": "a",
-            "type": "",
-            "name": "",
-            "id": "",
-            "label": "Настройка главной страницы"
-          },
-          {
-            "tag": "a",
-            "type": "",
-            "name": "",
-            "id": "InstLogoTa-0",
-            "label": "More information for new users"
           },
           {
             "tag": "a",
@@ -368,11 +210,32 @@
             "label": "Обратиться в Службу поддержки пользователей"
           },
           {
-            "tag": "button",
+            "tag": "a",
             "type": "",
             "name": "",
             "id": "",
-            "label": "Закрыть"
+            "label": "Мой профиль"
+          },
+          {
+            "tag": "a",
+            "type": "",
+            "name": "",
+            "id": "",
+            "label": "Настройки"
+          },
+          {
+            "tag": "a",
+            "type": "",
+            "name": "",
+            "id": "",
+            "label": "Завершить сеанс"
+          },
+          {
+            "tag": "a",
+            "type": "",
+            "name": "",
+            "id": "",
+            "label": "Завершить сеанс и выйти"
           }
         ]
       }
@@ -392,7 +255,7 @@
         "size_normal": false,
         "in_visible_viewport": true,
         "rect": {
-          "x": 512,
+          "x": 520,
           "y": 251,
           "width": 400,
           "height": 600
@@ -407,14 +270,11 @@
         "css_clip_present": false,
         "ancestor_modal": true,
         "viewport_intersects": true,
-        "center_hit_iframe": true
-      }
-    },
-    "authentication_evidence": {
-      "submit_clicked": true,
-      "input_matches_configured": true,
-      "username_format_valid": true,
-      "username_normalized": false
+        "center_hit_iframe": false,
+        "frame_host_matches_provider": true,
+        "marker_ids": []
+      },
+      "settling": "timed_out"
     },
     "authentication": null
   },

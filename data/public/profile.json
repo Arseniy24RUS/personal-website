@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T16:29:19+00:00",
+  "generated_at": "2026-09-20T19:15:50+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
@@ -821,7 +821,7 @@
     "note": "Search metrics are calculated from a complete Search response. Missing citation counts remain unknown."
   },
   "scientometrics": {
-    "generated_at": "2026-09-20T16:29:19+00:00",
+    "generated_at": "2026-09-20T19:15:50+00:00",
     "columns": [
       "rinc",
       "scopus",
@@ -901,7 +901,7 @@
         "citations": 8,
         "h_index": 2,
         "status": "blocked",
-        "attempted_at": "2026-09-20T16:29:19+00:00",
+        "attempted_at": "2026-09-20T19:15:50+00:00",
         "last_success_at": "2026-09-20T15:28:23.031Z",
         "origin": "snapshot",
         "complete": false,
@@ -995,26 +995,6 @@
       "record_count": 59,
       "reason": null,
       "components": {
-        "metrics": {
-          "status": "success",
-          "attempted_at": "2026-09-20T16:25:44+00:00",
-          "last_success_at": "2026-09-20T16:25:44+00:00",
-          "origin": "live",
-          "complete": true,
-          "record_count": 1,
-          "reason": null
-        },
-        "publications": {
-          "status": "success",
-          "attempted_at": "2026-09-20T16:25:44+00:00",
-          "last_success_at": "2026-09-20T16:25:44+00:00",
-          "origin": "live",
-          "complete": true,
-          "record_count": 59,
-          "reason": null,
-          "last_observation_at": "2026-09-20T16:25:47+00:00",
-          "observed_count": 59
-        },
         "details": {
           "status": "success",
           "attempted_at": "2026-09-20T16:25:44+00:00",
@@ -1028,12 +1008,32 @@
           "pending": 0,
           "fetched": 59,
           "failed": 0
+        },
+        "publications": {
+          "status": "success",
+          "attempted_at": "2026-09-20T16:25:44+00:00",
+          "last_success_at": "2026-09-20T16:25:44+00:00",
+          "origin": "live",
+          "complete": true,
+          "record_count": 59,
+          "reason": null,
+          "last_observation_at": "2026-09-20T16:25:47+00:00",
+          "observed_count": 59
+        },
+        "metrics": {
+          "status": "success",
+          "attempted_at": "2026-09-20T16:25:44+00:00",
+          "last_success_at": "2026-09-20T16:25:44+00:00",
+          "origin": "live",
+          "complete": true,
+          "record_count": 1,
+          "reason": null
         }
       }
     },
     "wos": {
       "status": "blocked",
-      "attempted_at": "2026-09-20T16:29:19+00:00",
+      "attempted_at": "2026-09-20T19:15:50+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
@@ -1043,7 +1043,7 @@
       "components": {
         "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-09-20T16:29:19+00:00",
+          "attempted_at": "2026-09-20T19:15:50+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
@@ -1052,7 +1052,7 @@
         },
         "publications": {
           "status": "blocked",
-          "attempted_at": "2026-09-20T16:29:19+00:00",
+          "attempted_at": "2026-09-20T19:15:50+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
@@ -1109,7 +1109,7 @@
     }
   },
   "wos_public_merge_report": {
-    "generated_at": "2026-09-20T16:29:19+00:00",
+    "generated_at": "2026-09-20T19:15:50+00:00",
     "records_seen": 13,
     "enriched": 13,
     "added": 0,

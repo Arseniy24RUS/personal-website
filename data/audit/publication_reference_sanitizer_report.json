@@ -1,9 +1,9 @@
 {
   "records": 72,
-  "changed_records": 1,
-  "field_changes": 4,
-  "excluded_reference_fields": 56,
-  "bad_references_before": 1,
+  "changed_records": 0,
+  "field_changes": 0,
+  "excluded_reference_fields": 68,
+  "bad_references_before": 0,
   "bad_references_after": 0,
   "samples": [
     {
@@ -15,19 +15,14 @@
           "reason": "invalid_venue"
         },
         {
+          "field": "venue_ru",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
           "field": "volume",
           "old": "К",
           "reason": "invalid_volume"
-        },
-        {
-          "field": "gost_ru",
-          "old": "Ростовская Т.К., Архангельский В.Н., Васильева Е.Н., Иванова А.Е., Семенова В.Г., Кучмаева О.В., Ситковский А.М. ДЕМОГРАФИЧЕСКОЕ РАЗВИТИЕ ГОРОДА СЕВАСТОПОЛЯ: КОМПЛЕКСНОЕ ИССЛЕДОВАНИЕ. // Ы. — 2026. — Т. К. — № 400. — URL: https://www.elibrary.ru/item.asp?id=91715753.",
-          "reason": "bad_reference_text"
-        },
-        {
-          "field": "apa_en",
-          "old": "Rostovskaya, T. K., Arkhangelskii, V. N., Vasileva, E. N., Ivanova, A. E., Semenova, V. G., Kuchmaeva, O. V., & Sitkovskii, A. M. (2026). Demographic development of the city of Sevastopol: a comprehensive study. Y, К(400). https://www.elibrary.ru/item.asp?id=91715753",
-          "reason": "bad_reference_text"
         }
       ],
       "published_metadata_preserved": true,
@@ -80,6 +75,11 @@
       "changes": [
         {
           "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "venue_ru",
           "old": "Ы",
           "reason": "invalid_venue"
         },
@@ -144,6 +144,11 @@
       "changes": [
         {
           "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "venue_ru",
           "old": "Ы",
           "reason": "invalid_venue"
         },
@@ -309,6 +314,11 @@
           "reason": "invalid_venue"
         },
         {
+          "field": "venue_ru",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
           "field": "volume",
           "old": "К",
           "reason": "invalid_volume"
@@ -323,6 +333,11 @@
       "changes": [
         {
           "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "venue_ru",
           "old": "Ы",
           "reason": "invalid_venue"
         }
