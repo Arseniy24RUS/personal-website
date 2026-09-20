@@ -1,51 +1,51 @@
 {
-  "source": "web_of_science_free_view_author_profile",
+  "source": "web_of_science_authenticated_orcid",
   "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
   "researcher_id": "AAG-1530-2021",
-  "generated_at": "2026-09-14T09:05:18+00:00",
-  "page_title": "Arseniy Sitkovskiy - Web of Science Researcher Profile",
+  "generated_at": "2026-09-20T15:28:23.031Z",
+  "page_title": "Arseniy Sitkovskiy - Профиль исследователя Web of Science",
   "summary": {
-    "publications": 10,
-    "citations": 7,
+    "publications": 13,
+    "citations": 8,
     "h_index": 2,
-    "total_documents": 25,
-    "indexed_publications": 17,
-    "core_collection_publications": 10
+    "total_documents": 28,
+    "indexed_publications": 19,
+    "core_collection_publications": 13
   },
   "summary_metrics": {
-    "Total documents": {
-      "raw": "25",
-      "value": 25
+    "Всего документов": {
+      "raw": "28",
+      "value": 28
     },
-    "Publications indexed in Web of Science": {
-      "raw": "17",
-      "value": 17
+    "Публикации, индексированные в Web of Science": {
+      "raw": "19",
+      "value": 19
     },
-    "Web of Science Core Collection publications": {
-      "raw": "10",
-      "value": 10
+    "Публикации Web of Science Core Collection": {
+      "raw": "13",
+      "value": 13
     },
-    "Preprints": {
+    "Препринты": {
       "raw": "0",
       "value": 0
     },
-    "Dissertations or Theses": {
+    "Диссертации или тезисы": {
       "raw": "0",
       "value": 0
     },
-    "Non-indexed publications": {
-      "raw": "8",
-      "value": 8
+    "Неиндексированные публикации": {
+      "raw": "9",
+      "value": 9
     },
-    "Verified peer reviews": {
+    "Оценки проверенных экспертов": {
       "raw": "0",
       "value": 0
     },
-    "Verified editor records": {
+    "Проверенные записи редактора": {
       "raw": "0",
       "value": 0
     },
-    "Awarded grants": {
+    "Полученные гранты": {
       "raw": "0",
       "value": 0
     }
@@ -56,53 +56,53 @@
       "value": 2,
       "descriptor": "H-Index"
     },
-    "Publications": {
-      "raw": "10",
-      "value": 10,
-      "descriptor": "Publications"
+    "публикации": {
+      "raw": "13",
+      "value": 13,
+      "descriptor": "публикации"
     },
-    "Sum of Times Cited": {
-      "raw": "7",
-      "value": 7,
-      "descriptor": "Sum of Times Cited"
+    "Суммарное количество цитирований": {
+      "raw": "8",
+      "value": 8,
+      "descriptor": "Суммарное количество цитирований"
     },
-    "Citing Articles": {
-      "raw": "7",
-      "value": 7,
-      "descriptor": "Citing Articles"
+    "Цитирующие статьи": {
+      "raw": "8",
+      "value": 8,
+      "descriptor": "Цитирующие статьи"
     },
-    "Sum of Times Cited without self-citations": {
-      "raw": "4",
-      "value": 4,
-      "descriptor": "Sum of Times Cited without self-citations"
+    "Суммарное количество цитирований без самоцитирования": {
+      "raw": "5",
+      "value": 5,
+      "descriptor": "Суммарное количество цитирований без самоцитирования"
     },
-    "Citing Articles without self-citations": {
-      "raw": "4",
-      "value": 4,
-      "descriptor": "Citing Articles without self-citations"
+    "Цитирующие статьи без самоцитирования": {
+      "raw": "5",
+      "value": 5,
+      "descriptor": "Цитирующие статьи без самоцитирования"
     },
-    "Sum of Times Cited by Patents": {
+    "Суммарное количество цитирований в патентах": {
       "raw": "0",
       "value": 0,
-      "descriptor": "Sum of Times Cited by Patents"
+      "descriptor": "Суммарное количество цитирований в патентах"
     },
-    "Citing Patents": {
+    "Цитирующие патенты": {
       "raw": "0",
       "value": 0,
-      "descriptor": "Citing Patents"
+      "descriptor": "Цитирующие патенты"
     },
-    "Sum of Times Cited by Policy": {
+    "Суммарное количество цитирований по каждой политике": {
       "raw": "0",
       "value": 0,
-      "descriptor": "Sum of Times Cited by Policy"
+      "descriptor": "Суммарное количество цитирований по каждой политике"
     },
-    "Citing Policy Documents": {
+    "Цитирующие политически документы": {
       "raw": "0",
       "value": 0,
-      "descriptor": "Citing Policy Documents"
+      "descriptor": "Цитирующие политически документы"
     }
   },
-  "records_count_on_page": 10,
+  "records_count_on_page": 13,
   "records": [
     {
       "source": "web_of_science_free_view_author_profile",
@@ -119,12 +119,14 @@
       "volume": "28",
       "issue": "1",
       "pages": "33-64",
-      "doi": null,
+      "doi": "10.17853/1994-5639-2026-1-33-64",
       "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
-      "dedupe_fingerprint": "260c00ca0ca1b704",
+      "dedupe_fingerprint": "af68ebb410a957de",
       "sources": [
         "wos"
-      ]
+      ],
+      "metadata_raw": "4 | Article | Comparative content analysis of master's and doctoral programmes in demography at world-class universities | Rostovskaya, TK | and | Sitkovskiy, AM | Jan 2026 | arrow_back | Информация о журнале | clear | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | Название издателя | RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | EDUCATION & EDUCATIONAL RESEARCH | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.25 | 2024 | 0.31 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | 28 | (1) | , pp.33-64 | Introduction. Global demographic challenges necessitate training specialists who possess both traditional and advanced digital and managerial competencies. However, the structure and content of demographic programmes at leading universities have not previously undergone comprehensive comparative | Бесплатный полный текст от издателя | for Comparative content analysis of master's and doctoral programmes in demography at world-class universities | 0 | Ссылки",
+      "observed_at": "2026-09-20T15:28:23.031Z"
     },
     {
       "source": "web_of_science_free_view_author_profile",
@@ -146,7 +148,9 @@
       "dedupe_fingerprint": "37492320529d23f6",
       "sources": [
         "wos"
-      ]
+      ],
+      "metadata_raw": "5 | Article | The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance | Bezverbny, V | ; | Rostovskaya, T | ; | (...); | Roslavtsev, S | Dec 8 2025 | arrow_back | Информация о журнале | clear | FRONTIERS IN POLITICAL SCIENCE | Название издателя | FRONTIERS MEDIA SA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | INTERNATIONAL RELATIONS | в ESCI редакция | Q2 | POLITICAL SCIENCE | в ESCI редакция | Q2 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.87 | 2024 | 1.02 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | FRONTIERS IN POLITICAL SCIENCE | 7 | This article quantifies how population density shapes the socio-economic trajectories of Russian regions and translates the results into an operational framework for place-sensitive policy (\"cluster-differentiated density governance\"). Using annual official statistics for 89 federal subjects over | Бесплатный полный текст от издателя | for The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance | 0 | Ссылки",
+      "observed_at": "2026-09-20T15:28:23.031Z"
     },
     {
       "source": "web_of_science_free_view_author_profile",
@@ -168,7 +172,9 @@
       "dedupe_fingerprint": "c1dbcbc6033e9767",
       "sources": [
         "wos"
-      ]
+      ],
+      "metadata_raw": "6 | Article | Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education | Sitkovskiy, AM | and | Dozhdikov, AV | Jun 2025 | arrow_back | Информация о журнале | clear | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | Название издателя | RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | EDUCATION & EDUCATIONAL RESEARCH | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.25 | 2024 | 0.31 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | 27 | (6) | , pp.149-179 | Introduction. Intra-Russian educational migration among young people is significant due to the necessity for balanced spatial development within the educational system and the need to enhance the appeal of regional universities. The absence of an effective regional educational policy results in a | Бесплатный полный текст от издателя | for Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education | 1 | Цитирования | 0 | Ссылки",
+      "observed_at": "2026-09-20T15:28:23.031Z"
     },
     {
       "source": "web_of_science_free_view_author_profile",
@@ -190,7 +196,9 @@
       "dedupe_fingerprint": "6916a7362204b95c",
       "sources": [
         "wos"
-      ]
+      ],
+      "metadata_raw": "7 | Article | The Influence of the Agglomeration Effect on the Demographic Policy of Territories | Sitkovskiy, AM | ; | Raisikh, AE | ; | (...); | Bezverbnaya, NA | 2025 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 18 | (6) | , pp.90-109 | In the context of increasing spatial polarization and uneven urbanization, the central question becomes the empirical assessment of the agglomeration effect's influence on the demographic dynamics of peripheral settlements. This study is devoted to a quantitative analysis of the relationship betw | Бесплатный полный текст от издателя | for The Influence of the Agglomeration Effect on the Demographic Policy of Territories | 0 | Ссылки",
+      "observed_at": "2026-09-20T15:28:23.031Z"
     },
     {
       "source": "web_of_science_free_view_author_profile",
@@ -212,7 +220,9 @@
       "dedupe_fingerprint": "e1cadb326aba0857",
       "sources": [
         "wos"
-      ]
+      ],
+      "metadata_raw": "8 | Article | Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\" | Rostovskaya, TK | ; | Sitkovskiy, AM | and | Gishkaeva, LN | 2025 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (4) | , pp.233-253 | The article presents an evaluation of the authors' original methodology for conducting demographic expertise of documents in the field of demographic policy. The authors tested this methodology using the regional program of the Republic of Tuva, \"Increasing Birth Rates in the Republic of Tuva for | Бесплатный полный текст от издателя | for Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\" | 0 | Ссылки",
+      "observed_at": "2026-09-20T15:28:23.031Z"
     },
     {
       "source": "web_of_science_free_view_author_profile",
@@ -234,7 +244,9 @@
       "dedupe_fingerprint": "cedfa5f82e69128a",
       "sources": [
         "wos"
-      ]
+      ],
+      "metadata_raw": "9 | Article | Demographic Resources of Russia: Variability of Approaches and Assessments | Rostovskaya, TK | and | Sitkovskiy, AM | 2025 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 18 | (3) | , pp.183-202 | In the context of a deep demographic crisis faced by many countries in the world, the issue of identifying and using demographic development resources as a key component of national security is becoming important. This article continues a series of publications by the authors devoted to the study | Бесплатный полный текст от издателя | for Demographic Resources of Russia: Variability of Approaches and Assessments | 0 | Ссылки",
+      "observed_at": "2026-09-20T15:28:23.031Z"
     },
     {
       "source": "web_of_science_free_view_author_profile",
@@ -256,7 +268,9 @@
       "dedupe_fingerprint": "ccb4f8962953567f",
       "sources": [
         "wos"
-      ]
+      ],
+      "metadata_raw": "10 | Article | The settlement system of the Republic of Tuva: central places | Sitkovskiy, AM | and | Delovarova, LF | 2025 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (2) | , pp.70-91 | The article presents an analysis of the settlement framework of the Republic of Tuva. The methodological basis includes statistical research methods and geoinformation methods (such as schematic mapping and the isochrone method). Data preparation and processing were carried out usingMS Excel and | Бесплатный полный текст от издателя | for The settlement system of the Republic of Tuva: central places | 0 | Ссылки",
+      "observed_at": "2026-09-20T15:28:23.031Z"
     },
     {
       "source": "web_of_science_free_view_author_profile",
@@ -278,7 +292,9 @@
       "dedupe_fingerprint": "3afa3efd22c8b75c",
       "sources": [
         "wos"
-      ]
+      ],
+      "metadata_raw": "11 | Article | Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects | Bezverbny, VA | ; | Mikryukov, NY | and | Sitkovskiy, AM | 2024 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (3) | , pp.226-239 | The article explores the gender and spatial aspects of interregional educational migration in Russia between 2017 and 2019, with a particular focus on young people aged 15-16 and 17-18. The study uncovers trends in the appeal of different regions for educational migrants and identifies gender dif | Бесплатный полный текст от издателя | for Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects | 3 | Цитирования | 0 | Ссылки",
+      "observed_at": "2026-09-20T15:28:23.031Z"
     },
     {
       "source": "web_of_science_free_view_author_profile",
@@ -300,7 +316,9 @@
       "dedupe_fingerprint": "1e4db15b8571e214",
       "sources": [
         "wos"
-      ]
+      ],
+      "metadata_raw": "12 | Article | Demographic Development Resources: On the Unification of Concepts in Demographic Research | Rostovskaya, TK | and | Sitkovskiy, AM | 2024 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 17 | (1) | , pp.178-200 | The article attempts to distinguish a variety of related and consonant fundamental demographic terms, including: demographic development, demographic policy, demographic development (policy) tools, demographic development (policy) mechanism, demographic potential, demographic resilience. We also | Бесплатный полный текст от издателя | for Demographic Development Resources: On the Unification of Concepts in Demographic Research | 4 | Цитирования | 0 | Ссылки",
+      "observed_at": "2026-09-20T15:28:23.031Z"
     },
     {
       "source": "web_of_science_free_view_author_profile",
@@ -317,13 +335,72 @@
       "volume": "105",
       "issue": null,
       "pages": "120-128",
-      "doi": null,
+      "doi": "10.15405/epsbs.2021.04.13",
       "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:000773381800013",
-      "dedupe_fingerprint": "b8be076729284a92",
+      "dedupe_fingerprint": "a36eda1831b53d35",
       "sources": [
         "wos"
-      ]
+      ],
+      "metadata_raw": "13 | Proceedings Paper | \"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION | Gordeev, S | and | Sitkovskiy, A | 4th International Scientific Conference on Competitiveness and the Development of Socio-Economic Systems dedicated to the Memory of Alexander Tatarkin (CDSES) | 2021 | COMPETITIVENESS AND THE DEVELOPMENT OF SOCIO-ECONOMIC SYSTEMS | 105 | , pp.120-128 | The article discusses the issues of updating the foundations of the toolkit methodology associated with spatial development research. These issues are related to structural changes in the economy and inevitably affect various aspects of spatial development. Further, these changes predetermine the | Бесплатный полный текст от издателя | for \"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION | 0 | Ссылки",
+      "observed_at": "2026-09-20T15:28:23.031Z"
+    },
+    {
+      "source": "web_of_science_free_view_author_profile",
+      "wos_uid": "WOS:001826272100001",
+      "document_type": "Article",
+      "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+      "title_en": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+      "authors_raw": "Dozhdikov, AV and Sitkovskiy, AM",
+      "venue": "FRONTIERS IN BIG DATA",
+      "venue_en": "FRONTIERS IN BIG DATA",
+      "year": 2026,
+      "volume": "9",
+      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001826272100001",
+      "metadata_raw": "1 | Article | Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization | Dozhdikov, AV | and | Sitkovskiy, AM | Jul 8 2026 | arrow_back | Информация о журнале | clear | FRONTIERS IN BIG DATA | Название издателя | FRONTIERS MEDIA SA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | COMPUTER SCIENCE, INFORMATION SYSTEMS | в ESCI редакция | Q2 | COMPUTER SCIENCE, INTERDISCIPLINARY APPLICATIONS | в ESCI редакция | Q2 | MULTIDISCIPLINARY SCIENCES | в ESCI редакция | Q1 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.52 | 2024 | 0.47 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | FRONTIERS IN BIG DATA | 9 | Demographic systems face unprecedented challenges from simultaneous crises. Conventional statistical demography techniques and agent-based models often struggle to capture nonlinear inter-regional interactions during periods of severe socio-economic disruption. To address this, we propose MADDPG- | Бесплатный полный текст от издателя | for Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization | 0 | Ссылки",
+      "dedupe_fingerprint": "c5e2c3ac93e0fc9f",
+      "sources": [
+        "wos"
+      ],
+      "observed_at": "2026-09-20T15:28:23.031Z"
+    },
+    {
+      "source": "web_of_science_free_view_author_profile",
+      "wos_uid": "WOS:001767258700001",
+      "document_type": "Article",
+      "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+      "title_en": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+      "authors_raw": "Raysikh, A ; Bezverbny, V ; (...); Zenkov, D",
+      "venue": "FRONTIERS IN SUSTAINABLE CITIES",
+      "venue_en": "FRONTIERS IN SUSTAINABLE CITIES",
+      "year": 2026,
+      "volume": "8",
+      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001",
+      "metadata_raw": "2 | Article | The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels | Raysikh, A | ; | Bezverbny, V | ; | (...); | Zenkov, D | May 4 2026 | arrow_back | Информация о журнале | clear | FRONTIERS IN SUSTAINABLE CITIES | Название издателя | FRONTIERS MEDIA SA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ENVIRONMENTAL SCIENCES | в ESCI редакция | Q3 | ENVIRONMENTAL STUDIES | в ESCI редакция | Q2 | GREEN & SUSTAINABLE SCIENCE & TECHNOLOGY | в ESCI редакция | Q3 | URBAN STUDIES | в ESCI редакция | Q1 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.49 | 2024 | 0.47 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | FRONTIERS IN SUSTAINABLE CITIES | 8 | This study provides the first quantitative assessment of how transport accessibility affects population dynamics in 73 Russian urban agglomerations across the intercensal periods 1989-2021. Using OpenStreetMap data, we calculated accessibility to agglomeration centers for more than 2,800 settleme | Бесплатный полный текст от издателя | for The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels | 0 | Ссылки",
+      "dedupe_fingerprint": "79e3c3fa3a492d6f",
+      "sources": [
+        "wos"
+      ],
+      "observed_at": "2026-09-20T15:28:23.031Z"
+    },
+    {
+      "source": "web_of_science_free_view_author_profile",
+      "wos_uid": "WOS:001766714000001",
+      "document_type": "Article",
+      "title": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+      "title_en": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+      "authors_raw": "Sitkovskiy, AM",
+      "venue": "FRONTIERS IN HUMAN DYNAMICS",
+      "venue_en": "FRONTIERS IN HUMAN DYNAMICS",
+      "year": 2026,
+      "volume": "8",
+      "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001766714000001",
+      "metadata_raw": "3 | Article | Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition | Sitkovskiy, AM | May 4 2026 | arrow_back | Информация о журнале | clear | FRONTIERS IN HUMAN DYNAMICS | Название издателя | FRONTIERS MEDIA SA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | DEMOGRAPHY | в ESCI редакция | Q1 | SOCIAL ISSUES | в ESCI редакция | Q1 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.91 | 2024 | 0.68 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | FRONTIERS IN HUMAN DYNAMICS | 8 | Demographic structure does not determine intergenerational cultural continuity, but it conditions its opportunities and constraints. Using Rosstat's 2020 All-Russian Population Census tabulations, this study assembles non-overlapping national and regional age-sex profiles for legally recognized I | Бесплатный полный текст от издателя | for Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition | 0 | Ссылки",
+      "dedupe_fingerprint": "fcbe356d2da588c7",
+      "sources": [
+        "wos"
+      ],
+      "observed_at": "2026-09-20T15:28:23.031Z"
     }
   ],
-  "records_preserved_from_previous": true
+  "observation_method": "authorized_browser_capture"
 }

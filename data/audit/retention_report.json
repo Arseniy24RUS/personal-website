@@ -1,11 +1,11 @@
 {
   "status": "success",
-  "baseline_ref": "45f203f07c36f6ed98b13e45fba7eeb3720958ce",
-  "baseline_commit": "45f203f07c36f6ed98b13e45fba7eeb3720958ce",
+  "baseline_ref": "e7d6716",
+  "baseline_commit": "e7d67167f958d9e7a218d3d5f74120b6a98c358e",
   "datasets": {
     "data/public/publications.json": {
       "before": 69,
-      "after": 69
+      "after": 72
     },
     "data/media/published.json": {
       "before": 23,

@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-09-20T14:39:45+00:00",
-  "records_seen": 10,
-  "publications_after_merge": 69,
-  "enriched": 10,
+  "generated_at": "2026-09-20T15:33:49+00:00",
+  "records_seen": 13,
+  "publications_after_merge": 72,
+  "enriched": 13,
   "added": 0,
   "changed_fields": 0,
   "matched_sample": [
     {
       "title": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
-      "doi": null,
+      "doi": "10.17853/1994-5639-2026-1-33-64",
       "wos_uid": "WOS:001705010300002"
     },
     {
@@ -53,8 +53,23 @@
     },
     {
       "title": "\"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
-      "doi": null,
+      "doi": "10.15405/epsbs.2021.04.13",
       "wos_uid": "WOS:000773381800013"
+    },
+    {
+      "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+      "doi": null,
+      "wos_uid": "WOS:001826272100001"
+    },
+    {
+      "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+      "doi": null,
+      "wos_uid": "WOS:001767258700001"
+    },
+    {
+      "title": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+      "doi": null,
+      "wos_uid": "WOS:001766714000001"
     }
   ],
   "auto_added": []
