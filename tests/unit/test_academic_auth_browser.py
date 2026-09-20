@@ -10,6 +10,7 @@ import sys
 import unittest
 from pathlib import Path
 from unittest.mock import patch
+from urllib.parse import parse_qs
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
 import provider_auth as auth
@@ -66,6 +67,7 @@ class AuthBrowserTests(unittest.TestCase):
 
     def test_wos_signin_menu_orcid_callback(self):
         visited = []
+        form_data = []
         authenticated = False
         profile_url = 'https://www.webofscience.com/wos/author/record/TEST'
 
@@ -76,10 +78,11 @@ class AuthBrowserTests(unittest.TestCase):
             if url.startswith('https://access.clarivate.com/'):
                 html = '<body><a href="https://orcid.org/oauth/authorize">Sign in with ORCID</a></body>'
             elif url == 'https://orcid.org/finish':
+                form_data.append(parse_qs(request.request.post_data or ''))
                 authenticated = True
                 html = f'<body><script>location.href="{profile_url}"</script></body>'
             elif url.startswith('https://orcid.org/oauth/'):
-                html = '''<body><form method="post" action="/finish"><input id="username-input"><input type="password"><button id="signin-button" type="submit">Sign in to ORCID</button></form></body>'''
+                html = '''<body><p>Please enter a valid email address or ORCID iD</p><form method="post" action="/finish"><input id="username-input" name="username"><input type="password" name="password"><button id="signin-button" type="submit">Sign in to ORCID</button></form></body>'''
             elif authenticated:
                 html = '<body><button data-ta="user-menu">Account</button><p>Author works</p></body>'
             else:
@@ -89,13 +92,15 @@ class AuthBrowserTests(unittest.TestCase):
             request.fulfill(status=200, content_type='text/html', body=html)
 
         self.context.route('**/*', route)
-        with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture-user', 'WOS_ORCID_PASSWORD': 'fixture-password'}):
+        with patch.dict(os.environ, {'WOS_ORCID_USERNAME': ' fixture\\@example.test ', 'WOS_ORCID_PASSWORD': ' fixture\\@password '}):
             page = auth.login_wos(self.context, profile_url, timeout=30)
         self.assertTrue(auth.wos_authenticated(page))
         self.assertFalse(any('0000-public-record' in url for url in visited))
         self.assertTrue(any('access.clarivate.com/login' in url for url in visited))
         self.assertTrue(any('orcid.org/oauth' in url for url in visited))
         self.assertEqual(visited[0], 'https://www.webofscience.com/')
+        self.assertEqual(form_data[0]['username'], ['fixture@example.test'])
+        self.assertEqual(form_data[0]['password'], [' fixture\\@password '])
 
     def test_captcha_is_explicit_and_not_interacted_with(self):
         page = self.context.new_page()
@@ -128,7 +133,7 @@ class AuthBrowserTests(unittest.TestCase):
             request.fulfill(status=200, content_type='text/html', body=html)
 
         self.context.route('**/*', route)
-        with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture-user', 'WOS_ORCID_PASSWORD': 'fixture-password'}):
+        with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture@example.test', 'WOS_ORCID_PASSWORD': 'fixture-password'}):
             page = auth.login_wos(self.context, profile_url, timeout=30)
         self.assertTrue(auth.wos_authenticated(page))
         self.assertFalse(any('invalid.test' in url for url in visited))
@@ -156,7 +161,7 @@ class AuthBrowserTests(unittest.TestCase):
                 html = '''<body><form onsubmit="event.preventDefault();fetch('/signin/auth.json',{method:'POST',body:'fixture'});"><input id="username-input"><input type="password"><button id="signin-button" type="submit">Sign in to ORCID</button></form></body>'''
             request.fulfill(status=200, content_type='text/html', body=html)
         self.context.route('**/*', route)
-        with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture-user', 'WOS_ORCID_PASSWORD': 'fixture-password'}):
+        with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture@example.test', 'WOS_ORCID_PASSWORD': 'fixture-password'}):
             with self.assertRaises(auth.AuthFailure) as caught:
                 auth.login_wos(self.context, 'https://www.webofscience.com/wos/author/record/TEST', timeout=20)
         self.assertEqual(caught.exception.reason, 'orcid_signin_rejected')

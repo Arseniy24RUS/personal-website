@@ -46,6 +46,27 @@ def now():
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
+def date_day(value):
+    parsed = parse_date_value(value)
+    try:
+        return datetime.fromisoformat(parsed[:10]).date().isoformat() if parsed else None
+    except (TypeError, ValueError):
+        return None  # An unknown/malformed date cannot justify dropping a URL.
+
+
+def discovery_cutoff(cfg, state):
+    initial = (datetime.now(timezone.utc) - timedelta(days=int(cfg.get('initial_lookback_days', 90)))).date().isoformat()
+    return state.setdefault('initial_cutoff', initial)
+
+
+def candidate_priority(candidate, cfg):
+    hint = clean(candidate.get('title')) + ' ' + unquote(candidate['url']).replace('-', ' ').replace('_', ' ')
+    date = date_day(candidate.get('published_at')) or date_day(candidate.get('sitemap_lastmod')) or ''
+    return (candidate.get('source') == 'institutional_news_listing',
+            score_record('', hint, candidate['url'], cfg), bool(date), date,
+            not bool(candidate.get('last_attempt_at')))
+
+
 def clean(value):
     return re.sub(r'\s+', ' ', html.unescape(str(value or ''))).strip()
 
@@ -215,8 +236,7 @@ def parse_listing(raw, source, cutoff):
 
 def discover_listings(cfg, reports, state):
     items = []
-    initial = (datetime.now(timezone.utc) - timedelta(days=int(cfg.get('initial_lookback_days', 90)))).date().isoformat()
-    cutoff = state.setdefault('initial_cutoff', initial)
+    cutoff = discovery_cutoff(cfg, state)
     for source in source_slices(cfg.get('listing_sources', [])):
         raw, report = fetch_text(source['url'])
         if raw:
@@ -318,8 +338,9 @@ def discover_rss(cfg, reports, state):
     return items
 
 
-def fetch_sitemap_urls(url, limit, allow_regex=None, max_sitemaps=12, state=None):
+def fetch_sitemap_urls(url, limit, allow_regex=None, max_sitemaps=12, state=None, include_metadata=False):
     backlog = state.setdefault('sitemap_pending', {}) if state is not None else {}
+    cutoff = (state or {}).get('initial_cutoff')
     queue, visited, urls, reports = list(dict.fromkeys(backlog.get(url, []) + [url])), set(), [], []
     failed = []
     rx = re.compile(allow_regex) if allow_regex else None
@@ -347,7 +368,11 @@ def fetch_sitemap_urls(url, limit, allow_regex=None, max_sitemaps=12, state=None
                         queue.append(loc)
                 elif (not rx or rx.search(loc)) and not STATIC.search(loc):
                     modified = next((clean(n.text) for n in entry if n.tag.rsplit('}', 1)[-1] == 'lastmod'), '')
-                    urls.append((modified, loc))
+                    day = date_day(modified)
+                    if cutoff and day and day < cutoff:
+                        report['excluded_before_cutoff'] = report.get('excluded_before_cutoff', 0) + 1
+                        continue
+                    urls.append((day or '', loc))
         except ET.ParseError:
             report.update(status='parse_error', reason='invalid_sitemap')
     # Keep the entire bounded discovery result in the durable backlog. limit is
@@ -355,17 +380,20 @@ def fetch_sitemap_urls(url, limit, allow_regex=None, max_sitemaps=12, state=None
     if queue:
         reports.append({'url': url, 'status': 'partial', 'reason': 'sitemap_budget'})
     backlog[url] = list(dict.fromkeys(queue + failed))
-    unique = list(dict.fromkeys(loc for _, loc in sorted(urls, reverse=True)))
-    return unique, reports
+    unique = {}
+    for modified, loc in sorted(urls, reverse=True):
+        unique.setdefault(loc, {'url': loc, 'sitemap_lastmod': modified or None})
+    return (list(unique.values()) if include_metadata else list(unique)), reports
 
 
 def discover_sitemaps(cfg, reports, state):
     items = []
+    discovery_cutoff(cfg, state)
     for source in source_slices(cfg.get('sitemap_sources', [])):
-        urls, source_reports = fetch_sitemap_urls(source['sitemap_url'], int(source.get('max_urls', 100)), source.get('url_allow_regex'), state=state)
+        urls, source_reports = fetch_sitemap_urls(source['sitemap_url'], int(source.get('max_urls', 100)), source.get('url_allow_regex'), state=state, include_metadata=True)
         reports.extend(source_reports)
-        items.extend({'url': url, 'source': 'sitemap_scan', 'source_name': source['name'],
-                      'source_name_en': source.get('name_en')} for url in urls)
+        items.extend({**item, 'source': 'sitemap_scan', 'source_name': source['name'],
+                      'source_name_en': source.get('name_en')} for item in urls)
     return items
 
 
@@ -521,6 +549,7 @@ def run(cfg, providers=None, max_articles=None, seeds_only=False, mirror=True, t
     current = read_json(OUT / 'published.json', {'records': []})['records']
     old_report = read_json(OUT / 'harvest_report.json', {})
     state = read_json(OUT / 'discovery_state.json', {'processed': {}, 'pending': {}})
+    cutoff = discovery_cutoff(cfg, state)
     processed, pending = state.setdefault('processed', {}), state.setdefault('pending', {})
     queue_payload = read_json(QUEUE / 'media_mentions.json', [])
     queue = queue_payload if isinstance(queue_payload, list) else queue_payload.get('records', [])
@@ -549,6 +578,9 @@ def run(cfg, providers=None, max_articles=None, seeds_only=False, mirror=True, t
             for candidate in funcs[provider](cfg, reports, state):
                 key = canonical(candidate.get('url'))
                 if key and key not in processed and key not in existing_urls:
+                    prior = pending.get(key, {})
+                    if prior.get('source') == 'institutional_news_listing' and candidate.get('source') != prior['source']:
+                        candidate = {**candidate, **{name: prior[name] for name in ('source', 'source_name', 'source_name_en', 'published_at', 'title') if prior.get(name)}}
                     pending[key] = {**pending.get(key, {}), **candidate}
         except Exception as exc:
             reports.append({'collector': provider, 'status': 'error', 'reason': type(exc).__name__})
@@ -562,10 +594,7 @@ def run(cfg, providers=None, max_articles=None, seeds_only=False, mirror=True, t
         if key in listing_urls or not pending[key].get('url'):
             pending.pop(key)
     limit = max_articles if max_articles is not None else int(cfg.get('max_articles_per_run', 60))
-    candidates = sorted(pending.items(), key=lambda kv: (
-        not bool(kv[1].get('last_attempt_at')),
-        score_record('', kv[1].get('title', ''), kv[1]['url'], cfg),
-        kv[1].get('published_at') or ''), reverse=True)
+    candidates = sorted(pending.items(), key=lambda kv: candidate_priority(kv[1], cfg), reverse=True)
     for key, candidate in candidates[:0 if seeds_only else limit]:
         url = candidate['url']
         if urlparse(url).netloc == 'news.google.com':
@@ -590,6 +619,11 @@ def run(cfg, providers=None, max_articles=None, seeds_only=False, mirror=True, t
                 candidate.update(last_attempt_at=now(), reason='article_template_changed')
                 reports.append({'url': url, 'status': 'parse_error', 'reason': 'article_template_changed', 'required': candidate.get('source') == 'institutional_news_listing'})
                 continue
+        published_day = date_day(meta.get('published_at') or candidate.get('published_at'))
+        if published_day and published_day < cutoff and not candidate.get('force_publish'):
+            processed[key] = {'processed_at': now(), 'status': 'outside_lookback', 'published_at': published_day}
+            pending.pop(key, None)
+            continue
         record = build_record(candidate, meta, cfg)
         if record['status'] == 'published' and not is_blocked_record(record):
             incoming.append(record)

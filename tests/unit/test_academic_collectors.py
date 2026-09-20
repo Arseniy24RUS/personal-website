@@ -6,6 +6,7 @@ import os
 import sys
 import tempfile
 import unittest
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 from urllib.error import HTTPError
@@ -16,6 +17,7 @@ import harvest_scopus as scopus
 import harvest_elibrary_browser as elibrary
 import harvest_wos_authenticated as wos
 import provider_auth as auth
+from harvest_elibrary_item_details import needs_details
 from parse_elibrary_author_items import parse_elibrary_author_items
 from source_health import merge_records, read_json, write_json, source_result
 
@@ -158,6 +160,23 @@ class CollectionTests(unittest.TestCase):
         self.assertEqual(elibrary.list_total('<p>Всего найдено <b>1 234</b> публикаций</p>'), 1234)
         self.assertIsNone(elibrary.list_total('<p>Sign in</p>'))
 
+    def test_successful_detail_cache_does_not_require_optional_isbn(self):
+        at = datetime(2026, 9, 20, tzinfo=timezone.utc)
+        row = {'elibrary_item_id': '1', 'year': 2026, 'venue': 'Journal'}
+        entry = {'fetched_at': (at - timedelta(days=7)).isoformat(), 'status': 'success', 'parsed': {'venue': 'Journal', 'doi': '10.1/test'}, 'observed_absent_fields': ['isbn', 'volume']}
+        self.assertFalse(needs_details(row, {'1': entry}, at=at))
+        self.assertTrue(needs_details(row, {'1': entry}, at=at + timedelta(days=23)))
+
+    def test_older_details_refresh_after_90_days_and_failed_fetch_retries(self):
+        at = datetime(2026, 9, 20, tzinfo=timezone.utc)
+        row = {'elibrary_item_id': '1', 'year': 2020}
+        entry = {'fetched_at': (at - timedelta(days=60)).isoformat(), 'parsed': {'pages': '1-4'}}
+        self.assertFalse(needs_details(row, {'1': entry}, at=at))
+        self.assertTrue(needs_details(row, {'1': entry}, at=at + timedelta(days=30)))
+        self.assertTrue(needs_details(row, {'1': {**entry, 'status': 'error'}}, at=at))
+        self.assertTrue(needs_details(row, {'1': {**entry, 'fetched_at': (at + timedelta(days=1)).isoformat()}}, at=at))
+        self.assertTrue(needs_details(row, {}, at=at))
+
     def test_elibrary_full_pagination(self):
         page = MagicMock()
         pages = ['<p>Всего найдено 2 публикаций</p>', '<p>Всего найдено 2 публикаций</p>']
@@ -182,6 +201,13 @@ class CollectionTests(unittest.TestCase):
         self.assertEqual(auth.orcid_auth_response_evidence(200, {'verificationCodeRequired': True})['reason'], 'mfa_required')
         self.assertIsNone(auth.orcid_auth_response_evidence(200, {'success': True})['reason'])
         self.assertEqual(auth.orcid_auth_response_evidence(401, {})['reason'], 'orcid_auth_http_401')
+
+    def test_orcid_username_markdown_normalization_is_narrow(self):
+        self.assertEqual(auth.normalize_orcid_username('  fixture\\@example.test \n'), 'fixture@example.test')
+        self.assertTrue(auth.valid_orcid_username('fixture@example.test'))
+        self.assertTrue(auth.valid_orcid_username('0000-0002-8725-6580'))
+        self.assertFalse(auth.valid_orcid_username('fixture\\@example.test'))
+        self.assertEqual(auth.normalize_orcid_username('name\\part@example.test'), 'name\\part@example.test')
 
     def test_vpn_mismatch_stops_before_login(self):
         with tempfile.TemporaryDirectory() as directory:

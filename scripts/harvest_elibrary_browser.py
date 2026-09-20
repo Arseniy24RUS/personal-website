@@ -106,7 +106,8 @@ def collect_details(page, records, previous):
             # Authentication/session sidebars must never appear in published data.
             parsed.pop('raw_text_excerpt', None)
             old = cached.get(item_id, {}).get('parsed', {})
-            cached[item_id] = {'fetched_at': now(), 'url': f'https://elibrary.ru/item.asp?id={item_id}', 'parsed': {**old, **{k: v for k, v in parsed.items() if v is not None and v != ''}}}
+            optional = ('venue', 'publisher', 'volume', 'issue', 'pages', 'doi', 'isbn', 'issn')
+            cached[item_id] = {'fetched_at': now(), 'status': 'success', 'observed_absent_fields': [key for key in optional if not parsed.get(key)], 'url': f'https://elibrary.ru/item.asp?id={item_id}', 'parsed': {**old, **{k: v for k, v in parsed.items() if v is not None and v != ''}}}
             completed += 1
         except AuthFailure as exc:
             failed += 1

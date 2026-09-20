@@ -134,6 +134,63 @@ class MediaTests(unittest.TestCase):
             urls, _ = media.fetch_sitemap_urls('https://site.org/map.xml', 1, '/news/', state=state)
         self.assertEqual(len(urls), 2)  # All discovered items reach durable backlog.
 
+    def test_required_new_and_retry_news_precede_9500_generic_pending_urls(self):
+        generic = {f'https://archive.org/news/{i}': {'url': f'https://archive.org/news/{i}',
+                    'source': 'sitemap_scan', 'title': 'Archive entry'} for i in range(9500)}
+        retry_url = 'https://www.isesp-ras.ru/news/pervaya-zashchita-dissovet-24124405-2026'
+        pending = {**generic, media.canonical(retry_url): {'url': retry_url,
+                    'source': 'institutional_news_listing', 'last_attempt_at': '2026-09-19'}}
+        media.write_json(media.OUT / 'discovery_state.json', {'processed': {}, 'pending': pending,
+                         'initial_cutoff': '2026-06-01'})
+        with patch.object(media, 'fetch_text', side_effect=self.fake_fetch) as fetch:
+            report = media.run(CFG, ['listings'], max_articles=2, mirror=False, translate=False)
+        self.assertEqual(report['new_records'], 2)
+        self.assertEqual(report['pending'], 9500)
+        self.assertEqual(self.read('discovery_state.json')['pending'], generic)
+        self.assertFalse(any('archive.org' in call.args[0] for call in fetch.call_args_list))
+        self.assertEqual(len(self.read('discovery_state.json')['processed']), 2)
+
+    def test_sitemap_cutoff_keeps_current_unknown_and_old_index_children(self):
+        pages = {
+            'https://site.org/map.xml': '<sitemapindex><sitemap><loc>https://site.org/child.xml</loc><lastmod>2020-01-01</lastmod></sitemap></sitemapindex>',
+            'https://site.org/child.xml': '''<urlset>
+              <url><loc>https://site.org/old</loc><lastmod>2020-01-01</lastmod></url>
+              <url><loc>https://site.org/current</loc><lastmod>2026-09-17T12:00:00Z</lastmod></url>
+              <url><loc>https://site.org/unknown</loc></url>
+              <url><loc>https://site.org/invalid-date</loc><lastmod>2020-99-99</lastmod></url>
+            </urlset>''',
+        }
+        with patch.object(media, 'fetch_text', side_effect=lambda url: (pages[url], {'url': url, 'status': 'ok'})):
+            records, reports = media.fetch_sitemap_urls('https://site.org/map.xml', 60,
+                state={'initial_cutoff': '2026-06-01'}, include_metadata=True)
+        self.assertEqual({r['url'] for r in records}, {'https://site.org/current', 'https://site.org/unknown', 'https://site.org/invalid-date'})
+        self.assertEqual(records[0]['sitemap_lastmod'], '2026-09-17')
+        self.assertEqual(sum(r.get('excluded_before_cutoff', 0) for r in reports), 1)
+
+    def test_old_article_is_checkpointed_without_deleting_existing_publication(self):
+        old = {'id': 'manual-old', 'url': 'https://old.org/news', 'title': 'Existing reviewed archive',
+               'published_at': '2000-01-01', 'title_en': 'Existing reviewed archive'}
+        media.write_json(media.OUT / 'published.json', {'records': [old]})
+        def fetch(url, *args, **kwargs):
+            raw, report = self.fake_fetch(url)
+            if 'isesp-ras.ru/news/' in url and url != ISESP['url']:
+                raw = raw.replace('17 сентября 2026 года', '17 января 2020 года')
+            return raw, report
+        with patch.object(media, 'fetch_text', side_effect=fetch):
+            media.run(CFG, ['listings'], mirror=False, translate=False)
+        records = self.read('published.json')['records']
+        self.assertIn(old, records)
+        self.assertEqual(len(records), 2)  # Saved archive and current ISD news.
+        self.assertIn('outside_lookback', {r['status'] for r in self.read('discovery_state.json')['processed'].values()})
+        self.assertFalse(self.read('discovery_state.json')['pending'])
+
+    def test_identity_and_date_hints_precede_unknown_generic_backlog(self):
+        anonymous = {'url': 'https://site.org/news/123', 'source': 'sitemap_scan'}
+        recent = {**anonymous, 'sitemap_lastmod': '2026-09-19'}
+        identity = {**anonymous, 'title': 'Арсений Ситковский: демографическое исследование', 'last_attempt_at': '2026-09-19'}
+        self.assertGreater(media.candidate_priority(identity, CFG), media.candidate_priority(recent, CFG))
+        self.assertGreater(media.candidate_priority(recent, CFG), media.candidate_priority(anonymous, CFG))
+
     def test_five_rss_timeouts_cannot_starve_other_discovery_channels(self):
         clock = [100.0]
         rss_calls, calls = [], []

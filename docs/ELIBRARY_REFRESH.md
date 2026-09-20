@@ -7,6 +7,11 @@ secrets, verifies authentication and the configured AuthorID, and collects
 profile metrics, every publication-list page and article details in one browser
 session. Saved cookie strings are not injected into this session.
 
+Metrics and publication lists are fetched each run. Successfully read article
+metadata is reused for 30 days for recent works and 90 days for older works;
+missing optional fields such as ISBN do not trigger endless repeat requests.
+New and failed article pages remain eligible for collection.
+
 The dedicated collector account cannot fall back to direct IPv4 or IPv6 access
 if the tunnel drops. Browser profiles and credentials live in private temporary
 runner storage and are removed after collection.

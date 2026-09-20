@@ -117,8 +117,15 @@ def challenge_reason(text, url=''):
     return None
 
 
-def assert_no_challenge(page):
+def assert_no_challenge(page, *, form_submitted=True):
     reason = challenge_reason(page_text(page), page.url)
+    if not form_submitted and reason in {'invalid_credentials', 'invalid_username_format'}:
+        reason = None
+    elif reason in {'invalid_credentials', 'invalid_username_format'} and provider_host(urlparse(page.url).hostname or '', 'orcid.org'):
+        # ORCID's initial help text is not a server rejection. Its actual
+        # validation messages live in mat-error / app-alert-message nodes.
+        errors = page.locator('mat-error, app-alert-message, [role="alert"], #dialogTitle')
+        reason = next((challenge_reason(errors.nth(i).inner_text()) for i in range(errors.count()) if errors.nth(i).is_visible() and challenge_reason(errors.nth(i).inner_text())), None)
     # An embedded challenge script alone is not a challenge. Only visible forms count.
     # The ubiquitous invisible reCAPTCHA badge is not an interactive challenge.
     selector = 'iframe[title*="challenge" i], iframe[src*="recaptcha"][src*="size=normal"]'
@@ -239,6 +246,15 @@ def provider_host(host, provider):
     return host == provider or host.endswith('.' + provider)
 
 
+def normalize_orcid_username(value):
+    """Undo the user's Markdown escape only; never transform the password."""
+    return value.strip().replace('\\@', '@')
+
+
+def valid_orcid_username(value):
+    return bool(re.fullmatch(r'[^@\s\\]+@[^@\s\\]+\.[^@\s\\]+', value) or re.fullmatch(r'(?:\d{4}-){3}\d{3}[\dXx]|\d{15}[\dXx]', value))
+
+
 def orcid_auth_response_evidence(status, payload):
     """ORCID's public SignIn interface: retain only status and boolean flags."""
     evidence = {'http_status': int(status), 'response_observed': True}
@@ -274,10 +290,25 @@ def choose_orcid_signin(page, host):
 
 @diagnostic_login
 def login_wos(context, profile_url, timeout=180):
-    username = os.environ.get('WOS_ORCID_USERNAME', '')
+    evidence = {'submit_clicked': False, 'input_matches_configured': False}
+    try:
+        return _login_wos(context, profile_url, timeout, evidence)
+    except Exception as exc:
+        failure = exc if isinstance(exc, AuthFailure) else AuthFailure(type(exc).__name__)
+        failure.authentication_evidence = {**evidence, **(failure.authentication_evidence or {})}
+        raise failure from None
+
+
+def _login_wos(context, profile_url, timeout, evidence):
+    configured_username = os.environ.get('WOS_ORCID_USERNAME', '')
+    username = normalize_orcid_username(configured_username)
     password = os.environ.get('WOS_ORCID_PASSWORD', '')
     if not username or not password:
         raise AuthFailure('credentials_missing')
+    evidence['username_format_valid'] = valid_orcid_username(username)
+    evidence['username_normalized'] = username != configured_username
+    if not evidence['username_format_valid']:
+        raise AuthFailure('username_configuration_invalid')
     page = context.new_page()
     page.goto('https://www.webofscience.com/', wait_until='domcontentloaded', timeout=90000)
     deadline = time.monotonic() + timeout
@@ -319,7 +350,7 @@ def login_wos(context, profile_url, timeout=180):
                     failure.authentication_evidence = auth_responses[-1]
                     raise
             raise AuthFailure(reason, authentication_evidence=auth_responses[-1])
-        assert_no_challenge(page)
+        assert_no_challenge(page, form_submitted=submitted)
         dismiss = visible(page, ['#onetrust-reject-all-handler', '#onetrust-accept-btn-handler'])
         if dismiss is not None:
             dismiss.click()
@@ -334,6 +365,9 @@ def login_wos(context, profile_url, timeout=180):
             if user is not None and secret is not None and not submitted:
                 user.fill(username)
                 secret.fill(password)
+                evidence['input_matches_configured'] = user.input_value() == username
+                if not evidence['input_matches_configured']:
+                    raise AuthFailure('username_input_not_applied')
                 # Live ORCID form: button#signin-button, "Sign in to ORCID".
                 # Its cookie banner may mount after the fields have appeared.
                 consent = visible(page, ['#onetrust-reject-all-handler', '#onetrust-accept-btn-handler'])
@@ -345,6 +379,7 @@ def login_wos(context, profile_url, timeout=180):
                 elif not click_named(page, r'^Sign in(?: to ORCID)?$|^Войти(?: в ORCID)?$'):
                     raise AuthFailure('orcid_submit_changed')
                 submitted = True
+                evidence['submit_clicked'] = True
                 continue
             # The authorization page is the standard ORCID OAuth consent for WoS.
             if submitted and click_named(page, r'^Authorize(?: access)?$|^Разрешить доступ$'):

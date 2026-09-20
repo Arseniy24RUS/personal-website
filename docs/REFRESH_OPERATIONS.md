@@ -43,6 +43,10 @@ The media pipeline polls institution news lists, RSS, nested sitemaps and config
 sources. Article body identity checks understand inflected names and initials.
 New candidates/backlogs/review queues persist across runs. Confirmed records
 publish automatically; ambiguous matches remain in the JSON/CSV review queue.
+Required institutional news takes priority over generic sitemap backlogs. The
+initial scan uses a 90-day lookback wherever reliable dates are available;
+undated candidates remain queued. Each discovery channel has reserved time, so
+a failing RSS host cannot consume the sitemap or institution scan budget.
 Existing reviewed entries win over automatic metadata, and failed image/translation
 downloads keep previous values. English fallback explicitly marks translation pending.
 
