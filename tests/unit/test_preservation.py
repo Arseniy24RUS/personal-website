@@ -145,6 +145,38 @@ class RetentionTest(unittest.TestCase):
             asset.unlink()
             self.assertEqual(retention.validate(root, 'HEAD')['status'], 'error')
 
+    def test_git_baseline_rejects_changed_asset_bytes_but_allows_additions(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            assets = {
+                'assets/старое фото.bin': b'\x00\x01original-image',
+                'data/risi/articles/article.html': b'<p>Published article</p>\n',
+                'content/risi/reference.txt': b'Published text\nSecond line\n',
+            }
+            for name, content in assets.items():
+                target = root / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(content)
+            for args in [('init', '-q'), ('config', 'core.autocrlf', 'true'),
+                         ('add', '.'), ('-c', 'user.name=Test', '-c', 'user.email=test@example.invalid', 'commit', '-qm', 'baseline')]:
+                subprocess.run(['git', '-C', str(root), *args], check=True, capture_output=True)
+            (root / 'assets/new.bin').write_bytes(b'newly published asset')
+            # Git-normalized Windows checkouts must not look like content edits.
+            text_path = root / 'content/risi/reference.txt'
+            text_path.write_bytes(assets['content/risi/reference.txt'].replace(b'\n', b'\r\n'))
+            result = retention.validate(root, 'HEAD')
+            self.assertEqual(result['status'], 'success', result['issues'])
+            self.assertEqual(result['assets_content_checked'], 3)
+            for name, content in assets.items():
+                with self.subTest(asset=name):
+                    target = root / name
+                    target.write_bytes(content + b'corrupted or replaced content')
+                    result = retention.validate(root, 'HEAD')
+                    self.assertEqual(result['status'], 'error')
+                    self.assertIn({'path': name, 'code': 'published_asset_modified'},
+                                  [{'path': item.get('path'), 'code': item['code']} for item in result['issues']])
+                    target.write_bytes(content)
+
 
 if __name__ == '__main__':
     unittest.main()

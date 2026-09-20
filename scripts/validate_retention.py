@@ -122,9 +122,38 @@ def git_output(root, *arguments):
     return subprocess.check_output(['git', '-C', str(root), *arguments], stderr=subprocess.PIPE)
 
 
+def baseline_blobs(root, commit):
+    """NUL-delimited tree output preserves spaces and non-ASCII asset names."""
+    blobs = {}
+    for entry in git_output(root, 'ls-tree', '-r', '-z', commit).split(b'\0'):
+        if not entry:
+            continue
+        metadata, path = entry.split(b'\t', 1)
+        _mode, kind, object_id = metadata.split(b' ')
+        if kind == b'blob':
+            blobs[path.decode('utf-8')] = object_id.decode('ascii')
+    return blobs
+
+
+def working_blob_hashes(root, paths):
+    if not paths:
+        return {}
+    # Git applies the same clean filters/line-ending normalization as git add.
+    # C-style quoted paths also support spaces, quotes and embedded newlines.
+    names = ''.join(json.dumps(path, ensure_ascii=False) + '\n' for path in paths)
+    output = subprocess.check_output(
+        ['git', '-C', str(root), 'hash-object', '--stdin-paths'],
+        input=names.encode('utf-8'), stderr=subprocess.PIPE)
+    hashes = output.decode('ascii').splitlines()
+    if len(hashes) != len(paths):
+        raise ValueError('Git did not return a hash for every published asset')
+    return dict(zip(paths, hashes))
+
+
 def validate(root: Path, baseline_ref: str):
     commit = git_output(root, 'rev-parse', '--verify', baseline_ref + '^{commit}').decode().strip()
-    baseline_files = set(git_output(root, 'ls-tree', '-r', '--name-only', commit).decode('utf-8').splitlines())
+    blobs = baseline_blobs(root, commit)
+    baseline_files = set(blobs)
     issues = []
     checked = {}
     for path, kind in DATASETS.items():
@@ -143,12 +172,25 @@ def validate(root: Path, baseline_ref: str):
         except (ValueError, OSError, subprocess.CalledProcessError) as exc:
             issues.append({'path': path, 'code': 'invalid_or_missing_dataset', 'error': str(exc)})
     # A baseline asset must survive even when it has no current card reference.
-    assets = [path for path in baseline_files if path.startswith(('assets/', 'data/risi/articles/', 'content/risi/'))]
+    assets = sorted(path for path in baseline_files if path.startswith(('assets/', 'data/risi/articles/', 'content/risi/')))
+    available_assets = []
     for path in assets:
         if not (root / path).is_file():
             issues.append({'path': path, 'code': 'published_asset_removed'})
+        else:
+            available_assets.append(path)
+    hashes = {}
+    try:
+        hashes = working_blob_hashes(root, available_assets)
+        for path, object_id in hashes.items():
+            if object_id != blobs[path]:
+                issues.append({'path': path, 'code': 'published_asset_modified',
+                               'baseline_blob': blobs[path], 'current_blob': object_id})
+    except (OSError, ValueError, subprocess.CalledProcessError):
+        issues.append({'code': 'published_asset_content_check_failed'})
     return {'status': 'success' if not issues else 'error', 'baseline_ref': baseline_ref,
-            'baseline_commit': commit, 'datasets': checked, 'assets_checked': len(assets), 'issues': issues}
+            'baseline_commit': commit, 'datasets': checked, 'assets_checked': len(assets),
+            'assets_content_checked': len(hashes), 'issues': issues}
 
 
 def main(argv=None):

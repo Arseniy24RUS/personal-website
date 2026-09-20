@@ -58,6 +58,9 @@ test. `sources` may select `elibrary,wos,scopus,open,media`; empty means all.
 The production publishing path requires the main branch and `dry_run=false`.
 
 Unit/browser tests and `validate_retention.py --baseline-ref <commit>` are mandatory.
+The guard compares identities, protected fields, required files and Git content
+hashes, with normal Git line-ending handling. The original inventory is recorded
+in `data/audit/pre_repair_inventory.json`.
 Safe results can be published even when a provider is blocked; the final source
 availability step fails separately and describes which source needs attention.
 Sanitized diagnostic artifacts are retained for seven days. A Pages build is
@@ -73,6 +76,9 @@ npm ci
 npx playwright install
 npm run test:e2e
 ```
+
+To run the same browser checks against the deployed site, set `E2E_BASE_URL` to
+`https://sitkovskiy.ru` before running `npm run test:e2e`.
 
 The repair baseline is `58d9b9ac0c95ca42a3885f7bd1a86284505dfa10`:67 publications,
 20 media cards,13 RISS articles,57 diplomas,10 DPO entries and305 referenced local

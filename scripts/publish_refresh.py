@@ -2,6 +2,7 @@
 """Publish validated candidate data, recombining with newer main on a race."""
 from __future__ import annotations
 import argparse
+from datetime import datetime
 import json
 import os
 from pathlib import Path
@@ -23,23 +24,200 @@ def records(value):
 
 def write(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
+
+
+def timestamp(value):
+    try:
+        return datetime.fromisoformat(str(value).replace('Z', '+00:00')).timestamp()
+    except (TypeError, ValueError):
+        return float('-inf')
+
+
+def merge_source_report(previous, incoming, record_count=None):
+    """Attempt diagnostics and successful observations have separate clocks."""
+    reports = [report for report in (previous, incoming) if report]
+    if not reports:
+        return {}
+    # Reports have second resolution. On a tie, retain failure rather than claim
+    # that an indistinguishable success superseded it.
+    latest = max(reports, key=lambda report: (
+        timestamp(report.get('attempted_at') or report.get('generated_at')),
+        report.get('status') != 'success' or report.get('complete') is not True,
+    ))
+    merged = dict(latest)
+    successes = [report.get('last_success_at') for report in reports if report.get('last_success_at')]
+    merged['last_success_at'] = max(successes, key=timestamp) if successes else None
+    if record_count is not None:
+        merged['record_count'] = record_count
+    return merged
+
+
+def copy_snapshot(source, destination, incoming_is_newer, excluded=()):
+    if not source.exists():
+        return
+    for path in source.rglob('*'):
+        relative = path.relative_to(source)
+        target = destination / relative
+        if path.is_file() and relative.as_posix() not in excluded and (incoming_is_newer or not target.exists()):
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(path, target)
+
+
+def merge_open_sources(candidate, destination):
+    from harvest_open_sources import (
+        normalize_orcid_works, normalize_openalex_works, normalize_crossref_works,
+        dedupe_records, doi_norm, normalize_title,
+    )
+    output = destination / 'data/open'
+    previous = read(output / 'harvest_report.json', {})
+    incoming = read(candidate / 'data/open/harvest_report.json', {})
+    if not previous and not incoming and not (candidate / 'data/open').exists():
+        return
+    prior_aggregate = read(output / 'open_publications.json', {})
+    incoming_aggregate = read(candidate / 'data/open/open_publications.json', {})
+    providers, observed = {}, []
+    files = {'orcid': 'orcid_works.json', 'openalex_author': 'openalex_author.json',
+             'openalex_works': 'openalex_works.json', 'crossref': 'crossref_works.json'}
+    for provider, filename in files.items():
+        old = (previous.get('providers') or {}).get(provider, {})
+        new = (incoming.get('providers') or {}).get(provider, {})
+        target = output / filename
+        source = candidate / 'data/open' / filename
+        if source.exists() and (not target.exists() or timestamp(new.get('last_success_at')) > timestamp(old.get('last_success_at'))):
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target)
+        payload = read(target, None)
+        rows = None
+        if payload is not None:
+            if provider == 'orcid':
+                identifier = str(payload.get('path', '')).strip('/').split('/')[0] or None
+                rows = normalize_orcid_works(payload, identifier)
+            elif provider == 'openalex_works':
+                rows = normalize_openalex_works(payload)
+            elif provider == 'crossref':
+                rows = normalize_crossref_works(payload)
+            else:
+                rows = []  # Author metadata is not an additional publication.
+            observed.extend(rows)
+        state = merge_source_report(old, new, len(rows) if rows is not None else None)
+        if state:
+            providers[provider] = state
+    aggregate = dedupe_records(observed)
+    def identity(row):
+        return doi_norm(row.get('doi')) or (normalize_title(row.get('title')).lower(), row.get('year'))
+    seen = {identity(row) for row in aggregate}
+    for row in records(prior_aggregate) + records(incoming_aggregate):
+        if identity(row) not in seen:
+            aggregate.append(row)
+            seen.add(identity(row))
+    report = merge_source_report(previous, incoming, len(aggregate))
+    report['providers'] = providers
+    report['records_total_after_dedupe'] = len(aggregate)
+    report['records_total_before_dedupe'] = len(observed)
+    if providers and any(p.get('status') != 'success' or p.get('complete') is not True for p in providers.values()):
+        report['complete'] = False
+        if report.get('status') == 'success':
+            report.update(status='partial', origin='snapshot', reason='concurrent_provider_failure')
+    write(output / 'harvest_report.json', report)
+    write(output / 'open_publications.json', {'generated_at': report.get('attempted_at') or report.get('generated_at'), 'records': aggregate})
+
+
+def seed_newer_metric_baseline(destination, source_reports):
+    """Adopt verified newer values while leaving the newer failure report intact.
+
+    The public builder normally retains previous values on a failed attempt. A
+    race can bring in an intermediate successful snapshot that was absent from
+    main, so advance that previous-value baseline before the ordinary rebuild.
+    """
+    from build_public_data import build_scientometrics
+    path = destination / 'data/public/profile.json'
+    profile = read(path, {})
+    old_metrics = profile.get('scientometrics') or {}
+    states = {}
+    names = {'elibrary': 'rinc', 'scopus': 'scopus', 'wos': 'wos'}
+    for provider, state in source_reports.items():
+        old = (old_metrics.get('sources') or {}).get(names[provider], {})
+        if timestamp(state.get('last_success_at')) > timestamp(old.get('last_success_at')):
+            states[provider] = {**state, 'status': 'success', 'origin': 'live', 'complete': True}
+    if not states:
+        return
+    calculated = build_scientometrics(
+        [], read(destination / 'data/elibrary/profile_metrics.json', {}),
+        read(destination / 'data/scopus/scopus_author_57220956828_metrics.json', {}),
+        read(destination / 'data/wos/profile_metrics.json', {}), health=states, previous=old_metrics,
+    )
+    baseline = dict(old_metrics)
+    baseline['sources'] = dict(old_metrics.get('sources') or {})
+    for provider in states:
+        baseline['sources'][names[provider]] = calculated['sources'][names[provider]]
+    profile['scientometrics'] = baseline
+    write(path, profile)
+
+
+def apply_newer_citation_observations(publications, destination, source_reports):
+    """Use only verified snapshot epochs, independent of later attempt failure."""
+    import build_public_data as builder
+    profile = read(destination / 'data/public/profile.json', {})
+    previous_data = builder.DATA
+    try:
+        builder.DATA = destination / 'data'
+        for provider, report in source_reports.items():
+            column = 'rinc' if provider == 'elibrary' else provider
+            prior = ((profile.get('source_health') or {}).get(provider) or
+                     ((profile.get('scientometrics') or {}).get('sources') or {}).get(column) or {})
+            if timestamp(report.get('last_success_at')) <= timestamp(prior.get('last_success_at')):
+                continue
+            if provider == 'elibrary':
+                observations = {str(row.get('elibrary_item_id')): row.get('rinc_citations')
+                                for row in read(destination / 'data/processed/elibrary_publications.json', [])
+                                if row.get('elibrary_item_id') and row.get('rinc_citations') is not None}
+                for row in publications:
+                    key = str(row.get('elibrary_item_id'))
+                    if key in observations:
+                        row['rinc_citations'] = observations[key]
+            elif provider == 'scopus':
+                works = read(destination / 'data/scopus/scopus_author_57220956828_works.json', [])
+                builder.merge_scopus(publications, works.get('works', []) if isinstance(works, dict) else works, fresh=True)
+            else:
+                payload = read(destination / 'data/wos/profile_metrics.json', {})
+                builder.merge_wos(publications, payload.get('records', []), fresh=True)
+    finally:
+        builder.DATA = previous_data
+    return publications
 
 def recombine(candidate, destination):
     from harvest_media_mentions import merge_records, merge_discovery_state, canonical as normalize_url
     from build_public_data import merge_publication_sets
-    report_names = {'open': 'harvest_report.json', 'scopus': 'scopus_author_57220956828_access_report.json', 'elibrary': 'browser_fetch_report.json', 'wos': 'harvest_report.json'}
-    for folder in ('open', 'scopus', 'elibrary', 'wos', 'processed', 'audit'):
-        provider = 'elibrary' if folder == 'processed' else folder
-        if provider in report_names:
-            previous = read(destination / 'data' / provider / report_names[provider], {})
-            incoming = read(candidate / 'data' / provider / report_names[provider], {})
-            if (previous.get('last_success_at') or '') > (incoming.get('last_success_at') or ''):
-                continue
-        if (candidate / 'data' / folder).exists():
-            shutil.copytree(candidate / 'data' / folder, destination / 'data' / folder, dirs_exist_ok=True)
+    report_names = {'scopus': 'scopus_author_57220956828_access_report.json', 'elibrary': 'browser_fetch_report.json', 'wos': 'harvest_report.json'}
+    merged_reports = {}
+    for provider, filename in report_names.items():
+        previous = read(destination / 'data' / provider / filename, {})
+        incoming = read(candidate / 'data' / provider / filename, {})
+        incoming_is_newer = timestamp(incoming.get('last_success_at')) > timestamp(previous.get('last_success_at'))
+        copy_snapshot(candidate / 'data' / provider, destination / 'data' / provider, incoming_is_newer, (filename,))
+        if provider == 'elibrary':
+            copy_snapshot(candidate / 'data/processed', destination / 'data/processed', incoming_is_newer)
+            payload = read(destination / 'data/processed/elibrary_publications.json', None)
+        elif provider == 'scopus':
+            payload = read(destination / 'data/scopus/scopus_author_57220956828_works.json', None)
+            if isinstance(payload, dict):
+                payload = payload.get('works', [])
+        else:
+            payload = read(destination / 'data/wos/profile_metrics.json', None)
+            if isinstance(payload, dict):
+                payload = payload.get('records', [])
+        report = merge_source_report(previous, incoming, len(payload) if isinstance(payload, list) else None)
+        if report:
+            write(destination / 'data' / provider / filename, report)
+            merged_reports[provider] = report
+    merge_open_sources(candidate, destination)
+    if (candidate / 'data/audit').exists():
+        shutil.copytree(candidate / 'data/audit', destination / 'data/audit', dirs_exist_ok=True)
     public_path = destination / 'data/public/publications.json'
-    write(public_path, merge_publication_sets(read(public_path, []), read(candidate / 'data/public/publications.json', [])))
+    merged_publications = merge_publication_sets(read(public_path, []), read(candidate / 'data/public/publications.json', []))
+    write(public_path, apply_newer_citation_observations(merged_publications, destination, merged_reports))
+    seed_newer_metric_baseline(destination, merged_reports)
     for name in ('published.json', 'news_mentions.json', 'published-fallback.json'):
         path = destination / 'data/media' / name
         previous = read(path, {})
@@ -93,9 +271,13 @@ def recombine(candidate, destination):
     # Current curated bibliographic fields and gallery/RISS content are kept.
     for script in ('build_public_data.py', 'merge_wos_records_into_public_data.py', 'sanitize_publication_references.py', 'report_safety.py'):
         subprocess.run([sys.executable, str(destination / 'scripts' / script)], cwd=destination, check=True)
+    audit = subprocess.run([sys.executable, str(destination / 'scripts/audit_refresh_pipeline.py')], cwd=destination)
+    if audit.returncode not in (0, 2):
+        raise RuntimeError('Recombined data failed structural audit.')
 
 def validate(path, baseline):
-    subprocess.run([sys.executable, 'scripts/validate_retention.py', '--baseline-ref', baseline], cwd=path, check=True)
+    subprocess.run([sys.executable, 'scripts/validate_retention.py', '--baseline-ref', baseline,
+                    '--report', 'data/audit/retention_report.json'], cwd=path, check=True)
     subprocess.run([sys.executable, 'scripts/check_seo.py'], cwd=path, check=True)
     git('diff', '--check', cwd=path)
 

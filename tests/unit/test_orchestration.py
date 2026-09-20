@@ -295,7 +295,7 @@ class ConcurrentPublicationTests(unittest.TestCase):
         self.assertEqual(report['last_success_at'], ATTEMPT)
 
     def test_recombine_cannot_regress_newer_source_snapshot(self):
-        latest = {**FRESH, 'attempted_at': ATTEMPT, 'last_success_at': ATTEMPT}
+        latest = {**FRESH, 'attempted_at': ATTEMPT, 'last_success_at': ATTEMPT, 'record_count': 1}
         older = {**FRESH, 'attempted_at': LAST_SUCCESS, 'last_success_at': LAST_SUCCESS}
         current_records = [{'id': 'current', 'elibrary_item_id': '4', 'title': 'More recent source publication'}]
         dump(self.current / 'data/elibrary/browser_fetch_report.json', latest)
@@ -309,6 +309,100 @@ class ConcurrentPublicationTests(unittest.TestCase):
         self.assertEqual(load(self.current / 'data/processed/elibrary_publications.json'), current_records)
         profile = load(self.current / 'data/public/profile.json')
         self.assertEqual(profile['scientometrics']['sources']['rinc']['citations'], 20)
+
+    def test_intermediate_success_updates_data_without_hiding_latest_failure(self):
+        noon, one, two = ['2026-09-20T' + hour + ':00:00+00:00' for hour in ('12', '13', '14')]
+        failure = {**FRESH, 'status': 'blocked', 'origin': 'snapshot', 'complete': False,
+                   'attempted_at': two, 'last_success_at': noon, 'reason': 'captcha', 'record_count': 1}
+        success = {**FRESH, 'attempted_at': one, 'last_success_at': one, 'record_count': 2}
+        dump(self.current / 'data/elibrary/browser_fetch_report.json', failure)
+        dump(self.current / 'data/elibrary/profile_metrics.json', {'summary': {'citations_rinc': 12}})
+        old_paper = {'id': 'a', 'elibrary_item_id': '1', 'title': 'Reviewed title', 'rinc_citations': 12}
+        dump(self.current / 'data/processed/elibrary_publications.json', [old_paper])
+        dump(self.current / 'data/public/publications.json', [old_paper])
+        dump(self.current / 'data/public/profile.json', {'identifiers': {}, 'scientometrics': {'sources': {
+            'rinc': {'citations': 12, 'last_success_at': noon, 'metric_observed_at': {'citations': noon}}
+        }}})
+        dump(self.candidate / 'data/elibrary/browser_fetch_report.json', success)
+        dump(self.candidate / 'data/elibrary/profile_metrics.json', {'summary': {'citations_rinc': 0}})
+        chosen = [{**old_paper, 'rinc_citations': 0}, {'id': 'b', 'title': 'New paper'}]
+        dump(self.candidate / 'data/processed/elibrary_publications.json', chosen)
+        self.recombine()
+        report = load(self.current / 'data/elibrary/browser_fetch_report.json')
+        self.assertEqual(report, {**failure, 'last_success_at': one, 'record_count': 2})
+        self.assertEqual(load(self.current / 'data/processed/elibrary_publications.json'), chosen)
+        public = load(self.current / 'data/public/profile.json')
+        self.assertEqual(public['source_health']['elibrary']['reason'], 'captcha')
+        self.assertEqual(public['scientometrics']['sources']['rinc']['citations'], 0)
+        self.assertEqual(public['scientometrics']['sources']['rinc']['metric_observed_at']['citations'], one)
+        self.assertEqual(public['scientometrics']['sources']['rinc']['status'], 'blocked')
+        paper = next(row for row in load(self.current / 'data/public/publications.json') if row['id'] == 'a')
+        self.assertEqual(paper['rinc_citations'], 0)
+        self.assertEqual(paper['title'], 'Reviewed title')
+
+    def test_candidate_newer_failure_preserves_current_good_scopus_and_wos(self):
+        noon, one, two = ['2026-09-20T' + hour + ':00:00+00:00' for hour in ('12', '13', '14')]
+        success = {**FRESH, 'attempted_at': one, 'last_success_at': one, 'record_count': 2}
+        failed = {**FRESH, 'attempted_at': two, 'last_success_at': noon, 'record_count': 1,
+                  'status': 'error', 'origin': 'snapshot', 'complete': False, 'reason': 'network_error'}
+        for provider, filename, datafile in [
+            ('scopus', 'scopus_author_57220956828_access_report.json', 'scopus_author_57220956828_works.json'),
+            ('wos', 'harvest_report.json', 'profile_metrics.json'),
+        ]:
+            rows = [{'id': 'current-one'}, {'id': 'current-two'}]
+            payload = {'records': rows} if provider == 'wos' else rows
+            stale = {'records': [{'id': 'stale'}]} if provider == 'wos' else [{'id': 'stale'}]
+            dump(self.current / 'data' / provider / filename, success)
+            dump(self.current / 'data' / provider / datafile, payload)
+            dump(self.candidate / 'data' / provider / filename, failed)
+            dump(self.candidate / 'data' / provider / datafile, stale)
+        self.recombine()
+        for provider, filename, datafile in [
+            ('scopus', 'scopus_author_57220956828_access_report.json', 'scopus_author_57220956828_works.json'),
+            ('wos', 'harvest_report.json', 'profile_metrics.json'),
+        ]:
+            with self.subTest(provider=provider):
+                report = load(self.current / 'data' / provider / filename)
+                self.assertEqual(report, {**failed, 'last_success_at': one, 'record_count': 2})
+                payload = load(self.current / 'data' / provider / datafile)
+                rows = payload['records'] if provider == 'wos' else payload
+                self.assertEqual([row['id'] for row in rows], ['current-one', 'current-two'])
+
+    def test_nested_open_sources_choose_independent_snapshots_and_latest_failures(self):
+        noon, one, two = ['2026-09-20T' + hour + ':00:00+00:00' for hour in ('12', '13', '14')]
+        success = {**FRESH, 'attempted_at': one, 'last_success_at': one, 'record_count': 1}
+        failure = {**FRESH, 'attempted_at': two, 'last_success_at': noon, 'record_count': 1,
+                   'status': 'error', 'origin': 'snapshot', 'complete': False, 'reason': 'http_429'}
+        dump(self.current / 'data/open/harvest_report.json', {**failure, 'providers': {
+            'orcid': failure, 'openalex_works': success,
+        }})
+        dump(self.candidate / 'data/open/harvest_report.json', {**success, 'providers': {
+            'orcid': success, 'openalex_works': failure,
+        }})
+        for root, title in ((self.current, 'Older ORCID title'), (self.candidate, 'Newer ORCID title')):
+            dump(root / 'data/open/orcid_works.json', {'path': '/0000-0002-8725-6580/works', 'group': [
+                {'work-summary': [{'title': {'title': {'value': title}}, 'put-code': 42,
+                                   'external-ids': {'external-id': [{'external-id-type': 'doi', 'external-id-value': '10.example/orcid'}]}}]}
+            ]})
+        dump(self.current / 'data/open/openalex_works.json', {'results': [{'id': 'W1', 'display_name': 'Newer OpenAlex title'}]})
+        dump(self.candidate / 'data/open/openalex_works.json', {'results': [{'id': 'W2', 'display_name': 'Stale OpenAlex title'}]})
+        self.recombine()
+        report = load(self.current / 'data/open/harvest_report.json')
+        self.assertEqual(report['status'], 'error')
+        self.assertEqual(report['attempted_at'], two)
+        self.assertEqual(report['last_success_at'], one)
+        self.assertEqual(report['record_count'], 2)
+        for provider in ('orcid', 'openalex_works'):
+            self.assertEqual(report['providers'][provider], {**failure, 'last_success_at': one})
+        titles = {row['title'] for row in load(self.current / 'data/open/open_publications.json')['records']}
+        self.assertEqual(titles, {'Newer ORCID title', 'Newer OpenAlex title'})
+
+    def test_same_second_reports_keep_failure_with_newest_success_epoch(self):
+        failed = {**FRESH, 'status': 'error', 'origin': 'snapshot', 'complete': False, 'reason': 'timeout'}
+        succeeded = {**FRESH, 'last_success_at': ATTEMPT}
+        for previous, incoming in ((failed, succeeded), (succeeded, failed)):
+            merged = publisher.merge_source_report(previous, incoming, record_count=3)
+            self.assertEqual(merged, {**failed, 'last_success_at': ATTEMPT, 'record_count': 3})
 
 
 if __name__ == '__main__':
