@@ -1,7 +1,7 @@
 {
   "status": "success",
-  "baseline_ref": "44c3530d22653e10d1a6fe46a2645394fe7c4f65",
-  "baseline_commit": "44c3530d22653e10d1a6fe46a2645394fe7c4f65",
+  "baseline_ref": "45f203f07c36f6ed98b13e45fba7eeb3720958ce",
+  "baseline_commit": "45f203f07c36f6ed98b13e45fba7eeb3720958ce",
   "datasets": {
     "data/public/publications.json": {
       "before": 69,

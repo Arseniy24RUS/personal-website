@@ -18,7 +18,8 @@
     "sources": [
       "elibrary",
       "scopus",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -900,7 +901,8 @@
     "dedupe_fingerprint": "fdf63ff96d949f05",
     "sources": [
       "elibrary",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api"
     ],
     "open_sources": [
       {
@@ -2350,7 +2352,9 @@
     "dedupe_fingerprint": "41919311581fea7e",
     "sources": [
       "elibrary",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api",
+      "openalex_api"
     ],
     "open_sources": [
       {
@@ -4007,7 +4011,9 @@
     "sources": [
       "elibrary",
       "scopus",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api",
+      "openalex_api"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -6364,7 +6370,9 @@
     "sources": [
       "elibrary",
       "scopus",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api",
+      "openalex_api"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -7861,7 +7869,9 @@
     "sources": [
       "elibrary",
       "scopus",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api",
+      "openalex_api"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -9551,7 +9561,9 @@
     "dedupe_fingerprint": "e30afe7f9194bc7b",
     "sources": [
       "elibrary",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api",
+      "openalex_api"
     ],
     "open_sources": [
       {
@@ -10670,7 +10682,9 @@
     "dedupe_fingerprint": "7d41f4757ddfd95b",
     "sources": [
       "elibrary",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api",
+      "openalex_api"
     ],
     "open_sources": [
       {
@@ -12540,7 +12554,9 @@
     "dedupe_fingerprint": "41a007210647f0a6",
     "sources": [
       "elibrary",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api",
+      "openalex_api"
     ],
     "open_sources": [
       {
@@ -13632,7 +13648,8 @@
     "dedupe_fingerprint": "89fd29fe20d215b1",
     "sources": [
       "elibrary",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api"
     ],
     "open_sources": [
       {
@@ -14638,7 +14655,8 @@
     "sources": [
       "elibrary",
       "scopus",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -15470,7 +15488,9 @@
     "dedupe_fingerprint": "1ea1b99c17a65875",
     "sources": [
       "elibrary",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api",
+      "openalex_api"
     ],
     "open_sources": [
       {
@@ -16612,7 +16632,9 @@
     "dedupe_fingerprint": "b71b03779c42f4e3",
     "sources": [
       "elibrary",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api",
+      "openalex_api"
     ],
     "open_sources": [
       {
@@ -18264,7 +18286,9 @@
     "dedupe_fingerprint": "8fa4022d53cba9b3",
     "sources": [
       "elibrary",
-      "orcid_public_api"
+      "orcid_public_api",
+      "crossref_api",
+      "openalex_api"
     ],
     "open_sources": [
       {

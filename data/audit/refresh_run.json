@@ -1,11 +1,10 @@
 {
-  "attempted_at": "2026-09-20T14:21:41+00:00",
-  "base_sha": "44c3530d22653e10d1a6fe46a2645394fe7c4f65",
+  "attempted_at": "2026-09-20T14:37:49+00:00",
+  "base_sha": "45f203f07c36f6ed98b13e45fba7eeb3720958ce",
   "state": "ready",
   "selected_sources": [
-    "media",
     "open",
     "scopus"
   ],
-  "completed_at": "2026-09-20T14:25:26+00:00"
+  "completed_at": "2026-09-20T14:39:48+00:00"
 }
