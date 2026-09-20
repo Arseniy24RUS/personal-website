@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-09-20T14:16:26+00:00",
+  "generated_at": "2026-09-20T14:25:21+00:00",
   "stats": {
     "records": 69,
     "titles_fixed": 0,
-    "title_fields_added": 2,
-    "elibrary_detail_fields_added": 16,
-    "metadata_fields_added": 10,
-    "gost_built": 2,
-    "apa_built": 2,
-    "crossref_cache_hit": 26,
-    "crossref_fetched": 2,
+    "title_fields_added": 0,
+    "elibrary_detail_fields_added": 0,
+    "metadata_fields_added": 0,
+    "gost_built": 0,
+    "apa_built": 0,
+    "crossref_cache_hit": 28,
+    "crossref_fetched": 0,
     "crossref_failed": 0
   }
 }

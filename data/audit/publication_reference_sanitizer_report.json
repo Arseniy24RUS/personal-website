@@ -2,7 +2,7 @@
   "records": 69,
   "changed_records": 0,
   "field_changes": 0,
-  "excluded_reference_fields": 18,
+  "excluded_reference_fields": 21,
   "bad_references_before": 0,
   "bad_references_after": 0,
   "samples": [
@@ -24,6 +24,11 @@
       "changes": [
         {
           "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "venue_ru",
           "old": "Ы",
           "reason": "invalid_venue"
         },
@@ -59,6 +64,11 @@
           "reason": "invalid_venue"
         },
         {
+          "field": "venue_ru",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
           "field": "volume",
           "old": "сложившейся социокультурной и демографической реальности. Монография адресована исследователям, аналитикам, преподавателям, аспирантам, студентам, специализирующимся на изучении социально-политических и социокультурных процессов, политикам и управленцам, организаторам избирательных кампаний.",
           "reason": "invalid_volume"
@@ -73,6 +83,11 @@
       "changes": [
         {
           "field": "venue",
+          "old": "Ы",
+          "reason": "invalid_venue"
+        },
+        {
+          "field": "venue_ru",
           "old": "Ы",
           "reason": "invalid_venue"
         },

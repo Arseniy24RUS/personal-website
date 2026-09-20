@@ -149,6 +149,56 @@
       "processed_at": "2026-09-20T14:15:39+00:00",
       "status": "low_confidence",
       "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=43": {
+      "processed_at": "2026-09-20T14:24:43+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=651": {
+      "processed_at": "2026-09-20T14:24:45+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=658": {
+      "processed_at": "2026-09-20T14:24:48+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=535": {
+      "processed_at": "2026-09-20T14:24:50+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=2533": {
+      "processed_at": "2026-09-20T14:24:55+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=1258": {
+      "processed_at": "2026-09-20T14:24:59+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=2719": {
+      "processed_at": "2026-09-20T14:25:03+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=1259": {
+      "processed_at": "2026-09-20T14:25:05+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=1292": {
+      "processed_at": "2026-09-20T14:25:08+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=2499": {
+      "processed_at": "2026-09-20T14:25:10+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
     }
   },
   "pending": {
@@ -600,365 +650,405 @@
       "last_attempt_at": "2026-09-20T14:15:46+00:00",
       "reason": "circuit_open"
     },
-    "https://fnisc.ru/index.php?page_id=43": {
-      "url": "https://www.fnisc.ru/index.php?page_id=43",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=651": {
-      "url": "https://www.fnisc.ru/index.php?page_id=651",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=658": {
-      "url": "https://www.fnisc.ru/index.php?page_id=658",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=535": {
-      "url": "https://www.fnisc.ru/index.php?page_id=535",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
     "https://fnisc.ru/index.php?page_id=1256": {
       "url": "https://www.fnisc.ru/index.php?page_id=1256",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=2533": {
-      "url": "https://www.fnisc.ru/index.php?page_id=2533",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=1258": {
-      "url": "https://www.fnisc.ru/index.php?page_id=1258",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=2719": {
-      "url": "https://www.fnisc.ru/index.php?page_id=2719",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=1259": {
-      "url": "https://www.fnisc.ru/index.php?page_id=1259",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=1292": {
-      "url": "https://www.fnisc.ru/index.php?page_id=1292",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=2499": {
-      "url": "https://www.fnisc.ru/index.php?page_id=2499",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:24:53+00:00",
+      "reason": "article_template_changed"
     },
     "https://fnisc.ru/index.php?page_id=2501": {
       "url": "https://www.fnisc.ru/index.php?page_id=2501",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "error"
     },
     "https://fnisc.ru/index.php?page_id=2504": {
       "url": "https://www.fnisc.ru/index.php?page_id=2504",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2507": {
       "url": "https://www.fnisc.ru/index.php?page_id=2507",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2694": {
       "url": "https://www.fnisc.ru/index.php?page_id=2694",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2508": {
       "url": "https://www.fnisc.ru/index.php?page_id=2508",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2788": {
       "url": "https://www.fnisc.ru/index.php?page_id=2788",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=1339": {
       "url": "https://www.fnisc.ru/index.php?page_id=1339",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3126": {
       "url": "https://www.fnisc.ru/index.php?page_id=3126",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3127": {
       "url": "https://www.fnisc.ru/index.php?page_id=3127",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3128": {
       "url": "https://www.fnisc.ru/index.php?page_id=3128",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3129": {
       "url": "https://www.fnisc.ru/index.php?page_id=3129",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3130": {
       "url": "https://www.fnisc.ru/index.php?page_id=3130",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=755": {
       "url": "https://www.fnisc.ru/index.php?page_id=755",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=558": {
       "url": "https://www.fnisc.ru/index.php?page_id=558",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=1077": {
       "url": "https://www.fnisc.ru/index.php?page_id=1077",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3157": {
       "url": "https://www.fnisc.ru/index.php?page_id=3157",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=1560": {
       "url": "https://www.fnisc.ru/index.php?page_id=1560",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3085": {
       "url": "https://www.fnisc.ru/index.php?page_id=3085",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3151": {
       "url": "https://www.fnisc.ru/index.php?page_id=3151",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2556": {
       "url": "https://www.fnisc.ru/index.php?page_id=2556",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2749": {
       "url": "https://www.fnisc.ru/index.php?page_id=2749",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2522": {
       "url": "https://www.fnisc.ru/index.php?page_id=2522",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=1410": {
       "url": "https://www.fnisc.ru/index.php?page_id=1410",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3277": {
       "url": "https://www.fnisc.ru/index.php?page_id=3277",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2687": {
       "url": "https://www.fnisc.ru/index.php?page_id=2687",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2464": {
       "url": "https://www.fnisc.ru/index.php?page_id=2464",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2466": {
       "url": "https://www.fnisc.ru/index.php?page_id=2466",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2463": {
       "url": "https://www.fnisc.ru/index.php?page_id=2463",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3174": {
       "url": "https://www.fnisc.ru/index.php?page_id=3174",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2381": {
       "url": "https://www.fnisc.ru/index.php?page_id=2381",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3282": {
       "url": "https://www.fnisc.ru/index.php?page_id=3282",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2791": {
       "url": "https://www.fnisc.ru/index.php?page_id=2791",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2477": {
       "url": "https://www.fnisc.ru/index.php?page_id=2477",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2298": {
       "url": "https://www.fnisc.ru/index.php?page_id=2298",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2559": {
       "url": "https://www.fnisc.ru/index.php?page_id=2559",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2681": {
       "url": "https://www.fnisc.ru/index.php?page_id=2681",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3140": {
       "url": "https://www.fnisc.ru/index.php?page_id=3140",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3137": {
       "url": "https://www.fnisc.ru/index.php?page_id=3137",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3155": {
       "url": "https://www.fnisc.ru/index.php?page_id=3155",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3178": {
       "url": "https://www.fnisc.ru/index.php?page_id=3178",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3195": {
       "url": "https://www.fnisc.ru/index.php?page_id=3195",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3261": {
       "url": "https://www.fnisc.ru/index.php?page_id=3261",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3272": {
       "url": "https://www.fnisc.ru/index.php?page_id=3272",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3273": {
       "url": "https://www.fnisc.ru/index.php?page_id=3273",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3274": {
       "url": "https://www.fnisc.ru/index.php?page_id=3274",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=2238": {
       "url": "https://www.fnisc.ru/index.php?page_id=2238",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=528": {
       "url": "https://www.fnisc.ru/index.php?page_id=528",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=569": {
       "url": "https://www.fnisc.ru/index.php?page_id=569",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3183": {
       "url": "https://www.fnisc.ru/index.php?page_id=3183",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-09-20T14:25:17+00:00",
+      "reason": "circuit_open"
     },
     "https://fnisc.ru/index.php?page_id=3267": {
       "url": "https://www.fnisc.ru/index.php?page_id=3267",
@@ -3011,34 +3101,63 @@
       "source": "institutional_site_scan",
       "source_name": "Челябинский филиал РАНХиГС",
       "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=15274&page_id=536": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=15274",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=375&page_id=538": {
+      "url": "https://www.fnisc.ru/index.php?page_id=538&id=375",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/more": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/more",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/obratnaya-svyaz-v-sisteme-kachestva-obucheniya/sociological-research": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/obratnaya-svyaz-v-sisteme-kachestva-obucheniya/sociological-research",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/obratnaya-svyaz-v-sisteme-kachestva-obucheniya/vstrechi-s-komissiey-po-kachestvu-obrazovaniya-studencheskogo-soveta-rudn": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/obratnaya-svyaz-v-sisteme-kachestva-obucheniya/vstrechi-s-komissiey-po-kachestvu-obrazovaniya-studencheskogo-soveta-rudn",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/learning-quality-system/obratnaya-svyaz-v-sisteme-kachestva-obucheniya/procedure-for-consideration-of-applications": {
+      "url": "https://www.rudn.ru/education/learning-quality-system/obratnaya-svyaz-v-sisteme-kachestva-obucheniya/procedure-for-consideration-of-applications",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
     }
   },
   "initial_cutoff": "2026-06-22",
   "rss_cursor": {
-    "next_index": 1,
-    "attempted_at": "2026-09-20T14:13:47+00:00"
+    "next_index": 2,
+    "attempted_at": "2026-09-20T14:23:03+00:00"
   },
   "sitemap_pending": {
     "https://deminform.ru/sitemap.xml": [
       "https://deminform.ru/sitemap.xml"
     ],
     "https://www.sobaka.ru/sitemap.xml": [
-      "https://www.sobaka.ru/sitemaps/old-posts-nvr-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-krd-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-krsk-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-irk-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-smr-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-kzn-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-omsk-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-rnd-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-spb-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-chlb-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-kostroma-jaroslavl-ivanovo-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-kursk-1.xml",
       "https://www.sobaka.ru/sitemaps/old-posts-ufa-1.xml",
       "https://www.sobaka.ru/sitemaps/old-posts-belgorod-1.xml",
       "https://www.sobaka.ru/sitemaps/old-posts-ekb-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-nsk-1.xml"
+      "https://www.sobaka.ru/sitemaps/old-posts-nsk-1.xml",
+      "https://www.sobaka.ru/sitemap.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-spb-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-chlb-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-kostroma-jaroslavl-ivanovo-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-kursk-1.xml"
     ],
     "https://www.rosbalt.ru/sitemap.xml": []
   }

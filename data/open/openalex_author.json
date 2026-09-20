@@ -405,5 +405,5 @@
   "works_api_url": "https://api.openalex.org/works?filter=author.id:A5007601767",
   "updated_date": "2026-09-19T12:19:47",
   "created_date": "2022-05-12T00:00:00",
-  "last_success_at": "2026-09-20T14:13:06+00:00"
+  "last_success_at": "2026-09-20T14:22:22+00:00"
 }
