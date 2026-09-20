@@ -52,7 +52,7 @@
       "X-RateLimit-Reset": "1789981518",
       "Pragma": "no-cache",
       "cf-cache-status": "DYNAMIC",
-      "set-cookie": "__cf_bm=T224R3tCelOWS04lAf7gSO5KvAMICF1bCPcv6MwKKuA-1789376718.4706628-1.0.1.1-edQELEuWQr0McO11xSXbKNxCuhaRcOe2p3QP7IYB9JeQ5JOdJ0QH9owgAp8bwIvergTLu13CrHdctIvRyk3m3wEOyeV5pUZpwK.WwhvTQdI9Nb4DA8M7yr2.qbQFEspj; HttpOnly; SameSite=None; Secure; Path=/; Domain=elsevier.com; Expires=Mon, 14 Sep 2026 09:35:18 GMT",
+      "set-cookie": "[REDACTED]",
       "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
       "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "Server": "cloudflare",

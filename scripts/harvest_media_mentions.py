@@ -1,472 +1,612 @@
 #!/usr/bin/env python3
-"""Free automated media mention harvester for a static scientist portfolio.
+"""Incremental media discovery. Existing public records and review queues are retained.
 
-The algorithm combines several zero-cost channels:
-
-1. Known seed URLs from config/media_sources.yml.
-2. Google News RSS searches by exact name variants.
-3. Optional sitemap scanning for selected media/project domains.
-4. Optional public Telegram channel-page scanning through t.me/s/<channel>.
-
-Unlike earlier versions, this script does not create a manual queue. It writes:
-
-  data/media/published.json
-  data/media/rejected_or_low_confidence.json
-  data/media/harvest_report.json
-  data/admin_queue/media_mentions.json   # always [] for compatibility
-  data/admin_queue/media_mentions.csv    # header only for compatibility
-
-The static site should display only data/media/published.json.
+One entrypoint replaces the former destructive harvest/enhance/seed chain. Network
+failures are recorded and retried on later runs; never turn them into empty data.
 """
 from __future__ import annotations
 
-from pathlib import Path
-from datetime import datetime, timezone
-from urllib.parse import urlencode, urlparse, parse_qs, unquote
+import argparse
+import base64
 import csv
-import email.utils
+from datetime import datetime, timedelta, timezone
 import hashlib
 import html
 import json
 import os
+from pathlib import Path
 import re
 import time
-import urllib.request
-import urllib.error
+from urllib.parse import parse_qs, parse_qsl, unquote, urlencode, urljoin, urlparse, urlunparse
 import xml.etree.ElementTree as ET
 
-try:
-    import yaml
-except Exception:
-    yaml = None
+from bs4 import BeautifulSoup
+import requests
+import yaml
 
-try:
-    from bs4 import BeautifulSoup
-except Exception:
-    BeautifulSoup = None
+from media_postprocess import mirror_image, parse_date_value, is_blocked_record, usable_image_url
+from media_translation import MediaTranslator
 
-ROOT = Path('.')
-PROFILE = Path(os.environ.get('PROFILE_YAML', 'config/profile.yml'))
+OUT = Path('data/media')
+QUEUE = Path('data/admin_queue')
 CONFIG = Path(os.environ.get('MEDIA_SOURCES_YAML', 'config/media_sources.yml'))
-OUT = ROOT / 'data' / 'media'
-QUEUE = ROOT / 'data' / 'admin_queue'
-OUT.mkdir(parents=True, exist_ok=True)
-QUEUE.mkdir(parents=True, exist_ok=True)
-
-DEFAULT_QUERIES = [
-    '"Ситковский Арсений"',
-    '"Ситковский А.М."',
-    '"Арсений Ситковский"',
-    '"Ситковский Арсений Михайлович"',
-    '"Arseniy Sitkovskiy"',
-    '"Arseniy M. Sitkovskiy"',
-]
-
-DEFAULT_IDENTITY_TERMS = [
-    'ситковский', 'арсений ситковский', 'ситковский а. м.', 'ситковский а.м.',
-    'ситковский арсений', 'arseniy sitkovskiy', 'arseniy m. sitkovskiy'
-]
-
-DEFAULT_CONTEXT_TERMS = [
-    'демограф', 'демография', 'рождаемость', 'старение', 'фнисц', 'рудн', 'ран',
-    'пространственное развитие', 'агломерац', 'расселение', 'семейная ипотека'
-]
-
-STOP_DOMAINS = {
-    'elibrary.ru', 'orcid.org', 'scopus.com', 'webofscience.com', 'github.com',
-    'researchgate.net', 'scholar.google.com', 'cyberleninka.ru'
-}
-BLOCKED_URL_PATTERNS = [
-    re.compile(r'admission\.rudn\.ru/staff/86110487-4a8f-11f0-b545-00155d0c0d4a', re.I),
-    re.compile(r'fnisc\.ru/pers_about\.html\?id=2472', re.I),
-    re.compile(r'isras\.ru/pers_about\.html\?id=2472', re.I),
-    re.compile(r'fnisc\.ru/index\.php\?id=2472&page_id=1195', re.I),
-    re.compile(r'rudn\.ru/about/struktura-rudn/.*/kafedra-gosudarstvennogo-i-municipalnogo-upravleniya', re.I),
-]
-BLOCKED_TITLES = {
-    'список публикаций ситковского арсения михайловича',
-    'ситковский арсений михайлович arseniy m. sitkovskiy',
-    'кафедра государственного и муниципального управления',
-}
+FETCH_DEADLINE = None
+TRACKING = re.compile(r'^(utm_|fbclid$|gclid$|yclid$)', re.I)
+STATIC = re.compile(r'\.(?:css|js|png|jpe?g|gif|svg|webp|pdf|docx?|xlsx?|zip)(?:$|\?)', re.I)
+SURNAME = r'(?:ситковск(?:ий|ого|ому|им|ом)|sitkovsk(?:iy|ij|y|ii|i))'
+GIVEN = r'(?:арсени(?:й|я|ю|ем|и)|arseni(?:y|i|j)|arseny)'
+PATRONYMIC = r'(?:михайлович(?:а|у|ем|е)?|mikhailovich)'
+NAME = re.compile(r'\b(?:' + SURNAME + r'\s+(?:' + GIVEN + r'|[аa]\.\s*[мm]\.)|' + GIVEN + r'(?:\s+' + PATRONYMIC + r'|\s+m\.)?\s+' + SURNAME + r'|[аa]\.\s*[мm]\.\s*' + SURNAME + r')', re.I)
+SURNAME_ONLY = re.compile(r'\b' + SURNAME + r'\b', re.I)
 
 
-def now() -> str:
+def now():
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
-
-def detect_lang(text):
-    return 'ru' if re.search(r'[А-Яа-яЁё]', text or '') else 'en' if re.search(r'[A-Za-z]', text or '') else None
-
-def localized_record_fields(title, description):
-    title = html.unescape(title or '').strip()
-    description = html.unescape(description or '').strip()
-    fields = {'title': title, 'description': description}
-    t_lang = detect_lang(title)
-    d_lang = detect_lang(description)
-    if t_lang:
-        fields[f'title_{t_lang}'] = title
-    if d_lang:
-        fields[f'description_{d_lang}'] = description
-    fields['language'] = t_lang or d_lang or 'und'
-    return fields
-
-def read_yaml(path: Path) -> dict:
-    if yaml is None or not path.exists():
-        return {}
-    return yaml.safe_load(path.read_text(encoding='utf-8')) or {}
+def clean(value):
+    return re.sub(r'\s+', ' ', html.unescape(str(value or ''))).strip()
 
 
-def read_json(path: Path, default):
-    try:
-        return json.loads(path.read_text(encoding='utf-8'))
-    except Exception:
+def canonical(url):
+    p = urlparse(str(url or '').strip())
+    host = p.netloc.lower().removeprefix('www.')
+    query = urlencode(sorted((k, v) for k, v in parse_qsl(p.query, keep_blank_values=True) if not TRACKING.search(k)))
+    return urlunparse(('https', host, unquote(p.path).rstrip('/'), '', query, '')) if host else ''
+
+
+def read_json(path, default):
+    if not path.exists():
         return default
+    # Corrupt committed data must fail the run, not silently become an empty file.
+    return json.loads(path.read_text(encoding='utf-8'))
 
 
-def read_profile() -> dict:
-    return read_yaml(PROFILE)
+def write_json(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    staged = path.with_suffix(path.suffix + '.tmp')
+    staged.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
+    staged.replace(path)
 
 
-def media_cfg() -> dict:
-    return read_yaml(CONFIG).get('media_monitoring', {})
+def fetch_text(url, accept='text/html,application/xml,text/xml,*/*', attempts=3):
+    report = {'url': url, 'status': 'error'}
+    for attempt in range(attempts):
+        remaining = FETCH_DEADLINE - time.monotonic() if FETCH_DEADLINE else 60
+        if remaining <= 2:
+            return None, {**report, 'status': 'budget_exhausted'}
+        try:
+            response = requests.get(url, timeout=(min(10, remaining / 2), min(25, remaining / 2)), headers={
+                'User-Agent': 'Mozilla/5.0 personal-website-media-monitor/2.0',
+                'Accept': accept, 'Accept-Language': 'en-US,en;q=0.8' if urlparse(url).netloc == 'news.google.com' else 'ru,en;q=0.8'}, stream=True)
+            report.update(http_status=response.status_code, final_url=response.url)
+            if response.status_code != 200:
+                response.close()
+                report['status'] = 'http_error'
+                if response.status_code not in (429, 500, 502, 503, 504):
+                    break
+            else:
+                chunks, size = [], 0
+                for chunk in response.iter_content(65536):
+                    size += len(chunk)
+                    if size > 6_000_000:
+                        response.close()
+                        return None, {**report, 'status': 'too_large'}
+                    chunks.append(chunk)
+                encoding = response.encoding
+                if not encoding or encoding.lower() == 'iso-8859-1':
+                    encoding = 'utf-8'
+                text = b''.join(chunks).decode(encoding, errors='replace')
+                response.close()
+                return text, {**report, 'status': 'ok', 'bytes': size}
+        except requests.RequestException as exc:
+            report['reason'] = type(exc).__name__  # Do not store response bodies or headers.
+        if attempt < attempts - 1:
+            time.sleep(2 ** attempt)
+    return None, report
 
 
-def cfg_queries(cfg: dict) -> list[str]:
-    prof = (read_profile().get('profile') or {})
-    queries = list(cfg.get('queries') or DEFAULT_QUERIES)
-    for name in [prof.get('display_name_ru'), prof.get('display_name_en')]:
-        if name:
-            queries.append('"' + str(name).strip() + '"')
-    seen = set(); out = []
-    for q in queries:
-        if q not in seen:
-            seen.add(q); out.append(q)
-    return out
-
-
-def identity_terms(cfg: dict) -> list[str]:
-    terms = list(cfg.get('identity_terms') or DEFAULT_IDENTITY_TERMS)
-    prof = (read_profile().get('profile') or {})
-    for name in [prof.get('display_name_ru'), prof.get('display_name_en')]:
-        if name:
-            terms.append(str(name).lower())
-    return [t.lower().replace('ё', 'е') for t in terms]
-
-
-def context_terms(cfg: dict) -> list[str]:
-    return [t.lower().replace('ё', 'е') for t in (cfg.get('context_terms') or DEFAULT_CONTEXT_TERMS)]
-
-
-def clean_url(url: str) -> str:
-    url = (url or '').strip().replace(' ', '_')
-    url = url.replace('utm_source=perplexity', '').replace('utm source=perplexity', '')
-    url = url.rstrip('?&')
-    return url
-
-
-def domain_of(url: str) -> str:
-    try:
-        host = urlparse(url).netloc.lower()
-        return host[4:] if host.startswith('www.') else host
-    except Exception:
-        return ''
-
-
-def blocked_url(url: str) -> bool:
-    return any(rx.search(clean_url(url)) for rx in BLOCKED_URL_PATTERNS)
-
-
-def blocked_title(title: str | None) -> bool:
-    return re.sub(r'\s+', ' ', html.unescape(title or '')).strip().lower().replace('ё', 'е') in BLOCKED_TITLES
-
-
-def fetch_text(url: str, accept='text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 scientist-portfolio-media-harvester/0.2',
-        'Accept': accept,
-        'Accept-Language': 'ru-RU,ru;q=0.9,en;q=0.8',
-    }
-    req = urllib.request.Request(url, headers=headers)
-    started = time.time()
-    try:
-        with urllib.request.urlopen(req, timeout=45) as resp:
-            raw = resp.read()
-            enc = resp.headers.get_content_charset() or 'utf-8'
-            return raw.decode(enc, errors='replace'), {
-                'status': 'ok', 'http_status': resp.status, 'url': url,
-                'bytes': len(raw), 'elapsed_sec': round(time.time() - started, 3)
-            }
-    except urllib.error.HTTPError as exc:
-        body = exc.read().decode('utf-8', errors='replace')[:1000]
-        return None, {'status': 'http_error', 'http_status': exc.code, 'url': url, 'error_excerpt': body}
-    except Exception as exc:
-        return None, {'status': 'error', 'url': url, 'error': repr(exc)}
-
-
-def textify_html(html_text: str) -> str:
-    if not html_text:
-        return ''
-    if BeautifulSoup:
-        soup = BeautifulSoup(html_text, 'html.parser')
-        for tag in soup(['script', 'style', 'noscript']):
-            tag.decompose()
-        return re.sub(r'\s+', ' ', soup.get_text(' ')).strip()
-    return re.sub(r'<[^>]+>', ' ', html_text)
-
-
-def meta_from_html(html_text: str) -> dict:
-    if not BeautifulSoup:
-        title = re.search(r'<title[^>]*>(.*?)</title>', html_text or '', re.I | re.S)
-        return {'title': html.unescape(title.group(1)).strip() if title else None}
-    soup = BeautifulSoup(html_text or '', 'html.parser')
-    def meta(*names):
-        for name in names:
-            tag = soup.find('meta', attrs={'property': name}) or soup.find('meta', attrs={'name': name})
-            if tag and tag.get('content'):
-                return html.unescape(tag['content']).strip()
-        return None
-    title = meta('og:title', 'twitter:title') or (soup.title.get_text(' ').strip() if soup.title else None)
-    desc = meta('og:description', 'twitter:description', 'description')
-    image = meta('og:image', 'twitter:image')
-    return {'title': title, 'description': desc, 'image': image}
-
-
-def parse_date(value: str | None) -> str | None:
-    if not value:
-        return None
-    try:
-        dt = email.utils.parsedate_to_datetime(value)
-        return dt.astimezone(timezone.utc).replace(microsecond=0).isoformat()
-    except Exception:
-        return value
-
-
-def score_record(text: str, title: str, url: str, cfg: dict, force_publish=False) -> float:
+def score_record(text, title, url, cfg, force_publish=False):
     if force_publish:
         return 1.0
-    body = (title + ' ' + text).lower().replace('ё', 'е')
-    score = 0.0
-    id_hits = sum(1 for t in identity_terms(cfg) if t and t in body)
-    ctx_hits = sum(1 for t in context_terms(cfg) if t and t in body)
-    if id_hits:
-        score += 0.55
-    if id_hits >= 2:
-        score += 0.15
-    if ctx_hits:
-        score += 0.2
-    if ctx_hits >= 2:
-        score += 0.05
-    if domain_of(url) in STOP_DOMAINS:
-        score -= 0.35
-    return max(0.0, min(1.0, round(score, 2)))
+    # Identity and context must occur in the article, never in the navigation.
+    body = clean(title + ' ' + text).lower().replace('ё', 'е')
+    terms = [term.lower().replace('ё', 'е') for term in cfg.get('context_terms', ['демограф', 'фнисц', 'рождаемост'])]
+    context = any(re.search(r'\b' + re.escape(term) + r'\b', body) if len(term) <= 4 else term in body for term in terms)
+    if NAME.search(body):
+        return 0.95 if context else 0.6
+    return 0.45 if SURNAME_ONLY.search(body) and context else 0.2 if SURNAME_ONLY.search(body) else 0.0
 
 
-def make_record(url: str, *, source: str, cfg: dict, force_publish=False, query=None, source_name=None) -> tuple[dict | None, dict]:
-    url = clean_url(url)
-    html_text, report = fetch_text(url)
-    if not html_text:
-        if force_publish:
-            title = urlparse(url).path.strip('/').split('/')[-1].replace('-', ' ') or url
-            rec = build_record(url, source, title, '', cfg, force_publish=True, query=query, source_name=source_name)
-            return rec, report
-        return None, report
-    meta = meta_from_html(html_text)
-    text = textify_html(html_text)
-    title = meta.get('title') or url
-    desc = meta.get('description') or text[:280]
-    rec = build_record(url, source, title, desc, cfg, text=text, image=meta.get('image'), force_publish=force_publish, query=query, source_name=source_name)
-    return rec, report
+def article_meta(raw, url):
+    soup = BeautifulSoup(raw, 'html.parser')
+    for tag in soup.select('script, style, noscript, nav, footer, aside, .sidebar, .menu'):
+        tag.decompose()
+    host = urlparse(url).netloc.lower().removeprefix('www.')
+    if host == 'isesp-ras.ru':
+        body = soup.select_one('.right-col .contentpaneopen')
+        heading = body.select_one('h2') if body else None
+        date = parse_date_value(body.get_text(' ', strip=True)) if body else None
+    elif host == 'isd-ras.ru':
+        body = soup.select_one('.news-single .body-text')
+        heading = soup.select_one('.news-single .main-headline h1')
+        date_node = soup.select_one('.news-single .datetime')
+        date = parse_date_value(date_node.get_text(' ', strip=True)) if date_node else None
+    else:
+        body = soup.select_one('article, .page-detail-content, .page-detail, .article-body, .entry-content, .body-text, main, .content')
+        heading = body.select_one('h1, h2') if body else soup.select_one('h1')
+        date_node = soup.select_one('time, [itemprop="datePublished"]')
+        date = parse_date_value(date_node.get('datetime') or date_node.get('content') or date_node.get_text(' ')) if date_node else None
+    if not body:
+        return None  # A changed template cannot become an automatic false positive.
+    def meta(name):
+        tag = soup.find('meta', attrs={'property': name}) or soup.find('meta', attrs={'name': name})
+        return clean(tag.get('content')) if tag else ''
+    title = clean(heading.get_text(' ')) if heading else meta('og:title') or clean(soup.title.get_text(' ') if soup.title else '')
+    text = clean(body.get_text(' '))
+    if len(text) < 60 or not title:
+        return None
+    paragraphs = [clean(p.get_text(' ')) for p in body.select('p') if len(clean(p.get_text(' '))) >= 50]
+    description = next((p for p in paragraphs if SURNAME_ONLY.search(p)), paragraphs[0] if paragraphs else text)
+    if len(description) > 360:
+        description = description[:357].rsplit(' ', 1)[0] + '…'
+    image = meta('og:image') or meta('twitter:image')
+    if not usable_image_url(image):
+        image = next((urljoin(url, im.get('src') or im.get('data-src')) for im in body.select('img') if usable_image_url(im.get('src') or im.get('data-src'))), None)
+    return {'title': title, 'description': description, 'text': text,
+            'published_at': date or parse_date_value(meta('article:published_time')),
+            'image': urljoin(url, image) if image else None}
 
 
-def build_record(url, source, title, desc, cfg, *, text='', image=None, force_publish=False, query=None, source_name=None):
-    conf = score_record(text or desc, title, url, cfg, force_publish=force_publish)
-    rec_id = hashlib.sha256((title + '|' + url).encode('utf-8')).hexdigest()[:16]
-    record = {
-        'id': rec_id,
-        'source': source,
-        'query': query,
-        'url': url,
-        'domain': domain_of(url),
-        'source_name': source_name or domain_of(url),
-        'published_at': None,
-        'image': image,
-        'confidence': conf,
-        'status': 'published' if conf >= float(cfg.get('auto_publish_threshold', 0.75)) else 'low_confidence',
-        'force_publish': bool(force_publish),
-        'harvested_at': now(),
-    }
-    record.update(localized_record_fields(title, desc))
-    return record
-
-
-def apply_seed_fields(record: dict, seed: dict) -> dict:
-    for key in ['title', 'title_ru', 'title_en', 'description', 'description_ru', 'description_en', 'source_name', 'source_name_en']:
-        if seed.get(key):
-            record[key] = seed[key]
-    if seed.get('title') or seed.get('description') or seed.get('title_en') or seed.get('description_en'):
-        record['seed_metadata_locked'] = True
-    return record
-
-
-def rss_url(query: str, lang='ru', country='RU') -> str:
-    return 'https://news.google.com/rss/search?' + urlencode({'q': query, 'hl': lang, 'gl': country, 'ceid': f'{country}:{lang}'})
-
-
-def unwrap_google_news_link(link: str) -> str:
-    if not link:
-        return link
-    qs = parse_qs(urlparse(link).query)
-    for key in ['url', 'u']:
-        if key in qs and qs[key]:
-            return unquote(qs[key][0])
-    return link
-
-
-def parse_rss(xml_text: str, query: str, cfg: dict):
-    root = ET.fromstring(xml_text)
+def parse_listing(raw, source, cutoff):
+    soup = BeautifulSoup(raw, 'html.parser')
+    selector = source['link_selector']
+    anchors = soup.select(selector)
+    if not anchors:
+        raise ValueError('listing_template_changed')
     items = []
-    for item in root.findall('.//item'):
-        title = html.unescape((item.findtext('title') or '').strip())
-        link = unwrap_google_news_link((item.findtext('link') or '').strip())
-        desc = html.unescape(re.sub('<[^>]+>', ' ', item.findtext('description') or '')).strip()
-        pub_date = parse_date(item.findtext('pubDate'))
-        source_node = item.find('source')
-        source_name = source_node.text.strip() if source_node is not None and source_node.text else None
-        if domain_of(link) in STOP_DOMAINS:
+    for anchor in anchors:
+        container = anchor.find_parent(class_=source['item_class'])
+        date_node = container.select_one(source['date_selector']) if container else None
+        date = parse_date_value(date_node.get_text(' ')) if date_node else None
+        if date and date[:10] < cutoff:
             continue
-        rec = build_record(link, 'google_news_rss', title, desc, cfg, text=desc, query=query, source_name=source_name)
-        rec['published_at'] = pub_date
-        items.append(rec)
+        href = anchor.get('href', '').strip()
+        if not href:
+            continue
+        url = urljoin(source['url'], href)
+        if canonical(url) == canonical(source['url']):
+            continue
+        if canonical(url) and urlparse(url).netloc == urlparse(source['url']).netloc:
+            items.append({'url': url, 'title': clean(anchor.get_text(' ')), 'published_at': date,
+                          'source': 'institutional_news_listing', 'source_name': source['name'],
+                          'source_name_en': source.get('name_en')})
     return items
 
 
-def fetch_google_news(cfg: dict):
-    records, reports = [], []
-    for query in cfg_queries(cfg):
+def discover_listings(cfg, reports, state):
+    items = []
+    initial = (datetime.now(timezone.utc) - timedelta(days=int(cfg.get('initial_lookback_days', 90)))).date().isoformat()
+    cutoff = state.setdefault('initial_cutoff', initial)
+    for source in cfg.get('listing_sources', []):
+        raw, report = fetch_text(source['url'])
+        if raw:
+            try:
+                found = parse_listing(raw, source, cutoff)
+                items.extend(found)
+                report['record_count'] = len(found)
+            except ValueError as exc:
+                report.update(status='parse_error', reason=str(exc))
+        reports.append(report)
+    return items
+
+
+def unwrap_google_news_link(link):
+    qs = parse_qs(urlparse(link).query)
+    for key in ('url', 'u'):
+        if qs.get(key):
+            return qs[key][0]
+    # Older RSS URLs contain the original URL as a protobuf string.
+    try:
+        token = urlparse(link).path.rsplit('/', 1)[-1]
+        decoded = base64.urlsafe_b64decode(token + '=' * (-len(token) % 4))
+        match = re.search(rb'https?://[^\x00-\x20\x7f-\xff]+', decoded)
+        if match:
+            return match.group().decode('utf-8')
+    except (ValueError, UnicodeError):
+        pass
+    return link
+
+
+def resolve_original(link):
+    candidate = unwrap_google_news_link(link)
+    if urlparse(candidate).netloc != 'news.google.com':
+        return candidate, None
+    raw, report = fetch_text(candidate)
+    final = report.get('final_url', '')
+    if final and not urlparse(final).netloc.endswith(('google.com', 'googleusercontent.com', 'gstatic.com')):
+        return final, report
+    if urlparse(final).netloc == 'consent.google.com':
+        return None, {'url': link, 'status': 'consent_required'}
+    if raw:
+        soup = BeautifulSoup(raw, 'html.parser')
+        nodes = soup.select('a[rel="nofollow"], link[rel="canonical"], a[data-n-au]')
+        for node in nodes:
+            url = node.get('data-n-au') or node.get('href') or ''
+            host = urlparse(url).netloc
+            if url.startswith(('https://', 'http://')) and host and not host.endswith(('google.com', 'googleusercontent.com', 'gstatic.com')):
+                return url, report
+        # Current Google News wrappers expose a signed public article lookup.
+        # Protocol reference: SSujitX/google-news-url-decoder new_decoderv1.py.
+        attributes = soup.select_one('[data-n-a-sg][data-n-a-ts]')
+        if attributes:
+            try:
+                context = [["X", "X", ["X", "X"], None, None, 1, 1, "US:en", None, 1,
+                            None, None, None, None, None, 0, 1],
+                           "X", "X", 1, [1, 1, 1], 1, 1, None, 0, 0, None, 0]
+                request = ['garturlreq', context, urlparse(link).path.rsplit('/', 1)[-1],
+                           int(attributes['data-n-a-ts']), attributes['data-n-a-sg']]
+                envelope = [[['Fbv4je', json.dumps(request)]]]
+                response = requests.post('https://news.google.com/_/DotsSplashUi/data/batchexecute',
+                                         data={'f.req': json.dumps(envelope)}, timeout=(10, 25))
+                response.raise_for_status()
+                for line in response.text.splitlines():
+                    if not line.startswith('[['):
+                        continue
+                    for row in json.loads(line):
+                        if len(row) > 2 and row[0] == 'wrb.fr' and row[1] == 'Fbv4je':
+                            decoded = json.loads(row[2])
+                            original = decoded[1]
+                            if isinstance(original, str) and original.startswith(('https://', 'http://')) and not urlparse(original).netloc.endswith(('google.com', 'googleusercontent.com', 'gstatic.com')):
+                                return original, {**report, 'status': 'ok', 'resolution': 'public_article_lookup'}
+            except (requests.RequestException, ValueError, TypeError, IndexError, KeyError):
+                pass  # Persist the unresolved candidate and retry next run.
+    return None, {**report, 'status': 'unresolved_original'}
+
+
+def discover_rss(cfg, reports, state):
+    items = []
+    for query in cfg.get('queries', []):
         for lang, country in [('ru', 'RU'), ('en', 'US')]:
-            url = rss_url(query, lang=lang, country=country)
-            text, report = fetch_text(url, accept='application/rss+xml,application/xml,text/xml,*/*')
-            reports.append(report)
-            if text:
+            url = 'https://news.google.com/rss/search?' + urlencode({'q': query, 'hl': lang, 'gl': country, 'ceid': country + ':' + lang})
+            raw, report = fetch_text(url)
+            if raw:
                 try:
-                    records.extend(parse_rss(text, query, cfg))
-                except Exception as exc:
-                    reports.append({'status': 'parse_error', 'url': url, 'error': repr(exc)})
-            time.sleep(0.2)
-    return records, reports
-
-
-def fetch_sitemap_urls(sitemap_url: str, limit: int, allow_regex: str | None):
-    text, report = fetch_text(sitemap_url, accept='application/xml,text/xml,*/*')
-    urls = []
-    if text:
-        try:
-            root = ET.fromstring(text)
-            ns = {'sm': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
-            locs = [x.text for x in root.findall('.//sm:loc', ns) if x.text] or [x.text for x in root.findall('.//loc') if x.text]
-            rx = re.compile(allow_regex) if allow_regex else None
-            for loc in locs:
-                if rx is None or rx.search(loc):
-                    urls.append(loc)
-                if len(urls) >= limit:
-                    break
-        except Exception as exc:
-            report['parse_error'] = repr(exc)
-    return urls, report
-
-
-def fetch_sitemaps(cfg: dict):
-    records, reports = [], []
-    for src in cfg.get('sitemap_sources') or []:
-        urls, rep = fetch_sitemap_urls(src.get('sitemap_url'), int(src.get('max_urls') or 200), src.get('url_allow_regex'))
-        reports.append(rep)
-        for url in urls:
-            rec, report = make_record(url, source='sitemap_scan', cfg=cfg, force_publish=False, source_name=src.get('name'))
+                    root = ET.fromstring(raw)
+                    for node in root.findall('.//item'):
+                        items.append({'url': node.findtext('link'), 'title': clean(node.findtext('title')),
+                                      'published_at': parse_date_value(node.findtext('pubDate')),
+                                      'source': 'google_news_rss', 'source_name': node.findtext('source'), 'query': query})
+                except ET.ParseError:
+                    report.update(status='parse_error', reason='invalid_rss')
             reports.append(report)
-            if rec:
-                records.append(rec)
-            time.sleep(0.1)
-    return records, reports
+    return items
 
 
-def fetch_seed_urls(cfg: dict):
-    records, reports = [], []
-    for seed in cfg.get('seed_urls') or []:
-        rec, report = make_record(
-            seed.get('url'),
-            source=seed.get('source_type') or 'known_seed',
-            cfg=cfg,
-            force_publish=bool(seed.get('force_publish')),
-            source_name=seed.get('source_name'),
-        )
-        if rec and (seed.get('date') or seed.get('published_at')):
-            rec['published_at'] = seed.get('date') or seed.get('published_at')
-        if rec:
-            rec = apply_seed_fields(rec, seed)
+def fetch_sitemap_urls(url, limit, allow_regex=None, max_sitemaps=12, state=None):
+    backlog = state.setdefault('sitemap_pending', {}) if state is not None else {}
+    queue, visited, urls, reports = list(dict.fromkeys(backlog.get(url, []) + [url])), set(), [], []
+    failed = []
+    rx = re.compile(allow_regex) if allow_regex else None
+    while queue and len(visited) < max_sitemaps:
+        current = queue.pop(0)
+        if current in visited:
+            continue
+        visited.add(current)
+        raw, report = fetch_text(current)
         reports.append(report)
-        if rec:
-            records.append(rec)
-        time.sleep(0.15)
-    return records, reports
-
-
-def fetch_telegram(cfg: dict):
-    records, reports = [], []
-    for ch in cfg.get('telegram_channels') or []:
-        channel = ch.get('channel')
-        if not channel:
+        if not raw:
+            failed.append(current)
             continue
-        url = f'https://t.me/s/{channel}'
-        text, report = fetch_text(url)
-        reports.append(report)
-        if not text or not BeautifulSoup:
-            continue
-        soup = BeautifulSoup(text, 'html.parser')
-        posts = soup.select('.tgme_widget_message')[:int(ch.get('max_latest_posts') or 50)]
-        for post in posts:
-            post_url = post.get('data-post')
-            href = f'https://t.me/{post_url}' if post_url else url
-            body = re.sub(r'\s+', ' ', post.get_text(' ')).strip()
-            title = body[:110] or href
-            rec = build_record(href, 'telegram_channel_scan', title, body[:400], cfg, text=body, source_name=channel)
-            records.append(rec)
-    return records, reports
-
-
-def dedupe(records):
-    seen, out = set(), []
-    for r in sorted(records, key=lambda x: (x.get('status') == 'published', x.get('confidence') or 0, x.get('published_at') or ''), reverse=True):
-        key = r.get('url') or r.get('id')
-        if blocked_url(key) or blocked_title(r.get('title') or r.get('title_ru')):
-            continue
-        if key in seen:
-            continue
-        seen.add(key); out.append(r)
-    return out
-
-
-def main() -> int:
-    cfg = media_cfg()
-    records, provider_reports = [], []
-    for func in [fetch_seed_urls, fetch_google_news, fetch_telegram, fetch_sitemaps]:
         try:
-            recs, reps = func(cfg)
-            records.extend(recs); provider_reports.extend(reps)
+            root = ET.fromstring(raw)
+            kind = root.tag.rsplit('}', 1)[-1]
+            if kind not in ('sitemapindex', 'urlset'):
+                raise ET.ParseError()
+            for entry in root:
+                loc = next((clean(n.text) for n in entry if n.tag.rsplit('}', 1)[-1] == 'loc'), '')
+                if not loc:
+                    continue
+                if kind == 'sitemapindex':
+                    if urlparse(loc).netloc == urlparse(url).netloc:
+                        queue.append(loc)
+                elif (not rx or rx.search(loc)) and not STATIC.search(loc):
+                    modified = next((clean(n.text) for n in entry if n.tag.rsplit('}', 1)[-1] == 'lastmod'), '')
+                    urls.append((modified, loc))
+        except ET.ParseError:
+            report.update(status='parse_error', reason='invalid_sitemap')
+    # Keep the entire bounded discovery result in the durable backlog. limit is
+    # an article processing budget, never a truncation of already found links.
+    if queue:
+        reports.append({'url': url, 'status': 'partial', 'reason': 'sitemap_budget'})
+    backlog[url] = list(dict.fromkeys(queue + failed))
+    unique = list(dict.fromkeys(loc for _, loc in sorted(urls, reverse=True)))
+    return unique, reports
+
+
+def discover_sitemaps(cfg, reports, state):
+    items = []
+    for source in cfg.get('sitemap_sources', []):
+        urls, source_reports = fetch_sitemap_urls(source['sitemap_url'], int(source.get('max_urls', 100)), source.get('url_allow_regex'), state=state)
+        reports.extend(source_reports)
+        items.extend({'url': url, 'source': 'sitemap_scan', 'source_name': source['name']} for url in urls)
+    return items
+
+
+def discover_sites(cfg, reports, state):
+    # Generic institutional scan remains bounded, with article extraction required.
+    items = []
+    for source in cfg.get('site_scan_sources', []):
+        allowed = re.compile(source.get('url_allow_regex', '.'))
+        pending = [(url, 0) for url in source.get('start_urls', [])]
+        visited = set()
+        while pending and len(visited) < int(source.get('max_pages', 12)):
+            url, depth = pending.pop(0)
+            if canonical(url) in visited:
+                continue
+            visited.add(canonical(url))
+            raw, report = fetch_text(url)
+            reports.append(report)
+            if not raw:
+                continue
+            soup = BeautifulSoup(raw, 'html.parser')
+            for anchor in soup.select('a[href]'):
+                link = urljoin(url, anchor['href'])
+                if urlparse(link).netloc != urlparse(url).netloc or not allowed.search(link) or STATIC.search(link):
+                    continue
+                if is_blocked_record({'url': link}):
+                    continue
+                items.append({'url': link, 'source': 'institutional_site_scan', 'source_name': source['name']})
+                if depth < int(source.get('max_depth', 0)):
+                    pending.append((link, depth + 1))
+    return items
+
+
+def discover_telegram(cfg, reports, state):
+    items = []
+    for source in cfg.get('telegram_channels', []):
+        url = 'https://t.me/s/' + source['channel']
+        raw, report = fetch_text(url)
+        reports.append(report)
+        if not raw:
+            continue
+        soup = BeautifulSoup(raw, 'html.parser')
+        for post in soup.select('.tgme_widget_message')[-int(source.get('max_latest_posts', 50)):]:
+            body = post.select_one('.tgme_widget_message_text')
+            if not body or not post.get('data-post'):
+                continue
+            text = clean(body.get_text(' '))
+            date = post.select_one('time')
+            items.append({'url': 'https://t.me/' + post['data-post'], 'source': 'telegram_channel_scan',
+                          'source_name': source['channel'], 'title': text[:110],
+                          'published_at': date.get('datetime') if date else None,
+                          '_meta': {'title': text[:110], 'description': text[:360], 'text': text}})
+    return items
+
+
+def build_record(candidate, meta, cfg):
+    url = candidate['url']
+    confidence = score_record(meta.get('text', ''), meta.get('title', ''), url, cfg, candidate.get('force_publish', False))
+    rec = {k: v for k, v in candidate.items() if not k.startswith('_')}
+    rec.update({k: v for k, v in meta.items() if k != 'text' and v})
+    rec.update(id=hashlib.sha256(canonical(url).encode()).hexdigest()[:16],
+               confidence=confidence, status='published' if confidence >= float(cfg.get('auto_publish_threshold', .75)) else 'low_confidence',
+               domain=urlparse(url).netloc.removeprefix('www.'), harvested_at=now())
+    for field in ('title', 'description'):
+        value = rec.get(field, '')
+        lang = 'ru' if re.search('[А-Яа-яЁё]', value) else 'en'
+        if value:
+            rec.setdefault(field + '_' + lang, value)
+    rec['language'] = 'ru' if re.search('[А-Яа-яЁё]', rec.get('title', '')) else 'en'
+    return rec
+
+
+def merge_records(existing, incoming):
+    # Existing IDs, URLs, manual text/translations and cached images win. New
+    # metadata only fills gaps; reviewed edits are made explicitly in the data.
+    merged = {canonical(r.get('url')) or r['id']: dict(r) for r in existing}
+    ids = {r.get('id'): k for k, r in merged.items() if r.get('id')}
+    for record in incoming:
+        key = ids.get(record.get('id')) or canonical(record.get('url')) or record.get('id')
+        if not key:
+            continue
+        if key not in merged:
+            merged[key] = dict(record)
+        else:
+            for field, value in record.items():
+                if value is not None and value != '' and merged[key].get(field) in (None, ''):
+                    merged[key][field] = value
+        if merged[key].get('id'):
+            ids[merged[key]['id']] = key
+    return sorted(merged.values(), key=lambda r: (r.get('published_at') or '', r.get('title') or ''), reverse=True)
+
+
+def merge_discovery_state(existing, incoming):
+    """Reconcile an Actions candidate with checkpoints newly committed to main.
+
+    Successful processing wins over pending attempts. Keep every remaining
+    candidate and sitemap continuation; repeated discovery is harmless and avoids
+    losing work when the snapshots were collected concurrently.
+    """
+    result = {'processed': {}, 'pending': {}, 'sitemap_pending': {}}
+    for state in (existing or {}, incoming or {}):
+        cutoff = state.get('initial_cutoff')
+        if cutoff:
+            result['initial_cutoff'] = min(cutoff, result.get('initial_cutoff', cutoff))
+        for key, value in state.get('processed', {}).items():
+            old = result['processed'].get(key, {})
+            if value.get('processed_at', '') >= old.get('processed_at', ''):
+                result['processed'][key] = dict(value)
+        for key, value in state.get('pending', {}).items():
+            old = result['pending'].get(key, {})
+            if value.get('last_attempt_at', '') >= old.get('last_attempt_at', ''):
+                result['pending'][key] = {**old, **value}
+            else:
+                result['pending'][key] = {**value, **old}
+        for source, urls in state.get('sitemap_pending', {}).items():
+            result['sitemap_pending'][source] = list(dict.fromkeys(result['sitemap_pending'].get(source, []) + urls))
+    for key in result['processed']:
+        result['pending'].pop(key, None)
+    return result
+
+
+def seed_records(cfg):
+    corpus = read_json(OUT / 'known_mentions_corpus.json', {}).get('records', [])
+    records = []
+    for seed in list(cfg.get('seed_urls', [])) + corpus:
+        if not seed.get('url') or not seed.get('force_publish', True):
+            continue
+        fields = dict(seed)
+        fields.update(source=seed.get('source_type', 'known_media_seed'), force_publish=True,
+                      seed_metadata_locked=True, published_at=seed.get('date') or seed.get('published_at'),
+                      source_name=seed.get('source_name') or urlparse(seed['url']).netloc.removeprefix('www.'))
+        fields['description'] = seed.get('description') or seed.get('context') or ''
+        fields.pop('date', None)
+        if not is_blocked_record(fields):
+            records.append(build_record(fields, {}, cfg))
+    return records
+
+
+def run(cfg, providers=None, max_articles=None, seeds_only=False, mirror=True, translate=True):
+    global FETCH_DEADLINE
+    started = time.monotonic()
+    runtime_budget = int(cfg.get('max_runtime_seconds', 600))
+    FETCH_DEADLINE = started + min(180, runtime_budget / 3)
+    OUT.mkdir(parents=True, exist_ok=True)
+    current = read_json(OUT / 'published.json', {'records': []})['records']
+    old_report = read_json(OUT / 'harvest_report.json', {})
+    state = read_json(OUT / 'discovery_state.json', {'processed': {}, 'pending': {}})
+    processed, pending = state.setdefault('processed', {}), state.setdefault('pending', {})
+    queue_payload = read_json(QUEUE / 'media_mentions.json', [])
+    queue = queue_payload if isinstance(queue_payload, list) else queue_payload.get('records', [])
+    rejected = read_json(OUT / 'rejected_or_low_confidence.json', {'records': []}).get('records', [])
+    queue = merge_records(queue, rejected)
+    reports, incoming = [], seed_records(cfg)
+    existing_urls = {canonical(r['url']) for r in current}
+    funcs = {'listings': discover_listings, 'rss': discover_rss, 'sitemaps': discover_sitemaps,
+             'sites': discover_sites, 'telegram': discover_telegram}
+    selected = [] if seeds_only else providers or list(funcs)
+    for provider in selected:
+        first_report = len(reports)
+        try:
+            for candidate in funcs[provider](cfg, reports, state):
+                key = canonical(candidate.get('url'))
+                if key and key not in processed and key not in existing_urls:
+                    pending[key] = {**pending.get(key, {}), **candidate}
         except Exception as exc:
-            provider_reports.append({'status': 'collector_error', 'collector': func.__name__, 'error': repr(exc)})
-    records = dedupe(records)
-    threshold = float(cfg.get('auto_publish_threshold', 0.75))
-    published = [r for r in records if r.get('confidence', 0) >= threshold or r.get('force_publish')]
-    rejected = [r for r in records if r not in published]
-    (OUT / 'published.json').write_text(json.dumps({'generated_at': now(), 'records': published}, ensure_ascii=False, indent=2), encoding='utf-8')
-    (OUT / 'news_mentions.json').write_text(json.dumps({'generated_at': now(), 'records': published}, ensure_ascii=False, indent=2), encoding='utf-8')
-    (OUT / 'rejected_or_low_confidence.json').write_text(json.dumps({'generated_at': now(), 'records': rejected}, ensure_ascii=False, indent=2), encoding='utf-8')
-    (OUT / 'harvest_report.json').write_text(json.dumps({'generated_at': now(), 'published': len(published), 'rejected_or_low_confidence': len(rejected), 'providers': provider_reports}, ensure_ascii=False, indent=2), encoding='utf-8')
-    (QUEUE / 'media_mentions.json').write_text('[]\n', encoding='utf-8')
-    with (QUEUE / 'media_mentions.csv').open('w', encoding='utf-8-sig', newline='') as f:
-        csv.writer(f).writerow(['id', 'confidence', 'title', 'source_name', 'domain', 'published_at', 'url', 'query'])
-    print(json.dumps({'published_media_mentions': len(published), 'low_confidence': len(rejected)}, ensure_ascii=False, indent=2))
+            reports.append({'collector': provider, 'status': 'error', 'reason': type(exc).__name__})
+        for report in reports[first_report:]:
+            report.update(collector=provider, required=provider == 'listings')
+    FETCH_DEADLINE = started + runtime_budget
+    listing_urls = {canonical(source['url']) for source in cfg.get('listing_sources', [])}
+    for key in list(pending):
+        if key in listing_urls or not pending[key].get('url'):
+            pending.pop(key)
+    limit = max_articles if max_articles is not None else int(cfg.get('max_articles_per_run', 60))
+    candidates = sorted(pending.items(), key=lambda kv: (
+        not bool(kv[1].get('last_attempt_at')),
+        score_record('', kv[1].get('title', ''), kv[1]['url'], cfg),
+        kv[1].get('published_at') or ''), reverse=True)
+    for key, candidate in candidates[:0 if seeds_only else limit]:
+        url = candidate['url']
+        if urlparse(url).netloc == 'news.google.com':
+            original, report = resolve_original(url)
+            if report:
+                reports.append(report)
+            if not original:
+                candidate.update(last_attempt_at=now(), reason='unresolved_original')
+                continue
+            candidate['discovered_url'] = url
+            candidate['url'] = url = original
+        meta = candidate.pop('_meta', None)
+        if not meta:
+            raw, report = fetch_text(url)
+            report.update(collector=candidate.get('source'), required=candidate.get('source') == 'institutional_news_listing')
+            reports.append(report)
+            if not raw:
+                candidate.update(last_attempt_at=now(), reason=report['status'])
+                continue
+            meta = article_meta(raw, url)
+            if not meta:
+                candidate.update(last_attempt_at=now(), reason='article_template_changed')
+                reports.append({'url': url, 'status': 'parse_error', 'reason': 'article_template_changed', 'required': candidate.get('source') == 'institutional_news_listing'})
+                continue
+        record = build_record(candidate, meta, cfg)
+        if record['status'] == 'published' and not is_blocked_record(record):
+            incoming.append(record)
+        elif record['confidence'] > 0:
+            queue = merge_records(queue, [record])
+        processed[key] = {'processed_at': now(), 'status': record['status'], 'confidence': record['confidence']}
+        pending.pop(key, None)
+    published = merge_records(current, incoming)
+    translator = MediaTranslator(OUT / 'translation_cache.json') if translate else None
+    post_reports = []
+    for record in published:
+        if translator:
+            translator.enrich(record)
+        # Never re-fetch/rewrite a previously cached image merely to touch its timestamp.
+        image = record.get('image')
+        if mirror and canonical(record['url']) not in existing_urls and image and not (image.startswith('assets/') and Path(image).exists()):
+            post_reports.append({'id': record['id'], 'image': mirror_image(record, image)['status']})
+    if translator:
+        translator.save()
+    published_urls = {canonical(r['url']) for r in published}
+    queue = [r for r in queue if canonical(r['url']) not in published_urls]
+    errors = [r for r in reports if r.get('status') != 'ok']
+    stamp = now()
+    complete = not errors and not pending and not seeds_only
+    required_ok = 'listings' in selected and not any(r.get('required') for r in errors)
+    report = {'status': 'success' if complete else 'partial' if selected else 'not_attempted',
+              'attempted_at': stamp, 'last_success_at': stamp if required_ok else old_report.get('last_success_at'),
+              'origin': 'live' if selected else 'snapshot', 'complete': complete,
+              'record_count': len(published), 'reason': 'reviewed_seed_only' if seeds_only else 'source_failures_or_pending' if errors or pending else None,
+              'required_sources_ok': required_ok,
+              'published': len(published), 'new_records': len(published) - len(current),
+              'low_confidence': len(queue), 'pending': len(pending), 'providers': reports,
+              'images': post_reports, 'translation': translator.status if translator else 'disabled'}
+    # Assert identity-level retention before promoting any public file.
+    for old in current:
+        kept = next((r for r in published if r.get('id') == old.get('id') and r.get('url') == old.get('url')), None)
+        if kept is None or any(kept.get(k) != v for k, v in old.items() if v is not None and v != ''):
+            raise ValueError('media_retention_failed')
+    payload = {'generated_at': stamp, 'records': published}
+    for filename in ('published.json', 'news_mentions.json', 'published-fallback.json'):
+        write_json(OUT / filename, payload)
+    write_json(OUT / 'rejected_or_low_confidence.json', {'generated_at': stamp, 'records': queue})
+    write_json(QUEUE / 'media_mentions.json', queue)
+    with (QUEUE / 'media_mentions.csv').open('w', encoding='utf-8-sig', newline='') as target:
+        columns = ['id', 'confidence', 'title', 'source_name', 'domain', 'published_at', 'url', 'query']
+        writer = csv.DictWriter(target, fieldnames=columns, extrasaction='ignore', lineterminator='\n')
+        writer.writeheader()
+        writer.writerows(queue)
+    write_json(OUT / 'discovery_state.json', state)
+    write_json(OUT / 'harvest_report.json', report)
+    return report
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--providers', nargs='+', choices=['listings', 'rss', 'sitemaps', 'sites', 'telegram'])
+    parser.add_argument('--max-articles', type=int)
+    parser.add_argument('--seeds-only', action='store_true')
+    parser.add_argument('--no-images', action='store_true')
+    parser.add_argument('--no-translate', action='store_true', help='Testing only; requires --output-dir')
+    parser.add_argument('--output-dir', type=Path, help='Isolated output directory for a test run')
+    args = parser.parse_args()
+    if args.no_translate and not args.output_dir:
+        parser.error('--no-translate is testing-only and requires an isolated --output-dir')
+    if args.output_dir:
+        global OUT, QUEUE
+        base = args.output_dir.resolve()
+        if base == Path('.').resolve() or base == Path('data').resolve() or Path('data').resolve() in base.parents:
+            parser.error('--output-dir must be outside the published data directory')
+        OUT, QUEUE = base / 'media', base / 'admin_queue'
+        args.no_images = True  # Isolated tests must not mutate repository assets.
+    cfg = yaml.safe_load(CONFIG.read_text(encoding='utf-8'))['media_monitoring']
+    report = run(cfg, args.providers, args.max_articles, args.seeds_only, not args.no_images, not args.no_translate)
+    print(json.dumps({k: report[k] for k in ('status', 'record_count', 'new_records', 'pending', 'low_confidence')}, ensure_ascii=False))
+    # Fresh-source availability is checked after safe promotion by the shared
+    # workflow health gate; transport problems are never disguised as fresh data.
     return 0
 
 

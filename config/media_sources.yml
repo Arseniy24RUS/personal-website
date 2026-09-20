@@ -1,6 +1,22 @@
 media_monitoring:
   auto_publish_threshold: 0.75
-  low_confidence_policy: audit_only
+  low_confidence_policy: persistent_review_queue
+  initial_lookback_days: 90
+  max_articles_per_run: 60
+  max_runtime_seconds: 600
+  listing_sources:
+    - name: "ИСЭПН ФНИСЦ РАН"
+      name_en: "Institute of Socio-Economic Studies of Population, FCTAS RAS"
+      url: "https://www.isesp-ras.ru/news/"
+      link_selector: ".news .title a"
+      item_class: "news"
+      date_selector: ".date"
+    - name: "Институт социальной демографии ФНИСЦ РАН"
+      name_en: "Institute for Social Demography, FCTAS RAS"
+      url: "https://isd-ras.ru/news/"
+      link_selector: ".news-list-view .post-teaser-text .post-title h3 a"
+      item_class: "post-teaser-text"
+      date_selector: ".post-head .date"
   queries:
     - "\"Ситковский Арсений\""
     - "\"Ситковский А.М.\""
@@ -33,6 +49,26 @@ media_monitoring:
     - "расселение"
     - "семейная ипотека"
   seed_urls:
+    - url: "https://www.isesp-ras.ru/news/pervaya-zashchita-dissovet-24124405-2026"
+      title: "Первая защита кандидатской диссертации во вновь открывшемся Диссертационном совете 24.1.244.05 ФНИСЦ РАН"
+      title_en: "First thesis defence at the newly established FCTAS RAS Dissertation Council"
+      description: "Сообщение ИСЭПН ФНИСЦ РАН об успешной защите диссертации Арсения Ситковского 15 сентября 2026 года. Совет единогласно поддержал присуждение учёной степени кандидата экономических наук."
+      description_en: "ISESP FCTAS RAS reports on Arseniy Sitkovskiy's successful thesis defence on 15 September 2026. The council unanimously supported awarding the Candidate of Sciences degree in economics."
+      source_name: "ИСЭПН ФНИСЦ РАН"
+      source_name_en: "Institute of Socio-Economic Studies of Population, FCTAS RAS"
+      date: "2026-09-17"
+      image: "https://www.isesp-ras.ru/images/news/photos/2026_09_17/17.09.2026_01%202.jpg"
+      force_publish: true
+    - url: "https://isd-ras.ru/news/2026/9/sitkovskij-zashhitil-kandidatskuyu-dissertaciyu/"
+      title: "А.М. Ситковский успешно защитил кандидатскую диссертацию"
+      title_en: "Arseniy Sitkovskiy successfully defends his Candidate of Sciences thesis"
+      description: "Институт социальной демографии ФНИСЦ РАН сообщил об успешной защите диссертации Арсения Ситковского о социально-экономических и демографических факторах трансформации системы расселения России."
+      description_en: "The Institute for Social Demography reports on Arseniy Sitkovskiy's successful thesis defence on the socioeconomic and demographic factors transforming Russia's settlement system."
+      source_name: "Институт социальной демографии ФНИСЦ РАН"
+      source_name_en: "Institute for Social Demography, FCTAS RAS"
+      date: "2026-09-15"
+      image: "https://cloud.idrras.ru/wp-content/uploads/123412352134513245.png"
+      force_publish: true
     - url: "https://www.demoscope.ru/weekly/2025/01081/gazeta03.php"
       title_en: "Newspapers write about educational migration"
       description_en: "A Demoscope Weekly press review item on educational migration."
@@ -124,12 +160,6 @@ media_monitoring:
         - "https://www.fnisc.ru/"
         - "https://www.fnisc.ru/pers_about.html?id=2472"
       url_allow_regex: "(^https://www\\.fnisc\\.ru/$)|pers_about\\.html|index\\.php\\?page_id=|/news/|/smi/|/press/|/events/"
-      max_pages: 45
-      max_depth: 1
-    - name: "Институт социальной демографии ФНИСЦ РАН"
-      start_urls:
-        - "https://isdfnisc.ru/"
-      url_allow_regex: "news|novosti|events|smi|press|people|staff|person|article"
       max_pages: 45
       max_depth: 1
     - name: "РУДН"

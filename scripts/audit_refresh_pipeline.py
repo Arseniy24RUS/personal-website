@@ -5,6 +5,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 import json
 import re
+from build_public_data import is_fresh, load_source_health
 
 try:
     import yaml  # type: ignore
@@ -103,6 +104,8 @@ def main() -> int:
         wos_records = []
     elif expected_wos_id and len(wos_records) == 0:
         warnings.append({'code': 'wos_records_empty', 'message': 'WoS metrics may exist, but no publication records are currently normalized.'})
+    if not isinstance(wos_records, list):
+        wos_records = []
 
     wos_publications_metric = metric(public_profile, 'wos', 'publications')
     wos_citations_metric = metric(public_profile, 'wos', 'citations')
@@ -151,11 +154,17 @@ def main() -> int:
         'elibrary_browser_status': elib_report.get('status') if isinstance(elib_report, dict) else None,
         'reference_enrichment_stats': (enrichment_report.get('stats') if isinstance(enrichment_report, dict) else None),
     }
-    status = 'ok' if not issues else 'error'
-    payload = {'generated_at': now(), 'status': status, 'checks': checks, 'warnings': warnings, 'issues': issues}
+    health = load_source_health(cfg_ids, public_profile.get('source_health'))
+    degraded = {name: state for name, state in health.items() if not is_fresh(state)}
+    for name, state in degraded.items():
+        warnings.append({'code': 'source_not_fresh', 'provider': name, **state})
+    # Structural safety and successful live collection are separate assertions.
+    status = 'error' if issues else 'partial' if degraded else 'success'
+    payload = {'generated_at': now(), 'status': status, 'checks': checks,
+               'source_health': health, 'warnings': warnings, 'issues': issues}
     write_json(REPORT, payload)
     print(json.dumps(payload, ensure_ascii=False, indent=2))
-    return 0 if status == 'ok' else 1
+    return 1 if issues else 2 if degraded else 0
 
 
 if __name__ == '__main__':

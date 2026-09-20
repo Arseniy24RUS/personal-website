@@ -1,0 +1,33 @@
+{
+  "status": "success",
+  "baseline_ref": "audit/pre-refresh-repair-20260920",
+  "baseline_commit": "58d9b9ac0c95ca42a3885f7bd1a86284505dfa10",
+  "datasets": {
+    "data/public/publications.json": {
+      "before": 67,
+      "after": 67
+    },
+    "data/media/published.json": {
+      "before": 20,
+      "after": 23
+    },
+    "data/media/published-fallback.json": {
+      "before": 20,
+      "after": 23
+    },
+    "data/risi/articles.json": {
+      "before": 13,
+      "after": 13
+    },
+    "data/diplomas/gallery.json": {
+      "before": 57,
+      "after": 57
+    },
+    "data/dpo/gallery.json": {
+      "before": 10,
+      "after": 10
+    }
+  },
+  "assets_checked": 305,
+  "issues": []
+}

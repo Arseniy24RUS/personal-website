@@ -8,13 +8,11 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from pathlib import Path
-import hashlib
-import json
 import re
-import shutil
-import zipfile
+from tempfile import TemporaryDirectory
 
-import fitz  # PyMuPDF
+from gallery_storage import prepare_sources, publish, read_manifest, source_hash
+
 from PIL import Image, ImageChops, ImageOps
 
 ROOT = Path('.')
@@ -70,41 +68,8 @@ def title_from_name(path: Path) -> str:
     return name[:1].upper() + name[1:] if name else 'Document'
 
 
-def file_hash(path: Path) -> str:
-    h = hashlib.sha1()
-    with path.open('rb') as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b''):
-            h.update(chunk)
-    return h.hexdigest()[:10]
-
-
-def reset_dir(path: Path):
-    if path.exists():
-        shutil.rmtree(path)
-    path.mkdir(parents=True, exist_ok=True)
-
-
 def prepare_workdir():
-    reset_dir(WORK)
-    INPUT_DIR.mkdir(parents=True, exist_ok=True)
-    direct_dir = WORK / 'direct-files'
-    direct_dir.mkdir(parents=True, exist_ok=True)
-
-    archives = sorted(INPUT_DIR.glob('*.zip'))
-    for src in INPUT_DIR.rglob('*'):
-        if src.is_file() and src.suffix.lower() in SUPPORTED_EXTS:
-            dst = direct_dir / src.name
-            if dst.exists():
-                dst = direct_dir / f"{src.stem}-{file_hash(src)}{src.suffix}"
-            shutil.copy2(src, dst)
-
-    for idx, zip_path in enumerate(archives, start=1):
-        extract_to = WORK / f'archive-{idx:02d}-{slugify(zip_path.stem)}'
-        extract_to.mkdir(parents=True, exist_ok=True)
-        with zipfile.ZipFile(zip_path) as zf:
-            zf.extractall(extract_to)
-
-    return archives
+    return prepare_sources(INPUT_DIR, WORK, SUPPORTED_EXTS)
 
 
 def collect_source_files():
@@ -177,6 +142,7 @@ def apply_page_fixup(base: str, source_page_number: int, img: Image.Image):
 
 
 def render_pdf_pages(path: Path):
+    import fitz
     doc = fitz.open(path)
     try:
         for page_number in range(doc.page_count):
@@ -194,31 +160,34 @@ def load_source_pages(path: Path):
     return [ImageOps.exif_transpose(img).convert('RGB')]
 
 
-def main():
+def build_additions():
     archives = prepare_workdir()
     files = collect_source_files()
+    previous = read_manifest(OUT)
     if not archives and not files:
-        raise FileNotFoundError('No ZIP, PDF or image files found in content/dpo/')
+        print('No new DPO inputs; existing gallery retained.')
+        return 0
 
-    reset_dir(THUMBS)
-    reset_dir(PAGES)
     OUT.parent.mkdir(parents=True, exist_ok=True)
 
-    items = []
-    used = set()
+    items = list(previous['items'])
+    known_hashes = {item.get('source_hash') for item in items if item.get('source_hash')}
+    staged_assets = []
+    stage = WORK / 'rendered'
+    stage.mkdir(parents=True, exist_ok=True)
     for path in files:
         year = year_from_name(path.as_posix())
-        base = f"{year or 'nd'}-{slugify(path.stem)}"
-        if base in used:
-            base = f"{base}-{file_hash(path)}"
-        used.add(base)
+        digest = source_hash(path)
+        if digest in known_hashes:
+            continue
+        base = f"{year or 'nd'}-{slugify(path.stem)}-{digest[:16]}"
+        known_hashes.add(digest)
         try:
             images = load_source_pages(path)
         except Exception as exc:
-            print(f'SKIP {path}: {exc}')
-            continue
+            raise ValueError(f'Cannot render new document {path.name}; existing gallery retained') from exc
         if not images:
-            continue
+            raise ValueError(f'No pages in new document {path.name}; existing gallery retained')
 
         page_records = []
         first_page_image = None
@@ -229,7 +198,9 @@ def main():
             width, height = img.size
             page_number = len(page_records) + 1
             page_path = PAGES / f"{base}-p{page_number:02d}.webp"
-            resize_max(img, 1800).save(page_path, 'WEBP', quality=84, method=6)
+            staged_page = stage / page_path.name
+            resize_max(img, 1800).save(staged_page, 'WEBP', quality=84, method=6)
+            staged_assets.append((staged_page, page_path))
             if first_page_image is None:
                 first_page_image = img
             page_records.append({
@@ -241,10 +212,12 @@ def main():
             })
 
         if not page_records or first_page_image is None:
-            continue
+            raise ValueError(f'No renderable pages in {path.name}; existing gallery retained')
 
         thumb_path = THUMBS / f"{base}.webp"
-        resize_max(first_page_image, 520).save(thumb_path, 'WEBP', quality=76, method=6)
+        staged_thumb = stage / (base + '-thumb.webp')
+        resize_max(first_page_image, 520).save(staged_thumb, 'WEBP', quality=76, method=6)
+        staged_assets.append((staged_thumb, thumb_path))
         first = page_records[0]
         orientation = first['orientation']
         items.append({
@@ -253,6 +226,7 @@ def main():
             'year': year,
             'kind': 'pdf' if path.suffix.lower() in PDF_EXTS else 'image',
             'source_filename': path.name,
+            'source_hash': digest,
             'page_count': len(page_records),
             'width': first['width'],
             'height': first['height'],
@@ -264,15 +238,29 @@ def main():
             'pages': page_records,
         })
 
-    OUT.write_text(json.dumps({
+    if len(items) == len(previous['items']):
+        print('All source hashes already present; existing gallery retained.')
+        return 0
+    items.sort(key=lambda item: (-(item.get('year') or 0), str(item.get('title') or item['id'])))
+    publish(OUT, {
+        **previous,
         'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         'count': len(items),
         'sort': 'year_desc_name_asc',
-        'input_archives': [str(p).replace('\\', '/') for p in archives],
+        'input_archives': sorted(set(previous.get('input_archives', [])) | {str(p).replace('\\', '/') for p in archives}),
         'items': items,
-    }, ensure_ascii=False, indent=2), encoding='utf-8')
+    }, staged_assets)
     print(f'Built DPO gallery: {len(items)} items')
+
+    return 0
+
+
+def main():
+    global WORK
+    with TemporaryDirectory(prefix='portfolio-gallery-') as temporary:
+        WORK = Path(temporary)
+        return build_additions()
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())

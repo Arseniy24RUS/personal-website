@@ -12,7 +12,7 @@ export default defineConfig({
     trace: 'on-first-retry'
   },
   webServer: {
-    command: `${python} -m http.server ${port}`,
+    command: `"${python}" scripts/serve_static.py --port ${port}`,
     url: `http://127.0.0.1:${port}`,
     reuseExistingServer: false
   },

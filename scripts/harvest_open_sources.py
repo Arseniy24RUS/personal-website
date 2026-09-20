@@ -26,6 +26,7 @@ import re
 import time
 import urllib.request
 import urllib.error
+from source_health import read_json, source_result, write_json
 
 try:
     import yaml
@@ -54,20 +55,23 @@ def get_json(url, headers=None, timeout=45):
     headers.setdefault('User-Agent', 'scientist-portfolio-harvester/0.2 (mailto:omnistat@yandex.ru)')
     headers.setdefault('Accept', 'application/json')
     req = urllib.request.Request(url, headers=headers)
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            raw = resp.read().decode('utf-8', errors='replace')
-            return json.loads(raw), {'status': 'ok', 'http_status': resp.status, 'url': url}
-    except urllib.error.HTTPError as exc:
-        body = exc.read().decode('utf-8', errors='replace')[:1200]
-        return None, {'status': 'http_error', 'http_status': exc.code, 'url': url, 'error_excerpt': body}
-    except Exception as exc:
-        return None, {'status': 'error', 'url': url, 'error': repr(exc)}
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return json.load(resp), {'status': 'ok', 'http_status': resp.status}
+        except urllib.error.HTTPError as exc:
+            reason = {'status': 'error', 'http_status': exc.code, 'reason': f'http_{exc.code}'}
+            if exc.code not in {429, 500, 502, 503, 504}:
+                return None, reason
+        except (OSError, ValueError):
+            reason = {'status': 'error', 'reason': 'network_or_invalid_json'}
+        if attempt < 2:
+            time.sleep(2 ** attempt)
+    return None, reason
 
 
 def save(path, payload):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
+    write_json(path, payload)
 
 
 def normalize_title(s):
@@ -159,68 +163,128 @@ def normalize_crossref_works(payload):
     return out
 
 
+def fetch_cursor_pages(base_url, params, provider):
+    """Keep partial pages out of the last-good cache."""
+    cursor = '*'
+    seen = set()
+    collected = []
+    record_ids = set()
+    first = None
+    while cursor and cursor not in seen:
+        seen.add(cursor)
+        payload, diagnostic = get_json(base_url + '?' + urlencode({**params, 'cursor': cursor}))
+        if payload is None:
+            return None, {**diagnostic, 'pages_completed': len(seen) - 1}
+        block = payload if provider == 'openalex' else payload.get('message', {})
+        key = 'results' if provider == 'openalex' else 'items'
+        batch = block.get(key)
+        if not isinstance(batch, list):
+            return None, {'reason': 'unexpected_schema'}
+        if first is None:
+            first = payload
+        identities = [row.get('id') if provider == 'openalex' else str(row.get('DOI', '')).lower() for row in batch]
+        if any(identity and identity in record_ids for identity in identities):
+            return None, {'reason': 'duplicate_pagination'}
+        record_ids.update(identity for identity in identities if identity)
+        collected.extend(batch)
+        meta = payload.get('meta', {}) if provider == 'openalex' else block
+        total = meta.get('count') if provider == 'openalex' else meta.get('total-results')
+        next_cursor = meta.get('next_cursor') if provider == 'openalex' else meta.get('next-cursor')
+        if total is not None and len(collected) >= int(total):
+            break
+        if not batch:
+            if total is not None and len(collected) < int(total):
+                return None, {'reason': 'incomplete_pagination'}
+            break
+        if not next_cursor or next_cursor in seen:
+            return None, {'reason': 'incomplete_pagination'}
+        cursor = next_cursor
+    if first is None:
+        return None, {'reason': 'empty_response'}
+    if provider == 'openalex':
+        first['results'] = collected
+    else:
+        first['message']['items'] = collected
+    return first, {'status': 'ok', 'pages': len(seen)}
+
+
+def dedupe_records(records):
+    merged = {}
+    for record in records:
+        key = ('doi', doi_norm(record.get('doi'))) if record.get('doi') else ('title_year', normalize_title(record.get('title')).lower(), record.get('year'))
+        previous = merged.get(key, {})
+        sources = set(previous.get('sources') or []) | set(record.get('sources') or [])
+        if record.get('source'):
+            sources.add(record['source'])
+        # Retain each provider's observations rather than discard later DOI matches.
+        observations = dict(previous.get('provider_records') or {})
+        observations[record['source']] = record
+        merged[key] = {**record, **previous, 'sources': sorted(sources), 'provider_records': observations}
+    return list(merged.values())
+
+
 def main():
     profile = read_profile()
     ids = ((profile.get('profile') or {}).get('identifiers') or {}) if profile else {}
     orcid = ids.get('orcid') or os.environ.get('ORCID_ID')
+    old_report = read_json(OUT / 'harvest_report.json', {})
     report = {'generated_at': now(), 'providers': {}}
     all_records = []
 
+    def store_provider(name, filename, payload, diagnostic, normalizer=None):
+        previous = (old_report.get('providers') or {}).get(name, {})
+        cached = read_json(OUT / filename)
+        valid = payload is not None
+        selected = payload if valid else cached
+        rows = normalizer(selected) if normalizer and selected else []
+        state = source_result(previous, status='success' if valid else 'error', count=len(rows), reason=None if valid else diagnostic.get('reason', 'fetch_failed'))
+        if not valid and not state['last_success_at'] and cached:
+            state['last_success_at'] = cached.get('last_success_at') or cached.get('generated_at')
+        report['providers'][name] = {**state, 'http_status': diagnostic.get('http_status')}
+        if valid:
+            payload['last_success_at'] = state['last_success_at']
+            save(OUT / filename, payload)
+        all_records.extend(rows)
+        return selected
+
     if orcid:
-        url = f'https://pub.orcid.org/v3.0/{orcid}/works'
-        payload, rep = get_json(url, {'Accept': 'application/json'})
-        report['providers']['orcid'] = rep
-        if payload:
-            save(OUT / 'orcid_works.json', payload)
-            all_records.extend(normalize_orcid_works(payload, orcid))
+        # ORCID /works returns all public groups, not a paginated first page.
+        payload, rep = get_json(f'https://pub.orcid.org/v3.0/{orcid}/works')
+        if payload is not None and not isinstance(payload.get('group'), list):
+            payload, rep = None, {'reason': 'unexpected_schema'}
+        store_provider('orcid', 'orcid_works.json', payload, rep, lambda data: normalize_orcid_works(data, orcid))
 
-        # OpenAlex author by ORCID: try ORCID singleton URL first, then works filter.
-        oa_author_url = 'https://api.openalex.org/authors/' + quote('https://orcid.org/' + orcid, safe='') + '?' + urlencode({'mailto': CONTACT})
-        oa_author, rep = get_json(oa_author_url)
-        report['providers']['openalex_author'] = rep
-        if oa_author:
-            save(OUT / 'openalex_author.json', oa_author)
-            openalex_author_id = oa_author.get('id')
-            if openalex_author_id:
-                filt = 'authorships.author.id:' + openalex_author_id
-                oa_works_url = 'https://api.openalex.org/works?' + urlencode({'filter': filt, 'per-page': 200, 'sort': 'publication_date:desc', 'mailto': CONTACT})
-                oa_works, rep2 = get_json(oa_works_url)
-                report['providers']['openalex_works'] = rep2
-                if oa_works:
-                    save(OUT / 'openalex_works.json', oa_works)
-                    all_records.extend(normalize_openalex_works(oa_works))
-        else:
-            filt = 'authorships.author.orcid:' + orcid
-            oa_works_url = 'https://api.openalex.org/works?' + urlencode({'filter': filt, 'per-page': 200, 'sort': 'publication_date:desc', 'mailto': CONTACT})
-            oa_works, rep2 = get_json(oa_works_url)
-            report['providers']['openalex_works'] = rep2
-            if oa_works:
-                save(OUT / 'openalex_works.json', oa_works)
-                all_records.extend(normalize_openalex_works(oa_works))
+        author_url = 'https://api.openalex.org/authors/' + quote('https://orcid.org/' + orcid, safe='') + '?' + urlencode({'mailto': CONTACT})
+        author, rep = get_json(author_url)
+        if author is not None and not author.get('id'):
+            author, rep = None, {'reason': 'unexpected_schema'}
+        author = store_provider('openalex_author', 'openalex_author.json', author, rep)
+        filt = 'authorships.author.id:' + author['id'] if author and author.get('id') else 'authorships.author.orcid:' + orcid
+        works, rep = fetch_cursor_pages('https://api.openalex.org/works', {'filter': filt, 'per-page': 200, 'sort': 'publication_date:desc', 'mailto': CONTACT}, 'openalex')
+        store_provider('openalex_works', 'openalex_works.json', works, rep, normalize_openalex_works)
 
-        cr_url = 'https://api.crossref.org/works?' + urlencode({'filter': 'orcid:' + orcid, 'rows': 100, 'sort': 'published', 'order': 'desc', 'mailto': CONTACT})
-        cr, rep = get_json(cr_url)
-        report['providers']['crossref'] = rep
-        if cr:
-            save(OUT / 'crossref_works.json', cr)
-            all_records.extend(normalize_crossref_works(cr))
+        works, rep = fetch_cursor_pages('https://api.crossref.org/works', {'filter': 'orcid:' + orcid, 'rows': 1000, 'sort': 'published', 'order': 'desc', 'mailto': CONTACT}, 'crossref')
+        store_provider('crossref', 'crossref_works.json', works, rep, normalize_crossref_works)
+    else:
+        report['reason'] = 'orcid_identifier_missing'
 
-    # lightweight dedupe inside open-source pool
-    deduped = []
-    seen = set()
-    for r in all_records:
-        key = ('doi', r.get('doi')) if r.get('doi') else ('title_year', (normalize_title(r.get('title')).lower(), r.get('year')))
-        if key in seen:
-            continue
-        seen.add(key)
-        deduped.append(r)
-
-    save(OUT / 'open_publications.json', {'generated_at': now(), 'records': deduped})
+    # Preserve records even if a provider has withdrawn a DOI from its response.
+    previous_records = (read_json(OUT / 'open_publications.json', {}) or {}).get('records', [])
+    current = dedupe_records(all_records)
+    identities = {(doi_norm(r.get('doi')) or (normalize_title(r.get('title')).lower(), r.get('year'))) for r in current}
+    for row in previous_records:
+        identity = doi_norm(row.get('doi')) or (normalize_title(row.get('title')).lower(), row.get('year'))
+        if identity not in identities:
+            current.append(row)
+    save(OUT / 'open_publications.json', {'generated_at': now(), 'records': current})
+    complete = bool(report['providers']) and all(p['complete'] for p in report['providers'].values())
+    report.update(source_result(old_report, status='success' if complete else 'partial', count=len(current), reason=None if complete else 'one_or_more_providers_unavailable'))
     report['records_total_before_dedupe'] = len(all_records)
-    report['records_total_after_dedupe'] = len(deduped)
+    report['records_total_after_dedupe'] = len(current)
     save(OUT / 'harvest_report.json', report)
-    print(json.dumps({'open_records': len(deduped), 'providers': report['providers']}, ensure_ascii=False, indent=2))
+    print(json.dumps({'open_records': len(current), 'status': report['status']}, ensure_ascii=False))
+    return 0 if complete else 2
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())

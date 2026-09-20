@@ -7,6 +7,7 @@ from pathlib import Path
 from urllib.parse import quote, unquote, urljoin, urlparse, urlsplit, urlunsplit
 import hashlib
 import html
+import io
 import json
 import re
 import time
@@ -366,45 +367,37 @@ def image_ext(url: str, ctype: str, data: bytes) -> str:
 
 
 def mirror_image(record: dict, image_url: str | None) -> dict:
+    """Keep a usable previous image for every transport/validation failure."""
+    previous = record.get('image')
+    if previous and previous.startswith('assets/media/mentions/') and Path(previous).exists():
+        return {'status': 'cached', 'local': previous}
     if not image_url:
-        record.pop('image', None)
-        record['image_status'] = 'missing'
-        record['image_checked_at'] = now()
-        return {'status': 'missing', 'url': None}
-    if image_url.startswith('assets/media/mentions/') and Path(image_url).exists():
-        original_url = record.get('image_original_url')
-        if original_url and not usable_image_url(original_url):
-            record.pop('image', None)
-            record['image_status'] = 'invalid_url'
-            record['image_checked_at'] = now()
-            return {'status': 'invalid_url', 'url': original_url}
-        record['image_status'] = 'cached'
-        record['image_checked_at'] = now()
-        return {'status': 'cached', 'url': image_url}
+        return {'status': 'missing'}
     image_url = urljoin(record.get('url') or '', image_url)
     if not usable_image_url(image_url):
-        record.pop('image', None)
-        record['image_original_url'] = image_url
-        record['image_status'] = 'invalid_url'
-        record['image_checked_at'] = now()
-        return {'status': 'invalid_url', 'url': image_url}
+        return {'status': 'invalid_url'}
     data, info = fetch_bytes(image_url)
-    ctype = str(info.get('content_type') or '')
-    if not data or not (ctype.startswith('image/') or data.startswith((b'\xff\xd8', b'\x89PNG', b'RIFF', b'GIF'))):
-        record.pop('image', None)
-        record['image_original_url'] = image_url
-        record['image_status'] = info.get('status') or 'not_image'
-        record['image_checked_at'] = now()
+    if not data:
         return info
+    signature_ok = data.startswith((b'\xff\xd8', b'\x89PNG', b'GIF')) or (data.startswith(b'RIFF') and b'WEBP' in data[:16])
+    if not signature_ok:
+        return {'status': 'not_image'}
+    try:
+        from PIL import Image
+        with Image.open(io.BytesIO(data)) as image:
+            image.verify()
+    except ImportError:
+        return {'status': 'validation_unavailable'}
+    except Exception:
+        return {'status': 'invalid_image'}
     IMAGE_DIR.mkdir(parents=True, exist_ok=True)
-    rec_id = record.get('id') or hashlib.sha256((record.get('url') or image_url).encode('utf-8')).hexdigest()[:16]
-    ext = image_ext(image_url, ctype, data)
+    rec_id = record.get('id') or hashlib.sha256((record.get('url') or image_url).encode()).hexdigest()[:16]
+    ext = image_ext(image_url, str(info.get('content_type') or ''), data)
     target = IMAGE_DIR / f'{rec_id}{ext}'
-    target.write_bytes(data)
-    record['image_original_url'] = image_url
-    record['image'] = target.as_posix()
-    record['image_status'] = 'cached'
-    record['image_checked_at'] = now()
+    staged = target.with_suffix(target.suffix + '.tmp')
+    staged.write_bytes(data)
+    staged.replace(target)
+    record.update(image_original_url=image_url, image=target.as_posix(), image_status='cached', image_checked_at=now())
     return {**info, 'status': 'cached', 'local': target.as_posix()}
 
 
@@ -437,9 +430,6 @@ def postprocess_records(records: list[dict], *, enrich: bool = True, mirror: boo
         if not key or key in seen:
             continue
         seen.add(key)
-        if is_blocked_record(record):
-            reports.append({'url': record.get('url'), 'title': record.get('title'), 'status': 'blocked'})
-            continue
         meta = {}
         if enrich and record.get('url'):
             try:
@@ -447,14 +437,14 @@ def postprocess_records(records: list[dict], *, enrich: bool = True, mirror: boo
             except Exception as exc:
                 reports.append({'url': record.get('url'), 'status': 'metadata_error', 'error': repr(exc)[:240]})
         if meta:
-            locked = bool(record.get('seed_metadata_locked'))
+            locked = True  # Published text is reviewed; enrich only missing fields.
             if not locked:
                 update_localized(record, meta.get('title') or record.get('title'), meta.get('description') or record.get('description'))
             else:
                 update_localized(record, record.get('title') or meta.get('title'), record.get('description') or meta.get('description'))
             if not record.get('published_at') and meta.get('published_at'):
                 record['published_at'] = meta.get('published_at')
-            if meta.get('image'):
+            if meta.get('image') and not record.get('image'):
                 record['image'] = meta.get('image')
         if mirror:
             reports.append({'record': record.get('id'), 'url': record.get('url'), 'image': mirror_image(record, record.get('image'))})
@@ -470,6 +460,7 @@ def postprocess_media_files(*, enrich: bool = True, mirror: bool = True) -> dict
     rejected = postprocess_records(read_records(REJECTED), enrich=False, mirror=False, reports=reports)
     write_records(PUBLISHED, published)
     write_records(NEWS, published)
+    write_records(OUT / 'published-fallback.json', published)
     write_records(REJECTED, rejected)
     payload = {
         'generated_at': now(),

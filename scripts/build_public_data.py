@@ -4,6 +4,7 @@ from __future__ import annotations
 from pathlib import Path
 from datetime import datetime, timezone
 import csv
+import copy
 import json
 import re
 
@@ -33,7 +34,57 @@ def write_json(path: Path, payload) -> None:
 def profile():
     if yaml and Path('config/profile.yml').exists():
         return (yaml.safe_load(Path('config/profile.yml').read_text(encoding='utf-8')) or {}).get('profile', {})
-    return {'display_name_ru': '', 'display_name_en': '', 'identifiers': {}}
+    raise ValueError('Profile configuration/PyYAML unavailable; refusing to rebuild public data')
+
+
+def first_number(*values):
+    for value in values:
+        number = as_number(value)
+        if number is not None:
+            return number
+    return None
+
+
+def is_fresh(health):
+    return ((health or {}).get('status') == 'success' and health.get('origin') == 'live'
+            and health.get('complete') is True and bool(health.get('last_success_at')))
+
+
+def normalize_health(report, previous=None, record_count=0):
+    report = report if isinstance(report, dict) else {}
+    previous = previous if isinstance(previous, dict) else {}
+    origin = report.get('origin') or ('snapshot' if any(x in str(report.get('used_source', '')) for x in ('snapshot', 'previous')) else 'snapshot')
+    status = report.get('status')
+    if status not in {'success', 'partial', 'blocked', 'error'}:
+        status = 'blocked' if report.get('human_verification_required') or report.get('status') == 'not_ready' else 'partial'
+    attempted = report.get('attempted_at') or report.get('generated_at')
+    successful = report.get('last_success_at') or previous.get('last_success_at')
+    if not successful:
+        match = re.search(r'_(\d{8})T(\d{6})Z', str(report.get('snapshot_path') or ''))
+        if match:
+            successful = datetime.strptime(''.join(match.groups()), '%Y%m%d%H%M%S').replace(tzinfo=timezone.utc).isoformat()
+    return {'status': status, 'attempted_at': attempted, 'last_success_at': successful,
+            'origin': origin, 'complete': report.get('complete') is True,
+            'record_count': report.get('record_count', record_count),
+            'reason': report.get('reason') or ('legacy_report_without_verified_freshness' if status != 'success' else None)}
+
+
+def load_source_health(ids, previous=None):
+    previous = previous or {}
+    sid = ids.get('scopus_author_id', '')
+    open_report = read_json(DATA / 'open/harvest_report.json', {})
+    reports = {
+        'elibrary': read_json(DATA / 'elibrary/browser_fetch_report.json', {}),
+        'wos': read_json(DATA / 'wos/harvest_report.json', {}),
+        'scopus': read_json(DATA / f'scopus/scopus_author_{sid}_access_report.json', {}),
+        'media': read_json(DATA / 'media/harvest_report.json', {}),
+    }
+    for name, key in [('orcid', 'orcid'), ('openalex', 'openalex_works'), ('crossref', 'crossref')]:
+        reports[name] = {'generated_at': open_report.get('generated_at'), **((open_report.get('providers') or {}).get(key) or {})}
+    if not reports['elibrary'].get('last_success_at') and not (previous.get('elibrary') or {}).get('last_success_at'):
+        fallback = normalize_health(read_json(DATA / 'elibrary/items_fetch_report.json', {}))
+        reports['elibrary']['last_success_at'] = fallback.get('last_success_at')
+    return {name: normalize_health(report, previous.get(name)) for name, report in reports.items()}
 
 
 def clean(value) -> str:
@@ -156,62 +207,38 @@ def elib_key(p):
     return ('title_year', nt(p.get('title') or p.get('title_ru') or p.get('title_en')), str(p.get('year') or ''))
 
 
-def record_score(p):
-    base_fields = ['title', 'title_ru', 'title_en', 'authors_raw', 'venue', 'venue_ru', 'venue_en', 'volume', 'issue', 'pages', 'doi', 'url', 'metadata_raw']
-    score = sum(1 for key in base_fields if p.get(key))
-    score += len(p.get('sources') or [])
-    if p.get('source') and 'saved_html' in str(p.get('source')):
-        score += 3
-    if p.get('doi'):
-        score += 2
-    if p.get('wos_records'):
-        score += 2
-    if p.get('scopus'):
-        score += 2
-    return score
-
-
 def merge_publication_sets(*datasets):
-    merged = {}
-    for dataset in datasets:
+    # The first dataset is the published baseline. Preserve every row, including
+    # intentional duplicates; later sources may enrich it, never coalesce it away.
+    rows = copy.deepcopy(list(datasets[0] or [])) if datasets else []
+    by_key = {}
+    for row in rows:
+        by_key.setdefault(elib_key(row), []).append(row)
+    for dataset in datasets[1:]:
         for original in dataset or []:
-            if not isinstance(original, dict):
+            if not isinstance(original, dict) or not (original.get('title') or original.get('title_ru') or original.get('title_en') or original.get('elibrary_item_id')):
                 continue
-            p = dict(original)
-            if not (p.get('title') or p.get('title_ru') or p.get('title_en') or p.get('elibrary_item_id')):
+            incoming = copy.deepcopy(original)
+            key = elib_key(incoming)
+            if key not in by_key:
+                rows.append(incoming)
+                by_key[key] = [incoming]
                 continue
-            p.setdefault('sources', ['elibrary'] if p.get('elibrary_item_id') else [])
-            if isinstance(p.get('sources'), str):
-                p['sources'] = [s.strip() for s in p['sources'].split(',') if s.strip()]
-            key = elib_key(p)
-            if key not in merged:
-                merged[key] = p
-                continue
-            a, b = merged[key], p
-            if record_score(b) > record_score(a):
-                a, b = b, a
-            for k, v in b.items():
-                if k in {'sources', 'open_sources', 'wos_records'}:
-                    continue
-                if (a.get(k) is None or a.get(k) == '' or a.get(k) == []) and v not in (None, '', []):
-                    a[k] = v
-            src = []
-            for s in (a.get('sources') or []) + (b.get('sources') or []):
-                if s and s not in src:
-                    src.append(s)
-            a['sources'] = src or (['elibrary'] if a.get('elibrary_item_id') else [])
-            for list_key in ('open_sources', 'wos_records'):
-                combined = []
-                for item in (a.get(list_key) or []) + (b.get(list_key) or []):
-                    if item not in combined:
-                        combined.append(item)
-                if combined:
-                    a[list_key] = combined
-            merged[key] = a
-    rows = list(merged.values())
-    for p in rows:
-        enrich_localized_fields(p)
-    rows.sort(key=lambda p: (-(int(p.get('year') or 0) if str(p.get('year') or '').isdigit() else 0), int(p.get('number') or 999999)))
+            for target in by_key[key]:
+                for name, value in incoming.items():
+                    if name in {'sources', 'open_sources', 'wos_records'}:
+                        existing = target.setdefault(name, [])
+                        if isinstance(existing, str):
+                            existing = target[name] = [part.strip() for part in existing.split(',') if part.strip()]
+                        values = [value] if isinstance(value, str) else value or []
+                        for item in values:
+                            if item not in existing:
+                                existing.append(copy.deepcopy(item))
+                    else:
+                        set_missing(target, name, value)
+    for row in rows:
+        enrich_localized_fields(row)
+    rows.sort(key=lambda row: (-(int(row.get('year') or 0) if str(row.get('year') or '').isdigit() else 0), int(row.get('number') or 999999)))
     return rows
 
 
@@ -255,6 +282,8 @@ def profile_matches_existing(current_ids: dict) -> bool:
     for key in ['elibrary_authorid', 'orcid', 'scopus_author_id', 'wos_researcher_id']:
         current = clean(current_ids.get(key))
         existing = clean(existing_ids.get(key))
+        if existing and not current:
+            return False
         if current and existing:
             compared += 1
             if current == existing:
@@ -266,9 +295,12 @@ def profile_matches_existing(current_ids: dict) -> bool:
 
 def load_existing_publications_for_profile(ids):
     if not profile_matches_existing(ids):
-        return []
-    rows = read_json(DATA / 'public/publications.json', [])
-    return rows if isinstance(rows, list) else []
+        raise ValueError('Published profile identifiers differ; explicit migration required')
+    path = DATA / 'public/publications.json'
+    rows = json.loads(path.read_text(encoding='utf-8')) if path.exists() else []
+    if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
+        raise ValueError('Published bibliography is invalid; refusing to overwrite it')
+    return rows
 
 
 def load_elib(ids):
@@ -280,7 +312,14 @@ def load_elib(ids):
         enrich_localized_fields(p)
     tsv = load_elib_tsv()
     public_existing = load_existing_publications_for_profile(ids)
-    merged = merge_publication_sets(tsv, public_existing, processed)
+    merged = merge_publication_sets(public_existing, tsv, processed)
+    health = normalize_health(read_json(DATA / 'elibrary/browser_fetch_report.json', {}))
+    if is_fresh(health):
+        fresh_citations = {str(row.get('elibrary_item_id')): row.get('rinc_citations') for row in processed if row.get('elibrary_item_id') and row.get('rinc_citations') is not None}
+        for row in merged:
+            key = str(row.get('elibrary_item_id'))
+            if key in fresh_citations:
+                row['rinc_citations'] = fresh_citations[key]
     best_count = max(len(processed), len(tsv), len([p for p in public_existing if 'elibrary' in ','.join(p.get('sources', []) if isinstance(p.get('sources'), list) else [str(p.get('sources') or '')]) or p.get('elibrary_item_id')]), len(merged))
     if best_count >= MIN_ELIBRARY_RECORDS and len(merged) < MIN_ELIBRARY_RECORDS:
         candidates = [x for x in [tsv, public_existing, processed] if len(x) >= MIN_ELIBRARY_RECORDS]
@@ -297,7 +336,7 @@ def indexes(records):
     )
 
 
-def merge_scopus(canon, works):
+def merge_scopus(canon, works, fresh=False):
     curated = read_json(DATA / 'curation/scopus_elibrary_map.json', {})
     by_item, by_title, by_ty, by_doi = indexes(canon)
     added = 0
@@ -315,7 +354,8 @@ def merge_scopus(canon, works):
             target = by_ty.get((nt(w.get('title')), str(w.get('year') or w.get('cover_date') or '')[:4]))
         if target:
             addsrc(target, 'scopus')
-            target['scopus'] = w
+            if fresh or not target.get('scopus'):
+                target['scopus'] = copy.deepcopy(w)
             if doi and not target.get('doi'):
                 target['doi'] = doi
             set_lang_field(target, 'title', w.get('title'), 'en')
@@ -368,7 +408,8 @@ def merge_open(canon, records):
         src = r.get('source') or 'open_api'
         if target:
             addsrc(target, src)
-            target.setdefault('open_sources', []).append(r)
+            if r not in target.setdefault('open_sources', []):
+                target['open_sources'].append(copy.deepcopy(r))
             if doi and not target.get('doi'):
                 target['doi'] = doi
             if r.get('venue') and not target.get('venue'):
@@ -403,7 +444,7 @@ def append_unique_wos_record(pub, record):
     existing.append(record)
 
 
-def enrich_from_wos(target, r):
+def enrich_from_wos(target, r, fresh=False):
     addsrc(target, 'wos')
     append_unique_wos_record(target, r)
     set_missing(target, 'wos_uid', r.get('wos_uid'))
@@ -419,14 +460,17 @@ def enrich_from_wos(target, r):
     set_missing(target, 'issn', r.get('issn'))
     set_missing(target, 'eissn', r.get('eissn'))
     set_missing(target, 'isbn', r.get('isbn'))
-    set_missing(target, 'wos_citations', r.get('wos_citations'))
+    if fresh and r.get('wos_citations') is not None:
+        target['wos_citations'] = r['wos_citations']
+    else:
+        set_missing(target, 'wos_citations', r.get('wos_citations'))
     set_missing(target, 'references_count', r.get('references_count'))
     set_missing(target, 'publication_type', r.get('document_type'))
     set_lang_field(target, 'title', r.get('title_en') or r.get('title'), 'en')
     set_lang_field(target, 'venue', r.get('venue_en') or r.get('venue'), 'en')
 
 
-def merge_wos(canon, records):
+def merge_wos(canon, records, fresh=False):
     by_item, by_title, by_ty, by_doi = indexes(canon)
     enriched = added = 0
     for r in records or []:
@@ -438,7 +482,7 @@ def merge_wos(canon, records):
         if target is None and title:
             target = by_ty.get((title, str(r.get('year') or ''))) or by_title.get(title)
         if target:
-            enrich_from_wos(target, r)
+            enrich_from_wos(target, r, fresh=fresh)
             enriched += 1
         else:
             rec = {
@@ -482,25 +526,64 @@ def merge_wos(canon, records):
 def wos_metric(wos_profile, kind):
     summary = (wos_profile or {}).get('summary') or {}
     core = (wos_profile or {}).get('core_collection_metrics') or {}
-    summary_metrics = (wos_profile or {}).get('summary_metrics') or {}
-    if kind == 'publications':
-        return as_number(summary.get('publications')) or metric_value(core, 'Publications') or metric_value(summary_metrics, 'Web of Science Core Collection publications', 'Publications indexed in Web of Science') or as_number((wos_profile or {}).get('records_count_on_page'))
-    if kind == 'citations':
-        return as_number(summary.get('citations')) or metric_value(core, 'Sum of Times Cited')
-    if kind == 'h_index':
-        return as_number(summary.get('h_index')) or metric_value(core, 'H-Index', 'H-index')
-    return None
+    labels = {'publications': ('Publications',), 'citations': ('Sum of Times Cited', 'Times Cited'), 'h_index': ('H-Index', 'h-index')}
+    return first_number(summary.get(kind), metric_value(core, *labels[kind]))
 
 
-def build_scientometrics(canon, elib_profile, scopus_metrics, wos_profile):
+def build_scientometrics(canon, elib_profile, scopus_metrics, wos_profile, health=None, previous=None):
+    health = health or {}
+    previous_sources = (previous or {}).get('sources') or {}
     gm = (elib_profile or {}).get('general_metrics') or {}
     sm = scopus_metrics or {}
-    data = {
-        'rinc': {'label_ru': 'РИНЦ', 'label_en': 'RSCI', 'source': 'eLibrary/РИНЦ', 'publications': metric_value(gm, 'Число публикаций в РИНЦ') or sum(1 for p in canon if 'elibrary' in p.get('sources', [])), 'citations': metric_value(gm, 'Число цитирований из публикаций, входящих в РИНЦ'), 'h_index': metric_value(gm, 'Индекс Хирша по публикациям в РИНЦ') or metric_value(gm, 'Индекс Хирша по всем публикациям')},
-        'scopus': {'label_ru': 'Scopus', 'label_en': 'Scopus', 'source': 'Scopus API/search snapshot', 'publications': as_number(sm.get('documents_count')) or as_number(sm.get('document_count')) or as_number(sm.get('works_count_from_search')), 'citations': as_number(sm.get('cited_by_count')) or as_number(sm.get('citation_count')) or as_number(sm.get('citation_sum_from_search')), 'h_index': as_number(sm.get('h_index')) or as_number(sm.get('h_index_recomputed_from_retrieved_works'))},
-        'wos': {'label_ru': 'Web of Science', 'label_en': 'Web of Science', 'source': 'Web of Science Researcher Profile', 'publications': wos_metric(wos_profile, 'publications'), 'citations': wos_metric(wos_profile, 'citations'), 'h_index': wos_metric(wos_profile, 'h_index')}
+    official = sm.get('profile') or {}
+    author_valid = sm.get('author_profile_status') == 200 and bool(official)
+    calculated = {
+        'publications': as_number(sm.get('works_count_from_search')),
+        'citations': as_number(sm.get('citation_sum_from_search')),
+        'h_index': as_number(sm.get('h_index_recomputed_from_retrieved_works')),
     }
-    return {'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(), 'columns': ['rinc', 'scopus', 'wos'], 'rows': [{'key': 'publications', 'label_ru': 'Количество публикаций', 'label_en': 'Publications'}, {'key': 'citations', 'label_ru': 'Количество цитирований', 'label_en': 'Citations'}, {'key': 'h_index', 'label_ru': 'H-индекс (Хирш)', 'label_en': 'H-index'}], 'sources': data}
+    sc_values = {}
+    sc_methods = {}
+    for key, profile_key in [('publications', 'document_count'), ('citations', 'citation_count'), ('h_index', 'h_index')]:
+        value = as_number(official.get(profile_key)) if author_valid else None
+        sc_values[key] = value if value is not None else calculated[key]
+        sc_methods[key] = 'official_author_profile' if value is not None else 'calculated_from_complete_search'
+    values = {
+        'rinc': {'publications': first_number(metric_value(gm, 'Число публикаций в РИНЦ'), (elib_profile or {}).get('summary', {}).get('publications_rinc')),
+                 'citations': first_number(metric_value(gm, 'Число цитирований из публикаций, входящих в РИНЦ'), (elib_profile or {}).get('summary', {}).get('citations_rinc')),
+                 'h_index': first_number(metric_value(gm, 'Индекс Хирша по публикациям в РИНЦ'), (elib_profile or {}).get('summary', {}).get('h_index_rinc'))},
+        'scopus': sc_values,
+        'wos': {key: wos_metric(wos_profile, key) for key in ('publications', 'citations', 'h_index')},
+    }
+    labels = {'rinc': ('РИНЦ', 'RSCI', 'eLibrary/РИНЦ', 'elibrary'),
+              'scopus': ('Scopus', 'Scopus', 'Scopus API', 'scopus'),
+              'wos': ('Web of Science', 'Web of Science', 'Web of Science Researcher Profile', 'wos')}
+    sources = {}
+    for name, (ru, en, source, provider) in labels.items():
+        state = health.get(provider) or normalize_health({})
+        old = previous_sources.get(name) or {}
+        metrics = values[name]
+        observed = {
+            key: state.get('last_success_at') if is_fresh(state) and value is not None
+            else (old.get('metric_observed_at') or {}).get(key, old.get('last_success_at') or state.get('last_success_at'))
+            for key, value in metrics.items()
+        }
+        retained = [key for key, value in metrics.items() if not is_fresh(state) or value is None]
+        if not is_fresh(state):
+            # An error payload must never become a new zero-valued observation.
+            metrics = {key: old.get(key) for key in ('publications', 'citations', 'h_index')}
+        else:
+            metrics = {key: value if value is not None else old.get(key) for key, value in metrics.items()}
+        sources[name] = {'label_ru': ru, 'label_en': en, 'source': source, **metrics, **state,
+                         'metric_observed_at': observed, 'retained_metrics': retained,
+                         'method': sc_methods if name == 'scopus' and is_fresh(state)
+                         else old.get('method', sc_methods if name == 'scopus' else 'provider_profile')}
+    return {'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+            'columns': ['rinc', 'scopus', 'wos'],
+            'rows': [{'key': 'publications', 'label_ru': 'Количество публикаций', 'label_en': 'Publications'},
+                     {'key': 'citations', 'label_ru': 'Количество цитирований', 'label_en': 'Citations'},
+                     {'key': 'h_index', 'label_ru': 'H-индекс (Хирш)', 'label_en': 'H-index'}],
+            'sources': sources}
 
 
 def write_tsv(pubs):
@@ -515,31 +598,36 @@ def write_tsv(pubs):
             w.writerow([p.get('number'), p.get('year'), p.get('rinc_citations', 0), (p.get('scopus') or {}).get('cited_by_count', ''), p.get('title'), p.get('title_ru', ''), p.get('title_en', ''), p.get('authors_raw'), p.get('venue'), p.get('venue_ru', ''), p.get('venue_en', ''), p.get('volume', ''), p.get('issue', ''), p.get('pages', ''), p.get('doi', ''), p.get('url'), ','.join(sources)])
 
 
-def empty_queue():
-    q = DATA / 'admin_queue'
-    q.mkdir(parents=True, exist_ok=True)
-    (q / 'publications.json').write_text('[]\n', encoding='utf-8')
-    with (q / 'publications.csv').open('w', encoding='utf-8-sig', newline='') as f:
-        csv.writer(f).writerow(['id', 'entity_type', 'action', 'confidence', 'reason', 'title', 'year', 'doi', 'source'])
+def ensure_queue():
+    # Existing editorial decisions are durable data, not rebuildable output.
+    queue = DATA / 'admin_queue'
+    queue.mkdir(parents=True, exist_ok=True)
+    if not (queue / 'publications.json').exists():
+        write_json(queue / 'publications.json', [])
+    if not (queue / 'publications.csv').exists():
+        with (queue / 'publications.csv').open('w', encoding='utf-8-sig', newline='') as stream:
+            csv.writer(stream).writerow(['id', 'entity_type', 'action', 'confidence', 'reason', 'title', 'year', 'doi', 'source'])
 
 
 def main():
     prof = profile()
     ids = prof.get('identifiers', {}) or {}
     sid = ids.get('scopus_author_id', '')
+    previous_profile = read_json(PUBLIC / 'profile.json', {})
+    health = load_source_health(ids, previous_profile.get('source_health'))
     canon = load_elib(ids)
     scopus_metrics = read_json(DATA / f'scopus/scopus_author_{sid}_metrics.json', None) if sid else None
     scopus_works = read_json(DATA / f'scopus/scopus_author_{sid}_works.json', []) if sid else []
-    scopus_added = merge_scopus(canon, scopus_works)
+    scopus_added = merge_scopus(canon, scopus_works, fresh=is_fresh(health['scopus']))
     open_records = (read_json(DATA / 'open/open_publications.json', {}) or {}).get('records', [])
     open_enriched, open_added = merge_open(canon, open_records)
     wos_profile = read_json(DATA / 'wos/profile_metrics.json', {})
     wos_records = (wos_profile or {}).get('records', [])
-    wos_enriched, wos_added = merge_wos(canon, wos_records)
+    wos_enriched, wos_added = merge_wos(canon, wos_records, fresh=is_fresh(health['wos']))
     elib_profile = read_json(DATA / 'elibrary/profile_metrics.json', {})
     for p in canon:
         enrich_localized_fields(p)
-    scientometrics = build_scientometrics(canon, elib_profile, scopus_metrics, wos_profile)
+    scientometrics = build_scientometrics(canon, elib_profile, scopus_metrics, wos_profile, health, previous_profile.get('scientometrics'))
     public_profile = {
         'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         'name_ru': prof.get('display_name_ru', ''),
@@ -560,13 +648,14 @@ def main():
         'wos_records_count': len(wos_records),
         'wos_enriched_publications_count': wos_enriched,
         'wos_auto_added_publications_count': wos_added,
-        'admin_queue_size': 0,
+        'admin_queue_size': len(read_json(DATA / 'admin_queue/publications.json', [])),
+        'source_health': health,
     }
     write_json(PUBLIC / 'profile.json', public_profile)
     write_json(PUBLIC / 'publications.json', canon)
     write_tsv(canon)
-    empty_queue()
-    print(f'Built public data: {len(canon)} canonical publications; queue disabled')
+    ensure_queue()
+    print(f'Built public data: {len(canon)} canonical publications; prior records and queue retained')
 
 
 if __name__ == '__main__':

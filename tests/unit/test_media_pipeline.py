@@ -1,0 +1,227 @@
+"""Regression cases for independent discovery, retention and transient failures."""
+import copy
+import json
+from pathlib import Path
+import sys
+import tempfile
+import unittest
+from unittest.mock import Mock, patch
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
+import harvest_media_mentions as media
+import media_postprocess as images
+from media_translation import MediaTranslator
+
+ISESP = {'name': 'ISESP', 'url': 'https://www.isesp-ras.ru/news/',
+         'link_selector': '.news .title a', 'item_class': 'news', 'date_selector': '.date'}
+ISD = {'name': 'ISD', 'url': 'https://isd-ras.ru/news/',
+       'link_selector': '.news-list-view .post-teaser-text .post-title h3 a',
+       'item_class': 'post-teaser-text', 'date_selector': '.post-head .date'}
+CFG = {'listing_sources': [ISESP, ISD], 'seed_urls': [], 'auto_publish_threshold': .75,
+       'context_terms': ['демограф', 'фнисц', 'ран'], 'initial_lookback_days': 90}
+# Minimized snapshots of both actual September 2026 source templates. Links are
+# fixture page content, never collector config seeds or hardcoded production URLs.
+ISESP_LIST = """<div class="news"><p class="date">17 Сентября 2026</p><p class="title">
+<a href="/news/pervaya-zashchita-dissovet-24124405-2026">Защита диссертации Ситковского Арсения Михайловича</a></p></div>
+<div class="news"><p class="date">01 Мая 2026</p><p class="title"><a href="/news/old">Old</a></p></div>"""
+ISD_LIST = """<div class="news-list-view"><div class="post-teaser-text"><div class="post-head"><span class="date">15 сентября 2026 года</span></div>
+<div class="post-title"><h3><a href="https://isd-ras.ru/news/2026/9/sitkovskij-zashhitil-kandidatskuyu-dissertaciyu">А.М. Ситковский успешно защитил диссертацию</a></h3></div></div></div>"""
+ISESP_ARTICLE = """<nav>Ситковский Арсений</nav><div class="right-col"><table class="contentpaneopen"><tr><td>
+<div>17 сентября 2026 года</div><h2>Первая защита в диссертационном совете ФНИСЦ РАН</h2>
+<p>15 сентября состоялась защита диссертации Ситковского Арсения Михайловича на тему демографических факторов трансформации системы расселения.</p>
+<img src="/images/defence.jpg"></td></tr></table></div>"""
+ISD_ARTICLE = """<div class="news-single"><span class="datetime">15 сентября 2026 года</span>
+<header class="main-headline"><h1>А.М. Ситковский успешно защитил диссертацию</h1></header><div class="body-text">
+<p>На заседании ФНИСЦ РАН состоялась успешная защита диссертации научного сотрудника Арсения Михайловича Ситковского о демографических факторах.</p></div></div>"""
+
+
+class MediaTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        for target, value in [('OUT', self.root / 'media'), ('QUEUE', self.root / 'queue')]:
+            p = patch.object(media, target, value)
+            p.start()
+            self.addCleanup(p.stop)
+
+    def fake_fetch(self, url, *args, **kwargs):
+        pages = {ISESP['url']: ISESP_LIST, ISD['url']: ISD_LIST}
+        raw = pages.get(url, ISESP_ARTICLE if 'isesp-ras.ru' in url else ISD_ARTICLE)
+        return raw, {'url': url, 'status': 'ok', 'final_url': url}
+
+    def read(self, name):
+        return json.loads((media.OUT / name).read_text(encoding='utf-8'))
+
+    def test_discovery_of_both_articles_without_seeds(self):
+        with patch.object(media, 'fetch_text', side_effect=self.fake_fetch):
+            report = media.run(CFG, ['listings'], mirror=False, translate=False)
+        records = self.read('published.json')['records']
+        self.assertEqual(len(records), 2)
+        self.assertEqual({r['published_at'] for r in records}, {'2026-09-17', '2026-09-15'})
+        self.assertTrue(all(r['confidence'] >= .75 and not r.get('force_publish') for r in records))
+        self.assertTrue(report['required_sources_ok'])
+        self.assertEqual(self.read('published.json'), self.read('published-fallback.json'))
+
+    def test_cutoff_and_changed_template(self):
+        self.assertEqual(len(media.parse_listing(ISESP_LIST, ISESP, '2026-06-01')), 1)
+        with self.assertRaises(ValueError):
+            media.parse_listing('<html>No articles</html>', ISESP, '2026-06-01')
+
+    def test_declensions_initials_english_and_context(self):
+        names = ['Ситковскому Арсению', 'Ситковского Арсения Михайловича',
+                 'Арсения Михайловича Ситковского', 'А. М. Ситковский',
+                 'Ситковский А.М.', 'Arseniy M. Sitkovskiy', 'Arseniy Sitkovsky']
+        for name in names:
+            self.assertGreaterEqual(media.score_record(name + ' демография', '', 'https://site.org', CFG), .75, name)
+        self.assertLess(media.score_record('Ситковский Сергей демограф', '', '', CFG), .75)
+        self.assertLess(media.score_record('Ситковский Арсений ранее прибыл', '', '', CFG), .75)
+        meta = media.article_meta('<nav>Арсений Ситковский демограф</nav><article><h1>Другая новость</h1><p>' + 'Чужой текст. ' * 20 + '</p></article>', 'https://site.org')
+        self.assertEqual(media.score_record(meta['text'], meta['title'], '', CFG), 0)
+
+    def test_url_identity_and_preserved_manual_fields(self):
+        old = {'id': 'stable', 'url': 'http://www.example.org/news/1/', 'title_ru': 'Ручной заголовок',
+               'title_en': 'Reviewed title', 'image': 'assets/good.jpg', 'manual': {'x': 1}}
+        new = {'id': 'different', 'url': 'https://example.org/news/1?utm_source=x#fragment',
+               'title_en': 'Bad replacement', 'image': None, 'description_en': 'New metadata'}
+        result = media.merge_records([old], [new])
+        self.assertEqual(len(result), 1)
+        for field in old:
+            self.assertEqual(result[0][field], old[field])
+        self.assertEqual(result[0]['description_en'], 'New metadata')
+
+    def test_failure_retains_published_and_uncertain_queue(self):
+        old = {'id': 'old', 'url': 'https://site.org/old', 'title_en': 'Manual title', 'image': 'assets/saved.jpg'}
+        uncertain = {'id': 'review', 'url': 'https://site.org/maybe', 'title': 'Maybe'}
+        media.write_json(media.OUT / 'published.json', {'records': [old]})
+        media.write_json(media.QUEUE / 'media_mentions.json', [uncertain])
+        with patch.object(media, 'fetch_text', return_value=(None, {'status': 'http_error', 'http_status': 403})):
+            report = media.run(CFG, ['listings'], mirror=False, translate=False)
+        self.assertEqual(self.read('published.json')['records'], [old])
+        self.assertFalse(report['required_sources_ok'])
+        self.assertFalse(report['complete'])
+        self.assertEqual(json.loads((media.QUEUE / 'media_mentions.json').read_text()), [uncertain])
+
+    def test_failed_article_is_pending_and_retry_is_idempotent(self):
+        def failure(url, *args, **kwargs):
+            if url in (ISESP['url'], ISD['url']):
+                return self.fake_fetch(url)
+            return None, {'status': 'http_error', 'http_status': 429}
+        with patch.object(media, 'fetch_text', side_effect=failure):
+            report = media.run(CFG, ['listings'], max_articles=1, mirror=False, translate=False)
+        self.assertEqual(report['pending'], 2)
+        self.assertFalse(self.read('discovery_state.json')['processed'])
+        with patch.object(media, 'fetch_text', side_effect=self.fake_fetch):
+            media.run(CFG, ['listings'], mirror=False, translate=False)
+            records = self.read('published.json')['records']
+            media.run(CFG, ['listings'], mirror=False, translate=False)
+        self.assertEqual(self.read('published.json')['records'], records)
+        self.assertFalse(self.read('discovery_state.json')['pending'])
+
+    def test_nested_sitemap_and_persistent_remainder(self):
+        pages = {'https://site.org/map.xml': '<sitemapindex><sitemap><loc>https://site.org/child.xml</loc></sitemap></sitemapindex>',
+                 'https://site.org/child.xml': '<urlset><url><loc>https://site.org/news/one</loc></url><url><loc>https://site.org/news/two</loc></url></urlset>'}
+        state = {}
+        with patch.object(media, 'fetch_text', side_effect=lambda u: (pages[u], {'status': 'ok'})):
+            urls, _ = media.fetch_sitemap_urls('https://site.org/map.xml', 1, '/news/', max_sitemaps=1, state=state)
+            self.assertEqual(urls, [])
+            self.assertIn('https://site.org/child.xml', state['sitemap_pending']['https://site.org/map.xml'])
+            urls, _ = media.fetch_sitemap_urls('https://site.org/map.xml', 1, '/news/', state=state)
+        self.assertEqual(len(urls), 2)  # All discovered items reach durable backlog.
+
+    def test_rss_body_score_after_redirect(self):
+        candidate = {'url': 'https://news.google.com/rss/articles/opaque', 'source': 'google_news_rss', 'title': 'Uninformative feed title'}
+        with patch.object(media, 'fetch_text', return_value=(ISD_ARTICLE, {'status': 'ok', 'final_url': 'https://isd-ras.ru/news/example'})):
+            original, report = media.resolve_original(candidate['url'])
+        self.assertEqual(original, 'https://isd-ras.ru/news/example')
+        candidate['url'] = original
+        record = media.build_record(candidate, media.article_meta(ISD_ARTICLE, original), CFG)
+        self.assertEqual(record['status'], 'published')
+
+    def test_repository_published_english_is_complete(self):
+        published = Path(__file__).resolve().parents[2] / 'data/media/published.json'
+        records = json.loads(published.read_text(encoding='utf-8'))['records']
+        for record in records:
+            for field in ('title_en', 'description_en'):
+                self.assertTrue(record.get(field), (record['url'], field))
+                self.assertIsNone(media.re.search('[А-Яа-яЁё]', record[field]), (record['url'], field))
+
+    def test_checkpoint_merge_retains_backlog_and_success(self):
+        old = {'initial_cutoff': '2026-06-01',
+               'processed': {'done': {'processed_at': '2026-09-19', 'status': 'published'}},
+               'pending': {'both': {'url': 'https://site.org/both', 'last_attempt_at': '2026-09-20', 'reason': 'newer'},
+                           'candidate_done': {'url': 'https://site.org/candidate_done'}},
+               'sitemap_pending': {'map': ['child-a']}}
+        candidate = {'initial_cutoff': '2026-06-20',
+                     'processed': {'candidate_done': {'processed_at': '2026-09-20', 'status': 'low_confidence'}},
+                     'pending': {'both': {'url': 'https://site.org/both', 'last_attempt_at': '2026-09-18', 'reason': 'older'},
+                                 'done': {'url': 'https://site.org/done'}, 'new': {'url': 'https://site.org/new'}},
+                     'sitemap_pending': {'map': ['child-a', 'child-b']}}
+        result = media.merge_discovery_state(old, candidate)
+        self.assertEqual(set(result['pending']), {'both', 'new'})
+        self.assertEqual(set(result['processed']), {'done', 'candidate_done'})
+        self.assertEqual(result['pending']['both']['reason'], 'newer')
+        self.assertEqual(result['sitemap_pending']['map'], ['child-a', 'child-b'])
+        self.assertEqual(result['initial_cutoff'], '2026-06-01')
+        self.assertEqual(media.merge_discovery_state(result, candidate), result)
+
+    def test_google_signed_wrapper_lookup_and_consent(self):
+        wrapper = '<div data-n-a-sg="public-signature" data-n-a-ts="123"></div>'
+        response = Mock()
+        response.text = "\n" + json.dumps([['wrb.fr', 'Fbv4je', json.dumps(['garturlres', 'https://publisher.org/news/story'])]])
+        with patch.object(media, 'fetch_text', return_value=(wrapper, {'status': 'ok', 'final_url': 'https://news.google.com/articles/token'})), patch.object(media.requests, 'post', return_value=response):
+            url, report = media.resolve_original('https://news.google.com/articles/token')
+        self.assertEqual(url, 'https://publisher.org/news/story')
+        self.assertEqual(report['resolution'], 'public_article_lookup')
+        with patch.object(media, 'fetch_text', return_value=('<html>Consent</html>', {'status': 'ok', 'final_url': 'https://consent.google.com/ml?token=x'})):
+            url, report = media.resolve_original('https://news.google.com/articles/token')
+        self.assertIsNone(url)
+        self.assertEqual(report, {'url': 'https://news.google.com/articles/token', 'status': 'consent_required'})
+
+    def test_http_errors_and_retryable_rate_limit(self):
+        for code in (401, 403):
+            response = Mock(status_code=code, url='https://source.org')
+            with patch.object(media.requests, 'get', return_value=response) as get:
+                raw, report = media.fetch_text('https://source.org')
+            self.assertIsNone(raw)
+            self.assertEqual(report['http_status'], code)
+            self.assertEqual(get.call_count, 1)
+        denied = Mock(status_code=429, url='https://source.org')
+        ok = Mock(status_code=200, url='https://source.org', encoding='utf-8')
+        ok.iter_content.return_value = [b'<html>ok</html>']
+        with patch.object(media.requests, 'get', side_effect=[denied, ok]), patch.object(media.time, 'sleep'):
+            raw, report = media.fetch_text('https://source.org')
+        self.assertEqual(report['status'], 'ok')
+        self.assertIn('ok', raw)
+
+    def test_translation_failure_and_cached_manual_priority(self):
+        cache = self.root / 'translation.json'
+        translator = MediaTranslator(cache)
+        record = {'title_ru': 'Русский текст', 'title_en': 'Reviewed', 'description_ru': 'Описание'}
+        with patch.object(translator, 'ensure', return_value=False):
+            translator.enrich(record)
+        self.assertEqual(record['title_en'], 'Reviewed')
+        self.assertEqual(record['description_ru'], 'Описание')
+        self.assertNotIn('description_en', record)
+        translator._translation = Mock()
+        translator._translation.translate.return_value = 'Description'
+        with patch.object(translator, 'ensure', return_value=True):
+            translator.enrich(record)
+        translator.save()
+        again = {'description_ru': 'Описание'}
+        cached = MediaTranslator(cache)
+        with patch.object(cached, 'ensure', side_effect=AssertionError('No model call needed')):
+            cached.enrich(again)
+        self.assertEqual(again['description_en'], 'Description')
+
+    def test_image_transport_or_invalid_content_keeps_previous(self):
+        old = {'id': 'image', 'image': 'https://site.org/old.jpg', 'url': 'https://site.org/story'}
+        for response in [(None, {'status': 'http_error'}), (b'<html>denied</html>', {'status': 'ok', 'content_type': 'image/jpeg'})]:
+            record = copy.deepcopy(old)
+            with patch.object(images, 'fetch_bytes', return_value=response):
+                images.mirror_image(record, 'https://site.org/new.jpg')
+            self.assertEqual(record, old)
+
+
+if __name__ == '__main__':
+    unittest.main()

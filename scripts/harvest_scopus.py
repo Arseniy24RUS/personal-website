@@ -27,6 +27,8 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+import urllib.error
+from source_health import read_json, write_json, source_result, merge_records
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Tuple
@@ -49,28 +51,35 @@ def request_json(path: str, api_key: str, inst_token: str | None = None, params:
     if inst_token:
         headers["X-ELS-Insttoken"] = inst_token
     req = urllib.request.Request(url, headers=headers, method="GET")
-    try:
-        with urllib.request.urlopen(req, timeout=45) as resp:
-            body = resp.read().decode("utf-8", errors="replace")
-            response_headers = {k: v for k, v in resp.headers.items()}
-            return json.loads(body), response_headers
-    except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8", errors="replace")
+    for attempt in range(3):
         try:
-            payload = json.loads(body)
-        except Exception:
-            payload = {"error": body}
-        payload["_http_status"] = e.code
-        payload["_url_path"] = path
-        payload["_params"] = params
-        payload["_headers"] = dict(e.headers.items())
-        return payload, dict(e.headers.items())
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                return json.load(resp), {}
+        except urllib.error.HTTPError as exc:
+            result = {'_http_status': exc.code, '_reason': f'http_{exc.code}'}
+            if exc.code not in {429, 500, 502, 503, 504}:
+                return result, {}
+        except (OSError, ValueError):
+            result = {'_http_status': 0, '_reason': 'network_or_invalid_json'}
+        if attempt < 2:
+            time.sleep(2 ** attempt)
+    return result, {}
+
 
 def safe_int(x: Any) -> int:
     try:
         return int(x)
     except Exception:
         return 0
+
+def optional_int(value):
+    if isinstance(value, dict):
+        value = value.get('$') if '$' in value else value.get('value')
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        return None
+
 
 def flatten_author_profile(author_json: Dict[str, Any]) -> Dict[str, Any]:
     root = author_json.get("author-retrieval-response")
@@ -81,14 +90,22 @@ def flatten_author_profile(author_json: Dict[str, Any]) -> Dict[str, Any]:
     coredata = root.get("coredata") or {}
     profile = root.get("author-profile") or {}
     preferred = profile.get("preferred-name") or {}
+    def metric(name):
+        for candidate in (root.get(name), coredata.get(name), profile.get(name)):
+            value = optional_int(candidate)
+            if value is not None:
+                return value
+        return None
     return {
+        "h_index": metric("h-index"),
+        "method": "official_author_profile",
         "scopus_author_id": coredata.get("dc:identifier", "").replace("AUTHOR_ID:", "") or None,
         "eid": coredata.get("eid"),
         "name": " ".join([preferred.get("given-name", ""), preferred.get("surname", "")]).strip() or coredata.get("dc:title"),
-        "document_count": safe_int(coredata.get("document-count")),
-        "cited_by_count": safe_int(coredata.get("cited-by-count")),
-        "citation_count": safe_int(coredata.get("citation-count")),
-        "coauthor_count": safe_int(coredata.get("coauthor-count")),
+        "document_count": metric("document-count"),
+        "cited_by_count": metric("cited-by-count"),
+        "citation_count": metric("citation-count"),
+        "coauthor_count": metric("coauthor-count"),
         "raw_coredata": coredata,
     }
 
@@ -117,37 +134,56 @@ def fetch_works(api_key: str, author_id: str, inst_token: str | None = None, cou
         "subtypeDescription",
         "openaccess",
     ])
-    while True:
+    seen_starts = set()
+    seen_entries = set()
+    complete = False
+    reason = None
+    while start not in seen_starts:
+        seen_starts.add(start)
         payload, headers = request_json(
-            "/content/search/scopus",
-            api_key,
-            inst_token,
-            {
-                "query": f"AU-ID({author_id})",
-                "count": count,
-                "start": start,
-                "view": "STANDARD",
-                "field": fields,
-            },
+            "/content/search/scopus", api_key, inst_token,
+            {"query": f"AU-ID({author_id})", "count": count, "start": start,
+             "view": "STANDARD", "field": fields},
         )
         headers_seen.append(headers)
         if start == 0:
             first_payload = payload
-        if payload.get("_http_status"):
+        if '_http_status' in payload:
+            reason = payload.get('_reason', 'search_failed')
             break
-        search = payload.get("search-results") or {}
-        batch = search.get("entry") or []
+        search = payload.get('search-results')
+        if not isinstance(search, dict) or 'opensearch:totalResults' not in search:
+            reason = 'unexpected_schema'
+            break
+        total = optional_int(search['opensearch:totalResults'])
+        if total is None:
+            reason = 'unexpected_schema'
+            break
+        batch = search.get('entry') or []
         if isinstance(batch, dict):
             batch = [batch]
-        entries.extend(batch)
-        total = safe_int(search.get("opensearch:totalResults"))
-        start_index = safe_int(search.get("opensearch:startIndex"))
-        items_per_page = safe_int(search.get("opensearch:itemsPerPage")) or count
-        if not batch or len(entries) >= total:
+        batch = [row for row in batch if isinstance(row, dict) and row.get('dc:title')]
+        identities = [row.get('eid') or row.get('dc:identifier') or row.get('prism:doi') or row.get('dc:title') for row in batch]
+        if any(identifier in seen_entries for identifier in identities):
+            reason = 'duplicate_pagination'
             break
-        start = start_index + items_per_page
+        seen_entries.update(identities)
+        entries.extend(batch)
+        if len(entries) >= total:
+            complete = True
+            break
+        if not batch:
+            reason = 'incomplete_pagination'
+            break
+        next_start = safe_int(search.get('opensearch:startIndex')) + (safe_int(search.get('opensearch:itemsPerPage')) or len(batch))
+        if next_start <= start:
+            reason = 'pagination_loop'
+            break
+        start = next_start
         time.sleep(0.2)
+    first_payload['_collection'] = {'complete': complete, 'reason': reason, 'pages': len(seen_starts)}
     return entries, first_payload, headers_seen
+
 
 def compute_h_index(citations: List[int]) -> int:
     citations = sorted([safe_int(c) for c in citations], reverse=True)
@@ -170,7 +206,7 @@ def normalize_work(entry: Dict[str, Any]) -> Dict[str, Any]:
         "cover_date": entry.get("prism:coverDate"),
         "year": (entry.get("prism:coverDate") or "")[:4] or None,
         "doi": entry.get("prism:doi"),
-        "cited_by_count": safe_int(entry.get("citedby-count")),
+        "cited_by_count": optional_int(entry.get("citedby-count")),
         "aggregation_type": entry.get("prism:aggregationType"),
         "subtype": entry.get("subtypeDescription"),
         "openaccess": entry.get("openaccess"),
@@ -179,63 +215,60 @@ def normalize_work(entry: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 def main() -> int:
-    api_key = os.environ.get("SCOPUS_API_KEY", "").strip()
-    inst_token = os.environ.get("SCOPUS_INST_TOKEN", "").strip() or None
-    author_id = os.environ.get("SCOPUS_AUTHOR_ID", "57220956828").strip()
-    out_dir = Path(os.environ.get("SCOPUS_OUT_DIR", "data/scopus"))
-    out_dir.mkdir(parents=True, exist_ok=True)
-
+    api_key = os.environ.get('SCOPUS_API_KEY', '').strip()
+    inst_token = os.environ.get('SCOPUS_INST_TOKEN', '').strip() or None
+    author_id = os.environ.get('SCOPUS_AUTHOR_ID', '57220956828').strip()
+    out_dir = Path(os.environ.get('SCOPUS_OUT_DIR', 'data/scopus'))
+    prefix = out_dir / f'scopus_author_{author_id}'
+    def path(suffix):
+        return prefix.with_name(prefix.name + '_' + suffix + '.json')
+    old_report = read_json(path('access_report'), {})
+    old_works = read_json(path('works'), {})
+    if isinstance(old_works, dict):
+        old_works = old_works.get('works', [])
     if not api_key:
-        print("ERROR: SCOPUS_API_KEY is not set", file=sys.stderr)
+        write_json(path('access_report'), source_result(old_report, count=len(old_works), status='blocked', reason='credentials_missing'))
         return 2
 
-    author_payload, author_headers = fetch_author(api_key, author_id, inst_token)
-    # Fallback: if ENHANCED is not allowed, try STANDARD.
-    if author_payload.get("_http_status") in {401, 403}:
-        std_payload, std_headers = fetch_author_standard(api_key, author_id, inst_token)
-        if not std_payload.get("_http_status"):
-            author_payload, author_headers = std_payload, std_headers
+    # Record both entitlements independently; a restricted Author Retrieval must
+    # not suppress a working Scopus Search subscription.
+    author_attempts = {}
+    author_payload = {}
+    for view in ('STANDARD', 'ENHANCED'):
+        candidate, _ = request_json(f'/content/author/author_id/{author_id}', api_key, inst_token, {'view': view})
+        valid = '_http_status' not in candidate and bool(candidate.get('author-retrieval-response'))
+        author_attempts[view] = {'status': 'success' if valid else 'error', 'http_status': candidate.get('_http_status', 200), 'reason': None if valid else candidate.get('_reason', 'unexpected_schema')}
+        if valid:
+            author_payload = candidate
+    entries, search_payload, _ = fetch_works(api_key, author_id, inst_token)
+    collection = search_payload.get('_collection', {})
+    complete = collection.get('complete', False)
+    fresh = [normalize_work(e) for e in entries]
+    works = merge_records(old_works, fresh, lambda r: r.get('eid') or r.get('scopus_id') or r.get('doi')) if complete else old_works
+    state = source_result(old_report, status='success' if complete else ('partial' if fresh else 'error'), count=len(works), reason=collection.get('reason'))
+    report = {**state, 'generated_at': now_utc(), 'author_attempts': author_attempts,
+              'author_profile_status': 200 if author_payload else author_attempts['STANDARD']['http_status'],
+              'search_status': search_payload.get('_http_status', 200), 'search_pages': collection.get('pages')}
+    if complete:
+        citations = [w['cited_by_count'] for w in fresh]
+        known_citations = all(c is not None for c in citations)
+        profile = flatten_author_profile(author_payload) if author_payload else {}
+        metrics = {'source': 'scopus_api', 'generated_at': now_utc(), 'last_success_at': state['last_success_at'],
+                   'scopus_author_id': author_id, 'author_profile_status': report['author_profile_status'],
+                   'search_status': 200, 'profile': profile, 'works_count_from_search': len(fresh),
+                   'citation_sum_from_search': sum(citations) if known_citations else None,
+                   'h_index_recomputed_from_retrieved_works': compute_h_index(citations) if known_citations else None,
+                   'method': 'official_author_profile' if profile.get('h_index') is not None else 'calculated_from_complete_search',
+                   'note': 'Search metrics are calculated from a complete Search response. Missing citation counts remain unknown.'}
+        write_json(path('works'), works)
+        write_json(path('metrics'), metrics)
+        # Response headers and error bodies can contain private session material.
+        safe_first = {k: v for k, v in search_payload.items() if not k.startswith('_')}
+        write_json(path('raw'), {'author_payload': author_payload, 'search_first_payload': safe_first})
+    write_json(path('access_report'), report)
+    print(json.dumps({'status': state['status'], 'works': len(works), 'author_attempts': author_attempts}))
+    return 0 if complete else 2
 
-    works_entries, search_payload, search_headers = fetch_works(api_key, author_id, inst_token)
-    works = [normalize_work(e) for e in works_entries]
-    citations = [w["cited_by_count"] for w in works]
 
-    profile = flatten_author_profile(author_payload) if not author_payload.get("_http_status") else {}
-    metrics = {
-        "source": "scopus_api",
-        "generated_at": now_utc(),
-        "scopus_author_id": author_id,
-        "author_profile_status": author_payload.get("_http_status", 200),
-        "search_status": search_payload.get("_http_status", 200),
-        "profile": profile,
-        "works_count_from_search": len(works),
-        "citation_sum_from_search": sum(citations),
-        "h_index_recomputed_from_retrieved_works": compute_h_index(citations),
-        "note": "Recomputed h-index uses works retrieved by Scopus Search. If access is incomplete, prefer official author profile metrics when available.",
-    }
-
-    access_report = {
-        "generated_at": now_utc(),
-        "author_headers": {k: author_headers.get(k) for k in author_headers if k.lower().startswith("x-") or k.lower() in {"content-type"}},
-        "search_headers": [
-            {k: h.get(k) for k in h if k.lower().startswith("x-") or k.lower() in {"content-type"}}
-            for h in search_headers
-        ],
-        "author_error": author_payload if author_payload.get("_http_status") else None,
-        "search_error": search_payload if search_payload.get("_http_status") else None,
-    }
-
-    prefix = out_dir / f"scopus_author_{author_id}"
-    (prefix.with_name(prefix.name + "_raw.json")).write_text(json.dumps({
-        "author_payload": author_payload,
-        "search_first_payload": search_payload,
-    }, ensure_ascii=False, indent=2), encoding="utf-8")
-    (prefix.with_name(prefix.name + "_works.json")).write_text(json.dumps(works, ensure_ascii=False, indent=2), encoding="utf-8")
-    (prefix.with_name(prefix.name + "_metrics.json")).write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8")
-    (prefix.with_name(prefix.name + "_access_report.json")).write_text(json.dumps(access_report, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    print(json.dumps(metrics, ensure_ascii=False, indent=2))
-    return 0 if not (author_payload.get("_http_status") or search_payload.get("_http_status")) else 1
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     raise SystemExit(main())

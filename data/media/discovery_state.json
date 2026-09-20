@@ -1,0 +1,136 @@
+{
+  "processed": {
+    "https://isd-ras.ru/news/2026/9/bajkalskij-demforum-2026": {
+      "processed_at": "2026-09-20T12:14:05+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/polyachenko-social-forum-2026": {
+      "processed_at": "2026-09-20T12:14:06+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/aziatskij-trek": {
+      "processed_at": "2026-09-20T12:14:08+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/v-orenburgskoj-oblasti-otkrylsya-centr-demografii": {
+      "processed_at": "2026-09-20T12:14:09+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/religiya-i-kapitalizm": {
+      "processed_at": "2026-09-20T12:14:10+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/pilipenko-moskovskaya-perspektiva-2026": {
+      "processed_at": "2026-09-20T12:14:11+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/ekspert-isesp-otr-mfo-2026": {
+      "processed_at": "2026-09-20T12:14:13+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/social-tourism-2026": {
+      "processed_at": "2026-09-20T12:14:13+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/bushkova-utro-rossii-2026": {
+      "processed_at": "2026-09-20T12:14:14+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/brushkova-otr-2026-08-10": {
+      "processed_at": "2026-09-20T12:14:16+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/brushkova-otr-03-08-2026": {
+      "processed_at": "2026-09-20T12:14:16+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/medvedeva-seminar-ocenka-nauchnoj-deyatelnosti-202": {
+      "processed_at": "2026-09-20T12:14:17+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/medvedeva-kroshilin-easet-2026": {
+      "processed_at": "2026-09-20T12:14:19+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/7/nauchnyy-rezultat": {
+      "processed_at": "2026-09-20T12:14:20+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/bushkova-tv-interview-2026": {
+      "processed_at": "2026-09-20T12:14:21+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/7/prostranstvennoe-razvitie": {
+      "processed_at": "2026-09-20T12:14:22+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/7/zasedanie-uchyonogo-soveta-isd-fnisc-ran": {
+      "processed_at": "2026-09-20T12:14:23+00:00",
+      "status": "published",
+      "confidence": 0.95
+    },
+    "https://isd-ras.ru/news/2026/7/demografiya-i-migraciya-postsovetskogo-prostranstv": {
+      "processed_at": "2026-09-20T12:14:24+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/2025-12-24-17-58-04": {
+      "processed_at": "2026-09-20T12:14:26+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/6/gulyaev-vypiska": {
+      "processed_at": "2026-09-20T12:14:27+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/zhuravleva-mnogodetnaya-semya-otr": {
+      "processed_at": "2026-09-20T12:14:28+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/6/demograficheskaya-i-semeynaya-politiki": {
+      "processed_at": "2026-09-20T12:14:29+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/6/zorin-na-press-konf-po-sluchayu-perekrestnogo-goda": {
+      "processed_at": "2026-09-20T12:14:31+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/6/sozdaetsya-dalnevostochnyy-mezhregionalnyy-centr": {
+      "processed_at": "2026-09-20T12:14:32+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/6/zasedanie-komissii-gossoveta-rf-semya": {
+      "processed_at": "2026-09-20T12:14:33+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/mpa": {
+      "processed_at": "2026-09-20T12:14:34+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    }
+  },
+  "pending": {},
+  "initial_cutoff": "2026-06-22"
+}

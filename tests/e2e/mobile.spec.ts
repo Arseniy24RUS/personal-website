@@ -62,8 +62,25 @@ test.describe('mobile portfolio layout', () => {
     await expect(page.locator('#media-list .note')).toHaveCount(0);
     const mediaText = await page.locator('#media-list').innerText();
     expect(mediaText).not.toMatch(cyrillic);
-    await expect(page.locator('#media-list .media-card')).toHaveCount(20);
+    expect(await page.locator('#media-list .media-card').count()).toBeGreaterThanOrEqual(22);
     await expect(page.getByRole('link', { name: /Tolk: Russia.s shrinking younger population/ })).toBeVisible();
+  });
+
+  for (const path of ['/media.html', '/en/media.html']) {
+    test(`${path} retains the archive and displays both September news items`, async ({page}) => {
+      await page.goto(path);
+      for (const suffix of ['pervaya-zashchita-dissovet-24124405-2026', 'sitkovskij-zashhitil-kandidatskuyu-dissertaciyu/']) {
+        await expect(page.locator(`#media-list h2 a[href$="${suffix}"]`)).toBeVisible();
+      }
+      await expect(page.locator('#risi-archive')).toBeVisible();
+    });
+  }
+
+  test('publication source dates distinguish collection from saved snapshots', async ({page}) => {
+    await page.goto('/publications.html');
+    await expect(page.locator('[data-source-health]')).toContainText('Scopus');
+    await page.locator('#q').fill('10.17853/1994-5639-2026-1-33-64');
+    await expect(page.locator('#count')).toHaveText('1');
   });
 
   test('teaching lecture thumbnails render from local assets', async ({ page }) => {

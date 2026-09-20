@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14T09:05:20+00:00",
-  "status": "ok",
+  "generated_at": "2026-09-20T12:16:59+00:00",
+  "status": "partial",
   "checks": {
     "publications_count": 67,
     "canonical_publications_count": 67,
@@ -32,6 +32,71 @@
       "crossref_failed": 0
     }
   },
+  "source_health": {
+    "elibrary": {
+      "status": "blocked",
+      "attempted_at": "2026-09-14T09:00:32+00:00",
+      "last_success_at": "2026-06-02T19:47:01+00:00",
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    "wos": {
+      "status": "blocked",
+      "attempted_at": "2026-09-14T09:04:16+00:00",
+      "last_success_at": "2026-06-03T14:54:55+00:00",
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    "scopus": {
+      "status": "partial",
+      "attempted_at": "2026-09-14T09:05:19+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    "media": {
+      "status": "success",
+      "attempted_at": "2026-09-20T12:16:08+00:00",
+      "last_success_at": "2026-09-20T12:16:08+00:00",
+      "origin": "live",
+      "complete": true,
+      "record_count": 23,
+      "reason": null
+    },
+    "orcid": {
+      "status": "partial",
+      "attempted_at": "2026-09-14T08:54:26+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    "openalex": {
+      "status": "partial",
+      "attempted_at": "2026-09-14T08:54:26+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    "crossref": {
+      "status": "partial",
+      "attempted_at": "2026-09-14T08:54:26+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    }
+  },
   "warnings": [
     {
       "code": "wos_live_fallback_used",
@@ -44,6 +109,72 @@
           "excerpt": ""
         }
       ]
+    },
+    {
+      "code": "source_not_fresh",
+      "provider": "elibrary",
+      "status": "blocked",
+      "attempted_at": "2026-09-14T09:00:32+00:00",
+      "last_success_at": "2026-06-02T19:47:01+00:00",
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    {
+      "code": "source_not_fresh",
+      "provider": "wos",
+      "status": "blocked",
+      "attempted_at": "2026-09-14T09:04:16+00:00",
+      "last_success_at": "2026-06-03T14:54:55+00:00",
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    {
+      "code": "source_not_fresh",
+      "provider": "scopus",
+      "status": "partial",
+      "attempted_at": "2026-09-14T09:05:19+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    {
+      "code": "source_not_fresh",
+      "provider": "orcid",
+      "status": "partial",
+      "attempted_at": "2026-09-14T08:54:26+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    {
+      "code": "source_not_fresh",
+      "provider": "openalex",
+      "status": "partial",
+      "attempted_at": "2026-09-14T08:54:26+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
+    },
+    {
+      "code": "source_not_fresh",
+      "provider": "crossref",
+      "status": "partial",
+      "attempted_at": "2026-09-14T08:54:26+00:00",
+      "last_success_at": null,
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 0,
+      "reason": "legacy_report_without_verified_freshness"
     }
   ],
   "issues": []
