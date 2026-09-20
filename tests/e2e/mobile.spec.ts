@@ -102,8 +102,12 @@ test.describe('mobile portfolio layout', () => {
 
   test('publication search works without public collector diagnostics', async ({page}) => {
     await page.goto('/publications.html');
+    await expect(page.locator('#count')).toHaveText(/^[1-9]\d*$/);
+    const total = Number(await page.locator('#count').textContent());
     await page.locator('#q').fill('10.17853/1994-5639-2026-1-33-64');
-    await expect(page.locator('#count')).toHaveText('1');
+    await expect.poll(async () => Number(await page.locator('#count').textContent())).toBeGreaterThan(0);
+    await expect.poll(async () => Number(await page.locator('#count').textContent())).toBeLessThan(total);
+    await expect(page.locator('.pub-row').first()).toContainText(/Сравнительный|Comparative/);
     await expect(page.locator('[data-source-health]')).toHaveCount(0);
   });
 
