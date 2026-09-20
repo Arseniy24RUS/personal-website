@@ -37,8 +37,8 @@ HOSTS = {
 AUTH_COOKIES = {
     'elibrary.ru': {'SCookieGUID', 'SUserID'},
     'www.elibrary.ru': {'SCookieGUID', 'SUserID'},
-    'webofscience.com': {'WOSSID', 'dotmatics.elementalKey', 'group'},
-    'www.webofscience.com': {'WOSSID', 'dotmatics.elementalKey', 'group'},
+    'webofscience.com': {'WOSSID', 'dotmatics.elementalKey', 'group', '__cf_bm'},
+    'www.webofscience.com': {'WOSSID', 'dotmatics.elementalKey', 'group', '__cf_bm'},
 }
 TARGET_ENV = {'elibrary': 'ELIBRARY_AUTHOR_ID', 'wos': 'WOS_RESEARCHER_ID'}
 DEFAULT_TARGET = {'elibrary': '1012909', 'wos': 'AAG-1530-2021'}

@@ -2,6 +2,7 @@
 import copy
 import os
 import sys
+import time
 import unittest
 from pathlib import Path
 from unittest.mock import MagicMock, patch
@@ -18,6 +19,33 @@ def cookie(domain, name, value):
 
 
 class SsoStateTests(unittest.TestCase):
+    def test_popup_selection_ignores_existing_tabs_and_rejects_unknown_origins(self):
+        context = MagicMock()
+        existing, login, popup = MagicMock(), MagicMock(), MagicMock()
+        for page in (existing, login, popup):
+            page.is_closed.return_value = False
+        existing.url, login.url = 'https://unrelated.test/', 'https://www.webofscience.com/'
+        context.pages = [existing, login]
+        self.assertIs(auth._wos_login_page(context, (existing,)), login)
+        context.pages.append(popup)
+        for url in ('http://orcid.org/signin', 'https://orcid.org.attacker.test/signin',
+                    'https://unobserved.orcid.org/signin', 'https://user@orcid.org/signin'):
+            popup.url = url
+            with self.subTest(url=url), self.assertRaisesRegex(auth.AuthFailure, '^unexpected_login_origin$'):
+                auth._wos_login_page(context, (existing,))
+        popup.is_closed.return_value = True
+        self.assertIs(auth._wos_login_page(context, (existing,)), login)
+        login.is_closed.return_value = True
+        self.assertIsNone(auth._wos_login_page(context, (existing,)))
+
+    def test_popup_wait_uses_remaining_login_deadline_without_resetting_it(self):
+        page = MagicMock()
+        page.is_closed.return_value = False
+        with patch.object(auth.time, 'monotonic', side_effect=[5.0, 5.2]):
+            auth._wait_wos_login_navigation(page, 5.5)
+        page.wait_for_load_state.assert_called_once_with('domcontentloaded', timeout=500)
+        self.assertAlmostEqual(page.wait_for_timeout.call_args.args[0], 300)
+
     def test_only_expired_wos_state_is_discarded_before_normal_login(self):
         state = {'cookies': [cookie('.webofscience.com', 'WOSSID', 'old-wos'),
                              cookie('orcid.org', 'identity-session', 'kept-orcid'),
@@ -119,7 +147,9 @@ class SsoBrowserTests(unittest.TestCase):
         self.context = self.browser.new_context()
         self.addCleanup(lambda: self.context.close())
 
-    def flow(self, *, consent=False, challenge=False, direct=False, logout=True):
+    def flow(self, *, consent=False, challenge=False, direct=False, logout=True,
+             popup=False, popup_delay=1500, close_popup=False, password_form=False,
+             popup_url='https://orcid.org/oauth/authorize'):
         target = 'FIXTURE-1'
         profile = f'https://www.webofscience.com/wos/author/record/{target}'
         callback = 'https://www.webofscience.com/wos/author/author-search'
@@ -141,11 +171,17 @@ class SsoBrowserTests(unittest.TestCase):
             elif address == 'https://www.webofscience.com/':
                 html = '<body><a href="https://access.clarivate.com/login">Sign in</a></body>'
             elif address.startswith('https://access.clarivate.com/'):
-                html = '<body><a href="https://orcid.org/oauth/authorize">Sign in with ORCID</a></body>'
+                if popup:
+                    html = f'''<body><button title="Sign in with ORCID" onclick="setTimeout(() => window.open('{popup_url}', '_blank'), {popup_delay})">Sign in with ORCID</button></body>'''
+                else:
+                    html = '<body><a href="https://orcid.org/oauth/authorize">Sign in with ORCID</a></body>'
             elif address == 'https://orcid.org/oauth/authorize' and consent:
                 html = f'<body><button onclick="location.href=\'{callback}\'">Authorize access</button></body>'
-            elif address == 'https://orcid.org/oauth/authorize':
-                html = f'<body><script>location.href="{callback}"</script></body>'
+            elif address == 'https://orcid.org/oauth/authorize' and password_form:
+                html = '''<body><form action="/fixture-submit" method="post"><input id="username-input" name="username"><input type="password" name="password"><button id="signin-button" type="submit">Sign in to ORCID</button></form></body>'''
+            elif address in {'https://orcid.org/oauth/authorize', 'https://orcid.org/fixture-submit'}:
+                html = (f'<body><script>window.opener.location.href="{callback}";window.close()</script></body>' if close_popup
+                        else f'<body><script>location.href="{callback}"</script></body>')
             else:
                 html = '<body>Unexpected fixture route</body>'
             request.fulfill(status=200, content_type='text/html; charset=utf-8', body=html)
@@ -168,6 +204,44 @@ class SsoBrowserTests(unittest.TestCase):
 
     def test_orcid_consent_without_password_succeeds(self):
         self.verify_flow(consent=True)
+
+    def test_delayed_orcid_popup_after_one_second_is_followed_without_new_login(self):
+        seen = self.verify_flow(popup=True, popup_delay=1500)
+        self.assertEqual(sum(url == 'https://orcid.org/oauth/authorize' for url, _ in seen), 1)
+        self.assertEqual(sum(url.startswith('https://access.clarivate.com/') for url, _ in seen), 1)
+
+    def test_closed_orcid_popup_returns_to_authenticated_opener(self):
+        seen = self.verify_flow(popup=True, popup_delay=1500, close_popup=True)
+        self.assertTrue(any('/wos/author/author-search' in url for url, _ in seen))
+        self.assertEqual(len(self.context.pages), 1)
+
+    def test_delayed_popup_submits_orcid_credentials_once_and_returns_to_opener(self):
+        _, profile, seen = self.flow(popup=True, popup_delay=1500, password_form=True, close_popup=True)
+        with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture@example.test', 'WOS_ORCID_PASSWORD': 'fixture-password'}):
+            page = auth.login_wos(self.context, profile, timeout=20)
+        self.assertEqual(page.url, profile)
+        self.assertTrue(auth.wos_authenticated(page))
+        self.assertEqual([(url, method) for url, method in seen if method == 'POST'],
+                         [('https://orcid.org/fixture-submit', 'POST')])
+        self.assertEqual(len(self.context.pages), 1)
+
+    def test_wrong_origin_popup_stops_before_profile_or_form_submission(self):
+        _, profile, seen = self.flow(popup=True, popup_url='https://unrelated.test/signin')
+        with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture@example.test', 'WOS_ORCID_PASSWORD': 'unused-fixture-password'}):
+            with self.assertRaisesRegex(auth.AuthFailure, '^unexpected_login_origin$'):
+                auth.login_wos(self.context, profile, timeout=15)
+        self.assertTrue(all(method == 'GET' for _, method in seen))
+        self.assertFalse(any(url == profile for url, _ in seen))
+
+    def test_blank_popup_expires_under_original_deadline_without_retry(self):
+        _, profile, seen = self.flow(popup=True, popup_delay=0, popup_url='about:blank')
+        started = time.monotonic()
+        with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture@example.test', 'WOS_ORCID_PASSWORD': 'unused-fixture-password'}):
+            with self.assertRaisesRegex(auth.AuthFailure, '^wos_login_form_changed$'):
+                auth.login_wos(self.context, profile, timeout=5)
+        self.assertLess(time.monotonic() - started, 8)
+        self.assertEqual(sum(url.startswith('https://access.clarivate.com/') for url, _ in seen), 1)
+        self.assertFalse(any(url == profile for url, _ in seen))
 
     def test_direct_authenticated_wos_homepage_succeeds_without_orcid_navigation(self):
         seen = self.verify_flow(direct=True)

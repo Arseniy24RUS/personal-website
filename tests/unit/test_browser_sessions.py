@@ -77,6 +77,48 @@ class BrowserSessionsTests(unittest.TestCase):
         self.assertEqual(clean['storage_state']['cookies'][0]['expires'], 2208988800.0)
         self.assertEqual(len(clean['storage_state']['origins']), 1)
 
+    def test_wos_first_party_cf_bm_roundtrip_preserves_attributes_and_expiry(self):
+        current = datetime.now(timezone.utc).timestamp()
+        for domain in ('.webofscience.com', 'www.webofscience.com'):
+            for expires in (current + 1800, current - 3600):
+                with self.subTest(domain=domain, expired=expires < current), tempfile.TemporaryDirectory() as directory:
+                    data = payload()
+                    cookie = {'domain': domain, 'path': '/', 'name': '__cf_bm',
+                              'value': 'synthetic-cf-cookie-do-not-print', 'expires': expires,
+                              'httpOnly': True, 'secure': True, 'sameSite': 'None'}
+                    data['storage_state']['cookies'].append(cookie)
+                    with patch('sys.stdout', new_callable=io.StringIO) as output:
+                        envelope = sessions.encrypt_payload(data)
+                        restored = sessions.decrypt_payload(envelope, 'wos')
+                        path = Path(directory) / 'wos.json'
+                        sessions.private_write(path, restored)
+                        browser = Mock()
+                        with patch.dict(os.environ, {'BROWSER_SESSION_INPUT_WOS': str(path)}):
+                            _, info = sessions.restore_context(browser, 'wos')
+                    self.assertEqual(info['status'], 'restored')
+                    supplied = browser.new_context.call_args.kwargs['storage_state']['cookies']
+                    self.assertEqual(next(item for item in supplied if item['name'] == '__cf_bm'), cookie)
+                    # A short-lived continuity cookie is not WoS account expiry.
+                    self.assertEqual(info['cookie_expires_at'], sessions.cookie_expiry(payload()))
+                    self.assertEqual(output.getvalue(), '')
+                    self.assertNotIn(cookie['value'], json.dumps(envelope))
+
+    def test_cf_bm_allowlist_does_not_include_analytics_or_unrelated_domains(self):
+        data = payload()
+        cookies = [
+            {'domain': '.webofscience.com', 'name': '__cf_bm', 'value': 'synthetic-first-party'},
+            {'domain': 'www.webofscience.com', 'name': 'analytics_sp_fixture', 'value': 'analytics'},
+            {'domain': '.webofscience.com', 'name': 'cf_clearance', 'value': 'not-observed'},
+            {'domain': '.unrelated.example', 'name': '__cf_bm', 'value': 'unrelated'},
+            {'domain': 'other.webofscience.com', 'name': '__cf_bm', 'value': 'unobserved-origin'},
+        ]
+        data['storage_state']['cookies'].extend(cookies)
+        restored = sessions.decrypt_payload(sessions.encrypt_payload(data), 'wos')
+        kept = restored['storage_state']['cookies']
+        self.assertEqual([(item['domain'], item['name']) for item in kept],
+                         [('www.webofscience.com', 'WOSSID'), ('.webofscience.com', '__cf_bm')])
+        self.assertEqual(data['storage_state']['cookies'][1:], cookies)
+
     def test_bootstrap_is_not_accepted_as_confirmed_artifact(self):
         sealed = sessions.encrypt_payload(payload(kind='bootstrap'))
         with self.assertRaisesRegex(sessions.SessionError, 'unconfirmed'):

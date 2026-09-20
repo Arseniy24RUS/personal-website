@@ -36,10 +36,25 @@ plaintext `portfolio-runtime` is removed by the existing cleanup step. Reports
 under `session-reports` are separate from scientific data and retained for 7 days.
 
 The first-party cookie allowlist is `SCookieGUID`, `SUserID` for eLibrary and
-`WOSSID`, `dotmatics.elementalKey`, `group` for WoS. Analytics and unrelated
+`WOSSID`, `dotmatics.elementalKey`, `group`, `__cf_bm` for WoS. Analytics and unrelated
 origins are excluded. Cloud checkpoints additionally permit state for the
 explicit official ORCID/Clarivate authentication origins in `browser_sessions.py`.
 Do not broaden this list without observing why an origin is required.
+
+`__cf_bm` was observed on the user's authorized WoS browser session. Its ordinary
+first-party value is retained only for `webofscience.com` and
+`www.webofscience.com`, with its original domain, path, expiry and browser
+attributes. The checkpoint does not manufacture or renew this cookie; an expired
+value is passed through unchanged and the browser enforces its expiry. It is not
+used to calculate the WoS account-session expiry.
+[Cloudflare documents](https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/)
+a lifetime of 30 minutes of continuous inactivity, and its
+[bot-score documentation](https://developers.cloudflare.com/bots/concepts/bot-score/)
+describes smoothing request scores to reduce false positives in ordinary sessions.
+Filtering previously omitted this state at checkpoint/restore boundaries; it did
+not remove it from the running browser. This observation does not establish the
+cause of WoS hCaptcha, guarantee transfer of trust between runners, or provide
+week-long continuity. No challenge response or cookie expiry is fabricated.
 
 ## Bootstrap an authorized session
 
@@ -111,6 +126,37 @@ deletes the run/artifact. It cannot guarantee server authorization through that
 outage. For WoS, observe real daily renewal and a run beyond the initial seven-day
 cookie boundary before claiming durable renewal. Session-only maintenance reports
 must never be used as evidence of freshly collected publication metrics.
+
+## Native WoS CV export
+
+WoS continues to use the existing ORCID sign-in credentials. The login loop
+tracks a delayed identity-provider popup and its return to the originating
+window within the same attempt; a popup does not trigger another submission.
+Only the observed official HTTPS login origins can receive interaction.
+
+After verifying the author and checkpointing profile metrics, the collector
+uses **Export CV → Export full profile → JSON → Download my profile**. It selects
+the full date range and includes accession numbers, authors and citations.
+The site creates and polls its own download job. The collector only observes
+responses for the job created by its current Download action; it does not replay
+private API requests. Neither the full CV nor its encoded contents are published.
+
+The parser accepts only the requested ResearcherID and separates Core `WOS:`
+records from other collections. Core completeness requires equality of the total
+Core count, selected-period Core count and distinct valid Core identifiers.
+Total citation metrics are separate from the date-limited fields; known zero and
+unknown values remain distinct. In the observed export the Core list was complete
+although the full-profile list omitted an undated document.
+
+A failed export falls back to the rendered list after verifying the account and
+author again. An authorization failure or CAPTCHA ends collection while keeping
+the metrics and records already checkpointed. The browser UI and cloud execution
+must be tested separately: a user completing a challenge locally is not evidence
+that an independent Actions runner will avoid another challenge.
+
+The workflow currently has no Clarivate API keys. The existing Researcher API
+application was observed pending approval on 21 September 2026. Browser
+collection does not wait for that approval; API support remains optional.
 
 ## Rotate the encryption key
 
