@@ -17,6 +17,7 @@ DOCUMENT_TYPES = {'article', 'review', 'proceedings paper', 'статья', 'о�
 CORE_PUBLICATIONS = ('Web of Science Core Collection publications', 'Публикации Web of Science Core Collection',
                      'Публикации в Web of Science Core Collection')
 INDEXED_PUBLICATIONS = ('Publications indexed in Web of Science', 'Публикации, индексируемые в Web of Science',
+                        'Публикации, индексированные в Web of Science',
                         'Публикации, проиндексированные в Web of Science')
 
 

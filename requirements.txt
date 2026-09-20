@@ -6,3 +6,4 @@ playwright==1.63.0
 argostranslate==1.11.0
 Pillow==12.3.0
 PyMuPDF==1.28.2
+cryptography==49.0.0

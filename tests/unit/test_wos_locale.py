@@ -12,6 +12,15 @@ def values(**items):
 
 
 class WosLocaleTests(unittest.TestCase):
+    def test_current_russian_indexed_label_is_separate_from_core(self):
+        summary = wos.normalized_summary(values(**{
+            'Публикации, индексированные в Web of Science': 19,
+            'Публикации Web of Science Core Collection': 13,
+            'Всего документов': 28}), values(**{'Publications': 13}))
+        self.assertEqual(summary['indexed_publications'], 19)
+        self.assertEqual(summary['core_collection_publications'], 13)
+        self.assertEqual(summary['publications'], 13)
+
     def test_committed_english_profile_metrics_still_parse(self):
         snapshot = Path(__file__).resolve().parents[2] / 'data/snapshots/wos/author_profile_AAG-1530-2021_20260603T145455Z.html'
         result = wos.parse_file(str(snapshot))

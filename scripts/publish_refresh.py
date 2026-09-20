@@ -2,6 +2,7 @@
 """Publish validated candidate data, recombining with newer main on a race."""
 from __future__ import annotations
 import argparse
+import copy
 from datetime import datetime
 import json
 import os
@@ -10,6 +11,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from source_health import component_state, load_checkpoint, write_checkpoint, materialize_checkpoint
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -48,9 +50,108 @@ def merge_source_report(previous, incoming, record_count=None):
     merged = dict(latest)
     successes = [report.get('last_success_at') for report in reports if report.get('last_success_at')]
     merged['last_success_at'] = max(successes, key=timestamp) if successes else None
+    observations = [report.get('last_observation_at') for report in reports if report.get('last_observation_at')]
+    if observations:
+        merged['last_observation_at'] = max(observations, key=timestamp)
+    names = set().union(*(report.get('components', {}).keys() for report in reports))
+    if names:
+        merged['components'] = {name: merge_source_report(component_state(previous, name), component_state(incoming, name))
+                                for name in names}
     if record_count is not None:
         merged['record_count'] = record_count
     return merged
+
+
+def provider_payloads(root, provider, report_name):
+    directory = root / 'data' / provider
+    report = read(directory / report_name, {})
+    checkpoint = load_checkpoint(directory / 'collection_checkpoint.json')
+    if checkpoint and timestamp(checkpoint['report'].get('attempted_at')) >= timestamp(report.get('attempted_at')):
+        return checkpoint['report'], checkpoint['payloads']
+    if provider == 'elibrary':
+        payloads = {'metrics': read(directory / 'profile_metrics.json', {}),
+                    'publications': read(root / 'data/processed/elibrary_publications.json', []),
+                    'details': read(directory / 'item_details.json', {})}
+    elif provider == 'wos':
+        payload = read(directory / 'profile_metrics.json', {})
+        payloads = {'metrics': {k: v for k, v in payload.items() if k not in ('records', 'records_count_on_page')},
+                    'publications': payload.get('records', []), 'details': {}}
+    else:
+        rows = read(directory / 'scopus_author_57220956828_works.json', [])
+        payloads = {'metrics': read(directory / 'scopus_author_57220956828_metrics.json', {}),
+                    'publications': rows.get('works', []) if isinstance(rows, dict) else rows, 'details': {}}
+    return report, payloads
+
+
+def source_row_key(row):
+    for key in ('elibrary_item_id', 'wos_uid', 'eid', 'doi', 'id'):
+        if row.get(key):
+            return key, str(row[key]).lower()
+    return 'title', str(row.get('title', '')).lower(), str(row.get('year', ''))
+
+
+def merge_observed_rows(previous, incoming, previous_state, incoming_state):
+    """Union verified partial pages; never erase a row missing from a response."""
+    output = copy.deepcopy(previous)
+    keys = {source_row_key(row): i for i, row in enumerate(output)}
+    new_snapshot = timestamp(incoming_state.get('last_success_at')) > timestamp(previous_state.get('last_success_at'))
+    for row in incoming:
+        key = source_row_key(row)
+        observed = timestamp(row.get('observed_at'))
+        if not new_snapshot and observed == float('-inf'):
+            continue
+        if key not in keys:
+            keys[key] = len(output)
+            output.append(copy.deepcopy(row))
+            continue
+        old = output[keys[key]]
+        prior = timestamp(old.get('observed_at') or previous_state.get('last_success_at'))
+        newer = observed > prior if row.get('observed_at') else new_snapshot
+        def enrich(target, values):
+            for field, value in values.items():
+                if isinstance(value, dict) and isinstance(target.get(field), dict):
+                    enrich(target[field], value)
+                elif value not in (None, '', [], {}) and (newer or target.get(field) in (None, '')):
+                    target[field] = copy.deepcopy(value)
+        enrich(old, row)
+    return output
+
+
+def merge_provider(candidate, destination, provider, report_name):
+    previous, old_payloads = provider_payloads(destination, provider, report_name)
+    incoming, new_payloads = provider_payloads(candidate, provider, report_name)
+    if not previous and not incoming:
+        return {}
+    old_metrics, new_metrics = component_state(previous, 'metrics'), component_state(incoming, 'metrics')
+    newer_metrics = timestamp(new_metrics.get('last_success_at')) > timestamp(old_metrics.get('last_success_at'))
+    payloads = {'metrics': new_payloads['metrics'] if newer_metrics else old_payloads['metrics']}
+    old_list, new_list = component_state(previous, 'publications'), component_state(incoming, 'publications')
+    payloads['publications'] = merge_observed_rows(old_payloads['publications'], new_payloads['publications'], old_list, new_list)
+    old_details, new_details = old_payloads.get('details', {}), new_payloads.get('details', {})
+    detail_rows = lambda payload: [dict(row, id=key) for key, row in payload.get('items', {}).items()]
+    details = merge_observed_rows(detail_rows(old_details), detail_rows(new_details),
+                                  component_state(previous, 'details'), component_state(incoming, 'details'))
+    payloads['details'] = {**old_details, 'items': {row['id']: {k: v for k, v in row.items() if k != 'id'} for row in details}} if details or old_details or new_details else {}
+    report = merge_source_report(previous, incoming, len(payloads['publications']))
+    if report.get('components'):
+        report['components'].setdefault('publications', {})['record_count'] = len(payloads['publications'])
+    directory = destination / 'data' / provider
+    if provider in ('elibrary', 'wos'):
+        if previous.get('components') or incoming.get('components'):
+            write_checkpoint(directory / 'collection_checkpoint.json', report, payloads)
+            materialize_checkpoint(directory / 'collection_checkpoint.json', provider)
+        elif provider == 'elibrary':
+            write(directory / 'profile_metrics.json', payloads['metrics'])
+            write(destination / 'data/processed/elibrary_publications.json', payloads['publications'])
+            write(directory / 'item_details.json', payloads['details'])
+        else:
+            # Preserve legacy payload shape for compatibility with existing snapshots.
+            write(directory / 'profile_metrics.json', {**payloads['metrics'], 'records': payloads['publications']})
+    else:
+        write(directory / 'scopus_author_57220956828_metrics.json', payloads['metrics'])
+        write(directory / 'scopus_author_57220956828_works.json', payloads['publications'])
+    write(directory / report_name, report)
+    return report
 
 
 def copy_snapshot(source, destination, incoming_is_newer, excluded=()):
@@ -137,6 +238,7 @@ def seed_newer_metric_baseline(destination, source_reports):
     states = {}
     names = {'elibrary': 'rinc', 'scopus': 'scopus', 'wos': 'wos'}
     for provider, state in source_reports.items():
+        state = component_state(state, 'metrics')
         old = (old_metrics.get('sources') or {}).get(names[provider], {})
         if timestamp(state.get('last_success_at')) > timestamp(old.get('last_success_at')):
             states[provider] = {**state, 'status': 'success', 'origin': 'live', 'complete': True}
@@ -166,22 +268,28 @@ def apply_newer_citation_observations(publications, destination, source_reports)
             column = 'rinc' if provider == 'elibrary' else provider
             prior = ((profile.get('source_health') or {}).get(provider) or
                      ((profile.get('scientometrics') or {}).get('sources') or {}).get(column) or {})
-            if timestamp(report.get('last_success_at')) <= timestamp(prior.get('last_success_at')):
-                continue
+            report = component_state(report, 'publications')
+            prior = component_state(prior, 'publications')
+            fresh = timestamp(report.get('last_success_at')) > timestamp(prior.get('last_success_at'))
+            for row in publications:
+                field = {'elibrary': 'rinc_citations', 'wos': 'wos_citations', 'scopus': 'scopus'}[provider]
+                if row.get(field) is not None and prior.get('last_success_at'):
+                    row.setdefault('citation_observed_at', {}).setdefault(provider, prior['last_success_at'])
             if provider == 'elibrary':
-                observations = {str(row.get('elibrary_item_id')): row.get('rinc_citations')
+                observations = {str(row.get('elibrary_item_id')): row
                                 for row in read(destination / 'data/processed/elibrary_publications.json', [])
                                 if row.get('elibrary_item_id') and row.get('rinc_citations') is not None}
                 for row in publications:
                     key = str(row.get('elibrary_item_id'))
-                    if key in observations:
-                        row['rinc_citations'] = observations[key]
+                    if key in observations and builder.citation_is_new(observations[key], row, 'elibrary', fresh):
+                        row['rinc_citations'] = observations[key]['rinc_citations']
+                        builder.mark_citation_observation(row, observations[key], 'elibrary')
             elif provider == 'scopus':
                 works = read(destination / 'data/scopus/scopus_author_57220956828_works.json', [])
-                builder.merge_scopus(publications, works.get('works', []) if isinstance(works, dict) else works, fresh=True)
+                builder.merge_scopus(publications, works.get('works', []) if isinstance(works, dict) else works, fresh=fresh)
             else:
                 payload = read(destination / 'data/wos/profile_metrics.json', {})
-                builder.merge_wos(publications, payload.get('records', []), fresh=True)
+                builder.merge_wos(publications, payload.get('records', []), fresh=fresh)
     finally:
         builder.DATA = previous_data
     return publications
@@ -192,24 +300,8 @@ def recombine(candidate, destination):
     report_names = {'scopus': 'scopus_author_57220956828_access_report.json', 'elibrary': 'browser_fetch_report.json', 'wos': 'harvest_report.json'}
     merged_reports = {}
     for provider, filename in report_names.items():
-        previous = read(destination / 'data' / provider / filename, {})
-        incoming = read(candidate / 'data' / provider / filename, {})
-        incoming_is_newer = timestamp(incoming.get('last_success_at')) > timestamp(previous.get('last_success_at'))
-        copy_snapshot(candidate / 'data' / provider, destination / 'data' / provider, incoming_is_newer, (filename,))
-        if provider == 'elibrary':
-            copy_snapshot(candidate / 'data/processed', destination / 'data/processed', incoming_is_newer)
-            payload = read(destination / 'data/processed/elibrary_publications.json', None)
-        elif provider == 'scopus':
-            payload = read(destination / 'data/scopus/scopus_author_57220956828_works.json', None)
-            if isinstance(payload, dict):
-                payload = payload.get('works', [])
-        else:
-            payload = read(destination / 'data/wos/profile_metrics.json', None)
-            if isinstance(payload, dict):
-                payload = payload.get('records', [])
-        report = merge_source_report(previous, incoming, len(payload) if isinstance(payload, list) else None)
+        report = merge_provider(candidate, destination, provider, filename)
         if report:
-            write(destination / 'data' / provider / filename, report)
             merged_reports[provider] = report
     merge_open_sources(candidate, destination)
     if (candidate / 'data/audit').exists():

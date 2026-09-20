@@ -7,7 +7,9 @@ import json
 from pathlib import Path
 import re
 import subprocess
+from datetime import datetime
 from urllib.parse import urlsplit, urlunsplit
+from report_safety import canonical_wos_url
 
 DATASETS = {
     'data/public/publications.json': 'publications',
@@ -31,7 +33,7 @@ def present(value):
 
 
 def normalized_url(value):
-    parts = urlsplit(str(value or '').strip())
+    parts = urlsplit(canonical_wos_url(str(value or '').strip()))
     return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), parts.path.rstrip('/'), parts.query, ''))
 
 
@@ -112,6 +114,17 @@ def compare_records(before, after, kind):
         for key in ('id', 'elibrary_item_id', 'dedupe_fingerprint', 'wos_uid', 'source_hash'):
             if present(old.get(key)) and old[key] != new.get(key):
                 issues.append({'code': 'identity_changed', 'index': index, 'field': key})
+        # Once published, the observation time for a provider cannot disappear
+        # or move backwards during a concurrent merge or partial refresh.
+        for provider, stamp in (old.get('citation_observed_at') or {}).items():
+            try:
+                prior = datetime.fromisoformat(stamp.replace('Z', '+00:00'))
+                current = datetime.fromisoformat(new['citation_observed_at'][provider].replace('Z', '+00:00'))
+                valid = current >= prior
+            except (ValueError, TypeError, KeyError, AttributeError):
+                valid = False
+            if not valid:
+                issues.append({'code': 'citation_observation_regressed', 'index': index, 'provider': provider})
         missing_assets = local_assets(old) - local_assets(new)
         if missing_assets:
             issues.append({'code': 'record_asset_reference_removed', 'index': index, 'assets': sorted(missing_assets)})
