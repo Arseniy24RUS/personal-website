@@ -13,7 +13,7 @@ import time
 from pathlib import Path
 
 from parse_wos_author_profile import parse_wos_author_profile_html
-from provider_auth import AuthFailure, login_wos, assert_no_challenge, verify_browser_egress, visible
+from provider_auth import AuthFailure, login_wos, assert_no_challenge, verify_browser_egress, visible, browser_initialization_diagnostics
 from source_health import read_json, write_json, source_result, merge_records, now, snapshot_time
 
 RESEARCHER_ID = os.environ.get('WOS_RESEARCHER_ID', 'AAG-1530-2021')
@@ -101,8 +101,11 @@ def main():
         if getattr(exc, 'diagnostics', None):
             report['diagnostics'] = exc.diagnostics
     except Exception as exc:
-        report = source_result(previous_report, status='error', count=len(previous.get('records', [])), reason=type(exc).__name__)
+        initialization = browser_initialization_diagnostics(exc) if stage == 'initialization' else None
+        report = source_result(previous_report, status='error', count=len(previous.get('records', [])), reason=initialization['reason'] if initialization else type(exc).__name__)
         report['stage'] = stage
+        if initialization:
+            report['initialization'] = initialization
     if not report.get('last_success_at'):
         # Only actual record snapshots count; bootstrap HTML contains no works.
         snapshots = sorted(Path('data/snapshots/wos').glob(f'author_profile_{RESEARCHER_ID}_????????T??????Z.html'))

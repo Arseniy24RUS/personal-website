@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 from parse_elibrary_author_profile import parse_elibrary_author_profile_html
 from parse_elibrary_author_items import parse_elibrary_author_items
 from harvest_elibrary_item_details import parse_detail_html, needs_details, item_id_from_pub
-from provider_auth import AuthFailure, login_elibrary, assert_no_challenge, elibrary_authenticated, verify_browser_egress
+from provider_auth import AuthFailure, login_elibrary, assert_no_challenge, elibrary_authenticated, verify_browser_egress, browser_initialization_diagnostics
 from source_health import read_json, write_json, source_result, merge_records, now, snapshot_time
 
 AUTHOR_ID = os.environ.get('ELIBRARY_AUTHOR_ID', '1012909')
@@ -179,8 +179,11 @@ def main():
         if getattr(exc, 'diagnostics', None):
             report['diagnostics'] = exc.diagnostics
     except Exception as exc:
-        report = source_result(previous_report, status='error', count=count, reason=type(exc).__name__)
+        initialization = browser_initialization_diagnostics(exc) if stage == 'initialization' else None
+        report = source_result(previous_report, status='error', count=count, reason=initialization['reason'] if initialization else type(exc).__name__)
         report['stage'] = stage
+        if initialization:
+            report['initialization'] = initialization
     if not report.get('last_success_at'):
         legacy_report = read_json('data/elibrary/profile_metrics_fetch_report.json', {})
         report['last_success_at'] = previous_profile.get('last_success_at') or snapshot_time(legacy_report.get('snapshot_path'))

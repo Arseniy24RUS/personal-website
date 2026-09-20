@@ -97,8 +97,7 @@ jobs:
           stage="$PORTFOLIO_RUN_DIR/portfolio-stage"
           export RUNNER_TEMP="$PORTFOLIO_RUN_DIR/portfolio-runtime"
           sudo --preserve-env=PATH,RUNNER_TEMP,PLAYWRIGHT_BROWSERS_PATH,PYTHONUNBUFFERED,HOME_VPN_REQUIRED,HOME_VPN_EXPECTED_IP_FILE,ELIBRARY_USERNAME,ELIBRARY_PASSWORD,WOS_ORCID_USERNAME,WOS_ORCID_PASSWORD,SCOPUS_API_KEY,SCOPUS_INST_TOKEN,OPENALEX_MAILTO,CROSSREF_MAILTO,ELIBRARY_AUTHOR_ID,ELIBRARY_PROFILE_URL,ELIBRARY_ITEMS_URL,ELIBRARY_SPIN,ORCID_ID,SCOPUS_AUTHOR_ID,WOS_RESEARCHER_ID,WOS_PROFILE_URL,ELIBRARY_BROWSER_HEADLESS,WOS_BROWSER_HEADLESS \
-            -u portfolio /bin/bash -c 'cd "$1" && exec xvfb-run -a "$2" scripts/refresh_pipeline.py collect --stage "$1" --only "$3"' \
-            portfolio-collect "$stage" "$(command -v python)" "$REFRESH_SOURCES"
+            -H -u portfolio /bin/bash "$stage/scripts/run_collection.sh" "$stage" "$(command -v python)" "$REFRESH_SOURCES"
       - name: Return candidate ownership to runner
         if: always()
         run: |

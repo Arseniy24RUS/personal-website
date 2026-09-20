@@ -19,6 +19,47 @@ class AuthFailure(RuntimeError):
         super().__init__(reason)
 
 
+def browser_initialization_diagnostics(exc):
+    """Classify launch logs privately; publish only fixed allowlisted markers."""
+    message = str(exc).lower()
+    patterns = {
+        'display_unavailable': ('missing x server', 'cannot open display', 'failed to open display', 'unable to open x display'),
+        'crashpad_initialization_failed': ('crashpad', 'crash_report_database'),
+        'filesystem_permission_denied': ('permission denied', 'eacces', 'access is denied'),
+        'browser_executable_missing': ("executable doesn't exist", 'executable not found', 'please run the following command to download new browsers'),
+        'browser_library_missing': ('error while loading shared libraries', 'host system is missing dependencies'),
+        'browser_sandbox_failed': ('no usable sandbox', 'failed to move to new namespace', 'running as root without --no-sandbox'),
+        'browser_process_crashed': ('signal=sigtrap', 'signal=sigsegv', 'trace/breakpoint trap', 'segmentation fault'),
+        'browser_process_closed': ('target page, context or browser has been closed', 'target closed'),
+        'storage_full': ('no space left on device',),
+    }
+    signals = [label for label, needles in patterns.items() if any(needle in message for needle in needles)]
+    if isinstance(exc, PermissionError) and 'filesystem_permission_denied' not in signals:
+        signals.append('filesystem_permission_denied')
+    if isinstance(exc, ModuleNotFoundError):
+        signals.append('python_dependency_missing')
+    priorities = ['display_unavailable', 'filesystem_permission_denied', 'crashpad_initialization_failed', 'browser_executable_missing', 'browser_library_missing', 'browser_sandbox_failed', 'storage_full', 'python_dependency_missing', 'browser_process_crashed', 'browser_process_closed']
+    reason = next((label for label in priorities if label in signals), 'browser_initialization_failed')
+
+    def accessible(key, mode):
+        path = os.environ.get(key)
+        return bool(path and Path(path).is_dir() and os.access(path, mode))
+
+    return {
+        'reason': reason,
+        'signals': signals,
+        'error_type': type(exc).__name__ if type(exc).__name__ in {'TargetClosedError', 'Error', 'TimeoutError', 'PermissionError', 'FileNotFoundError', 'ModuleNotFoundError', 'OSError'} else 'OtherError',
+        'environment': {
+            'display_configured': bool(os.environ.get('DISPLAY')),
+            'home_writable': accessible('HOME', os.W_OK | os.X_OK),
+            'runtime_writable': accessible('RUNNER_TEMP', os.W_OK | os.X_OK),
+            'xdg_config_writable': accessible('XDG_CONFIG_HOME', os.W_OK | os.X_OK),
+            'xdg_cache_writable': accessible('XDG_CACHE_HOME', os.W_OK | os.X_OK),
+            'browser_store_readable': accessible('PLAYWRIGHT_BROWSERS_PATH', os.R_OK | os.X_OK),
+        },
+    }
+
+
 def safe_browser_diagnostics(context):
     """Allowlist visible form structure, never input values, body or URL queries."""
     output = []

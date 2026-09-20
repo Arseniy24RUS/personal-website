@@ -192,6 +192,20 @@ class CollectionTests(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             auth.wait_navigation(page)
 
+    def test_browser_initialization_diagnostics_are_allowlisted(self):
+        error = RuntimeError('chrome_crashpad_handler: --database is required. Permission denied /home/private-owner/private-cookie https://private.test/?SID=private-session password=private-password')
+        diagnostics = auth.browser_initialization_diagnostics(error)
+        self.assertEqual(diagnostics['reason'], 'filesystem_permission_denied')
+        self.assertIn('crashpad_initialization_failed', diagnostics['signals'])
+        self.assertEqual(diagnostics['error_type'], 'OtherError')
+        serialized = json.dumps(diagnostics)
+        for private in ('private-owner', 'private-cookie', 'private-session', 'private-password', 'https://', '/home/'):
+            self.assertNotIn(private, serialized)
+
+    def test_browser_initialization_detects_display_or_missing_executable(self):
+        self.assertEqual(auth.browser_initialization_diagnostics(RuntimeError('Missing X server or $DISPLAY'))['reason'], 'display_unavailable')
+        self.assertEqual(auth.browser_initialization_diagnostics(RuntimeError("Executable doesn't exist at a private path"))['reason'], 'browser_executable_missing')
+
     def test_wos_partial_pagination_is_not_accepted(self):
         page = MagicMock()
         data = {'summary': {'publications': 2}, 'records': [{'wos_uid': 'WOS:1'}]}

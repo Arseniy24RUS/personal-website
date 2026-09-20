@@ -29,8 +29,13 @@
       if (!verified) line.textContent += en ? ' · saved data; latest refresh incomplete' : ' · сохранённые данные; последнее обновление не завершено';
       if (key === 'scopus') {
         const method = (((profile.scientometrics || {}).sources || {}).scopus || {}).method || {};
-        if (Object.values(method).includes('calculated_from_complete_search')) {
-          line.textContent += en ? ' · some metrics calculated from the complete API result' : ' · часть показателей рассчитана по полной выдаче API';
+        const names = en
+          ? {publications: 'publications', citations: 'citations', h_index: 'h-index'}
+          : {publications: 'публикации', citations: 'цитирования', h_index: 'h-индекс'};
+        const calculated = Object.keys(method).filter(name => method[name] === 'calculated_from_complete_search');
+        if (calculated.length) {
+          line.textContent += (en ? ' · calculated from complete Search API results: ' : ' · рассчитаны по полной выдаче Search API: ')
+            + calculated.map(name => names[name] || name).join(', ');
         }
       }
       box.append(line);
