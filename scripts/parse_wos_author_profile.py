@@ -12,10 +12,16 @@ import re
 from typing import Any
 
 DOI_RE = re.compile(r"10\.\d{4,9}/[^\s<>,;\"'&?#\)\]]+", re.I)
+DOCUMENT_TYPES = {'article', 'review', 'proceedings paper', 'статья', 'обзор', 'материалы конференции'}
+# Provider terminology: https://webofscience.help.clarivate.com/ru-ru/Content/researcher-profile-metrics.html
+CORE_PUBLICATIONS = ('Web of Science Core Collection publications', 'Публикации Web of Science Core Collection',
+                     'Публикации в Web of Science Core Collection')
+INDEXED_PUBLICATIONS = ('Publications indexed in Web of Science', 'Публикации, индексируемые в Web of Science',
+                        'Публикации, проиндексированные в Web of Science')
 
 
 def clean(value: Any) -> str:
-    return re.sub(r"\s+", " ", str(value or "").replace("\xa0", " ")).strip()
+    return re.sub(r"\s+", " ", str("" if value is None else value).replace("\xa0", " ")).strip()
 
 
 def now() -> str:
@@ -23,8 +29,8 @@ def now() -> str:
 
 
 def int_value(value: Any):
-    m = re.search(r"-?\d+", clean(value).replace(",", ""))
-    return int(m.group(0)) if m else None
+    text = clean(value)
+    return int(re.sub(r"[\s,]", "", text)) if re.fullmatch(r"-?\d[\d\s,]*", text) else None
 
 
 def trim_doi(value: Any) -> str | None:
@@ -69,7 +75,7 @@ def doi_from_href(href: str) -> str | None:
 
 def normalize_pages(value: Any) -> str | None:
     text = clean(value)
-    text = re.sub(r"^[,;]?\s*pp?\.\s*", "", text, flags=re.I)
+    text = re.sub(r"^[,;]?\s*(?:pp?\.|стр\.|с\.)\s*", "", text, flags=re.I)
     text = text.replace("—", "-").replace("–", "-")
     text = re.sub(r"\s*-\s*", "-", text).strip(" ,.;")
     return text or None
@@ -87,19 +93,20 @@ def metric_value(mapping: dict, *labels):
         item = mapping.get(label)
         if isinstance(item, dict) and item.get("value") is not None:
             return item["value"]
-    lowered = {str(k).lower(): v for k, v in mapping.items()}
+    def key(value):
+        return re.sub(r'[‐‑–—]', '-', clean(value)).casefold().rstrip(':')
+    lowered = {key(k): v for k, v in mapping.items()}
     for label in labels:
-        needle = str(label).lower()
-        for key, item in lowered.items():
-            if needle in key and isinstance(item, dict) and item.get("value") is not None:
-                return item["value"]
+        item = lowered.get(key(label))
+        if isinstance(item, dict) and item.get("value") is not None:
+            return item["value"]
     return None
 
 
 def parse_summary_items(soup: BeautifulSoup) -> dict:
     out: dict[str, dict] = {}
     for item in soup.select(".summary-item"):
-        strings = [clean(s) for s in item.stripped_strings if clean(s)]
+        strings = metric_strings(item)
         if len(strings) >= 2:
             out[" ".join(strings[1:])] = {"raw": strings[0], "value": int_value(strings[0])}
     return out
@@ -108,20 +115,32 @@ def parse_summary_items(soup: BeautifulSoup) -> dict:
 def parse_core_metrics(soup: BeautifulSoup) -> dict:
     out: dict[str, dict] = {}
     for block in soup.select(".wat-author-metric-inline-block"):
-        strings = [clean(s) for s in block.stripped_strings if clean(s)]
+        strings = metric_strings(block)
         if len(strings) >= 2:
             out[" ".join(strings[1:])] = {"raw": strings[0], "value": int_value(strings[0]), "descriptor": " ".join(strings[1:])}
     return out
 
 
+def metric_strings(node) -> list[str]:
+    # Angular Material renders icon names as text in saved DOM snapshots.
+    icons = {'help_outline', 'info_outline', 'info', 'help', 'open_in_new'}
+    return [clean(s) for s in node.stripped_strings if clean(s) and clean(s) not in icons]
+
+
 def normalized_summary(summary_metrics: dict, core_metrics: dict) -> dict:
+    publications = metric_value(core_metrics, 'Publications', 'Публикации',
+                                'Публикации на Web of Science', 'Публикации в Web of Science')
+    if publications is None:
+        publications = metric_value(summary_metrics, *CORE_PUBLICATIONS)
+    # Indexed publications may include other collections, so cannot substitute
+    # for a missing Core Collection total. An observed zero is still a value.
     return {
-        "publications": metric_value(core_metrics, "Publications") or metric_value(summary_metrics, "Web of Science Core Collection publications", "Publications indexed in Web of Science"),
-        "citations": metric_value(core_metrics, "Sum of Times Cited"),
-        "h_index": metric_value(core_metrics, "H-Index", "H-index"),
-        "total_documents": metric_value(summary_metrics, "Total documents"),
-        "indexed_publications": metric_value(summary_metrics, "Publications indexed in Web of Science"),
-        "core_collection_publications": metric_value(summary_metrics, "Web of Science Core Collection publications"),
+        "publications": publications,
+        "citations": metric_value(core_metrics, "Sum of Times Cited", "Суммарное количество цитирований"),
+        "h_index": metric_value(core_metrics, "H-Index", "Индекс Хирша", "h-индекс"),
+        "total_documents": metric_value(summary_metrics, "Total documents", "Всего документов", "Общее количество документов"),
+        "indexed_publications": metric_value(summary_metrics, *INDEXED_PUBLICATIONS),
+        "core_collection_publications": metric_value(summary_metrics, *CORE_PUBLICATIONS),
     }
 
 
@@ -131,7 +150,7 @@ def first_text(node, selectors: list[str]) -> str:
         if not el:
             continue
         text = clean(el.get_text(" "))
-        if text and text.lower() not in {"article", "review", "proceedings paper"}:
+        if text and text.lower() not in DOCUMENT_TYPES:
             return text
     return ""
 
@@ -258,7 +277,7 @@ def parse_record(record) -> dict:
     title_el = record.select_one('app-summary-title a[data-ta="summary-record-title-link"], app-summary-title a, a.title-link')
     title = clean(title_el.get_text(" ")) if title_el else first_text(record, ["app-summary-title .title", ".title-link", "h3 a"])
     if not title:
-        candidates = [p for p in parts if len(p) > 18 and not p.isdigit() and p.lower() not in {"article", "review", "proceedings paper"}]
+        candidates = [p for p in parts if len(p) > 18 and not p.isdigit() and p.lower() not in DOCUMENT_TYPES]
         title = candidates[0] if candidates else ""
     doi = extract_doi(joined)
     if not doi:
@@ -292,10 +311,11 @@ def parse_record(record) -> dict:
         issue = issue.strip("()")
     pages = normalize_pages(first_text(record, ['[data-ta="Summary-page-no"]']))
     if not pages:
-        match = re.search(r"pp\.\s*([0-9]+\s*[-–—]\s*[0-9]+|[0-9]+)", joined, flags=re.I)
+        match = re.search(r"(?<!\w)(?:pp?\.|стр\.|с\.)\s*([0-9]+\s*[-–—]\s*[0-9]+|[0-9]+)", joined, flags=re.I)
         if match:
             pages = normalize_pages(match.group(1))
-    doc_type = first_text(record, [".doctype-container .data-label", ".summary-blueBox.data-label"]) or (parts[1] if len(parts) > 1 else None)
+    doc_type_node = record.select_one('.doctype-container .data-label, .summary-blueBox.data-label')
+    doc_type = clean(doc_type_node.get_text(' ')) if doc_type_node else next((part for part in parts if part.lower() in DOCUMENT_TYPES), None)
     fp = hashlib.sha256("|".join([title.lower(), str(extract_year(record, parts) or ""), doi or record_id or ""]).encode("utf-8")).hexdigest()[:16]
     return {
         "source": "web_of_science_free_view_author_profile",
@@ -305,7 +325,7 @@ def parse_record(record) -> dict:
         "title_en": title if title and not re.search(r"[А-Яа-яЁё]", title) else "",
         "authors_raw": first_text(record, ["app-summary-authors"]),
         "venue": venue,
-        "venue_en": venue,
+        "venue_en": venue if not re.search(r"[А-Яа-яЁё]", venue) else "",
         "publisher": publisher or None,
         "year": extract_year(record, parts),
         "volume": first_text(record, ['[data-ta="Summary-vol"]']) or None,

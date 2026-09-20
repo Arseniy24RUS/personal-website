@@ -9,11 +9,12 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import time
 from pathlib import Path
 
 from parse_wos_author_profile import parse_wos_author_profile_html
-from provider_auth import AuthFailure, login_wos, assert_no_challenge, verify_browser_egress, visible, browser_initialization_diagnostics
+from provider_auth import AuthFailure, login_wos, assert_no_challenge, verify_browser_egress, visible, browser_initialization_diagnostics, safe_browser_diagnostics
 from source_health import read_json, write_json, source_result, merge_records, now, snapshot_time
 
 RESEARCHER_ID = os.environ.get('WOS_RESEARCHER_ID', 'AAG-1530-2021')
@@ -25,6 +26,26 @@ WAIT_SEC = int(os.environ.get('WOS_BROWSER_WAIT_SEC', '180'))
 
 def record_key(record):
     return record.get('wos_uid') or record.get('doi') or (record.get('title'), record.get('year'))
+
+
+def safe_profile_diagnostics(page):
+    """Expose parsed counts/schema, never source HTML, text or record values."""
+    try:
+        data = parse_wos_author_profile_html(page.content(), RESEARCHER_ID)
+        records = data.get('records', [])
+        summary = data.get('summary', {})
+        keys = ('publications', 'citations', 'h_index', 'total_documents', 'indexed_publications', 'core_collection_publications')
+        field_names = lambda value: sorted(key for key in value if isinstance(key, str) and re.fullmatch('[a-z][a-z_]{0,60}', key))
+        return {
+            'parsed_record_count': len(records),
+            'summary': {key: summary.get(key) if isinstance(summary.get(key), (int, float)) else None for key in keys},
+            'schema_fields': field_names(data),
+            'record_fields': field_names({key: None for record in records[:5] if isinstance(record, dict) for key in record}),
+            'summary_metric_count': len(data.get('summary_metrics', {})),
+            'core_metric_count': len(data.get('core_collection_metrics', {})),
+        }
+    except Exception:
+        return {'parser_failed': True}
 
 
 def read_records(page, previous_keys=None):
@@ -88,7 +109,13 @@ def main():
             stage = 'login'
             page = login_wos(context, PROFILE_URL, WAIT_SEC)
             stage = 'profile'
-            data = collect_profile(page, previous)
+            try:
+                data = collect_profile(page, previous)
+            except Exception as exc:
+                failure = exc if isinstance(exc, AuthFailure) else AuthFailure(type(exc).__name__)
+                failure.diagnostics = safe_browser_diagnostics(context)
+                failure.profile_diagnostics = safe_profile_diagnostics(page)
+                raise failure from None
             context.close()
             browser.close()
         report = source_result(previous_report, status='success', count=len(data['records']))
@@ -102,6 +129,11 @@ def main():
             report['diagnostics'] = exc.diagnostics
         if getattr(exc, 'authentication_evidence', None):
             report['authentication_evidence'] = exc.authentication_evidence
+        if stage == 'profile':
+            report['authentication'] = 'fresh_orcid_login'
+            report['authentication_evidence'] = {**report.get('authentication_evidence', {}), 'login_confirmed': True}
+        if getattr(exc, 'profile_diagnostics', None):
+            report['profile_diagnostics'] = exc.profile_diagnostics
     except Exception as exc:
         initialization = browser_initialization_diagnostics(exc) if stage == 'initialization' else None
         report = source_result(previous_report, status='error', count=len(previous.get('records', [])), reason=initialization['reason'] if initialization else type(exc).__name__)

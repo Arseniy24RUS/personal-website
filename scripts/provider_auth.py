@@ -98,6 +98,29 @@ def page_text(page):
     return page.locator('body').inner_text(timeout=10000)
 
 
+def in_visible_viewport(locator):
+    """Playwright is_visible also accepts offscreen and transparent elements."""
+    return locator.evaluate("""el => {
+        const box = el.getBoundingClientRect();
+        let left = Math.max(0, box.left), top = Math.max(0, box.top);
+        let right = Math.min(innerWidth, box.right), bottom = Math.min(innerHeight, box.bottom);
+        for (let node = el; node; node = node.parentElement) {
+            const style = getComputedStyle(node);
+            if (style.display === 'none' || style.visibility !== 'visible' || Number(style.opacity) === 0) return false;
+            if (node !== el) {
+                const clip = node.getBoundingClientRect();
+                if (/hidden|clip|scroll|auto/.test(style.overflowX)) {
+                    left = Math.max(left, clip.left); right = Math.min(right, clip.right);
+                }
+                if (/hidden|clip|scroll|auto/.test(style.overflowY)) {
+                    top = Math.max(top, clip.top); bottom = Math.min(bottom, clip.bottom);
+                }
+            }
+        }
+        return right > left && bottom > top;
+    }""")
+
+
 def challenge_reason(text, url=''):
     text = str(text).lower()
     if any(x in text for x in ('тест тьюринга', 'verify you are human', 'verify that you are human', 'unusual activity', 'challenge has expired', 'проверка, что вы не робот')) or 'page_captcha' in url:
@@ -131,7 +154,7 @@ def assert_no_challenge(page, *, form_submitted=True):
     selector = 'iframe[title*="challenge" i], iframe[src*="recaptcha"][src*="size=normal"]'
     if not reason and page.locator(selector).count():
         frames = page.locator(selector)
-        if any(frames.nth(i).is_visible() for i in range(frames.count())):
+        if any(in_visible_viewport(frames.nth(i)) for i in range(frames.count())):
             reason = 'human_verification_required'
     if reason:
         raise AuthFailure(reason)
@@ -233,13 +256,60 @@ def login_elibrary(context):
     raise AuthFailure('login_not_confirmed')
 
 
+def wos_account_names():
+    """Account label candidates come from the portfolio's configured identity."""
+    import yaml
+    config = Path(__file__).resolve().parents[1] / 'config' / 'profile.yml'
+    try:
+        profile = (yaml.safe_load(config.read_text(encoding='utf-8')) or {}).get('profile', {})
+    except (OSError, ValueError, yaml.YAMLError):
+        return set()
+    names = {str(profile.get(key) or '').strip() for key in ('display_name_en', 'display_name_ru')}
+    names.update(str(name).strip() for name in profile.get('aliases', []) if isinstance(name, str))
+    # WoS commonly omits the middle initial displayed by the portfolio.
+    names.update(re.sub(r'\s+[A-Za-zА-Яа-яЁё]\.\s+', ' ', name) for name in tuple(names))
+    return {name for name in names if name}
+
+
+def wos_logout_visible(page):
+    pattern = re.compile(r'^\s*(?:(?:logout|exit_to_app)\s+)?(?:Sign out|Log out|Выйти|Выход)\s*$', re.I)
+    for role in ('button', 'link', 'menuitem'):
+        controls = page.get_by_role(role, name=pattern)
+        if any(controls.nth(index).is_visible() for index in range(controls.count())):
+            return True
+    return bool(visible(page, ['a[href*="signout"]', 'a[href*="logout"]']))
+
+
 def wos_authenticated(page):
     # The user menu is positive session proof; SID existence is not.
-    return bool(visible(page, [
+    if wos_logout_visible(page):
+        return True
+    account = visible(page, [
         '[data-ta="user-menu"]', '[data-ta="user-menu-button"]',
         'button[aria-label*="user menu" i]', 'button[aria-label*="account menu" i]',
-        'a[href*="signout"]', 'a[href*="logout"]',
-    ])) or bool(re.search(r'\bSign out\b|\bLog out\b', page_text(page), re.I))
+    ])
+    if account is not None and account.is_enabled():
+        account.click(timeout=15000)
+        for _ in range(10):
+            if wos_logout_visible(page):
+                return True
+            page.wait_for_timeout(200)
+        return False
+    # A matching public author label alone is insufficient: open only the
+    # configured user's account button and confirm the session's logout action.
+    for name in sorted(wos_account_names()):
+        buttons = page.get_by_role('button', name=name, exact=True)
+        for index in range(buttons.count()):
+            button = buttons.nth(index)
+            if not button.is_visible() or not button.is_enabled():
+                continue
+            button.click(timeout=15000)
+            for _ in range(10):
+                if wos_logout_visible(page):
+                    return True
+                page.wait_for_timeout(200)
+            return False
+    return False
 
 
 def provider_host(host, provider):

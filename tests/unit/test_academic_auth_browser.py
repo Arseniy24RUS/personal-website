@@ -84,12 +84,14 @@ class AuthBrowserTests(unittest.TestCase):
             elif url.startswith('https://orcid.org/oauth/'):
                 html = '''<body><p>Please enter a valid email address or ORCID iD</p><form method="post" action="/finish"><input id="username-input" name="username"><input type="password" name="password"><button id="signin-button" type="submit">Sign in to ORCID</button></form></body>'''
             elif authenticated:
-                html = '<body><button data-ta="user-menu">Account</button><p>Author works</p></body>'
+                html = '''<body><button onclick="document.getElementById('account').hidden=false">Arseniy Sitkovskiy</button>
+                    <div id="account" hidden><button><span>logout</span> Выйти</button></div><p>Author works</p>
+                    <iframe title="recaptcha challenge" style="position:absolute;left:-10000px"></iframe></body>'''
             else:
                 html = '''<body><button onclick="document.querySelector('#submenu').hidden=false">Sign In</button>
                     <a id="submenu" hidden onclick="location.href='https://access.clarivate.com/login'">Sign In</a>
                     <a href="https://orcid.org/0000-public-record">ORCID</a></body>'''
-            request.fulfill(status=200, content_type='text/html', body=html)
+            request.fulfill(status=200, content_type='text/html; charset=utf-8', body=html)
 
         self.context.route('**/*', route)
         with patch.dict(os.environ, {'WOS_ORCID_USERNAME': ' fixture\\@example.test ', 'WOS_ORCID_PASSWORD': ' fixture\\@password '}):
@@ -101,6 +103,31 @@ class AuthBrowserTests(unittest.TestCase):
         self.assertEqual(visited[0], 'https://www.webofscience.com/')
         self.assertEqual(form_data[0]['username'], ['fixture@example.test'])
         self.assertEqual(form_data[0]['password'], [' fixture\\@password '])
+        self.assertEqual(page.url, profile_url)
+
+    def test_captcha_frame_requires_visible_viewport_and_opacity(self):
+        page = self.context.new_page()
+        for style in ('position:absolute;left:-10000px', 'opacity:0', 'visibility:hidden', 'display:none'):
+            with self.subTest(style=style):
+                page.set_content(f'<body><iframe title="recaptcha challenge" style="{style}"></iframe></body>')
+                auth.assert_no_challenge(page)
+        page.set_content('<body><div style="opacity:0"><iframe title="recaptcha challenge"></iframe></div></body>')
+        auth.assert_no_challenge(page)
+        page.set_content('<body><div style="width:0;height:0;overflow:hidden"><iframe title="recaptcha challenge"></iframe></div></body>')
+        auth.assert_no_challenge(page)
+        page.set_content('<body><iframe title="recaptcha challenge"></iframe></body>')
+        with self.assertRaisesRegex(auth.AuthFailure, '^human_verification_required$'):
+            auth.assert_no_challenge(page)
+
+    def test_wos_account_name_alone_is_not_session_proof(self):
+        page = self.context.new_page()
+        page.set_content('<body><button>Arseniy Sitkovskiy</button><p>Public author record</p></body>')
+        self.assertFalse(auth.wos_authenticated(page))
+
+    def test_wos_anonymous_account_menu_is_not_session_proof(self):
+        page = self.context.new_page()
+        page.set_content('<body><button data-ta="user-menu" onclick="document.getElementById(\'menu\').hidden=false">Account</button><div id="menu" hidden><button>Sign in</button></div></body>')
+        self.assertFalse(auth.wos_authenticated(page))
 
     def test_captcha_is_explicit_and_not_interacted_with(self):
         page = self.context.new_page()
@@ -127,7 +154,7 @@ class AuthBrowserTests(unittest.TestCase):
             elif url.startswith('https://orcid.org/oauth/'):
                 html = '<body><form method="post" action="/finish"><input id="username-input"><input type="password"><button>Sign in</button></form></body>'
             elif authenticated:
-                html = '<body><button data-ta="user-menu">Account</button></body>'
+                html = '<body><button data-ta="user-menu" onclick="document.getElementById(\'menu\').hidden=false">Account</button><div id="menu" hidden><button><span>exit_to_app</span> Sign out</button></div></body>'
             else:
                 html = '<body>Unexpected route</body>'
             request.fulfill(status=200, content_type='text/html', body=html)

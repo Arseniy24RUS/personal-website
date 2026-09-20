@@ -274,6 +274,16 @@ class CollectionTests(unittest.TestCase):
             with self.assertRaisesRegex(auth.AuthFailure, 'profile_metrics_missing'):
                 wos.collect_profile(MagicMock(), {'summary': {'citations': 7, 'h_index': 2}})
 
+    def test_wos_profile_diagnostics_only_expose_counts_and_schema(self):
+        data = {'summary': {'publications': 1, 'citations': 0, 'h_index': 'private'}, 'records': [{'title': 'private', 'url': 'https://private.test?SID=private'}], 'summary_metrics': {'private': {'value': 1}}}
+        with patch.object(wos, 'parse_wos_author_profile_html', return_value=data):
+            diagnostic = wos.safe_profile_diagnostics(MagicMock())
+        self.assertEqual(diagnostic['parsed_record_count'], 1)
+        self.assertEqual(diagnostic['summary']['citations'], 0)
+        self.assertIsNone(diagnostic['summary']['h_index'])
+        self.assertEqual(diagnostic['record_fields'], ['title', 'url'])
+        self.assertNotIn('private', str(diagnostic))
+
 
 if __name__ == '__main__':
     unittest.main()
