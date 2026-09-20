@@ -1,0 +1,254 @@
+"""Bounded observation of automatic hCaptcha loading; no external requests."""
+from __future__ import annotations
+
+import sys
+import unittest
+from contextlib import ExitStack
+from pathlib import Path
+from unittest.mock import patch
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
+import provider_auth as auth
+
+
+def loading_frame(**changes):
+    return {
+        'provider_host': 'newassets.hcaptcha.com',
+        'title_challenge': True,
+        'frame_dom_observed': True,
+        'frame_host_matches_provider': True,
+        'checkbox_present': False,
+        'checkbox_visible': False,
+        'active_challenge_controls': False,
+        'marker_ids': [],
+        **changes,
+    }
+
+
+class LocatorList:
+    def __init__(self, rows):
+        self.rows = rows
+
+    def count(self):
+        return len(self.rows)
+
+    def nth(self, index):
+        return self.rows[index]
+
+
+class ObservationPage:
+    """Only body/frame reads and waiting are allowed by this fixture."""
+    url = 'https://www.webofscience.com/'
+
+    def __init__(self, states):
+        self.states = states
+        self.step = 0
+        self.clock = 0.0
+        self.waits = []
+        self.mutations = []
+        self.read_timeouts = []
+
+    @property
+    def state(self):
+        return self.states[min(self.step, len(self.states) - 1)]
+
+    def locator(self, selector):
+        if selector == 'body':
+            return self
+        if selector.startswith('iframe['):
+            return LocatorList(self.state.get('frames', []))
+        raise AssertionError('Unexpected selector: ' + selector)
+
+    def inner_text(self, **kwargs):
+        self.read_timeouts.append(kwargs['timeout'])
+        self.clock += self.state.get('read_seconds', 0)
+        return self.state.get('text', '')
+
+    def wait_for_timeout(self, milliseconds):
+        self.waits.append(milliseconds)
+        self.clock += milliseconds / 1000
+        self.step += 1
+
+    def forbidden_mutation(self, *args, **kwargs):
+        self.mutations.append(True)
+        raise AssertionError('Challenge observation must not mutate the browser')
+
+    click = fill = press = goto = evaluate = eval_on_selector_all = forbidden_mutation
+
+
+class ChallengeSettlingTests(unittest.TestCase):
+    def observe(self, states):
+        page = ObservationPage(states)
+        stack = ExitStack()
+        self.addCleanup(stack.close)
+        stack.enter_context(patch.object(auth.time, 'monotonic', side_effect=lambda: page.clock))
+        stack.enter_context(patch.object(auth, 'CHALLENGE_SETTLE_SECONDS', 1.0))
+        stack.enter_context(patch.object(auth, 'CHALLENGE_POLL_SECONDS', 0.25))
+        stack.enter_context(patch.object(auth, 'in_visible_viewport', return_value=True))
+        stack.enter_context(patch.object(auth, 'challenge_frame_evidence', side_effect=lambda frame, **kwargs: dict(frame)))
+        self.addCleanup(lambda: self.assertEqual(page.mutations, []))
+        return page
+
+    def test_transient_frame_disappears_naturally(self):
+        page = self.observe([{'frames': [loading_frame()]}, {}])
+        self.assertIsNone(auth.assert_no_challenge(page))
+        self.assertEqual(page.waits, [250.0])
+
+    def test_persistent_frame_fails_at_one_deadline(self):
+        page = self.observe([{'frames': [loading_frame()]}])
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page)
+        self.assertEqual(caught.exception.reason, 'human_verification_required')
+        self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
+        self.assertEqual(sum(page.waits), 1000.0)
+
+    def test_becomes_interactive_before_deadline(self):
+        page = self.observe([
+            {'frames': [loading_frame()]},
+            {'frames': [loading_frame(active_challenge_controls=True)]},
+        ])
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page)
+        self.assertEqual(caught.exception.verification_evidence['settling'], 'stopped_by_guard')
+        self.assertEqual(page.waits, [250.0])
+
+    def test_page_human_marker_fails_without_wait(self):
+        page = self.observe([{'text': 'Please verify you are human', 'frames': [loading_frame()]}])
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page)
+        self.assertEqual(caught.exception.verification_evidence, {
+            'trigger': 'page_marker', 'marker_ids': ['verify_you_are_human'],
+        })
+        self.assertEqual(page.waits, [])
+
+    def test_page_marker_appearing_during_wait_is_rechecked(self):
+        page = self.observe([{'frames': [loading_frame()]}, {'text': 'Authentication code required'}])
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page)
+        self.assertEqual(caught.exception.reason, 'mfa_required')
+        self.assertEqual(page.waits, [250.0])
+
+    def test_other_interactive_frame_is_not_hidden_by_loader(self):
+        page = self.observe([{'frames': [loading_frame(), loading_frame(checkbox_present=True, checkbox_visible=True)]}])
+        with self.assertRaises(auth.AuthFailure):
+            auth.assert_no_challenge(page)
+        self.assertEqual(page.waits, [])
+
+    def test_replaced_loader_does_not_restart_deadline(self):
+        page = self.observe([
+            {'frames': [loading_frame()]},
+            {'frames': [loading_frame(provider_host='otherassets.hcaptcha.com')]},
+            {'frames': [loading_frame(), loading_frame()]},
+        ])
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page)
+        self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
+        self.assertEqual(sum(page.waits), 1000.0)
+
+    def test_first_observation_is_part_of_the_total_budget(self):
+        page = self.observe([
+            {'frames': [loading_frame()], 'read_seconds': 0.6},
+            {'frames': [loading_frame()]},
+        ])
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page)
+        self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
+        self.assertAlmostEqual(sum(page.waits), 400.0)
+        self.assertLessEqual(max(page.read_timeouts), 1000.0)
+
+    def test_slow_initial_observation_cannot_succeed_after_deadline(self):
+        page = self.observe([{'read_seconds': 1.2}])
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page)
+        self.assertEqual(caught.exception.reason, 'challenge_observation_incomplete')
+        self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
+        self.assertEqual(page.waits, [])
+
+    def test_late_disappearance_cannot_succeed_after_deadline(self):
+        page = self.observe([{'frames': [loading_frame()]}, {'read_seconds': 1.0}])
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page)
+        self.assertEqual(caught.exception.reason, 'human_verification_required')
+        self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
+        self.assertEqual(page.waits, [250.0])
+
+    def test_read_failure_is_closed_and_has_fixed_evidence(self):
+        page = self.observe([{}])
+        with patch.object(page, 'inner_text', side_effect=RuntimeError('private observation detail')):
+            with self.assertRaises(auth.AuthFailure) as caught:
+                auth.assert_no_challenge(page)
+        self.assertEqual(caught.exception.reason, 'challenge_observation_incomplete')
+        self.assertEqual(caught.exception.verification_evidence, {'trigger': 'observation_incomplete'})
+        self.assertNotIn('private', str(caught.exception))
+
+    def test_unrecognized_or_incompletely_observed_frame_never_gets_grace(self):
+        cases = [
+            {'provider_host': 'hcaptcha.com.example.test'},
+            {'provider_host': 'www.google.com'},
+            {'frame_dom_observed': False},
+            {'frame_host_matches_provider': False},
+            {'observation_incomplete': True},
+            {'marker_ids': ['verify_you_are_human']},
+            {'marker_ids': None},
+            {'checkbox_present': True},
+            {'active_challenge_controls': None},
+            {'title_challenge': False},
+        ]
+        for change in cases:
+            with self.subTest(change=change):
+                page = self.observe([{'frames': [loading_frame(**change)]}])
+                with self.assertRaises(auth.AuthFailure):
+                    auth.assert_no_challenge(page)
+                self.assertEqual(page.waits, [])
+
+
+class ChallengeFrameBrowserTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        try:
+            from playwright.sync_api import sync_playwright
+        except ImportError:
+            raise unittest.SkipTest('Playwright is not installed')
+        cls.playwright = sync_playwright().start()
+        options = {'headless': True}
+        if not Path(cls.playwright.chromium.executable_path).exists():
+            edge = Path(r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe')
+            if not edge.exists():
+                cls.playwright.stop()
+                raise unittest.SkipTest('Install Playwright Chromium for browser authentication tests')
+            options['executable_path'] = str(edge)
+        cls.browser = cls.playwright.chromium.launch(**options)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.browser.close()
+        cls.playwright.stop()
+
+    def inspect_fixture(self, body):
+        context = self.browser.new_context()
+        self.addCleanup(context.close)
+        context.route('**/*', lambda route: route.fulfill(status=200, content_type='text/html', body=body))
+        page = context.new_page()
+        page.set_content('<iframe title="hCaptcha challenge" src="https://newassets.hcaptcha.com/captcha/private?token=private"></iframe>')
+        with patch.object(auth, 'CHALLENGE_SETTLE_SECONDS', 0.5):
+            with self.assertRaises(auth.AuthFailure) as caught:
+                auth.assert_no_challenge(page)
+        self.assertNotIn('private', str(caught.exception.verification_evidence))
+        self.assertIsNone(page.evaluate('window.clicked'))
+        return caught.exception.verification_evidence
+
+    def test_observed_empty_hcaptcha_dom_only_allows_bounded_wait(self):
+        evidence = self.inspect_fixture('<body>Loading...</body>')
+        self.assertEqual(evidence['settling'], 'timed_out')
+        self.assertTrue(evidence['frame']['frame_dom_observed'])
+        self.assertTrue(evidence['frame']['frame_host_matches_provider'])
+        self.assertEqual(evidence['frame']['marker_ids'], [])
+
+    def test_human_marker_inside_frame_is_immediate_failure(self):
+        evidence = self.inspect_fixture('<body>Verify you are human<button onclick="window.clicked=true">Continue</button></body>')
+        self.assertNotIn('settling', evidence)
+        self.assertEqual(evidence['frame']['marker_ids'], ['verify_you_are_human'])
+
+
+if __name__ == '__main__':
+    unittest.main()
