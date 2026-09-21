@@ -603,10 +603,20 @@ def _is_playwright_timeout(exc):
     return type(exc).__name__ == 'TimeoutError' and type(exc).__module__.startswith('playwright.')
 
 
+WOS_INTRO_MODAL_SELECTOR = ':is([role="dialog"], dialog, mat-dialog-container, .mat-mdc-dialog-container, .mat-dialog-container):not(#onetrust-banner-sdk):not(#onetrust-banner-sdk *)'
+
+
+def _wos_intro_modal_visible(page):
+    dialogs = page.locator(WOS_INTRO_MODAL_SELECTOR)
+    return any(dialogs.nth(index).is_visible() for index in range(dialogs.count()))
+
+
 def dismiss_wos_cookie_banner(page, evidence):
     """Use only the observed OneTrust consent controls, never a generic Close."""
     assert_no_challenge(page)
-    control = visible(page, ['#onetrust-reject-all-handler', '#onetrust-accept-btn-handler'])
+    if _wos_intro_modal_visible(page):
+        return False
+    control = visible(page, ['#onetrust-accept-btn-handler'])
     if control is None:
         return False
     evidence['cookie_banner_observed'] = True
@@ -617,7 +627,106 @@ def dismiss_wos_cookie_banner(page, evidence):
     control.wait_for(state='hidden', timeout=10000)
     assert_no_challenge(page)
     evidence['cookie_banner_dismissed'] = True
+    evidence['consent_accepted'] = True
     return True
+
+
+def prepare_wos_profile_login(page, evidence, deadline):
+    """Wait for the rendered profile UI and use its two explicit entry prompts."""
+    ready_deadline = deadline
+    stable_since = None
+    while time.monotonic() < ready_deadline:
+        remaining = ready_deadline - time.monotonic()
+        assert_no_challenge(page, passive_wait_seconds=min(10.0, remaining), passive_deadline=ready_deadline)
+        if not provider_host(urlparse(page.url).hostname or '', 'webofscience.com'):
+            return
+        loading = visible(page, ['[role="progressbar"]', '[aria-busy="true"]',
+                                 'mat-spinner', 'mat-progress-spinner', '.mat-mdc-progress-spinner'])
+        if loading is not None or page.evaluate('document.readyState') != 'complete':
+            stable_since = None
+            remaining = ready_deadline - time.monotonic()
+            if remaining > 0:
+                page.wait_for_timeout(min(250, remaining * 1000))
+            continue
+        modal_present = _wos_intro_modal_visible(page)
+        controls = page.locator(WOS_INTRO_MODAL_SELECTOR + ' :is(button, [role="button"]):not(#onetrust-banner-sdk *)')
+        modal_controls = [controls.nth(index) for index in range(controls.count()) if controls.nth(index).is_visible()]
+        acknowledgement = controls.filter(has_text=re.compile(r'^\s*Got it!\s*$', re.I))
+        acknowledgements = [acknowledgement.nth(index) for index in range(acknowledgement.count())
+                            if acknowledgement.nth(index).is_visible() and acknowledgement.nth(index).is_enabled()]
+        if len(modal_controls) == len(acknowledgements) == 1:
+            control = acknowledgements[0]
+            assert_no_challenge(page)
+            remaining = ready_deadline - time.monotonic()
+            if remaining <= 0:
+                break
+            control.click(timeout=min(10000, remaining * 1000))
+            assert_no_challenge(page)
+            control.wait_for(state='hidden', timeout=min(10000, max(1, (ready_deadline - time.monotonic()) * 1000)))
+            assert_no_challenge(page)
+            evidence['onboarding_acknowledged'] = True
+            stable_since = None
+            continue
+        # Do not dismiss a cookie overlay over an unresolved onboarding dialog.
+        if not modal_present and dismiss_wos_cookie_banner(page, evidence):
+            stable_since = None
+            continue
+        modal_present = _wos_intro_modal_visible(page)
+        account = visible(page, ['button[data-ta="wos-header-user_name"]', '[data-ta="user-menu"]',
+                                 '[data-ta="user-menu-button"]', 'button[aria-label*="user menu" i]',
+                                 'button[aria-label*="account menu" i]'])
+        named_account = any(button.is_visible() for name in wos_account_names()
+                            for button in page.get_by_role('button', name=name, exact=True).all())
+        signin = any(control.is_visible() for role in ('button', 'link')
+                     for control in page.get_by_role(role, name=re.compile(r'^\s*(?:Sign in|Войти)\s*$', re.I)).all())
+        ready = not modal_present and (account is not None or named_account or signin or wos_logout_visible(page))
+        if ready:
+            if stable_since is None:
+                stable_since = time.monotonic()
+            elif time.monotonic() - stable_since >= 0.75:
+                assert_no_challenge(page)
+                # The guard itself can span a late render. Recheck prompts at
+                # this return boundary so they cannot be mistaken for ready UI.
+                if (_wos_intro_modal_visible(page)
+                        or visible(page, ['#onetrust-accept-btn-handler', '[role="progressbar"]', '[aria-busy="true"]',
+                                          'mat-spinner', 'mat-progress-spinner', '.mat-mdc-progress-spinner']) is not None
+                        or page.evaluate('document.readyState') != 'complete'):
+                    stable_since = None
+                    continue
+                return
+        else:
+            stable_since = None
+        remaining = ready_deadline - time.monotonic()
+        if remaining > 0:
+            page.wait_for_timeout(min(250, remaining * 1000))
+    raise AuthFailure('wos_login_form_changed')
+
+
+def _wos_target_profile_current(page, profile_url):
+    try:
+        current, target = urlparse(page.url), urlparse(profile_url)
+        return (current.scheme == target.scheme == 'https'
+                and current.hostname == target.hostname == 'www.webofscience.com'
+                and current.port in (None, 443) and target.port in (None, 443)
+                and current.username is None and current.password is None
+                and target.username is None and target.password is None
+                and current.path.rstrip('/') == target.path.rstrip('/'))
+    except ValueError:
+        return False
+
+
+def _finish_wos_profile_login(page, profile_url, evidence, deadline):
+    remaining = deadline - time.monotonic()
+    if remaining <= 0:
+        raise AuthFailure('wos_login_not_confirmed')
+    evidence.update(stage='profile_navigation', wos_session_confirmed=True)
+    if _wos_target_profile_current(page, profile_url):
+        evidence['returned_profile_reused'] = True
+        return page
+    evidence['profile_requested'] = True
+    _goto_wos_login(page, profile_url, evidence, wait_until='domcontentloaded', timeout=min(90000, remaining * 1000))
+    evidence['profile_loaded'] = True
+    return page
 
 
 def wos_authenticated(page):
@@ -774,12 +883,14 @@ def _wait_wos_login_navigation(page, deadline):
 
 
 WOS_LOGIN_STAGES = frozenset({
-    'initialization', 'credentials', 'homepage', 'signin', 'orcid_selection',
+    'initialization', 'credentials', 'homepage', 'initial_profile', 'signin', 'orcid_selection',
     'orcid_page', 'orcid_form', 'orcid_submit', 'orcid_response', 'orcid_consent',
     'wos_return', 'profile_navigation', 'complete',
 })
 WOS_LOGIN_PROGRESS_FLAGS = frozenset({
     'homepage_requested', 'homepage_loaded', 'signin_clicked', 'clarivate_observed',
+    'initial_profile_requested', 'initial_profile_loaded', 'onboarding_acknowledged',
+    'consent_accepted', 'returned_profile_reused',
     'orcid_selected', 'orcid_page_observed', 'orcid_form_observed', 'submit_clicked',
     'orcid_consent_clicked', 'wos_return_observed', 'wos_session_confirmed',
     'profile_requested', 'profile_loaded', 'input_matches_configured',
@@ -1047,10 +1158,10 @@ def _login_wos(context, profile_url, timeout, evidence, *, navigation=None):
         raise AuthFailure('username_configuration_invalid')
     existing_pages = tuple(context.pages)
     page = context.new_page()
-    evidence.update(stage='homepage', homepage_requested=True)
-    _goto_wos_login(page, 'https://www.webofscience.com/', evidence, wait_until='domcontentloaded', timeout=90000)
-    evidence['homepage_loaded'] = True
     deadline = time.monotonic() + timeout
+    evidence.update(stage='initial_profile', initial_profile_requested=True)
+    _goto_wos_login(page, profile_url, evidence, wait_until='domcontentloaded', timeout=min(90000, timeout * 1000))
+    evidence['initial_profile_loaded'] = True
     submitted = False
     selected_signin = False
     selected_orcid = False
@@ -1137,16 +1248,19 @@ def _login_wos(context, profile_url, timeout, evidence, *, navigation=None):
                 # menu. Wait only; never restart sign-in or OAuth consent here.
                 page.wait_for_timeout(min(250, remaining * 1000))
                 continue
-            remaining = deadline - time.monotonic()
-            if remaining <= 0:
-                raise AuthFailure('wos_login_not_confirmed')
-            evidence.update(stage='profile_navigation', wos_session_confirmed=True, profile_requested=True)
-            _goto_wos_login(page, profile_url, evidence, wait_until='domcontentloaded', timeout=min(90000, remaining * 1000))
-            evidence['profile_loaded'] = True
-            return page
-        dismiss = visible(page, ['#onetrust-reject-all-handler', '#onetrust-accept-btn-handler'])
-        if dismiss is not None:
-            dismiss.click()
+            return _finish_wos_profile_login(page, profile_url, evidence, deadline)
+        if provider_host(host, 'webofscience.com'):
+            if not selected_signin or evidence.get('wos_return_observed'):
+                prepare_wos_profile_login(page, evidence, deadline)
+                host = urlparse(page.url).hostname or ''
+                if not provider_host(host, 'webofscience.com'):
+                    # Rendering can complete an SSO redirect. Revalidate the next
+                    # origin through the normal page-selection gate before actions.
+                    continue
+        else:
+            dismiss = visible(page, ['#onetrust-reject-all-handler', '#onetrust-accept-btn-handler'])
+            if dismiss is not None:
+                dismiss.click()
         if provider_host(host, 'clarivate.com'):
             # WoS sometimes redirects the homepage straight to its sign-in
             # service. Do not submit the unused Clarivate password form first.
@@ -1182,10 +1296,7 @@ def _login_wos(context, profile_url, timeout, evidence, *, navigation=None):
                 evidence['orcid_consent_clicked'] = True
                 continue
         elif provider_host(host, 'webofscience.com') and wos_authenticated(page):
-            evidence.update(stage='profile_navigation', wos_session_confirmed=True, profile_requested=True)
-            _goto_wos_login(page, profile_url, evidence, wait_until='domcontentloaded', timeout=90000)
-            evidence['profile_loaded'] = True
-            return page
+            return _finish_wos_profile_login(page, profile_url, evidence, deadline)
         elif not selected_signin:
             evidence['stage'] = 'signin'
             if click_named(page, r'^Sign in$|^Sign in.*Web of Science|^Войти$'):

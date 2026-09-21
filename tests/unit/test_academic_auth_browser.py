@@ -100,7 +100,8 @@ class AuthBrowserTests(unittest.TestCase):
         self.assertFalse(any('0000-public-record' in url for url in visited))
         self.assertTrue(any('access.clarivate.com/login' in url for url in visited))
         self.assertTrue(any('orcid.org/oauth' in url for url in visited))
-        self.assertEqual(visited[0], 'https://www.webofscience.com/')
+        self.assertEqual(visited[0], profile_url)
+        self.assertEqual(len(form_data), 1)
         self.assertEqual(form_data[0]['username'], ['fixture@example.test'])
         self.assertEqual(form_data[0]['password'], [' fixture\\@password '])
         self.assertEqual(page.url, profile_url)
@@ -284,7 +285,7 @@ class AuthBrowserTests(unittest.TestCase):
             nonlocal authenticated
             url = request.request.url
             visited.append(url)
-            if url == 'https://www.webofscience.com/':
+            if url == 'https://www.webofscience.com/' or (url == profile_url and not authenticated):
                 html = '<body><script>location.href="https://access.clarivate.com/login"</script></body>'
             elif url.startswith('https://access.clarivate.com/'):
                 html = '<body><form action="https://invalid.test/empty-password"><button>Sign In</button></form><a href="https://orcid.org/oauth/authorize">ORCID</a></body>'
@@ -317,7 +318,7 @@ class AuthBrowserTests(unittest.TestCase):
     def test_orcid_rejected_credentials_are_evidence_not_callback_timeout(self):
         def route(request):
             url = request.request.url
-            if url == 'https://www.webofscience.com/':
+            if url == 'https://www.webofscience.com/' or '/wos/author/record/TEST' in url:
                 html = '<body><script>location.href="https://access.clarivate.com/login"</script></body>'
             elif url.startswith('https://access.clarivate.com/'):
                 html = '<body><a href="https://orcid.org/signin">ORCID</a></body>'
