@@ -94,6 +94,19 @@ class CvCollectionTests(unittest.TestCase):
         self.assertTrue(report['complete'])
         dom.assert_called_once()
 
+    def test_export_failure_stage_is_allowlisted_before_reporting(self):
+        from wos_cv_export import CVExportError, CV_STAGES
+        allowed = next(iter(CV_STAGES))
+        for stage in (allowed, 'https://private.invalid/?SID=secret'):
+            with self.subTest(allowed=stage == allowed):
+                failure = CVExportError('cv_export_ui_failed')
+                failure.stage = stage
+                report, _, dom, _ = self.run_collection(MagicMock(side_effect=failure))
+                self.assertEqual(report['cv_export'].get('stage'), allowed if stage == allowed else None)
+                self.assertNotIn('secret', str(report))
+                self.assertTrue(report['complete'])
+                dom.assert_called_once()
+
     def test_wrong_export_author_is_not_treated_as_retriable_download_failure(self):
         document = exported()
         document['author']['rid'] = 'OTHER-1'

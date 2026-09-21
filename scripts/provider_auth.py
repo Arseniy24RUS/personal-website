@@ -543,18 +543,32 @@ def wos_authenticated(page):
     # The user menu is positive session proof; SID existence is not.
     if wos_logout_visible(page):
         return True
+
+    def open_and_verify(account):
+        assert_no_challenge(page)
+        account.click(timeout=15000)
+        try:
+            for _ in range(10):
+                if wos_logout_visible(page):
+                    return True
+                page.wait_for_timeout(200)
+            return False
+        finally:
+            # Dismiss only a menu opened by this check, using the normal UI.
+            # Leaving its modal backdrop open can block the next Export click.
+            # An already-visible logout above belongs to the caller's UI state.
+            if not page.is_closed():
+                # A challenge appearing during menu rendering must remain open.
+                assert_no_challenge(page)
+                page.keyboard.press('Escape')
+
     account = visible(page, [
         'button[data-ta="wos-header-user_name"]',
         '[data-ta="user-menu"]', '[data-ta="user-menu-button"]',
         'button[aria-label*="user menu" i]', 'button[aria-label*="account menu" i]',
     ])
     if account is not None and account.is_enabled():
-        account.click(timeout=15000)
-        for _ in range(10):
-            if wos_logout_visible(page):
-                return True
-            page.wait_for_timeout(200)
-        return False
+        return open_and_verify(account)
     # A matching public author label alone is insufficient: open only the
     # configured user's account button and confirm the session's logout action.
     for name in sorted(wos_account_names()):
@@ -563,12 +577,7 @@ def wos_authenticated(page):
             button = buttons.nth(index)
             if not button.is_visible() or not button.is_enabled():
                 continue
-            button.click(timeout=15000)
-            for _ in range(10):
-                if wos_logout_visible(page):
-                    return True
-                page.wait_for_timeout(200)
-            return False
+            return open_and_verify(button)
     return False
 
 

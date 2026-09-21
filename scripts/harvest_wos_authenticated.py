@@ -395,7 +395,7 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
 
     if cv_export is not None:
         from parse_wos_cv import parse_wos_cv, CvParseError
-        from wos_cv_export import CVExportError
+        from wos_cv_export import CVExportError, CV_STAGES
         try:
             # Export follows the site's own UI and belongs to this login. The
             # profile metrics above have already been durably checkpointed.
@@ -427,6 +427,9 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
             return report, payloads
         except (CvParseError, CVExportError) as exc:
             cv_attempt = {'status': 'error', 'reason': exc.reason}
+            stage = getattr(exc, 'stage', None)
+            if isinstance(stage, str) and stage in CV_STAGES:
+                cv_attempt['stage'] = stage
         except Exception:
             # Raw export exceptions can include download URLs or CV sections.
             cv_attempt = {'status': 'error', 'reason': 'cv_export_unavailable'}
