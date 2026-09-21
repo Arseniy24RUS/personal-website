@@ -1615,7 +1615,8 @@
     "references_count": null,
     "publication_type": "Article",
     "sources": [
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "wos_records": [
       {
@@ -2511,7 +2512,8 @@
     "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-105046947039",
     "sources": [
       "scopus",
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -2657,7 +2659,8 @@
     "references_count": null,
     "publication_type": "Article",
     "sources": [
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "wos_records": [
       {
@@ -15236,7 +15239,8 @@
     "dedupe_fingerprint": "94de25b9d60208a4",
     "sources": [
       "elibrary",
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "title_en": "The impact of population density on the socio-economic development of russian regions: from correlation portraits to the cluster-differentiated density governance",
     "venue_en": "Frontiers in Political Science",
@@ -15335,7 +15339,8 @@
     "references_count": null,
     "publication_type": "Article",
     "sources": [
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "wos_records": [
       {
@@ -15397,7 +15402,8 @@
     "references_count": null,
     "publication_type": "Article",
     "sources": [
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "wos_records": [
       {
@@ -15459,7 +15465,8 @@
     "references_count": null,
     "publication_type": "Article",
     "sources": [
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "wos_records": [
       {
@@ -15521,7 +15528,8 @@
     "references_count": null,
     "publication_type": "Article",
     "sources": [
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "wos_records": [
       {
@@ -15583,7 +15591,8 @@
     "references_count": null,
     "publication_type": "Article",
     "sources": [
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "wos_records": [
       {
@@ -16364,7 +16373,8 @@
     "references_count": null,
     "publication_type": "Article",
     "sources": [
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "wos_records": [
       {
@@ -16426,7 +16436,8 @@
     "references_count": null,
     "publication_type": "Article",
     "sources": [
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "wos_records": [
       {
@@ -20608,7 +20619,8 @@
     "dedupe_fingerprint": "3adcac2daa085839",
     "sources": [
       "elibrary",
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "title_en": "“path dependence”: the transformation of the social space of the eurasian macroregion",
     "title_en_source": "existing_latin",

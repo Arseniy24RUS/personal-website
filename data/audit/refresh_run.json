@@ -1,9 +1,9 @@
 {
-  "attempted_at": "2026-09-20T19:42:10+00:00",
-  "base_sha": "8428e62b2cf3174ed9570b3c5e62284fa055ad18",
+  "attempted_at": "2026-09-21T00:10:04+00:00",
+  "base_sha": "b088cabfd6837bc96eaecd4aaf77c5aed1d5b6c5",
   "state": "ready",
   "selected_sources": [
     "wos"
   ],
-  "completed_at": "2026-09-20T19:44:06+00:00"
+  "completed_at": "2026-09-21T00:11:16+00:00"
 }

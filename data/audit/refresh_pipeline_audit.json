@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T19:44:06+00:00",
+  "generated_at": "2026-09-21T00:11:16+00:00",
   "status": "partial",
   "checks": {
     "publications_count": 72,
@@ -43,6 +43,15 @@
       "record_count": 59,
       "reason": null,
       "components": {
+        "metrics": {
+          "status": "success",
+          "attempted_at": "2026-09-20T16:25:44+00:00",
+          "last_success_at": "2026-09-20T16:25:44+00:00",
+          "origin": "live",
+          "complete": true,
+          "record_count": 1,
+          "reason": null
+        },
         "details": {
           "status": "success",
           "attempted_at": "2026-09-20T16:25:44+00:00",
@@ -67,45 +76,36 @@
           "reason": null,
           "last_observation_at": "2026-09-20T16:25:47+00:00",
           "observed_count": 59
-        },
-        "metrics": {
-          "status": "success",
-          "attempted_at": "2026-09-20T16:25:44+00:00",
-          "last_success_at": "2026-09-20T16:25:44+00:00",
-          "origin": "live",
-          "complete": true,
-          "record_count": 1,
-          "reason": null
         }
       }
     },
     "wos": {
       "status": "blocked",
-      "attempted_at": "2026-09-20T19:43:59+00:00",
+      "attempted_at": "2026-09-21T00:11:11+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
       "record_count": 13,
-      "reason": "challenge_observation_incomplete",
+      "reason": "human_verification_required",
       "stage": "login",
       "components": {
-        "publications": {
-          "status": "blocked",
-          "attempted_at": "2026-09-20T19:43:59+00:00",
-          "last_success_at": "2026-09-20T15:28:23.031Z",
-          "origin": "snapshot",
-          "complete": false,
-          "record_count": 0,
-          "reason": "challenge_observation_incomplete"
-        },
         "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-09-20T19:43:59+00:00",
+          "attempted_at": "2026-09-21T00:11:11+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
-          "reason": "challenge_observation_incomplete"
+          "reason": "human_verification_required"
+        },
+        "publications": {
+          "status": "blocked",
+          "attempted_at": "2026-09-21T00:11:11+00:00",
+          "last_success_at": "2026-09-20T15:28:23.031Z",
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "human_verification_required"
         }
       }
     },
@@ -161,31 +161,31 @@
       "code": "source_not_fresh",
       "provider": "wos",
       "status": "blocked",
-      "attempted_at": "2026-09-20T19:43:59+00:00",
+      "attempted_at": "2026-09-21T00:11:11+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
       "record_count": 13,
-      "reason": "challenge_observation_incomplete",
+      "reason": "human_verification_required",
       "stage": "login",
       "components": {
-        "publications": {
-          "status": "blocked",
-          "attempted_at": "2026-09-20T19:43:59+00:00",
-          "last_success_at": "2026-09-20T15:28:23.031Z",
-          "origin": "snapshot",
-          "complete": false,
-          "record_count": 0,
-          "reason": "challenge_observation_incomplete"
-        },
         "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-09-20T19:43:59+00:00",
+          "attempted_at": "2026-09-21T00:11:11+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
-          "reason": "challenge_observation_incomplete"
+          "reason": "human_verification_required"
+        },
+        "publications": {
+          "status": "blocked",
+          "attempted_at": "2026-09-21T00:11:11+00:00",
+          "last_success_at": "2026-09-20T15:28:23.031Z",
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "human_verification_required"
         }
       }
     },

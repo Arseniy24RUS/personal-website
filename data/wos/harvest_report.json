@@ -1,29 +1,29 @@
 {
   "status": "blocked",
-  "attempted_at": "2026-09-20T19:43:59+00:00",
+  "attempted_at": "2026-09-21T00:11:11+00:00",
   "last_success_at": "2026-09-20T15:28:23.031Z",
   "origin": "snapshot",
   "complete": false,
   "record_count": 13,
-  "reason": "challenge_observation_incomplete",
+  "reason": "human_verification_required",
   "components": {
     "metrics": {
       "status": "blocked",
-      "attempted_at": "2026-09-20T19:43:59+00:00",
+      "attempted_at": "2026-09-21T00:11:11+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
       "record_count": 0,
-      "reason": "challenge_observation_incomplete"
+      "reason": "human_verification_required"
     },
     "publications": {
       "status": "blocked",
-      "attempted_at": "2026-09-20T19:43:59+00:00",
+      "attempted_at": "2026-09-21T00:11:11+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
       "record_count": 0,
-      "reason": "challenge_observation_incomplete"
+      "reason": "human_verification_required"
     }
   },
   "stage": "login",
@@ -31,7 +31,7 @@
   "session_restore": {
     "status": "restored",
     "kind": "confirmed",
-    "validated_at": "2026-09-20T19:07:41+00:00",
+    "validated_at": "2026-09-21T00:03:07+00:00",
     "cookie_expires_at": "2026-09-27T14:50:01.180420+00:00"
   },
   "diagnostics": [
@@ -156,7 +156,7 @@
           "type": "",
           "name": "",
           "id": "ot-sdk-btn",
-          "label": "Manage cookie preferences"
+          "label": "Настройки Cookie"
         },
         {
           "tag": "a",
@@ -234,46 +234,63 @@
           "name": "",
           "id": "",
           "label": "Обратиться в Службу поддержки пользователей"
-        },
-        {
-          "tag": "a",
-          "type": "",
-          "name": "",
-          "id": "",
-          "label": "Learn more"
-        },
-        {
-          "tag": "button",
-          "type": "",
-          "name": "",
-          "id": "onetrust-pc-btn-handler",
-          "label": "Manage cookie preferences"
-        },
-        {
-          "tag": "button",
-          "type": "",
-          "name": "",
-          "id": "onetrust-accept-btn-handler",
-          "label": "Accept all"
-        },
-        {
-          "tag": "button",
-          "type": "",
-          "name": "",
-          "id": "",
-          "label": "Close"
         }
       ]
     }
   ],
   "verification_evidence": {
-    "trigger": "observation_incomplete",
-    "elapsed_seconds": 50.609,
-    "observation_budget_seconds": 50.608,
+    "trigger": "iframe_title",
+    "frame": {
+      "frame_dom_observed": true,
+      "checkbox_present": false,
+      "checkbox_visible": false,
+      "checkbox_checked": null,
+      "active_challenge_controls": true,
+      "provider_host": "newassets.hcaptcha.com",
+      "provider_path": "other",
+      "title_challenge": true,
+      "src_recaptcha": true,
+      "size_normal": false,
+      "in_visible_viewport": true,
+      "rect": {
+        "x": 520,
+        "y": 251,
+        "width": 400,
+        "height": 600
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "effective_opacity": 1,
+      "visibility_hidden": false,
+      "display_none": false,
+      "css_clip_present": false,
+      "ancestor_modal": true,
+      "viewport_intersects": true,
+      "center_hit_iframe": true,
+      "frame_host_matches_provider": true,
+      "observation_incomplete": true,
+      "marker_ids": [],
+      "ready_state": "complete",
+      "frame_text_length": 82,
+      "frame_tag_count": 718,
+      "frame_button_count": 1,
+      "frame_role_button_count": 15,
+      "frame_input_count": 0,
+      "frame_canvas_count": 0
+    },
+    "frame_counts": {
+      "hcaptcha_frame_count": 1,
+      "recaptcha_frame_count": 0,
+      "other_frame_count": 0
+    },
+    "elapsed_seconds": 0.065,
+    "observation_budget_seconds": 52.71,
     "observation_timeline": [
       {
-        "elapsed_seconds": 0.084,
-        "category": "passive",
+        "elapsed_seconds": 0.065,
+        "category": "interactive",
         "ready_state": "complete",
         "frame_text_length": 82,
         "frame_tag_count": 718,
@@ -284,125 +301,11 @@
         "frame_dom_observed": 1,
         "checkbox_present": 0,
         "checkbox_visible": 0,
-        "active_challenge_controls": 0,
-        "observation_incomplete": null,
+        "active_challenge_controls": 1,
+        "observation_incomplete": 1,
         "hcaptcha_frame_count": 1,
         "recaptcha_frame_count": 0,
         "other_frame_count": 0
-      },
-      {
-        "elapsed_seconds": 2.234,
-        "category": "passive",
-        "ready_state": "complete",
-        "frame_text_length": 80,
-        "frame_tag_count": 718,
-        "frame_button_count": 1,
-        "frame_role_button_count": 15,
-        "frame_input_count": 0,
-        "frame_canvas_count": 0,
-        "frame_dom_observed": 1,
-        "checkbox_present": 0,
-        "checkbox_visible": 0,
-        "active_challenge_controls": 0,
-        "observation_incomplete": null,
-        "hcaptcha_frame_count": 1,
-        "recaptcha_frame_count": 0,
-        "other_frame_count": 0
-      },
-      {
-        "elapsed_seconds": 5.279,
-        "category": "passive",
-        "ready_state": "complete",
-        "frame_text_length": 80,
-        "frame_tag_count": 718,
-        "frame_button_count": 1,
-        "frame_role_button_count": 15,
-        "frame_input_count": 0,
-        "frame_canvas_count": 0,
-        "frame_dom_observed": 1,
-        "checkbox_present": 0,
-        "checkbox_visible": 0,
-        "active_challenge_controls": 0,
-        "observation_incomplete": null,
-        "hcaptcha_frame_count": 1,
-        "recaptcha_frame_count": 0,
-        "other_frame_count": 0
-      },
-      {
-        "elapsed_seconds": 10.074,
-        "category": "passive",
-        "ready_state": "complete",
-        "frame_text_length": 80,
-        "frame_tag_count": 718,
-        "frame_button_count": 1,
-        "frame_role_button_count": 15,
-        "frame_input_count": 0,
-        "frame_canvas_count": 0,
-        "frame_dom_observed": 1,
-        "checkbox_present": 0,
-        "checkbox_visible": 0,
-        "active_challenge_controls": 0,
-        "observation_incomplete": null,
-        "hcaptcha_frame_count": 1,
-        "recaptcha_frame_count": 0,
-        "other_frame_count": 0
-      },
-      {
-        "elapsed_seconds": 20.17,
-        "category": "passive",
-        "ready_state": "complete",
-        "frame_text_length": 80,
-        "frame_tag_count": 718,
-        "frame_button_count": 1,
-        "frame_role_button_count": 15,
-        "frame_input_count": 0,
-        "frame_canvas_count": 0,
-        "frame_dom_observed": 1,
-        "checkbox_present": 0,
-        "checkbox_visible": 0,
-        "active_challenge_controls": 0,
-        "observation_incomplete": null,
-        "hcaptcha_frame_count": 1,
-        "recaptcha_frame_count": 0,
-        "other_frame_count": 0
-      },
-      {
-        "elapsed_seconds": 40.037,
-        "category": "passive",
-        "ready_state": "complete",
-        "frame_text_length": 80,
-        "frame_tag_count": 718,
-        "frame_button_count": 1,
-        "frame_role_button_count": 15,
-        "frame_input_count": 0,
-        "frame_canvas_count": 0,
-        "frame_dom_observed": 1,
-        "checkbox_present": 0,
-        "checkbox_visible": 0,
-        "active_challenge_controls": 0,
-        "observation_incomplete": null,
-        "hcaptcha_frame_count": 1,
-        "recaptcha_frame_count": 0,
-        "other_frame_count": 0
-      },
-      {
-        "elapsed_seconds": 50.609,
-        "category": "incomplete",
-        "ready_state": "unavailable",
-        "frame_text_length": null,
-        "frame_tag_count": null,
-        "frame_button_count": null,
-        "frame_role_button_count": null,
-        "frame_input_count": null,
-        "frame_canvas_count": null,
-        "frame_dom_observed": null,
-        "checkbox_present": null,
-        "checkbox_visible": null,
-        "active_challenge_controls": null,
-        "observation_incomplete": null,
-        "hcaptcha_frame_count": null,
-        "recaptcha_frame_count": null,
-        "other_frame_count": null
       }
     ]
   },
