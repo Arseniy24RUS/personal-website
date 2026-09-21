@@ -1,0 +1,189 @@
+{
+  "schema": "it-retention/v1",
+  "base_sha": "39cd088723e6514bb458b125572a3d0b84f1bce8",
+  "resources_sha256": "7d8875b4825f5a019f8c24f9d366d5d9a783b120ee7ef525b3241a3f1b28e5bf",
+  "baseline_generated_at": "2026-05-30",
+  "items": [
+    {
+      "id": "settlements-projection-dashboard",
+      "title_ru": "Населённые пункты России: прогноз численности и половозрастного состава населения",
+      "title_en": "Russian settlements: population and age-sex composition forecast",
+      "url": "https://arseniy24rus.github.io/Settlements-projection-dashboard/",
+      "thumb": "assets/it/thumbs/settlements-projection-dashboard.png",
+      "description_ru": "Интерактивный ГИС-дашборд для анализа и визуализации прогноза численности населения и половозрастной структуры населённых пунктов России.",
+      "description_en": "Interactive GIS dashboard for analysing and visualising population and age-sex structure forecasts for Russian settlements.",
+      "tags": [
+        "ГИС",
+        "населённые пункты",
+        "прогноз",
+        "демография"
+      ]
+    },
+    {
+      "id": "population-forecast-dashboard-russia-2100",
+      "title_ru": "Прогноз численности населения субъектов Российской Федерации до 2100 года",
+      "title_en": "Population forecast dashboard for Russian regions to 2100",
+      "url": "https://arseniy24rus.github.io/Population-Forecast-Dashboard-of-Russia-2100/",
+      "thumb": "assets/it/thumbs/population-forecast-dashboard-russia-2100.png",
+      "description_ru": "Дашборд долгосрочного демографического прогноза по субъектам РФ с визуализацией региональной динамики населения до конца XXI века.",
+      "description_en": "Dashboard of long-term demographic forecasts for Russian regions, visualising regional population dynamics up to 2100.",
+      "tags": [
+        "субъекты РФ",
+        "прогноз",
+        "2100",
+        "демография"
+      ]
+    },
+    {
+      "id": "foreign-labor-migration",
+      "title_ru": "Потребность в трудовых ресурсах по отраслям и регионам России",
+      "title_en": "Labour demand by industries and regions of Russia",
+      "url": "https://arseniy24rus.github.io/Foreign-labor-migration/",
+      "thumb": "assets/it/thumbs/foreign-labor-migration.png",
+      "description_ru": "Научно-презентационный дашборд для анализа рекомендуемой годовой квоты, дефицита трудовых ресурсов и отраслево-региональных различий потребности в кадрах.",
+      "description_en": "Research presentation dashboard for analysing recommended annual quotas, labour shortages and regional-industry labour demand.",
+      "tags": [
+        "трудовые ресурсы",
+        "отрасли",
+        "регионы",
+        "прогноз"
+      ]
+    },
+    {
+      "id": "bayes-correlations-of-russia",
+      "title_ru": "Байесовские корреляции социально-экономических и демографических показателей субъектов РФ",
+      "title_en": "Bayesian correlations of socio-economic and demographic indicators of Russian regions",
+      "url": "https://arseniy24rus.github.io/Bayes-correlations-of-Russia/",
+      "thumb": "assets/it/thumbs/bayes-correlations-of-russia.png",
+      "description_ru": "Инструмент для исследования взаимосвязей между региональными социально-экономическими и демографическими показателями на уровне субъектов Российской Федерации.",
+      "description_en": "Tool for exploring relationships between regional socio-economic and demographic indicators across Russian federal subjects.",
+      "tags": [
+        "корреляции",
+        "байесовский анализ",
+        "субъекты РФ",
+        "аналитика"
+      ]
+    },
+    {
+      "id": "government-budget-simulator",
+      "title_ru": "Симулятор деятельности губернатора субъекта Российской Федерации",
+      "title_en": "Governor activity simulator for a Russian federal subject",
+      "url": "https://arseniy24rus.github.io/government-budget-simulator/",
+      "thumb": "assets/it/thumbs/government-budget-simulator.jpg",
+      "description_ru": "Учебный веб-симулятор управления регионом: 20 ходов симуляции, стартовые сценарии, случайные события, 89 управленческих решений, бюджетная модель, KPI, общественная поддержка и таблица лидеров.",
+      "description_en": "Educational web simulator for regional governance: 20 simulation years, scenarios, random events, 89 policy choices, budget model, KPIs, public support and leaderboard.",
+      "tags": [
+        "симулятор",
+        "госуправление",
+        "бюджет",
+        "обучение"
+      ]
+    },
+    {
+      "id": "russia-regions-puzzle",
+      "title_ru": "Онлайн-пазл «Карта субъектов Российской Федерации»",
+      "title_en": "Online puzzle: Map of Russian federal subjects",
+      "url": "https://clck.ru/3PL9C2",
+      "thumb": "assets/it/thumbs/russia-regions-puzzle.png",
+      "description_ru": "Учебный онлайн-пазл для студентов: сборка карты России из 89 субъектов, три уровня сложности, работа на ПК и телефонах, таблица лидеров и выгрузка результатов в CSV.",
+      "description_en": "Educational online puzzle for students: assemble the map of Russia from 89 federal subjects, three difficulty levels, desktop/mobile support, leaderboard and CSV export.",
+      "tags": [
+        "обучение",
+        "карта России",
+        "пазл",
+        "субъекты РФ"
+      ]
+    },
+    {
+      "id": "career-guidance-for-civil-servants",
+      "title_ru": "Профориентационный тест для государственных служащих",
+      "title_en": "Career guidance test for civil servants",
+      "url": "https://arseniy24rus.github.io/career-guidance-for-civil-servants/",
+      "thumb": "assets/it/thumbs/career-guidance-for-civil-servants.png",
+      "description_ru": "Учебный онлайн-тест для ориентации студентов направления «Государственное и муниципальное управление» в системе федеральных органов исполнительной власти.",
+      "description_en": "Educational online test for orienting public administration students within the system of federal executive bodies.",
+      "tags": [
+        "профориентация",
+        "госслужба",
+        "обучение",
+        "тест"
+      ]
+    },
+    {
+      "id": "datalens-regional-socioeconomic-dashboard",
+      "title_ru": "Дашборд социально-экономических данных субъектов Российской Федерации МГИМО МИД России",
+      "title_en": "MGIMO dashboard of socio-economic data for Russian regions",
+      "url": "https://arseniy24rus.github.io/Landing-MGIMO-dashboard/#home",
+      "thumb": "assets/it/thumbs/datalens-regional-socioeconomic-dashboard.png",
+      "description_ru": "Yandex DataLens-дашборд для комплексного просмотра социально-экономических и демографических данных по субъектам Российской Федерации.",
+      "description_en": "Yandex DataLens dashboard for integrated exploration of socio-economic and demographic data for Russian regions.",
+      "tags": [
+        "DataLens",
+        "субъекты РФ",
+        "социально-экономические данные"
+      ]
+    },
+    {
+      "id": "datalens-settlement-system-okr-dashboard",
+      "title_ru": "Дашборд системы расселения и опорного каркаса расселения России",
+      "title_en": "Dashboard of Russia’s settlement system and supporting settlement framework",
+      "url": "https://дашборд-мгимо.рф/",
+      "thumb": "assets/it/thumbs/datalens-settlement-system-okr-dashboard.png",
+      "description_ru": "Yandex DataLens-дашборд по системе расселения, опорному каркасу расселения и пространственной структуре России.",
+      "description_en": "Yandex DataLens dashboard on Russia’s settlement system, supporting settlement framework and spatial structure.",
+      "tags": [
+        "DataLens",
+        "система расселения",
+        "ОКР",
+        "пространственный анализ"
+      ]
+    },
+    {
+      "id": "evergis-settlements-support-framework-map",
+      "title_ru": "Картограмма всех населённых пунктов России и опорного каркаса расселения в EverGIS",
+      "title_en": "EverGIS map of all Russian settlements and the supporting settlement framework",
+      "url": "https://clck.ru/32gGeT",
+      "thumb": "assets/it/thumbs/evergis-settlements-support-framework-map.png",
+      "description_ru": "Интерактивная картограмма всех населённых пунктов России и элементов опорного каркаса расселения, подготовленная в среде EverGIS.",
+      "description_en": "Interactive EverGIS map of all Russian settlements and elements of the supporting settlement framework.",
+      "tags": [
+        "EverGIS",
+        "населённые пункты",
+        "ОКР",
+        "картограмма"
+      ]
+    }
+  ],
+  "assets": {
+    "assets/it/thumbs/settlements-projection-dashboard.png": {
+      "sha256": "24fdf9d24531e917f1fd0cc31efcce6e4d50f00c1a30caac6c56f023b123b1a1"
+    },
+    "assets/it/thumbs/population-forecast-dashboard-russia-2100.png": {
+      "sha256": "25d05f9428941d35987e36a55dc2bec095c781f12dcc4c6337042b7fb98a0ed2"
+    },
+    "assets/it/thumbs/foreign-labor-migration.png": {
+      "sha256": "62e4868fb3b506a3a6061b4b33a360ea1f881023df5dfd61f3e020bffbaf035f"
+    },
+    "assets/it/thumbs/bayes-correlations-of-russia.png": {
+      "sha256": "5e7a193a87d4818bdf2aa71a3bc80324d3c7282d5eea188568bf5680e535054b"
+    },
+    "assets/it/thumbs/government-budget-simulator.jpg": {
+      "sha256": "2bfb7a42ddea1ed8cf9aa232581239206a72431d502894144b23263b9c8ec6f3"
+    },
+    "assets/it/thumbs/russia-regions-puzzle.png": {
+      "sha256": "d5e072cb2ecfd087e62327520fb6d52d5886ff3ebab7b66414466039e4b9befd"
+    },
+    "assets/it/thumbs/career-guidance-for-civil-servants.png": {
+      "sha256": "6293b6deaf6d9b4ce351564808e57b41179c3557da9ce1c4fbf748234c8ea315"
+    },
+    "assets/it/thumbs/datalens-regional-socioeconomic-dashboard.png": {
+      "sha256": "78fb5d8cce18fbb8e5bb6133e0a892ebe2fc792865629ed120af98dfdba2c6e8"
+    },
+    "assets/it/thumbs/datalens-settlement-system-okr-dashboard.png": {
+      "sha256": "789e4a5a87ee43852a59dc42266ba3be4d5469186d6f5e5726f9a44181b7faca"
+    },
+    "assets/it/thumbs/evergis-settlements-support-framework-map.png": {
+      "sha256": "8e534e820a363d3b27956cd398c1c079ad4557a67980cdab0c1424a519eddae0"
+    }
+  }
+}

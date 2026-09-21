@@ -95,7 +95,11 @@ def write(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(sanitize(value), ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
-def prepare(destination: Path):
+def audit_directory(scope='portfolio'):
+    return 'data/it/audit' if scope == 'it' else 'data/audit'
+
+
+def prepare(destination: Path, scope='portfolio'):
     if destination.exists():
         raise RuntimeError('Staging destination must be a new directory.')
     tracked = subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode().split('\0')
@@ -106,12 +110,15 @@ def prepare(destination: Path):
             target = destination / name
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, target)
-    write(destination / 'data/audit/refresh_run.json', {'attempted_at': now(), 'base_sha': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), 'state': 'collecting'})
+    audit = destination / audit_directory(scope)
+    if scope == 'it' and audit.exists():
+        shutil.rmtree(audit)
+    write(audit / 'refresh_run.json', {'attempted_at': now(), 'base_sha': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), 'state': 'collecting', 'scope': scope})
     # A failed run must not export yesterday's validation as its own evidence.
     for name in ('collector_steps.json', 'derived_steps.json', 'refresh_pipeline_audit.json',
                  'retention_report.json', 'translation_model_setup.json',
                  'publication_title_translation_report.json', 'publication_metadata_enrichment_report.json'):
-        (destination / 'data/audit' / name).unlink(missing_ok=True)
+        (audit / name).unlink(missing_ok=True)
     print('Isolated source and content snapshot prepared.')
 
 def run(script, cwd, timeout, args=()):
@@ -142,7 +149,38 @@ def current_observation(report, previous, attempted):
         return False
 
 
-def collect(stage: Path, only: str):
+def collect_it(stage: Path):
+    """Public GitHub discovery has no dependency on scientific source sessions."""
+    from it_resources import validate_it_resources
+    audit = stage / audit_directory('it')
+    attempted = now()
+    state = read(audit / 'refresh_run.json', {})
+    state.update(state='collecting', scope='it', selected_sources=['github'])
+    write(audit / 'refresh_run.json', state)
+    before = read(audit / 'harvest_report.json', {})
+    code, reason = run('harvest_it_resources.py', stage, 2400, ('--root', str(stage)))
+    report = read(audit / 'harvest_report.json', {})
+    if not current_observation(report, before, attempted) or (code and report.get('status') == 'success'):
+        report = {**report, 'status': 'error', 'attempted_at': attempted,
+                  'last_success_at': before.get('last_success_at'), 'origin': 'snapshot',
+                  'complete': False, 'reason': reason if code else 'missing_current_source_report'}
+    write(audit / 'harvest_report.json', report)
+    write(audit / 'collector_steps.json', {'attempted_at': attempted, 'steps': [
+        {'source': 'github', 'exit_code': code, 'reason': reason, 'attempted_at': attempted}]})
+    issues = validate_it_resources(stage)
+    if issues:
+        write(audit / 'validation_report.json', {'status': 'error', 'issues': issues})
+        raise RuntimeError('IT candidate failed structural validation.')
+    state.update(state='ready', completed_at=now())
+    write(audit / 'refresh_run.json', state)
+    print(f'GitHub discovery: {report.get("status")}; safe IT candidate ready.', flush=True)
+
+
+def collect(stage: Path, only: str, scope='portfolio'):
+    if scope == 'it':
+        if only:
+            raise RuntimeError('--only is not supported for IT collection.')
+        return collect_it(stage)
     if os.environ.get('HOME_VPN_REQUIRED') != '1':
         raise RuntimeError('Production collection requires the verified home tunnel.')
     steps = []
@@ -220,17 +258,42 @@ def collect(stage: Path, only: str):
     write(stage / 'data/audit/refresh_run.json', state)
     print('Candidate data prepared; publication still requires retention and UI checks.')
 
-def promote(stage: Path, destination: Path = ROOT):
-    if read(stage / 'data/audit/refresh_run.json', {}).get('state') != 'ready':
+def promote(stage: Path, destination: Path = ROOT, scope='portfolio'):
+    if read(stage / audit_directory(scope) / 'refresh_run.json', {}).get('state') != 'ready':
         raise RuntimeError('Only a completely built candidate can be promoted.')
+    from it_resources import merge_it_resources
+    if scope == 'it':
+        merge_it_resources(stage, destination)
+        print('Only IT additions copied; published cards and scientific data retained.')
+        return
+    # Merge before copying the rest of data, so a stale scientific snapshot
+    # cannot overwrite cards added by the independent IT workflow.
+    merge_it_resources(stage, destination)
     for name in ('data', 'assets/media/mentions', 'assets/craftum'):
         source = stage / name
         if source.exists():
-            shutil.copytree(source, destination / name, dirs_exist_ok=True)
+            shutil.copytree(source, destination / name, dirs_exist_ok=True,
+                            ignore=(lambda directory, names: ['it'] if Path(directory) == stage / 'data' else []))
     sanitize_public_tree(destination)
     print('Candidate copied; previous files were retained.')
 
-def health(root: Path = ROOT):
+def health(root: Path = ROOT, scope='portfolio'):
+    if scope == 'it':
+        audit = root / audit_directory(scope)
+        report = read(audit / 'harvest_report.json', {})
+        ready = read(audit / 'refresh_run.json', {}).get('state') == 'ready'
+        healthy = ready and report.get('status') == 'success' and report.get('complete') is True and report.get('origin') == 'live'
+        result = {'healthy': healthy, 'status': report.get('status', 'error'),
+                  'pending': report.get('pending', 0), 'reason': report.get('reason')}
+        write(audit / 'source_health_check.json', result)
+        text = ('### IT resource discovery\n\n' +
+                ('PASS' if healthy else 'NEEDS ATTENTION — published resources preserved') +
+                f'; pending: {result["pending"]}; reason: {result["reason"] or "none"}\n')
+        print(text)
+        if os.environ.get('GITHUB_STEP_SUMMARY'):
+            with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as output:
+                output.write(text)
+        return 0 if healthy else 2
     profile = read(root / 'data/public/profile.json', {})
     sources = profile.get('source_health', {})
     run_state = read(root / 'data/audit/refresh_run.json', {})
@@ -285,7 +348,18 @@ def health(root: Path = ROOT):
             f.write('\n'.join(lines) + '\n')
     return 0 if report['healthy'] else 2
 
-def diagnostics(stage: Path, destination: Path):
+def diagnostics(stage: Path, destination: Path, scope='portfolio'):
+    if scope == 'it':
+        source = stage / audit_directory(scope)
+        allowed = ('refresh_run.json', 'harvest_report.json', 'collector_steps.json',
+                   'retention_report.json', 'validation_report.json', 'source_health_check.json',
+                   'live_probe.json',
+                   'translation_model_setup_ru_en.json', 'translation_model_setup_en_ru.json')
+        for name in allowed:
+            if (source / name).is_file():
+                write(destination / audit_directory(scope) / name, read(source / name))
+        print('Only sanitized IT diagnostic JSON exported.')
+        return
     state = read(stage / 'data/audit/refresh_run.json', {})
     selected = set(state.get('selected_sources', []))
     paths = [item[2] for item in SOURCES if item[0] in selected] + ['data/audit/refresh_run.json', 'data/audit/collector_steps.json', 'data/audit/derived_steps.json', 'data/audit/translation_model_setup.json', 'data/audit/publication_title_translation_report.json', 'data/audit/publication_metadata_enrichment_report.json', 'data/audit/refresh_pipeline_audit.json', 'data/audit/retention_report.json']
@@ -313,12 +387,13 @@ def main():
     parser.add_argument('--stage', type=Path)
     parser.add_argument('--output', type=Path)
     parser.add_argument('--only', default='')
+    parser.add_argument('--scope', choices=['portfolio', 'it'], default='portfolio')
     args = parser.parse_args()
-    if args.command == 'prepare': prepare(args.stage.resolve())
-    elif args.command == 'collect': collect(args.stage.resolve(), args.only)
-    elif args.command == 'promote': promote(args.stage.resolve())
-    elif args.command == 'diagnostics': diagnostics(args.stage.resolve(), args.output.resolve())
-    else: return health(args.stage.resolve() if args.stage else ROOT)
+    if args.command == 'prepare': prepare(args.stage.resolve(), args.scope)
+    elif args.command == 'collect': collect(args.stage.resolve(), args.only, args.scope)
+    elif args.command == 'promote': promote(args.stage.resolve(), scope=args.scope)
+    elif args.command == 'diagnostics': diagnostics(args.stage.resolve(), args.output.resolve(), args.scope)
+    else: return health(args.stage.resolve() if args.stage else ROOT, args.scope)
     return 0
 
 if __name__ == '__main__':

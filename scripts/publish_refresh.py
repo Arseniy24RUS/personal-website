@@ -14,6 +14,43 @@ import tempfile
 from source_health import component_state, load_checkpoint, write_checkpoint, materialize_checkpoint
 
 ROOT = Path(__file__).resolve().parents[1]
+PORTFOLIO_PATHS = ('data', 'assets/media/mentions', 'assets/craftum', 'assets/it/thumbs')
+IT_PATHS = ('data/it', 'assets/it/thumbs')
+
+
+def publication_paths(scope='portfolio'):
+    return IT_PATHS if scope == 'it' else PORTFOLIO_PATHS
+
+
+def synchronize_published(source, destination, scope):
+    for name in publication_paths(scope):
+        if (source / name).exists():
+            shutil.copytree(source / name, destination / name, dirs_exist_ok=True)
+
+
+def allowed_it_path(name):
+    return (name.startswith('data/it/') and not name.startswith('data/it/audit/')) or name.startswith('assets/it/thumbs/')
+
+
+def assert_it_scope(path, baseline):
+    """A scoped publication cannot carry unrelated candidate changes to main."""
+    names = set(git('diff', '--name-only', baseline, '--', '.', cwd=path).splitlines())
+    names.update(git('ls-files', '--others', '--exclude-standard', cwd=path).splitlines())
+    forbidden = sorted(name for name in names if not allowed_it_path(name))
+    if forbidden:
+        raise RuntimeError('IT publication attempted to modify paths outside its scope: ' + ', '.join(forbidden))
+
+
+def copy_candidate(candidate, destination, scope='portfolio'):
+    """Always merge published IT cards, even when main has not moved."""
+    from it_resources import merge_it_resources
+    merge_it_resources(candidate, destination)
+    if scope == 'it':
+        return
+    for name in ('data', 'assets/media/mentions', 'assets/craftum'):
+        if (candidate / name).exists():
+            shutil.copytree(candidate / name, destination / name, dirs_exist_ok=True,
+                            ignore=lambda directory, names: ['it'] if Path(directory) == candidate / 'data' else [])
 
 def git(*args, cwd=ROOT):
     return subprocess.check_output(['git', *args], cwd=cwd, text=True).strip()
@@ -352,7 +389,11 @@ def apply_newer_citation_observations(publications, destination, source_reports)
         builder.DATA = previous_data
     return publications
 
-def recombine(candidate, destination):
+def recombine(candidate, destination, scope='portfolio'):
+    from it_resources import merge_it_resources
+    merge_it_resources(candidate, destination)
+    if scope == 'it':
+        return
     from harvest_media_mentions import merge_records, merge_discovery_state, canonical as normalize_url
     from build_public_data import merge_publication_sets
     report_names = {'scopus': 'scopus_author_57220956828_access_report.json', 'elibrary': 'browser_fetch_report.json', 'wos': 'harvest_report.json'}
@@ -425,23 +466,35 @@ def recombine(candidate, destination):
     if audit.returncode not in (0, 2):
         raise RuntimeError('Recombined data failed structural audit.')
 
-def validate(path, baseline):
-    subprocess.run([sys.executable, 'scripts/validate_retention.py', '--baseline-ref', baseline,
-                    '--report', 'data/audit/retention_report.json'], cwd=path, check=True)
+def validate(path, baseline, scope='portfolio'):
+    # Runtime diagnostics are not public IT catalog content and must not create
+    # timestamp-only commits. The caller exports stage diagnostics separately.
+    arguments = [sys.executable, 'scripts/validate_retention.py', '--baseline-ref', baseline,
+                 '--scope', scope]
+    if scope != 'it':
+        arguments += ['--report', 'data/audit/retention_report.json']
+    subprocess.run(arguments, cwd=path, check=True)
+    if scope == 'it' or (path / 'data/it/resources.json').exists():
+        from it_resources import validate_it_resources
+        if validate_it_resources(path):
+            raise RuntimeError('IT catalog failed validation.')
     subprocess.run([sys.executable, 'scripts/check_seo.py'], cwd=path, check=True)
     git('diff', '--check', cwd=path)
+    if scope == 'it':
+        assert_it_scope(path, baseline)
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--baseline-ref', required=True)
+    parser.add_argument('--scope', choices=['portfolio', 'it'], default='portfolio')
     args = parser.parse_args()
     baseline = git('rev-parse', args.baseline_ref)
-    validate(ROOT, baseline)
+    validate(ROOT, baseline, args.scope)
     result_sha, changed = baseline, False
     for attempt in range(3):
         git('fetch', 'origin', 'main')
         latest = git('rev-parse', 'origin/main')
-        changed_code = git('diff', '--name-only', baseline, latest, '--', 'scripts', 'config', '.github', '*.html', 'assets/*.js')
+        changed_code = git('diff', '--name-only', baseline, latest, '--', 'scripts', 'config', '.github', '*.html', 'assets/*.js', 'assets/*.css', 'data/it/config.json')
         if changed_code:
             raise RuntimeError('Code/configuration changed during collection. Rerun against latest main; candidate retained.')
         with tempfile.TemporaryDirectory(prefix='portfolio-publish-') as directory:
@@ -449,26 +502,26 @@ def main():
             git('worktree', 'add', '--detach', str(target), latest)
             try:
                 if latest == baseline:
-                    for name in ('data', 'assets/media/mentions', 'assets/craftum'):
-                        if (ROOT / name).exists():
-                            shutil.copytree(ROOT / name, target / name, dirs_exist_ok=True)
+                    copy_candidate(ROOT, target, args.scope)
                 else:
-                    recombine(ROOT, target)
-                validate(target, latest)
+                    recombine(ROOT, target, args.scope)
+                validate(target, latest, args.scope)
                 git('config', 'user.name', 'github-actions[bot]', cwd=target)
                 git('config', 'user.email', 'github-actions[bot]@users.noreply.github.com', cwd=target)
-                git('add', 'data/', 'assets/media/mentions/', 'assets/craftum/', cwd=target)
+                paths = [name for name in publication_paths(args.scope) if (target / name).exists()]
+                if paths:
+                    git('add', *paths, cwd=target)
                 if not git('diff', '--cached', '--name-only', cwd=target):
                     result_sha = latest
+                    synchronize_published(target, ROOT, args.scope)
                     break
-                git('commit', '-m', 'chore: refresh validated portfolio data', cwd=target)
+                message = 'chore: add discovered IT resources' if args.scope == 'it' else 'chore: refresh validated portfolio data'
+                git('commit', '-m', message, cwd=target)
                 result_sha = git('rev-parse', 'HEAD', cwd=target)
                 push = subprocess.run(['git', 'push', 'origin', 'HEAD:main'], cwd=target, capture_output=True, text=True)
                 if push.returncode == 0:
                     # Verification must compare the data actually pushed after any remerge.
-                    for name in ('data', 'assets/media/mentions', 'assets/craftum'):
-                        if (target / name).exists():
-                            shutil.copytree(target / name, ROOT / name, dirs_exist_ok=True)
+                    synchronize_published(target, ROOT, args.scope)
                     changed = True
                     break
                 if attempt == 2:

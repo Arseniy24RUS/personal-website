@@ -1,0 +1,166 @@
+{
+  "schema": "it-discovery/v1",
+  "repositories": {
+    "1111091278": {
+      "resource_id": "bayes-correlations-of-russia",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/Bayes-correlations-of-Russia"
+      ]
+    },
+    "1373630429": {
+      "resource_id": "github-1373630429",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/campus-management-lab"
+      ]
+    },
+    "1099211944": {
+      "resource_id": "career-guidance-for-civil-servants",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/career-guidance-for-civil-servants"
+      ]
+    },
+    "1378551868": {
+      "resource_id": "github-1378551868",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/family"
+      ]
+    },
+    "1304959008": {
+      "resource_id": "github-1304959008",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/family-support"
+      ]
+    },
+    "1251572796": {
+      "resource_id": "foreign-labor-migration",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/Foreign-labor-migration"
+      ]
+    },
+    "1298431308": {
+      "resource_id": "github-1298431308",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/GeoTalent-alpha-dashboard"
+      ]
+    },
+    "1298698239": {
+      "resource_id": "github-1298698239",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/GIR"
+      ]
+    },
+    "1107729774": {
+      "resource_id": "government-budget-simulator",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/government-budget-simulator"
+      ]
+    },
+    "1278173502": {
+      "resource_id": "github-1278173502",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/International-educational-migration-to-Russia"
+      ]
+    },
+    "1140712503": {
+      "resource_id": "datalens-regional-socioeconomic-dashboard",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/Landing-MGIMO-dashboard"
+      ]
+    },
+    "1374223469": {
+      "resource_id": "github-1374223469",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/Masterskaya-Resheniy"
+      ]
+    },
+    "1264316233": {
+      "resource_id": "github-1264316233",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/MGIMO-branch-ranker"
+      ]
+    },
+    "1298175125": {
+      "resource_id": "github-1298175125",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/MGIMO-STP"
+      ]
+    },
+    "1360135164": {
+      "resource_id": "github-1360135164",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/OmniTwin-demo"
+      ]
+    },
+    "1268765563": {
+      "resource_id": "github-1268765563",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/personal-website-Baigutlin"
+      ]
+    },
+    "1107735935": {
+      "resource_id": "population-forecast-dashboard-russia-2100",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/Population-Forecast-Dashboard-of-Russia-2100"
+      ]
+    },
+    "1355867454": {
+      "resource_id": "github-1355867454",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/RUDN"
+      ]
+    },
+    "1061217246": {
+      "resource_id": "russia-regions-puzzle",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/Russian-regions-puzzle"
+      ]
+    },
+    "1169588909": {
+      "resource_id": "settlements-projection-dashboard",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/Settlements-projection-dashboard"
+      ]
+    },
+    "1265210805": {
+      "resource_id": "github-1265210805",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/SMU-FNISC-platform"
+      ]
+    },
+    "1287603708": {
+      "resource_id": "github-1287603708",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/TechCoop"
+      ]
+    },
+    "1268737831": {
+      "resource_id": "github-1268737831",
+      "status": "published",
+      "aliases": [
+        "Arseniy24RUS/Tsargrad-demographic-platform"
+      ]
+    }
+  }
+}
