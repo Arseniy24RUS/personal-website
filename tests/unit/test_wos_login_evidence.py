@@ -35,7 +35,7 @@ class Flow:
         self.url = 'about:blank'
         self.calls = []
         self.user, self.secret = Field(), Field()
-        self.response_listener = None
+        self.listeners = {}
 
     def new_page(self):
         self.pages.append(self)
@@ -55,7 +55,10 @@ class Flow:
         self.phase, self.url = 'homepage', 'https://www.webofscience.com/'
 
     def on(self, event, callback):
-        self.response_listener = callback
+        self.listeners.setdefault(event, []).append(callback)
+
+    def remove_listener(self, event, callback):
+        self.listeners.get(event, []).remove(callback)
 
     def guard(self, page, **kwargs):
         if self.phase == self.fail_at:
@@ -95,7 +98,8 @@ class Flow:
             url='https://orcid.org/signin/auth.json', request=SimpleNamespace(method='POST'), status=200,
             json=lambda: {'success': True, 'email': USERNAME, 'token': 'synthetic-response-private'},
         )
-        self.response_listener(response)
+        for callback in list(self.listeners.get('response', [])):
+            callback(response)
         self.phase = 'after_submit' if self.fail_at == 'after_submit' else 'wos_return'
         self.url = 'https://orcid.org/signin' if self.phase == 'after_submit' else 'https://www.webofscience.com/'
 
@@ -195,7 +199,7 @@ class LoginProgressTests(unittest.TestCase):
         })
         with patch.object(auth, '_login_wos', side_effect=forged), patch.object(auth, 'safe_browser_diagnostics', return_value=[]):
             with self.assertRaises(auth.AuthFailure) as caught:
-                auth.login_wos(SimpleNamespace(), PROFILE)
+                auth.login_wos(Flow(), PROFILE)
         evidence = caught.exception.authentication_evidence
         self.assertEqual(evidence['stage'], 'initialization')
         self.assertFalse(evidence['submit_clicked'])

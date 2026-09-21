@@ -691,12 +691,13 @@ WOS_LOGIN_HOSTS = frozenset({'webofscience.com', 'www.webofscience.com',
     'access.clarivate.com', 'signin.clarivate.com', 'orcid.org', 'www.orcid.org'})
 
 
-def _wos_login_page(context, existing_pages):
+def _wos_login_page(context, existing_pages, evidence=None):
     """Follow this attempt's same-tab redirects or its latest still-open popup."""
     pages = [page for page in context.pages if page not in existing_pages and not page.is_closed()]
     if not pages:
         return None
     page = pages[-1]
+    _check_browser_error_page(page, evidence)
     if page.url != 'about:blank':
         try:
             address = urlparse(page.url)
@@ -741,12 +742,110 @@ WOS_LOGIN_PROGRESS_FLAGS = frozenset({
 WOS_LOGIN_BOOLEAN_FIELDS = WOS_LOGIN_PROGRESS_FLAGS | frozenset({
     'username_format_valid', 'username_normalized', 'response_observed', 'success',
     'verificationCodeRequired', 'disabled', 'unclaimed', 'deprecated', 'invalidUserType',
+    'browser_error_page_observed',
 })
 WOS_LOGIN_RESPONSE_REASONS = frozenset({
     'mfa_required', 'account_reactivation_required', 'account_claim_required',
     'account_deprecated', 'account_type_unsupported', 'orcid_signin_rejected',
     'orcid_auth_response_unrecognized',
 })
+WOS_NETWORK_ERROR_CODES = frozenset({
+    'ERR_ABORTED', 'ERR_FAILED', 'ERR_CACHE_MISS', 'ERR_EMPTY_RESPONSE',
+    'ERR_CONNECTION_CLOSED', 'ERR_CONNECTION_RESET', 'ERR_CONNECTION_REFUSED',
+    'ERR_CONNECTION_ABORTED', 'ERR_CONNECTION_FAILED', 'ERR_CONNECTION_TIMED_OUT',
+    'ERR_TIMED_OUT', 'ERR_NAME_NOT_RESOLVED', 'ERR_NAME_RESOLUTION_FAILED',
+    'ERR_INTERNET_DISCONNECTED', 'ERR_NETWORK_CHANGED', 'ERR_ADDRESS_UNREACHABLE',
+    'ERR_SSL_PROTOCOL_ERROR', 'ERR_SSL_VERSION_OR_CIPHER_MISMATCH',
+    'ERR_CERT_AUTHORITY_INVALID', 'ERR_CERT_DATE_INVALID', 'ERR_CERT_COMMON_NAME_INVALID',
+    'ERR_CERT_INVALID', 'ERR_CERT_REVOKED', 'ERR_TOO_MANY_REDIRECTS', 'ERR_INVALID_REDIRECT',
+    'ERR_HTTP_RESPONSE_CODE_FAILURE', 'ERR_HTTP2_PROTOCOL_ERROR', 'ERR_QUIC_PROTOCOL_ERROR',
+    'ERR_TUNNEL_CONNECTION_FAILED', 'ERR_PROXY_CONNECTION_FAILED',
+    'ERR_BLOCKED_BY_CLIENT', 'ERR_BLOCKED_BY_RESPONSE', 'ERR_BLOCKED_BY_ADMINISTRATOR',
+})
+WOS_NAVIGATION_FAILURE_LIMIT = 8
+WOS_NAVIGATION_KINDS = frozenset({'request_failed', 'http_error', 'browser_error'})
+WOS_NAVIGATION_PROVIDERS = frozenset({'wos', 'clarivate', 'orcid', 'browser', 'other'})
+
+
+def _network_error_code(value):
+    if isinstance(value, str):
+        return next((code for code in re.findall(r'\bERR_[A-Z0-9_]+\b', value)
+                     if code in WOS_NETWORK_ERROR_CODES), 'unknown')
+    return 'unknown'
+
+
+def _safe_navigation_failure(value):
+    if not isinstance(value, dict):
+        return None
+    kind, provider = value.get('kind'), value.get('provider')
+    if (not isinstance(kind, str) or kind not in WOS_NAVIGATION_KINDS
+            or not isinstance(provider, str) or provider not in WOS_NAVIGATION_PROVIDERS):
+        return None
+    result = {'kind': kind, 'provider': provider}
+    if isinstance(value.get('stage'), str) and value['stage'] in WOS_LOGIN_STAGES:
+        result['stage'] = value['stage']
+    code = value.get('network_error_code')
+    if isinstance(code, str) and (code == 'unknown' or code in WOS_NETWORK_ERROR_CODES):
+        result['network_error_code'] = code
+    status = value.get('http_status')
+    if type(status) is int and 400 <= status <= 599:
+        result['http_status'] = status
+    return result
+
+
+def _record_navigation_failure(evidence, kind, provider, *, code=None, status=None):
+    if evidence is None:
+        return
+    event = _safe_navigation_failure({'kind': kind, 'provider': provider,
+        'stage': evidence.get('stage'), 'network_error_code': code, 'http_status': status})
+    if event is None:
+        return
+    failures = evidence.setdefault('navigation_failures', [])
+    failures.append(event)
+    del failures[:-WOS_NAVIGATION_FAILURE_LIMIT]
+    evidence['navigation_failure_count'] = min(1000, evidence.get('navigation_failure_count', 0) + 1)
+
+
+def _check_browser_error_page(page, evidence=None):
+    # This internal page is failure evidence, never an allowed login origin.
+    if page.url != 'chrome-error://chromewebdata/':
+        return
+    evidence = evidence if evidence is not None else {}
+    evidence['browser_error_page_observed'] = True
+    try:
+        code = _network_error_code(page.locator('body').inner_text(timeout=1000))
+    except Exception:
+        code = 'unknown'
+    _record_navigation_failure(evidence, 'browser_error', 'browser', code=code)
+    raise AuthFailure('login_navigation_failed', authentication_evidence=safe_wos_login_evidence(evidence))
+
+
+def _navigation_provider(url):
+    try:
+        address = urlparse(url)
+        if address.scheme == 'https' and address.port in (None, 443) and not address.username and not address.password:
+            for host, category in (('webofscience.com', 'wos'), ('clarivate.com', 'clarivate'), ('orcid.org', 'orcid')):
+                if provider_host(address.hostname or '', host):
+                    return category
+    except (TypeError, ValueError):
+        pass
+    return 'other'
+
+
+def _goto_wos_login(page, url, evidence, **options):
+    try:
+        return page.goto(url, **options)
+    except Exception as exc:
+        _check_browser_error_page(page, evidence)
+        code = _network_error_code(str(exc)) if type(exc).__module__.startswith('playwright.') else 'unknown'
+        if code not in {'unknown', 'ERR_ABORTED'}:
+            # This exception belongs to this exact goto, not an earlier failed
+            # request. An aborted redirect alone is not a transport diagnosis.
+            last = evidence.get('navigation_failures', [])[-1:]
+            if not last or last[0].get('kind') != 'request_failed' or last[0].get('network_error_code') != code:
+                _record_navigation_failure(evidence, 'request_failed', _navigation_provider(url), code=code)
+            raise AuthFailure('login_navigation_failed') from None
+        raise
 
 
 def safe_wos_login_evidence(value):
@@ -763,14 +862,74 @@ def safe_wos_login_evidence(value):
     reason = value.get('reason')
     if isinstance(reason, str) and (reason in WOS_LOGIN_RESPONSE_REASONS or re.fullmatch(r'orcid_auth_http_[1-5][0-9]{2}', reason)):
         result['reason'] = reason
+    failures = value.get('navigation_failures')
+    if isinstance(failures, list):
+        result['navigation_failures'] = [event for item in failures[-WOS_NAVIGATION_FAILURE_LIMIT:]
+                                         if (event := _safe_navigation_failure(item)) is not None]
+    count = value.get('navigation_failure_count')
+    if type(count) is int and 0 <= count <= 1000:
+        result['navigation_failure_count'] = count
     return result
+
+
+class _WosLoginNavigationObserver:
+    """Observe only top-level documents belonging to this one login attempt."""
+    def __init__(self, context, evidence):
+        self.context, self.evidence = context, evidence
+        self.existing_pages = tuple(context.pages)
+
+    def provider(self, request):
+        try:
+            if not request.is_navigation_request() or request.resource_type != 'document':
+                return None
+            frame = request.frame
+            page = frame.page
+            if (frame.parent_frame is not None or frame != page.main_frame
+                    or page in self.existing_pages or page.context != self.context):
+                return None
+            return _navigation_provider(request.url)
+        except Exception:
+            return None
+
+    def failed(self, request):
+        provider = self.provider(request)
+        if provider is not None:
+            try:
+                code = _network_error_code(request.failure)
+            except Exception:
+                code = 'unknown'
+            _record_navigation_failure(self.evidence, 'request_failed', provider, code=code)
+
+    def response(self, response):
+        try:
+            status = response.status
+            if type(status) is not int or not 400 <= status <= 599:
+                return
+            provider = self.provider(response.request)
+            if provider is not None:
+                _record_navigation_failure(self.evidence, 'http_error', provider, status=status)
+        except Exception:
+            pass
+
+    def start(self):
+        self.context.on('requestfailed', self.failed)
+        self.context.on('response', self.response)
+
+    def stop(self):
+        for event, callback in (('requestfailed', self.failed), ('response', self.response)):
+            try:
+                self.context.remove_listener(event, callback)
+            except Exception:
+                pass
 
 
 @diagnostic_login
 def login_wos(context, profile_url, timeout=180):
     evidence = {key: False for key in WOS_LOGIN_PROGRESS_FLAGS}
     evidence['stage'] = 'initialization'
+    navigation = _WosLoginNavigationObserver(context, evidence)
     try:
+        navigation.start()
         page = _login_wos(context, profile_url, timeout, evidence)
         evidence['stage'] = 'complete'
         page._wos_login_evidence = safe_wos_login_evidence(evidence)
@@ -779,6 +938,8 @@ def login_wos(context, profile_url, timeout=180):
         failure = exc if isinstance(exc, AuthFailure) else AuthFailure(type(exc).__name__)
         failure.authentication_evidence = safe_wos_login_evidence({**safe_wos_login_evidence(failure.authentication_evidence), **evidence})
         raise failure from None
+    finally:
+        navigation.stop()
 
 
 def _login_wos(context, profile_url, timeout, evidence):
@@ -795,7 +956,7 @@ def _login_wos(context, profile_url, timeout, evidence):
     existing_pages = tuple(context.pages)
     page = context.new_page()
     evidence.update(stage='homepage', homepage_requested=True)
-    page.goto('https://www.webofscience.com/', wait_until='domcontentloaded', timeout=90000)
+    _goto_wos_login(page, 'https://www.webofscience.com/', evidence, wait_until='domcontentloaded', timeout=90000)
     evidence['homepage_loaded'] = True
     deadline = time.monotonic() + timeout
     submitted = False
@@ -820,12 +981,12 @@ def _login_wos(context, profile_url, timeout, evidence):
 
     context.on('response', record_auth_response)
     while time.monotonic() < deadline:
-        page = _wos_login_page(context, existing_pages)
+        page = _wos_login_page(context, existing_pages, evidence)
         if page is None:
             break
         _wait_wos_login_navigation(page, deadline)
         # A popup may arrive or close while the previous page was loading.
-        page = _wos_login_page(context, existing_pages)
+        page = _wos_login_page(context, existing_pages, evidence)
         if page is None or time.monotonic() >= deadline:
             break
         if page.url == 'about:blank':
@@ -890,7 +1051,7 @@ def _login_wos(context, profile_url, timeout, evidence):
                 continue
         elif provider_host(host, 'webofscience.com') and wos_authenticated(page):
             evidence.update(stage='profile_navigation', wos_session_confirmed=True, profile_requested=True)
-            page.goto(profile_url, wait_until='domcontentloaded', timeout=90000)
+            _goto_wos_login(page, profile_url, evidence, wait_until='domcontentloaded', timeout=90000)
             evidence['profile_loaded'] = True
             return page
         elif not selected_signin:
