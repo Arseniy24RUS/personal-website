@@ -132,13 +132,14 @@ class AuthBrowserTests(unittest.TestCase):
 
     def test_wos_current_russian_account_menu_confirms_without_ending_session(self):
         page = self.context.new_page()
-        for label in ('Завершить сеанс', 'Завершить сеанс и выйти'):
+        for label in ('Sign out', 'Завершить сеанс и выйти'):
             with self.subTest(label=label):
                 page.set_content(f'''<body><button data-ta="wos-header-user_name"
                     aria-label="Раскрывающееся меню параметров учетной записи для пользователя Arseniy Sitkovskiy"
                     onclick="document.getElementById('menu').hidden=false">Arseniy Sitkovskiy</button>
                     <div id="menu" role="menu" hidden><button role="menuitem">Мой профиль</button>
                     <button role="menuitem">Настройки</button>
+                    <button role="menuitem" onclick="window.sessionEnded=true">Завершить сеанс</button>
                     <button role="menuitem" onclick="window.sessionEnded=true">{label}</button></div>
                     <script>document.addEventListener('keydown', event => {{
                         if (event.key === 'Escape') document.getElementById('menu').hidden = true;
@@ -159,7 +160,7 @@ class AuthBrowserTests(unittest.TestCase):
                     <button style="position:absolute;top:100px;left:20px" onclick="window.exportClicked=true">Export CV</button>
                     <div id="overlay" hidden style="position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.1)">
                       <div role="menu" style="position:absolute;right:0;top:0;background:white">
-                        <button role="menuitem" onclick="window.sessionEnded=true">Завершить сеанс</button>
+                        <button role="menuitem" onclick="window.sessionEnded=true">Завершить сеанс и выйти</button>
                       </div>
                     </div>
                     <script>window.escapeCount=0;window.exportClicked=false;window.sessionEnded=false;

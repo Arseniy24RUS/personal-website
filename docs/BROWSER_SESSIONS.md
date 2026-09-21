@@ -388,7 +388,7 @@ same author page. The collector now follows this entry sequence. Readiness uses
 the document state, visible loading indicators and stable sign-in/account UI;
 it does not use network-idle waiting or an extended challenge timeout.
 
-Only an exact **Got it!** button in a recognized dialog with one visible button
+Only an exact **Got it** or **Got it!** button in a recognized dialog with one visible button
 is acknowledged. Unknown dialogs remain untouched. WoS cookie handling uses the
 explicit accept-all control, and challenge checks surround both ordinary UI
 actions. The independent ORCID form handling is unchanged.
@@ -404,3 +404,29 @@ absence of a redundant profile request, unchanged navigation counts during
 metric extraction, wrong-author rejection and stopping at a challenge. These
 changes align automation with the reported working UI sequence; their effect
 on the live provider must be established by a new Actions run.
+
+### Initial profile redirect failure
+
+Run [35611509450](https://github.com/Arseniy24RUS/personal-website/actions/runs/35611509450)
+loaded the initial profile entry, then encountered a Clarivate main-document
+`ERR_INVALID_REDIRECT` and Chromium's matching native error document. It had
+not reached introduction, cookie consent, Sign in or ORCID. This differs from
+the post-ORCID callback failure described above.
+
+The collector permits one repeated GET of the configured canonical author URL
+in that same initial tab and context, within the original login deadline. Both
+the native error code and latest private main-document event must identify this
+exact initial navigation. Any login, introduction or consent action, HTTP
+401/403/429, other error, different tab or exhausted deadline disqualifies it.
+There is no callback replay, new context, cookie modification or challenge retry.
+The ordinary ORCID flow, account proof and target ResearcherID checks still follow;
+`initial_profile_retry_attempted` and `initial_profile_retry_loaded` are safe
+progress flags, not authentication or successful-collection claims.
+
+Guest WoS menus can contain **End session**. That label, and the Russian bare
+**Завершить сеанс**, are not evidence of account authentication, even on a link
+whose path contains `logout`. The observed authenticated menu additionally offers
+the explicit **Завершить сеанс и выйти**, which remains valid sign-out evidence.
+Local routed tests inject the native transport-error boundary explicitly and
+verify the real subsequent login/UI checks; they do not establish that a live
+provider failure or CAPTCHA has been eliminated.
