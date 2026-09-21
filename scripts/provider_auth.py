@@ -789,6 +789,7 @@ WOS_LOGIN_BOOLEAN_FIELDS = WOS_LOGIN_PROGRESS_FLAGS | frozenset({
     'verificationCodeRequired', 'disabled', 'unclaimed', 'deprecated', 'invalidUserType',
     'browser_error_page_observed',
     'account_click_timed_out', 'cookie_banner_observed', 'cookie_banner_dismissed',
+    'canonical_home_probe_attempted', 'canonical_home_probe_loaded',
 })
 WOS_LOGIN_RESPONSE_REASONS = frozenset({
     'mfa_required', 'account_reactivation_required', 'account_claim_required',
@@ -923,15 +924,25 @@ class _WosLoginNavigationObserver:
     def __init__(self, context, evidence):
         self.context, self.evidence = context, evidence
         self.existing_pages = tuple(context.pages)
+        self.last_document_failure = None
+        self.authorization_denied = False
+
+    def owned_page(self, request):
+        try:
+            frame = request.frame
+            page = frame.page
+            if (frame.parent_frame is None and frame == page.main_frame
+                    and page not in self.existing_pages and page.context == self.context):
+                return page
+        except Exception:
+            pass
+        return None
 
     def provider(self, request):
         try:
             if not request.is_navigation_request() or request.resource_type != 'document':
                 return None
-            frame = request.frame
-            page = frame.page
-            if (frame.parent_frame is not None or frame != page.main_frame
-                    or page in self.existing_pages or page.context != self.context):
+            if self.owned_page(request) is None:
                 return None
             return _navigation_provider(request.url)
         except Exception:
@@ -944,6 +955,7 @@ class _WosLoginNavigationObserver:
                 code = _network_error_code(request.failure)
             except Exception:
                 code = 'unknown'
+            self.last_document_failure = {'page': self.owned_page(request), 'provider': provider, 'code': code}
             _record_navigation_failure(self.evidence, 'request_failed', provider, code=code)
 
     def response(self, response):
@@ -953,6 +965,8 @@ class _WosLoginNavigationObserver:
                 return
             provider = self.provider(response.request)
             if provider is not None:
+                if status in {401, 403, 429}:
+                    self.authorization_denied = True
                 _record_navigation_failure(self.evidence, 'http_error', provider, status=status)
         except Exception:
             pass
@@ -969,6 +983,38 @@ class _WosLoginNavigationObserver:
                 pass
 
 
+def _probe_canonical_wos_home(page, failure, evidence, navigation, auth_responses, deadline):
+    """One fixed-page probe after an observed malformed Clarivate callback only.
+
+    Successful ORCID credentials do not prove WoS authorization. The caller must
+    enter verification-only mode and retain its ordinary account/target checks.
+    """
+    if (failure.reason != 'login_navigation_failed' or page is None
+            or page.url != 'chrome-error://chromewebdata/'
+            or evidence.get('canonical_home_probe_attempted') or navigation is None
+            or navigation.authorization_denied or time.monotonic() >= deadline):
+        return False
+    events = (failure.authentication_evidence or {}).get('navigation_failures', [])
+    browser_error = events[-1] if events else {}
+    last = navigation.last_document_failure or {}
+    response = auth_responses[-1] if auth_responses else {}
+    if (browser_error.get('kind') != 'browser_error' or browser_error.get('network_error_code') != 'ERR_INVALID_REDIRECT'
+            or last.get('page') is not page or last.get('provider') != 'clarivate' or last.get('code') != 'ERR_INVALID_REDIRECT'
+            or response.get('response_observed') is not True or response.get('success') is not True
+            or response.get('http_status') != 200 or response.get('reason') is not None):
+        return False
+    # No Location replay, new context, cookie mutation, credential or consent
+    # resubmission. This uses only the original attempt's remaining deadline.
+    remaining = deadline - time.monotonic()
+    if remaining <= 0:
+        return False
+    evidence['canonical_home_probe_attempted'] = True
+    _goto_wos_login(page, 'https://www.webofscience.com/', evidence,
+                    wait_until='domcontentloaded', timeout=min(90000, remaining * 1000))
+    evidence['canonical_home_probe_loaded'] = True
+    return True
+
+
 @diagnostic_login
 def login_wos(context, profile_url, timeout=180):
     evidence = {key: False for key in WOS_LOGIN_PROGRESS_FLAGS}
@@ -976,7 +1022,7 @@ def login_wos(context, profile_url, timeout=180):
     navigation = _WosLoginNavigationObserver(context, evidence)
     try:
         navigation.start()
-        page = _login_wos(context, profile_url, timeout, evidence)
+        page = _login_wos(context, profile_url, timeout, evidence, navigation=navigation)
         evidence['stage'] = 'complete'
         page._wos_login_evidence = safe_wos_login_evidence(evidence)
         return page
@@ -988,7 +1034,7 @@ def login_wos(context, profile_url, timeout=180):
         navigation.stop()
 
 
-def _login_wos(context, profile_url, timeout, evidence):
+def _login_wos(context, profile_url, timeout, evidence, *, navigation=None):
     evidence['stage'] = 'credentials'
     configured_username = os.environ.get('WOS_ORCID_USERNAME', '')
     username = normalize_orcid_username(configured_username)
@@ -1015,6 +1061,8 @@ def _login_wos(context, profile_url, timeout, evidence):
             address = urlparse(response.url)
             if not provider_host(address.hostname or '', 'orcid.org') or address.path not in {'/signin/auth.json', '/login'} or response.request.method != 'POST':
                 return
+            if navigation is not None and navigation.owned_page(response.request) is None:
+                return
             try:
                 payload = response.json()
             except Exception:
@@ -1026,13 +1074,24 @@ def _login_wos(context, profile_url, timeout, evidence):
             pass
 
     context.on('response', record_auth_response)
+
+    def select_page():
+        try:
+            return _wos_login_page(context, existing_pages, evidence)
+        except AuthFailure as failure:
+            pages = [current for current in context.pages if current not in existing_pages and not current.is_closed()]
+            current = pages[-1] if pages else None
+            if _probe_canonical_wos_home(current, failure, evidence, navigation, auth_responses, deadline):
+                return _wos_login_page(context, existing_pages, evidence)
+            raise
+
     while time.monotonic() < deadline:
-        page = _wos_login_page(context, existing_pages, evidence)
+        page = select_page()
         if page is None:
             break
         _wait_wos_login_navigation(page, deadline)
         # A popup may arrive or close while the previous page was loading.
-        page = _wos_login_page(context, existing_pages, evidence)
+        page = select_page()
         if page is None or time.monotonic() >= deadline:
             break
         if page.url == 'about:blank':
@@ -1056,11 +1115,38 @@ def _login_wos(context, profile_url, timeout, evidence):
                     failure.authentication_evidence = auth_responses[-1]
                     raise
             raise AuthFailure(reason, authentication_evidence=auth_responses[-1])
-        assert_no_challenge(page, form_submitted=submitted)
+        if evidence.get('canonical_home_probe_attempted'):
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise AuthFailure('wos_login_not_confirmed')
+            assert_no_challenge(page, form_submitted=submitted,
+                                passive_wait_seconds=min(10.0, remaining), passive_deadline=deadline)
+        else:
+            assert_no_challenge(page, form_submitted=submitted)
+        host = urlparse(page.url).hostname or ''
+        if evidence.get('canonical_home_probe_attempted'):
+            # A callback that did not establish WoS authorization must not cause
+            # another Sign In, ORCID form submission or Authorize interaction.
+            if not provider_host(host, 'webofscience.com'):
+                raise AuthFailure('wos_login_not_confirmed')
+            if not wos_authenticated(page):
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise AuthFailure('wos_login_not_confirmed')
+                # A successfully loaded home can still be rendering its account
+                # menu. Wait only; never restart sign-in or OAuth consent here.
+                page.wait_for_timeout(min(250, remaining * 1000))
+                continue
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise AuthFailure('wos_login_not_confirmed')
+            evidence.update(stage='profile_navigation', wos_session_confirmed=True, profile_requested=True)
+            _goto_wos_login(page, profile_url, evidence, wait_until='domcontentloaded', timeout=min(90000, remaining * 1000))
+            evidence['profile_loaded'] = True
+            return page
         dismiss = visible(page, ['#onetrust-reject-all-handler', '#onetrust-accept-btn-handler'])
         if dismiss is not None:
             dismiss.click()
-        host = urlparse(page.url).hostname or ''
         if provider_host(host, 'clarivate.com'):
             # WoS sometimes redirects the homepage straight to its sign-in
             # service. Do not submit the unused Clarivate password form first.

@@ -36,6 +36,8 @@ class Flow:
         self.calls = []
         self.user, self.secret = Field(), Field()
         self.listeners = {}
+        self.context = self
+        self.main_frame = SimpleNamespace(page=self, parent_frame=None)
 
     def new_page(self):
         self.pages.append(self)
@@ -95,7 +97,7 @@ class Flow:
         if self.fail_at == 'submit':
             raise RuntimeError('synthetic-submit-private')
         response = SimpleNamespace(
-            url='https://orcid.org/signin/auth.json', request=SimpleNamespace(method='POST'), status=200,
+            url='https://orcid.org/signin/auth.json', request=SimpleNamespace(method='POST', frame=self.main_frame), status=200,
             json=lambda: {'success': True, 'email': USERNAME, 'token': 'synthetic-response-private'},
         )
         for callback in list(self.listeners.get('response', [])):

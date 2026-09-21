@@ -354,3 +354,21 @@ not a successful data refresh. A late cookie banner can block the ordinary accou
 menu click; consent handling must use the known banner controls with challenge
 checks, never forced clicks, arbitrary Close buttons or DOM removal. Scientific
 data and confirmed session checkpoints still require the normal target checks.
+
+Run [35591668104](https://github.com/Arseniy24RUS/personal-website/actions/runs/35591668104)
+again received ORCID sign-in success, but its Clarivate main-document request
+failed with `ERR_INVALID_REDIRECT`; Chromium's error page showed the same code.
+The [Chromium redirect check](https://github.com/chromium/chromium/blob/main/net/url_request/url_request_job.cc)
+distinguishes an invalid destination URL from an unsafe protocol and excessive
+redirects. The actual malformed callback address was not exported or repaired.
+
+A single normal visit to the fixed WoS homepage in the same tab and context can
+test whether the accepted sign-in already established usable account state.
+This is restricted to the current attempt's confirmed ORCID success and a
+Clarivate `ERR_INVALID_REDIRECT` associated with that exact error tab. It must
+not follow or rewrite the invalid Location, reload an OAuth callback, resubmit
+credentials, create a context, modify tokens or restart the login deadline.
+CAPTCHA/MFA, access denials and other failures do not qualify. The regular WoS
+account and target-author checks remain mandatory; the homepage visit by itself
+is never authentication proof. Live collection must establish whether this
+normal navigation is effective for the observed intermittent provider failure.
