@@ -15,10 +15,13 @@ the relative order and complete content of all previously published cards.
 The discovery state maps numeric GitHub repository IDs to resource IDs, so a
 repository rename cannot create another card.
 
-The initial expansion contains 16 manually edited bilingual cards, including
+The initial expansion added 16 manually edited bilingual cards, including
 the Observatory screenshot supplied by the site owner. The original ten
 cards and their image files are recorded in `data/it/retention_baseline.json`.
 Their text, links, image bytes and relative order must remain unchanged.
+The owner subsequently removed the Baigutlin website from the portfolio.
+Its numeric repository ID is explicitly excluded so discovery cannot add it
+again; the catalog now contains 25 cards before further automatic additions.
 
 ## Preparing a new card
 

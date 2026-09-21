@@ -20,7 +20,7 @@
       "title_ru": "GIR — Глобальный рейтинг индексов",
       "title_en": "GIR — Global Index Research Platform",
       "url": "https://gir.digitaldemography.ru/",
-      "thumb": "assets/it/thumbs/github-1298698239.png",
+      "thumb": "assets/it/thumbs/gir-dark-2026-09-21.jpg",
       "description_ru": "Исследовательская платформа для сравнения стран по международным индексам и показателям. Профили стран, сопоставления и обозреватель исходных данных помогают изучать человеческий капитал, институты, технологии и развитие.",
       "description_en": "Research platform for comparing countries through international indices and indicators. Country profiles, comparisons and a data explorer support the study of human capital, institutions, technology and development.",
       "tags": [
@@ -71,8 +71,8 @@
     },
     {
       "id": "github-1360135164",
-      "title_ru": "OmniTwin — демографический демонстратор",
-      "title_en": "OmniTwin — Demographic Demo",
+      "title_ru": "OmniTwin — цифровой двойник общества (демо)",
+      "title_en": "OmniTwin — Digital Twin of Society (Demo)",
       "url": "https://arseniy24rus.github.io/OmniTwin-demo/",
       "thumb": "assets/it/thumbs/github-1360135164.png",
       "description_ru": "Демонстрационный интерфейс с картой города, официальной агрегированной статистикой и синтетическими агентами. На примере Челябинска можно исследовать городские показатели и сравнивать иллюстративные сценарии.",
@@ -142,7 +142,7 @@
       "title_ru": "TechCoop.AI — технологическая кооперация",
       "title_en": "TechCoop.AI — Technology Cooperation Explorer",
       "url": "https://arseniy24rus.github.io/TechCoop/",
-      "thumb": "assets/it/thumbs/github-1287603708.png",
+      "thumb": "assets/it/thumbs/techcoop-home-2026-09-21.jpg",
       "description_ru": "Поиск компаний, исследование их профилей и возможных технологических связей. Паспорта, исходные сведения и карта кооперации помогают перейти от компании к проверяемой гипотезе партнёрства.",
       "description_en": "Search companies, examine their profiles and explore potential technology links. Company passports, source evidence and a cooperation map help turn an initial lead into a partnership hypothesis.",
       "tags": [
@@ -203,19 +203,6 @@
       "tags": [
         "обучение",
         "симулятор",
-        "аналитика"
-      ]
-    },
-    {
-      "id": "github-1268765563",
-      "title_ru": "Научный сайт Данила Байгутлина",
-      "title_en": "Danil Baigutlin’s Academic Website",
-      "url": "https://baigutlin.ru/",
-      "thumb": "assets/it/thumbs/github-1268765563.png",
-      "description_ru": "Двуязычный персональный сайт исследователя физики конденсированного состояния и вычислительного материаловедения Данила Байгутлина. Представлены научный профиль, публикации, преподавание, проекты и исследовательские ИТ-ресурсы.",
-      "description_en": "A bilingual personal website for condensed-matter physics and computational materials researcher Danil Baigutlin. It presents his academic profile, publications, teaching, projects and research software.",
-      "tags": [
-        "обучение",
         "аналитика"
       ]
     },
