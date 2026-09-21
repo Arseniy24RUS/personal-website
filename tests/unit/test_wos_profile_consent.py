@@ -82,12 +82,12 @@ class ProfileConsentBrowserTests(unittest.TestCase):
                 return failure, attempts
         return result, attempts
 
-    def test_initial_banner_prefers_reject_and_preserves_logout_proof(self):
+    def test_initial_banner_uses_requested_accept_and_preserves_logout_proof(self):
         page = self.fixture(reject=True)
         result, attempts = self.check(page)
         self.assertIs(result, True)
         counts = page.evaluate('counts')
-        self.assertEqual((counts['reject'], counts['accept'], counts['account'], counts['logout']), (1, 0, 1, 0))
+        self.assertEqual((counts['reject'], counts['accept'], counts['account'], counts['logout']), (0, 1, 1, 0))
         self.assertEqual(len(attempts), 1)
         self.assertTrue(page.locator('#banner').is_hidden())
 
@@ -136,7 +136,7 @@ class ProfileConsentBrowserTests(unittest.TestCase):
         self.assertEqual(failure.reason, 'TimeoutError')
         self.assertEqual(len(attempts), 2)
         self.assertEqual(page.evaluate('counts.accept'), 1)
-        expected = {'account_click_timed_out': True, 'cookie_banner_observed': True, 'cookie_banner_dismissed': True}
+        expected = {'account_click_timed_out': True, 'cookie_banner_observed': True, 'cookie_banner_dismissed': True, 'consent_accepted': True}
         self.assertEqual(failure.authentication_evidence, expected)
         self.assertEqual(auth.safe_wos_login_evidence({**expected, 'body': 'private-token'}), expected)
 

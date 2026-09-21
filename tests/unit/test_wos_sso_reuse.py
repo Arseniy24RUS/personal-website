@@ -154,6 +154,7 @@ class SsoBrowserTests(unittest.TestCase):
         profile = f'https://www.webofscience.com/wos/author/record/{target}'
         callback = 'https://www.webofscience.com/wos/author/author-search'
         seen = []
+        session = {'authenticated': direct}
         account = '''<button data-ta="wos-header-user_name" aria-label="User account menu"
             onclick="document.getElementById('account').hidden=false;window.accountOpened=true">Fixture Researcher</button>
             <div id="account" role="menu" hidden><button role="menuitem">My Profile</button>'''
@@ -163,12 +164,13 @@ class SsoBrowserTests(unittest.TestCase):
         def route(request):
             address = request.request.url
             seen.append((address, request.request.method))
-            if address == profile:
+            if address == profile and session['authenticated']:
                 html = f'<body>{account}<p>Web of Science ResearcherID: {target}</p></body>'
             elif address == callback or (direct and address == 'https://www.webofscience.com/'):
+                session['authenticated'] = True
                 marker = 'Please verify you are human' if challenge else ''
                 html = f'<body>{account}<p>{marker}</p></body>'
-            elif address == 'https://www.webofscience.com/':
+            elif address in {profile, 'https://www.webofscience.com/'}:
                 html = '<body><a href="https://access.clarivate.com/login">Sign in</a></body>'
             elif address.startswith('https://access.clarivate.com/'):
                 if popup:
@@ -231,7 +233,7 @@ class SsoBrowserTests(unittest.TestCase):
             with self.assertRaisesRegex(auth.AuthFailure, '^unexpected_login_origin$'):
                 auth.login_wos(self.context, profile, timeout=15)
         self.assertTrue(all(method == 'GET' for _, method in seen))
-        self.assertFalse(any(url == profile for url, _ in seen))
+        self.assertEqual(sum(url == profile for url, _ in seen), 1)
 
     def test_blank_popup_expires_under_original_deadline_without_retry(self):
         _, profile, seen = self.flow(popup=True, popup_delay=0, popup_url='about:blank')
@@ -241,9 +243,9 @@ class SsoBrowserTests(unittest.TestCase):
                 auth.login_wos(self.context, profile, timeout=5)
         self.assertLess(time.monotonic() - started, 8)
         self.assertEqual(sum(url.startswith('https://access.clarivate.com/') for url, _ in seen), 1)
-        self.assertFalse(any(url == profile for url, _ in seen))
+        self.assertEqual(sum(url == profile for url, _ in seen), 1)
 
-    def test_direct_authenticated_wos_homepage_succeeds_without_orcid_navigation(self):
+    def test_direct_authenticated_wos_profile_succeeds_without_orcid_navigation(self):
         seen = self.verify_flow(direct=True)
         self.assertFalse(any(url.startswith('https://orcid.org/') for url, _ in seen))
 
@@ -252,7 +254,7 @@ class SsoBrowserTests(unittest.TestCase):
         with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture@example.test', 'WOS_ORCID_PASSWORD': 'unused-fixture-password'}):
             with self.assertRaisesRegex(auth.AuthFailure, '^human_verification_required$'):
                 auth.login_wos(self.context, profile, timeout=20)
-        self.assertFalse(any(url == profile for url, _ in seen))
+        self.assertEqual(sum(url == profile for url, _ in seen), 1)
         self.assertIsNone(self.context.pages[-1].evaluate('window.accountOpened'))
 
     def test_account_button_without_logout_cannot_confirm_direct_sso(self):
@@ -260,7 +262,7 @@ class SsoBrowserTests(unittest.TestCase):
         with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture@example.test', 'WOS_ORCID_PASSWORD': 'unused-fixture-password'}):
             with self.assertRaises(auth.AuthFailure):
                 auth.login_wos(self.context, profile, timeout=4)
-        self.assertFalse(any(url == profile for url, _ in seen))
+        self.assertEqual(sum(url == profile for url, _ in seen), 1)
 
 
 if __name__ == '__main__':

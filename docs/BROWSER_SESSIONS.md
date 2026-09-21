@@ -372,3 +372,35 @@ CAPTCHA/MFA, access denials and other failures do not qualify. The regular WoS
 account and target-author checks remain mandatory; the homepage visit by itself
 is never authentication proof. Live collection must establish whether this
 normal navigation is effective for the observed intermittent provider failure.
+
+### Profile-first ORCID entry
+
+Run [35595050173](https://github.com/Arseniy24RUS/personal-website/actions/runs/35595050173)
+completed ordinary ORCID login and confirmed the WoS account, then encountered
+an interactive challenge at the author profile. It did not obtain fresh metrics,
+publications or a new confirmed session checkpoint. The malformed redirect did
+not recur, so that run did not exercise the canonical-home recovery branch.
+
+The user's successful browser sequence starts at the canonical author profile:
+wait for rendering, acknowledge its single-button **Got it!** introduction,
+accept the OneTrust cookies, then select **Sign in → ORCID** and return to that
+same author page. The collector now follows this entry sequence. Readiness uses
+the document state, visible loading indicators and stable sign-in/account UI;
+it does not use network-idle waiting or an extended challenge timeout.
+
+Only an exact **Got it!** button in a recognized dialog with one visible button
+is acknowledged. Unknown dialogs remain untouched. WoS cookie handling uses the
+explicit accept-all control, and challenge checks surround both ordinary UI
+actions. The independent ORCID form handling is unchanged.
+
+If the callback already lands on the expected HTTPS WoS author path, the current
+page is reused without a new navigation. Account and rendered ResearcherID
+verification still apply. A return to another allowed WoS page retains the
+normal navigation to the requested profile. Safe progress flags distinguish
+initial profile entry, introduction acknowledgment, consent and profile reuse.
+
+Routed browser tests verify the complete action order, delayed introduction,
+absence of a redundant profile request, unchanged navigation counts during
+metric extraction, wrong-author rejection and stopping at a challenge. These
+changes align automation with the reported working UI sequence; their effect
+on the live provider must be established by a new Actions run.

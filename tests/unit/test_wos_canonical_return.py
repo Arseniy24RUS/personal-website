@@ -121,7 +121,7 @@ class CanonicalReturnBrowserTests(unittest.TestCase):
     def flow(self, outcome):
         context = self.browser.new_context()
         self.addCleanup(context.close)
-        state = {'posts': 0, 'homepage': 0, 'signin': 0, 'authorize': 0, 'profile': 0, 'requests': []}
+        state = {'posts': 0, 'homepage': 0, 'initial_profile': 0, 'signin': 0, 'authorize': 0, 'profile': 0, 'requests': []}
         account = '''<button data-ta="wos-header-user_name" onclick="document.getElementById('menu').hidden=false">Fixture Researcher</button>
             <div id="menu" hidden><button role="menuitem">Sign out</button></div><p>FIXTURE-1</p>
             <script>document.addEventListener('keydown',event=>{if(event.key==='Escape')document.getElementById('menu').hidden=true;});</script>'''
@@ -157,8 +157,12 @@ class CanonicalReturnBrowserTests(unittest.TestCase):
                 state['authorize'] += 1
                 body = '<p>Unexpected consent submission</p>'
             elif '/wos/author/record/FIXTURE-1' in url:
-                state['profile'] += 1
-                body = account.replace('FIXTURE-1', 'OTHER-2') if outcome == 'wrong_rid' else account
+                if state['posts']:
+                    state['profile'] += 1
+                    body = account.replace('FIXTURE-1', 'OTHER-2') if outcome == 'wrong_rid' else account
+                else:
+                    state['initial_profile'] += 1
+                    body = '<button onclick="location.href=\'https://access.clarivate.com/login\'">Sign in</button>'
             else:
                 body = '<p>Unexpected request</p>'
             item.fulfill(status=200, content_type='text/html', body='<body>' + body + '</body>')
@@ -199,6 +203,7 @@ class CanonicalReturnBrowserTests(unittest.TestCase):
             except auth.AuthFailure as failure:
                 result = failure
         self.assertEqual(state['posts'], 1)
+        self.assertEqual(state['initial_profile'], 1)
         self.assertEqual(state['signin'], 1)
         self.assertEqual(state['authorize'], 0)
         self.assertTrue(all(urlparse(url).hostname in {'www.webofscience.com', 'access.clarivate.com', 'orcid.org'}
@@ -208,7 +213,7 @@ class CanonicalReturnBrowserTests(unittest.TestCase):
     def test_after_simulated_transport_boundary_home_requires_real_account_and_target(self):
         evidence, state = self.attempt('authorized')
         self.assertIsInstance(evidence, dict, getattr(evidence, 'reason', 'missing evidence'))
-        self.assertEqual(state['homepage'], 2)
+        self.assertEqual(state['homepage'], 1)
         self.assertEqual(state['profile'], 1)
         self.assertTrue(evidence['canonical_home_probe_attempted'])
         self.assertTrue(evidence['canonical_home_probe_loaded'])
@@ -220,7 +225,7 @@ class CanonicalReturnBrowserTests(unittest.TestCase):
     def test_after_simulated_boundary_late_account_menu_is_passively_awaited(self):
         evidence, state = self.attempt('delayed_account')
         self.assertIsInstance(evidence, dict, getattr(evidence, 'reason', 'missing evidence'))
-        self.assertEqual(state['homepage'], 2)
+        self.assertEqual(state['homepage'], 1)
         self.assertEqual(state['profile'], 1)
         self.assertTrue(evidence['wos_session_confirmed'])
 
@@ -228,7 +233,7 @@ class CanonicalReturnBrowserTests(unittest.TestCase):
         failure, state = self.attempt('wrong_rid')
         self.assertIsInstance(failure, auth.AuthFailure)
         self.assertEqual(failure.reason, 'profile_not_authenticated_or_changed')
-        self.assertEqual(state['homepage'], 2)
+        self.assertEqual(state['homepage'], 1)
         self.assertEqual(state['profile'], 1)
         self.assertTrue(failure.authentication_evidence['wos_session_confirmed'])
 
@@ -239,7 +244,7 @@ class CanonicalReturnBrowserTests(unittest.TestCase):
                 failure, state = self.attempt(outcome)
                 self.assertIsInstance(failure, auth.AuthFailure)
                 self.assertEqual(failure.reason, reason)
-                self.assertEqual(state['homepage'], 2)
+                self.assertEqual(state['homepage'], 1)
                 self.assertEqual(state['profile'], 0)
                 self.assertTrue(failure.authentication_evidence['canonical_home_probe_attempted'])
 

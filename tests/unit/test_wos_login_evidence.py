@@ -48,6 +48,12 @@ class Flow:
 
     def goto(self, url, **kwargs):
         if url == PROFILE:
+            if self.phase == 'initial':
+                self.calls.append('initial_profile')
+                if self.fail_at == 'initial_profile':
+                    raise RuntimeError('synthetic-transport-private')
+                self.phase, self.url = 'profile_entry', url
+                return
             self.calls.append('profile')
             self.phase, self.url = 'profile', url
             return
@@ -78,7 +84,7 @@ class Flow:
         return None
 
     def click_named(self, page, pattern):
-        if self.phase == 'homepage':
+        if self.phase == 'profile_entry':
             self.calls.append('signin')
             self.phase, self.url = 'clarivate', 'https://signin.clarivate.com/'
             return True
@@ -106,13 +112,14 @@ class Flow:
         self.url = 'https://orcid.org/signin' if self.phase == 'after_submit' else 'https://www.webofscience.com/'
 
     def authenticated(self, page):
-        return self.phase == 'wos_return' or (self.direct_session and self.phase == 'homepage')
+        return self.phase == 'wos_return' or (self.direct_session and self.phase == 'profile_entry')
 
 
 class LoginProgressTests(unittest.TestCase):
     def login(self, flow):
         with patch.dict(os.environ, {'WOS_ORCID_USERNAME': USERNAME, 'WOS_ORCID_PASSWORD': PASSWORD}), \
                 patch.object(auth, '_wait_wos_login_navigation'), \
+                patch.object(auth, 'prepare_wos_profile_login'), \
                 patch.object(auth, 'safe_browser_diagnostics', return_value=[]), \
                 patch.object(auth, 'assert_no_challenge', side_effect=flow.guard), \
                 patch.object(auth, 'visible', side_effect=flow.visible), \
@@ -126,10 +133,12 @@ class LoginProgressTests(unittest.TestCase):
             self.login(flow)
         return caught.exception.authentication_evidence
 
-    def test_homepage_failure_does_not_claim_orcid_attempt(self):
-        evidence = self.failed(Flow('homepage'))
-        self.assertEqual(evidence['stage'], 'homepage')
-        self.assertTrue(evidence['homepage_requested'])
+    def test_initial_profile_failure_does_not_claim_homepage_or_orcid_attempt(self):
+        evidence = self.failed(Flow('initial_profile'))
+        self.assertEqual(evidence['stage'], 'initial_profile')
+        self.assertTrue(evidence['initial_profile_requested'])
+        self.assertFalse(evidence['initial_profile_loaded'])
+        self.assertFalse(evidence['homepage_requested'])
         self.assertFalse(evidence['homepage_loaded'])
         self.assertFalse(evidence['orcid_selected'])
         self.assertFalse(evidence['submit_clicked'])
@@ -137,7 +146,7 @@ class LoginProgressTests(unittest.TestCase):
     def test_orcid_challenge_proves_selection_but_not_form_submission(self):
         evidence = self.failed(Flow('orcid'))
         self.assertEqual(evidence['stage'], 'orcid_page')
-        for field in ('homepage_loaded', 'signin_clicked', 'clarivate_observed', 'orcid_selected', 'orcid_page_observed'):
+        for field in ('initial_profile_loaded', 'signin_clicked', 'clarivate_observed', 'orcid_selected', 'orcid_page_observed'):
             self.assertTrue(evidence[field])
         self.assertFalse(evidence['orcid_form_observed'])
         self.assertFalse(evidence['submit_clicked'])
@@ -179,7 +188,7 @@ class LoginProgressTests(unittest.TestCase):
         flow = Flow()
         page = self.login(flow)
         self.assertIs(page, flow)
-        self.assertEqual(flow.calls, ['homepage', 'signin', 'orcid_selection', 'submit', 'profile'])
+        self.assertEqual(flow.calls, ['initial_profile', 'signin', 'orcid_selection', 'submit', 'profile'])
         evidence = page._wos_login_evidence
         self.assertEqual(evidence['stage'], 'complete')
         for field in ('submit_clicked', 'wos_return_observed', 'wos_session_confirmed', 'profile_requested', 'profile_loaded'):
@@ -191,6 +200,8 @@ class LoginProgressTests(unittest.TestCase):
         page = self.login(Flow(direct_session=True))
         evidence = page._wos_login_evidence
         self.assertTrue(evidence['wos_session_confirmed'])
+        self.assertTrue(evidence['returned_profile_reused'])
+        self.assertFalse(evidence['profile_requested'])
         for field in ('signin_clicked', 'orcid_selected', 'orcid_page_observed', 'submit_clicked', 'wos_return_observed'):
             self.assertFalse(evidence[field])
 

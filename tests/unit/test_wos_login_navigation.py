@@ -180,7 +180,8 @@ class LoginNavigationBrowserTests(unittest.TestCase):
                     with self.assertRaisesRegex(auth.AuthFailure, '^login_navigation_failed$') as caught:
                         auth.login_wos(context, 'https://www.webofscience.com/wos/author/record/FIXTURE', timeout=3)
                 evidence = caught.exception.authentication_evidence
-                self.assertTrue(evidence['homepage_requested'])
+                self.assertTrue(evidence['initial_profile_requested'])
+                self.assertFalse(evidence['homepage_requested'])
                 self.assertFalse(evidence['submit_clicked'])
                 self.assertTrue(any(event.get('network_error_code') == 'ERR_CONNECTION_REFUSED'
                                     and event['provider'] == 'wos' for event in evidence['navigation_failures']))
