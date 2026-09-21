@@ -138,11 +138,90 @@ class AuthBrowserTests(unittest.TestCase):
                     onclick="document.getElementById('menu').hidden=false">Arseniy Sitkovskiy</button>
                     <div id="menu" role="menu" hidden><button role="menuitem">Мой профиль</button>
                     <button role="menuitem">Настройки</button>
-                    <button role="menuitem" onclick="window.sessionEnded=true">{label}</button></div></body>''')
+                    <button role="menuitem" onclick="window.sessionEnded=true">{label}</button></div>
+                    <script>document.addEventListener('keydown', event => {{
+                        if (event.key === 'Escape') document.getElementById('menu').hidden = true;
+                    }});</script></body>''')
                 self.assertFalse(auth.wos_logout_visible(page))
                 self.assertTrue(auth.wos_authenticated(page))
-                self.assertTrue(auth.wos_logout_visible(page))
+                self.assertFalse(auth.wos_logout_visible(page))
                 self.assertIsNone(page.evaluate('window.sessionEnded'))
+
+    def test_wos_owned_modal_account_menu_is_closed_before_export_click(self):
+        from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+        page = self.context.new_page()
+        # Cover both stable account selectors and the configured-name fallback.
+        for attribute in ('data-ta="wos-header-user_name"', ''):
+            with self.subTest(attribute=attribute):
+                page.set_content(f'''<body>
+                    <button {attribute} onclick="document.getElementById('overlay').hidden=false">Arseniy Sitkovskiy</button>
+                    <button style="position:absolute;top:100px;left:20px" onclick="window.exportClicked=true">Export CV</button>
+                    <div id="overlay" hidden style="position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.1)">
+                      <div role="menu" style="position:absolute;right:0;top:0;background:white">
+                        <button role="menuitem" onclick="window.sessionEnded=true">Завершить сеанс</button>
+                      </div>
+                    </div>
+                    <script>window.escapeCount=0;window.exportClicked=false;window.sessionEnded=false;
+                      document.addEventListener('keydown', event => {{
+                        if (event.key === 'Escape') {{
+                          window.escapeCount++;document.getElementById('overlay').hidden=true;
+                        }}
+                      }});
+                    </script></body>''')
+                account = page.get_by_role('button', name='Arseniy Sitkovskiy', exact=True)
+                export = page.get_by_role('button', name='Export CV', exact=True)
+                account.click()
+                with self.assertRaises(PlaywrightTimeoutError):
+                    export.click(timeout=300)
+                page.keyboard.press('Escape')
+                before = page.evaluate('window.escapeCount')
+                self.assertTrue(auth.wos_authenticated(page))
+                self.assertEqual(page.evaluate('window.escapeCount'), before + 1)
+                self.assertTrue(page.locator('#overlay').is_hidden())
+                export.click(timeout=1000)
+                self.assertTrue(page.evaluate('window.exportClicked'))
+                self.assertFalse(page.evaluate('window.sessionEnded'))
+
+    def test_wos_negative_account_check_closes_only_the_menu_it_opened(self):
+        page = self.context.new_page()
+        page.set_content('''<body><button data-ta="user-menu"
+            onclick="document.getElementById('menu').hidden=false">Account</button>
+            <div id="menu" role="menu" hidden><button>Sign in</button></div>
+            <script>window.escapeCount=0;document.addEventListener('keydown', event => {
+              if(event.key==='Escape'){window.escapeCount++;document.getElementById('menu').hidden=true;}
+            });</script></body>''')
+        self.assertFalse(auth.wos_authenticated(page))
+        self.assertTrue(page.locator('#menu').is_hidden())
+        self.assertEqual(page.evaluate('window.escapeCount'), 1)
+        # A caller-opened menu already providing logout proof is left untouched.
+        page.set_content('''<body><div role="menu"><button role="menuitem"
+            onclick="window.sessionEnded=true">Sign out</button></div>
+            <script>window.escapeCount=0;document.addEventListener('keydown', event => {
+              if(event.key==='Escape')window.escapeCount++;
+            });</script></body>''')
+        self.assertTrue(auth.wos_authenticated(page))
+        self.assertTrue(auth.wos_logout_visible(page))
+        self.assertEqual(page.evaluate('window.escapeCount'), 0)
+        self.assertIsNone(page.evaluate('window.sessionEnded'))
+
+    def test_wos_account_cleanup_does_not_dismiss_human_verification(self):
+        page = self.context.new_page()
+        for initially_shown in (True, False):
+            with self.subTest(initially_shown=initially_shown):
+                page.set_content(f'''<body><button data-ta="user-menu"
+                  onclick="window.accountClicked=true;document.getElementById('menu').hidden=false;document.getElementById('challenge').hidden=false">Account</button>
+                  <div id="menu" role="menu" hidden><button role="menuitem">Sign out</button></div>
+                  <div id="challenge" {'hidden' if not initially_shown else ''}>Please verify you are human</div>
+                  <script>window.accountClicked=false;window.escapeCount=0;
+                    document.addEventListener('keydown', event => {{
+                      if(event.key==='Escape'){{window.escapeCount++;document.getElementById('challenge').hidden=true;}}
+                    }});
+                  </script></body>''')
+                with self.assertRaisesRegex(auth.AuthFailure, '^human_verification_required$'):
+                    auth.wos_authenticated(page)
+                self.assertEqual(page.evaluate('window.accountClicked'), not initially_shown)
+                self.assertEqual(page.evaluate('window.escapeCount'), 0)
+                self.assertTrue(page.locator('#challenge').is_visible())
 
     def test_wos_current_russian_account_button_without_visible_logout_is_not_proof(self):
         page = self.context.new_page()

@@ -48,7 +48,8 @@ def cv_html(language='en', behavior='success'):
 <label>Start date<input id="startDateId" value="2021-01-01"></label>
 <label>End date<input id="endDateId" value="2026-01-01"></label>
 <div role="combobox" aria-label="Filter by, PDF" tabindex="0" onclick="document.getElementById('formats').hidden=false">PDF</div>
-<div id="formats" hidden><div role="option" onclick="const c=document.querySelector('[role=combobox]'); c.textContent='JSON'; c.setAttribute('aria-label','Filter by, JSON'); this.parentElement.hidden=true">JSON</div></div>
+<div id="formats" hidden><div role="option" onclick="const c=document.querySelector('[role=combobox]'); c.textContent='JSON'; c.setAttribute('aria-label','Filter by, JSON'); this.parentElement.hidden=true; window.pdfCheckboxState=Array.from(document.querySelectorAll('#pdf-settings input')).map(e=>e.checked); document.getElementById('pdf-settings').remove()">JSON</div></div>
+<section id="pdf-settings">
 <label><input type="checkbox" id="accession">{accession}</label>
 <label><input type="checkbox" id="authors">{authors}</label>
 <label><input type="checkbox" id="citations">{citations}</label>
@@ -59,6 +60,7 @@ def cv_html(language='en', behavior='success'):
 <label><input type="checkbox" id="total-publications">{metric_labels[2]}</label>
 <fieldset disabled><label><input type="checkbox" id="preprint-accession">{accession}</label>
 <label><input type="checkbox" id="preprint-authors">{authors}</label></fieldset>
+</section>
 <button onclick="download()">{download}</button>
 <script>
 async function download() {{
@@ -129,7 +131,7 @@ class CVUIBrowserTests(unittest.TestCase):
         page.goto(ORIGIN + '/profile')
         return page, calls
 
-    def test_ordinary_ui_success_configures_all_dates_format_and_enabled_fields(self):
+    def test_ordinary_json_export_succeeds_after_ui_removes_pdf_only_fields(self):
         for language in ('en', 'ru'):
             with self.subTest(language=language):
                 page, calls = self.fixture(language=language)
@@ -139,10 +141,9 @@ class CVUIBrowserTests(unittest.TestCase):
                 self.assertEqual(page.locator('#startDateId').input_value(), '1900-01-01')
                 self.assertEqual(page.locator('#endDateId').input_value(), datetime.now(timezone.utc).date().isoformat())
                 self.assertEqual(page.get_by_role('combobox').get_attribute('aria-label'), 'Filter by, JSON')
-                for name in ('accession', 'authors', 'citations', 'publication-date', 'doi', 'total-citations', 'hindex', 'total-publications'):
-                    self.assertTrue(page.locator('#' + name).is_checked())
-                for name in ('preprint-accession', 'preprint-authors'):
-                    self.assertFalse(page.locator('#' + name).is_checked())
+                self.assertEqual(page.get_by_role('checkbox').count(), 0)
+                self.assertEqual(page.evaluate('window.pdfCheckboxState'), [False] * 10)
+                self.assertTrue(page.get_by_role('radio').is_checked())
                 self.assertEqual(page.evaluate('window.downloadClicks'), 1)
                 self.assertEqual(sum(path == cv.CREATE_PATH for _, path, _ in calls), 1)
                 self.assertEqual(sum(path == cv.TASK_PATH for _, path, _ in calls), 1)
@@ -175,6 +176,21 @@ class CVUIBrowserTests(unittest.TestCase):
         with self.assertRaises(cv.CVExportError) as caught:
             cv.fetch_wos_cv(page)
         self.assertEqual(str(caught.exception), 'cv_export_job_failed')
+        self.assertEqual(caught.exception.stage, 'read_job_response')
+
+    def test_ui_failure_reports_fixed_stage_without_exception_text(self):
+        page, _ = self.fixture()
+        from playwright.sync_api import Locator
+        fill = Locator.fill
+        def failed_start(locator, value, **kwargs):
+            if value == '1900-01-01':
+                raise RuntimeError('synthetic-private-session-url-and-body')
+            return fill(locator, value, **kwargs)
+        with patch.object(Locator, 'fill', failed_start), self.assertRaises(cv.CVExportError) as caught:
+            cv.fetch_wos_cv(page)
+        self.assertEqual(str(caught.exception), 'cv_export_ui_failed')
+        self.assertEqual(caught.exception.stage, 'start_date')
+        self.assertNotIn('synthetic-private', str(caught.exception))
 
     def test_timeout_is_bounded_and_does_not_make_polling_requests(self):
         from types import SimpleNamespace
@@ -276,6 +292,7 @@ class CVPayloadTests(unittest.TestCase):
 
     def test_exception_does_not_copy_original_reason(self):
         self.assertEqual(str(cv.CVExportError('private-token')), 'cv_export_ui_failed')
+        self.assertIsNone(cv.CVExportError('cv_export_ui_failed', stage='private-session-url').stage)
 
 
 if __name__ == '__main__':

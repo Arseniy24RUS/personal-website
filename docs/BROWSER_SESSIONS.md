@@ -137,6 +137,10 @@ Only the observed official HTTPS login origins can receive interaction.
 After verifying the author and checkpointing profile metrics, the collector
 uses **Export CV → Export full profile → JSON → Download my profile**. It selects
 the full date range and includes accession numbers, authors and citations.
+JSON selection hides the PDF-only field checkboxes; collection does not depend
+on those controls. The returned document still has to pass the parser's field
+and completeness checks. Account verification closes the menu it opened so
+the menu backdrop cannot intercept the following export action.
 The site creates and polls its own download job. The collector only observes
 responses for the job created by its current Download action; it does not replay
 private API requests. Neither the full CV nor its encoded contents are published.
@@ -153,6 +157,8 @@ author again. An authorization failure or CAPTCHA ends collection while keeping
 the metrics and records already checkpointed. The browser UI and cloud execution
 must be tested separately: a user completing a challenge locally is not evidence
 that an independent Actions runner will avoid another challenge.
+Export diagnostics retain only an allowlisted operation name and failure reason,
+never an interaction exception, page contents or download address.
 
 The workflow currently has no Clarivate API keys. The existing Researcher API
 application was observed pending approval on 21 September 2026. Browser

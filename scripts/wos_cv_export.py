@@ -31,12 +31,18 @@ REASONS = frozenset({
     'cv_export_task_invalid', 'cv_export_response_invalid', 'cv_export_response_too_large',
     'cv_export_document_invalid', 'cv_export_response_limit',
 })
+CV_STAGES = frozenset({
+    'entry', 'open_cv', 'wait_cv_page', 'full_profile', 'start_date', 'end_date',
+    'verify_dates', 'format_open', 'format_select_json', 'format_confirm_json',
+    'download', 'wait_job', 'read_job_response', 'decode_export', 'verify_result',
+})
 
 
 class CVExportError(RuntimeError):
     """Only a fixed, credential-free reason is public."""
-    def __init__(self, reason):
+    def __init__(self, reason, *, stage=None):
         self.reason = reason if reason in REASONS else 'cv_export_ui_failed'
+        self.stage = stage if isinstance(stage, str) and stage in CV_STAGES else None
         super().__init__(self.reason)
 
 
@@ -117,6 +123,7 @@ def fetch_wos_cv(page, *, timeout=120):
     armed = False
     overflow = False
     response_count = 0
+    stage = 'entry'
 
     def remaining():
         seconds = deadline - time.monotonic()
@@ -136,18 +143,6 @@ def fetch_wos_cv(page, *, timeout=120):
         value = getattr(locator, operation)(*args, timeout=min(10000, remaining() * 1000))
         remaining()
         return value
-
-    def enabled_checks(pattern):
-        candidates = page.get_by_role('checkbox', name=re.compile(pattern, re.I))
-        enabled = []
-        for index in range(candidates.count()):
-            candidate = candidates.nth(index)
-            if candidate.is_visible() and candidate.is_enabled(timeout=min(1000, remaining() * 1000)):
-                enabled.append(candidate)
-        if not enabled:
-            raise CVExportError('cv_export_controls_missing')
-        for candidate in enabled:
-            action(candidate, 'check')
 
     def requested(request):
         if armed:
@@ -187,39 +182,44 @@ def fetch_wos_cv(page, *, timeout=120):
     page.on('requestfailed', failed)
     try:
         guard()
+        stage = 'open_cv'
         action(page.get_by_role('button', name=re.compile(r'^(?:Export CV|Экспортировать резюме)$', re.I)), 'click')
+        stage = 'wait_cv_page'
         while not ((address := _address(page.url)) and address.path == CV_PATH):
             guard()
             page.wait_for_timeout(min(POLL_SECONDS, remaining()) * 1000)
+        stage = 'full_profile'
         action(page.get_by_role('radio', name=re.compile(r'^(?:Export full profile|Экспортировать полный профиль)$', re.I)), 'check')
         start, end = page.locator('#startDateId'), page.locator('#endDateId')
         today = datetime.now(timezone.utc).date().isoformat()
+        stage = 'start_date'
         action(start, 'fill', '1900-01-01')
         action(start, 'press', 'Tab')
+        stage = 'end_date'
         action(end, 'fill', today)
         action(end, 'press', 'Tab')
+        stage = 'verify_dates'
         if start.input_value(timeout=remaining() * 1000) != '1900-01-01' or end.input_value(timeout=remaining() * 1000) != today:
             raise CVExportError('cv_export_dates_not_applied')
         combo = page.get_by_role('combobox', name=re.compile(r'^Filter by,\s*(?:PDF|JSON)$', re.I))
+        stage = 'format_open'
         action(combo, 'click')
+        stage = 'format_select_json'
         action(page.get_by_role('option', name='JSON', exact=True), 'click')
+        stage = 'format_confirm_json'
         label = (combo.get_attribute('aria-label', timeout=remaining() * 1000) or '') + ' ' + combo.inner_text(timeout=remaining() * 1000)
         if not re.search(r'\bJSON\b', label):
             raise CVExportError('cv_export_format_not_applied')
-        enabled_checks(r'^(?:(?:Web of Science )?Accession number|Идентификационный номер)$')
-        enabled_checks(r'^(?:Author list|Список авторов)$')
-        enabled_checks(r'^(?:Citation count|Количество цитирований|Число цитирований)$')
-        enabled_checks(r'^(?:Publication date|Дата публикации)$')
-        enabled_checks(r'^DOI$')
-        enabled_checks(r'^(?:Total number of citations from the Web of Science Core Collection of papers published in the selected period|Общее число цитирований из набора статей Web of Science Core Collection, опубликованных в течение выбранного периода)$')
-        enabled_checks(r'^(?:Web of Science h-index for papers published in the selected period|h-index Web of Science статей, опубликованных в течение выбранного периода)$')
-        enabled_checks(r'^(?:Number of papers published in the selected period which are indexed in the Web of Science Core Collection|Число статей, опубликованных в течение выбранного периода, которые были проиндексированы в Web of Science Core Collection)$')
+        # JSON exports the full profile. Its UI removes PDF-only field settings;
+        # the caller validates the actual returned identity, fields and coverage.
+        stage = 'download'
         guard()
         armed = True
         page.get_by_role('button', name=re.compile(r'^(?:Download my profile|Загрузить мой профиль)$', re.I)).click(
             timeout=min(10000, remaining() * 1000))
         task_id = None
         while True:
+            stage = 'wait_job'
             guard()
             if overflow:
                 raise CVExportError('cv_export_response_limit')
@@ -241,6 +241,7 @@ def fetch_wos_cv(page, *, timeout=120):
                     raise AuthFailure('rate_limited')
                 if response.status != (201 if path == CREATE_PATH else 200):
                     raise CVExportError('cv_export_http_error')
+                stage = 'read_job_response'
                 value = _response_document(response)
                 remaining()
                 if path == CREATE_PATH:
@@ -251,7 +252,9 @@ def fetch_wos_cv(page, *, timeout=120):
                         raise CVExportError('cv_export_task_invalid')
                     task_id = identifier
                 elif value.get('status') == 'SUCCESS':
+                    stage = 'decode_export'
                     document = _decode_export(value.get('results'))
+                    stage = 'verify_result'
                     guard()
                     return document
                 elif value.get('status') in {'FAILURE', 'FAILED', 'ERROR', 'CANCELLED', 'CANCELED'}:
@@ -259,10 +262,14 @@ def fetch_wos_cv(page, *, timeout=120):
                 elif value.get('status') not in {'PENDING', 'STARTED', 'RUNNING', 'PROCESSING', 'QUEUED', 'RETRY'}:
                     raise CVExportError('cv_export_response_invalid')
             page.wait_for_timeout(min(POLL_SECONDS, remaining()) * 1000)
-    except (AuthFailure, CVExportError):
+    except AuthFailure:
+        raise
+    except CVExportError as exc:
+        if exc.stage is None:
+            exc.stage = stage
         raise
     except Exception:
-        raise CVExportError('cv_export_timeout' if time.monotonic() >= deadline else 'cv_export_ui_failed') from None
+        raise CVExportError('cv_export_timeout' if time.monotonic() >= deadline else 'cv_export_ui_failed', stage=stage) from None
     finally:
         page.remove_listener('request', requested)
         page.remove_listener('response', observed)
