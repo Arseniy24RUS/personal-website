@@ -62,6 +62,8 @@ class ObservationPage:
     def inner_text(self, **kwargs):
         self.read_timeouts.append(kwargs['timeout'])
         self.clock += self.state.get('read_seconds', 0)
+        if self.state.get('read_error'):
+            raise self.state['read_error']
         return self.state.get('text', '')
 
     def wait_for_timeout(self, milliseconds):
@@ -202,7 +204,7 @@ class ChallengeSettlingTests(unittest.TestCase):
                 self.assertNotIn('private', str(evidence))
                 self.assertEqual(page.waits, [250.0])
 
-    def test_early_locator_timeout_does_not_claim_pending_deadline(self):
+    def test_early_locator_timeout_preserves_pending_within_original_deadline(self):
         page = self.observe([{'frames': [loading_frame()]}])
         read = page.inner_text
         def timeout_after_first_read(**kwargs):
@@ -211,9 +213,110 @@ class ChallengeSettlingTests(unittest.TestCase):
             return read(**kwargs)
         with patch.object(page, 'inner_text', side_effect=timeout_after_first_read), self.assertRaises(auth.AuthFailure) as caught:
             auth.assert_no_challenge(page, passive_wait_seconds=1.0)
-        self.assertEqual(caught.exception.reason, 'challenge_observation_incomplete')
-        self.assertNotIn('settling', caught.exception.verification_evidence)
+        self.assertEqual(caught.exception.reason, 'human_verification_required')
+        self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
+        self.assertEqual(page.clock, 1.0)
+        self.assertEqual(page.waits, [250.0] * 4)
+
+    def test_one_second_dom_timeout_is_retried_then_requires_a_complete_clear_scan(self):
+        from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+        page = self.observe([{'read_seconds': 1.0, 'read_error': PlaywrightTimeoutError('private URL/token')}, {}])
+        trace = auth.assert_no_challenge(page)
+        self.assertEqual(page.clock, 1.25)
         self.assertEqual(page.waits, [250.0])
+        self.assertEqual(len(page.read_timeouts), 2)
+        self.assertEqual(trace['settling'], 'cleared')
+        first, final = trace['observation_timeline'][0], trace['observation_timeline'][-1]
+        self.assertEqual((first['category'], first['error_type'], first['read_phase']),
+                         ('incomplete', 'timeout', 'page_text'))
+        self.assertEqual(final['category'], 'clear')
+        self.assertNotIn('private', str(trace))
+
+    def test_known_playwright_navigation_errors_require_full_rescan(self):
+        from playwright.sync_api import Error as PlaywrightError
+        for message in ('Execution context was destroyed, most likely because of a navigation',
+                        'Cannot find context with specified id', 'Frame was detached',
+                        'Element is not attached to the DOM'):
+            with self.subTest(message=message):
+                page = self.observe([{'read_error': PlaywrightError(message + ': private URL/token')}, {}])
+                trace = auth.assert_no_challenge(page)
+                self.assertEqual(trace['settling'], 'cleared')
+                self.assertEqual(trace['observation_timeline'][0]['error_type'], 'navigation')
+                self.assertEqual(len(page.read_timeouts), 2)
+                self.assertEqual(page.waits, [250.0])
+                self.assertNotIn('private', str(trace))
+
+    def test_persistent_read_timeout_never_becomes_a_challenge_or_resets_deadline(self):
+        page = self.observe([{'read_error': TimeoutError('private detail')}])
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page, passive_wait_seconds=1.0)
+        evidence = caught.exception.verification_evidence
+        self.assertEqual(caught.exception.reason, 'challenge_observation_incomplete')
+        self.assertEqual(evidence['settling'], 'timed_out')
+        self.assertEqual(evidence['error_type'], 'timeout')
+        self.assertEqual(page.clock, 1.0)
+        self.assertEqual(page.waits, [250.0] * 4)
+        self.assertEqual(evidence['observation_timeline'][-1]['category'], 'timed_out')
+        self.assertNotIn('private', str(evidence))
+
+    def test_recovering_read_cannot_return_clear_after_shared_deadline(self):
+        page = self.observe([{'read_error': TimeoutError('private detail')}, {'read_seconds': 1.0}])
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page, passive_wait_seconds=1.0)
+        self.assertEqual(caught.exception.reason, 'challenge_observation_incomplete')
+        self.assertEqual(caught.exception.verification_evidence['settling'], 'timed_out')
+        self.assertEqual(page.waits, [250.0])
+
+    def test_real_challenge_or_mfa_after_transient_read_stops_immediately(self):
+        for state, expected in (({'frames': [loading_frame(active_challenge_controls=True)]}, 'human_verification_required'),
+                                ({'text': 'Authentication code required'}, 'mfa_required'),
+                                ({'text': 'Verify you are human'}, 'human_verification_required')):
+            with self.subTest(expected=expected, state=state):
+                page = self.observe([{'read_error': TimeoutError('private detail')}, state])
+                with self.assertRaises(auth.AuthFailure) as caught:
+                    auth.assert_no_challenge(page, passive_wait_seconds=1.0)
+                self.assertEqual(caught.exception.reason, expected)
+                self.assertEqual(page.waits, [250.0])
+                self.assertNotIn('private', str(caught.exception.verification_evidence))
+
+    def test_unknown_or_closed_errors_fail_without_retry_or_raw_diagnostics(self):
+        from playwright.sync_api import Error as PlaywrightError
+        for error, category in ((RuntimeError('Execution context was destroyed, most likely because of a navigation: private'), 'unexpected'),
+                                (PlaywrightError('private unknown protocol failure'), 'unexpected'),
+                                (PlaywrightError('Target page, context or browser has been closed: private'), 'closed')):
+            with self.subTest(category=category):
+                page = self.observe([{'read_error': error}])
+                with self.assertRaises(auth.AuthFailure) as caught:
+                    auth.assert_no_challenge(page)
+                evidence = caught.exception.verification_evidence
+                self.assertEqual(caught.exception.reason, 'challenge_observation_incomplete')
+                self.assertEqual((evidence['error_type'], evidence['read_phase']), (category, 'page_text'))
+                self.assertEqual(page.waits, [])
+                self.assertNotIn('private', str(evidence))
+
+    def test_detached_pending_frame_is_not_clear_until_full_later_scan(self):
+        from playwright.sync_api import Error as PlaywrightError
+        page = self.observe([{'frames': [loading_frame()]},
+                             {'frames': [loading_frame()]}, {}])
+        def visibility(frame, **kwargs):
+            if page.step == 1:
+                raise PlaywrightError('Frame was detached: private')
+            return True
+        with patch.object(auth, 'in_visible_viewport', side_effect=visibility):
+            trace = auth.assert_no_challenge(page, passive_wait_seconds=1.0)
+        self.assertEqual(trace['settling'], 'cleared')
+        self.assertEqual(page.waits, [250.0, 250.0])
+        self.assertEqual(len(page.read_timeouts), 3)
+        failure_sample = trace['observation_timeline'][1]
+        self.assertEqual((failure_sample['error_type'], failure_sample['read_phase']), ('navigation', 'frame_visibility'))
+
+    def test_explicit_auth_failure_is_never_wrapped_or_retried(self):
+        failure = auth.AuthFailure('mfa_required')
+        page = self.observe([{'read_error': failure}])
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page)
+        self.assertIs(caught.exception, failure)
+        self.assertEqual(page.waits, [])
 
     def test_unrecognized_or_incompletely_observed_frame_never_gets_grace(self):
         cases = [
@@ -272,6 +375,48 @@ class ChallengeFrameBrowserTests(unittest.TestCase):
         self.assertNotIn('private', str(caught.exception.verification_evidence))
         self.assertIsNone(page.evaluate('window.clicked'))
         return caught.exception.verification_evidence
+
+    def navigation_with_delayed_body(self, body_text):
+        context = self.browser.new_context()
+        self.addCleanup(context.close)
+        def route(request):
+            body = ('<body><script>location.replace("/profile")</script></body>'
+                    if request.request.url.endswith('/callback') else
+                    '<body><script>window.clicked=false;document.body.remove()</script></body>')
+            request.fulfill(status=200, content_type='text/html', body=body)
+        context.route('**/*', route)
+        page = context.new_page()
+        page.goto('https://local-fixture.invalid/callback')
+        page.wait_for_url('https://local-fixture.invalid/profile')
+        page.wait_for_function('document.body === null')
+        # The app renders after the first real 1s body locator timeout. Only the
+        # fixture mutates DOM; the guard may only read and wait through navigation.
+        page.evaluate('''text => setTimeout(() => {
+            const body=document.createElement('body');body.textContent=text;
+            const button=document.createElement('button');button.textContent='Continue';
+            button.onclick=()=>window.clicked=true;body.append(button);
+            document.documentElement.append(body);
+        }, 1500)''', body_text)
+        return page
+
+    def test_navigation_body_read_timeout_recovers_only_after_actual_dom_render(self):
+        page = self.navigation_with_delayed_body('Ordinary profile content')
+        trace = auth.assert_no_challenge(page, passive_wait_seconds=6)
+        self.assertEqual(trace['settling'], 'cleared')
+        self.assertTrue(any(sample.get('error_type') == 'timeout' and sample.get('read_phase') == 'page_text'
+                            for sample in trace['observation_timeline']))
+        self.assertEqual(trace['observation_timeline'][-1]['category'], 'clear')
+        self.assertFalse(page.evaluate('window.clicked'))
+
+    def test_navigation_body_read_timeout_does_not_skip_later_real_human_marker(self):
+        page = self.navigation_with_delayed_body('Verify you are human')
+        with self.assertRaises(auth.AuthFailure) as caught:
+            auth.assert_no_challenge(page, passive_wait_seconds=6)
+        self.assertEqual(caught.exception.reason, 'human_verification_required')
+        evidence = caught.exception.verification_evidence
+        self.assertTrue(any(sample.get('error_type') == 'timeout' for sample in evidence['observation_timeline']))
+        self.assertEqual(evidence['observation_timeline'][-1]['category'], 'marker')
+        self.assertFalse(page.evaluate('window.clicked'))
 
     def test_observed_empty_hcaptcha_dom_only_allows_bounded_wait(self):
         evidence = self.inspect_fixture('<body>Loading...</body>')

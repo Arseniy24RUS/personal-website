@@ -534,6 +534,9 @@ def export_diagnostics(source, destination):
             'settling': {'cleared', 'timed_out', 'stopped_by_guard'},
             'trigger': {'page_marker', 'iframe_title', 'recaptcha_normal_widget',
                         'observation_incomplete', 'observation_deadline'},
+            'error_type': {'timeout', 'navigation', 'closed', 'unexpected'},
+            'read_phase': {'page_text', 'validation_errors', 'frame_list', 'frame_visibility',
+                           'frame_evidence', 'observation', 'passive_wait'},
         }
         for key, choices in enums.items():
             if isinstance(value.get(key), str) and value[key] in choices:
@@ -559,6 +562,8 @@ def export_diagnostics(source, destination):
                 for key, choices in (
                     ('category', {'clear', 'passive', 'marker', 'interactive', 'incomplete', 'blocked', 'timed_out'}),
                     ('ready_state', {'loading', 'interactive', 'complete', 'unavailable'}),
+                    ('error_type', enums['error_type']),
+                    ('read_phase', enums['read_phase']),
                 ):
                     if isinstance(row.get(key), str) and row[key] in choices:
                         sample[key] = row[key]

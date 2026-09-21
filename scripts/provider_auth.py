@@ -144,6 +144,36 @@ class _ChallengeObservationTimeout(RuntimeError):
     pass
 
 
+class _ChallengeObservationReadError(RuntimeError):
+    def __init__(self, error_type, read_phase, pending=None):
+        # Keep only fixed categories, never a provider URL or exception message.
+        super().__init__(error_type)
+        self.error_type = error_type
+        self.read_phase = read_phase
+        self.pending = pending
+        self.retryable = error_type in {'timeout', 'navigation'}
+
+
+def _observation_error_type(exc):
+    playwright_error = type(exc).__module__.startswith('playwright.')
+    if isinstance(exc, TimeoutError) or (playwright_error and type(exc).__name__ == 'TimeoutError'):
+        return 'timeout'
+    if playwright_error:
+        if type(exc).__name__ == 'TargetClosedError':
+            return 'closed'
+        message = str(exc).lower()
+        if 'target page, context or browser has been closed' in message:
+            return 'closed'
+        if any(marker in message for marker in (
+            'execution context was destroyed, most likely because of a navigation',
+            'cannot find context with specified id',
+            'frame was detached',
+            'element is not attached to the dom',
+        )):
+            return 'navigation'
+    return 'unexpected'
+
+
 def _observation_timeout(deadline):
     """Bound locator auto-waiting and check the shared observation deadline."""
     remaining = 1.0 if deadline is None else deadline - time.monotonic()
@@ -258,7 +288,19 @@ def challenge_reason(text, url=''):
 
 def _challenge_observation(page, *, form_submitted, deadline):
     """One read-only pass; return an error and whether it may settle naturally."""
-    text = page_text(page, timeout=_observation_timeout(deadline))
+    pending = None
+
+    def read(phase, operation, *args, **kwargs):
+        try:
+            return operation(*args, **kwargs)
+        except AuthFailure:
+            raise
+        except _ChallengeObservationTimeout:
+            raise
+        except Exception as exc:
+            raise _ChallengeObservationReadError(_observation_error_type(exc), phase, pending) from None
+
+    text = read('page_text', page_text, page, timeout=_observation_timeout(deadline))
     reason = challenge_reason(text, page.url)
     evidence = {'trigger': 'page_marker', 'marker_ids': human_marker_ids(text, page.url)} if reason == 'human_verification_required' else None
     if not form_submitted and reason in {'invalid_credentials', 'invalid_username_format'}:
@@ -268,11 +310,11 @@ def _challenge_observation(page, *, form_submitted, deadline):
         # validation messages live in mat-error / app-alert-message nodes.
         errors = page.locator('mat-error, app-alert-message, [role="alert"], #dialogTitle')
         reason = None
-        for index in range(errors.count()):
+        for index in range(read('validation_errors', errors.count)):
             _observation_timeout(deadline)
             error = errors.nth(index)
-            if error.is_visible():
-                reason = challenge_reason(error.inner_text(timeout=_observation_timeout(deadline)))
+            if read('validation_errors', error.is_visible):
+                reason = challenge_reason(read('validation_errors', error.inner_text, timeout=_observation_timeout(deadline)))
                 if reason:
                     break
     # An embedded challenge script alone is not a challenge. Only visible forms count.
@@ -280,14 +322,13 @@ def _challenge_observation(page, *, form_submitted, deadline):
     selector = 'iframe[title*="challenge" i], iframe[src*="recaptcha"][src*="size=normal"]'
     if reason:
         return reason, evidence, False
-    pending = None
     counts = {'hcaptcha_frame_count': 0, 'recaptcha_frame_count': 0, 'other_frame_count': 0}
     frames = page.locator(selector)
-    for index in range(frames.count()):
+    for index in range(read('frame_list', frames.count)):
         frame = frames.nth(index)
-        if not in_visible_viewport(frame, timeout=_observation_timeout(deadline)):
+        if not read('frame_visibility', in_visible_viewport, frame, timeout=_observation_timeout(deadline)):
             continue
-        observed = challenge_frame_evidence(frame, deadline=deadline)
+        observed = read('frame_evidence', challenge_frame_evidence, frame, deadline=deadline)
         host = observed.get('provider_host', '')
         category = 'hcaptcha' if provider_host(host, 'hcaptcha.com') else 'recaptcha' if any(provider_host(host, domain) for domain in ('google.com', 'recaptcha.net')) else 'other'
         counts[f'{category}_frame_count'] += 1
@@ -342,6 +383,10 @@ def _verification_sample(elapsed, reason, evidence, may_settle, *, terminal=None
     for key in ('hcaptcha_frame_count', 'recaptcha_frame_count', 'other_frame_count'):
         value = 0 if not reason else (evidence.get('frame_counts') or {}).get(key)
         sample[key] = value if type(value) is int and 0 <= value <= 1000000 else None
+    if evidence.get('error_type') in {'timeout', 'navigation', 'closed', 'unexpected'}:
+        sample['error_type'] = evidence['error_type']
+    if evidence.get('read_phase') in {'page_text', 'validation_errors', 'frame_list', 'frame_visibility', 'frame_evidence', 'observation', 'passive_wait'}:
+        sample['read_phase'] = evidence['read_phase']
     return sample
 
 
@@ -363,12 +408,13 @@ def assert_no_challenge(page, *, form_submitted=True, passive_wait_seconds=10.0,
     next_sample = 0
     previous_category = None
     pending = None
+    retried_read = False
 
     def observe(reason, evidence, may_settle, *, terminal=None):
         nonlocal next_sample, previous_category
         elapsed = max(0, time.monotonic() - started)
         sample = _verification_sample(elapsed, reason, evidence, may_settle, terminal=terminal)
-        signature = (sample['category'], sample['ready_state'])
+        signature = (sample['category'], sample['ready_state'], sample.get('error_type'), sample.get('read_phase'))
         due = next_sample < len(CHALLENGE_TIMELINE_SECONDS) and elapsed >= CHALLENGE_TIMELINE_SECONDS[next_sample]
         if terminal or due or signature != previous_category:
             if len(timeline) < CHALLENGE_TIMELINE_LIMIT:
@@ -381,31 +427,36 @@ def assert_no_challenge(page, *, form_submitted=True, passive_wait_seconds=10.0,
         return {'elapsed_seconds': round(elapsed, 3), 'observation_budget_seconds': round(max(0, deadline - started), 3), 'observation_timeline': list(timeline)}
 
     while True:
+        read_failure = False
         try:
             reason, evidence, may_settle = _challenge_observation(page, form_submitted=form_submitted, deadline=deadline)
+        except AuthFailure:
+            raise
         except _ChallengeObservationTimeout:
-            reason = 'human_verification_required' if pending else 'challenge_observation_incomplete'
-            evidence, may_settle = pending, True
+            reason, may_settle, read_failure = 'challenge_observation_incomplete', True, True
+            evidence = {'trigger': 'observation_deadline', 'error_type': 'timeout', 'read_phase': 'observation'}
         except Exception as exc:
-            read_timeout = isinstance(exc, TimeoutError) or (
-                type(exc).__name__ == 'TimeoutError' and type(exc).__module__.startswith('playwright.')
-            )
-            if pending is not None and read_timeout and time.monotonic() >= deadline:
-                # A locator may raise its own timeout just as the shared budget
-                # expires. Preserve the challenge already observed in this call.
-                reason, evidence, may_settle = 'human_verification_required', pending, True
-            else:
-                evidence = {'trigger': 'observation_incomplete'}
+            error = exc if isinstance(exc, _ChallengeObservationReadError) else _ChallengeObservationReadError(
+                _observation_error_type(exc), 'observation')
+            if error.pending is not None:
+                pending = error.pending
+            evidence = {'trigger': 'observation_incomplete', 'error_type': error.error_type,
+                        'read_phase': error.read_phase}
+            if not error.retryable:
                 trace = observe('challenge_observation_incomplete', evidence, False, terminal='incomplete')
                 raise AuthFailure('challenge_observation_incomplete', verification_evidence={**evidence, **trace}) from None
+            reason, may_settle, read_failure = 'challenge_observation_incomplete', True, True
         remaining = deadline - time.monotonic()
         if remaining <= 0:
-            failure_reason = reason or ('human_verification_required' if pending else 'challenge_observation_incomplete')
-            observed = evidence or pending or {'trigger': 'observation_deadline'}
+            failure_reason = (('human_verification_required' if pending else 'challenge_observation_incomplete')
+                              if read_failure else reason or ('human_verification_required' if pending else 'challenge_observation_incomplete'))
+            observed = pending if read_failure and pending else evidence or pending or {'trigger': 'observation_deadline'}
+            if read_failure:
+                observed = {**observed, **{key: evidence[key] for key in ('error_type', 'read_phase') if key in evidence}}
             trace = observe(failure_reason, observed, False, terminal='timed_out')
             raise AuthFailure(failure_reason, verification_evidence={**observed, **trace, 'settling': 'timed_out'}) from None
         if not reason:
-            if pending:
+            if pending or retried_read:
                 return {'settling': 'cleared', **observe(None, None, False, terminal='clear')}
             return
         if not may_settle:
@@ -413,10 +464,19 @@ def assert_no_challenge(page, *, form_submitted=True, passive_wait_seconds=10.0,
             if pending is not None and evidence is not None:
                 evidence = {**evidence, 'settling': 'stopped_by_guard'}
             raise AuthFailure(reason, verification_evidence=evidence)
-        observe(reason, evidence, True)
-        pending = evidence
+        observe(reason, evidence, not read_failure)
+        if read_failure:
+            retried_read = True
+        else:
+            pending = evidence
         # No click, submission, navigation, token mutation or challenge solving.
-        page.wait_for_timeout(min(CHALLENGE_POLL_SECONDS, remaining) * 1000)
+        try:
+            page.wait_for_timeout(min(CHALLENGE_POLL_SECONDS, remaining) * 1000)
+        except Exception as exc:
+            evidence = {'trigger': 'observation_incomplete', 'error_type': _observation_error_type(exc),
+                        'read_phase': 'passive_wait'}
+            trace = observe('challenge_observation_incomplete', evidence, False, terminal='incomplete')
+            raise AuthFailure('challenge_observation_incomplete', verification_evidence={**evidence, **trace}) from None
 
 
 def verify_browser_egress(context):

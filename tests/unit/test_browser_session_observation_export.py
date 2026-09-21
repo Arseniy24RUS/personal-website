@@ -48,6 +48,25 @@ class ObservationExportTests(unittest.TestCase):
             'trigger': 'page_marker', 'marker_ids': ['verify_you_are_human'],
         }})
 
+    def test_read_failures_export_only_fixed_error_and_phase_identifiers(self):
+        for error_type in ('timeout', 'navigation', 'closed', 'unexpected'):
+            with self.subTest(error_type=error_type):
+                report = {'verification_evidence': {
+                    'trigger': 'observation_incomplete', 'error_type': error_type,
+                    'read_phase': 'page_text',
+                    'observation_timeline': [self.sample(
+                        category='incomplete', error_type=error_type, read_phase='frame_visibility')],
+                }}
+                self.assertEqual(self.export(report), report)
+        for value in ('private-token', 'https://private.example/?SID=secret', ['timeout'], None):
+            with self.subTest(value=value):
+                result = self.export({'verification_evidence': {
+                    'error_type': value, 'read_phase': value, 'error_message': 'private-text',
+                    'observation_timeline': [{'error_type': value, 'read_phase': value,
+                                              'exception': 'private-exception'}],
+                }})
+                self.assertEqual(result, {'verification_evidence': {'observation_timeline': []}})
+
     def test_rejects_secret_strings_nan_string_counts_and_invalid_flags(self):
         report = {'profile_entry_observation': {
             'settling': 'private-token', 'elapsed_seconds': float('nan'),
