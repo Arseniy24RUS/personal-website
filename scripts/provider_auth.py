@@ -599,14 +599,59 @@ def wos_logout_visible(page):
     return bool(visible(page, ['a[href*="signout"]', 'a[href*="logout"]']))
 
 
+def _is_playwright_timeout(exc):
+    return type(exc).__name__ == 'TimeoutError' and type(exc).__module__.startswith('playwright.')
+
+
+def dismiss_wos_cookie_banner(page, evidence):
+    """Use only the observed OneTrust consent controls, never a generic Close."""
+    assert_no_challenge(page)
+    control = visible(page, ['#onetrust-reject-all-handler', '#onetrust-accept-btn-handler'])
+    if control is None:
+        return False
+    evidence['cookie_banner_observed'] = True
+    if not control.is_enabled():
+        return False
+    control.click(timeout=10000)
+    assert_no_challenge(page)
+    control.wait_for(state='hidden', timeout=10000)
+    assert_no_challenge(page)
+    evidence['cookie_banner_dismissed'] = True
+    return True
+
+
 def wos_authenticated(page):
+    evidence = {'account_click_timed_out': False, 'cookie_banner_observed': False, 'cookie_banner_dismissed': False}
+    try:
+        return _wos_authenticated(page, evidence)
+    except AuthFailure as failure:
+        failure.authentication_evidence = {**(failure.authentication_evidence or {}), **evidence}
+        raise
+    except Exception as exc:
+        if _is_playwright_timeout(exc):
+            raise AuthFailure('TimeoutError', authentication_evidence=evidence) from None
+        raise
+
+
+def _wos_authenticated(page, evidence):
     # The user menu is positive session proof; SID existence is not.
+    dismiss_wos_cookie_banner(page, evidence)
     if wos_logout_visible(page):
         return True
 
     def open_and_verify(account):
         assert_no_challenge(page)
-        account.click(timeout=15000)
+        try:
+            account.click(timeout=15000)
+        except Exception as exc:
+            if not _is_playwright_timeout(exc):
+                raise
+            evidence['account_click_timed_out'] = True
+            # The banner can mount after the initial scan. One ordinary retry
+            # is allowed only after a visible, explicit OneTrust consent action.
+            if not dismiss_wos_cookie_banner(page, evidence):
+                raise
+            account.click(timeout=15000)
         try:
             for _ in range(10):
                 if wos_logout_visible(page):
@@ -743,6 +788,7 @@ WOS_LOGIN_BOOLEAN_FIELDS = WOS_LOGIN_PROGRESS_FLAGS | frozenset({
     'username_format_valid', 'username_normalized', 'response_observed', 'success',
     'verificationCodeRequired', 'disabled', 'unclaimed', 'deprecated', 'invalidUserType',
     'browser_error_page_observed',
+    'account_click_timed_out', 'cookie_banner_observed', 'cookie_banner_dismissed',
 })
 WOS_LOGIN_RESPONSE_REASONS = frozenset({
     'mfa_required', 'account_reactivation_required', 'account_claim_required',

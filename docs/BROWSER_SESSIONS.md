@@ -342,3 +342,15 @@ error codes, HTTP status and provider category from this attempt's top-level
 document requests; these observations must not contain callback URLs, request
 headers or response bodies. A network failure does not authorize a new login
 attempt or a session checkpoint.
+
+Run [35585514769](https://github.com/Arseniy24RUS/personal-website/actions/runs/35585514769)
+completed the ordinary fresh ORCID sign-in and returned to a positively verified
+WoS account, then loaded the requested profile URL. No navigation failure or
+challenge was reported in that attempt. Subsequent target-profile verification
+timed out: no scientific metrics had been confirmed, and the visible controls
+included the OneTrust cookie banner (`onetrust-accept-btn-handler`) alongside
+the signed-in account button. This establishes successful normal authentication,
+not a successful data refresh. A late cookie banner can block the ordinary account
+menu click; consent handling must use the known banner controls with challenge
+checks, never forced clicks, arbitrary Close buttons or DOM removal. Scientific
+data and confirmed session checkpoints still require the normal target checks.
