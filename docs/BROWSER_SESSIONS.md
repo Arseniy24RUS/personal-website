@@ -306,3 +306,28 @@ reliable CAPTCHA-free collection is not. Do not report the repeated interruption
 as success, extend waits indefinitely, or claim that changing the runner OS
 reproduces a trusted home PC. Daily maintenance and the post-expiry acceptance
 monitor remain enabled, with the last verified data and session preserved.
+
+## Fresh ORCID login, 21 September 2026
+
+Run [35581139661](https://github.com/Arseniy24RUS/personal-website/actions/runs/35581139661)
+started with `fresh_orcid` and did not import the restored WoS state. It reached
+the ORCID form, submitted the configured credentials once, and observed HTTP 200
+with a successful sign-in response. WoS return and the target profile were not
+yet confirmed. The next page observation failed after 1.001 seconds, while its
+existing total observation budget was ten seconds. No interactive challenge was
+observed in that failed scan. This is evidence of accepted ORCID credentials,
+not a successful WoS collection or a CAPTCHA diagnosis.
+
+An individual DOM read can time out or lose its execution context during the
+normal login redirect. Recognized temporary read failures are therefore observed
+again, without browser actions, within the original shared deadline. The one-second
+per-read cap and overall budgets remain unchanged. A complete successful scan is
+required before login proceeds; explicit CAPTCHA, MFA, unknown errors and closed
+pages still stop the attempt. Diagnostics include only fixed error and read-phase
+identifiers, never exception text or redirect URLs. A previously observed challenge
+remains a challenge if later reads fail until the deadline.
+
+The user's existing ORCID SSO session may skip the password form altogether.
+Do not equate that path with a fresh password login without checking which path
+was actually used. Independent collection and post-expiry renewal still need
+live acceptance.
