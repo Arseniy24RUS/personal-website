@@ -138,7 +138,7 @@ class LoginNavigationTests(unittest.TestCase):
         for fail in (False, True):
             with self.subTest(fail=fail):
                 context = Context()
-                def login(ctx, profile, timeout, evidence):
+                def login(ctx, profile, timeout, evidence, *, navigation=None):
                     self.assertTrue(ctx.listeners['requestfailed'])
                     page = ctx.page()
                     evidence['stage'] = 'orcid_response'
