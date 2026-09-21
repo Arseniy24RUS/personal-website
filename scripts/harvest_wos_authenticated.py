@@ -17,7 +17,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from parse_wos_author_profile import parse_wos_author_profile_html
-from provider_auth import AuthFailure, login_wos, assert_no_challenge, verify_browser_egress, visible, browser_initialization_diagnostics, safe_browser_diagnostics, wos_authenticated, provider_host
+from provider_auth import AuthFailure, login_wos, assert_no_challenge, verify_browser_egress, visible, browser_initialization_diagnostics, safe_browser_diagnostics, safe_wos_login_evidence, wos_authenticated, provider_host
 from source_health import read_json, write_json, source_result, merge_records, now, snapshot_time, component_state, load_checkpoint, write_checkpoint, materialize_checkpoint
 
 RESEARCHER_ID = os.environ.get('WOS_RESEARCHER_ID', 'AAG-1530-2021')
@@ -25,6 +25,7 @@ PROFILE_URL = f'https://www.webofscience.com/wos/author/record/{RESEARCHER_ID}'
 OUT = Path(os.environ.get('WOS_PROFILE_OUT', 'data/wos/profile_metrics.json'))
 REPORT = Path(os.environ.get('WOS_HARVEST_REPORT', 'data/wos/harvest_report.json'))
 WAIT_SEC = int(os.environ.get('WOS_BROWSER_WAIT_SEC', '180'))
+AUTH_MODES = frozenset({'restore', 'fresh_orcid'})
 
 
 class CheckpointWriteError(RuntimeError):
@@ -255,6 +256,11 @@ def authenticated_page(context, session_info, target=RESEARCHER_ID, *, fresh_con
         except Exception as exc:
             failure = exc if isinstance(exc, AuthFailure) else AuthFailure(type(exc).__name__)
             failure.diagnostics = safe_browser_diagnostics(context)
+            login_evidence = safe_wos_login_evidence(getattr(page, '_wos_login_evidence', None))
+            if login_evidence:
+                failure.authentication_evidence = safe_wos_login_evidence({
+                    **login_evidence, **(failure.authentication_evidence or {}),
+                })
             entry_observation = getattr(page, '_profile_entry_observation', None)
             if isinstance(entry_observation, dict):
                 failure.profile_entry_observation = entry_observation
@@ -449,10 +455,22 @@ def collect_from_page(page, target=RESEARCHER_ID, previous=None, previous_report
     return report, payloads
 
 
+def initial_browser_context(browser, options, mode='restore'):
+    """Choose the initial login path once, before visiting any provider page."""
+    if mode == 'fresh_orcid':
+        return browser.new_context(**options), {'status': 'skipped', 'reason': 'fresh_orcid_login_requested'}
+    if mode == 'restore':
+        from browser_sessions import restore_context
+        return restore_context(browser, 'wos', **options)
+    raise AuthFailure('wos_auth_mode_invalid')
+
+
 def main():
-    from browser_sessions import restore_context, checkpoint_session, create_wos_reauthentication_context, SessionError
+    from browser_sessions import checkpoint_session, create_wos_reauthentication_context, SessionError
     from wos_cv_export import fetch_wos_cv
     maintenance = os.environ.get('BROWSER_SESSION_MAINTENANCE') == '1'
+    requested_mode = os.environ.get('WOS_AUTH_MODE', 'restore')
+    authentication_mode = requested_mode if requested_mode in AUTH_MODES else 'invalid'
     checkpoint_path = REPORT.parent / 'collection_checkpoint.json'
     existing = load_checkpoint(checkpoint_path)
     previous = read_json(OUT, {})
@@ -478,7 +496,11 @@ def main():
                 authenticated = False
             session = checkpoint_session(context, 'wos', authenticated=authenticated, target_verified=True, target_id=RESEARCHER_ID, verified_page=page)
             saved_components.update(successful)
-        state.update(authentication=authentication, session_checkpoint=session, session_restore=restored)
+        state.update(authentication=authentication, authentication_mode=authentication_mode,
+                     session_checkpoint=session, session_restore=restored)
+        login_evidence = safe_wos_login_evidence(getattr(page, '_wos_login_evidence', None))
+        if login_evidence:
+            state['authentication_evidence'] = login_evidence
         entry_observation = getattr(page, '_profile_entry_observation', None)
         if isinstance(entry_observation, dict):
             state['profile_entry_observation'] = entry_observation
@@ -487,6 +509,9 @@ def main():
         materialize_checkpoint(checkpoint_path, 'wos')
 
     try:
+        if authentication_mode == 'invalid':
+            stage = 'configuration'
+            raise AuthFailure('wos_auth_mode_invalid')
         from playwright.sync_api import sync_playwright
         with sync_playwright() as playwright:
             launch = {'headless': os.environ.get('WOS_BROWSER_HEADLESS', 'true').lower() not in {'0', 'false', 'no'}, 'args': ['--disable-dev-shm-usage', '--no-sandbox']}
@@ -494,7 +519,7 @@ def main():
                 launch['channel'] = os.environ['WOS_BROWSER_CHANNEL']
             browser = playwright.chromium.launch(**launch)
             options = {'locale': 'en-US', 'timezone_id': 'Europe/Moscow', 'viewport': {'width': 1440, 'height': 1100}}
-            context, restored = restore_context(browser, 'wos', **options)
+            context, restored = initial_browser_context(browser, options, authentication_mode)
 
             def replace_expired_context():
                 nonlocal context
@@ -542,6 +567,10 @@ def main():
                 report[field] = getattr(exc, field)
         if init:
             report['initialization'] = init
+    report['authentication_mode'] = authentication_mode
+    login_evidence = safe_wos_login_evidence(getattr(page, '_wos_login_evidence', None))
+    if login_evidence:
+        report['authentication_evidence'] = login_evidence
     if maintenance:
         output = os.environ.get('BROWSER_SESSION_REPORT_DIR')
         if output:

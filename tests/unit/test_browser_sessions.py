@@ -387,6 +387,20 @@ if (values.get('token') !== 'server-renewed-token') process.exit(2);'''
             self.assertEqual(by_name[name]['with']['retention-days'], 90)
             self.assertLess(steps.index(by_name[name]), steps.index(by_name['Stop tunnel and remove private state']))
 
+    def test_session_diagnostics_keep_only_safe_login_progress(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, destination = Path(directory) / 'source', Path(directory) / 'destination'
+            sessions.private_write(source / 'wos.json', {'status': 'blocked', 'authentication_mode': 'fresh_orcid',
+                'authentication_evidence': {'stage': 'orcid_submit', 'orcid_selected': True,
+                    'submit_clicked': True, 'http_status': 403, 'password': 'private-secret',
+                    'url': 'https://private.invalid/?SID=secret', 'profile_loaded': 'private-secret'}})
+            sessions.export_diagnostics(source, destination)
+            saved = json.loads((destination / 'wos.json').read_text())
+            self.assertEqual(saved['authentication_mode'], 'fresh_orcid')
+            self.assertEqual(saved['authentication_evidence'], {'stage': 'orcid_submit',
+                'orcid_selected': True, 'submit_clicked': True, 'http_status': 403})
+            self.assertNotIn('private', json.dumps(saved))
+
     def test_profile_diagnostics_export_only_numeric_summary_and_field_names(self):
         with tempfile.TemporaryDirectory() as directory:
             source, destination = Path(directory) / 'source', Path(directory) / 'destination'

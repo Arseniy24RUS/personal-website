@@ -517,6 +517,7 @@ def maintain(stage, reports):
 def export_diagnostics(source, destination):
     """Export metadata only: neither arbitrary filenames nor browser state."""
     from report_safety import sanitize
+    from provider_auth import safe_wos_login_evidence
     allowed = {'provider', 'attempted_at', 'status', 'reason', 'stage', 'authentication', 'authentication_mode',
                'validated_at', 'cookie_expires_at', 'cookie_expiry_extended', 'target_verified',
                'session_restore', 'session_checkpoint', 'checkpoint', 'restoration', 'kind',
@@ -606,6 +607,8 @@ def export_diagnostics(source, destination):
                     result[key] = observation_fields(item)
                 elif key == 'profile_diagnostics':
                     result[key] = profile_fields(item)
+                elif key == 'authentication_evidence':
+                    result[key] = safe_wos_login_evidence(item)
                 elif key in allowed:
                     result[key] = keep(item)
             return result

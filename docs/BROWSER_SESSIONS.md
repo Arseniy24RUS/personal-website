@@ -129,6 +129,19 @@ must never be used as evidence of freshly collected publication metrics.
 
 ## Native WoS CV export
 
+For a controlled comparison with a new interactive ORCID login, dispatch the
+refresh workflow with `wos_auth_mode: fresh_orcid`, `sources: wos` and
+`dry_run: true`. This mode is selected before browser creation: it starts an
+empty context and performs the ordinary WoS sign-in flow once. It does not
+restore saved authentication into that context, delete previous artifacts, or
+retry a challenge in another context. A successful checkpoint may compare its
+expiry with the previous saved metadata. The default and scheduled mode remains
+`restore`.
+The report distinguishes the requested mode from a verified login and records
+only fixed stage names and boolean evidence of the sign-in steps. A session
+restore failing on a profile challenge is not evidence that a fresh ORCID login
+was attempted or failed.
+
 WoS continues to use the existing ORCID sign-in credentials. The login loop
 tracks a delayed identity-provider popup and its return to the originating
 window within the same attempt; a popup does not trigger another submission.
