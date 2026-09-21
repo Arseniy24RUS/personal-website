@@ -13,7 +13,7 @@ for (const language of ['ru', 'en'] as const) {
     await expect(page.locator('html')).toHaveAttribute('lang', language);
     await expect(page).toHaveTitle(language === 'en' ? /IT Resources/ : /ИТ-ресурсы/);
     await expect(page.locator('.it-card')).toHaveCount(resources.items.length);
-    expect(resources.items.length).toBeGreaterThanOrEqual(26);
+    expect(resources.items.length).toBeGreaterThanOrEqual(baseline.items.length + featured.length);
     expect(await page.locator('#it-featured .it-card').evaluateAll(cards => cards.map(card => card.getAttribute('data-resource-id')))).toEqual(featured);
     const rendered = await page.locator('.it-card').evaluateAll(cards => cards.map(card => card.getAttribute('data-resource-id')));
     expect(rendered.slice(0, 2)).toEqual(featured);

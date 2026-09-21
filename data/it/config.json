@@ -3,7 +3,8 @@
   "owner": "Arseniy24RUS",
   "excluded_repo_ids": [
     1259200876,
-    1147256183
+    1147256183,
+    1268765563
   ],
   "featured_ids": [
     "digital-demographic-observatory",
@@ -125,18 +126,10 @@
     "1360135164": {
       "resource_id": "github-1360135164",
       "site_url": "https://arseniy24rus.github.io/OmniTwin-demo/",
-      "title_ru": "OmniTwin — демографический демонстратор",
-      "title_en": "OmniTwin — Demographic Demo",
+      "title_ru": "OmniTwin — цифровой двойник общества (демо)",
+      "title_en": "OmniTwin — Digital Twin of Society (Demo)",
       "description_ru": "Демонстрационный интерфейс с картой города, официальной агрегированной статистикой и синтетическими агентами. На примере Челябинска можно исследовать городские показатели и сравнивать иллюстративные сценарии.",
       "description_en": "A demonstration interface combining a city map, official aggregate statistics and synthetic agents. The Chelyabinsk example lets visitors explore city indicators and compare illustrative scenarios."
-    },
-    "1268765563": {
-      "resource_id": "github-1268765563",
-      "site_url": "https://baigutlin.ru/",
-      "title_ru": "Научный сайт Данила Байгутлина",
-      "title_en": "Danil Baigutlin’s Academic Website",
-      "description_ru": "Двуязычный персональный сайт исследователя физики конденсированного состояния и вычислительного материаловедения Данила Байгутлина. Представлены научный профиль, публикации, преподавание, проекты и исследовательские ИТ-ресурсы.",
-      "description_en": "A bilingual personal website for condensed-matter physics and computational materials researcher Danil Baigutlin. It presents his academic profile, publications, teaching, projects and research software."
     },
     "1107735935": {
       "resource_id": "population-forecast-dashboard-russia-2100",
