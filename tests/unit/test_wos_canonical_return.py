@@ -172,6 +172,22 @@ class CanonicalReturnBrowserTests(unittest.TestCase):
     def attempt(self, outcome):
         context, state = self.flow(outcome)
         select = auth._wos_login_page
+        real_time, authenticated = auth.time, auth.wos_authenticated
+        clock = {'offset': 0.0, 'deadline': None, 'negative_proofs': 0, 'counts_at_expiry': None}
+        # The unauthorized case tests verification-only behavior, not which DOM
+        # read wins a race against the last millisecond of a real-time deadline.
+        # Keep Playwright/stdlib clocks untouched. Expire this module's clock
+        # only after its real challenge and negative account checks have run.
+        test_time = (SimpleNamespace(monotonic=lambda: real_time.monotonic() + clock['offset'])
+                     if outcome == 'unauthorized' else real_time)
+        def account_proof(page):
+            result = authenticated(page)
+            if outcome == 'unauthorized' and clock['deadline'] is not None:
+                self.assertFalse(result)
+                clock['negative_proofs'] += 1
+                clock['counts_at_expiry'] = tuple(state[key] for key in ('posts', 'signin', 'authorize', 'profile', 'homepage'))
+                clock['offset'] = clock['deadline'] + 1.0 - real_time.monotonic()
+            return result
         def failed_callback(ctx, existing, evidence):
             page = select(ctx, existing, evidence)
             if page is not None and page.url == 'https://access.clarivate.com/callback':
@@ -192,10 +208,12 @@ class CanonicalReturnBrowserTests(unittest.TestCase):
             auth._goto_wos_login(page, 'https://www.webofscience.com/', evidence,
                                 wait_until='domcontentloaded', timeout=min(90000, remaining * 1000))
             evidence['canonical_home_probe_loaded'] = True
+            clock['deadline'] = deadline
             return True
         with patch.dict(os.environ, {'WOS_ORCID_USERNAME': 'fixture@example.invalid', 'WOS_ORCID_PASSWORD': 'synthetic-password'}), \
                 patch.object(wos, 'WAIT_SEC', 15), patch.object(auth, '_wos_login_page', side_effect=failed_callback), \
-                patch.object(auth, '_probe_canonical_wos_home', side_effect=synthetic_transport_boundary):
+                patch.object(auth, '_probe_canonical_wos_home', side_effect=synthetic_transport_boundary), \
+                patch.object(auth, 'time', test_time), patch.object(auth, 'wos_authenticated', side_effect=account_proof):
             try:
                 page, authentication = wos.authenticated_page(context, {'status': 'skipped'}, target='FIXTURE-1')
                 result = page._wos_login_evidence
@@ -206,6 +224,10 @@ class CanonicalReturnBrowserTests(unittest.TestCase):
         self.assertEqual(state['initial_profile'], 1)
         self.assertEqual(state['signin'], 1)
         self.assertEqual(state['authorize'], 0)
+        if outcome == 'unauthorized':
+            self.assertEqual(clock['negative_proofs'], 1)
+            self.assertEqual(tuple(state[key] for key in ('posts', 'signin', 'authorize', 'profile', 'homepage')),
+                             clock['counts_at_expiry'])
         self.assertTrue(all(urlparse(url).hostname in {'www.webofscience.com', 'access.clarivate.com', 'orcid.org'}
                             for url in state['requests']))
         return result, state
@@ -247,6 +269,8 @@ class CanonicalReturnBrowserTests(unittest.TestCase):
                 self.assertEqual(state['homepage'], 1)
                 self.assertEqual(state['profile'], 0)
                 self.assertTrue(failure.authentication_evidence['canonical_home_probe_attempted'])
+                self.assertFalse(failure.authentication_evidence['wos_session_confirmed'])
+                self.assertFalse(failure.authentication_evidence['profile_requested'])
 
 
 if __name__ == '__main__':
