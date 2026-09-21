@@ -63,7 +63,6 @@ env:
   BROWSER_SESSION_INPUT_WOS: /opt/portfolio-runner/portfolio-runtime/sessions/wos.json
   BROWSER_SESSION_OUTBOX: /opt/portfolio-runner/session-outbox
   BROWSER_SESSION_REPORT_DIR: /opt/portfolio-runner/session-reports
-  WOS_AUTH_MODE: ${{ inputs.wos_auth_mode || 'restore' }}
 jobs:
   refresh:
     if: ${{ github.repository == 'Arseniy24RUS/personal-website' && github.ref == 'refs/heads/main' }}
@@ -157,6 +156,7 @@ jobs:
       - name: Collect and build candidate through home route
         if: ${{ env.BROWSER_SESSION_MAINTENANCE != '1' }}
         env:
+          WOS_AUTH_MODE: ${{ inputs.wos_auth_mode || 'restore' }}
           HOME_VPN_REQUIRED: '1'
           HOME_VPN_EXPECTED_IP_FILE: /opt/portfolio-runner/portfolio-private/expected-ip
           ELIBRARY_USERNAME: ${{ secrets.ELIBRARY_USERNAME }}
@@ -182,6 +182,7 @@ jobs:
       - name: Maintain browser sessions through home route
         if: ${{ env.BROWSER_SESSION_MAINTENANCE == '1' }}
         env:
+          WOS_AUTH_MODE: ${{ inputs.wos_auth_mode || 'restore' }}
           HOME_VPN_REQUIRED: '1'
           HOME_VPN_EXPECTED_IP_FILE: /opt/portfolio-runner/portfolio-private/expected-ip
           ELIBRARY_USERNAME: ${{ secrets.ELIBRARY_USERNAME }}
