@@ -421,6 +421,26 @@ if (values.get('token') !== 'server-renewed-token') process.exit(2);'''
             self.assertEqual(result['record_fields'], ['title', 'year'])
             self.assertNotIn('private', json.dumps(result))
 
+    def test_session_diagnostics_keep_navigation_codes_without_callback_data(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, destination = Path(directory) / 'source', Path(directory) / 'destination'
+            safe = {'kind': 'request_failed', 'stage': 'orcid_response',
+                    'provider': 'clarivate', 'network_error_code': 'ERR_CONNECTION_RESET'}
+            sessions.private_write(source / 'wos.json', {
+                'status': 'blocked', 'reason': 'login_navigation_failed',
+                'authentication_evidence': {
+                    'stage': 'orcid_response', 'success': True,
+                    'browser_error_page_observed': True, 'navigation_failure_count': 1,
+                    'navigation_failures': [{**safe, 'url': 'https://private.invalid/?SID=secret',
+                        'headers': {'Authorization': 'private-secret'}, 'body': 'private-body'}],
+                }})
+            sessions.export_diagnostics(source, destination)
+            saved = json.loads((destination / 'wos.json').read_text())
+            self.assertEqual(saved['authentication_evidence'], {
+                'stage': 'orcid_response', 'success': True, 'browser_error_page_observed': True,
+                'navigation_failure_count': 1, 'navigation_failures': [safe]})
+            self.assertNotIn('private', json.dumps(saved))
+
 
 if __name__ == '__main__':
     unittest.main()

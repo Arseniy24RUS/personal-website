@@ -331,3 +331,14 @@ The user's existing ORCID SSO session may skip the password form altogether.
 Do not equate that path with a fresh password login without checking which path
 was actually used. Independent collection and post-expiry renewal still need
 live acceptance.
+
+The repeat [35583482415](https://github.com/Arseniy24RUS/personal-website/actions/runs/35583482415)
+again received a successful ORCID sign-in response. It passed the earlier failed
+DOM read, then stopped with `unexpected_login_origin`. Its sanitized browser
+diagnostic identified `chromewebdata`, Chromium's own navigation-error document,
+not a new identity-provider host. Do not add that internal document to permitted
+login origins or classify this outcome as CAPTCHA. Record only fixed navigation
+error codes, HTTP status and provider category from this attempt's top-level
+document requests; these observations must not contain callback URLs, request
+headers or response bodies. A network failure does not authorize a new login
+attempt or a session checkpoint.
