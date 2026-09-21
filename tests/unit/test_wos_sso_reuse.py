@@ -159,7 +159,7 @@ class SsoBrowserTests(unittest.TestCase):
             onclick="document.getElementById('account').hidden=false;window.accountOpened=true">Fixture Researcher</button>
             <div id="account" role="menu" hidden><button role="menuitem">My Profile</button>'''
         if logout:
-            account += '<button role="menuitem" onclick="window.loggedOut=true">End session</button>'
+            account += '<button role="menuitem" onclick="window.loggedOut=true">Sign out</button>'
         account += '</div>'
         def route(request):
             address = request.request.url

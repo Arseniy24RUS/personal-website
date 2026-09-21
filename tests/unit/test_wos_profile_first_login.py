@@ -41,7 +41,7 @@ class ProfileFirstBrowserTests(unittest.TestCase):
         cls.playwright.stop()
 
     def flow(self, *, challenge_at=None, intro=True, already_authenticated=False, wrong_rid=False,
-             inline_signin=False, cookie_dialog=False):
+             inline_signin=False, cookie_dialog=False, guest_session_menu=False, intro_label='Got it!'):
         context = self.browser.new_context()
         self.addCleanup(context.close)
         state = {'events': [], 'requests': [], 'profile_gets': 0, 'posts': 0,
@@ -50,7 +50,7 @@ class ProfileFirstBrowserTests(unittest.TestCase):
             <div id="menu" hidden><button role="menuitem">Sign out</button></div>
             <script>document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('menu').hidden=true;});</script>'''
         settings = json.dumps({'challengeAt': challenge_at, 'intro': intro, 'target': TARGET,
-                               'inlineSignin': inline_signin})
+                               'inlineSignin': inline_signin, 'guestSessionMenu': guest_session_menu})
         initial = '''<body>
           <header><button onclick="action('signin')">Sign in</button></header>
           <div role="progressbar" id="loading">Loading profile</div><main id="profile" aria-busy="true"></main>
@@ -63,6 +63,8 @@ class ProfileFirstBrowserTests(unittest.TestCase):
           </div><div id="challenge" hidden>Please verify you are human</div>
           <div role="dialog" id="loginDialog" hidden><a href="https://orcid.org/signin">Sign in with ORCID</a>
             <button>Sign in with Clarivate</button></div>
+          <div role="menu" id="guestMenu" hidden><a role="menuitem" href="https://access.clarivate.com/login">Sign In</a>
+            <button role="menuitem" onclick="action('end_session')">End session</button></div>
           <script>
             const settings=SETTINGS;
             function challenge(phase){if(settings.challengeAt===phase)document.getElementById('challenge').hidden=false;}
@@ -71,7 +73,8 @@ class ProfileFirstBrowserTests(unittest.TestCase):
               if(name==='got_it'){document.getElementById('intro').hidden=true;challenge('after_intro');}
               if(name==='accept'||name==='reject'){document.getElementById('onetrust-banner-sdk').hidden=true;challenge('after_cookie');}
               if(name==='signin'){
-                if(settings.inlineSignin)document.getElementById('loginDialog').hidden=false;
+                if(settings.guestSessionMenu)document.getElementById('guestMenu').hidden=false;
+                else if(settings.inlineSignin)document.getElementById('loginDialog').hidden=false;
                 else location.href='https://access.clarivate.com/login';
               }
             }
@@ -82,7 +85,7 @@ class ProfileFirstBrowserTests(unittest.TestCase):
               document.getElementById('intro').hidden=!settings.intro;
               document.getElementById('onetrust-banner-sdk').hidden=false;challenge('before_intro');
             },1500);
-          </script></body>'''.replace('SETTINGS', settings).replace('COOKIE_ROLE', 'role="dialog"' if cookie_dialog else '')
+          </script></body>'''.replace('SETTINGS', settings).replace('COOKIE_ROLE', 'role="dialog"' if cookie_dialog else '').replace('>Got it!</button>', '>' + intro_label + '</button>')
 
         def route(item):
             req = item.request

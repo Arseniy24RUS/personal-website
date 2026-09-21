@@ -591,12 +591,22 @@ def wos_account_names():
 
 
 def wos_logout_visible(page):
-    pattern = re.compile(r'^\s*(?:(?:logout|exit_to_app)\s+)?(?:Sign out|Log out|End session|Выйти|Выход|Завершить сеанс(?: и выйти)?)\s*$', re.I)
+    # Guest WoS menus also expose "End session". Only an explicit sign-out
+    # action is evidence of account authentication, never that bare label.
+    pattern = re.compile(r'^\s*(?:(?:logout|exit_to_app)\s+)?(?:Sign out|Log out|Выйти|Выход|Завершить сеанс и выйти)\s*$', re.I)
     for role in ('button', 'link', 'menuitem'):
         controls = page.get_by_role(role, name=pattern)
         if any(controls.nth(index).is_visible() for index in range(controls.count())):
             return True
-    return bool(visible(page, ['a[href*="signout"]', 'a[href*="logout"]']))
+    bare_session_end = re.compile(r'^\s*(?:(?:logout|exit_to_app)\s+)?(?:End session|Завершить сеанс)\s*$', re.I)
+    links = page.locator('a[href*="signout"], a[href*="logout"]')
+    for index in range(links.count()):
+        link = links.nth(index)
+        if link.is_visible():
+            labels = (link.inner_text(timeout=1000).strip(), (link.get_attribute('aria-label') or '').strip())
+            if not any(bare_session_end.fullmatch(label) for label in labels):
+                return True
+    return False
 
 
 def _is_playwright_timeout(exc):
@@ -651,7 +661,7 @@ def prepare_wos_profile_login(page, evidence, deadline):
         modal_present = _wos_intro_modal_visible(page)
         controls = page.locator(WOS_INTRO_MODAL_SELECTOR + ' :is(button, [role="button"]):not(#onetrust-banner-sdk *)')
         modal_controls = [controls.nth(index) for index in range(controls.count()) if controls.nth(index).is_visible()]
-        acknowledgement = controls.filter(has_text=re.compile(r'^\s*Got it!\s*$', re.I))
+        acknowledgement = controls.filter(has_text=re.compile(r'^\s*Got it!?\s*$', re.I))
         acknowledgements = [acknowledgement.nth(index) for index in range(acknowledgement.count())
                             if acknowledgement.nth(index).is_visible() and acknowledgement.nth(index).is_enabled()]
         if len(modal_controls) == len(acknowledgements) == 1:
@@ -901,6 +911,7 @@ WOS_LOGIN_BOOLEAN_FIELDS = WOS_LOGIN_PROGRESS_FLAGS | frozenset({
     'browser_error_page_observed',
     'account_click_timed_out', 'cookie_banner_observed', 'cookie_banner_dismissed',
     'canonical_home_probe_attempted', 'canonical_home_probe_loaded',
+    'initial_profile_retry_attempted', 'initial_profile_retry_loaded',
 })
 WOS_LOGIN_RESPONSE_REASONS = frozenset({
     'mfa_required', 'account_reactivation_required', 'account_claim_required',
@@ -1066,7 +1077,8 @@ class _WosLoginNavigationObserver:
                 code = _network_error_code(request.failure)
             except Exception:
                 code = 'unknown'
-            self.last_document_failure = {'page': self.owned_page(request), 'provider': provider, 'code': code}
+            self.last_document_failure = {'page': self.owned_page(request), 'provider': provider, 'code': code,
+                                          'stage': self.evidence.get('stage')}
             _record_navigation_failure(self.evidence, 'request_failed', provider, code=code)
 
     def response(self, response):
@@ -1092,6 +1104,45 @@ class _WosLoginNavigationObserver:
                 self.context.remove_listener(event, callback)
             except Exception:
                 pass
+
+
+def _retry_initial_wos_profile(page, profile_url, failure, evidence, navigation, deadline, *, initial_page):
+    """Repeat only the failed initial canonical GET, before any login/UI action."""
+    if (failure.reason != 'login_navigation_failed' or page is None or page is not initial_page
+            or page.url != 'chrome-error://chromewebdata/' or navigation is None
+            or navigation.authorization_denied or evidence.get('stage') != 'initial_profile'
+            or evidence.get('initial_profile_requested') is not True
+            or evidence.get('initial_profile_retry_attempted') or time.monotonic() >= deadline):
+        return False
+    acted = ('signin_clicked', 'orcid_selected', 'orcid_page_observed', 'orcid_form_observed',
+             'submit_clicked', 'orcid_consent_clicked', 'response_observed', 'onboarding_acknowledged',
+             'consent_accepted', 'cookie_banner_dismissed', 'wos_return_observed',
+             'wos_session_confirmed', 'profile_requested', 'canonical_home_probe_attempted')
+    if any(evidence.get(field) for field in acted):
+        return False
+    try:
+        address = urlparse(profile_url)
+        canonical = 'https://www.webofscience.com' + address.path
+        if (profile_url != canonical
+                or not re.fullmatch(r'/wos/author/record/[A-Za-z0-9-]+', address.path)):
+            return False
+    except (TypeError, ValueError):
+        return False
+    events = (failure.authentication_evidence or {}).get('navigation_failures', [])
+    browser_error = events[-1] if events else {}
+    last = navigation.last_document_failure or {}
+    if (browser_error.get('kind') != 'browser_error'
+            or browser_error.get('network_error_code') != 'ERR_INVALID_REDIRECT'
+            or last.get('page') is not page or last.get('provider') != 'clarivate'
+            or last.get('code') != 'ERR_INVALID_REDIRECT' or last.get('stage') != 'initial_profile'):
+        return False
+    remaining = deadline - time.monotonic()
+    if remaining <= 0:
+        return False
+    evidence['initial_profile_retry_attempted'] = True
+    _goto_wos_login(page, canonical, evidence, wait_until='domcontentloaded', timeout=min(90000, remaining * 1000))
+    evidence['initial_profile_retry_loaded'] = True
+    return True
 
 
 def _probe_canonical_wos_home(page, failure, evidence, navigation, auth_responses, deadline):
@@ -1158,9 +1209,14 @@ def _login_wos(context, profile_url, timeout, evidence, *, navigation=None):
         raise AuthFailure('username_configuration_invalid')
     existing_pages = tuple(context.pages)
     page = context.new_page()
+    initial_page = page
     deadline = time.monotonic() + timeout
     evidence.update(stage='initial_profile', initial_profile_requested=True)
-    _goto_wos_login(page, profile_url, evidence, wait_until='domcontentloaded', timeout=min(90000, timeout * 1000))
+    try:
+        _goto_wos_login(page, profile_url, evidence, wait_until='domcontentloaded', timeout=min(90000, timeout * 1000))
+    except AuthFailure as failure:
+        if not _retry_initial_wos_profile(page, profile_url, failure, evidence, navigation, deadline, initial_page=initial_page):
+            raise
     evidence['initial_profile_loaded'] = True
     submitted = False
     selected_signin = False
@@ -1192,6 +1248,8 @@ def _login_wos(context, profile_url, timeout, evidence, *, navigation=None):
         except AuthFailure as failure:
             pages = [current for current in context.pages if current not in existing_pages and not current.is_closed()]
             current = pages[-1] if pages else None
+            if _retry_initial_wos_profile(current, profile_url, failure, evidence, navigation, deadline, initial_page=initial_page):
+                return _wos_login_page(context, existing_pages, evidence)
             if _probe_canonical_wos_home(current, failure, evidence, navigation, auth_responses, deadline):
                 return _wos_login_page(context, existing_pages, evidence)
             raise
