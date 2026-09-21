@@ -372,12 +372,15 @@ class EntryAndPrivacyTests(unittest.TestCase):
         self.assertEqual(mode['options'], ['restore', 'fresh_orcid'])
         self.assertEqual(mode['default'], 'restore')
         self.assertEqual(triggers['workflow_call']['inputs']['wos_auth_mode']['default'], 'restore')
-        self.assertEqual(workflow['env']['WOS_AUTH_MODE'], "${{ inputs.wos_auth_mode || 'restore' }}")
+        self.assertNotIn('WOS_AUTH_MODE', workflow['env'])
         for step in workflow['jobs']['refresh']['steps']:
             if step.get('name') in {'Collect and build candidate through home route', 'Maintain browser sessions through home route'}:
+                self.assertEqual(step['env']['WOS_AUTH_MODE'], "${{ inputs.wos_auth_mode || 'restore' }}")
                 preserve = re.search(r'sudo --preserve-env=([^\s]+)', step['run'])
                 self.assertIsNotNone(preserve)
                 self.assertIn('WOS_AUTH_MODE', preserve.group(1).split(','))
+            else:
+                self.assertNotIn('WOS_AUTH_MODE', step.get('env', {}))
 
 
 if __name__ == '__main__':
