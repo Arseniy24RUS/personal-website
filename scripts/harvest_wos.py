@@ -306,7 +306,9 @@ def dispatch(root):
 
 
 def main():
-    if os.environ.get('BROWSER_SESSION_MAINTENANCE') == '1' or not api_configured():
+    if (os.environ.get('BROWSER_SESSION_MAINTENANCE') == '1'
+            or os.environ.get('WOS_AUTH_MODE', 'restore') != 'restore'
+            or not api_configured()):
         return browser_only()
     report = dispatch(Path.cwd())
     print('WoS: ' + report['status'] + '; official API/browser component observations preserved.')

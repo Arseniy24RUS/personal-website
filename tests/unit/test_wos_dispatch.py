@@ -2,6 +2,7 @@
 import copy
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -327,6 +328,15 @@ class EntryAndPrivacyTests(unittest.TestCase):
             process.side_effect = subprocess.TimeoutExpired('synthetic-private-value', 1)
             self.assertEqual(dispatcher.run_transport('api', Path('.')), (124, 'transport_timeout'))
 
+    def test_explicit_login_trial_and_invalid_mode_cannot_use_api_instead(self):
+        for mode in ('fresh_orcid', 'invalid'):
+            with self.subTest(mode=mode), patch.dict(os.environ, {'WOS_AUTH_MODE': mode, 'WOS_RESEARCHER_API_KEY': 'configured'}, clear=True), \
+                    patch.object(dispatcher, 'browser_only', return_value=2) as browser, \
+                    patch.object(dispatcher, 'dispatch') as api:
+                self.assertEqual(dispatcher.main(), 2)
+                browser.assert_called_once_with()
+                api.assert_not_called()
+
     def test_metadata_drops_unrecognized_strings_urls_and_malformed_counts(self):
         report, payload = observation(extra={'api_provider': 'starter', 'api_attempts': [
             {'endpoint': 'documents', 'http_status': 401, 'url': 'https://private.invalid/key', 'token': 'secret'},
@@ -353,6 +363,21 @@ class EntryAndPrivacyTests(unittest.TestCase):
             self.assertNotIn(name, maintenance.get('env', {}))
             self.assertNotIn(name, maintenance['run'])
         self.assertEqual(next(item[1] for item in pipeline.SOURCES if item[0] == 'wos'), 'harvest_wos.py')
+
+    def test_workflow_carries_explicit_login_mode_across_vpn_user_boundary(self):
+        import yaml
+        workflow = yaml.safe_load((REPO / '.github/workflows/refresh-data.yml').read_text())
+        triggers = workflow.get('on', workflow.get(True))
+        mode = triggers['workflow_dispatch']['inputs']['wos_auth_mode']
+        self.assertEqual(mode['options'], ['restore', 'fresh_orcid'])
+        self.assertEqual(mode['default'], 'restore')
+        self.assertEqual(triggers['workflow_call']['inputs']['wos_auth_mode']['default'], 'restore')
+        self.assertEqual(workflow['env']['WOS_AUTH_MODE'], "${{ inputs.wos_auth_mode || 'restore' }}")
+        for step in workflow['jobs']['refresh']['steps']:
+            if step.get('name') in {'Collect and build candidate through home route', 'Maintain browser sessions through home route'}:
+                preserve = re.search(r'sudo --preserve-env=([^\s]+)', step['run'])
+                self.assertIsNotNone(preserve)
+                self.assertIn('WOS_AUTH_MODE', preserve.group(1).split(','))
 
 
 if __name__ == '__main__':

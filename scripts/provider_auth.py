@@ -667,18 +667,62 @@ def _wait_wos_login_navigation(page, deadline):
                 raise
 
 
+WOS_LOGIN_STAGES = frozenset({
+    'initialization', 'credentials', 'homepage', 'signin', 'orcid_selection',
+    'orcid_page', 'orcid_form', 'orcid_submit', 'orcid_response', 'orcid_consent',
+    'wos_return', 'profile_navigation', 'complete',
+})
+WOS_LOGIN_PROGRESS_FLAGS = frozenset({
+    'homepage_requested', 'homepage_loaded', 'signin_clicked', 'clarivate_observed',
+    'orcid_selected', 'orcid_page_observed', 'orcid_form_observed', 'submit_clicked',
+    'orcid_consent_clicked', 'wos_return_observed', 'wos_session_confirmed',
+    'profile_requested', 'profile_loaded', 'input_matches_configured',
+})
+WOS_LOGIN_BOOLEAN_FIELDS = WOS_LOGIN_PROGRESS_FLAGS | frozenset({
+    'username_format_valid', 'username_normalized', 'response_observed', 'success',
+    'verificationCodeRequired', 'disabled', 'unclaimed', 'deprecated', 'invalidUserType',
+})
+WOS_LOGIN_RESPONSE_REASONS = frozenset({
+    'mfa_required', 'account_reactivation_required', 'account_claim_required',
+    'account_deprecated', 'account_type_unsupported', 'orcid_signin_rejected',
+    'orcid_auth_response_unrecognized',
+})
+
+
+def safe_wos_login_evidence(value):
+    """Keep fixed progress and existing ORCID status evidence, never body/URLs."""
+    if not isinstance(value, dict):
+        return {}
+    result = {key: value[key] for key in WOS_LOGIN_BOOLEAN_FIELDS if type(value.get(key)) is bool}
+    stage = value.get('stage')
+    if isinstance(stage, str) and stage in WOS_LOGIN_STAGES:
+        result['stage'] = stage
+    status = value.get('http_status')
+    if type(status) is int and 100 <= status <= 599:
+        result['http_status'] = status
+    reason = value.get('reason')
+    if isinstance(reason, str) and (reason in WOS_LOGIN_RESPONSE_REASONS or re.fullmatch(r'orcid_auth_http_[1-5][0-9]{2}', reason)):
+        result['reason'] = reason
+    return result
+
+
 @diagnostic_login
 def login_wos(context, profile_url, timeout=180):
-    evidence = {'submit_clicked': False, 'input_matches_configured': False}
+    evidence = {key: False for key in WOS_LOGIN_PROGRESS_FLAGS}
+    evidence['stage'] = 'initialization'
     try:
-        return _login_wos(context, profile_url, timeout, evidence)
+        page = _login_wos(context, profile_url, timeout, evidence)
+        evidence['stage'] = 'complete'
+        page._wos_login_evidence = safe_wos_login_evidence(evidence)
+        return page
     except Exception as exc:
         failure = exc if isinstance(exc, AuthFailure) else AuthFailure(type(exc).__name__)
-        failure.authentication_evidence = {**evidence, **(failure.authentication_evidence or {})}
+        failure.authentication_evidence = safe_wos_login_evidence({**safe_wos_login_evidence(failure.authentication_evidence), **evidence})
         raise failure from None
 
 
 def _login_wos(context, profile_url, timeout, evidence):
+    evidence['stage'] = 'credentials'
     configured_username = os.environ.get('WOS_ORCID_USERNAME', '')
     username = normalize_orcid_username(configured_username)
     password = os.environ.get('WOS_ORCID_PASSWORD', '')
@@ -690,7 +734,9 @@ def _login_wos(context, profile_url, timeout, evidence):
         raise AuthFailure('username_configuration_invalid')
     existing_pages = tuple(context.pages)
     page = context.new_page()
+    evidence.update(stage='homepage', homepage_requested=True)
     page.goto('https://www.webofscience.com/', wait_until='domcontentloaded', timeout=90000)
+    evidence['homepage_loaded'] = True
     deadline = time.monotonic() + timeout
     submitted = False
     selected_signin = False
@@ -706,7 +752,9 @@ def _login_wos(context, profile_url, timeout, evidence):
                 payload = response.json()
             except Exception:
                 payload = None
-            auth_responses.append(orcid_auth_response_evidence(response.status, payload))
+            observed = orcid_auth_response_evidence(response.status, payload)
+            auth_responses.append(observed)
+            evidence.update(observed)
         except Exception:
             pass
 
@@ -722,6 +770,13 @@ def _login_wos(context, profile_url, timeout, evidence):
             break
         if page.url == 'about:blank':
             continue
+        observed_host = urlparse(page.url).hostname or ''
+        if provider_host(observed_host, 'orcid.org'):
+            evidence.update(stage='orcid_response' if submitted else 'orcid_page', orcid_page_observed=True)
+        elif provider_host(observed_host, 'clarivate.com'):
+            evidence.update(stage='signin', clarivate_observed=True)
+        elif provider_host(observed_host, 'webofscience.com') and evidence.get('orcid_page_observed'):
+            evidence.update(stage='wos_return', wos_return_observed=True)
         if auth_responses and auth_responses[-1].get('reason'):
             reason = auth_responses[-1]['reason']
             if reason == 'orcid_signin_rejected':
@@ -747,6 +802,7 @@ def _login_wos(context, profile_url, timeout, evidence):
             user = visible(page, ['#username-input', '#userId', 'input[name="username"]', 'input[name="userId"]', 'input[autocomplete="username"]', 'input[type="email"]'])
             secret = visible(page, ['#password', 'input[type="password"]'])
             if user is not None and secret is not None and not submitted:
+                evidence.update(stage='orcid_form', orcid_form_observed=True)
                 user.fill(username)
                 secret.fill(password)
                 evidence['input_matches_configured'] = user.input_value() == username
@@ -758,6 +814,7 @@ def _login_wos(context, profile_url, timeout, evidence):
                 if consent is not None:
                     consent.click()
                 submit = visible(page, ['button#signin-button[type="submit"]'])
+                evidence['stage'] = 'orcid_submit'
                 if submit is not None:
                     submit.click(timeout=15000)
                 elif not click_named(page, r'^Sign in(?: to ORCID)?$|^Войти(?: в ORCID)?$'):
@@ -766,18 +823,27 @@ def _login_wos(context, profile_url, timeout, evidence):
                 evidence['submit_clicked'] = True
                 continue
             # The authorization page is the standard ORCID OAuth consent for WoS.
+            if submitted or selected_orcid:
+                evidence['stage'] = 'orcid_consent'
             if (submitted or selected_orcid) and click_named(page, r'^Authorize(?: access)?$|^Разрешить доступ$'):
+                evidence['orcid_consent_clicked'] = True
                 continue
         elif provider_host(host, 'webofscience.com') and wos_authenticated(page):
+            evidence.update(stage='profile_navigation', wos_session_confirmed=True, profile_requested=True)
             page.goto(profile_url, wait_until='domcontentloaded', timeout=90000)
+            evidence['profile_loaded'] = True
             return page
         elif not selected_signin:
+            evidence['stage'] = 'signin'
             if click_named(page, r'^Sign in$|^Sign in.*Web of Science|^Войти$'):
                 selected_signin = True
+                evidence['signin_clicked'] = True
                 continue
         if selected_signin and not selected_orcid:
+            evidence['stage'] = 'orcid_selection'
             if choose_orcid_signin(page, host):
                 selected_orcid = True
+                evidence['orcid_selected'] = True
             else:
                 # The actual submenu is an <a> without href in the current WoS
                 # DOM, so its implicit accessibility role is not necessarily link.
