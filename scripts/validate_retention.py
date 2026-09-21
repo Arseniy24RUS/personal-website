@@ -18,6 +18,7 @@ DATASETS = {
     'data/risi/articles.json': 'risi',
     'data/diplomas/gallery.json': 'gallery',
     'data/dpo/gallery.json': 'gallery',
+    'data/it/resources.json': 'it',
 }
 PROTECTED = {
     'title', 'title_ru', 'title_en', 'venue', 'venue_ru', 'venue_en',
@@ -81,6 +82,25 @@ def local_assets(value):
 
 def compare_records(before, after, kind):
     """One-to-one matching deliberately preserves separately published duplicates."""
+    if kind == 'it':
+        issues = []
+        positions = []
+        for index, old in enumerate(before):
+            matches = [i for i, row in enumerate(after) if row.get('id') == old.get('id')]
+            if len(matches) != 1:
+                issues.append({'code': 'record_removed' if not matches else 'duplicate_identity',
+                               'index': index, 'id': old.get('id')})
+                continue
+            position = matches[0]
+            positions.append(position)
+            # Entire objects, including empty fields, tags and future metadata,
+            # are immutable once a resource has been published.
+            if old != after[position]:
+                issues.append({'code': 'published_it_card_changed', 'index': index,
+                               'id': old.get('id')})
+        if positions != sorted(positions):
+            issues.append({'code': 'published_it_order_changed'})
+        return issues
     issues = []
     available = set(range(len(after)))
     after_tokens = [identity_tokens(row) for row in after]
@@ -163,13 +183,15 @@ def working_blob_hashes(root, paths):
     return dict(zip(paths, hashes))
 
 
-def validate(root: Path, baseline_ref: str):
+def validate(root: Path, baseline_ref: str, scope='portfolio'):
     commit = git_output(root, 'rev-parse', '--verify', baseline_ref + '^{commit}').decode().strip()
     blobs = baseline_blobs(root, commit)
     baseline_files = set(blobs)
     issues = []
     checked = {}
     for path, kind in DATASETS.items():
+        if scope == 'it' and kind != 'it':
+            continue
         if path not in baseline_files:
             continue
         try:
@@ -179,13 +201,17 @@ def validate(root: Path, baseline_ref: str):
             after = records(after_payload)
             checked[path] = {'before': len(before), 'after': len(after)}
             issues.extend({'path': path, **issue} for issue in compare_records(before, after, kind))
+            if kind == 'it' and before_payload.get('featured_ids'):
+                if before_payload['featured_ids'] != after_payload.get('featured_ids'):
+                    issues.append({'path': path, 'code': 'published_it_featured_order_changed'})
             for asset in local_assets(before_payload):
                 if asset in baseline_files and not (root / asset).is_file():
                     issues.append({'path': path, 'code': 'referenced_asset_missing', 'asset': asset})
         except (ValueError, OSError, subprocess.CalledProcessError) as exc:
             issues.append({'path': path, 'code': 'invalid_or_missing_dataset', 'error': str(exc)})
     # A baseline asset must survive even when it has no current card reference.
-    assets = sorted(path for path in baseline_files if path.startswith(('assets/', 'data/risi/articles/', 'content/risi/')))
+    prefixes = ('assets/it/',) if scope == 'it' else ('assets/', 'data/risi/articles/', 'content/risi/')
+    assets = sorted(path for path in baseline_files if path.startswith(prefixes))
     available_assets = []
     for path in assets:
         if not (root / path).is_file():
@@ -211,9 +237,10 @@ def main(argv=None):
     parser.add_argument('--baseline-ref', required=True)
     parser.add_argument('--root', type=Path, default=Path('.'))
     parser.add_argument('--report', type=Path)
+    parser.add_argument('--scope', choices=['portfolio', 'it'], default='portfolio')
     args = parser.parse_args(argv)
     try:
-        result = validate(args.root, args.baseline_ref)
+        result = validate(args.root, args.baseline_ref, args.scope)
     except subprocess.CalledProcessError:
         result = {'status': 'error', 'issues': [{'code': 'baseline_unavailable'}]}
     output = json.dumps(result, ensure_ascii=False, indent=2)

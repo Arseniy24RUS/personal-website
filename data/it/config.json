@@ -1,0 +1,198 @@
+{
+  "schema": "it-config/v1",
+  "owner": "Arseniy24RUS",
+  "excluded_repo_ids": [
+    1259200876,
+    1147256183
+  ],
+  "featured_ids": [
+    "digital-demographic-observatory",
+    "github-1298698239"
+  ],
+  "repositories": {
+    "1111091278": {
+      "resource_id": "bayes-correlations-of-russia",
+      "site_url": "https://arseniy24rus.github.io/Bayes-correlations-of-Russia/",
+      "title_ru": "Байесовские корреляции социально-экономических и демографических показателей субъектов РФ",
+      "title_en": "Bayesian correlations of socio-economic and demographic indicators of Russian regions",
+      "description_ru": "Инструмент для исследования взаимосвязей между региональными социально-экономическими и демографическими показателями на уровне субъектов Российской Федерации.",
+      "description_en": "Tool for exploring relationships between regional socio-economic and demographic indicators across Russian federal subjects."
+    },
+    "1373630429": {
+      "resource_id": "github-1373630429",
+      "site_url": "https://arseniy24rus.github.io/campus-management-lab/",
+      "title_ru": "Лаборатория управления университетской инфраструктурой",
+      "title_en": "Campus Management Lab",
+      "description_ru": "Учебный кейс об управлении развитием университетской инфраструктуры на основе исследования Д. В. Филиппова. Поэтапный маршрут связывает модельные расчёты, календарь программы и сравнение управленческих альтернатив.",
+      "description_en": "An educational case on university infrastructure development based on D. V. Filippov’s research. A guided decision path connects model calculations, a programme calendar and comparisons of management alternatives."
+    },
+    "1099211944": {
+      "resource_id": "career-guidance-for-civil-servants",
+      "site_url": "https://arseniy24rus.github.io/career-guidance-for-civil-servants/",
+      "title_ru": "Профориентационный тест для государственных служащих",
+      "title_en": "Career guidance test for civil servants",
+      "description_ru": "Учебный онлайн-тест для ориентации студентов направления «Государственное и муниципальное управление» в системе федеральных органов исполнительной власти.",
+      "description_en": "Educational online test for orienting public administration students within the system of federal executive bodies."
+    },
+    "1378551868": {
+      "resource_id": "github-1378551868",
+      "site_url": "https://arseniy24rus.github.io/family/",
+      "title_ru": "Исследовательская платформа «Семья»",
+      "title_en": "Family Research Platform",
+      "description_ru": "Демографические данные и исследовательские материалы экспертизы национального проекта «Семья». Платформа объединяет обозреватель статистики, региональные сравнения и сценарные расчёты рождаемости и численности населения.",
+      "description_en": "Demographic data and research materials supporting the assessment of Russia’s Family national project. The platform combines a statistics explorer, regional comparisons and scenario calculations for fertility and population."
+    },
+    "1304959008": {
+      "resource_id": "github-1304959008",
+      "site_url": "https://arseniy24rus.github.io/family-support/",
+      "title_ru": "Каталог мер поддержки семей",
+      "title_en": "Family Support Catalog",
+      "description_ru": "Навигатор по федеральным и региональным мерам поддержки семей с детьми. Поиск по жизненной ситуации помогает подобрать подходящие карточки и проверить условия в официальных источниках.",
+      "description_en": "A guide to federal and regional support measures for families with children. Situation-based search helps visitors find relevant measures and check their conditions with official sources."
+    },
+    "1251572796": {
+      "resource_id": "foreign-labor-migration",
+      "site_url": "https://arseniy24rus.github.io/Foreign-labor-migration/",
+      "title_ru": "Потребность в трудовых ресурсах по отраслям и регионам России",
+      "title_en": "Labour demand by industries and regions of Russia",
+      "description_ru": "Научно-презентационный дашборд для анализа рекомендуемой годовой квоты, дефицита трудовых ресурсов и отраслево-региональных различий потребности в кадрах.",
+      "description_en": "Research presentation dashboard for analysing recommended annual quotas, labour shortages and regional-industry labour demand."
+    },
+    "1298431308": {
+      "resource_id": "github-1298431308",
+      "site_url": "https://arseniy24rus.github.io/GeoTalent-alpha-dashboard/",
+      "title_ru": "GeoTalent — геоаналитика STEM-кадров",
+      "title_en": "GeoTalent — STEM Labour Observatory",
+      "description_ru": "Карта и аналитические панели для изучения спроса на STEM-кадры, занятости и компаний. Фильтры, профили территорий и обозреватель данных помогают сопоставлять региональные рынки труда.",
+      "description_en": "Maps and analytical views for exploring STEM labour demand, employment and companies. Filters, territory profiles and a data explorer support comparisons of regional labour markets."
+    },
+    "1298698239": {
+      "resource_id": "github-1298698239",
+      "site_url": "https://gir.digitaldemography.ru/",
+      "title_ru": "GIR — Глобальный рейтинг индексов",
+      "title_en": "GIR — Global Index Research Platform",
+      "description_ru": "Исследовательская платформа для сравнения стран по международным индексам и показателям. Профили стран, сопоставления и обозреватель исходных данных помогают изучать человеческий капитал, институты, технологии и развитие.",
+      "description_en": "Research platform for comparing countries through international indices and indicators. Country profiles, comparisons and a data explorer support the study of human capital, institutions, technology and development."
+    },
+    "1107729774": {
+      "resource_id": "government-budget-simulator",
+      "site_url": "https://arseniy24rus.github.io/government-budget-simulator/",
+      "title_ru": "Симулятор деятельности губернатора субъекта Российской Федерации",
+      "title_en": "Governor activity simulator for a Russian federal subject",
+      "description_ru": "Учебный веб-симулятор управления регионом: 20 ходов симуляции, стартовые сценарии, случайные события, 89 управленческих решений, бюджетная модель, KPI, общественная поддержка и таблица лидеров.",
+      "description_en": "Educational web simulator for regional governance: 20 simulation years, scenarios, random events, 89 policy choices, budget model, KPIs, public support and leaderboard."
+    },
+    "1278173502": {
+      "resource_id": "github-1278173502",
+      "site_url": "https://arseniy24rus.github.io/International-educational-migration-to-Russia/",
+      "title_ru": "Международная образовательная миграция в Россию",
+      "title_en": "International Educational Migration to Russia",
+      "description_ru": "Аналитическая платформа об образовательной миграции в Россию: наблюдаемая статистика, демографические рынки, модели и сценарии. Страновые сравнения и конструктор отчёта помогают обсуждать международный набор студентов.",
+      "description_en": "An analytical platform on educational migration to Russia, covering observed statistics, demographic markets, models and scenarios. Country comparisons and a report composer support discussion of international student recruitment."
+    },
+    "1140712503": {
+      "resource_id": "datalens-regional-socioeconomic-dashboard",
+      "site_url": "https://arseniy24rus.github.io/Landing-MGIMO-dashboard/#home",
+      "title_ru": "Дашборд социально-экономических данных субъектов Российской Федерации МГИМО МИД России",
+      "title_en": "MGIMO dashboard of socio-economic data for Russian regions",
+      "description_ru": "Yandex DataLens-дашборд для комплексного просмотра социально-экономических и демографических данных по субъектам Российской Федерации.",
+      "description_en": "Yandex DataLens dashboard for integrated exploration of socio-economic and demographic data for Russian regions."
+    },
+    "1374223469": {
+      "resource_id": "github-1374223469",
+      "site_url": "https://arseniy24rus.github.io/Masterskaya-Resheniy/",
+      "title_ru": "Мастерская решений",
+      "title_en": "Decision Workshop",
+      "description_ru": "Интерактивный курс математики, моделей и принятия решений. Уроки, упражнения и лаборатории ведут от простых количественных задач к прогнозам, сетям, матрицам и работе с неопределённостью.",
+      "description_en": "An interactive course in mathematics, modelling and decision-making. Lessons, exercises and labs lead from basic quantitative tasks to forecasts, networks, matrices and uncertainty."
+    },
+    "1264316233": {
+      "resource_id": "github-1264316233",
+      "site_url": "https://arseniy24rus.github.io/MGIMO-branch-ranker/",
+      "title_ru": "Зарубежные филиалы и привлечение студентов МГИМО",
+      "title_en": "MGIMO Branch Ranking and Student Attraction",
+      "description_ru": "Два дашборда для сравнения стран: потенциальное размещение зарубежных филиалов и привлечение иностранных студентов в МГИМО. Пользователь может менять веса факторов, изучать карты, рейтинги и источники показателей.",
+      "description_en": "Two dashboards compare countries for prospective international branches and student recruitment to MGIMO. Users can adjust factor weights and inspect maps, rankings and indicator sources."
+    },
+    "1298175125": {
+      "resource_id": "github-1298175125",
+      "site_url": "https://arseniy24rus.github.io/MGIMO-STP/",
+      "title_ru": "Стратегические технологические проекты МГИМО",
+      "title_en": "MGIMO Strategic Technological Projects",
+      "description_ru": "Двуязычный сайт проектного портфеля МГИМО с направлениями работы, командами и возможностями сотрудничества. Отдельные страницы раскрывают содержание стратегических технологических проектов.",
+      "description_en": "A bilingual site presenting MGIMO’s project portfolio, workstreams, teams and cooperation opportunities. Dedicated pages describe the university’s strategic technological projects."
+    },
+    "1360135164": {
+      "resource_id": "github-1360135164",
+      "site_url": "https://arseniy24rus.github.io/OmniTwin-demo/",
+      "title_ru": "OmniTwin — демографический демонстратор",
+      "title_en": "OmniTwin — Demographic Demo",
+      "description_ru": "Демонстрационный интерфейс с картой города, официальной агрегированной статистикой и синтетическими агентами. На примере Челябинска можно исследовать городские показатели и сравнивать иллюстративные сценарии.",
+      "description_en": "A demonstration interface combining a city map, official aggregate statistics and synthetic agents. The Chelyabinsk example lets visitors explore city indicators and compare illustrative scenarios."
+    },
+    "1268765563": {
+      "resource_id": "github-1268765563",
+      "site_url": "https://baigutlin.ru/",
+      "title_ru": "Научный сайт Данила Байгутлина",
+      "title_en": "Danil Baigutlin’s Academic Website",
+      "description_ru": "Двуязычный персональный сайт исследователя физики конденсированного состояния и вычислительного материаловедения Данила Байгутлина. Представлены научный профиль, публикации, преподавание, проекты и исследовательские ИТ-ресурсы.",
+      "description_en": "A bilingual personal website for condensed-matter physics and computational materials researcher Danil Baigutlin. It presents his academic profile, publications, teaching, projects and research software."
+    },
+    "1107735935": {
+      "resource_id": "population-forecast-dashboard-russia-2100",
+      "site_url": "https://arseniy24rus.github.io/Population-Forecast-Dashboard-of-Russia-2100/",
+      "title_ru": "Прогноз численности населения субъектов Российской Федерации до 2100 года",
+      "title_en": "Population forecast dashboard for Russian regions to 2100",
+      "description_ru": "Дашборд долгосрочного демографического прогноза по субъектам РФ с визуализацией региональной динамики населения до конца XXI века.",
+      "description_en": "Dashboard of long-term demographic forecasts for Russian regions, visualising regional population dynamics up to 2100."
+    },
+    "1355867454": {
+      "resource_id": "github-1355867454",
+      "site_url": "https://arseniy24rus.github.io/RUDN/",
+      "title_ru": "Учебная платформа РУДН: государственное и муниципальное управление",
+      "title_en": "RUDN Public Administration Learning Platform",
+      "description_ru": "Платформа курса «Введение в специальность: государственное и муниципальное управление». Материалы, формирующие тесты и интерактивные задания объединены в последовательный учебный маршрут.",
+      "description_en": "A course platform introducing state and municipal administration. Learning materials, formative tests and interactive exercises are organized into a guided course path."
+    },
+    "1061217246": {
+      "resource_id": "russia-regions-puzzle",
+      "site_url": "https://clck.ru/3PL9C2",
+      "title_ru": "Онлайн-пазл «Карта субъектов Российской Федерации»",
+      "title_en": "Online puzzle: Map of Russian federal subjects",
+      "description_ru": "Учебный онлайн-пазл для студентов: сборка карты России из 89 субъектов, три уровня сложности, работа на ПК и телефонах, таблица лидеров и выгрузка результатов в CSV.",
+      "description_en": "Educational online puzzle for students: assemble the map of Russia from 89 federal subjects, three difficulty levels, desktop/mobile support, leaderboard and CSV export."
+    },
+    "1169588909": {
+      "resource_id": "settlements-projection-dashboard",
+      "site_url": "https://arseniy24rus.github.io/Settlements-projection-dashboard/",
+      "title_ru": "Населённые пункты России: прогноз численности и половозрастного состава населения",
+      "title_en": "Russian settlements: population and age-sex composition forecast",
+      "description_ru": "Интерактивный ГИС-дашборд для анализа и визуализации прогноза численности населения и половозрастной структуры населённых пунктов России.",
+      "description_en": "Interactive GIS dashboard for analysing and visualising population and age-sex structure forecasts for Russian settlements."
+    },
+    "1265210805": {
+      "resource_id": "github-1265210805",
+      "site_url": "https://arseniy24rus.github.io/SMU-FNISC-platform/",
+      "title_ru": "Платформа Совета молодых учёных ФНИСЦ РАН",
+      "title_en": "FNISC RAS Young Scientists Council Platform",
+      "description_ru": "Публичный портал Совета молодых учёных: участники, публикации, упоминания в СМИ, карьерные карты и меры поддержки. Поиск и фильтры помогают ориентироваться в научной работе и возможностях участников.",
+      "description_en": "The Young Scientists Council’s public portal brings together members, publications, media mentions, career maps and support opportunities. Search and filters help visitors explore members’ research and academic opportunities."
+    },
+    "1287603708": {
+      "resource_id": "github-1287603708",
+      "site_url": "https://arseniy24rus.github.io/TechCoop/",
+      "title_ru": "TechCoop.AI — технологическая кооперация",
+      "title_en": "TechCoop.AI — Technology Cooperation Explorer",
+      "description_ru": "Поиск компаний, исследование их профилей и возможных технологических связей. Паспорта, исходные сведения и карта кооперации помогают перейти от компании к проверяемой гипотезе партнёрства.",
+      "description_en": "Search companies, examine their profiles and explore potential technology links. Company passports, source evidence and a cooperation map help turn an initial lead into a partnership hypothesis."
+    },
+    "1268737831": {
+      "resource_id": "github-1268737831",
+      "site_url": "https://arseniy24rus.github.io/Tsargrad-demographic-platform/",
+      "title_ru": "Демографическая платформа «Россия 2050»",
+      "title_en": "Russia 2050 Demographic Platform",
+      "description_ru": "Сценарный инструмент для совместного анализа рождаемости, жилищных условий, расселения, инфраструктуры и семейной поддержки. Карты и расчёты предназначены для экспертного обсуждения вариантов демографической политики до 2050 года.",
+      "description_en": "A scenario tool for examining fertility, housing, settlement patterns, infrastructure and family support together. Maps and calculations support expert discussion of demographic policy options through 2050."
+    }
+  }
+}

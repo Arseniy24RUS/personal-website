@@ -2,18 +2,38 @@
 """Compare deployed public JSON with the validated local publication."""
 import argparse
 import hashlib
+import json
 from pathlib import Path
 import time
 import urllib.request
 
 FILES = ('data/public/profile.json', 'data/public/publications.json', 'data/media/published.json', 'data/media/published-fallback.json')
 
+
+def verification_files(scope='portfolio', root=Path('.')):
+    names = [] if scope == 'it' else list(FILES)
+    catalog = root / 'data/it/resources.json'
+    if catalog.exists():
+        names.append('data/it/resources.json')
+        if scope == 'it':
+            names.extend(('it.html', 'en/it.html', 'assets/it.css', 'assets/it-featured.css'))
+            payload = json.loads(catalog.read_text(encoding='utf-8'))
+            for item in payload.get('items', []):
+                thumb = item.get('thumb', '')
+                if not thumb.startswith('assets/it/thumbs/') or '..' in Path(thumb).parts:
+                    raise ValueError('IT thumbnails must be local portfolio assets.')
+                names.append(thumb)
+    elif scope == 'it':
+        raise ValueError('IT catalog is required for deployed verification.')
+    return list(dict.fromkeys(names))
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--wait', type=int, default=0)
     parser.add_argument('--base-url', default='https://sitkovskiy.ru')
+    parser.add_argument('--scope', choices=['portfolio', 'it'], default='portfolio')
     args = parser.parse_args()
-    expected = {name: hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in FILES}
+    expected = {name: hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in verification_files(args.scope)}
     deadline = time.monotonic() + args.wait
     while True:
         good = []
@@ -26,7 +46,7 @@ def main():
             except Exception:
                 good.append(False)
         if all(good):
-            print('Published profile, publications and both media snapshots match validated output.')
+            print(f'Published {args.scope} files match validated output ({len(expected)} files).')
             return
         if time.monotonic() >= deadline:
             raise SystemExit('Published data does not yet match this validated commit.')
