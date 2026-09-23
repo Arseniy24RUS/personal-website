@@ -34,22 +34,41 @@ for (const language of ['ru', 'en'] as const) {
   });
 }
 
-test('featured cards use whole images and switch layout with the viewport', async ({ page }) => {
+test('featured cards use whole images and the same vertical grid layout as other cards', async ({ page }) => {
   await page.goto('/it.html');
   await expect(page.locator('#it-featured .it-card')).toHaveCount(2);
-  const horizontal = (page.viewportSize()?.width || 0) > 760;
+  const twoColumns = (page.viewportSize()?.width || 0) > 900;
+  const featuredGrid = page.locator('#it-featured');
+  const regularGrid = page.locator('#it-list');
+  const gridColumns = await featuredGrid.evaluate(grid => getComputedStyle(grid).gridTemplateColumns);
+  await expect(regularGrid).toHaveCSS('grid-template-columns', gridColumns);
+  expect(gridColumns.split(' ').length).toBe(twoColumns ? 2 : 1);
+  const regularBox = await regularGrid.locator('.it-card').first().boundingBox();
+  expect(regularBox).not.toBeNull();
   for (const id of featured) {
     const card = page.locator(`[data-resource-id="${id}"]`);
     const image = card.locator('.it-thumb');
     const text = card.locator('.it-body');
+    const cardBox = await card.boundingBox();
     const imageBox = await image.boundingBox();
     const textBox = await text.boundingBox();
-    expect(imageBox).not.toBeNull(); expect(textBox).not.toBeNull();
-    if (horizontal) expect(textBox!.x).toBeGreaterThanOrEqual(imageBox!.x + imageBox!.width - 1);
-    else expect(textBox!.y).toBeGreaterThanOrEqual(imageBox!.y + imageBox!.height - 1);
+    expect(cardBox).not.toBeNull(); expect(imageBox).not.toBeNull(); expect(textBox).not.toBeNull();
+    expect(Math.abs(cardBox!.width - regularBox!.width)).toBeLessThanOrEqual(1);
+    await expect(card).toHaveCSS('flex-direction', 'column');
+    expect(textBox!.y).toBeGreaterThanOrEqual(imageBox!.y + imageBox!.height - 1);
     await expect(card.locator('img')).toHaveCSS('object-fit', 'contain');
     await card.hover();
     await expect(card.locator('img')).toHaveCSS('transform', 'none');
+  }
+  const firstBox = await featuredGrid.locator('.it-card').nth(0).boundingBox();
+  const secondBox = await featuredGrid.locator('.it-card').nth(1).boundingBox();
+  expect(firstBox).not.toBeNull(); expect(secondBox).not.toBeNull();
+  if (twoColumns) {
+    expect(Math.abs(firstBox!.y - secondBox!.y)).toBeLessThanOrEqual(1);
+    expect(secondBox!.x).toBeGreaterThanOrEqual(firstBox!.x + firstBox!.width);
+  } else {
+    expect(Math.abs(firstBox!.x - secondBox!.x)).toBeLessThanOrEqual(1);
+    expect(secondBox!.y).toBeGreaterThanOrEqual(firstBox!.y + firstBox!.height);
   }
   await expect(page.locator('#it-list .it-card--featured')).toHaveCount(0);
   await expect(page.locator('[data-resource-id="settlements-projection-dashboard"] img')).toHaveCSS('object-fit', 'cover');
