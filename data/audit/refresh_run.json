@@ -1,9 +1,14 @@
 {
-  "attempted_at": "2026-09-21T00:10:04+00:00",
-  "base_sha": "b088cabfd6837bc96eaecd4aaf77c5aed1d5b6c5",
+  "attempted_at": "2026-09-28T09:50:06+00:00",
+  "base_sha": "939c4918975b28be9ff6ffb82c3795d894b8a412",
   "state": "ready",
+  "scope": "portfolio",
   "selected_sources": [
+    "elibrary",
+    "media",
+    "open",
+    "scopus",
     "wos"
   ],
-  "completed_at": "2026-09-21T00:11:16+00:00"
+  "completed_at": "2026-09-28T10:06:49+00:00"
 }

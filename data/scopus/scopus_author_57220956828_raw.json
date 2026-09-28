@@ -101,6 +101,43 @@
         },
         {
           "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105026678596",
+          "dc:identifier": "SCOPUS_ID:105026678596",
+          "eid": "2-s2.0-105026678596",
+          "dc:title": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities",
+          "dc:creator": "Rostovskaya T.K.",
+          "prism:publicationName": "Obrazovanie I Nauka",
+          "prism:coverDate": "2026-01-01",
+          "prism:doi": "10.17853/1994-5639-2026-1-33-64",
+          "citedby-count": "0",
+          "prism:aggregationType": "Journal",
+          "subtype": "ar",
+          "subtypeDescription": "Article",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherfullgold"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Gold"
+              }
+            ]
+          }
+        },
+        {
+          "@_fa": "true",
           "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105046947039",
           "dc:identifier": "SCOPUS_ID:105046947039",
           "eid": "2-s2.0-105046947039",
@@ -141,43 +178,6 @@
               },
               {
                 "$": "Green"
-              }
-            ]
-          }
-        },
-        {
-          "@_fa": "true",
-          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105026678596",
-          "dc:identifier": "SCOPUS_ID:105026678596",
-          "eid": "2-s2.0-105026678596",
-          "dc:title": "Comparative content analysis of master’s and doctoral programmes in demography at world-class universities",
-          "dc:creator": "Rostovskaya T.K.",
-          "prism:publicationName": "Obrazovanie I Nauka",
-          "prism:coverDate": "2026-01-01",
-          "prism:doi": "10.17853/1994-5639-2026-1-33-64",
-          "citedby-count": "0",
-          "prism:aggregationType": "Journal",
-          "subtype": "ar",
-          "subtypeDescription": "Article",
-          "openaccess": "1",
-          "openaccessFlag": true,
-          "freetoread": {
-            "value": [
-              {
-                "$": "all"
-              },
-              {
-                "$": "publisherfullgold"
-              }
-            ]
-          },
-          "freetoreadLabel": {
-            "value": [
-              {
-                "$": "All Open Access"
-              },
-              {
-                "$": "Gold"
               }
             ]
           }

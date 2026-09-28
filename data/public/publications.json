@@ -982,7 +982,8 @@
     "sources": [
       "elibrary",
       "orcid_public_api",
-      "crossref_api"
+      "crossref_api",
+      "openalex_api"
     ],
     "open_sources": [
       {
@@ -1223,7 +1224,8 @@
         "put_code": 211318940,
         "sources": [
           "crossref_api",
-          "orcid_public_api"
+          "orcid_public_api",
+          "openalex_api"
         ],
         "provider_records": {
           "orcid_public_api": {
@@ -1540,8 +1542,818 @@
                 ]
               }
             }
+          },
+          "openalex_api": {
+            "source": "openalex_api",
+            "openalex_id": "https://openalex.org/W7153001482",
+            "title": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure",
+            "year": 2026,
+            "doi": "10.22363/2312-8313-2026-13-1-86-95",
+            "url": "https://openalex.org/W7153001482",
+            "landing_page_url": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
+            "pdf_url": null,
+            "venue": "RUDN Journal of Public Administration",
+            "cited_by_count": 0,
+            "is_oa": true,
+            "oa_status": "diamond",
+            "raw": {
+              "id": "https://openalex.org/W7153001482",
+              "doi": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
+              "title": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure",
+              "display_name": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure",
+              "publication_year": 2026,
+              "publication_date": "2026-04-10",
+              "ids": {
+                "openalex": "https://openalex.org/W7153001482",
+                "doi": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95"
+              },
+              "language": "ru",
+              "primary_location": {
+                "id": "doi:10.22363/2312-8313-2026-13-1-86-95",
+                "is_oa": true,
+                "landing_page_url": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
+                "pdf_url": null,
+                "source": {
+                  "id": "https://openalex.org/S4210206045",
+                  "display_name": "RUDN Journal of Public Administration",
+                  "issn_l": "2312-8313",
+                  "issn": [
+                    "2312-8313",
+                    "2411-1228"
+                  ],
+                  "is_oa": true,
+                  "is_in_doaj": true,
+                  "is_core": false,
+                  "listed_in": [
+                    "doaj"
+                  ],
+                  "host_organization": "https://openalex.org/P4310312633",
+                  "host_organization_name": "Peoples' Friendship University of Russia",
+                  "host_organization_lineage": [
+                    "https://openalex.org/P4310312633"
+                  ],
+                  "host_organization_lineage_names": [
+                    "Peoples' Friendship University of Russia"
+                  ],
+                  "type": "journal"
+                },
+                "license": "cc-by-nc",
+                "license_id": "https://openalex.org/licenses/cc-by-nc",
+                "version": "publishedVersion",
+                "is_accepted": true,
+                "is_published": true,
+                "raw_source_name": "RUDN Journal of Public Administration",
+                "raw_type": "journal-article"
+              },
+              "type": "article",
+              "indexed_in": [
+                "crossref",
+                "doaj"
+              ],
+              "open_access": {
+                "is_oa": true,
+                "oa_status": "diamond",
+                "oa_url": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
+                "any_repository_has_fulltext": true
+              },
+              "authorships": [
+                {
+                  "author_position": "first",
+                  "author": {
+                    "id": "https://openalex.org/A5037931939",
+                    "display_name": "Дмитрий Владимирович Накисбаев",
+                    "orcid": "https://orcid.org/0000-0002-0600-7639",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-0600-7639"
+                    ]
+                  },
+                  "institutions": [
+                    {
+                      "id": "https://openalex.org/I126527374",
+                      "display_name": "Peoples' Friendship University of Russia",
+                      "ror": "https://ror.org/02dn9h927",
+                      "country_code": "RU",
+                      "type": "education",
+                      "lineage": [
+                        "https://openalex.org/I126527374"
+                      ]
+                    }
+                  ],
+                  "countries": [
+                    "RU"
+                  ],
+                  "is_corresponding": false,
+                  "raw_author_name": "Dmitry V. Nakisbaev",
+                  "raw_affiliation_strings": [
+                    "RUDN University"
+                  ],
+                  "raw_orcid": "https://orcid.org/0000-0002-0600-7639",
+                  "affiliations": [
+                    {
+                      "raw_affiliation_string": "RUDN University",
+                      "institution_ids": [
+                        "https://openalex.org/I126527374"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "author_position": "last",
+                  "author": {
+                    "id": "https://openalex.org/A5007601767",
+                    "display_name": "Arseniy Sitkovskiy",
+                    "orcid": "https://orcid.org/0000-0002-8725-6580",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-8725-6580"
+                    ]
+                  },
+                  "institutions": [
+                    {
+                      "id": "https://openalex.org/I1313323035",
+                      "display_name": "Russian Academy of Sciences",
+                      "ror": "https://ror.org/05qrfxd25",
+                      "country_code": "RU",
+                      "type": "government",
+                      "lineage": [
+                        "https://openalex.org/I1313323035"
+                      ]
+                    },
+                    {
+                      "id": "https://openalex.org/I4210098167",
+                      "display_name": "Institute of Sociology",
+                      "ror": "https://ror.org/00wfve797",
+                      "country_code": "RU",
+                      "type": "facility",
+                      "lineage": [
+                        "https://openalex.org/I1313323035",
+                        "https://openalex.org/I4210098167",
+                        "https://openalex.org/I4210120228"
+                      ]
+                    }
+                  ],
+                  "countries": [
+                    "RU"
+                  ],
+                  "is_corresponding": false,
+                  "raw_author_name": "Arseniy M. Sitkovskiy",
+                  "raw_affiliation_strings": [
+                    "Federal Research Sociological Center of the Russian Academy of Sciences"
+                  ],
+                  "raw_orcid": "https://orcid.org/0000-0002-8725-6580",
+                  "affiliations": [
+                    {
+                      "raw_affiliation_string": "Federal Research Sociological Center of the Russian Academy of Sciences",
+                      "institution_ids": [
+                        "https://openalex.org/I1313323035",
+                        "https://openalex.org/I4210098167"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "institutions": [],
+              "countries_distinct_count": 1,
+              "institutions_distinct_count": 3,
+              "corresponding_author_ids": [],
+              "corresponding_institution_ids": [],
+              "apc_list": null,
+              "apc_paid": null,
+              "fwci": 0.0,
+              "has_fulltext": false,
+              "cited_by_count": 0,
+              "citation_normalized_percentile": {
+                "value": 0.27915962,
+                "is_in_top_1_percent": false,
+                "is_in_top_10_percent": false
+              },
+              "cited_by_percentile_year": null,
+              "biblio": {
+                "volume": "13",
+                "issue": "1",
+                "first_page": "86",
+                "last_page": "95"
+              },
+              "is_retracted": false,
+              "is_paratext": false,
+              "is_xpac": false,
+              "primary_topic": {
+                "id": "https://openalex.org/T12614",
+                "display_name": "Indigenous Studies and Ecology",
+                "score": 0.2612000107765198,
+                "subfield": {
+                  "id": "https://openalex.org/subfields/3600",
+                  "display_name": "General Health Professions"
+                },
+                "field": {
+                  "id": "https://openalex.org/fields/36",
+                  "display_name": "Health Professions"
+                },
+                "domain": {
+                  "id": "https://openalex.org/domains/4",
+                  "display_name": "Health Sciences"
+                }
+              },
+              "topics": [
+                {
+                  "id": "https://openalex.org/T12614",
+                  "display_name": "Indigenous Studies and Ecology",
+                  "score": 0.2612000107765198,
+                  "subfield": {
+                    "id": "https://openalex.org/subfields/3600",
+                    "display_name": "General Health Professions"
+                  },
+                  "field": {
+                    "id": "https://openalex.org/fields/36",
+                    "display_name": "Health Professions"
+                  },
+                  "domain": {
+                    "id": "https://openalex.org/domains/4",
+                    "display_name": "Health Sciences"
+                  }
+                },
+                {
+                  "id": "https://openalex.org/T13618",
+                  "display_name": "Regional Socio-Economic Development Trends",
+                  "score": 0.18559999763965607,
+                  "subfield": {
+                    "id": "https://openalex.org/subfields/3317",
+                    "display_name": "Demography"
+                  },
+                  "field": {
+                    "id": "https://openalex.org/fields/33",
+                    "display_name": "Social Sciences"
+                  },
+                  "domain": {
+                    "id": "https://openalex.org/domains/2",
+                    "display_name": "Social Sciences"
+                  }
+                },
+                {
+                  "id": "https://openalex.org/T14019",
+                  "display_name": "Socioeconomic and Demographic Analysis",
+                  "score": 0.03779999911785126,
+                  "subfield": {
+                    "id": "https://openalex.org/subfields/2308",
+                    "display_name": "Management, Monitoring, Policy and Law"
+                  },
+                  "field": {
+                    "id": "https://openalex.org/fields/23",
+                    "display_name": "Environmental Science"
+                  },
+                  "domain": {
+                    "id": "https://openalex.org/domains/3",
+                    "display_name": "Physical Sciences"
+                  }
+                }
+              ],
+              "keywords": [
+                {
+                  "id": "https://openalex.org/keywords/typology",
+                  "display_name": "Typology",
+                  "score": 0.8784000277519226
+                },
+                {
+                  "id": "https://openalex.org/keywords/indigenous",
+                  "display_name": "Indigenous",
+                  "score": 0.7120000123977661
+                },
+                {
+                  "id": "https://openalex.org/keywords/cluster",
+                  "display_name": "Cluster (spacecraft)",
+                  "score": 0.690500020980835
+                },
+                {
+                  "id": "https://openalex.org/keywords/age-structure",
+                  "display_name": "Age structure",
+                  "score": 0.5034999847412109
+                },
+                {
+                  "id": "https://openalex.org/keywords/population",
+                  "display_name": "Population",
+                  "score": 0.4950000047683716
+                },
+                {
+                  "id": "https://openalex.org/keywords/psychological-resilience",
+                  "display_name": "Psychological resilience",
+                  "score": 0.4593999981880188
+                },
+                {
+                  "id": "https://openalex.org/keywords/age-groups",
+                  "display_name": "Age groups",
+                  "score": 0.4496000111103058
+                }
+              ],
+              "concepts": [
+                {
+                  "id": "https://openalex.org/C75795011",
+                  "wikidata": "https://www.wikidata.org/wiki/Q917904",
+                  "display_name": "Typology",
+                  "level": 2,
+                  "score": 0.8784000277519226
+                },
+                {
+                  "id": "https://openalex.org/C55958113",
+                  "wikidata": "https://www.wikidata.org/wiki/Q169480",
+                  "display_name": "Indigenous",
+                  "level": 2,
+                  "score": 0.7120000123977661
+                },
+                {
+                  "id": "https://openalex.org/C164866538",
+                  "wikidata": "https://www.wikidata.org/wiki/Q367351",
+                  "display_name": "Cluster (spacecraft)",
+                  "level": 2,
+                  "score": 0.690500020980835
+                },
+                {
+                  "id": "https://openalex.org/C205649164",
+                  "wikidata": "https://www.wikidata.org/wiki/Q1071",
+                  "display_name": "Geography",
+                  "level": 0,
+                  "score": 0.6420000195503235
+                },
+                {
+                  "id": "https://openalex.org/C3018663394",
+                  "wikidata": "https://www.wikidata.org/wiki/Q329823",
+                  "display_name": "Age structure",
+                  "level": 3,
+                  "score": 0.5034999847412109
+                },
+                {
+                  "id": "https://openalex.org/C2908647359",
+                  "wikidata": "https://www.wikidata.org/wiki/Q2625603",
+                  "display_name": "Population",
+                  "level": 2,
+                  "score": 0.4950000047683716
+                },
+                {
+                  "id": "https://openalex.org/C137176749",
+                  "wikidata": "https://www.wikidata.org/wiki/Q4105337",
+                  "display_name": "Psychological resilience",
+                  "level": 2,
+                  "score": 0.4593999981880188
+                },
+                {
+                  "id": "https://openalex.org/C149923435",
+                  "wikidata": "https://www.wikidata.org/wiki/Q37732",
+                  "display_name": "Demography",
+                  "level": 1,
+                  "score": 0.45239999890327454
+                },
+                {
+                  "id": "https://openalex.org/C2986834420",
+                  "wikidata": "https://www.wikidata.org/wiki/Q5932254",
+                  "display_name": "Age groups",
+                  "level": 2,
+                  "score": 0.4496000111103058
+                },
+                {
+                  "id": "https://openalex.org/C61189158",
+                  "wikidata": "https://www.wikidata.org/wiki/Q4157636",
+                  "display_name": "Demographic analysis",
+                  "level": 4,
+                  "score": 0.3555000126361847
+                },
+                {
+                  "id": "https://openalex.org/C45355965",
+                  "wikidata": "https://www.wikidata.org/wiki/Q1643441",
+                  "display_name": "Socioeconomics",
+                  "level": 1,
+                  "score": 0.34610000252723694
+                },
+                {
+                  "id": "https://openalex.org/C2983611323",
+                  "wikidata": "https://www.wikidata.org/wiki/Q7229822",
+                  "display_name": "Population structure",
+                  "level": 3,
+                  "score": 0.3262999951839447
+                },
+                {
+                  "id": "https://openalex.org/C152771951",
+                  "wikidata": "https://www.wikidata.org/wiki/Q5932254",
+                  "display_name": "Demographic profile",
+                  "level": 3,
+                  "score": 0.3197000026702881
+                },
+                {
+                  "id": "https://openalex.org/C2986587452",
+                  "wikidata": "https://www.wikidata.org/wiki/Q938438",
+                  "display_name": "Statistical analysis",
+                  "level": 2,
+                  "score": 0.3183000087738037
+                },
+                {
+                  "id": "https://openalex.org/C26271046",
+                  "wikidata": "https://www.wikidata.org/wiki/Q187097",
+                  "display_name": "Economic geography",
+                  "level": 1,
+                  "score": 0.2770000100135803
+                },
+                {
+                  "id": "https://openalex.org/C143845886",
+                  "wikidata": "https://www.wikidata.org/wiki/Q381763",
+                  "display_name": "Demographic transition",
+                  "level": 4,
+                  "score": 0.27559998631477356
+                },
+                {
+                  "id": "https://openalex.org/C2986043164",
+                  "wikidata": "https://www.wikidata.org/wiki/Q37732",
+                  "display_name": "Demographic change",
+                  "level": 3,
+                  "score": 0.2637999951839447
+                },
+                {
+                  "id": "https://openalex.org/C2549261",
+                  "wikidata": "https://www.wikidata.org/wiki/Q43455",
+                  "display_name": "Ethnology",
+                  "level": 1,
+                  "score": 0.2565999925136566
+                }
+              ],
+              "mesh": [],
+              "locations_count": 2,
+              "locations": [
+                {
+                  "id": "doi:10.22363/2312-8313-2026-13-1-86-95",
+                  "is_oa": true,
+                  "landing_page_url": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
+                  "pdf_url": null,
+                  "source": {
+                    "id": "https://openalex.org/S4210206045",
+                    "display_name": "RUDN Journal of Public Administration",
+                    "issn_l": "2312-8313",
+                    "issn": [
+                      "2312-8313",
+                      "2411-1228"
+                    ],
+                    "is_oa": true,
+                    "is_in_doaj": true,
+                    "is_core": false,
+                    "listed_in": [
+                      "doaj"
+                    ],
+                    "host_organization": "https://openalex.org/P4310312633",
+                    "host_organization_name": "Peoples' Friendship University of Russia",
+                    "host_organization_lineage": [
+                      "https://openalex.org/P4310312633"
+                    ],
+                    "host_organization_lineage_names": [
+                      "Peoples' Friendship University of Russia"
+                    ],
+                    "type": "journal"
+                  },
+                  "license": "cc-by-nc",
+                  "license_id": "https://openalex.org/licenses/cc-by-nc",
+                  "version": "publishedVersion",
+                  "is_accepted": true,
+                  "is_published": true,
+                  "raw_source_name": "RUDN Journal of Public Administration",
+                  "raw_type": "journal-article"
+                },
+                {
+                  "id": "pmh:oai:doaj.org/article:c72d4d7e0d39497d9145bdbb1da572fb",
+                  "is_oa": true,
+                  "landing_page_url": "https://doaj.org/article/c72d4d7e0d39497d9145bdbb1da572fb",
+                  "pdf_url": null,
+                  "source": {
+                    "id": "https://openalex.org/S4306401280",
+                    "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+                    "issn_l": null,
+                    "issn": null,
+                    "is_oa": false,
+                    "is_in_doaj": false,
+                    "is_core": false,
+                    "listed_in": [],
+                    "host_organization": null,
+                    "host_organization_name": null,
+                    "host_organization_lineage": [],
+                    "host_organization_lineage_names": [],
+                    "type": "repository"
+                  },
+                  "license": "cc-by-sa",
+                  "license_id": "https://openalex.org/licenses/cc-by-sa",
+                  "version": "submittedVersion",
+                  "is_accepted": false,
+                  "is_published": false,
+                  "raw_source_name": "RUDN Journal of Public Administration, Vol 13, Iss 1, Pp 86-95 (2026)",
+                  "raw_type": "article"
+                }
+              ],
+              "best_oa_location": {
+                "id": "doi:10.22363/2312-8313-2026-13-1-86-95",
+                "is_oa": true,
+                "landing_page_url": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
+                "pdf_url": null,
+                "source": {
+                  "id": "https://openalex.org/S4210206045",
+                  "display_name": "RUDN Journal of Public Administration",
+                  "issn_l": "2312-8313",
+                  "issn": [
+                    "2312-8313",
+                    "2411-1228"
+                  ],
+                  "is_oa": true,
+                  "is_in_doaj": true,
+                  "is_core": false,
+                  "listed_in": [
+                    "doaj"
+                  ],
+                  "host_organization": "https://openalex.org/P4310312633",
+                  "host_organization_name": "Peoples' Friendship University of Russia",
+                  "host_organization_lineage": [
+                    "https://openalex.org/P4310312633"
+                  ],
+                  "host_organization_lineage_names": [
+                    "Peoples' Friendship University of Russia"
+                  ],
+                  "type": "journal"
+                },
+                "license": "cc-by-nc",
+                "license_id": "https://openalex.org/licenses/cc-by-nc",
+                "version": "publishedVersion",
+                "is_accepted": true,
+                "is_published": true,
+                "raw_source_name": "RUDN Journal of Public Administration",
+                "raw_type": "journal-article"
+              },
+              "sustainable_development_goals": [],
+              "x_sdgs": [],
+              "study_designs": [],
+              "awards": [],
+              "funders": [],
+              "has_content": {
+                "grobid_xml": false,
+                "pdf": false
+              },
+              "content_urls": null,
+              "referenced_works_count": 3,
+              "referenced_works": [
+                "https://openalex.org/W3086907017",
+                "https://openalex.org/W4387785882",
+                "https://openalex.org/W4415774334"
+              ],
+              "related_works": [],
+              "abstract_inverted_index": {
+                "This": [
+                  0
+                ],
+                "study": [
+                  1
+                ],
+                "analyzes": [
+                  2
+                ],
+                "the": [
+                  3,
+                  12,
+                  19,
+                  77,
+                  84
+                ],
+                "age": [
+                  4
+                ],
+                "and": [
+                  5,
+                  26,
+                  55,
+                  65,
+                  83,
+                  90,
+                  95
+                ],
+                "sex": [
+                  6
+                ],
+                "structure": [
+                  7
+                ],
+                "of": [
+                  8,
+                  11,
+                  32,
+                  68,
+                  80,
+                  86
+                ],
+                "indigenous": [
+                  9,
+                  99
+                ],
+                "peoples": [
+                  10,
+                  33,
+                  100
+                ],
+                "Russian": [
+                  13
+                ],
+                "Federation": [
+                  14
+                ],
+                "based": [
+                  15,
+                  34
+                ],
+                "on": [
+                  16,
+                  35
+                ],
+                "data": [
+                  17
+                ],
+                "from": [
+                  18
+                ],
+                "2020": [
+                  20
+                ],
+                "All-Russian": [
+                  21
+                ],
+                "Population": [
+                  22
+                ],
+                "Census.": [
+                  23
+                ],
+                "Using": [
+                  24
+                ],
+                "statistical": [
+                  25
+                ],
+                "cluster": [
+                  27
+                ],
+                "analysis": [
+                  28
+                ],
+                "methods,": [
+                  29
+                ],
+                "typological": [
+                  30
+                ],
+                "groups": [
+                  31,
+                  82
+                ],
+                "similar": [
+                  36
+                ],
+                "demographic": [
+                  37,
+                  44,
+                  78
+                ],
+                "characteristics": [
+                  38
+                ],
+                "are": [
+                  39,
+                  46,
+                  71,
+                  74,
+                  101
+                ],
+                "identified.": [
+                  40
+                ],
+                "Two": [
+                  41
+                ],
+                "clearly": [
+                  42
+                ],
+                "distinct": [
+                  43
+                ],
+                "types": [
+                  45
+                ],
+                "identified:": [
+                  47
+                ],
+                "Cluster": [
+                  48,
+                  56
+                ],
+                "I,": [
+                  49
+                ],
+                "with": [
+                  50,
+                  58
+                ],
+                "a": [
+                  51,
+                  59
+                ],
+                "predominantly": [
+                  52,
+                  60
+                ],
+                "young": [
+                  53
+                ],
+                "population,": [
+                  54
+                ],
+                "II,": [
+                  57
+                ],
+                "older": [
+                  61
+                ],
+                "population.": [
+                  62
+                ],
+                "Quantitative": [
+                  63
+                ],
+                "indicators": [
+                  64
+                ],
+                "distinctive": [
+                  66
+                ],
+                "features": [
+                  67
+                ],
+                "each": [
+                  69
+                ],
+                "type": [
+                  70
+                ],
+                "presented.": [
+                  72
+                ],
+                "Conclusions": [
+                  73
+                ],
+                "drawn": [
+                  75
+                ],
+                "regarding": [
+                  76
+                ],
+                "resilience": [
+                  79
+                ],
+                "some": [
+                  81
+                ],
+                "risks": [
+                  85
+                ],
+                "depopulation": [
+                  87
+                ],
+                "in": [
+                  88
+                ],
+                "others,": [
+                  89
+                ],
+                "areas": [
+                  91
+                ],
+                "for": [
+                  92
+                ],
+                "further": [
+                  93
+                ],
+                "research": [
+                  94
+                ],
+                "measures": [
+                  96
+                ],
+                "to": [
+                  97
+                ],
+                "support": [
+                  98
+                ],
+                "proposed.": [
+                  102
+                ]
+              },
+              "counts_by_year": [],
+              "updated_date": "2026-09-27T08:07:27.782135",
+              "created_date": "2026-04-11T00:00:00"
+            }
           }
-        }
+        },
+        "openalex_id": "https://openalex.org/W7153001482",
+        "landing_page_url": "https://doi.org/10.22363/2312-8313-2026-13-1-86-95",
+        "cited_by_count": 0,
+        "is_oa": true,
+        "oa_status": "diamond"
       }
     ],
     "title_en": "Demographic typology of indigenous peoples of Russia: cluster analysis of age structure",
@@ -2648,11 +3460,11 @@
     "venue": "FRONTIERS IN SUSTAINABLE CITIES",
     "venue_en": "FRONTIERS IN SUSTAINABLE CITIES",
     "venue_en_source": "web_of_science",
-    "publisher": null,
+    "publisher": "Frontiers Media SA",
     "volume": "8",
     "issue": null,
     "pages": null,
-    "doi": null,
+    "doi": "10.3389/frsc.2026.1719775",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001",
     "wos_uid": "WOS:001767258700001",
     "wos_citations": null,
@@ -2660,7 +3472,8 @@
     "publication_type": "Article",
     "sources": [
       "wos",
-      "web_of_science_free_view_author_profile"
+      "web_of_science_free_view_author_profile",
+      "openalex_api"
     ],
     "wos_records": [
       {
@@ -2695,7 +3508,2460 @@
     "gost_ru_generated_sha256": "661b491d74a6db58a5e26b0dfcdb884525b5e931a8d62a3a3acccc16893f9ec1",
     "apa_en": "Raysikh, A ; Bezverbny, V ; (...); Zenkov, & D (2026). The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels. FRONTIERS IN SUSTAINABLE CITIES, 8. https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001",
     "apa_en_source": "generated",
-    "apa_en_generated_sha256": "9e9c09be3924271a13b5f12f519a94c87ab17e4028b7f56215f631a387c6a92e"
+    "apa_en_generated_sha256": "9e9c09be3924271a13b5f12f519a94c87ab17e4028b7f56215f631a387c6a92e",
+    "open_sources": [
+      {
+        "source": "openalex_api",
+        "openalex_id": "https://openalex.org/W7160039767",
+        "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+        "year": 2026,
+        "doi": "10.3389/frsc.2026.1719775",
+        "url": "https://openalex.org/W7160039767",
+        "landing_page_url": "https://doi.org/10.3389/frsc.2026.1719775",
+        "pdf_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/pdf",
+        "venue": "Frontiers in Sustainable Cities",
+        "cited_by_count": 0,
+        "is_oa": true,
+        "oa_status": "gold",
+        "raw": {
+          "id": "https://openalex.org/W7160039767",
+          "doi": "https://doi.org/10.3389/frsc.2026.1719775",
+          "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+          "display_name": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+          "publication_year": 2026,
+          "publication_date": "2026-05-04",
+          "ids": {
+            "openalex": "https://openalex.org/W7160039767",
+            "doi": "https://doi.org/10.3389/frsc.2026.1719775"
+          },
+          "language": "en",
+          "primary_location": {
+            "id": "doi:10.3389/frsc.2026.1719775",
+            "is_oa": true,
+            "landing_page_url": "https://doi.org/10.3389/frsc.2026.1719775",
+            "pdf_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/pdf",
+            "source": {
+              "id": "https://openalex.org/S4210235149",
+              "display_name": "Frontiers in Sustainable Cities",
+              "issn_l": "2624-9634",
+              "issn": [
+                "2624-9634"
+              ],
+              "is_oa": true,
+              "is_in_doaj": true,
+              "is_core": true,
+              "listed_in": [
+                "cwts-core",
+                "doaj",
+                "norway-1"
+              ],
+              "host_organization": "https://openalex.org/P4310320527",
+              "host_organization_name": "Frontiers Media",
+              "host_organization_lineage": [
+                "https://openalex.org/P4310320527"
+              ],
+              "host_organization_lineage_names": [
+                "Frontiers Media"
+              ],
+              "type": "journal"
+            },
+            "license": "cc-by",
+            "license_id": "https://openalex.org/licenses/cc-by",
+            "version": "publishedVersion",
+            "is_accepted": true,
+            "is_published": true,
+            "raw_source_name": "Frontiers in Sustainable Cities",
+            "raw_type": "journal-article"
+          },
+          "type": "article",
+          "indexed_in": [
+            "crossref",
+            "doaj"
+          ],
+          "open_access": {
+            "is_oa": true,
+            "oa_status": "gold",
+            "oa_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/pdf",
+            "any_repository_has_fulltext": true
+          },
+          "authorships": [
+            {
+              "author_position": "first",
+              "author": {
+                "id": "https://openalex.org/A5135238566",
+                "display_name": "Alexander Raysikh",
+                "orcid": null,
+                "observed_orcids": []
+              },
+              "institutions": [
+                {
+                  "id": "https://openalex.org/I1313323035",
+                  "display_name": "Russian Academy of Sciences",
+                  "ror": "https://ror.org/05qrfxd25",
+                  "country_code": "RU",
+                  "type": "government",
+                  "lineage": [
+                    "https://openalex.org/I1313323035"
+                  ]
+                },
+                {
+                  "id": "https://openalex.org/I4210116766",
+                  "display_name": "Institute of Geography",
+                  "ror": "https://ror.org/01hz5c771",
+                  "country_code": "RU",
+                  "type": "facility",
+                  "lineage": [
+                    "https://openalex.org/I1313323035",
+                    "https://openalex.org/I4210116766",
+                    "https://openalex.org/I4210163714"
+                  ]
+                }
+              ],
+              "countries": [
+                "RU"
+              ],
+              "is_corresponding": false,
+              "raw_author_name": "Alexander Raysikh",
+              "raw_affiliation_strings": [
+                "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences",
+                "Institute of Geography, Russian Academy of Sciences"
+              ],
+              "raw_orcid": null,
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences",
+                  "institution_ids": [
+                    "https://openalex.org/I1313323035"
+                  ]
+                },
+                {
+                  "raw_affiliation_string": "Institute of Geography, Russian Academy of Sciences",
+                  "institution_ids": [
+                    "https://openalex.org/I1313323035",
+                    "https://openalex.org/I4210116766"
+                  ]
+                }
+              ]
+            },
+            {
+              "author_position": "middle",
+              "author": {
+                "id": "https://openalex.org/A5054696301",
+                "display_name": "Vadim A. Bezverbny",
+                "orcid": "https://orcid.org/0000-0002-3148-7072",
+                "observed_orcids": [
+                  "https://orcid.org/0000-0002-3148-7072"
+                ]
+              },
+              "institutions": [
+                {
+                  "id": "https://openalex.org/I1313323035",
+                  "display_name": "Russian Academy of Sciences",
+                  "ror": "https://ror.org/05qrfxd25",
+                  "country_code": "RU",
+                  "type": "government",
+                  "lineage": [
+                    "https://openalex.org/I1313323035"
+                  ]
+                }
+              ],
+              "countries": [
+                "RU"
+              ],
+              "is_corresponding": true,
+              "raw_author_name": "Vadim Bezverbny",
+              "raw_affiliation_strings": [
+                "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences"
+              ],
+              "raw_orcid": null,
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences",
+                  "institution_ids": [
+                    "https://openalex.org/I1313323035"
+                  ]
+                }
+              ]
+            },
+            {
+              "author_position": "middle",
+              "author": {
+                "id": "https://openalex.org/A5007601767",
+                "display_name": "Arseniy Sitkovskiy",
+                "orcid": "https://orcid.org/0000-0002-8725-6580",
+                "observed_orcids": [
+                  "https://orcid.org/0000-0002-8725-6580"
+                ]
+              },
+              "institutions": [
+                {
+                  "id": "https://openalex.org/I1313323035",
+                  "display_name": "Russian Academy of Sciences",
+                  "ror": "https://ror.org/05qrfxd25",
+                  "country_code": "RU",
+                  "type": "government",
+                  "lineage": [
+                    "https://openalex.org/I1313323035"
+                  ]
+                }
+              ],
+              "countries": [
+                "RU"
+              ],
+              "is_corresponding": false,
+              "raw_author_name": "Arseniy Sitkovskiy",
+              "raw_affiliation_strings": [
+                "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences"
+              ],
+              "raw_orcid": null,
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences",
+                  "institution_ids": [
+                    "https://openalex.org/I1313323035"
+                  ]
+                }
+              ]
+            },
+            {
+              "author_position": "last",
+              "author": {
+                "id": "https://openalex.org/A5135157724",
+                "display_name": "Dmitry Zenkov",
+                "orcid": null,
+                "observed_orcids": []
+              },
+              "institutions": [
+                {
+                  "id": "https://openalex.org/I1313323035",
+                  "display_name": "Russian Academy of Sciences",
+                  "ror": "https://ror.org/05qrfxd25",
+                  "country_code": "RU",
+                  "type": "government",
+                  "lineage": [
+                    "https://openalex.org/I1313323035"
+                  ]
+                }
+              ],
+              "countries": [
+                "RU"
+              ],
+              "is_corresponding": false,
+              "raw_author_name": "Dmitry Zenkov",
+              "raw_affiliation_strings": [
+                "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences"
+              ],
+              "raw_orcid": null,
+              "affiliations": [
+                {
+                  "raw_affiliation_string": "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences",
+                  "institution_ids": [
+                    "https://openalex.org/I1313323035"
+                  ]
+                }
+              ]
+            }
+          ],
+          "institutions": [],
+          "countries_distinct_count": 1,
+          "institutions_distinct_count": 2,
+          "corresponding_author_ids": [
+            "https://openalex.org/A5054696301"
+          ],
+          "corresponding_institution_ids": [
+            "https://openalex.org/I1313323035"
+          ],
+          "apc_list": {
+            "value": 1175,
+            "currency": "CHF",
+            "value_usd": 1418
+          },
+          "apc_paid": {
+            "value": 1175,
+            "currency": "CHF",
+            "value_usd": 1418
+          },
+          "fwci": 0.0,
+          "has_fulltext": true,
+          "cited_by_count": 0,
+          "citation_normalized_percentile": {
+            "value": 0.34754439,
+            "is_in_top_1_percent": false,
+            "is_in_top_10_percent": false
+          },
+          "cited_by_percentile_year": null,
+          "biblio": {
+            "volume": "8",
+            "issue": null,
+            "first_page": null,
+            "last_page": null
+          },
+          "is_retracted": false,
+          "is_paratext": false,
+          "is_xpac": false,
+          "primary_topic": {
+            "id": "https://openalex.org/T10298",
+            "display_name": "Urban Transport and Accessibility",
+            "score": 0.6281999945640564,
+            "subfield": {
+              "id": "https://openalex.org/subfields/3313",
+              "display_name": "Transportation"
+            },
+            "field": {
+              "id": "https://openalex.org/fields/33",
+              "display_name": "Social Sciences"
+            },
+            "domain": {
+              "id": "https://openalex.org/domains/2",
+              "display_name": "Social Sciences"
+            }
+          },
+          "topics": [
+            {
+              "id": "https://openalex.org/T10298",
+              "display_name": "Urban Transport and Accessibility",
+              "score": 0.6281999945640564,
+              "subfield": {
+                "id": "https://openalex.org/subfields/3313",
+                "display_name": "Transportation"
+              },
+              "field": {
+                "id": "https://openalex.org/fields/33",
+                "display_name": "Social Sciences"
+              },
+              "domain": {
+                "id": "https://openalex.org/domains/2",
+                "display_name": "Social Sciences"
+              }
+            },
+            {
+              "id": "https://openalex.org/T11980",
+              "display_name": "Human Mobility and Location-Based Analysis",
+              "score": 0.09570000320672989,
+              "subfield": {
+                "id": "https://openalex.org/subfields/3313",
+                "display_name": "Transportation"
+              },
+              "field": {
+                "id": "https://openalex.org/fields/33",
+                "display_name": "Social Sciences"
+              },
+              "domain": {
+                "id": "https://openalex.org/domains/2",
+                "display_name": "Social Sciences"
+              }
+            },
+            {
+              "id": "https://openalex.org/T12502",
+              "display_name": "Urbanization and City Planning",
+              "score": 0.06970000267028809,
+              "subfield": {
+                "id": "https://openalex.org/subfields/3322",
+                "display_name": "Urban Studies"
+              },
+              "field": {
+                "id": "https://openalex.org/fields/33",
+                "display_name": "Social Sciences"
+              },
+              "domain": {
+                "id": "https://openalex.org/domains/2",
+                "display_name": "Social Sciences"
+              }
+            }
+          ],
+          "keywords": [
+            {
+              "id": "https://openalex.org/keywords/urban-agglomeration",
+              "display_name": "Urban agglomeration",
+              "score": 0.9441999793052673
+            },
+            {
+              "id": "https://openalex.org/keywords/metropolitan-area",
+              "display_name": "Metropolitan area",
+              "score": 0.7530999779701233
+            },
+            {
+              "id": "https://openalex.org/keywords/population",
+              "display_name": "Population",
+              "score": 0.5946000218391418
+            },
+            {
+              "id": "https://openalex.org/keywords/urban-hierarchy",
+              "display_name": "Urban hierarchy",
+              "score": 0.4165000021457672
+            },
+            {
+              "id": "https://openalex.org/keywords/economies-of-agglomeration",
+              "display_name": "Economies of agglomeration",
+              "score": 0.4147000014781952
+            },
+            {
+              "id": "https://openalex.org/keywords/typology",
+              "display_name": "Typology",
+              "score": 0.35120001435279846
+            },
+            {
+              "id": "https://openalex.org/keywords/dynamics",
+              "display_name": "Dynamics (music)",
+              "score": 0.3395000100135803
+            },
+            {
+              "id": "https://openalex.org/keywords/population-growth",
+              "display_name": "Population growth",
+              "score": 0.3278999924659729
+            },
+            {
+              "id": "https://openalex.org/keywords/megalopolis",
+              "display_name": "Megalopolis",
+              "score": 0.31949999928474426
+            }
+          ],
+          "concepts": [
+            {
+              "id": "https://openalex.org/C154611951",
+              "wikidata": "https://www.wikidata.org/wiki/Q393233",
+              "display_name": "Urban agglomeration",
+              "level": 2,
+              "score": 0.9441999793052673
+            },
+            {
+              "id": "https://openalex.org/C26271046",
+              "wikidata": "https://www.wikidata.org/wiki/Q187097",
+              "display_name": "Economic geography",
+              "level": 1,
+              "score": 0.7731999754905701
+            },
+            {
+              "id": "https://openalex.org/C158739034",
+              "wikidata": "https://www.wikidata.org/wiki/Q1907114",
+              "display_name": "Metropolitan area",
+              "level": 2,
+              "score": 0.7530999779701233
+            },
+            {
+              "id": "https://openalex.org/C205649164",
+              "wikidata": "https://www.wikidata.org/wiki/Q1071",
+              "display_name": "Geography",
+              "level": 0,
+              "score": 0.720300018787384
+            },
+            {
+              "id": "https://openalex.org/C2908647359",
+              "wikidata": "https://www.wikidata.org/wiki/Q2625603",
+              "display_name": "Population",
+              "level": 2,
+              "score": 0.5946000218391418
+            },
+            {
+              "id": "https://openalex.org/C2780207250",
+              "wikidata": "https://www.wikidata.org/wiki/Q7900124",
+              "display_name": "Urban hierarchy",
+              "level": 3,
+              "score": 0.4165000021457672
+            },
+            {
+              "id": "https://openalex.org/C131850264",
+              "wikidata": "https://www.wikidata.org/wiki/Q383056",
+              "display_name": "Economies of agglomeration",
+              "level": 2,
+              "score": 0.4147000014781952
+            },
+            {
+              "id": "https://openalex.org/C148383697",
+              "wikidata": "https://www.wikidata.org/wiki/Q1781695",
+              "display_name": "Regional science",
+              "level": 1,
+              "score": 0.40959998965263367
+            },
+            {
+              "id": "https://openalex.org/C75795011",
+              "wikidata": "https://www.wikidata.org/wiki/Q917904",
+              "display_name": "Typology",
+              "level": 2,
+              "score": 0.35120001435279846
+            },
+            {
+              "id": "https://openalex.org/C145912823",
+              "wikidata": "https://www.wikidata.org/wiki/Q113558",
+              "display_name": "Dynamics (music)",
+              "level": 2,
+              "score": 0.3395000100135803
+            },
+            {
+              "id": "https://openalex.org/C77352025",
+              "wikidata": "https://www.wikidata.org/wiki/Q386191",
+              "display_name": "Population growth",
+              "level": 3,
+              "score": 0.3278999924659729
+            },
+            {
+              "id": "https://openalex.org/C2777967926",
+              "wikidata": "https://www.wikidata.org/wiki/Q471822",
+              "display_name": "Megalopolis",
+              "level": 2,
+              "score": 0.31949999928474426
+            },
+            {
+              "id": "https://openalex.org/C158886217",
+              "wikidata": "https://www.wikidata.org/wiki/Q16799549",
+              "display_name": "Latin Americans",
+              "level": 2,
+              "score": 0.3109000027179718
+            },
+            {
+              "id": "https://openalex.org/C58640448",
+              "wikidata": "https://www.wikidata.org/wiki/Q42515",
+              "display_name": "Cartography",
+              "level": 1,
+              "score": 0.30970001220703125
+            },
+            {
+              "id": "https://openalex.org/C2781316041",
+              "wikidata": "https://www.wikidata.org/wiki/Q1230584",
+              "display_name": "Diversity (politics)",
+              "level": 2,
+              "score": 0.30329999327659607
+            },
+            {
+              "id": "https://openalex.org/C180478619",
+              "wikidata": "https://www.wikidata.org/wiki/Q7574066",
+              "display_name": "Spatial heterogeneity",
+              "level": 2,
+              "score": 0.3025999963283539
+            },
+            {
+              "id": "https://openalex.org/C44725695",
+              "wikidata": "https://www.wikidata.org/wiki/Q288156",
+              "display_name": "Normative",
+              "level": 2,
+              "score": 0.30230000615119934
+            },
+            {
+              "id": "https://openalex.org/C164866538",
+              "wikidata": "https://www.wikidata.org/wiki/Q367351",
+              "display_name": "Cluster (spacecraft)",
+              "level": 2,
+              "score": 0.29660001397132874
+            },
+            {
+              "id": "https://openalex.org/C49545453",
+              "wikidata": "https://www.wikidata.org/wiki/Q69883",
+              "display_name": "Urban planning",
+              "level": 2,
+              "score": 0.2924000024795532
+            },
+            {
+              "id": "https://openalex.org/C174348530",
+              "wikidata": "https://www.wikidata.org/wiki/Q188635",
+              "display_name": "Bridging (networking)",
+              "level": 2,
+              "score": 0.2768999934196472
+            },
+            {
+              "id": "https://openalex.org/C39853841",
+              "wikidata": "https://www.wikidata.org/wiki/Q161078",
+              "display_name": "Urbanization",
+              "level": 2,
+              "score": 0.2750999927520752
+            },
+            {
+              "id": "https://openalex.org/C197129107",
+              "wikidata": "https://www.wikidata.org/wiki/Q1921621",
+              "display_name": "Merge (version control)",
+              "level": 2,
+              "score": 0.27140000462532043
+            },
+            {
+              "id": "https://openalex.org/C2780084366",
+              "wikidata": "https://www.wikidata.org/wiki/Q37732",
+              "display_name": "Demographics",
+              "level": 2,
+              "score": 0.2705000042915344
+            },
+            {
+              "id": "https://openalex.org/C151913843",
+              "wikidata": "https://www.wikidata.org/wiki/Q3454555",
+              "display_name": "Dominance (genetics)",
+              "level": 3,
+              "score": 0.26440000534057617
+            },
+            {
+              "id": "https://openalex.org/C18762648",
+              "wikidata": "https://www.wikidata.org/wiki/Q42213",
+              "display_name": "Work (physics)",
+              "level": 2,
+              "score": 0.2590000033378601
+            },
+            {
+              "id": "https://openalex.org/C205049153",
+              "wikidata": "https://www.wikidata.org/wiki/Q2698605",
+              "display_name": "Polarization (electrochemistry)",
+              "level": 2,
+              "score": 0.2513999938964844
+            }
+          ],
+          "mesh": [],
+          "locations_count": 2,
+          "locations": [
+            {
+              "id": "doi:10.3389/frsc.2026.1719775",
+              "is_oa": true,
+              "landing_page_url": "https://doi.org/10.3389/frsc.2026.1719775",
+              "pdf_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/pdf",
+              "source": {
+                "id": "https://openalex.org/S4210235149",
+                "display_name": "Frontiers in Sustainable Cities",
+                "issn_l": "2624-9634",
+                "issn": [
+                  "2624-9634"
+                ],
+                "is_oa": true,
+                "is_in_doaj": true,
+                "is_core": true,
+                "listed_in": [
+                  "cwts-core",
+                  "doaj",
+                  "norway-1"
+                ],
+                "host_organization": "https://openalex.org/P4310320527",
+                "host_organization_name": "Frontiers Media",
+                "host_organization_lineage": [
+                  "https://openalex.org/P4310320527"
+                ],
+                "host_organization_lineage_names": [
+                  "Frontiers Media"
+                ],
+                "type": "journal"
+              },
+              "license": "cc-by",
+              "license_id": "https://openalex.org/licenses/cc-by",
+              "version": "publishedVersion",
+              "is_accepted": true,
+              "is_published": true,
+              "raw_source_name": "Frontiers in Sustainable Cities",
+              "raw_type": "journal-article"
+            },
+            {
+              "id": "pmh:oai:doaj.org/article:653a740a71ee4b1390ce0f7c15e0e37f",
+              "is_oa": true,
+              "landing_page_url": "https://doaj.org/article/653a740a71ee4b1390ce0f7c15e0e37f",
+              "pdf_url": null,
+              "source": {
+                "id": "https://openalex.org/S4306401280",
+                "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+                "issn_l": null,
+                "issn": null,
+                "is_oa": false,
+                "is_in_doaj": false,
+                "is_core": false,
+                "listed_in": [],
+                "host_organization": null,
+                "host_organization_name": null,
+                "host_organization_lineage": [],
+                "host_organization_lineage_names": [],
+                "type": "repository"
+              },
+              "license": "cc-by-sa",
+              "license_id": "https://openalex.org/licenses/cc-by-sa",
+              "version": "submittedVersion",
+              "is_accepted": false,
+              "is_published": false,
+              "raw_source_name": "Frontiers in Sustainable Cities, Vol 8 (2026)",
+              "raw_type": "article"
+            }
+          ],
+          "best_oa_location": {
+            "id": "doi:10.3389/frsc.2026.1719775",
+            "is_oa": true,
+            "landing_page_url": "https://doi.org/10.3389/frsc.2026.1719775",
+            "pdf_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/pdf",
+            "source": {
+              "id": "https://openalex.org/S4210235149",
+              "display_name": "Frontiers in Sustainable Cities",
+              "issn_l": "2624-9634",
+              "issn": [
+                "2624-9634"
+              ],
+              "is_oa": true,
+              "is_in_doaj": true,
+              "is_core": true,
+              "listed_in": [
+                "cwts-core",
+                "doaj",
+                "norway-1"
+              ],
+              "host_organization": "https://openalex.org/P4310320527",
+              "host_organization_name": "Frontiers Media",
+              "host_organization_lineage": [
+                "https://openalex.org/P4310320527"
+              ],
+              "host_organization_lineage_names": [
+                "Frontiers Media"
+              ],
+              "type": "journal"
+            },
+            "license": "cc-by",
+            "license_id": "https://openalex.org/licenses/cc-by",
+            "version": "publishedVersion",
+            "is_accepted": true,
+            "is_published": true,
+            "raw_source_name": "Frontiers in Sustainable Cities",
+            "raw_type": "journal-article"
+          },
+          "sustainable_development_goals": [
+            {
+              "display_name": "Sustainable cities and communities",
+              "score": 0.7257272005081177,
+              "id": "https://metadata.un.org/sdg/11"
+            }
+          ],
+          "x_sdgs": [],
+          "study_designs": [],
+          "awards": [
+            {
+              "id": "https://openalex.org/G7850240885",
+              "display_name": null,
+              "funder_award_id": "30004",
+              "funder_id": "https://openalex.org/F4320324099",
+              "funder_display_name": "Russian Science Foundation"
+            }
+          ],
+          "funders": [
+            {
+              "id": "https://openalex.org/F4320324099",
+              "display_name": "Russian Science Foundation",
+              "ror": "https://ror.org/03y2gwe85"
+            }
+          ],
+          "has_content": {
+            "grobid_xml": true,
+            "pdf": true
+          },
+          "content_urls": {
+            "pdf": "https://content.openalex.org/works/W7160039767.pdf",
+            "grobid_xml": "https://content.openalex.org/works/W7160039767.grobid-xml"
+          },
+          "referenced_works_count": 26,
+          "referenced_works": [
+            "https://openalex.org/W1873258529",
+            "https://openalex.org/W1967468107",
+            "https://openalex.org/W1979132028",
+            "https://openalex.org/W1981202974",
+            "https://openalex.org/W2007105911",
+            "https://openalex.org/W2010844933",
+            "https://openalex.org/W2015390938",
+            "https://openalex.org/W2069742062",
+            "https://openalex.org/W2084650759",
+            "https://openalex.org/W2097600611",
+            "https://openalex.org/W2134408312",
+            "https://openalex.org/W2136464549",
+            "https://openalex.org/W2218598499",
+            "https://openalex.org/W2322414273",
+            "https://openalex.org/W2500063405",
+            "https://openalex.org/W2970379025",
+            "https://openalex.org/W2996691396",
+            "https://openalex.org/W3024865495",
+            "https://openalex.org/W3043912239",
+            "https://openalex.org/W3121519629",
+            "https://openalex.org/W3201425151",
+            "https://openalex.org/W4293217388",
+            "https://openalex.org/W4394061858",
+            "https://openalex.org/W4408150109",
+            "https://openalex.org/W4408150981",
+            "https://openalex.org/W4411185371"
+          ],
+          "related_works": [],
+          "abstract_inverted_index": {
+            "This": [
+              0
+            ],
+            "study": [
+              1
+            ],
+            "provides": [
+              2
+            ],
+            "the": [
+              3,
+              20,
+              74,
+              83,
+              87,
+              95,
+              107,
+              110,
+              118,
+              162,
+              165
+            ],
+            "first": [
+              4
+            ],
+            "quantitative": [
+              5
+            ],
+            "assessment": [
+              6
+            ],
+            "of": [
+              7,
+              44,
+              54,
+              86,
+              106,
+              124,
+              164
+            ],
+            "how": [
+              8
+            ],
+            "transport": [
+              9
+            ],
+            "accessibility": [
+              10,
+              29
+            ],
+            "affects": [
+              11
+            ],
+            "population": [
+              12,
+              84
+            ],
+            "dynamics": [
+              13
+            ],
+            "in": [
+              14,
+              94,
+              100,
+              130,
+              168,
+              180
+            ],
+            "73": [
+              15
+            ],
+            "Russian": [
+              16
+            ],
+            "urban": [
+              17,
+              48,
+              50
+            ],
+            "agglomerations": [
+              18,
+              45
+            ],
+            "across": [
+              19
+            ],
+            "intercensal": [
+              21
+            ],
+            "periods": [
+              22
+            ],
+            "1989–2021.": [
+              23
+            ],
+            "Using": [
+              24
+            ],
+            "OpenStreetMap": [
+              25
+            ],
+            "data,": [
+              26
+            ],
+            "we": [
+              27,
+              120
+            ],
+            "calculated": [
+              28
+            ],
+            "to": [
+              30,
+              59,
+              113,
+              136
+            ],
+            "agglomeration": [
+              31,
+              69,
+              126,
+              178
+            ],
+            "centers": [
+              32
+            ],
+            "for": [
+              33
+            ],
+            "more": [
+              34
+            ],
+            "than": [
+              35
+            ],
+            "2,800": [
+              36
+            ],
+            "settlements.": [
+              37
+            ],
+            "The": [
+              38,
+              159
+            ],
+            "methodology": [
+              39
+            ],
+            "combines": [
+              40
+            ],
+            "a": [
+              41,
+              122,
+              140,
+              172
+            ],
+            "hierarchical": [
+              42
+            ],
+            "segmentation": [
+              43
+            ],
+            "(main": [
+              46
+            ],
+            "city,": [
+              47
+            ],
+            "area,": [
+              49
+            ],
+            "agglomeration,": [
+              51
+            ],
+            "and": [
+              52,
+              78,
+              143,
+              170
+            ],
+            "zone": [
+              53
+            ],
+            "influence)": [
+              55
+            ],
+            "with": [
+              56,
+              82,
+              139
+            ],
+            "breakpoint": [
+              57
+            ],
+            "analysis": [
+              58
+            ],
+            "detect": [
+              60
+            ],
+            "demographic": [
+              61,
+              97
+            ],
+            "boundaries.": [
+              62
+            ],
+            "We": [
+              63,
+              147
+            ],
+            "show": [
+              64,
+              149
+            ],
+            "that": [
+              65,
+              128,
+              150
+            ],
+            "actual,": [
+              66
+            ],
+            "demographically": [
+              67,
+              176
+            ],
+            "grounded": [
+              68
+            ],
+            "boundaries": [
+              70,
+              154,
+              179
+            ],
+            "differ": [
+              71,
+              129
+            ],
+            "substantially": [
+              72
+            ],
+            "from": [
+              73
+            ],
+            "normative": [
+              75
+            ],
+            "1.5-h": [
+              76
+            ],
+            "isochrone": [
+              77
+            ],
+            "are": [
+              79
+            ],
+            "positively": [
+              80
+            ],
+            "correlated": [
+              81
+            ],
+            "size": [
+              85
+            ],
+            "core": [
+              88
+            ],
+            "city.": [
+              89
+            ],
+            "Spatial": [
+              90
+            ],
+            "polarization": [
+              91
+            ],
+            "has": [
+              92
+            ],
+            "intensified:": [
+              93
+            ],
+            "2010s,": [
+              96
+            ],
+            "growth": [
+              98
+            ],
+            "concentrated": [
+              99
+            ],
+            "high-accessibility": [
+              101
+            ],
+            "zones": [
+              102
+            ],
+            "(within": [
+              103
+            ],
+            "35–50": [
+              104
+            ],
+            "km": [
+              105
+            ],
+            "center),": [
+              108
+            ],
+            "while": [
+              109
+            ],
+            "periphery": [
+              111,
+              142
+            ],
+            "shifted": [
+              112
+            ],
+            "persistent": [
+              114
+            ],
+            "depopulation.": [
+              115
+            ],
+            "Based": [
+              116
+            ],
+            "on": [
+              117
+            ],
+            "results,": [
+              119
+            ],
+            "develop": [
+              121
+            ],
+            "typology": [
+              123
+            ],
+            "16": [
+              125
+            ],
+            "types": [
+              127
+            ],
+            "spatial": [
+              131,
+              181
+            ],
+            "development": [
+              132
+            ],
+            "patterns—from": [
+              133
+            ],
+            "metropolitan": [
+              134
+            ],
+            "“super-expansion”": [
+              135
+            ],
+            "polycentric": [
+              137
+            ],
+            "systems": [
+              138
+            ],
+            "strong": [
+              141
+            ],
+            "depopulating": [
+              144
+            ],
+            "old-industrial": [
+              145
+            ],
+            "cores.": [
+              146
+            ],
+            "further": [
+              148
+            ],
+            "fixing": [
+              151
+            ],
+            "city": [
+              152
+            ],
+            "administrative": [
+              153
+            ],
+            "stimulated": [
+              155
+            ],
+            "“explosive”": [
+              156
+            ],
+            "suburban": [
+              157
+            ],
+            "growth.": [
+              158
+            ],
+            "findings": [
+              160
+            ],
+            "confirm": [
+              161
+            ],
+            "deepening": [
+              163
+            ],
+            "core–periphery": [
+              166
+            ],
+            "model": [
+              167
+            ],
+            "Russia": [
+              169
+            ],
+            "support": [
+              171
+            ],
+            "shift": [
+              173
+            ],
+            "toward": [
+              174
+            ],
+            "flexible,": [
+              175
+            ],
+            "calibrated": [
+              177
+            ],
+            "planning": [
+              182
+            ],
+            "practice.": [
+              183
+            ]
+          },
+          "counts_by_year": [],
+          "updated_date": "2026-09-27T08:07:27.782135",
+          "created_date": "2026-05-05T00:00:00"
+        },
+        "sources": [
+          "openalex_api"
+        ],
+        "provider_records": {
+          "openalex_api": {
+            "source": "openalex_api",
+            "openalex_id": "https://openalex.org/W7160039767",
+            "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+            "year": 2026,
+            "doi": "10.3389/frsc.2026.1719775",
+            "url": "https://openalex.org/W7160039767",
+            "landing_page_url": "https://doi.org/10.3389/frsc.2026.1719775",
+            "pdf_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/pdf",
+            "venue": "Frontiers in Sustainable Cities",
+            "cited_by_count": 0,
+            "is_oa": true,
+            "oa_status": "gold",
+            "raw": {
+              "id": "https://openalex.org/W7160039767",
+              "doi": "https://doi.org/10.3389/frsc.2026.1719775",
+              "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+              "display_name": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+              "publication_year": 2026,
+              "publication_date": "2026-05-04",
+              "ids": {
+                "openalex": "https://openalex.org/W7160039767",
+                "doi": "https://doi.org/10.3389/frsc.2026.1719775"
+              },
+              "language": "en",
+              "primary_location": {
+                "id": "doi:10.3389/frsc.2026.1719775",
+                "is_oa": true,
+                "landing_page_url": "https://doi.org/10.3389/frsc.2026.1719775",
+                "pdf_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/pdf",
+                "source": {
+                  "id": "https://openalex.org/S4210235149",
+                  "display_name": "Frontiers in Sustainable Cities",
+                  "issn_l": "2624-9634",
+                  "issn": [
+                    "2624-9634"
+                  ],
+                  "is_oa": true,
+                  "is_in_doaj": true,
+                  "is_core": true,
+                  "listed_in": [
+                    "cwts-core",
+                    "doaj",
+                    "norway-1"
+                  ],
+                  "host_organization": "https://openalex.org/P4310320527",
+                  "host_organization_name": "Frontiers Media",
+                  "host_organization_lineage": [
+                    "https://openalex.org/P4310320527"
+                  ],
+                  "host_organization_lineage_names": [
+                    "Frontiers Media"
+                  ],
+                  "type": "journal"
+                },
+                "license": "cc-by",
+                "license_id": "https://openalex.org/licenses/cc-by",
+                "version": "publishedVersion",
+                "is_accepted": true,
+                "is_published": true,
+                "raw_source_name": "Frontiers in Sustainable Cities",
+                "raw_type": "journal-article"
+              },
+              "type": "article",
+              "indexed_in": [
+                "crossref",
+                "doaj"
+              ],
+              "open_access": {
+                "is_oa": true,
+                "oa_status": "gold",
+                "oa_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/pdf",
+                "any_repository_has_fulltext": true
+              },
+              "authorships": [
+                {
+                  "author_position": "first",
+                  "author": {
+                    "id": "https://openalex.org/A5135238566",
+                    "display_name": "Alexander Raysikh",
+                    "orcid": null,
+                    "observed_orcids": []
+                  },
+                  "institutions": [
+                    {
+                      "id": "https://openalex.org/I1313323035",
+                      "display_name": "Russian Academy of Sciences",
+                      "ror": "https://ror.org/05qrfxd25",
+                      "country_code": "RU",
+                      "type": "government",
+                      "lineage": [
+                        "https://openalex.org/I1313323035"
+                      ]
+                    },
+                    {
+                      "id": "https://openalex.org/I4210116766",
+                      "display_name": "Institute of Geography",
+                      "ror": "https://ror.org/01hz5c771",
+                      "country_code": "RU",
+                      "type": "facility",
+                      "lineage": [
+                        "https://openalex.org/I1313323035",
+                        "https://openalex.org/I4210116766",
+                        "https://openalex.org/I4210163714"
+                      ]
+                    }
+                  ],
+                  "countries": [
+                    "RU"
+                  ],
+                  "is_corresponding": false,
+                  "raw_author_name": "Alexander Raysikh",
+                  "raw_affiliation_strings": [
+                    "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences",
+                    "Institute of Geography, Russian Academy of Sciences"
+                  ],
+                  "raw_orcid": null,
+                  "affiliations": [
+                    {
+                      "raw_affiliation_string": "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences",
+                      "institution_ids": [
+                        "https://openalex.org/I1313323035"
+                      ]
+                    },
+                    {
+                      "raw_affiliation_string": "Institute of Geography, Russian Academy of Sciences",
+                      "institution_ids": [
+                        "https://openalex.org/I1313323035",
+                        "https://openalex.org/I4210116766"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "author_position": "middle",
+                  "author": {
+                    "id": "https://openalex.org/A5054696301",
+                    "display_name": "Vadim A. Bezverbny",
+                    "orcid": "https://orcid.org/0000-0002-3148-7072",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-3148-7072"
+                    ]
+                  },
+                  "institutions": [
+                    {
+                      "id": "https://openalex.org/I1313323035",
+                      "display_name": "Russian Academy of Sciences",
+                      "ror": "https://ror.org/05qrfxd25",
+                      "country_code": "RU",
+                      "type": "government",
+                      "lineage": [
+                        "https://openalex.org/I1313323035"
+                      ]
+                    }
+                  ],
+                  "countries": [
+                    "RU"
+                  ],
+                  "is_corresponding": true,
+                  "raw_author_name": "Vadim Bezverbny",
+                  "raw_affiliation_strings": [
+                    "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences"
+                  ],
+                  "raw_orcid": null,
+                  "affiliations": [
+                    {
+                      "raw_affiliation_string": "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences",
+                      "institution_ids": [
+                        "https://openalex.org/I1313323035"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "author_position": "middle",
+                  "author": {
+                    "id": "https://openalex.org/A5007601767",
+                    "display_name": "Arseniy Sitkovskiy",
+                    "orcid": "https://orcid.org/0000-0002-8725-6580",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-8725-6580"
+                    ]
+                  },
+                  "institutions": [
+                    {
+                      "id": "https://openalex.org/I1313323035",
+                      "display_name": "Russian Academy of Sciences",
+                      "ror": "https://ror.org/05qrfxd25",
+                      "country_code": "RU",
+                      "type": "government",
+                      "lineage": [
+                        "https://openalex.org/I1313323035"
+                      ]
+                    }
+                  ],
+                  "countries": [
+                    "RU"
+                  ],
+                  "is_corresponding": false,
+                  "raw_author_name": "Arseniy Sitkovskiy",
+                  "raw_affiliation_strings": [
+                    "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences"
+                  ],
+                  "raw_orcid": null,
+                  "affiliations": [
+                    {
+                      "raw_affiliation_string": "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences",
+                      "institution_ids": [
+                        "https://openalex.org/I1313323035"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "author_position": "last",
+                  "author": {
+                    "id": "https://openalex.org/A5135157724",
+                    "display_name": "Dmitry Zenkov",
+                    "orcid": null,
+                    "observed_orcids": []
+                  },
+                  "institutions": [
+                    {
+                      "id": "https://openalex.org/I1313323035",
+                      "display_name": "Russian Academy of Sciences",
+                      "ror": "https://ror.org/05qrfxd25",
+                      "country_code": "RU",
+                      "type": "government",
+                      "lineage": [
+                        "https://openalex.org/I1313323035"
+                      ]
+                    }
+                  ],
+                  "countries": [
+                    "RU"
+                  ],
+                  "is_corresponding": false,
+                  "raw_author_name": "Dmitry Zenkov",
+                  "raw_affiliation_strings": [
+                    "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences"
+                  ],
+                  "raw_orcid": null,
+                  "affiliations": [
+                    {
+                      "raw_affiliation_string": "Digital Demography Laboratory, Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences",
+                      "institution_ids": [
+                        "https://openalex.org/I1313323035"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "institutions": [],
+              "countries_distinct_count": 1,
+              "institutions_distinct_count": 2,
+              "corresponding_author_ids": [
+                "https://openalex.org/A5054696301"
+              ],
+              "corresponding_institution_ids": [
+                "https://openalex.org/I1313323035"
+              ],
+              "apc_list": {
+                "value": 1175,
+                "currency": "CHF",
+                "value_usd": 1418
+              },
+              "apc_paid": {
+                "value": 1175,
+                "currency": "CHF",
+                "value_usd": 1418
+              },
+              "fwci": 0.0,
+              "has_fulltext": true,
+              "cited_by_count": 0,
+              "citation_normalized_percentile": {
+                "value": 0.34754439,
+                "is_in_top_1_percent": false,
+                "is_in_top_10_percent": false
+              },
+              "cited_by_percentile_year": null,
+              "biblio": {
+                "volume": "8",
+                "issue": null,
+                "first_page": null,
+                "last_page": null
+              },
+              "is_retracted": false,
+              "is_paratext": false,
+              "is_xpac": false,
+              "primary_topic": {
+                "id": "https://openalex.org/T10298",
+                "display_name": "Urban Transport and Accessibility",
+                "score": 0.6281999945640564,
+                "subfield": {
+                  "id": "https://openalex.org/subfields/3313",
+                  "display_name": "Transportation"
+                },
+                "field": {
+                  "id": "https://openalex.org/fields/33",
+                  "display_name": "Social Sciences"
+                },
+                "domain": {
+                  "id": "https://openalex.org/domains/2",
+                  "display_name": "Social Sciences"
+                }
+              },
+              "topics": [
+                {
+                  "id": "https://openalex.org/T10298",
+                  "display_name": "Urban Transport and Accessibility",
+                  "score": 0.6281999945640564,
+                  "subfield": {
+                    "id": "https://openalex.org/subfields/3313",
+                    "display_name": "Transportation"
+                  },
+                  "field": {
+                    "id": "https://openalex.org/fields/33",
+                    "display_name": "Social Sciences"
+                  },
+                  "domain": {
+                    "id": "https://openalex.org/domains/2",
+                    "display_name": "Social Sciences"
+                  }
+                },
+                {
+                  "id": "https://openalex.org/T11980",
+                  "display_name": "Human Mobility and Location-Based Analysis",
+                  "score": 0.09570000320672989,
+                  "subfield": {
+                    "id": "https://openalex.org/subfields/3313",
+                    "display_name": "Transportation"
+                  },
+                  "field": {
+                    "id": "https://openalex.org/fields/33",
+                    "display_name": "Social Sciences"
+                  },
+                  "domain": {
+                    "id": "https://openalex.org/domains/2",
+                    "display_name": "Social Sciences"
+                  }
+                },
+                {
+                  "id": "https://openalex.org/T12502",
+                  "display_name": "Urbanization and City Planning",
+                  "score": 0.06970000267028809,
+                  "subfield": {
+                    "id": "https://openalex.org/subfields/3322",
+                    "display_name": "Urban Studies"
+                  },
+                  "field": {
+                    "id": "https://openalex.org/fields/33",
+                    "display_name": "Social Sciences"
+                  },
+                  "domain": {
+                    "id": "https://openalex.org/domains/2",
+                    "display_name": "Social Sciences"
+                  }
+                }
+              ],
+              "keywords": [
+                {
+                  "id": "https://openalex.org/keywords/urban-agglomeration",
+                  "display_name": "Urban agglomeration",
+                  "score": 0.9441999793052673
+                },
+                {
+                  "id": "https://openalex.org/keywords/metropolitan-area",
+                  "display_name": "Metropolitan area",
+                  "score": 0.7530999779701233
+                },
+                {
+                  "id": "https://openalex.org/keywords/population",
+                  "display_name": "Population",
+                  "score": 0.5946000218391418
+                },
+                {
+                  "id": "https://openalex.org/keywords/urban-hierarchy",
+                  "display_name": "Urban hierarchy",
+                  "score": 0.4165000021457672
+                },
+                {
+                  "id": "https://openalex.org/keywords/economies-of-agglomeration",
+                  "display_name": "Economies of agglomeration",
+                  "score": 0.4147000014781952
+                },
+                {
+                  "id": "https://openalex.org/keywords/typology",
+                  "display_name": "Typology",
+                  "score": 0.35120001435279846
+                },
+                {
+                  "id": "https://openalex.org/keywords/dynamics",
+                  "display_name": "Dynamics (music)",
+                  "score": 0.3395000100135803
+                },
+                {
+                  "id": "https://openalex.org/keywords/population-growth",
+                  "display_name": "Population growth",
+                  "score": 0.3278999924659729
+                },
+                {
+                  "id": "https://openalex.org/keywords/megalopolis",
+                  "display_name": "Megalopolis",
+                  "score": 0.31949999928474426
+                }
+              ],
+              "concepts": [
+                {
+                  "id": "https://openalex.org/C154611951",
+                  "wikidata": "https://www.wikidata.org/wiki/Q393233",
+                  "display_name": "Urban agglomeration",
+                  "level": 2,
+                  "score": 0.9441999793052673
+                },
+                {
+                  "id": "https://openalex.org/C26271046",
+                  "wikidata": "https://www.wikidata.org/wiki/Q187097",
+                  "display_name": "Economic geography",
+                  "level": 1,
+                  "score": 0.7731999754905701
+                },
+                {
+                  "id": "https://openalex.org/C158739034",
+                  "wikidata": "https://www.wikidata.org/wiki/Q1907114",
+                  "display_name": "Metropolitan area",
+                  "level": 2,
+                  "score": 0.7530999779701233
+                },
+                {
+                  "id": "https://openalex.org/C205649164",
+                  "wikidata": "https://www.wikidata.org/wiki/Q1071",
+                  "display_name": "Geography",
+                  "level": 0,
+                  "score": 0.720300018787384
+                },
+                {
+                  "id": "https://openalex.org/C2908647359",
+                  "wikidata": "https://www.wikidata.org/wiki/Q2625603",
+                  "display_name": "Population",
+                  "level": 2,
+                  "score": 0.5946000218391418
+                },
+                {
+                  "id": "https://openalex.org/C2780207250",
+                  "wikidata": "https://www.wikidata.org/wiki/Q7900124",
+                  "display_name": "Urban hierarchy",
+                  "level": 3,
+                  "score": 0.4165000021457672
+                },
+                {
+                  "id": "https://openalex.org/C131850264",
+                  "wikidata": "https://www.wikidata.org/wiki/Q383056",
+                  "display_name": "Economies of agglomeration",
+                  "level": 2,
+                  "score": 0.4147000014781952
+                },
+                {
+                  "id": "https://openalex.org/C148383697",
+                  "wikidata": "https://www.wikidata.org/wiki/Q1781695",
+                  "display_name": "Regional science",
+                  "level": 1,
+                  "score": 0.40959998965263367
+                },
+                {
+                  "id": "https://openalex.org/C75795011",
+                  "wikidata": "https://www.wikidata.org/wiki/Q917904",
+                  "display_name": "Typology",
+                  "level": 2,
+                  "score": 0.35120001435279846
+                },
+                {
+                  "id": "https://openalex.org/C145912823",
+                  "wikidata": "https://www.wikidata.org/wiki/Q113558",
+                  "display_name": "Dynamics (music)",
+                  "level": 2,
+                  "score": 0.3395000100135803
+                },
+                {
+                  "id": "https://openalex.org/C77352025",
+                  "wikidata": "https://www.wikidata.org/wiki/Q386191",
+                  "display_name": "Population growth",
+                  "level": 3,
+                  "score": 0.3278999924659729
+                },
+                {
+                  "id": "https://openalex.org/C2777967926",
+                  "wikidata": "https://www.wikidata.org/wiki/Q471822",
+                  "display_name": "Megalopolis",
+                  "level": 2,
+                  "score": 0.31949999928474426
+                },
+                {
+                  "id": "https://openalex.org/C158886217",
+                  "wikidata": "https://www.wikidata.org/wiki/Q16799549",
+                  "display_name": "Latin Americans",
+                  "level": 2,
+                  "score": 0.3109000027179718
+                },
+                {
+                  "id": "https://openalex.org/C58640448",
+                  "wikidata": "https://www.wikidata.org/wiki/Q42515",
+                  "display_name": "Cartography",
+                  "level": 1,
+                  "score": 0.30970001220703125
+                },
+                {
+                  "id": "https://openalex.org/C2781316041",
+                  "wikidata": "https://www.wikidata.org/wiki/Q1230584",
+                  "display_name": "Diversity (politics)",
+                  "level": 2,
+                  "score": 0.30329999327659607
+                },
+                {
+                  "id": "https://openalex.org/C180478619",
+                  "wikidata": "https://www.wikidata.org/wiki/Q7574066",
+                  "display_name": "Spatial heterogeneity",
+                  "level": 2,
+                  "score": 0.3025999963283539
+                },
+                {
+                  "id": "https://openalex.org/C44725695",
+                  "wikidata": "https://www.wikidata.org/wiki/Q288156",
+                  "display_name": "Normative",
+                  "level": 2,
+                  "score": 0.30230000615119934
+                },
+                {
+                  "id": "https://openalex.org/C164866538",
+                  "wikidata": "https://www.wikidata.org/wiki/Q367351",
+                  "display_name": "Cluster (spacecraft)",
+                  "level": 2,
+                  "score": 0.29660001397132874
+                },
+                {
+                  "id": "https://openalex.org/C49545453",
+                  "wikidata": "https://www.wikidata.org/wiki/Q69883",
+                  "display_name": "Urban planning",
+                  "level": 2,
+                  "score": 0.2924000024795532
+                },
+                {
+                  "id": "https://openalex.org/C174348530",
+                  "wikidata": "https://www.wikidata.org/wiki/Q188635",
+                  "display_name": "Bridging (networking)",
+                  "level": 2,
+                  "score": 0.2768999934196472
+                },
+                {
+                  "id": "https://openalex.org/C39853841",
+                  "wikidata": "https://www.wikidata.org/wiki/Q161078",
+                  "display_name": "Urbanization",
+                  "level": 2,
+                  "score": 0.2750999927520752
+                },
+                {
+                  "id": "https://openalex.org/C197129107",
+                  "wikidata": "https://www.wikidata.org/wiki/Q1921621",
+                  "display_name": "Merge (version control)",
+                  "level": 2,
+                  "score": 0.27140000462532043
+                },
+                {
+                  "id": "https://openalex.org/C2780084366",
+                  "wikidata": "https://www.wikidata.org/wiki/Q37732",
+                  "display_name": "Demographics",
+                  "level": 2,
+                  "score": 0.2705000042915344
+                },
+                {
+                  "id": "https://openalex.org/C151913843",
+                  "wikidata": "https://www.wikidata.org/wiki/Q3454555",
+                  "display_name": "Dominance (genetics)",
+                  "level": 3,
+                  "score": 0.26440000534057617
+                },
+                {
+                  "id": "https://openalex.org/C18762648",
+                  "wikidata": "https://www.wikidata.org/wiki/Q42213",
+                  "display_name": "Work (physics)",
+                  "level": 2,
+                  "score": 0.2590000033378601
+                },
+                {
+                  "id": "https://openalex.org/C205049153",
+                  "wikidata": "https://www.wikidata.org/wiki/Q2698605",
+                  "display_name": "Polarization (electrochemistry)",
+                  "level": 2,
+                  "score": 0.2513999938964844
+                }
+              ],
+              "mesh": [],
+              "locations_count": 2,
+              "locations": [
+                {
+                  "id": "doi:10.3389/frsc.2026.1719775",
+                  "is_oa": true,
+                  "landing_page_url": "https://doi.org/10.3389/frsc.2026.1719775",
+                  "pdf_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/pdf",
+                  "source": {
+                    "id": "https://openalex.org/S4210235149",
+                    "display_name": "Frontiers in Sustainable Cities",
+                    "issn_l": "2624-9634",
+                    "issn": [
+                      "2624-9634"
+                    ],
+                    "is_oa": true,
+                    "is_in_doaj": true,
+                    "is_core": true,
+                    "listed_in": [
+                      "cwts-core",
+                      "doaj",
+                      "norway-1"
+                    ],
+                    "host_organization": "https://openalex.org/P4310320527",
+                    "host_organization_name": "Frontiers Media",
+                    "host_organization_lineage": [
+                      "https://openalex.org/P4310320527"
+                    ],
+                    "host_organization_lineage_names": [
+                      "Frontiers Media"
+                    ],
+                    "type": "journal"
+                  },
+                  "license": "cc-by",
+                  "license_id": "https://openalex.org/licenses/cc-by",
+                  "version": "publishedVersion",
+                  "is_accepted": true,
+                  "is_published": true,
+                  "raw_source_name": "Frontiers in Sustainable Cities",
+                  "raw_type": "journal-article"
+                },
+                {
+                  "id": "pmh:oai:doaj.org/article:653a740a71ee4b1390ce0f7c15e0e37f",
+                  "is_oa": true,
+                  "landing_page_url": "https://doaj.org/article/653a740a71ee4b1390ce0f7c15e0e37f",
+                  "pdf_url": null,
+                  "source": {
+                    "id": "https://openalex.org/S4306401280",
+                    "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+                    "issn_l": null,
+                    "issn": null,
+                    "is_oa": false,
+                    "is_in_doaj": false,
+                    "is_core": false,
+                    "listed_in": [],
+                    "host_organization": null,
+                    "host_organization_name": null,
+                    "host_organization_lineage": [],
+                    "host_organization_lineage_names": [],
+                    "type": "repository"
+                  },
+                  "license": "cc-by-sa",
+                  "license_id": "https://openalex.org/licenses/cc-by-sa",
+                  "version": "submittedVersion",
+                  "is_accepted": false,
+                  "is_published": false,
+                  "raw_source_name": "Frontiers in Sustainable Cities, Vol 8 (2026)",
+                  "raw_type": "article"
+                }
+              ],
+              "best_oa_location": {
+                "id": "doi:10.3389/frsc.2026.1719775",
+                "is_oa": true,
+                "landing_page_url": "https://doi.org/10.3389/frsc.2026.1719775",
+                "pdf_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/pdf",
+                "source": {
+                  "id": "https://openalex.org/S4210235149",
+                  "display_name": "Frontiers in Sustainable Cities",
+                  "issn_l": "2624-9634",
+                  "issn": [
+                    "2624-9634"
+                  ],
+                  "is_oa": true,
+                  "is_in_doaj": true,
+                  "is_core": true,
+                  "listed_in": [
+                    "cwts-core",
+                    "doaj",
+                    "norway-1"
+                  ],
+                  "host_organization": "https://openalex.org/P4310320527",
+                  "host_organization_name": "Frontiers Media",
+                  "host_organization_lineage": [
+                    "https://openalex.org/P4310320527"
+                  ],
+                  "host_organization_lineage_names": [
+                    "Frontiers Media"
+                  ],
+                  "type": "journal"
+                },
+                "license": "cc-by",
+                "license_id": "https://openalex.org/licenses/cc-by",
+                "version": "publishedVersion",
+                "is_accepted": true,
+                "is_published": true,
+                "raw_source_name": "Frontiers in Sustainable Cities",
+                "raw_type": "journal-article"
+              },
+              "sustainable_development_goals": [
+                {
+                  "display_name": "Sustainable cities and communities",
+                  "score": 0.7257272005081177,
+                  "id": "https://metadata.un.org/sdg/11"
+                }
+              ],
+              "x_sdgs": [],
+              "study_designs": [],
+              "awards": [
+                {
+                  "id": "https://openalex.org/G7850240885",
+                  "display_name": null,
+                  "funder_award_id": "30004",
+                  "funder_id": "https://openalex.org/F4320324099",
+                  "funder_display_name": "Russian Science Foundation"
+                }
+              ],
+              "funders": [
+                {
+                  "id": "https://openalex.org/F4320324099",
+                  "display_name": "Russian Science Foundation",
+                  "ror": "https://ror.org/03y2gwe85"
+                }
+              ],
+              "has_content": {
+                "grobid_xml": true,
+                "pdf": true
+              },
+              "content_urls": {
+                "pdf": "https://content.openalex.org/works/W7160039767.pdf",
+                "grobid_xml": "https://content.openalex.org/works/W7160039767.grobid-xml"
+              },
+              "referenced_works_count": 26,
+              "referenced_works": [
+                "https://openalex.org/W1873258529",
+                "https://openalex.org/W1967468107",
+                "https://openalex.org/W1979132028",
+                "https://openalex.org/W1981202974",
+                "https://openalex.org/W2007105911",
+                "https://openalex.org/W2010844933",
+                "https://openalex.org/W2015390938",
+                "https://openalex.org/W2069742062",
+                "https://openalex.org/W2084650759",
+                "https://openalex.org/W2097600611",
+                "https://openalex.org/W2134408312",
+                "https://openalex.org/W2136464549",
+                "https://openalex.org/W2218598499",
+                "https://openalex.org/W2322414273",
+                "https://openalex.org/W2500063405",
+                "https://openalex.org/W2970379025",
+                "https://openalex.org/W2996691396",
+                "https://openalex.org/W3024865495",
+                "https://openalex.org/W3043912239",
+                "https://openalex.org/W3121519629",
+                "https://openalex.org/W3201425151",
+                "https://openalex.org/W4293217388",
+                "https://openalex.org/W4394061858",
+                "https://openalex.org/W4408150109",
+                "https://openalex.org/W4408150981",
+                "https://openalex.org/W4411185371"
+              ],
+              "related_works": [],
+              "abstract_inverted_index": {
+                "This": [
+                  0
+                ],
+                "study": [
+                  1
+                ],
+                "provides": [
+                  2
+                ],
+                "the": [
+                  3,
+                  20,
+                  74,
+                  83,
+                  87,
+                  95,
+                  107,
+                  110,
+                  118,
+                  162,
+                  165
+                ],
+                "first": [
+                  4
+                ],
+                "quantitative": [
+                  5
+                ],
+                "assessment": [
+                  6
+                ],
+                "of": [
+                  7,
+                  44,
+                  54,
+                  86,
+                  106,
+                  124,
+                  164
+                ],
+                "how": [
+                  8
+                ],
+                "transport": [
+                  9
+                ],
+                "accessibility": [
+                  10,
+                  29
+                ],
+                "affects": [
+                  11
+                ],
+                "population": [
+                  12,
+                  84
+                ],
+                "dynamics": [
+                  13
+                ],
+                "in": [
+                  14,
+                  94,
+                  100,
+                  130,
+                  168,
+                  180
+                ],
+                "73": [
+                  15
+                ],
+                "Russian": [
+                  16
+                ],
+                "urban": [
+                  17,
+                  48,
+                  50
+                ],
+                "agglomerations": [
+                  18,
+                  45
+                ],
+                "across": [
+                  19
+                ],
+                "intercensal": [
+                  21
+                ],
+                "periods": [
+                  22
+                ],
+                "1989–2021.": [
+                  23
+                ],
+                "Using": [
+                  24
+                ],
+                "OpenStreetMap": [
+                  25
+                ],
+                "data,": [
+                  26
+                ],
+                "we": [
+                  27,
+                  120
+                ],
+                "calculated": [
+                  28
+                ],
+                "to": [
+                  30,
+                  59,
+                  113,
+                  136
+                ],
+                "agglomeration": [
+                  31,
+                  69,
+                  126,
+                  178
+                ],
+                "centers": [
+                  32
+                ],
+                "for": [
+                  33
+                ],
+                "more": [
+                  34
+                ],
+                "than": [
+                  35
+                ],
+                "2,800": [
+                  36
+                ],
+                "settlements.": [
+                  37
+                ],
+                "The": [
+                  38,
+                  159
+                ],
+                "methodology": [
+                  39
+                ],
+                "combines": [
+                  40
+                ],
+                "a": [
+                  41,
+                  122,
+                  140,
+                  172
+                ],
+                "hierarchical": [
+                  42
+                ],
+                "segmentation": [
+                  43
+                ],
+                "(main": [
+                  46
+                ],
+                "city,": [
+                  47
+                ],
+                "area,": [
+                  49
+                ],
+                "agglomeration,": [
+                  51
+                ],
+                "and": [
+                  52,
+                  78,
+                  143,
+                  170
+                ],
+                "zone": [
+                  53
+                ],
+                "influence)": [
+                  55
+                ],
+                "with": [
+                  56,
+                  82,
+                  139
+                ],
+                "breakpoint": [
+                  57
+                ],
+                "analysis": [
+                  58
+                ],
+                "detect": [
+                  60
+                ],
+                "demographic": [
+                  61,
+                  97
+                ],
+                "boundaries.": [
+                  62
+                ],
+                "We": [
+                  63,
+                  147
+                ],
+                "show": [
+                  64,
+                  149
+                ],
+                "that": [
+                  65,
+                  128,
+                  150
+                ],
+                "actual,": [
+                  66
+                ],
+                "demographically": [
+                  67,
+                  176
+                ],
+                "grounded": [
+                  68
+                ],
+                "boundaries": [
+                  70,
+                  154,
+                  179
+                ],
+                "differ": [
+                  71,
+                  129
+                ],
+                "substantially": [
+                  72
+                ],
+                "from": [
+                  73
+                ],
+                "normative": [
+                  75
+                ],
+                "1.5-h": [
+                  76
+                ],
+                "isochrone": [
+                  77
+                ],
+                "are": [
+                  79
+                ],
+                "positively": [
+                  80
+                ],
+                "correlated": [
+                  81
+                ],
+                "size": [
+                  85
+                ],
+                "core": [
+                  88
+                ],
+                "city.": [
+                  89
+                ],
+                "Spatial": [
+                  90
+                ],
+                "polarization": [
+                  91
+                ],
+                "has": [
+                  92
+                ],
+                "intensified:": [
+                  93
+                ],
+                "2010s,": [
+                  96
+                ],
+                "growth": [
+                  98
+                ],
+                "concentrated": [
+                  99
+                ],
+                "high-accessibility": [
+                  101
+                ],
+                "zones": [
+                  102
+                ],
+                "(within": [
+                  103
+                ],
+                "35–50": [
+                  104
+                ],
+                "km": [
+                  105
+                ],
+                "center),": [
+                  108
+                ],
+                "while": [
+                  109
+                ],
+                "periphery": [
+                  111,
+                  142
+                ],
+                "shifted": [
+                  112
+                ],
+                "persistent": [
+                  114
+                ],
+                "depopulation.": [
+                  115
+                ],
+                "Based": [
+                  116
+                ],
+                "on": [
+                  117
+                ],
+                "results,": [
+                  119
+                ],
+                "develop": [
+                  121
+                ],
+                "typology": [
+                  123
+                ],
+                "16": [
+                  125
+                ],
+                "types": [
+                  127
+                ],
+                "spatial": [
+                  131,
+                  181
+                ],
+                "development": [
+                  132
+                ],
+                "patterns—from": [
+                  133
+                ],
+                "metropolitan": [
+                  134
+                ],
+                "“super-expansion”": [
+                  135
+                ],
+                "polycentric": [
+                  137
+                ],
+                "systems": [
+                  138
+                ],
+                "strong": [
+                  141
+                ],
+                "depopulating": [
+                  144
+                ],
+                "old-industrial": [
+                  145
+                ],
+                "cores.": [
+                  146
+                ],
+                "further": [
+                  148
+                ],
+                "fixing": [
+                  151
+                ],
+                "city": [
+                  152
+                ],
+                "administrative": [
+                  153
+                ],
+                "stimulated": [
+                  155
+                ],
+                "“explosive”": [
+                  156
+                ],
+                "suburban": [
+                  157
+                ],
+                "growth.": [
+                  158
+                ],
+                "findings": [
+                  160
+                ],
+                "confirm": [
+                  161
+                ],
+                "deepening": [
+                  163
+                ],
+                "core–periphery": [
+                  166
+                ],
+                "model": [
+                  167
+                ],
+                "Russia": [
+                  169
+                ],
+                "support": [
+                  171
+                ],
+                "shift": [
+                  173
+                ],
+                "toward": [
+                  174
+                ],
+                "flexible,": [
+                  175
+                ],
+                "calibrated": [
+                  177
+                ],
+                "planning": [
+                  182
+                ],
+                "practice.": [
+                  183
+                ]
+              },
+              "counts_by_year": [],
+              "updated_date": "2026-09-27T08:07:27.782135",
+              "created_date": "2026-05-05T00:00:00"
+            }
+          }
+        }
+      }
+    ],
+    "crossref_metadata": {
+      "source": "crossref_api",
+      "doi": "10.3389/frsc.2026.1719775",
+      "type": "journal-article",
+      "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+      "subtitle": null,
+      "container_title": "Frontiers in Sustainable Cities",
+      "publisher": "Frontiers Media SA",
+      "volume": "8",
+      "issue": null,
+      "page": "",
+      "year": 2026,
+      "issn": [
+        "2624-9634"
+      ],
+      "isbn": null,
+      "url": "https://doi.org/10.3389/frsc.2026.1719775"
+    }
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -3943,6 +7209,8 @@
                 "raw_type": "journal-article"
               },
               "sustainable_development_goals": [],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -5741,6 +9009,8 @@
                 "raw_type": "journal-article"
               },
               "sustainable_development_goals": [],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -7773,7 +11043,10 @@
                   "author": {
                     "id": "https://openalex.org/A5007601767",
                     "display_name": "Arseniy Sitkovskiy",
-                    "orcid": "https://orcid.org/0000-0002-8725-6580"
+                    "orcid": "https://orcid.org/0000-0002-8725-6580",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-8725-6580"
+                    ]
                   },
                   "institutions": [],
                   "countries": [],
@@ -7795,7 +11068,10 @@
                   "author": {
                     "id": "https://openalex.org/A5087476143",
                     "display_name": "Leila Delovarova",
-                    "orcid": "https://orcid.org/0000-0003-3163-5933"
+                    "orcid": "https://orcid.org/0000-0003-3163-5933",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0003-3163-5933"
+                    ]
                   },
                   "institutions": [],
                   "countries": [],
@@ -7832,7 +11108,7 @@
               "has_fulltext": true,
               "cited_by_count": 0,
               "citation_normalized_percentile": {
-                "value": 0.18010681,
+                "value": 0.17955739,
                 "is_in_top_1_percent": false,
                 "is_in_top_10_percent": false
               },
@@ -8039,6 +11315,8 @@
                 "raw_type": "journal-article"
               },
               "sustainable_development_goals": [],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -8543,7 +11821,7 @@
                 ]
               },
               "counts_by_year": [],
-              "updated_date": "2026-08-21T09:56:20.448147",
+              "updated_date": "2026-09-25T08:18:29.962427",
               "created_date": "2025-10-10T00:00:00"
             }
           },
@@ -9277,22 +12555,25 @@
                   "author": {
                     "id": "https://openalex.org/A5016469975",
                     "display_name": "Тамара Керимовна Ростовская",
-                    "orcid": "https://orcid.org/0000-0002-1629-7780"
+                    "orcid": "https://orcid.org/0000-0002-1629-7780",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-1629-7780"
+                    ]
                   },
                   "institutions": [
                     {
-                      "id": "https://openalex.org/I4210145660",
-                      "display_name": "Bio-Medical Science (South Korea)",
-                      "ror": "https://ror.org/046p12h21",
-                      "country_code": "KR",
-                      "type": "company",
+                      "id": "https://openalex.org/I126527374",
+                      "display_name": "Peoples' Friendship University of Russia",
+                      "ror": "https://ror.org/02dn9h927",
+                      "country_code": "RU",
+                      "type": "education",
                       "lineage": [
-                        "https://openalex.org/I4210145660"
+                        "https://openalex.org/I126527374"
                       ]
                     }
                   ],
                   "countries": [
-                    "KR"
+                    "RU"
                   ],
                   "is_corresponding": false,
                   "raw_author_name": "Тамара Керимовна Ростовская",
@@ -9305,12 +12586,14 @@
                     {
                       "raw_affiliation_string": "Институт социальной демографии Федерального научно-исследовательского социологического центра РАН; Российский университет дружбы народов",
                       "institution_ids": [
-                        "https://openalex.org/I4210145660"
+                        "https://openalex.org/I126527374"
                       ]
                     },
                     {
                       "raw_affiliation_string": "Российский университет дружбы народов",
-                      "institution_ids": []
+                      "institution_ids": [
+                        "https://openalex.org/I126527374"
+                      ]
                     }
                   ]
                 },
@@ -9319,10 +12602,26 @@
                   "author": {
                     "id": "https://openalex.org/A5007601767",
                     "display_name": "Arseniy Sitkovskiy",
-                    "orcid": "https://orcid.org/0000-0002-8725-6580"
+                    "orcid": "https://orcid.org/0000-0002-8725-6580",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-8725-6580"
+                    ]
                   },
-                  "institutions": [],
-                  "countries": [],
+                  "institutions": [
+                    {
+                      "id": "https://openalex.org/I126527374",
+                      "display_name": "Peoples' Friendship University of Russia",
+                      "ror": "https://ror.org/02dn9h927",
+                      "country_code": "RU",
+                      "type": "education",
+                      "lineage": [
+                        "https://openalex.org/I126527374"
+                      ]
+                    }
+                  ],
+                  "countries": [
+                    "RU"
+                  ],
                   "is_corresponding": false,
                   "raw_author_name": "Арсений Михайлович Ситковский",
                   "raw_affiliation_strings": [
@@ -9332,7 +12631,9 @@
                   "affiliations": [
                     {
                       "raw_affiliation_string": "Российский университет дружбы народов",
-                      "institution_ids": []
+                      "institution_ids": [
+                        "https://openalex.org/I126527374"
+                      ]
                     }
                   ]
                 },
@@ -9340,11 +12641,27 @@
                   "author_position": "last",
                   "author": {
                     "id": "https://openalex.org/A5038418914",
-                    "display_name": "Luiza N. Gishkaeva",
-                    "orcid": "https://orcid.org/0000-0001-7627-5375"
+                    "display_name": "Луиза Нахидовна Гишкаева",
+                    "orcid": "https://orcid.org/0000-0001-7627-5375",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0001-7627-5375"
+                    ]
                   },
-                  "institutions": [],
-                  "countries": [],
+                  "institutions": [
+                    {
+                      "id": "https://openalex.org/I126527374",
+                      "display_name": "Peoples' Friendship University of Russia",
+                      "ror": "https://ror.org/02dn9h927",
+                      "country_code": "RU",
+                      "type": "education",
+                      "lineage": [
+                        "https://openalex.org/I126527374"
+                      ]
+                    }
+                  ],
+                  "countries": [
+                    "RU"
+                  ],
                   "is_corresponding": false,
                   "raw_author_name": "Луиза Нахидовна Гишкаева",
                   "raw_affiliation_strings": [
@@ -9354,7 +12671,9 @@
                   "affiliations": [
                     {
                       "raw_affiliation_string": "Российский университет дружбы народов",
-                      "institution_ids": []
+                      "institution_ids": [
+                        "https://openalex.org/I126527374"
+                      ]
                     }
                   ]
                 }
@@ -9363,7 +12682,9 @@
               "countries_distinct_count": 1,
               "institutions_distinct_count": 1,
               "corresponding_author_ids": [],
-              "corresponding_institution_ids": [],
+              "corresponding_institution_ids": [
+                "https://openalex.org/I126527374"
+              ],
               "apc_list": {
                 "value": 10000,
                 "currency": "RUB",
@@ -9378,7 +12699,7 @@
               "has_fulltext": true,
               "cited_by_count": 0,
               "citation_normalized_percentile": {
-                "value": 0.36181461,
+                "value": 0.36088477,
                 "is_in_top_1_percent": false,
                 "is_in_top_10_percent": false
               },
@@ -9658,6 +12979,8 @@
                 "raw_type": "journal-article"
               },
               "sustainable_development_goals": [],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -10227,7 +13550,7 @@
                 ]
               },
               "counts_by_year": [],
-              "updated_date": "2026-08-21T09:56:20.448147",
+              "updated_date": "2026-09-23T05:00:35.095934",
               "created_date": "2025-12-01T00:00:00"
             }
           },
@@ -10922,18 +14245,6 @@
                       "lineage": [
                         "https://openalex.org/I126527374"
                       ]
-                    },
-                    {
-                      "id": "https://openalex.org/I4210122195",
-                      "display_name": "Institute of Socio-Political Research",
-                      "ror": "https://ror.org/02mx1ea71",
-                      "country_code": "RU",
-                      "type": "facility",
-                      "lineage": [
-                        "https://openalex.org/I1313323035",
-                        "https://openalex.org/I4210120228",
-                        "https://openalex.org/I4210122195"
-                      ]
                     }
                   ],
                   "countries": [
@@ -10949,9 +14260,7 @@
                   "affiliations": [
                     {
                       "raw_affiliation_string": "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)",
-                      "institution_ids": [
-                        "https://openalex.org/I4210122195"
-                      ]
+                      "institution_ids": []
                     },
                     {
                       "raw_affiliation_string": "RUDN University",
@@ -10978,18 +14287,6 @@
                       "lineage": [
                         "https://openalex.org/I126527374"
                       ]
-                    },
-                    {
-                      "id": "https://openalex.org/I4210122195",
-                      "display_name": "Institute of Socio-Political Research",
-                      "ror": "https://ror.org/02mx1ea71",
-                      "country_code": "RU",
-                      "type": "facility",
-                      "lineage": [
-                        "https://openalex.org/I1313323035",
-                        "https://openalex.org/I4210120228",
-                        "https://openalex.org/I4210122195"
-                      ]
                     }
                   ],
                   "countries": [
@@ -11005,9 +14302,7 @@
                   "affiliations": [
                     {
                       "raw_affiliation_string": "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)",
-                      "institution_ids": [
-                        "https://openalex.org/I4210122195"
-                      ]
+                      "institution_ids": []
                     },
                     {
                       "raw_affiliation_string": "RUDN University",
@@ -11020,16 +14315,18 @@
               ],
               "institutions": [],
               "countries_distinct_count": 1,
-              "institutions_distinct_count": 2,
+              "institutions_distinct_count": 1,
               "corresponding_author_ids": [],
-              "corresponding_institution_ids": [],
+              "corresponding_institution_ids": [
+                "https://openalex.org/I126527374"
+              ],
               "apc_list": null,
               "apc_paid": null,
               "fwci": 0.0,
               "has_fulltext": true,
               "cited_by_count": 0,
               "citation_normalized_percentile": {
-                "value": 0.34429046,
+                "value": 0.34263511,
                 "is_in_top_1_percent": false,
                 "is_in_top_10_percent": false
               },
@@ -11319,6 +14616,8 @@
                 "raw_type": "journal-article"
               },
               "sustainable_development_goals": [],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -11338,7 +14637,7 @@
                 ]
               },
               "counts_by_year": [],
-              "updated_date": "2026-08-21T09:56:20.448147",
+              "updated_date": "2026-09-23T05:00:35.095934",
               "created_date": "2025-11-02T00:00:00"
             }
           },
@@ -12035,7 +15334,10 @@
                   "author": {
                     "id": "https://openalex.org/A5007601767",
                     "display_name": "Arseniy Sitkovskiy",
-                    "orcid": "https://orcid.org/0000-0002-8725-6580"
+                    "orcid": "https://orcid.org/0000-0002-8725-6580",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-8725-6580"
+                    ]
                   },
                   "institutions": [
                     {
@@ -12047,21 +15349,9 @@
                       "lineage": [
                         "https://openalex.org/I1313323035"
                       ]
-                    },
-                    {
-                      "id": "https://openalex.org/I4210120395",
-                      "display_name": "Max Planck Institute for Demographic Research",
-                      "ror": "https://ror.org/02jgyam08",
-                      "country_code": "DE",
-                      "type": "facility",
-                      "lineage": [
-                        "https://openalex.org/I149899117",
-                        "https://openalex.org/I4210120395"
-                      ]
                     }
                   ],
                   "countries": [
-                    "DE",
                     "RU"
                   ],
                   "is_corresponding": true,
@@ -12074,35 +15364,33 @@
                     {
                       "raw_affiliation_string": "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences",
                       "institution_ids": [
-                        "https://openalex.org/I1313323035",
-                        "https://openalex.org/I4210120395"
+                        "https://openalex.org/I1313323035"
                       ]
                     }
                   ]
                 }
               ],
               "institutions": [],
-              "countries_distinct_count": 2,
-              "institutions_distinct_count": 2,
+              "countries_distinct_count": 1,
+              "institutions_distinct_count": 1,
               "corresponding_author_ids": [
                 "https://openalex.org/A5007601767"
               ],
               "corresponding_institution_ids": [
-                "https://openalex.org/I1313323035",
-                "https://openalex.org/I4210120395"
+                "https://openalex.org/I1313323035"
               ],
               "apc_list": null,
               "apc_paid": null,
-              "fwci": 5.0316,
+              "fwci": 4.8703,
               "has_fulltext": true,
               "cited_by_count": 2,
               "citation_normalized_percentile": {
-                "value": 0.95793006,
+                "value": 0.95628281,
                 "is_in_top_1_percent": false,
                 "is_in_top_10_percent": true
               },
               "cited_by_percentile_year": {
-                "min": 91,
+                "min": 90,
                 "max": 96
               },
               "biblio": {
@@ -12543,6 +15831,8 @@
                 "raw_type": "journal-article"
               },
               "sustainable_development_goals": [],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -13906,7 +17196,10 @@
                   "author": {
                     "id": "https://openalex.org/A5007601767",
                     "display_name": "Arseniy Sitkovskiy",
-                    "orcid": "https://orcid.org/0000-0002-8725-6580"
+                    "orcid": "https://orcid.org/0000-0002-8725-6580",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-8725-6580"
+                    ]
                   },
                   "institutions": [
                     {
@@ -13941,9 +17234,12 @@
                 {
                   "author_position": "last",
                   "author": {
-                    "id": "https://openalex.org/A5119710704",
-                    "display_name": "Tamara Rostovskaya",
-                    "orcid": null
+                    "id": "https://openalex.org/A5109534912",
+                    "display_name": "Tamara K. Rostovskaya",
+                    "orcid": "https://orcid.org/0000-0002-1629-7780",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-1629-7780"
+                    ]
                   },
                   "institutions": [
                     {
@@ -13989,7 +17285,7 @@
               "has_fulltext": false,
               "cited_by_count": 0,
               "citation_normalized_percentile": {
-                "value": 0.68609691,
+                "value": 0.67940676,
                 "is_in_top_1_percent": false,
                 "is_in_top_10_percent": false
               },
@@ -14267,11 +17563,13 @@
               },
               "sustainable_development_goals": [
                 {
-                  "id": "https://metadata.un.org/sdg/10",
+                  "display_name": "Reduced inequalities",
                   "score": 0.6855306625366211,
-                  "display_name": "Reduced inequalities"
+                  "id": "https://metadata.un.org/sdg/10"
                 }
               ],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -14361,7 +17659,7 @@
                 ]
               },
               "counts_by_year": [],
-              "updated_date": "2026-03-13T14:25:03.468858",
+              "updated_date": "2026-09-21T07:43:02.447757",
               "created_date": "2026-03-13T00:00:00"
             }
           },
@@ -17287,6 +20585,8 @@
                 "raw_type": "journal-article"
               },
               "sustainable_development_goals": [],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -18757,11 +22057,13 @@
               "best_oa_location": null,
               "sustainable_development_goals": [
                 {
-                  "id": "https://metadata.un.org/sdg/17",
+                  "display_name": "Partnerships for the goals",
                   "score": 0.5600000023841858,
-                  "display_name": "Partnerships for the goals"
+                  "id": "https://metadata.un.org/sdg/17"
                 }
               ],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -20265,11 +23567,13 @@
               },
               "sustainable_development_goals": [
                 {
-                  "id": "https://metadata.un.org/sdg/10",
+                  "display_name": "Reduced inequalities",
                   "score": 0.47999998927116394,
-                  "display_name": "Reduced inequalities"
+                  "id": "https://metadata.un.org/sdg/10"
                 }
               ],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -20818,7 +24122,8 @@
     "sources": [
       "elibrary",
       "scopus",
-      "orcid_public_api"
+      "orcid_public_api",
+      "openalex_api"
     ],
     "title_en": "Visualization in models of transformation of social space of the Eurasian macroregion: The example of the Urals",
     "scopus": {
@@ -21185,7 +24490,8 @@
           "display-index": "0"
         },
         "sources": [
-          "orcid_public_api"
+          "orcid_public_api",
+          "openalex_api"
         ],
         "provider_records": {
           "orcid_public_api": {
@@ -21287,8 +24593,1282 @@
               "path": "/0000-0002-8725-6580/work/121647683",
               "display-index": "0"
             }
+          },
+          "openalex_api": {
+            "source": "openalex_api",
+            "openalex_id": "https://openalex.org/W3111971945",
+            "title": "Visualization in models of transformation of social space of the Eurasian macroregion: the example of the Urals",
+            "year": 2020,
+            "doi": "10.1051/e3sconf/202021707021",
+            "url": "https://openalex.org/W3111971945",
+            "landing_page_url": "https://doi.org/10.1051/e3sconf/202021707021",
+            "pdf_url": "https://www.e3s-conferences.org/articles/e3sconf/pdf/2020/77/e3sconf_ersme2020_07021.pdf",
+            "venue": "E3S Web of Conferences",
+            "cited_by_count": 0,
+            "is_oa": true,
+            "oa_status": "diamond",
+            "raw": {
+              "id": "https://openalex.org/W3111971945",
+              "doi": "https://doi.org/10.1051/e3sconf/202021707021",
+              "title": "Visualization in models of transformation of social space of the Eurasian macroregion: the example of the Urals",
+              "display_name": "Visualization in models of transformation of social space of the Eurasian macroregion: the example of the Urals",
+              "publication_year": 2020,
+              "publication_date": "2020-01-01",
+              "ids": {
+                "openalex": "https://openalex.org/W3111971945",
+                "doi": "https://doi.org/10.1051/e3sconf/202021707021",
+                "mag": "3111971945"
+              },
+              "language": "en",
+              "primary_location": {
+                "id": "doi:10.1051/e3sconf/202021707021",
+                "is_oa": true,
+                "landing_page_url": "https://doi.org/10.1051/e3sconf/202021707021",
+                "pdf_url": "https://www.e3s-conferences.org/articles/e3sconf/pdf/2020/77/e3sconf_ersme2020_07021.pdf",
+                "source": {
+                  "id": "https://openalex.org/S4210186093",
+                  "display_name": "E3S Web of Conferences",
+                  "issn_l": "2267-1242",
+                  "issn": [
+                    "2267-1242",
+                    "2555-0403"
+                  ],
+                  "is_oa": true,
+                  "is_in_doaj": true,
+                  "is_core": false,
+                  "listed_in": [
+                    "doaj",
+                    "jufo-1",
+                    "norway-1"
+                  ],
+                  "host_organization": "https://openalex.org/P4310319748",
+                  "host_organization_name": "EDP Sciences",
+                  "host_organization_lineage": [
+                    "https://openalex.org/P4310319748",
+                    "https://openalex.org/P4310319982"
+                  ],
+                  "host_organization_lineage_names": [
+                    "EDP Sciences",
+                    "Science Press"
+                  ],
+                  "type": "journal"
+                },
+                "license": "cc-by",
+                "license_id": "https://openalex.org/licenses/cc-by",
+                "version": "publishedVersion",
+                "is_accepted": true,
+                "is_published": true,
+                "raw_source_name": "E3S Web of Conferences",
+                "raw_type": "journal-article"
+              },
+              "type": "conference-paper",
+              "indexed_in": [
+                "crossref",
+                "doaj"
+              ],
+              "open_access": {
+                "is_oa": true,
+                "oa_status": "diamond",
+                "oa_url": "https://www.e3s-conferences.org/articles/e3sconf/pdf/2020/77/e3sconf_ersme2020_07021.pdf",
+                "any_repository_has_fulltext": true
+              },
+              "authorships": [
+                {
+                  "author_position": "first",
+                  "author": {
+                    "id": "https://openalex.org/A5101507112",
+                    "display_name": "Sergey Gordeev",
+                    "orcid": "https://orcid.org/0000-0002-8458-2161",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-8458-2161"
+                    ]
+                  },
+                  "institutions": [
+                    {
+                      "id": "https://openalex.org/I263417816",
+                      "display_name": "The Russian Presidential Academy of National Economy and Public Administration",
+                      "ror": "https://ror.org/04xnm9a92",
+                      "country_code": "RU",
+                      "type": "government",
+                      "lineage": [
+                        "https://openalex.org/I263417816"
+                      ]
+                    }
+                  ],
+                  "countries": [
+                    "RU"
+                  ],
+                  "is_corresponding": true,
+                  "raw_author_name": "Sergey Gordeev",
+                  "raw_affiliation_strings": [
+                    "Chelyabinsk branch of Russian Presidential Academy of National Economy and Public Administration, Chelyabinsk, Russia"
+                  ],
+                  "raw_orcid": null,
+                  "affiliations": [
+                    {
+                      "raw_affiliation_string": "Chelyabinsk branch of Russian Presidential Academy of National Economy and Public Administration, Chelyabinsk, Russia",
+                      "institution_ids": [
+                        "https://openalex.org/I263417816"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "author_position": "middle",
+                  "author": {
+                    "id": "https://openalex.org/A5033798874",
+                    "display_name": "Sergey Zyryanov",
+                    "orcid": null,
+                    "observed_orcids": []
+                  },
+                  "institutions": [
+                    {
+                      "id": "https://openalex.org/I263417816",
+                      "display_name": "The Russian Presidential Academy of National Economy and Public Administration",
+                      "ror": "https://ror.org/04xnm9a92",
+                      "country_code": "RU",
+                      "type": "government",
+                      "lineage": [
+                        "https://openalex.org/I263417816"
+                      ]
+                    }
+                  ],
+                  "countries": [
+                    "RU"
+                  ],
+                  "is_corresponding": false,
+                  "raw_author_name": "Sergey Zyryanov",
+                  "raw_affiliation_strings": [
+                    "Chelyabinsk branch of Russian Presidential Academy of National Economy and Public Administration, Chelyabinsk, Russia"
+                  ],
+                  "raw_orcid": null,
+                  "affiliations": [
+                    {
+                      "raw_affiliation_string": "Chelyabinsk branch of Russian Presidential Academy of National Economy and Public Administration, Chelyabinsk, Russia",
+                      "institution_ids": [
+                        "https://openalex.org/I263417816"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "author_position": "last",
+                  "author": {
+                    "id": "https://openalex.org/A5007601767",
+                    "display_name": "Arseniy Sitkovskiy",
+                    "orcid": "https://orcid.org/0000-0002-8725-6580",
+                    "observed_orcids": [
+                      "https://orcid.org/0000-0002-8725-6580"
+                    ]
+                  },
+                  "institutions": [
+                    {
+                      "id": "https://openalex.org/I263417816",
+                      "display_name": "The Russian Presidential Academy of National Economy and Public Administration",
+                      "ror": "https://ror.org/04xnm9a92",
+                      "country_code": "RU",
+                      "type": "government",
+                      "lineage": [
+                        "https://openalex.org/I263417816"
+                      ]
+                    }
+                  ],
+                  "countries": [
+                    "RU"
+                  ],
+                  "is_corresponding": false,
+                  "raw_author_name": "Arseniy Sitkovskiy",
+                  "raw_affiliation_strings": [
+                    "Chelyabinsk branch of Russian Presidential Academy of National Economy and Public Administration, Chelyabinsk, Russia"
+                  ],
+                  "raw_orcid": null,
+                  "affiliations": [
+                    {
+                      "raw_affiliation_string": "Chelyabinsk branch of Russian Presidential Academy of National Economy and Public Administration, Chelyabinsk, Russia",
+                      "institution_ids": [
+                        "https://openalex.org/I263417816"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "institutions": [],
+              "countries_distinct_count": 1,
+              "institutions_distinct_count": 1,
+              "corresponding_author_ids": [
+                "https://openalex.org/A5101507112"
+              ],
+              "corresponding_institution_ids": [
+                "https://openalex.org/I263417816"
+              ],
+              "apc_list": null,
+              "apc_paid": null,
+              "fwci": 0.0,
+              "has_fulltext": true,
+              "cited_by_count": 0,
+              "citation_normalized_percentile": {
+                "value": 0.32714536,
+                "is_in_top_1_percent": false,
+                "is_in_top_10_percent": false
+              },
+              "cited_by_percentile_year": null,
+              "biblio": {
+                "volume": "217",
+                "issue": null,
+                "first_page": "07021",
+                "last_page": "07021"
+              },
+              "is_retracted": false,
+              "is_paratext": false,
+              "is_xpac": false,
+              "primary_topic": {
+                "id": "https://openalex.org/T13618",
+                "display_name": "Regional Socio-Economic Development Trends",
+                "score": 0.9945999979972839,
+                "subfield": {
+                  "id": "https://openalex.org/subfields/3317",
+                  "display_name": "Demography"
+                },
+                "field": {
+                  "id": "https://openalex.org/fields/33",
+                  "display_name": "Social Sciences"
+                },
+                "domain": {
+                  "id": "https://openalex.org/domains/2",
+                  "display_name": "Social Sciences"
+                }
+              },
+              "topics": [
+                {
+                  "id": "https://openalex.org/T13618",
+                  "display_name": "Regional Socio-Economic Development Trends",
+                  "score": 0.9945999979972839,
+                  "subfield": {
+                    "id": "https://openalex.org/subfields/3317",
+                    "display_name": "Demography"
+                  },
+                  "field": {
+                    "id": "https://openalex.org/fields/33",
+                    "display_name": "Social Sciences"
+                  },
+                  "domain": {
+                    "id": "https://openalex.org/domains/2",
+                    "display_name": "Social Sciences"
+                  }
+                },
+                {
+                  "id": "https://openalex.org/T12432",
+                  "display_name": "Arctic and Russian Policy Studies",
+                  "score": 0.9822999835014343,
+                  "subfield": {
+                    "id": "https://openalex.org/subfields/3312",
+                    "display_name": "Sociology and Political Science"
+                  },
+                  "field": {
+                    "id": "https://openalex.org/fields/33",
+                    "display_name": "Social Sciences"
+                  },
+                  "domain": {
+                    "id": "https://openalex.org/domains/2",
+                    "display_name": "Social Sciences"
+                  }
+                },
+                {
+                  "id": "https://openalex.org/T14019",
+                  "display_name": "Socioeconomic and Demographic Analysis",
+                  "score": 0.9692000150680542,
+                  "subfield": {
+                    "id": "https://openalex.org/subfields/2308",
+                    "display_name": "Management, Monitoring, Policy and Law"
+                  },
+                  "field": {
+                    "id": "https://openalex.org/fields/23",
+                    "display_name": "Environmental Science"
+                  },
+                  "domain": {
+                    "id": "https://openalex.org/domains/3",
+                    "display_name": "Physical Sciences"
+                  }
+                }
+              ],
+              "keywords": [
+                {
+                  "id": "https://openalex.org/keywords/space",
+                  "display_name": "Space (punctuation)",
+                  "score": 0.623902440071106
+                },
+                {
+                  "id": "https://openalex.org/keywords/economic-geography",
+                  "display_name": "Economic geography",
+                  "score": 0.5656277537345886
+                },
+                {
+                  "id": "https://openalex.org/keywords/zoning",
+                  "display_name": "Zoning",
+                  "score": 0.5471888184547424
+                },
+                {
+                  "id": "https://openalex.org/keywords/settlement",
+                  "display_name": "Settlement (finance)",
+                  "score": 0.5179654359817505
+                },
+                {
+                  "id": "https://openalex.org/keywords/transformation",
+                  "display_name": "Transformation (genetics)",
+                  "score": 0.5011110305786133
+                },
+                {
+                  "id": "https://openalex.org/keywords/regional-science",
+                  "display_name": "Regional science",
+                  "score": 0.4794144332408905
+                },
+                {
+                  "id": "https://openalex.org/keywords/transformation-processes",
+                  "display_name": "Transformation processes",
+                  "score": 0.4542660117149353
+                },
+                {
+                  "id": "https://openalex.org/keywords/relevance",
+                  "display_name": "Relevance (law)",
+                  "score": 0.4386635422706604
+                },
+                {
+                  "id": "https://openalex.org/keywords/computer-science",
+                  "display_name": "Computer science",
+                  "score": 0.4189160466194153
+                },
+                {
+                  "id": "https://openalex.org/keywords/geography",
+                  "display_name": "Geography",
+                  "score": 0.4160262942314148
+                },
+                {
+                  "id": "https://openalex.org/keywords/data-science",
+                  "display_name": "Data science",
+                  "score": 0.37006109952926636
+                },
+                {
+                  "id": "https://openalex.org/keywords/sociology",
+                  "display_name": "Sociology",
+                  "score": 0.2390957772731781
+                },
+                {
+                  "id": "https://openalex.org/keywords/political-science",
+                  "display_name": "Political science",
+                  "score": 0.2254031002521515
+                },
+                {
+                  "id": "https://openalex.org/keywords/civil-engineering",
+                  "display_name": "Civil engineering",
+                  "score": 0.18025457859039307
+                },
+                {
+                  "id": "https://openalex.org/keywords/social-science",
+                  "display_name": "Social science",
+                  "score": 0.1344691514968872
+                },
+                {
+                  "id": "https://openalex.org/keywords/engineering",
+                  "display_name": "Engineering",
+                  "score": 0.11813008785247803
+                }
+              ],
+              "concepts": [
+                {
+                  "id": "https://openalex.org/C2778572836",
+                  "wikidata": "https://www.wikidata.org/wiki/Q380933",
+                  "display_name": "Space (punctuation)",
+                  "level": 2,
+                  "score": 0.623902440071106
+                },
+                {
+                  "id": "https://openalex.org/C26271046",
+                  "wikidata": "https://www.wikidata.org/wiki/Q187097",
+                  "display_name": "Economic geography",
+                  "level": 1,
+                  "score": 0.5656277537345886
+                },
+                {
+                  "id": "https://openalex.org/C520944541",
+                  "wikidata": "https://www.wikidata.org/wiki/Q702232",
+                  "display_name": "Zoning",
+                  "level": 2,
+                  "score": 0.5471888184547424
+                },
+                {
+                  "id": "https://openalex.org/C2777063073",
+                  "wikidata": "https://www.wikidata.org/wiki/Q1553237",
+                  "display_name": "Settlement (finance)",
+                  "level": 3,
+                  "score": 0.5179654359817505
+                },
+                {
+                  "id": "https://openalex.org/C204241405",
+                  "wikidata": "https://www.wikidata.org/wiki/Q461499",
+                  "display_name": "Transformation (genetics)",
+                  "level": 3,
+                  "score": 0.5011110305786133
+                },
+                {
+                  "id": "https://openalex.org/C148383697",
+                  "wikidata": "https://www.wikidata.org/wiki/Q1781695",
+                  "display_name": "Regional science",
+                  "level": 1,
+                  "score": 0.4794144332408905
+                },
+                {
+                  "id": "https://openalex.org/C2780388633",
+                  "wikidata": "https://www.wikidata.org/wiki/Q7834093",
+                  "display_name": "Transformation processes",
+                  "level": 2,
+                  "score": 0.4542660117149353
+                },
+                {
+                  "id": "https://openalex.org/C158154518",
+                  "wikidata": "https://www.wikidata.org/wiki/Q7310970",
+                  "display_name": "Relevance (law)",
+                  "level": 2,
+                  "score": 0.4386635422706604
+                },
+                {
+                  "id": "https://openalex.org/C41008148",
+                  "wikidata": "https://www.wikidata.org/wiki/Q21198",
+                  "display_name": "Computer science",
+                  "level": 0,
+                  "score": 0.4189160466194153
+                },
+                {
+                  "id": "https://openalex.org/C205649164",
+                  "wikidata": "https://www.wikidata.org/wiki/Q1071",
+                  "display_name": "Geography",
+                  "level": 0,
+                  "score": 0.4160262942314148
+                },
+                {
+                  "id": "https://openalex.org/C2522767166",
+                  "wikidata": "https://www.wikidata.org/wiki/Q2374463",
+                  "display_name": "Data science",
+                  "level": 1,
+                  "score": 0.37006109952926636
+                },
+                {
+                  "id": "https://openalex.org/C144024400",
+                  "wikidata": "https://www.wikidata.org/wiki/Q21201",
+                  "display_name": "Sociology",
+                  "level": 0,
+                  "score": 0.2390957772731781
+                },
+                {
+                  "id": "https://openalex.org/C17744445",
+                  "wikidata": "https://www.wikidata.org/wiki/Q36442",
+                  "display_name": "Political science",
+                  "level": 0,
+                  "score": 0.2254031002521515
+                },
+                {
+                  "id": "https://openalex.org/C147176958",
+                  "wikidata": "https://www.wikidata.org/wiki/Q77590",
+                  "display_name": "Civil engineering",
+                  "level": 1,
+                  "score": 0.18025457859039307
+                },
+                {
+                  "id": "https://openalex.org/C36289849",
+                  "wikidata": "https://www.wikidata.org/wiki/Q34749",
+                  "display_name": "Social science",
+                  "level": 1,
+                  "score": 0.1344691514968872
+                },
+                {
+                  "id": "https://openalex.org/C127413603",
+                  "wikidata": "https://www.wikidata.org/wiki/Q11023",
+                  "display_name": "Engineering",
+                  "level": 0,
+                  "score": 0.11813008785247803
+                },
+                {
+                  "id": "https://openalex.org/C145097563",
+                  "wikidata": "https://www.wikidata.org/wiki/Q1148747",
+                  "display_name": "Payment",
+                  "level": 2,
+                  "score": 0.0
+                },
+                {
+                  "id": "https://openalex.org/C104317684",
+                  "wikidata": "https://www.wikidata.org/wiki/Q7187",
+                  "display_name": "Gene",
+                  "level": 2,
+                  "score": 0.0
+                },
+                {
+                  "id": "https://openalex.org/C111919701",
+                  "wikidata": "https://www.wikidata.org/wiki/Q9135",
+                  "display_name": "Operating system",
+                  "level": 1,
+                  "score": 0.0
+                },
+                {
+                  "id": "https://openalex.org/C55493867",
+                  "wikidata": "https://www.wikidata.org/wiki/Q7094",
+                  "display_name": "Biochemistry",
+                  "level": 1,
+                  "score": 0.0
+                },
+                {
+                  "id": "https://openalex.org/C199539241",
+                  "wikidata": "https://www.wikidata.org/wiki/Q7748",
+                  "display_name": "Law",
+                  "level": 1,
+                  "score": 0.0
+                },
+                {
+                  "id": "https://openalex.org/C185592680",
+                  "wikidata": "https://www.wikidata.org/wiki/Q2329",
+                  "display_name": "Chemistry",
+                  "level": 0,
+                  "score": 0.0
+                },
+                {
+                  "id": "https://openalex.org/C136764020",
+                  "wikidata": "https://www.wikidata.org/wiki/Q466",
+                  "display_name": "World Wide Web",
+                  "level": 1,
+                  "score": 0.0
+                }
+              ],
+              "mesh": [],
+              "locations_count": 3,
+              "locations": [
+                {
+                  "id": "doi:10.1051/e3sconf/202021707021",
+                  "is_oa": true,
+                  "landing_page_url": "https://doi.org/10.1051/e3sconf/202021707021",
+                  "pdf_url": "https://www.e3s-conferences.org/articles/e3sconf/pdf/2020/77/e3sconf_ersme2020_07021.pdf",
+                  "source": {
+                    "id": "https://openalex.org/S4210186093",
+                    "display_name": "E3S Web of Conferences",
+                    "issn_l": "2267-1242",
+                    "issn": [
+                      "2267-1242",
+                      "2555-0403"
+                    ],
+                    "is_oa": true,
+                    "is_in_doaj": true,
+                    "is_core": false,
+                    "listed_in": [
+                      "doaj",
+                      "jufo-1",
+                      "norway-1"
+                    ],
+                    "host_organization": "https://openalex.org/P4310319748",
+                    "host_organization_name": "EDP Sciences",
+                    "host_organization_lineage": [
+                      "https://openalex.org/P4310319748",
+                      "https://openalex.org/P4310319982"
+                    ],
+                    "host_organization_lineage_names": [
+                      "EDP Sciences",
+                      "Science Press"
+                    ],
+                    "type": "journal"
+                  },
+                  "license": "cc-by",
+                  "license_id": "https://openalex.org/licenses/cc-by",
+                  "version": "publishedVersion",
+                  "is_accepted": true,
+                  "is_published": true,
+                  "raw_source_name": "E3S Web of Conferences",
+                  "raw_type": "journal-article"
+                },
+                {
+                  "id": "pmh:oai:edpsciences.org:dkey/10.1051/e3sconf/202021707021",
+                  "is_oa": true,
+                  "landing_page_url": "https://www.e3s-conferences.org/10.1051/e3sconf/202021707021/pdf",
+                  "pdf_url": "https://www.e3s-conferences.org/10.1051/e3sconf/202021707021/pdf",
+                  "source": {
+                    "id": "https://openalex.org/S4306400744",
+                    "display_name": "Springer Link (Chiba Institute of Technology)",
+                    "issn_l": null,
+                    "issn": null,
+                    "is_oa": false,
+                    "is_in_doaj": false,
+                    "is_core": false,
+                    "listed_in": [],
+                    "host_organization": "https://openalex.org/I8488066",
+                    "host_organization_name": "Chiba Institute of Technology",
+                    "host_organization_lineage": [
+                      "https://openalex.org/I8488066"
+                    ],
+                    "host_organization_lineage_names": [],
+                    "type": "repository"
+                  },
+                  "license": null,
+                  "license_id": null,
+                  "version": "submittedVersion",
+                  "is_accepted": false,
+                  "is_published": false,
+                  "raw_source_name": "https://doi.org/10.1051/e3sconf/202021707021",
+                  "raw_type": "Text"
+                },
+                {
+                  "id": "pmh:oai:doaj.org/article:09dbaca38cd64a499fe315aa366476c6",
+                  "is_oa": true,
+                  "landing_page_url": "https://doaj.org/article/09dbaca38cd64a499fe315aa366476c6",
+                  "pdf_url": null,
+                  "source": {
+                    "id": "https://openalex.org/S4306401280",
+                    "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+                    "issn_l": null,
+                    "issn": null,
+                    "is_oa": false,
+                    "is_in_doaj": false,
+                    "is_core": false,
+                    "listed_in": [],
+                    "host_organization": null,
+                    "host_organization_name": null,
+                    "host_organization_lineage": [],
+                    "host_organization_lineage_names": [],
+                    "type": "repository"
+                  },
+                  "license": "cc-by-sa",
+                  "license_id": "https://openalex.org/licenses/cc-by-sa",
+                  "version": "submittedVersion",
+                  "is_accepted": false,
+                  "is_published": false,
+                  "raw_source_name": "E3S Web of Conferences, Vol 217, p 07021 (2020)",
+                  "raw_type": "article"
+                }
+              ],
+              "best_oa_location": {
+                "id": "doi:10.1051/e3sconf/202021707021",
+                "is_oa": true,
+                "landing_page_url": "https://doi.org/10.1051/e3sconf/202021707021",
+                "pdf_url": "https://www.e3s-conferences.org/articles/e3sconf/pdf/2020/77/e3sconf_ersme2020_07021.pdf",
+                "source": {
+                  "id": "https://openalex.org/S4210186093",
+                  "display_name": "E3S Web of Conferences",
+                  "issn_l": "2267-1242",
+                  "issn": [
+                    "2267-1242",
+                    "2555-0403"
+                  ],
+                  "is_oa": true,
+                  "is_in_doaj": true,
+                  "is_core": false,
+                  "listed_in": [
+                    "doaj",
+                    "jufo-1",
+                    "norway-1"
+                  ],
+                  "host_organization": "https://openalex.org/P4310319748",
+                  "host_organization_name": "EDP Sciences",
+                  "host_organization_lineage": [
+                    "https://openalex.org/P4310319748",
+                    "https://openalex.org/P4310319982"
+                  ],
+                  "host_organization_lineage_names": [
+                    "EDP Sciences",
+                    "Science Press"
+                  ],
+                  "type": "journal"
+                },
+                "license": "cc-by",
+                "license_id": "https://openalex.org/licenses/cc-by",
+                "version": "publishedVersion",
+                "is_accepted": true,
+                "is_published": true,
+                "raw_source_name": "E3S Web of Conferences",
+                "raw_type": "journal-article"
+              },
+              "sustainable_development_goals": [
+                {
+                  "display_name": "Sustainable cities and communities",
+                  "score": 0.5,
+                  "id": "https://metadata.un.org/sdg/11"
+                }
+              ],
+              "x_sdgs": [],
+              "study_designs": [],
+              "awards": [],
+              "funders": [
+                {
+                  "id": "https://openalex.org/F4320321079",
+                  "display_name": "Russian Foundation for Basic Research",
+                  "ror": "https://ror.org/02mh1ke95"
+                }
+              ],
+              "has_content": {
+                "grobid_xml": true,
+                "pdf": true
+              },
+              "content_urls": {
+                "pdf": "https://content.openalex.org/works/W3111971945.pdf",
+                "grobid_xml": "https://content.openalex.org/works/W3111971945.grobid-xml"
+              },
+              "referenced_works_count": 9,
+              "referenced_works": [
+                "https://openalex.org/W920706371",
+                "https://openalex.org/W1958100158",
+                "https://openalex.org/W2589470677",
+                "https://openalex.org/W2597280979",
+                "https://openalex.org/W2727844201",
+                "https://openalex.org/W2786120988",
+                "https://openalex.org/W2985151274",
+                "https://openalex.org/W4238775329",
+                "https://openalex.org/W4385647613"
+              ],
+              "related_works": [
+                "https://openalex.org/W3121717315",
+                "https://openalex.org/W263325194",
+                "https://openalex.org/W4285335834",
+                "https://openalex.org/W2205807669",
+                "https://openalex.org/W4205932328",
+                "https://openalex.org/W4206374577",
+                "https://openalex.org/W3216006073",
+                "https://openalex.org/W2361880507",
+                "https://openalex.org/W2387068835",
+                "https://openalex.org/W2366966236"
+              ],
+              "abstract_inverted_index": {
+                "The": [
+                  0,
+                  88,
+                  120,
+                  153,
+                  191,
+                  216
+                ],
+                "relevance": [
+                  1
+                ],
+                "of": [
+                  2,
+                  8,
+                  25,
+                  31,
+                  40,
+                  52,
+                  56,
+                  61,
+                  82,
+                  90,
+                  105,
+                  110,
+                  127,
+                  131,
+                  146,
+                  149,
+                  155,
+                  159,
+                  167,
+                  172,
+                  177,
+                  180,
+                  187,
+                  200,
+                  203,
+                  208,
+                  213,
+                  219,
+                  227,
+                  232,
+                  242,
+                  251
+                ],
+                "the": [
+                  3,
+                  29,
+                  38,
+                  50,
+                  59,
+                  70,
+                  91,
+                  96,
+                  107,
+                  111,
+                  125,
+                  139,
+                  141,
+                  144,
+                  147,
+                  150,
+                  156,
+                  164,
+                  168,
+                  173,
+                  178,
+                  204,
+                  209,
+                  220,
+                  225,
+                  230,
+                  249
+                ],
+                "topic": [
+                  4
+                ],
+                "determines": [
+                  5
+                ],
+                "a": [
+                  6,
+                  103,
+                  114,
+                  128,
+                  185
+                ],
+                "lot": [
+                  7
+                ],
+                "structural": [
+                  9
+                ],
+                "socio-": [
+                  10
+                ],
+                "economic": [
+                  11
+                ],
+                "changes": [
+                  12,
+                  21
+                ],
+                "associated": [
+                  13
+                ],
+                "with": [
+                  14
+                ],
+                "both": [
+                  15
+                ],
+                "globalization": [
+                  16
+                ],
+                "and": [
+                  17,
+                  58,
+                  85,
+                  101,
+                  175,
+                  183,
+                  237,
+                  245
+                ],
+                "crisis": [
+                  18
+                ],
+                "processes.": [
+                  19,
+                  87
+                ],
+                "Such": [
+                  20,
+                  78
+                ],
+                "affect": [
+                  22
+                ],
+                "various": [
+                  23
+                ],
+                "aspects": [
+                  24
+                ],
+                "spatial": [
+                  26,
+                  72,
+                  108
+                ],
+                "development,": [
+                  27,
+                  239
+                ],
+                "including": [
+                  28
+                ],
+                "transformation": [
+                  30,
+                  39,
+                  179,
+                  202
+                ],
+                "social": [
+                  32,
+                  41,
+                  132,
+                  181,
+                  214
+                ],
+                "space.": [
+                  33
+                ],
+                "Prospects": [
+                  34
+                ],
+                "for": [
+                  35,
+                  76,
+                  234,
+                  248
+                ],
+                "research": [
+                  36,
+                  92,
+                  221
+                ],
+                "into": [
+                  37
+                ],
+                "space": [
+                  42,
+                  133,
+                  182
+                ],
+                "in": [
+                  43,
+                  95
+                ],
+                "such": [
+                  44
+                ],
+                "conditions": [
+                  45
+                ],
+                "are": [
+                  46,
+                  124,
+                  161,
+                  194,
+                  222
+                ],
+                "largely": [
+                  47
+                ],
+                "related": [
+                  48,
+                  162,
+                  223
+                ],
+                "to": [
+                  49,
+                  99,
+                  163,
+                  224
+                ],
+                "development": [
+                  51,
+                  109,
+                  250
+                ],
+                "complex": [
+                  53,
+                  115
+                ],
+                "problem-adapted": [
+                  54
+                ],
+                "systems": [
+                  55
+                ],
+                "models": [
+                  57,
+                  68
+                ],
+                "use": [
+                  60
+                ],
+                "computer": [
+                  62
+                ],
+                "technologies": [
+                  63
+                ],
+                "–": [
+                  64
+                ],
+                "visualization": [
+                  65
+                ],
+                "tools.": [
+                  66
+                ],
+                "These": [
+                  67
+                ],
+                "consider": [
+                  69
+                ],
+                "interconnected": [
+                  71
+                ],
+                "objects": [
+                  73,
+                  79,
+                  212
+                ],
+                "most": [
+                  74,
+                  169,
+                  210
+                ],
+                "significant": [
+                  75,
+                  170,
+                  211
+                ],
+                "transformation.": [
+                  77
+                ],
+                "include": [
+                  80
+                ],
+                "zones": [
+                  81
+                ],
+                "transport": [
+                  83
+                ],
+                "corridors": [
+                  84
+                ],
+                "agglomeration": [
+                  86
+                ],
+                "purpose": [
+                  89
+                ],
+                "results": [
+                  93,
+                  218
+                ],
+                "presented": [
+                  94
+                ],
+                "article": [
+                  97
+                ],
+                "is": [
+                  98
+                ],
+                "determine": [
+                  100
+                ],
+                "approbate": [
+                  102
+                ],
+                "number": [
+                  104
+                ],
+                "provisions,": [
+                  106
+                ],
+                "macroregion,": [
+                  112
+                ],
+                "as": [
+                  113
+                ],
+                "heterogeneous": [
+                  116
+                ],
+                "multilevel": [
+                  117,
+                  129
+                ],
+                "socio-economic": [
+                  118
+                ],
+                "system.": [
+                  119
+                ],
+                "key": [
+                  121
+                ],
+                "issues": [
+                  122,
+                  193
+                ],
+                "here": [
+                  123
+                ],
+                "construction": [
+                  126
+                ],
+                "framework": [
+                  130
+                ],
+                "when": [
+                  134
+                ],
+                "adapting": [
+                  135
+                ],
+                "local": [
+                  136
+                ],
+                "models.": [
+                  137,
+                  190
+                ],
+                "In": [
+                  138
+                ],
+                "study,": [
+                  140
+                ],
+                "base": [
+                  142
+                ],
+                "was": [
+                  143
+                ],
+                "territory": [
+                  145
+                ],
+                "macroregion": [
+                  148
+                ],
+                "“Big": [
+                  151
+                ],
+                "Urals”.": [
+                  152
+                ],
+                "peculiarities": [
+                  154
+                ],
+                "methodology,": [
+                  157
+                ],
+                "first": [
+                  158
+                ],
+                "all,": [
+                  160
+                ],
+                "issues:": [
+                  165
+                ],
+                "determination": [
+                  166
+                ],
+                "elements": [
+                  171
+                ],
+                "structure": [
+                  174
+                ],
+                "characteristics": [
+                  176
+                ],
+                "building": [
+                  184
+                ],
+                "system": [
+                  186
+                ],
+                "information-": [
+                  188
+                ],
+                "adapted": [
+                  189
+                ],
+                "following": [
+                  192
+                ],
+                "considered": [
+                  195
+                ],
+                "here:": [
+                  196
+                ],
+                "problem-": [
+                  197
+                ],
+                "oriented": [
+                  198
+                ],
+                "zoning": [
+                  199
+                ],
+                "territories,": [
+                  201
+                ],
+                "settlement": [
+                  205
+                ],
+                "framework,": [
+                  206
+                ],
+                "integration": [
+                  207
+                ],
+                "transformations.": [
+                  215
+                ],
+                "main": [
+                  217
+                ],
+                "possibilities": [
+                  226
+                ],
+                "significantly": [
+                  228
+                ],
+                "expanding": [
+                  229
+                ],
+                "class": [
+                  231
+                ],
+                "tasks": [
+                  233
+                ],
+                "managing": [
+                  235
+                ],
+                "regional": [
+                  236
+                ],
+                "municipal": [
+                  238
+                ],
+                "solving": [
+                  240
+                ],
+                "problems": [
+                  241
+                ],
+                "strategic": [
+                  243
+                ],
+                "planning": [
+                  244
+                ],
+                "forming": [
+                  246
+                ],
+                "programs": [
+                  247
+                ],
+                "territories.": [
+                  252
+                ]
+              },
+              "counts_by_year": [],
+              "updated_date": "2026-09-06T09:10:53.072986",
+              "created_date": "2025-10-10T00:00:00"
+            }
           }
-        }
+        },
+        "openalex_id": "https://openalex.org/W3111971945",
+        "landing_page_url": "https://doi.org/10.1051/e3sconf/202021707021",
+        "pdf_url": "https://www.e3s-conferences.org/articles/e3sconf/pdf/2020/77/e3sconf_ersme2020_07021.pdf",
+        "venue": "E3S Web of Conferences",
+        "cited_by_count": 0,
+        "is_oa": true,
+        "oa_status": "diamond"
       }
     ],
     "title_en_source": "scopus",
@@ -28899,7 +33479,9 @@
           },
           "counts_by_year": [],
           "updated_date": "2026-07-14T23:32:53.992493",
-          "created_date": "2025-10-10T00:00:00"
+          "created_date": "2025-10-10T00:00:00",
+          "x_sdgs": [],
+          "study_designs": []
         },
         "sources": [
           "openalex_api"
@@ -29377,6 +33959,8 @@
                 "raw_type": null
               },
               "sustainable_development_goals": [],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -35268,7 +39852,9 @@
           },
           "counts_by_year": [],
           "updated_date": "2026-07-14T23:32:53.992493",
-          "created_date": "2025-10-10T00:00:00"
+          "created_date": "2025-10-10T00:00:00",
+          "x_sdgs": [],
+          "study_designs": []
         },
         "sources": [
           "openalex_api"
@@ -35731,6 +40317,8 @@
                 "raw_type": null
               },
               "sustainable_development_goals": [],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {
@@ -39863,9 +44451,9 @@
           },
           "sustainable_development_goals": [
             {
-              "id": "https://metadata.un.org/sdg/10",
+              "display_name": "Reduced inequalities",
               "score": 0.5199999809265137,
-              "display_name": "Reduced inequalities"
+              "id": "https://metadata.un.org/sdg/10"
             }
           ],
           "awards": [],
@@ -40096,7 +44684,9 @@
           },
           "counts_by_year": [],
           "updated_date": "2026-07-14T23:32:53.992493",
-          "created_date": "2025-10-10T00:00:00"
+          "created_date": "2025-10-10T00:00:00",
+          "x_sdgs": [],
+          "study_designs": []
         },
         "sources": [
           "openalex_api"
@@ -40500,11 +45090,13 @@
               },
               "sustainable_development_goals": [
                 {
-                  "id": "https://metadata.un.org/sdg/10",
+                  "display_name": "Reduced inequalities",
                   "score": 0.5199999809265137,
-                  "display_name": "Reduced inequalities"
+                  "id": "https://metadata.un.org/sdg/10"
                 }
               ],
+              "x_sdgs": [],
+              "study_designs": [],
               "awards": [],
               "funders": [],
               "has_content": {

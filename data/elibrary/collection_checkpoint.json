@@ -1,64 +1,51 @@
 {
   "schema": "provider_collection/v1",
   "report": {
-    "status": "success",
-    "attempted_at": "2026-09-20T16:25:44+00:00",
+    "status": "blocked",
+    "attempted_at": "2026-09-28T10:06:23+00:00",
     "last_success_at": "2026-09-20T16:25:44+00:00",
-    "origin": "live",
-    "complete": true,
+    "origin": "snapshot",
+    "complete": false,
     "record_count": 59,
-    "reason": null,
+    "reason": "TimeoutError",
     "components": {
       "metrics": {
-        "status": "success",
-        "attempted_at": "2026-09-20T16:25:44+00:00",
+        "status": "blocked",
+        "attempted_at": "2026-09-28T10:06:23+00:00",
         "last_success_at": "2026-09-20T16:25:44+00:00",
-        "origin": "live",
-        "complete": true,
-        "record_count": 1,
-        "reason": null
+        "origin": "snapshot",
+        "complete": false,
+        "record_count": 0,
+        "reason": "TimeoutError"
       },
       "publications": {
-        "status": "success",
-        "attempted_at": "2026-09-20T16:25:44+00:00",
+        "status": "blocked",
+        "attempted_at": "2026-09-28T10:06:23+00:00",
         "last_success_at": "2026-09-20T16:25:44+00:00",
-        "origin": "live",
-        "complete": true,
-        "record_count": 59,
-        "reason": null,
-        "observed_count": 59,
-        "last_observation_at": "2026-09-20T16:25:47+00:00"
+        "origin": "snapshot",
+        "complete": false,
+        "record_count": 0,
+        "reason": "TimeoutError"
       },
       "details": {
-        "status": "success",
-        "attempted_at": "2026-09-20T16:25:44+00:00",
+        "status": "blocked",
+        "attempted_at": "2026-09-28T10:06:23+00:00",
         "last_success_at": "2026-09-20T16:25:44+00:00",
-        "origin": "live",
-        "complete": true,
-        "record_count": 59,
-        "reason": null,
-        "fetched": 59,
-        "failed": 0,
-        "pending": 0,
-        "observed_count": 59,
-        "last_observation_at": "2026-09-20T16:28:47+00:00"
+        "origin": "snapshot",
+        "complete": false,
+        "record_count": 0,
+        "reason": "TimeoutError"
       }
     },
-    "target_author_id": "1012909",
-    "generated_at": "2026-09-20T16:28:47+00:00",
-    "authentication": "existing_session_verified",
-    "session_checkpoint": {
-      "status": "checkpointed",
-      "validated_at": "2026-09-20T16:28:48+00:00",
-      "cookie_expires_at": "2027-09-20T14:47:02.947447+00:00",
-      "cookie_expiry_extended": false
-    },
+    "stage": "login",
+    "session_checkpoint": {},
     "session_restore": {
       "status": "restored",
       "kind": "confirmed",
-      "validated_at": "2026-09-20T16:18:34+00:00",
+      "validated_at": "2026-09-20T16:47:00+00:00",
       "cookie_expires_at": "2027-09-20T14:47:02.947447+00:00"
-    }
+    },
+    "authentication": null
   },
   "payloads": {
     "metrics": {

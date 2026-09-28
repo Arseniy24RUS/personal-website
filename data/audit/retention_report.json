@@ -1,7 +1,7 @@
 {
   "status": "success",
-  "baseline_ref": "b088cabfd6837bc96eaecd4aaf77c5aed1d5b6c5",
-  "baseline_commit": "b088cabfd6837bc96eaecd4aaf77c5aed1d5b6c5",
+  "baseline_ref": "939c4918975b28be9ff6ffb82c3795d894b8a412",
+  "baseline_commit": "939c4918975b28be9ff6ffb82c3795d894b8a412",
   "datasets": {
     "data/public/publications.json": {
       "before": 72,
@@ -26,9 +26,13 @@
     "data/dpo/gallery.json": {
       "before": 10,
       "after": 10
+    },
+    "data/it/resources.json": {
+      "before": 25,
+      "after": 25
     }
   },
-  "assets_checked": 309,
-  "assets_content_checked": 309,
+  "assets_checked": 328,
+  "assets_content_checked": 328,
   "issues": []
 }

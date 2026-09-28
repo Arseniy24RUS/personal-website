@@ -1,6 +1,9 @@
 {
   "id": "https://openalex.org/A5007601767",
   "orcid": "https://orcid.org/0000-0002-8725-6580",
+  "observed_orcids": [
+    "https://orcid.org/0000-0002-8725-6580"
+  ],
   "display_name": "Arseniy Sitkovskiy",
   "raw_author_names": [
     "10.26653/2076-4650-2021-6-08",
@@ -20,7 +23,10 @@
   },
   "ids": {
     "openalex": "https://openalex.org/A5007601767",
-    "orcid": "https://orcid.org/0000-0002-8725-6580"
+    "orcid": "https://orcid.org/0000-0002-8725-6580",
+    "observed_orcids": [
+      "https://orcid.org/0000-0002-8725-6580"
+    ]
   },
   "affiliations": [
     {
@@ -85,23 +91,6 @@
       "years": [
         2025
       ]
-    },
-    {
-      "institution": {
-        "id": "https://openalex.org/I4210122195",
-        "ror": "https://ror.org/02mx1ea71",
-        "display_name": "Institute of Socio-Political Research",
-        "country_code": "RU",
-        "type": "facility",
-        "lineage": [
-          "https://openalex.org/I1313323035",
-          "https://openalex.org/I4210120228",
-          "https://openalex.org/I4210122195"
-        ]
-      },
-      "years": [
-        2025
-      ]
     }
   ],
   "last_known_institutions": [
@@ -134,18 +123,6 @@
       "lineage": [
         "https://openalex.org/I149899117",
         "https://openalex.org/I4210120395"
-      ]
-    },
-    {
-      "id": "https://openalex.org/I4210122195",
-      "ror": "https://ror.org/02mx1ea71",
-      "display_name": "Institute of Socio-Political Research",
-      "country_code": "RU",
-      "type": "facility",
-      "lineage": [
-        "https://openalex.org/I1313323035",
-        "https://openalex.org/I4210120228",
-        "https://openalex.org/I4210122195"
       ]
     }
   ],
@@ -240,7 +217,7 @@
     {
       "id": "https://openalex.org/T14019",
       "display_name": "Socioeconomic and Demographic Analysis",
-      "value": 0.0001281,
+      "value": 0.0001278,
       "subfield": {
         "id": "https://openalex.org/subfields/2308",
         "display_name": "Management, Monitoring, Policy and Law"
@@ -274,7 +251,7 @@
     {
       "id": "https://openalex.org/T13432",
       "display_name": "Environmental Sustainability and Technology",
-      "value": 3.23e-05,
+      "value": 3.22e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/2308",
         "display_name": "Management, Monitoring, Policy and Law"
@@ -308,7 +285,7 @@
     {
       "id": "https://openalex.org/T13588",
       "display_name": "Regional resilience and development",
-      "value": 1.99e-05,
+      "value": 1.97e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/2002",
         "display_name": "Economics and Econometrics"
@@ -403,7 +380,7 @@
   ],
   "block_key": "10.26653/2076-4650-2021-6-08",
   "works_api_url": "https://api.openalex.org/works?filter=author.id:A5007601767",
-  "updated_date": "2026-09-19T12:19:47",
+  "updated_date": "2026-09-23T12:19:55",
   "created_date": "2022-05-12T00:00:00",
-  "last_success_at": "2026-09-20T14:39:37+00:00"
+  "last_success_at": "2026-09-28T09:51:12+00:00"
 }

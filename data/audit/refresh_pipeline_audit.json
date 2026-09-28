@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T00:11:16+00:00",
+  "generated_at": "2026-09-28T10:06:49+00:00",
   "status": "partial",
   "checks": {
     "publications_count": 72,
@@ -19,69 +19,63 @@
       "citations": 8,
       "h_index": 2
     },
-    "elibrary_browser_status": "success",
+    "elibrary_browser_status": "blocked",
     "reference_enrichment_stats": {
       "records": 72,
       "titles_fixed": 0,
       "title_fields_added": 0,
       "elibrary_detail_fields_added": 0,
-      "metadata_fields_added": 0,
+      "metadata_fields_added": 1,
       "gost_built": 0,
       "apa_built": 0,
       "crossref_cache_hit": 43,
-      "crossref_fetched": 0,
+      "crossref_fetched": 1,
       "crossref_failed": 0
     }
   },
   "source_health": {
     "elibrary": {
-      "status": "success",
-      "attempted_at": "2026-09-20T16:25:44+00:00",
+      "status": "blocked",
+      "attempted_at": "2026-09-28T10:06:23+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
-      "origin": "live",
-      "complete": true,
+      "origin": "snapshot",
+      "complete": false,
       "record_count": 59,
-      "reason": null,
+      "reason": "TimeoutError",
+      "stage": "login",
       "components": {
-        "metrics": {
-          "status": "success",
-          "attempted_at": "2026-09-20T16:25:44+00:00",
+        "publications": {
+          "status": "blocked",
+          "attempted_at": "2026-09-28T10:06:23+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
-          "origin": "live",
-          "complete": true,
-          "record_count": 1,
-          "reason": null
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "TimeoutError"
         },
         "details": {
-          "status": "success",
-          "attempted_at": "2026-09-20T16:25:44+00:00",
+          "status": "blocked",
+          "attempted_at": "2026-09-28T10:06:23+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
-          "origin": "live",
-          "complete": true,
-          "record_count": 59,
-          "reason": null,
-          "last_observation_at": "2026-09-20T16:28:47+00:00",
-          "observed_count": 59,
-          "pending": 0,
-          "fetched": 59,
-          "failed": 0
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "TimeoutError"
         },
-        "publications": {
-          "status": "success",
-          "attempted_at": "2026-09-20T16:25:44+00:00",
+        "metrics": {
+          "status": "blocked",
+          "attempted_at": "2026-09-28T10:06:23+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
-          "origin": "live",
-          "complete": true,
-          "record_count": 59,
-          "reason": null,
-          "last_observation_at": "2026-09-20T16:25:47+00:00",
-          "observed_count": 59
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "TimeoutError"
         }
       }
     },
     "wos": {
       "status": "blocked",
-      "attempted_at": "2026-09-21T00:11:11+00:00",
+      "attempted_at": "2026-09-28T10:06:36+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
@@ -89,18 +83,18 @@
       "reason": "human_verification_required",
       "stage": "login",
       "components": {
-        "metrics": {
+        "publications": {
           "status": "blocked",
-          "attempted_at": "2026-09-21T00:11:11+00:00",
+          "attempted_at": "2026-09-28T10:06:36+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
           "reason": "human_verification_required"
         },
-        "publications": {
+        "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-09-21T00:11:11+00:00",
+          "attempted_at": "2026-09-28T10:06:36+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
@@ -111,27 +105,27 @@
     },
     "scopus": {
       "status": "success",
-      "attempted_at": "2026-09-20T14:39:45+00:00",
-      "last_success_at": "2026-09-20T14:39:45+00:00",
+      "attempted_at": "2026-09-28T10:06:40+00:00",
+      "last_success_at": "2026-09-28T10:06:40+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 10,
       "reason": null
     },
     "media": {
-      "status": "partial",
-      "attempted_at": "2026-09-20T14:25:17+00:00",
+      "status": "error",
+      "attempted_at": "2026-09-28T09:51:19+00:00",
       "last_success_at": "2026-09-20T14:25:17+00:00",
-      "origin": "live",
+      "origin": "snapshot",
       "complete": false,
       "record_count": 23,
-      "reason": "source_failures_or_pending",
+      "reason": "nonzero_exit",
       "pending": 454
     },
     "orcid": {
       "status": "success",
-      "attempted_at": "2026-09-20T14:39:36+00:00",
-      "last_success_at": "2026-09-20T14:39:36+00:00",
+      "attempted_at": "2026-09-28T09:51:10+00:00",
+      "last_success_at": "2026-09-28T09:51:10+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 15,
@@ -139,17 +133,17 @@
     },
     "openalex": {
       "status": "success",
-      "attempted_at": "2026-09-20T14:39:38+00:00",
-      "last_success_at": "2026-09-20T14:39:38+00:00",
+      "attempted_at": "2026-09-28T09:51:16+00:00",
+      "last_success_at": "2026-09-28T09:51:16+00:00",
       "origin": "live",
       "complete": true,
-      "record_count": 13,
+      "record_count": 16,
       "reason": null
     },
     "crossref": {
       "status": "success",
-      "attempted_at": "2026-09-20T14:39:41+00:00",
-      "last_success_at": "2026-09-20T14:39:41+00:00",
+      "attempted_at": "2026-09-28T09:51:19+00:00",
+      "last_success_at": "2026-09-28T09:51:19+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 14,
@@ -159,9 +153,50 @@
   "warnings": [
     {
       "code": "source_not_fresh",
+      "provider": "elibrary",
+      "status": "blocked",
+      "attempted_at": "2026-09-28T10:06:23+00:00",
+      "last_success_at": "2026-09-20T16:25:44+00:00",
+      "origin": "snapshot",
+      "complete": false,
+      "record_count": 59,
+      "reason": "TimeoutError",
+      "stage": "login",
+      "components": {
+        "publications": {
+          "status": "blocked",
+          "attempted_at": "2026-09-28T10:06:23+00:00",
+          "last_success_at": "2026-09-20T16:25:44+00:00",
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "TimeoutError"
+        },
+        "details": {
+          "status": "blocked",
+          "attempted_at": "2026-09-28T10:06:23+00:00",
+          "last_success_at": "2026-09-20T16:25:44+00:00",
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "TimeoutError"
+        },
+        "metrics": {
+          "status": "blocked",
+          "attempted_at": "2026-09-28T10:06:23+00:00",
+          "last_success_at": "2026-09-20T16:25:44+00:00",
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "TimeoutError"
+        }
+      }
+    },
+    {
+      "code": "source_not_fresh",
       "provider": "wos",
       "status": "blocked",
-      "attempted_at": "2026-09-21T00:11:11+00:00",
+      "attempted_at": "2026-09-28T10:06:36+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
@@ -169,18 +204,18 @@
       "reason": "human_verification_required",
       "stage": "login",
       "components": {
-        "metrics": {
+        "publications": {
           "status": "blocked",
-          "attempted_at": "2026-09-21T00:11:11+00:00",
+          "attempted_at": "2026-09-28T10:06:36+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
           "reason": "human_verification_required"
         },
-        "publications": {
+        "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-09-21T00:11:11+00:00",
+          "attempted_at": "2026-09-28T10:06:36+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
@@ -192,13 +227,13 @@
     {
       "code": "source_not_fresh",
       "provider": "media",
-      "status": "partial",
-      "attempted_at": "2026-09-20T14:25:17+00:00",
+      "status": "error",
+      "attempted_at": "2026-09-28T09:51:19+00:00",
       "last_success_at": "2026-09-20T14:25:17+00:00",
-      "origin": "live",
+      "origin": "snapshot",
       "complete": false,
       "record_count": 23,
-      "reason": "source_failures_or_pending",
+      "reason": "nonzero_exit",
       "pending": 454
     }
   ],

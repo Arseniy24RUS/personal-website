@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T00:11:12+00:00",
+  "generated_at": "2026-09-28T10:06:42+00:00",
   "items": {
     "10.17853/1994-5639-2026-1-33-64": {
       "fetched_at": "2026-06-03T20:08:47+00:00",
@@ -857,6 +857,28 @@
       "fetched_at": "2026-09-20T16:29:40+00:00",
       "status": 404,
       "metadata": {}
+    },
+    "10.3389/frsc.2026.1719775": {
+      "fetched_at": "2026-09-28T10:06:42+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.3389/frsc.2026.1719775",
+        "type": "journal-article",
+        "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+        "subtitle": null,
+        "container_title": "Frontiers in Sustainable Cities",
+        "publisher": "Frontiers Media SA",
+        "volume": "8",
+        "issue": null,
+        "page": "",
+        "year": 2026,
+        "issn": [
+          "2624-9634"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.3389/frsc.2026.1719775"
+      }
     }
   },
   "schema": "crossref_metadata_cache/v1"
