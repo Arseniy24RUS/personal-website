@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T10:06:42+00:00",
+  "generated_at": "2026-10-05T10:37:45+00:00",
   "items": {
     "10.17853/1994-5639-2026-1-33-64": {
       "fetched_at": "2026-06-03T20:08:47+00:00",
@@ -878,6 +878,28 @@
         ],
         "isbn": null,
         "url": "https://doi.org/10.3389/frsc.2026.1719775"
+      }
+    },
+    "10.3389/fhumd.2026.1788558": {
+      "fetched_at": "2026-10-05T10:37:45+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.3389/fhumd.2026.1788558",
+        "type": "journal-article",
+        "title": "Age–sex heterogeneity among Russia’s indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+        "subtitle": null,
+        "container_title": "Frontiers in Human Dynamics",
+        "publisher": "Frontiers Media SA",
+        "volume": "8",
+        "issue": null,
+        "page": "",
+        "year": 2026,
+        "issn": [
+          "2673-2726"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.3389/fhumd.2026.1788558"
       }
     }
   },

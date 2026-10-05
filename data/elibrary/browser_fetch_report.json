@@ -1,38 +1,38 @@
 {
   "status": "blocked",
-  "attempted_at": "2026-09-28T10:06:23+00:00",
+  "attempted_at": "2026-10-05T10:37:23+00:00",
   "last_success_at": "2026-09-20T16:25:44+00:00",
   "origin": "snapshot",
   "complete": false,
   "record_count": 59,
-  "reason": "TimeoutError",
+  "reason": "profile_not_authenticated_or_changed",
   "components": {
     "metrics": {
       "status": "blocked",
-      "attempted_at": "2026-09-28T10:06:23+00:00",
+      "attempted_at": "2026-10-05T10:37:23+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "snapshot",
       "complete": false,
       "record_count": 0,
-      "reason": "TimeoutError"
+      "reason": "profile_not_authenticated_or_changed"
     },
     "publications": {
       "status": "blocked",
-      "attempted_at": "2026-09-28T10:06:23+00:00",
+      "attempted_at": "2026-10-05T10:37:23+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "snapshot",
       "complete": false,
       "record_count": 0,
-      "reason": "TimeoutError"
+      "reason": "profile_not_authenticated_or_changed"
     },
     "details": {
       "status": "blocked",
-      "attempted_at": "2026-09-28T10:06:23+00:00",
+      "attempted_at": "2026-10-05T10:37:23+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "snapshot",
       "complete": false,
       "record_count": 0,
-      "reason": "TimeoutError"
+      "reason": "profile_not_authenticated_or_changed"
     }
   },
   "stage": "login",
@@ -43,5 +43,34 @@
     "validated_at": "2026-09-20T16:47:00+00:00",
     "cookie_expires_at": "2027-09-20T14:47:02.947447+00:00"
   },
+  "diagnostics": [
+    {
+      "host": "www.elibrary.ru",
+      "path": "/ip_restricted.asp",
+      "controls": [
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "правил пользования"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "главную страницу сайта"
+        },
+        {
+          "tag": "a",
+          "type": "",
+          "name": "",
+          "id": "",
+          "label": "[REDACTED]"
+        }
+      ]
+    }
+  ],
   "authentication": null
 }

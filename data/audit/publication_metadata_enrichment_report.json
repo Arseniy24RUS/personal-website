@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T10:06:42+00:00",
+  "generated_at": "2026-10-05T10:37:45+00:00",
   "stats": {
     "records": 72,
     "titles_fixed": 0,
@@ -8,7 +8,7 @@
     "metadata_fields_added": 1,
     "gost_built": 0,
     "apa_built": 0,
-    "crossref_cache_hit": 43,
+    "crossref_cache_hit": 44,
     "crossref_fetched": 1,
     "crossref_failed": 0
   }

@@ -1,6 +1,6 @@
 {
   "status": "blocked",
-  "attempted_at": "2026-09-28T10:06:36+00:00",
+  "attempted_at": "2026-10-05T10:37:39+00:00",
   "last_success_at": "2026-09-20T15:28:23.031Z",
   "origin": "snapshot",
   "complete": false,
@@ -9,7 +9,7 @@
   "components": {
     "metrics": {
       "status": "blocked",
-      "attempted_at": "2026-09-28T10:06:36+00:00",
+      "attempted_at": "2026-10-05T10:37:39+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
@@ -18,7 +18,7 @@
     },
     "publications": {
       "status": "blocked",
-      "attempted_at": "2026-09-28T10:06:36+00:00",
+      "attempted_at": "2026-10-05T10:37:39+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
@@ -224,7 +224,7 @@
       "unusual_activity"
     ],
     "elapsed_seconds": 0.002,
-    "observation_budget_seconds": 51.601,
+    "observation_budget_seconds": 50.765,
     "observation_timeline": [
       {
         "elapsed_seconds": 0.002,
@@ -249,8 +249,8 @@
   },
   "profile_entry_observation": {
     "settling": "cleared",
-    "elapsed_seconds": 1.904,
-    "observation_budget_seconds": 58.908,
+    "elapsed_seconds": 1.828,
+    "observation_budget_seconds": 58.904,
     "observation_timeline": [
       {
         "elapsed_seconds": 1.002,
@@ -274,7 +274,7 @@
         "read_phase": "page_text"
       },
       {
-        "elapsed_seconds": 1.904,
+        "elapsed_seconds": 1.828,
         "category": "clear",
         "ready_state": "unavailable",
         "frame_text_length": null,

@@ -1654,13 +1654,13 @@
           "date-parts": [
             [
               2026,
-              6,
-              30
+              10,
+              1
             ]
           ],
-          "date-time": "2026-06-30T19:51:10Z",
-          "timestamp": 1782849070804,
-          "version": "3.54.5"
+          "date-time": "2026-10-01T19:55:36Z",
+          "timestamp": 1790884536447,
+          "version": "4.1.0"
         },
         "reference-count": 38,
         "publisher": "Russian State Vocational Pedagogical University",
@@ -1706,7 +1706,7 @@
         },
         "page": "149-179",
         "source": "Crossref",
-        "is-referenced-by-count": 3,
+        "is-referenced-by-count": 4,
         "title": [
           "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education"
         ],
@@ -2235,14 +2235,14 @@
         "indexed": {
           "date-parts": [
             [
-              2025,
-              12,
-              5
+              2026,
+              10,
+              1
             ]
           ],
-          "date-time": "2025-12-05T07:41:57Z",
-          "timestamp": 1764920517333,
-          "version": "3.46.0"
+          "date-time": "2026-10-01T21:13:41Z",
+          "timestamp": 1790889221183,
+          "version": "4.1.0"
         },
         "reference-count": 0,
         "publisher": "Institute of Economics Russian Academy of Sciences",
@@ -2277,7 +2277,7 @@
         },
         "page": "602-617",
         "source": "Crossref",
-        "is-referenced-by-count": 0,
+        "is-referenced-by-count": 1,
         "title": [
           "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia"
         ],
@@ -2293,8 +2293,8 @@
             "affiliation": [],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           },
@@ -2307,8 +2307,8 @@
             "affiliation": [],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           },
@@ -2321,8 +2321,8 @@
             "affiliation": [],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           },
@@ -2335,8 +2335,8 @@
             "affiliation": [],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           }
@@ -3106,5 +3106,5 @@
       "search-terms": null
     }
   },
-  "last_success_at": "2026-09-28T09:51:19+00:00"
+  "last_success_at": "2026-10-05T10:32:20+00:00"
 }
