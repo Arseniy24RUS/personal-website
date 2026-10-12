@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T10:37:53+00:00",
+  "generated_at": "2026-10-12T11:19:31+00:00",
   "status": "partial",
   "checks": {
     "publications_count": 72,
@@ -25,18 +25,18 @@
       "titles_fixed": 0,
       "title_fields_added": 0,
       "elibrary_detail_fields_added": 0,
-      "metadata_fields_added": 1,
+      "metadata_fields_added": 0,
       "gost_built": 0,
       "apa_built": 0,
-      "crossref_cache_hit": 44,
-      "crossref_fetched": 1,
+      "crossref_cache_hit": 45,
+      "crossref_fetched": 0,
       "crossref_failed": 0
     }
   },
   "source_health": {
     "elibrary": {
       "status": "blocked",
-      "attempted_at": "2026-10-05T10:37:23+00:00",
+      "attempted_at": "2026-10-12T11:18:55+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "snapshot",
       "complete": false,
@@ -44,9 +44,9 @@
       "reason": "profile_not_authenticated_or_changed",
       "stage": "login",
       "components": {
-        "details": {
+        "publications": {
           "status": "blocked",
-          "attempted_at": "2026-10-05T10:37:23+00:00",
+          "attempted_at": "2026-10-12T11:18:55+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
@@ -55,16 +55,16 @@
         },
         "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-10-05T10:37:23+00:00",
+          "attempted_at": "2026-10-12T11:18:55+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
           "reason": "profile_not_authenticated_or_changed"
         },
-        "publications": {
+        "details": {
           "status": "blocked",
-          "attempted_at": "2026-10-05T10:37:23+00:00",
+          "attempted_at": "2026-10-12T11:18:55+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
@@ -75,7 +75,7 @@
     },
     "wos": {
       "status": "blocked",
-      "attempted_at": "2026-10-05T10:37:39+00:00",
+      "attempted_at": "2026-10-12T11:19:18+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
@@ -83,18 +83,18 @@
       "reason": "human_verification_required",
       "stage": "login",
       "components": {
-        "publications": {
+        "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-10-05T10:37:39+00:00",
+          "attempted_at": "2026-10-12T11:19:18+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
           "reason": "human_verification_required"
         },
-        "metrics": {
+        "publications": {
           "status": "blocked",
-          "attempted_at": "2026-10-05T10:37:39+00:00",
+          "attempted_at": "2026-10-12T11:19:18+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
@@ -105,8 +105,8 @@
     },
     "scopus": {
       "status": "success",
-      "attempted_at": "2026-10-05T10:37:43+00:00",
-      "last_success_at": "2026-10-05T10:37:43+00:00",
+      "attempted_at": "2026-10-12T11:19:22+00:00",
+      "last_success_at": "2026-10-12T11:19:22+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 10,
@@ -114,7 +114,7 @@
     },
     "media": {
       "status": "error",
-      "attempted_at": "2026-10-05T10:32:21+00:00",
+      "attempted_at": "2026-10-12T11:13:59+00:00",
       "last_success_at": "2026-09-20T14:25:17+00:00",
       "origin": "snapshot",
       "complete": false,
@@ -124,8 +124,8 @@
     },
     "orcid": {
       "status": "success",
-      "attempted_at": "2026-10-05T10:31:30+00:00",
-      "last_success_at": "2026-10-05T10:31:30+00:00",
+      "attempted_at": "2026-10-12T11:13:53+00:00",
+      "last_success_at": "2026-10-12T11:13:53+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 15,
@@ -133,8 +133,8 @@
     },
     "openalex": {
       "status": "success",
-      "attempted_at": "2026-10-05T10:32:18+00:00",
-      "last_success_at": "2026-10-05T10:32:18+00:00",
+      "attempted_at": "2026-10-12T11:13:56+00:00",
+      "last_success_at": "2026-10-12T11:13:56+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 25,
@@ -142,8 +142,8 @@
     },
     "crossref": {
       "status": "success",
-      "attempted_at": "2026-10-05T10:32:20+00:00",
-      "last_success_at": "2026-10-05T10:32:20+00:00",
+      "attempted_at": "2026-10-12T11:13:58+00:00",
+      "last_success_at": "2026-10-12T11:13:58+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 14,
@@ -155,7 +155,7 @@
       "code": "source_not_fresh",
       "provider": "elibrary",
       "status": "blocked",
-      "attempted_at": "2026-10-05T10:37:23+00:00",
+      "attempted_at": "2026-10-12T11:18:55+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "snapshot",
       "complete": false,
@@ -163,9 +163,9 @@
       "reason": "profile_not_authenticated_or_changed",
       "stage": "login",
       "components": {
-        "details": {
+        "publications": {
           "status": "blocked",
-          "attempted_at": "2026-10-05T10:37:23+00:00",
+          "attempted_at": "2026-10-12T11:18:55+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
@@ -174,16 +174,16 @@
         },
         "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-10-05T10:37:23+00:00",
+          "attempted_at": "2026-10-12T11:18:55+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
           "reason": "profile_not_authenticated_or_changed"
         },
-        "publications": {
+        "details": {
           "status": "blocked",
-          "attempted_at": "2026-10-05T10:37:23+00:00",
+          "attempted_at": "2026-10-12T11:18:55+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
@@ -196,7 +196,7 @@
       "code": "source_not_fresh",
       "provider": "wos",
       "status": "blocked",
-      "attempted_at": "2026-10-05T10:37:39+00:00",
+      "attempted_at": "2026-10-12T11:19:18+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
@@ -204,18 +204,18 @@
       "reason": "human_verification_required",
       "stage": "login",
       "components": {
-        "publications": {
+        "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-10-05T10:37:39+00:00",
+          "attempted_at": "2026-10-12T11:19:18+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
           "reason": "human_verification_required"
         },
-        "metrics": {
+        "publications": {
           "status": "blocked",
-          "attempted_at": "2026-10-05T10:37:39+00:00",
+          "attempted_at": "2026-10-12T11:19:18+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
@@ -228,7 +228,7 @@
       "code": "source_not_fresh",
       "provider": "media",
       "status": "error",
-      "attempted_at": "2026-10-05T10:32:21+00:00",
+      "attempted_at": "2026-10-12T11:13:59+00:00",
       "last_success_at": "2026-09-20T14:25:17+00:00",
       "origin": "snapshot",
       "complete": false,

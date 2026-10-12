@@ -2237,12 +2237,12 @@
             [
               2026,
               10,
-              1
+              9
             ]
           ],
-          "date-time": "2026-10-01T21:13:41Z",
-          "timestamp": 1790889221183,
-          "version": "4.1.0"
+          "date-time": "2026-10-09T17:16:07Z",
+          "timestamp": 1791566167168,
+          "version": "4.3.4"
         },
         "reference-count": 0,
         "publisher": "Institute of Economics Russian Academy of Sciences",
@@ -2277,7 +2277,7 @@
         },
         "page": "602-617",
         "source": "Crossref",
-        "is-referenced-by-count": 1,
+        "is-referenced-by-count": 3,
         "title": [
           "The Interrelationship of Demographic and Socio-Economic Indicators of Regional Development in Russia"
         ],
@@ -3106,5 +3106,5 @@
       "search-terms": null
     }
   },
-  "last_success_at": "2026-10-05T10:32:20+00:00"
+  "last_success_at": "2026-10-12T11:13:58+00:00"
 }

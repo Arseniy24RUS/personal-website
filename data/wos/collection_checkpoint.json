@@ -2,7 +2,7 @@
   "schema": "provider_collection/v1",
   "report": {
     "status": "blocked",
-    "attempted_at": "2026-10-05T10:37:39+00:00",
+    "attempted_at": "2026-10-12T11:19:18+00:00",
     "last_success_at": "2026-09-20T15:28:23.031Z",
     "origin": "snapshot",
     "complete": false,
@@ -11,7 +11,7 @@
     "components": {
       "metrics": {
         "status": "blocked",
-        "attempted_at": "2026-10-05T10:37:39+00:00",
+        "attempted_at": "2026-10-12T11:19:18+00:00",
         "last_success_at": "2026-09-20T15:28:23.031Z",
         "origin": "snapshot",
         "complete": false,
@@ -20,7 +20,7 @@
       },
       "publications": {
         "status": "blocked",
-        "attempted_at": "2026-10-05T10:37:39+00:00",
+        "attempted_at": "2026-10-12T11:19:18+00:00",
         "last_success_at": "2026-09-20T15:28:23.031Z",
         "origin": "snapshot",
         "complete": false,
@@ -101,7 +101,7 @@
             "tag": "button",
             "type": "",
             "name": "",
-            "id": "",
+            "id": "homeMenu",
             "label": "MENU"
           },
           {
@@ -165,7 +165,7 @@
             "type": "",
             "name": "",
             "id": "ot-sdk-btn",
-            "label": "Cookie Settings"
+            "label": "Manage cookie preferences"
           },
           {
             "tag": "a",
@@ -225,11 +225,11 @@
         "verify_you_are_human",
         "unusual_activity"
       ],
-      "elapsed_seconds": 0.002,
-      "observation_budget_seconds": 50.765,
+      "elapsed_seconds": 0.003,
+      "observation_budget_seconds": 10.0,
       "observation_timeline": [
         {
-          "elapsed_seconds": 0.002,
+          "elapsed_seconds": 0.003,
           "category": "marker",
           "ready_state": "unavailable",
           "frame_text_length": null,
@@ -249,52 +249,31 @@
         }
       ]
     },
-    "profile_entry_observation": {
-      "settling": "cleared",
-      "elapsed_seconds": 1.828,
-      "observation_budget_seconds": 58.904,
-      "observation_timeline": [
-        {
-          "elapsed_seconds": 1.002,
-          "category": "incomplete",
-          "ready_state": "unavailable",
-          "frame_text_length": null,
-          "frame_tag_count": null,
-          "frame_button_count": null,
-          "frame_role_button_count": null,
-          "frame_input_count": null,
-          "frame_canvas_count": null,
-          "frame_dom_observed": null,
-          "checkbox_present": null,
-          "checkbox_visible": null,
-          "active_challenge_controls": null,
-          "observation_incomplete": null,
-          "hcaptcha_frame_count": null,
-          "recaptcha_frame_count": null,
-          "other_frame_count": null,
-          "error_type": "timeout",
-          "read_phase": "page_text"
-        },
-        {
-          "elapsed_seconds": 1.828,
-          "category": "clear",
-          "ready_state": "unavailable",
-          "frame_text_length": null,
-          "frame_tag_count": null,
-          "frame_button_count": null,
-          "frame_role_button_count": null,
-          "frame_input_count": null,
-          "frame_canvas_count": null,
-          "frame_dom_observed": null,
-          "checkbox_present": null,
-          "checkbox_visible": null,
-          "active_challenge_controls": null,
-          "observation_incomplete": null,
-          "hcaptcha_frame_count": 0,
-          "recaptcha_frame_count": 0,
-          "other_frame_count": 0
-        }
-      ]
+    "authentication_evidence": {
+      "profile_loaded": false,
+      "orcid_consent_clicked": false,
+      "input_matches_configured": false,
+      "wos_session_confirmed": false,
+      "orcid_form_observed": false,
+      "initial_profile_loaded": true,
+      "profile_requested": false,
+      "wos_return_observed": false,
+      "returned_profile_reused": false,
+      "cookie_banner_dismissed": true,
+      "cookie_banner_observed": true,
+      "consent_accepted": true,
+      "initial_profile_requested": true,
+      "onboarding_acknowledged": false,
+      "username_format_valid": true,
+      "submit_clicked": false,
+      "orcid_selected": false,
+      "signin_clicked": false,
+      "clarivate_observed": false,
+      "homepage_requested": false,
+      "username_normalized": false,
+      "homepage_loaded": false,
+      "orcid_page_observed": false,
+      "stage": "initial_profile"
     },
     "authentication_mode": "restore",
     "authentication": null
