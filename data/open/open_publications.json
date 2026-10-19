@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T11:13:58+00:00",
+  "generated_at": "2026-10-19T08:57:54+00:00",
   "records": [
     {
       "source": "orcid_public_api",
@@ -214,7 +214,8 @@
                 "is_in_doaj": true,
                 "is_core": false,
                 "listed_in": [
-                  "doaj"
+                  "doaj",
+                  "russia-white-list-3"
                 ],
                 "host_organization": "https://openalex.org/P4310312633",
                 "host_organization_name": "Peoples' Friendship University of Russia",
@@ -352,7 +353,7 @@
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.25002506,
+              "value": 0.23812112,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -617,7 +618,8 @@
                   "is_in_doaj": true,
                   "is_core": false,
                   "listed_in": [
-                    "doaj"
+                    "doaj",
+                    "russia-white-list-3"
                   ],
                   "host_organization": "https://openalex.org/P4310312633",
                   "host_organization_name": "Peoples' Friendship University of Russia",
@@ -685,7 +687,8 @@
                 "is_in_doaj": true,
                 "is_core": false,
                 "listed_in": [
-                  "doaj"
+                  "doaj",
+                  "russia-white-list-3"
                 ],
                 "host_organization": "https://openalex.org/P4310312633",
                 "host_organization_name": "Peoples' Friendship University of Russia",
@@ -1429,7 +1432,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312858",
                 "host_organization_name": "Russian State Vocational Pedagogical University",
@@ -1573,7 +1578,7 @@
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.01999608,
+              "value": 0.01937335,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -1922,7 +1927,9 @@
                   "is_core": false,
                   "listed_in": [
                     "doaj",
-                    "erih-plus"
+                    "erih-plus",
+                    "poland-20",
+                    "russia-white-list-1"
                   ],
                   "host_organization": "https://openalex.org/P4310312858",
                   "host_organization_name": "Russian State Vocational Pedagogical University",
@@ -2022,7 +2029,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312858",
                 "host_organization_name": "Russian State Vocational Pedagogical University",
@@ -3458,7 +3467,8 @@
                 "is_core": false,
                 "listed_in": [
                   "erih-plus",
-                  "jufo-1"
+                  "jufo-1",
+                  "russia-white-list-2"
                 ],
                 "host_organization": null,
                 "host_organization_name": null,
@@ -3580,7 +3590,7 @@
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.67976777,
+              "value": 0.66806378,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -3784,7 +3794,8 @@
                   "is_core": false,
                   "listed_in": [
                     "erih-plus",
-                    "jufo-1"
+                    "jufo-1",
+                    "russia-white-list-2"
                   ],
                   "host_organization": null,
                   "host_organization_name": null,
@@ -3848,7 +3859,8 @@
                 "is_core": false,
                 "listed_in": [
                   "erih-plus",
-                  "jufo-1"
+                  "jufo-1",
+                  "russia-white-list-2"
                 ],
                 "host_organization": null,
                 "host_organization_name": null,
@@ -4347,7 +4359,9 @@
                 "is_oa": false,
                 "is_in_doaj": false,
                 "is_core": false,
-                "listed_in": [],
+                "listed_in": [
+                  "russia-white-list-2"
+                ],
                 "host_organization": null,
                 "host_organization_name": null,
                 "host_organization_lineage": [],
@@ -4434,7 +4448,7 @@
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.52700087,
+              "value": 0.52110492,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -4738,7 +4752,9 @@
                   "is_oa": false,
                   "is_in_doaj": false,
                   "is_core": false,
-                  "listed_in": [],
+                  "listed_in": [
+                    "russia-white-list-2"
+                  ],
                   "host_organization": null,
                   "host_organization_name": null,
                   "host_organization_lineage": [],
@@ -4771,7 +4787,9 @@
                 "is_oa": false,
                 "is_in_doaj": false,
                 "is_core": false,
-                "listed_in": [],
+                "listed_in": [
+                  "russia-white-list-2"
+                ],
                 "host_organization": null,
                 "host_organization_name": null,
                 "host_organization_lineage": [],
@@ -5943,7 +5961,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312625",
                 "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -6125,7 +6145,7 @@
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.29333204,
+              "value": 0.29086504,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -6334,7 +6354,9 @@
                   "is_core": false,
                   "listed_in": [
                     "doaj",
-                    "erih-plus"
+                    "erih-plus",
+                    "poland-20",
+                    "russia-white-list-1"
                   ],
                   "host_organization": "https://openalex.org/P4310312625",
                   "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -6402,7 +6424,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312625",
                 "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -7416,7 +7440,8 @@
                 "is_in_doaj": true,
                 "is_core": false,
                 "listed_in": [
-                  "doaj"
+                  "doaj",
+                  "russia-white-list-3"
                 ],
                 "host_organization": "https://openalex.org/P4310312633",
                 "host_organization_name": "Peoples' Friendship University of Russia",
@@ -7575,7 +7600,7 @@
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.29339338,
+              "value": 0.29018017,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -7774,7 +7799,8 @@
                   "is_in_doaj": true,
                   "is_core": false,
                   "listed_in": [
-                    "doaj"
+                    "doaj",
+                    "russia-white-list-3"
                   ],
                   "host_organization": "https://openalex.org/P4310312633",
                   "host_organization_name": "Peoples' Friendship University of Russia",
@@ -7842,7 +7868,8 @@
                 "is_in_doaj": true,
                 "is_core": false,
                 "listed_in": [
-                  "doaj"
+                  "doaj",
+                  "russia-white-list-3"
                 ],
                 "host_organization": "https://openalex.org/P4310312633",
                 "host_organization_name": "Peoples' Friendship University of Russia",
@@ -8324,7 +8351,8 @@
                 "is_in_doaj": true,
                 "is_core": false,
                 "listed_in": [
-                  "doaj"
+                  "doaj",
+                  "russia-white-list-3"
                 ],
                 "host_organization": "https://openalex.org/P4310312633",
                 "host_organization_name": "Peoples' Friendship University of Russia",
@@ -8409,11 +8437,11 @@
             ],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 4.6431,
+            "fwci": 4.5885,
             "has_fulltext": true,
             "cited_by_count": 2,
             "citation_normalized_percentile": {
-              "value": 0.95149858,
+              "value": 0.95088997,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": true
             },
@@ -8783,7 +8811,8 @@
                   "is_in_doaj": true,
                   "is_core": false,
                   "listed_in": [
-                    "doaj"
+                    "doaj",
+                    "russia-white-list-3"
                   ],
                   "host_organization": "https://openalex.org/P4310312633",
                   "host_organization_name": "Peoples' Friendship University of Russia",
@@ -8851,7 +8880,8 @@
                 "is_in_doaj": true,
                 "is_core": false,
                 "listed_in": [
-                  "doaj"
+                  "doaj",
+                  "russia-white-list-3"
                 ],
                 "host_organization": "https://openalex.org/P4310312633",
                 "host_organization_name": "Peoples' Friendship University of Russia",
@@ -9980,7 +10010,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312858",
                 "host_organization_name": "Russian State Vocational Pedagogical University",
@@ -10111,11 +10143,11 @@
               "currency": "RUB",
               "value_usd": 333
             },
-            "fwci": 9.2862,
+            "fwci": 9.177,
             "has_fulltext": false,
             "cited_by_count": 4,
             "citation_normalized_percentile": {
-              "value": 0.97421321,
+              "value": 0.97391179,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": true
             },
@@ -10324,7 +10356,9 @@
                   "is_core": false,
                   "listed_in": [
                     "doaj",
-                    "erih-plus"
+                    "erih-plus",
+                    "poland-20",
+                    "russia-white-list-1"
                   ],
                   "host_organization": "https://openalex.org/P4310312858",
                   "host_organization_name": "Russian State Vocational Pedagogical University",
@@ -10393,7 +10427,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312858",
                 "host_organization_name": "Russian State Vocational Pedagogical University",
@@ -11807,7 +11843,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312625",
                 "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -11940,7 +11978,7 @@
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.11681463,
+              "value": 0.11496538,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -12096,7 +12134,9 @@
                   "is_core": false,
                   "listed_in": [
                     "doaj",
-                    "erih-plus"
+                    "erih-plus",
+                    "poland-20",
+                    "russia-white-list-1"
                   ],
                   "host_organization": "https://openalex.org/P4310312625",
                   "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -12164,7 +12204,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312625",
                 "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -13211,11 +13253,11 @@
             "corresponding_institution_ids": [],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 7.0172,
+            "fwci": 6.8828,
             "has_fulltext": false,
             "cited_by_count": 3,
             "citation_normalized_percentile": {
-              "value": 0.96937337,
+              "value": 0.96847376,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": true
             },
@@ -14633,7 +14675,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312625",
                 "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -14694,10 +14738,12 @@
               {
                 "author_position": "middle",
                 "author": {
-                  "id": "https://openalex.org/A5107156238",
-                  "display_name": "Николай Юрьевич Микрюков",
-                  "orcid": null,
-                  "observed_orcids": []
+                  "id": "https://openalex.org/A5049647399",
+                  "display_name": "Nikolay Yu. Mikryukov",
+                  "orcid": "https://orcid.org/0000-0003-3083-9862",
+                  "observed_orcids": [
+                    "https://orcid.org/0000-0003-3083-9862"
+                  ]
                 },
                 "institutions": [],
                 "countries": [],
@@ -14770,11 +14816,11 @@
               "currency": "RUB",
               "value_usd": 95
             },
-            "fwci": 2.6223,
+            "fwci": 2.6037,
             "has_fulltext": true,
             "cited_by_count": 3,
             "citation_normalized_percentile": {
-              "value": 0.92071632,
+              "value": 0.92054383,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": true
             },
@@ -14958,7 +15004,9 @@
                   "is_core": false,
                   "listed_in": [
                     "doaj",
-                    "erih-plus"
+                    "erih-plus",
+                    "poland-20",
+                    "russia-white-list-1"
                   ],
                   "host_organization": "https://openalex.org/P4310312625",
                   "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -15026,7 +15074,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312625",
                 "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -15549,7 +15599,7 @@
                 "cited_by_count": 3
               }
             ],
-            "updated_date": "2026-09-29T14:09:16.559479",
+            "updated_date": "2026-10-12T09:40:04.860316",
             "created_date": "2025-10-10T00:00:00"
           }
         },
@@ -15961,7 +16011,9 @@
                 "is_in_doaj": false,
                 "is_core": false,
                 "listed_in": [
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-2"
                 ],
                 "host_organization": null,
                 "host_organization_name": null,
@@ -16033,11 +16085,11 @@
             "corresponding_institution_ids": [],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 2.3194,
+            "fwci": 2.319,
             "has_fulltext": true,
             "cited_by_count": 4,
             "citation_normalized_percentile": {
-              "value": 0.90079972,
+              "value": 0.90096335,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": true
             },
@@ -16206,7 +16258,9 @@
                   "is_in_doaj": false,
                   "is_core": false,
                   "listed_in": [
-                    "erih-plus"
+                    "erih-plus",
+                    "poland-20",
+                    "russia-white-list-2"
                   ],
                   "host_organization": null,
                   "host_organization_name": null,
@@ -16241,7 +16295,9 @@
                 "is_in_doaj": false,
                 "is_core": false,
                 "listed_in": [
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-2"
                 ],
                 "host_organization": null,
                 "host_organization_name": null,
@@ -16851,7 +16907,7 @@
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.34925325,
+              "value": 0.35062231,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -18197,7 +18253,9 @@
                 "is_in_doaj": false,
                 "is_core": false,
                 "listed_in": [
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-2"
                 ],
                 "host_organization": null,
                 "host_organization_name": null,
@@ -18253,11 +18311,11 @@
             "corresponding_institution_ids": [],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 0.1522,
+            "fwci": 0.1515,
             "has_fulltext": false,
             "cited_by_count": 3,
             "citation_normalized_percentile": {
-              "value": 0.47518965,
+              "value": 0.46962926,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -18446,7 +18504,9 @@
                   "is_in_doaj": false,
                   "is_core": false,
                   "listed_in": [
-                    "erih-plus"
+                    "erih-plus",
+                    "poland-20",
+                    "russia-white-list-2"
                   ],
                   "host_organization": null,
                   "host_organization_name": null,
@@ -18481,7 +18541,9 @@
                 "is_in_doaj": false,
                 "is_core": false,
                 "listed_in": [
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-2"
                 ],
                 "host_organization": null,
                 "host_organization_name": null,
@@ -19137,7 +19199,7 @@
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.22978177,
+              "value": 0.23042362,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -20206,7 +20268,9 @@
             "is_core": false,
             "listed_in": [
               "doaj",
-              "erih-plus"
+              "erih-plus",
+              "poland-20",
+              "russia-white-list-1"
             ],
             "host_organization": "https://openalex.org/P4310312625",
             "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -20303,7 +20367,7 @@
         "has_fulltext": false,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.6861428,
+          "value": 0.6627117,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -20552,7 +20616,9 @@
               "is_core": false,
               "listed_in": [
                 "doaj",
-                "erih-plus"
+                "erih-plus",
+                "poland-20",
+                "russia-white-list-1"
               ],
               "host_organization": "https://openalex.org/P4310312625",
               "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -20620,7 +20686,9 @@
             "is_core": false,
             "listed_in": [
               "doaj",
-              "erih-plus"
+              "erih-plus",
+              "poland-20",
+              "russia-white-list-1"
             ],
             "host_organization": "https://openalex.org/P4310312625",
             "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -21190,7 +21258,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312625",
                 "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -21287,7 +21357,7 @@
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.6861428,
+              "value": 0.6627117,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -21536,7 +21606,9 @@
                   "is_core": false,
                   "listed_in": [
                     "doaj",
-                    "erih-plus"
+                    "erih-plus",
+                    "poland-20",
+                    "russia-white-list-1"
                   ],
                   "host_organization": "https://openalex.org/P4310312625",
                   "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -21604,7 +21676,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312625",
                 "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -22173,7 +22247,9 @@
             "is_core": false,
             "listed_in": [
               "doaj",
-              "erih-plus"
+              "erih-plus",
+              "poland-20",
+              "russia-white-list-1"
             ],
             "host_organization": "https://openalex.org/P4310312625",
             "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -22329,7 +22405,7 @@
         "has_fulltext": true,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.68394319,
+          "value": 0.65092409,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -22538,7 +22614,9 @@
               "is_core": false,
               "listed_in": [
                 "doaj",
-                "erih-plus"
+                "erih-plus",
+                "poland-20",
+                "russia-white-list-1"
               ],
               "host_organization": "https://openalex.org/P4310312625",
               "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -22606,7 +22684,9 @@
             "is_core": false,
             "listed_in": [
               "doaj",
-              "erih-plus"
+              "erih-plus",
+              "poland-20",
+              "russia-white-list-1"
             ],
             "host_organization": "https://openalex.org/P4310312625",
             "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -23118,7 +23198,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312625",
                 "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -23274,7 +23356,7 @@
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.68394319,
+              "value": 0.65092409,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -23483,7 +23565,9 @@
                   "is_core": false,
                   "listed_in": [
                     "doaj",
-                    "erih-plus"
+                    "erih-plus",
+                    "poland-20",
+                    "russia-white-list-1"
                   ],
                   "host_organization": "https://openalex.org/P4310312625",
                   "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -23551,7 +23635,9 @@
                 "is_core": false,
                 "listed_in": [
                   "doaj",
-                  "erih-plus"
+                  "erih-plus",
+                  "poland-20",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310312625",
                 "host_organization_name": "Novye Issledovaniâ Tuvy",
@@ -24066,7 +24152,10 @@
               "doaj",
               "jufo-1",
               "ki-jl-1",
-              "norway-1"
+              "norway-1",
+              "poland-20",
+              "russia-white-list-2",
+              "vabb-shw"
             ],
             "host_organization": "https://openalex.org/P4310320527",
             "host_organization_name": "Frontiers Media",
@@ -24221,7 +24310,7 @@
         "has_fulltext": true,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.52573013,
+          "value": 0.50899163,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -24561,7 +24650,10 @@
                 "doaj",
                 "jufo-1",
                 "ki-jl-1",
-                "norway-1"
+                "norway-1",
+                "poland-20",
+                "russia-white-list-2",
+                "vabb-shw"
               ],
               "host_organization": "https://openalex.org/P4310320527",
               "host_organization_name": "Frontiers Media",
@@ -24665,7 +24757,10 @@
               "doaj",
               "jufo-1",
               "ki-jl-1",
-              "norway-1"
+              "norway-1",
+              "poland-20",
+              "russia-white-list-2",
+              "vabb-shw"
             ],
             "host_organization": "https://openalex.org/P4310320527",
             "host_organization_name": "Frontiers Media",
@@ -25290,7 +25385,10 @@
                   "doaj",
                   "jufo-1",
                   "ki-jl-1",
-                  "norway-1"
+                  "norway-1",
+                  "poland-20",
+                  "russia-white-list-2",
+                  "vabb-shw"
                 ],
                 "host_organization": "https://openalex.org/P4310320527",
                 "host_organization_name": "Frontiers Media",
@@ -25445,7 +25543,7 @@
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.52573013,
+              "value": 0.50899163,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -25785,7 +25883,10 @@
                     "doaj",
                     "jufo-1",
                     "ki-jl-1",
-                    "norway-1"
+                    "norway-1",
+                    "poland-20",
+                    "russia-white-list-2",
+                    "vabb-shw"
                   ],
                   "host_organization": "https://openalex.org/P4310320527",
                   "host_organization_name": "Frontiers Media",
@@ -25889,7 +25990,10 @@
                   "doaj",
                   "jufo-1",
                   "ki-jl-1",
-                  "norway-1"
+                  "norway-1",
+                  "poland-20",
+                  "russia-white-list-2",
+                  "vabb-shw"
                 ],
                 "host_organization": "https://openalex.org/P4310320527",
                 "host_organization_name": "Frontiers Media",
@@ -26508,9 +26612,14 @@
             "is_in_doaj": true,
             "is_core": true,
             "listed_in": [
+              "anvur-class-a",
+              "anvur-scientific",
               "cwts-core",
               "doaj",
-              "norway-1"
+              "norway-1",
+              "poland-20",
+              "russia-white-list-1",
+              "vabb-shw"
             ],
             "host_organization": "https://openalex.org/P4310320527",
             "host_organization_name": "Frontiers Media",
@@ -26743,7 +26852,7 @@
         "has_fulltext": true,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.30635504,
+          "value": 0.29414531,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -27093,9 +27202,14 @@
               "is_in_doaj": true,
               "is_core": true,
               "listed_in": [
+                "anvur-class-a",
+                "anvur-scientific",
                 "cwts-core",
                 "doaj",
-                "norway-1"
+                "norway-1",
+                "poland-20",
+                "russia-white-list-1",
+                "vabb-shw"
               ],
               "host_organization": "https://openalex.org/P4310320527",
               "host_organization_name": "Frontiers Media",
@@ -27162,9 +27276,14 @@
             "is_in_doaj": true,
             "is_core": true,
             "listed_in": [
+              "anvur-class-a",
+              "anvur-scientific",
               "cwts-core",
               "doaj",
-              "norway-1"
+              "norway-1",
+              "poland-20",
+              "russia-white-list-1",
+              "vabb-shw"
             ],
             "host_organization": "https://openalex.org/P4310320527",
             "host_organization_name": "Frontiers Media",
@@ -27228,7 +27347,7 @@
           "pdf": "https://content.openalex.org/works/W7160039767.pdf",
           "grobid_xml": "https://content.openalex.org/works/W7160039767.grobid-xml"
         },
-        "referenced_works_count": 26,
+        "referenced_works_count": 25,
         "referenced_works": [
           "https://openalex.org/W1873258529",
           "https://openalex.org/W1967468107",
@@ -27249,7 +27368,6 @@
           "https://openalex.org/W2996691396",
           "https://openalex.org/W3024865495",
           "https://openalex.org/W3043912239",
-          "https://openalex.org/W3121519629",
           "https://openalex.org/W3201425151",
           "https://openalex.org/W4293217388",
           "https://openalex.org/W4394061858",
@@ -27707,7 +27825,7 @@
           ]
         },
         "counts_by_year": [],
-        "updated_date": "2026-09-29T14:09:16.559479",
+        "updated_date": "2026-10-14T16:39:01.820549",
         "created_date": "2026-05-05T00:00:00"
       },
       "sources": [
@@ -27756,9 +27874,14 @@
                 "is_in_doaj": true,
                 "is_core": true,
                 "listed_in": [
+                  "anvur-class-a",
+                  "anvur-scientific",
                   "cwts-core",
                   "doaj",
-                  "norway-1"
+                  "norway-1",
+                  "poland-20",
+                  "russia-white-list-1",
+                  "vabb-shw"
                 ],
                 "host_organization": "https://openalex.org/P4310320527",
                 "host_organization_name": "Frontiers Media",
@@ -27991,7 +28114,7 @@
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.30635504,
+              "value": 0.29414531,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -28341,9 +28464,14 @@
                   "is_in_doaj": true,
                   "is_core": true,
                   "listed_in": [
+                    "anvur-class-a",
+                    "anvur-scientific",
                     "cwts-core",
                     "doaj",
-                    "norway-1"
+                    "norway-1",
+                    "poland-20",
+                    "russia-white-list-1",
+                    "vabb-shw"
                   ],
                   "host_organization": "https://openalex.org/P4310320527",
                   "host_organization_name": "Frontiers Media",
@@ -28410,9 +28538,14 @@
                 "is_in_doaj": true,
                 "is_core": true,
                 "listed_in": [
+                  "anvur-class-a",
+                  "anvur-scientific",
                   "cwts-core",
                   "doaj",
-                  "norway-1"
+                  "norway-1",
+                  "poland-20",
+                  "russia-white-list-1",
+                  "vabb-shw"
                 ],
                 "host_organization": "https://openalex.org/P4310320527",
                 "host_organization_name": "Frontiers Media",
@@ -28476,7 +28609,7 @@
               "pdf": "https://content.openalex.org/works/W7160039767.pdf",
               "grobid_xml": "https://content.openalex.org/works/W7160039767.grobid-xml"
             },
-            "referenced_works_count": 26,
+            "referenced_works_count": 25,
             "referenced_works": [
               "https://openalex.org/W1873258529",
               "https://openalex.org/W1967468107",
@@ -28497,7 +28630,6 @@
               "https://openalex.org/W2996691396",
               "https://openalex.org/W3024865495",
               "https://openalex.org/W3043912239",
-              "https://openalex.org/W3121519629",
               "https://openalex.org/W3201425151",
               "https://openalex.org/W4293217388",
               "https://openalex.org/W4394061858",
@@ -28955,7 +29087,7 @@
               ]
             },
             "counts_by_year": [],
-            "updated_date": "2026-09-29T14:09:16.559479",
+            "updated_date": "2026-10-14T16:39:01.820549",
             "created_date": "2026-05-05T00:00:00"
           }
         }
@@ -29003,10 +29135,13 @@
             "is_in_doaj": true,
             "is_core": true,
             "listed_in": [
+              "anvur-class-a",
+              "anvur-scientific",
               "cwts-core",
               "doaj",
               "erih-plus",
-              "norway-1"
+              "norway-1",
+              "vabb-shw"
             ],
             "host_organization": "https://openalex.org/P4310320527",
             "host_organization_name": "Frontiers Media",
@@ -29121,7 +29256,7 @@
         "has_fulltext": true,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.30232247,
+          "value": 0.28787491,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -29452,10 +29587,13 @@
               "is_in_doaj": true,
               "is_core": true,
               "listed_in": [
+                "anvur-class-a",
+                "anvur-scientific",
                 "cwts-core",
                 "doaj",
                 "erih-plus",
-                "norway-1"
+                "norway-1",
+                "vabb-shw"
               ],
               "host_organization": "https://openalex.org/P4310320527",
               "host_organization_name": "Frontiers Media",
@@ -29522,10 +29660,13 @@
             "is_in_doaj": true,
             "is_core": true,
             "listed_in": [
+              "anvur-class-a",
+              "anvur-scientific",
               "cwts-core",
               "doaj",
               "erih-plus",
-              "norway-1"
+              "norway-1",
+              "vabb-shw"
             ],
             "host_organization": "https://openalex.org/P4310320527",
             "host_organization_name": "Frontiers Media",
@@ -30406,10 +30547,13 @@
                 "is_in_doaj": true,
                 "is_core": true,
                 "listed_in": [
+                  "anvur-class-a",
+                  "anvur-scientific",
                   "cwts-core",
                   "doaj",
                   "erih-plus",
-                  "norway-1"
+                  "norway-1",
+                  "vabb-shw"
                 ],
                 "host_organization": "https://openalex.org/P4310320527",
                 "host_organization_name": "Frontiers Media",
@@ -30524,7 +30668,7 @@
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.30232247,
+              "value": 0.28787491,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -30855,10 +30999,13 @@
                   "is_in_doaj": true,
                   "is_core": true,
                   "listed_in": [
+                    "anvur-class-a",
+                    "anvur-scientific",
                     "cwts-core",
                     "doaj",
                     "erih-plus",
-                    "norway-1"
+                    "norway-1",
+                    "vabb-shw"
                   ],
                   "host_organization": "https://openalex.org/P4310320527",
                   "host_organization_name": "Frontiers Media",
@@ -30925,10 +31072,13 @@
                 "is_in_doaj": true,
                 "is_core": true,
                 "listed_in": [
+                  "anvur-class-a",
+                  "anvur-scientific",
                   "cwts-core",
                   "doaj",
                   "erih-plus",
-                  "norway-1"
+                  "norway-1",
+                  "vabb-shw"
                 ],
                 "host_organization": "https://openalex.org/P4310320527",
                 "host_organization_name": "Frontiers Media",
@@ -31809,7 +31959,8 @@
             "is_in_doaj": false,
             "is_core": false,
             "listed_in": [
-              "jufo-1"
+              "jufo-1",
+              "russia-white-list-1"
             ],
             "host_organization": "https://openalex.org/P4310320535",
             "host_organization_name": "Russian Academy of Sciences",
@@ -31885,11 +32036,11 @@
         "corresponding_institution_ids": [],
         "apc_list": null,
         "apc_paid": null,
-        "fwci": 1.8437,
+        "fwci": 1.8055,
         "has_fulltext": false,
         "cited_by_count": 1,
         "citation_normalized_percentile": {
-          "value": 0.9068606,
+          "value": 0.90522275,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": true
         },
@@ -32188,7 +32339,8 @@
               "is_in_doaj": false,
               "is_core": false,
               "listed_in": [
-                "jufo-1"
+                "jufo-1",
+                "russia-white-list-1"
               ],
               "host_organization": "https://openalex.org/P4310320535",
               "host_organization_name": "Russian Academy of Sciences",
@@ -32674,7 +32826,8 @@
                 "is_in_doaj": false,
                 "is_core": false,
                 "listed_in": [
-                  "jufo-1"
+                  "jufo-1",
+                  "russia-white-list-1"
                 ],
                 "host_organization": "https://openalex.org/P4310320535",
                 "host_organization_name": "Russian Academy of Sciences",
@@ -32750,11 +32903,11 @@
             "corresponding_institution_ids": [],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 1.8437,
+            "fwci": 1.8055,
             "has_fulltext": false,
             "cited_by_count": 1,
             "citation_normalized_percentile": {
-              "value": 0.9068606,
+              "value": 0.90522275,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": true
             },
@@ -33053,7 +33206,8 @@
                   "is_in_doaj": false,
                   "is_core": false,
                   "listed_in": [
-                    "jufo-1"
+                    "jufo-1",
+                    "russia-white-list-1"
                   ],
                   "host_organization": "https://openalex.org/P4310320535",
                   "host_organization_name": "Russian Academy of Sciences",
@@ -33537,7 +33691,11 @@
             "is_oa": true,
             "is_in_doaj": false,
             "is_core": false,
-            "listed_in": [],
+            "listed_in": [
+              "poland-20",
+              "russia-white-list-1",
+              "vabb-shw"
+            ],
             "host_organization": "https://openalex.org/P4310312671",
             "host_organization_name": "Institute of Socio-Economic Development of Territories",
             "host_organization_lineage": [
@@ -33621,8 +33779,8 @@
           {
             "author_position": "last",
             "author": {
-              "id": "https://openalex.org/A5112679696",
-              "display_name": "Natalya Alexandrovna Bezverbnaya",
+              "id": "https://openalex.org/A5003921507",
+              "display_name": "Безвербная Наталья Александровна",
               "orcid": "https://orcid.org/0000-0001-6617-8723",
               "observed_orcids": [
                 "https://orcid.org/0000-0001-6617-8723"
@@ -33648,7 +33806,7 @@
         "has_fulltext": false,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.54482056,
+          "value": 0.53717739,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -33886,7 +34044,11 @@
               "is_oa": true,
               "is_in_doaj": false,
               "is_core": false,
-              "listed_in": [],
+              "listed_in": [
+                "poland-20",
+                "russia-white-list-1",
+                "vabb-shw"
+              ],
               "host_organization": "https://openalex.org/P4310312671",
               "host_organization_name": "Institute of Socio-Economic Development of Territories",
               "host_organization_lineage": [
@@ -33923,7 +34085,11 @@
             "is_oa": true,
             "is_in_doaj": false,
             "is_core": false,
-            "listed_in": [],
+            "listed_in": [
+              "poland-20",
+              "russia-white-list-1",
+              "vabb-shw"
+            ],
             "host_organization": "https://openalex.org/P4310312671",
             "host_organization_name": "Institute of Socio-Economic Development of Territories",
             "host_organization_lineage": [
@@ -33957,7 +34123,7 @@
         "related_works": [],
         "abstract_inverted_index": null,
         "counts_by_year": [],
-        "updated_date": "2026-09-29T14:09:16.559479",
+        "updated_date": "2026-10-14T16:39:01.820549",
         "created_date": "2025-12-29T00:00:00"
       },
       "sources": [
@@ -34006,7 +34172,11 @@
                 "is_oa": true,
                 "is_in_doaj": false,
                 "is_core": false,
-                "listed_in": [],
+                "listed_in": [
+                  "poland-20",
+                  "russia-white-list-1",
+                  "vabb-shw"
+                ],
                 "host_organization": "https://openalex.org/P4310312671",
                 "host_organization_name": "Institute of Socio-Economic Development of Territories",
                 "host_organization_lineage": [
@@ -34090,8 +34260,8 @@
               {
                 "author_position": "last",
                 "author": {
-                  "id": "https://openalex.org/A5112679696",
-                  "display_name": "Natalya Alexandrovna Bezverbnaya",
+                  "id": "https://openalex.org/A5003921507",
+                  "display_name": "Безвербная Наталья Александровна",
                   "orcid": "https://orcid.org/0000-0001-6617-8723",
                   "observed_orcids": [
                     "https://orcid.org/0000-0001-6617-8723"
@@ -34117,7 +34287,7 @@
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.54482056,
+              "value": 0.53717739,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -34355,7 +34525,11 @@
                   "is_oa": true,
                   "is_in_doaj": false,
                   "is_core": false,
-                  "listed_in": [],
+                  "listed_in": [
+                    "poland-20",
+                    "russia-white-list-1",
+                    "vabb-shw"
+                  ],
                   "host_organization": "https://openalex.org/P4310312671",
                   "host_organization_name": "Institute of Socio-Economic Development of Territories",
                   "host_organization_lineage": [
@@ -34392,7 +34566,11 @@
                 "is_oa": true,
                 "is_in_doaj": false,
                 "is_core": false,
-                "listed_in": [],
+                "listed_in": [
+                  "poland-20",
+                  "russia-white-list-1",
+                  "vabb-shw"
+                ],
                 "host_organization": "https://openalex.org/P4310312671",
                 "host_organization_name": "Institute of Socio-Economic Development of Territories",
                 "host_organization_lineage": [
@@ -34426,7 +34604,7 @@
             "related_works": [],
             "abstract_inverted_index": null,
             "counts_by_year": [],
-            "updated_date": "2026-09-29T14:09:16.559479",
+            "updated_date": "2026-10-14T16:39:01.820549",
             "created_date": "2025-12-29T00:00:00"
           }
         }

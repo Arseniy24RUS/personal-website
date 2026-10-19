@@ -580,5 +580,66 @@
         ]
       }
     }
+  },
+  {
+    "source": "scopus_api",
+    "eid": "2-s2.0-105053357857",
+    "scopus_id": "105053357857",
+    "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+    "creator": "Raysikh A.",
+    "journal_or_source": "Frontiers in Sustainable Cities",
+    "cover_date": "2026-01-01",
+    "year": "2026",
+    "doi": "10.3389/frsc.2026.1719775",
+    "cited_by_count": 0,
+    "aggregation_type": "Journal",
+    "subtype": "Article",
+    "openaccess": "1",
+    "raw": {
+      "@_fa": "true",
+      "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105053357857",
+      "dc:identifier": "SCOPUS_ID:105053357857",
+      "eid": "2-s2.0-105053357857",
+      "dc:title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+      "dc:creator": "Raysikh A.",
+      "prism:publicationName": "Frontiers in Sustainable Cities",
+      "prism:coverDate": "2026-01-01",
+      "prism:doi": "10.3389/frsc.2026.1719775",
+      "citedby-count": "0",
+      "prism:aggregationType": "Journal",
+      "subtype": "ar",
+      "subtypeDescription": "Article",
+      "openaccess": "1",
+      "openaccessFlag": true,
+      "freetoread": {
+        "value": [
+          {
+            "$": "all"
+          },
+          {
+            "$": "publisherfullgold"
+          },
+          {
+            "$": "repository"
+          },
+          {
+            "$": "repositoryam"
+          }
+        ]
+      },
+      "freetoreadLabel": {
+        "value": [
+          {
+            "$": "All Open Access"
+          },
+          {
+            "$": "Gold"
+          },
+          {
+            "$": "Green"
+          }
+        ]
+      }
+    }
   }
 ]

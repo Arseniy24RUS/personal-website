@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-12T11:19:31+00:00",
+  "generated_at": "2026-10-19T09:03:39+00:00",
   "status": "partial",
   "checks": {
     "publications_count": 72,
     "canonical_publications_count": 72,
     "source_counts": {
       "elibrary": 59,
-      "scopus": 10,
+      "scopus": 11,
       "wos": 14,
       "open": 16
     },
@@ -36,7 +36,7 @@
   "source_health": {
     "elibrary": {
       "status": "blocked",
-      "attempted_at": "2026-10-12T11:18:55+00:00",
+      "attempted_at": "2026-10-19T09:03:05+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "snapshot",
       "complete": false,
@@ -44,9 +44,9 @@
       "reason": "profile_not_authenticated_or_changed",
       "stage": "login",
       "components": {
-        "publications": {
+        "details": {
           "status": "blocked",
-          "attempted_at": "2026-10-12T11:18:55+00:00",
+          "attempted_at": "2026-10-19T09:03:05+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
@@ -55,16 +55,16 @@
         },
         "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-10-12T11:18:55+00:00",
+          "attempted_at": "2026-10-19T09:03:05+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
           "reason": "profile_not_authenticated_or_changed"
         },
-        "details": {
+        "publications": {
           "status": "blocked",
-          "attempted_at": "2026-10-12T11:18:55+00:00",
+          "attempted_at": "2026-10-19T09:03:05+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
@@ -75,7 +75,7 @@
     },
     "wos": {
       "status": "blocked",
-      "attempted_at": "2026-10-12T11:19:18+00:00",
+      "attempted_at": "2026-10-19T09:03:28+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
@@ -85,7 +85,7 @@
       "components": {
         "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-10-12T11:19:18+00:00",
+          "attempted_at": "2026-10-19T09:03:28+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
@@ -94,7 +94,7 @@
         },
         "publications": {
           "status": "blocked",
-          "attempted_at": "2026-10-12T11:19:18+00:00",
+          "attempted_at": "2026-10-19T09:03:28+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
@@ -105,16 +105,16 @@
     },
     "scopus": {
       "status": "success",
-      "attempted_at": "2026-10-12T11:19:22+00:00",
-      "last_success_at": "2026-10-12T11:19:22+00:00",
+      "attempted_at": "2026-10-19T09:03:33+00:00",
+      "last_success_at": "2026-10-19T09:03:33+00:00",
       "origin": "live",
       "complete": true,
-      "record_count": 10,
+      "record_count": 11,
       "reason": null
     },
     "media": {
       "status": "error",
-      "attempted_at": "2026-10-12T11:13:59+00:00",
+      "attempted_at": "2026-10-19T08:57:54+00:00",
       "last_success_at": "2026-09-20T14:25:17+00:00",
       "origin": "snapshot",
       "complete": false,
@@ -124,8 +124,8 @@
     },
     "orcid": {
       "status": "success",
-      "attempted_at": "2026-10-12T11:13:53+00:00",
-      "last_success_at": "2026-10-12T11:13:53+00:00",
+      "attempted_at": "2026-10-19T08:57:48+00:00",
+      "last_success_at": "2026-10-19T08:57:48+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 15,
@@ -133,8 +133,8 @@
     },
     "openalex": {
       "status": "success",
-      "attempted_at": "2026-10-12T11:13:56+00:00",
-      "last_success_at": "2026-10-12T11:13:56+00:00",
+      "attempted_at": "2026-10-19T08:57:51+00:00",
+      "last_success_at": "2026-10-19T08:57:51+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 25,
@@ -142,8 +142,8 @@
     },
     "crossref": {
       "status": "success",
-      "attempted_at": "2026-10-12T11:13:58+00:00",
-      "last_success_at": "2026-10-12T11:13:58+00:00",
+      "attempted_at": "2026-10-19T08:57:54+00:00",
+      "last_success_at": "2026-10-19T08:57:54+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 14,
@@ -155,7 +155,7 @@
       "code": "source_not_fresh",
       "provider": "elibrary",
       "status": "blocked",
-      "attempted_at": "2026-10-12T11:18:55+00:00",
+      "attempted_at": "2026-10-19T09:03:05+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "snapshot",
       "complete": false,
@@ -163,9 +163,9 @@
       "reason": "profile_not_authenticated_or_changed",
       "stage": "login",
       "components": {
-        "publications": {
+        "details": {
           "status": "blocked",
-          "attempted_at": "2026-10-12T11:18:55+00:00",
+          "attempted_at": "2026-10-19T09:03:05+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
@@ -174,16 +174,16 @@
         },
         "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-10-12T11:18:55+00:00",
+          "attempted_at": "2026-10-19T09:03:05+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
           "reason": "profile_not_authenticated_or_changed"
         },
-        "details": {
+        "publications": {
           "status": "blocked",
-          "attempted_at": "2026-10-12T11:18:55+00:00",
+          "attempted_at": "2026-10-19T09:03:05+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
@@ -196,7 +196,7 @@
       "code": "source_not_fresh",
       "provider": "wos",
       "status": "blocked",
-      "attempted_at": "2026-10-12T11:19:18+00:00",
+      "attempted_at": "2026-10-19T09:03:28+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
@@ -206,7 +206,7 @@
       "components": {
         "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-10-12T11:19:18+00:00",
+          "attempted_at": "2026-10-19T09:03:28+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
@@ -215,7 +215,7 @@
         },
         "publications": {
           "status": "blocked",
-          "attempted_at": "2026-10-12T11:19:18+00:00",
+          "attempted_at": "2026-10-19T09:03:28+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
@@ -228,7 +228,7 @@
       "code": "source_not_fresh",
       "provider": "media",
       "status": "error",
-      "attempted_at": "2026-10-12T11:13:59+00:00",
+      "attempted_at": "2026-10-19T08:57:54+00:00",
       "last_success_at": "2026-09-20T14:25:17+00:00",
       "origin": "snapshot",
       "complete": false,
