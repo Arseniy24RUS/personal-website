@@ -223,7 +223,7 @@
     {
       "id": "https://openalex.org/T14019",
       "display_name": "Socioeconomic and Demographic Analysis",
-      "value": 0.0001767,
+      "value": 0.0001556,
       "subfield": {
         "id": "https://openalex.org/subfields/2308",
         "display_name": "Management, Monitoring, Policy and Law"
@@ -240,7 +240,7 @@
     {
       "id": "https://openalex.org/T13609",
       "display_name": "Economic, Social, and Public Health Issues in Russia and Globally",
-      "value": 0.0001076,
+      "value": 9.53e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/1803",
         "display_name": "Management Science and Operations Research"
@@ -257,7 +257,7 @@
     {
       "id": "https://openalex.org/T13618",
       "display_name": "Regional Socio-Economic Development Trends",
-      "value": 9.94e-05,
+      "value": 9e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/3317",
         "display_name": "Demography"
@@ -274,7 +274,7 @@
     {
       "id": "https://openalex.org/T13747",
       "display_name": "Sociopolitical Dynamics in Russia",
-      "value": 3.81e-05,
+      "value": 3.42e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/3312",
         "display_name": "Sociology and Political Science"
@@ -291,7 +291,7 @@
     {
       "id": "https://openalex.org/T13888",
       "display_name": "Social Policies and Family",
-      "value": 3.57e-05,
+      "value": 3.19e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/3312",
         "display_name": "Sociology and Political Science"
@@ -404,7 +404,7 @@
   ],
   "block_key": "10.26653/2076-4650-2021-6-08",
   "works_api_url": "https://api.openalex.org/works?filter=author.id:A5007601767",
-  "updated_date": "2026-10-10T12:59:14",
+  "updated_date": "2026-10-23T12:28:23",
   "created_date": "2022-05-12T00:00:00",
-  "last_success_at": "2026-10-19T08:57:49+00:00"
+  "last_success_at": "2026-10-26T09:45:47+00:00"
 }

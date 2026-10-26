@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T08:57:54+00:00",
+  "generated_at": "2026-10-26T09:45:52+00:00",
   "records": [
     {
       "source": "orcid_public_api",
@@ -714,8 +714,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 3,
@@ -2063,8 +2063,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 16,
@@ -3888,8 +3888,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -4822,8 +4822,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7117456659.pdf",
@@ -6452,8 +6452,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4416843219.pdf",
@@ -7901,8 +7901,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4415774327.pdf",
@@ -8907,8 +8907,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4415774334.pdf",
@@ -10466,8 +10466,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 33,
@@ -12238,8 +12238,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4410943920.pdf",
@@ -13578,8 +13578,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -15118,8 +15118,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4402469980.pdf",
@@ -16319,8 +16319,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4386310774.pdf",
@@ -17227,8 +17227,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -18571,8 +18571,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -19660,8 +19660,8 @@
               }
             ],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W3111971945.pdf",
@@ -20714,8 +20714,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "grobid_xml": false,
-          "pdf": true
+          "pdf": true,
+          "grobid_xml": false
         },
         "content_urls": {
           "pdf": "https://content.openalex.org/works/W7204881448.pdf"
@@ -21704,8 +21704,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": false
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7204881448.pdf"
@@ -22738,8 +22738,8 @@
           }
         ],
         "has_content": {
-          "grobid_xml": true,
-          "pdf": true
+          "pdf": true,
+          "grobid_xml": true
         },
         "content_urls": {
           "pdf": "https://content.openalex.org/works/W7204927332.pdf",
@@ -23689,8 +23689,8 @@
               }
             ],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7204927332.pdf",
@@ -24792,8 +24792,8 @@
           }
         ],
         "has_content": {
-          "grobid_xml": true,
-          "pdf": true
+          "pdf": true,
+          "grobid_xml": true
         },
         "content_urls": {
           "pdf": "https://content.openalex.org/works/W7167674305.pdf",
@@ -26025,8 +26025,8 @@
               }
             ],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7167674305.pdf",
@@ -27340,8 +27340,8 @@
           }
         ],
         "has_content": {
-          "grobid_xml": true,
-          "pdf": true
+          "pdf": true,
+          "grobid_xml": true
         },
         "content_urls": {
           "pdf": "https://content.openalex.org/works/W7160039767.pdf",
@@ -28602,8 +28602,8 @@
               }
             ],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7160039767.pdf",
@@ -29704,8 +29704,8 @@
           }
         ],
         "has_content": {
-          "grobid_xml": true,
-          "pdf": true
+          "pdf": true,
+          "grobid_xml": true
         },
         "content_urls": {
           "pdf": "https://content.openalex.org/works/W7160064681.pdf",
@@ -31116,8 +31116,8 @@
               }
             ],
             "has_content": {
-              "grobid_xml": true,
-              "pdf": true
+              "pdf": true,
+              "grobid_xml": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7160064681.pdf",
@@ -32368,8 +32368,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "grobid_xml": false,
-          "pdf": false
+          "pdf": false,
+          "grobid_xml": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -33235,8 +33235,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -34114,8 +34114,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "grobid_xml": false,
-          "pdf": false
+          "pdf": false,
+          "grobid_xml": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -34595,8 +34595,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -35070,8 +35070,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "grobid_xml": false,
-          "pdf": false
+          "pdf": false,
+          "grobid_xml": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -36516,8 +36516,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -37973,8 +37973,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "grobid_xml": false,
-          "pdf": false
+          "pdf": false,
+          "grobid_xml": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -38951,8 +38951,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -39867,8 +39867,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "grobid_xml": false,
-          "pdf": false
+          "pdf": false,
+          "grobid_xml": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -40509,8 +40509,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "grobid_xml": false,
-              "pdf": false
+              "pdf": false,
+              "grobid_xml": false
             },
             "content_urls": null,
             "referenced_works_count": 0,

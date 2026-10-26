@@ -101,52 +101,6 @@
         },
         {
           "@_fa": "true",
-          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105046947039",
-          "dc:identifier": "SCOPUS_ID:105046947039",
-          "eid": "2-s2.0-105046947039",
-          "dc:title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
-          "dc:creator": "Dozhdikov A.V.",
-          "prism:publicationName": "Frontiers in Big Data",
-          "prism:coverDate": "2026-01-01",
-          "prism:doi": "10.3389/fdata.2026.1842233",
-          "citedby-count": "0",
-          "prism:aggregationType": "Journal",
-          "subtype": "ar",
-          "subtypeDescription": "Article",
-          "openaccess": "1",
-          "openaccessFlag": true,
-          "freetoread": {
-            "value": [
-              {
-                "$": "all"
-              },
-              {
-                "$": "publisherfullgold"
-              },
-              {
-                "$": "repository"
-              },
-              {
-                "$": "repositoryam"
-              }
-            ]
-          },
-          "freetoreadLabel": {
-            "value": [
-              {
-                "$": "All Open Access"
-              },
-              {
-                "$": "Gold"
-              },
-              {
-                "$": "Green"
-              }
-            ]
-          }
-        },
-        {
-          "@_fa": "true",
           "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105026678596",
           "dc:identifier": "SCOPUS_ID:105026678596",
           "eid": "2-s2.0-105026678596",
@@ -174,6 +128,52 @@
               },
               {
                 "$": "repositoryvor"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Gold"
+              },
+              {
+                "$": "Green"
+              }
+            ]
+          }
+        },
+        {
+          "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105046947039",
+          "dc:identifier": "SCOPUS_ID:105046947039",
+          "eid": "2-s2.0-105046947039",
+          "dc:title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+          "dc:creator": "Dozhdikov A.V.",
+          "prism:publicationName": "Frontiers in Big Data",
+          "prism:coverDate": "2026-01-01",
+          "prism:doi": "10.3389/fdata.2026.1842233",
+          "citedby-count": "0",
+          "prism:aggregationType": "Journal",
+          "subtype": "ar",
+          "subtypeDescription": "Article",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherfullgold"
+              },
+              {
+                "$": "repository"
+              },
+              {
+                "$": "repositoryam"
               }
             ]
           },

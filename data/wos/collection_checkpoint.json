@@ -2,7 +2,7 @@
   "schema": "provider_collection/v1",
   "report": {
     "status": "blocked",
-    "attempted_at": "2026-10-19T09:03:28+00:00",
+    "attempted_at": "2026-10-26T09:51:13+00:00",
     "last_success_at": "2026-09-20T15:28:23.031Z",
     "origin": "snapshot",
     "complete": false,
@@ -11,7 +11,7 @@
     "components": {
       "metrics": {
         "status": "blocked",
-        "attempted_at": "2026-10-19T09:03:28+00:00",
+        "attempted_at": "2026-10-26T09:51:13+00:00",
         "last_success_at": "2026-09-20T15:28:23.031Z",
         "origin": "snapshot",
         "complete": false,
@@ -20,7 +20,7 @@
       },
       "publications": {
         "status": "blocked",
-        "attempted_at": "2026-10-19T09:03:28+00:00",
+        "attempted_at": "2026-10-26T09:51:13+00:00",
         "last_success_at": "2026-09-20T15:28:23.031Z",
         "origin": "snapshot",
         "complete": false,
@@ -226,7 +226,7 @@
         "unusual_activity"
       ],
       "elapsed_seconds": 0.002,
-      "observation_budget_seconds": 10.0,
+      "observation_budget_seconds": 50.847,
       "observation_timeline": [
         {
           "elapsed_seconds": 0.002,
@@ -249,31 +249,52 @@
         }
       ]
     },
-    "authentication_evidence": {
-      "username_format_valid": true,
-      "orcid_form_observed": false,
-      "wos_return_observed": false,
-      "username_normalized": false,
-      "cookie_banner_dismissed": true,
-      "returned_profile_reused": false,
-      "homepage_loaded": false,
-      "orcid_selected": false,
-      "orcid_consent_clicked": false,
-      "homepage_requested": false,
-      "signin_clicked": false,
-      "wos_session_confirmed": false,
-      "clarivate_observed": false,
-      "profile_loaded": false,
-      "orcid_page_observed": false,
-      "submit_clicked": false,
-      "initial_profile_requested": true,
-      "cookie_banner_observed": true,
-      "consent_accepted": true,
-      "profile_requested": false,
-      "onboarding_acknowledged": false,
-      "input_matches_configured": false,
-      "initial_profile_loaded": true,
-      "stage": "initial_profile"
+    "profile_entry_observation": {
+      "settling": "cleared",
+      "elapsed_seconds": 1.84,
+      "observation_budget_seconds": 58.922,
+      "observation_timeline": [
+        {
+          "elapsed_seconds": 1.001,
+          "category": "incomplete",
+          "ready_state": "unavailable",
+          "frame_text_length": null,
+          "frame_tag_count": null,
+          "frame_button_count": null,
+          "frame_role_button_count": null,
+          "frame_input_count": null,
+          "frame_canvas_count": null,
+          "frame_dom_observed": null,
+          "checkbox_present": null,
+          "checkbox_visible": null,
+          "active_challenge_controls": null,
+          "observation_incomplete": null,
+          "hcaptcha_frame_count": null,
+          "recaptcha_frame_count": null,
+          "other_frame_count": null,
+          "error_type": "timeout",
+          "read_phase": "page_text"
+        },
+        {
+          "elapsed_seconds": 1.84,
+          "category": "clear",
+          "ready_state": "unavailable",
+          "frame_text_length": null,
+          "frame_tag_count": null,
+          "frame_button_count": null,
+          "frame_role_button_count": null,
+          "frame_input_count": null,
+          "frame_canvas_count": null,
+          "frame_dom_observed": null,
+          "checkbox_present": null,
+          "checkbox_visible": null,
+          "active_challenge_controls": null,
+          "observation_incomplete": null,
+          "hcaptcha_frame_count": 0,
+          "recaptcha_frame_count": 0,
+          "other_frame_count": 0
+        }
+      ]
     },
     "authentication_mode": "restore",
     "authentication": null
