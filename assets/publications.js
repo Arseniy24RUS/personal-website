@@ -33,7 +33,8 @@ function parseTSV(t){
   const h=lines[0].split('\t');
   return lines.slice(1).map(line=>{
     const c=line.split('\t');const r={};h.forEach((k,i)=>r[k]=c[i]||'');
-    return sanitizePub({number:r.number,year:r.year,rinc:+r.rinc_citations||0,rinc_citations:+r.rinc_citations||0,scopus_citations:r.scopus_citations,title:r.title,title_ru:r.title_ru||r.title,title_ru_display:r.title_ru_display,title_en:r.title_en,authors_raw:r.authors,venue:r.venue,venue_ru:r.venue_ru||r.venue,venue_en:r.venue_en,volume:r.volume,issue:r.issue,pages:r.pages,doi:r.doi,url:r.url,gost_ru:r.gost_ru,apa_en:r.apa_en,sources:r.sources||''});
+    const wosCount=String(r.wos_citations??'').trim();
+    return sanitizePub({number:r.number,year:r.year,rinc:+r.rinc_citations||0,rinc_citations:+r.rinc_citations||0,scopus_citations:r.scopus_citations,title:r.title,title_ru:r.title_ru||r.title,title_ru_display:r.title_ru_display,title_en:r.title_en,authors_raw:r.authors,venue:r.venue,venue_ru:r.venue_ru||r.venue,venue_en:r.venue_en,volume:r.volume,issue:r.issue,pages:r.pages,doi:r.doi,url:r.url,gost_ru:r.gost_ru,apa_en:r.apa_en,sources:r.sources||'',wos_uid:r.wos_uid||'',wos_core_collection:String(r.wos_core_collection||'').toLowerCase()==='true',wos_url:r.wos_url||'',wos_citations:/^\d+$/.test(wosCount)?Number(wosCount):null,citation_observed_at:r.wos_citation_observed_at?{wos:r.wos_citation_observed_at}:{}});
   });
 }
 
@@ -64,6 +65,63 @@ function sanitizePub(p){
 }
 
 function sourcesOf(p){return Array.isArray(p.sources)?p.sources.join(','):String(p.sources||'')}
+function displayDoi(p){
+  const doi=String(p.doi||'').trim().replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,'').replace(/^doi:\s*/i,'').replace(/[.,;]+$/,'').toLowerCase();
+  return /^10\.\d{4,9}\/\S+$/.test(doi)?doi:'';
+}
+function displayWosUid(p){const uid=String(p.wos_uid||'').trim().toUpperCase();return /^WOS:[A-Z0-9]+$/.test(uid)?uid:''}
+function sameDisplayPublication(a,b){
+  const ad=displayDoi(a),bd=displayDoi(b),au=displayWosUid(a),bu=displayWosUid(b);
+  if((ad&&bd&&ad!==bd)||(au&&bu&&au!==bu))return false;
+  if(a.elibrary_item_id&&b.elibrary_item_id&&String(a.elibrary_item_id)!==String(b.elibrary_item_id))return false;
+  return Boolean((ad&&ad===bd)||(au&&au===bu));
+}
+function displayRecordScore(p){
+  const russian=hasCyr(p.title_ru_display||p.title_ru||p.title);
+  const fields=['gost_ru','apa_en','title_en','authors_raw','venue','year','volume','issue','pages','doi'];
+  return (russian?100:0)+(p.elibrary_item_id?20:0)+fields.filter(k=>p[k]!=null&&p[k]!=='').length;
+}
+function mergeDisplayPublication(a,b){
+  const primary=displayRecordScore(b)>displayRecordScore(a)?b:a;
+  const secondary=primary===a?b:a;
+  const merged={...primary};
+  for(const [key,value] of Object.entries(secondary)){
+    if(merged[key]==null||merged[key]===''||(Array.isArray(merged[key])&&!merged[key].length))merged[key]=value;
+  }
+  const sourceList=p=>sourcesOf(p).split(',').map(s=>s.trim()).filter(Boolean);
+  merged.sources=[...new Set([...sourceList(primary),...sourceList(secondary)])];
+  merged.wos_core_collection=primary.wos_core_collection===true||secondary.wos_core_collection===true;
+  merged.citation_observed_at={...(secondary.citation_observed_at||{}),...(primary.citation_observed_at||{})};
+  const hasCount=p=>p.wos_citations!=null&&p.wos_citations!=='';
+  const stamp=p=>{const t=Date.parse((p.citation_observed_at||{}).wos);return Number.isFinite(t)?t:-Infinity};
+  const chosen=hasCount(secondary)&&(!hasCount(primary)||stamp(secondary)>stamp(primary))?secondary:primary;
+  if(hasCount(chosen)){
+    merged.wos_citations=chosen.wos_citations;
+    if(chosen.citation_observed_at?.wos)merged.citation_observed_at.wos=chosen.citation_observed_at.wos;
+    else delete merged.citation_observed_at.wos;
+  }
+  return merged;
+}
+function dedupePublicationsForDisplay(publications){
+  // Keep the stored bibliography intact; combine only unambiguous identifiers for display.
+  const visible=[];
+  for(const publication of publications){
+    const matches=[];
+    visible.forEach((candidate,index)=>{if(sameDisplayPublication(candidate,publication))matches.push(index)});
+    if(matches.length===1)visible[matches[0]]=mergeDisplayPublication(visible[matches[0]],publication);
+    else visible.push({...publication});
+  }
+  return visible;
+}
+function wosRecordUrl(p){
+  const uid=displayWosUid(p);
+  try{
+    const url=new URL(String(p.wos_url||''));
+    const record=decodeURIComponent(url.pathname).match(/^\/wos\/(?:woscc|alldb)\/full-record\/(WOS:[A-Z0-9]+)\/?$/i);
+    if(url.protocol==='https:'&&['www.webofscience.com','webofscience.com'].includes(url.hostname)&&!url.username&&!url.password&&record&&(!uid||record[1].toUpperCase()===uid))return url.origin+url.pathname;
+  }catch(e){}
+  return uid?`https://www.webofscience.com/wos/woscc/full-record/${uid}`:'';
+}
 function doiUrl(doi){doi=String(doi||'').replace(/^https?:\/\/(dx\.)?doi\.org\//i,'').trim();return doi?`https://doi.org/${doi}`:''}
 function pageRange(s){return String(s||'').replace(/\s*[-–—]\s*/g,'–').replace(/^[СC]\.?\s*/,'')}
 function initials(s){return String(s||'').replace(/\s+/g,'').replace(/([A-ZА-ЯЁ])\.?/g,'$1. ').trim()}
@@ -109,18 +167,36 @@ function fallbackGost(pub){
 function citation(pub){const p=sanitizedCopy(pub);return isEn()?((p.apa_en&&!badReferenceText(p.apa_en))?p.apa_en:fallbackApa(p)):((p.gost_ru&&!badReferenceText(p.gost_ru))?p.gost_ru:fallbackGost(p))}
 
 function qualityFor(p){if(!window.QUALITY)return null;if(window.QUALITY[p.venue])return window.QUALITY[p.venue];const nv=normalize(p.venue);for(const [k,v] of Object.entries(window.QUALITY)){if(normalize(k)===nv)return v}return null}
-function badgeHtml(q,p){const out=[];if(q){if(q.scopus)out.push(`<span class="badge">Scopus ${esc(q.scopus_snip_quartile||q.scopus_sjr_quartile||'')}</span>`);if(q.wos_core)out.push(`<span class="badge">WoS ${esc(q.wos_jif_quartile||'CC')}</span>`);if(q.rsci)out.push(`<span class="badge">RSCI</span>`);if(q.white_list_2025)out.push(`<span class="badge light">${isEn()?'RCNI list':'БС РЦНИ'}-${esc(q.white_list_2025)}</span>`);else if(q.white_list_2023)out.push(`<span class="badge light">${isEn()?'List':'БС'}-${esc(q.white_list_2023)}</span>`);if(q.rudn_points)out.push(`<span class="badge light">RUDN ${esc(q.rudn_points)}</span>`)}if((p.rinc||p.rinc_citations)>0)out.push(`<span class="badge light">${isEn()?'RSCI cit.':'РИНЦ цит.'}: ${p.rinc||p.rinc_citations}</span>`);if(p.scopus_citations!==''&&p.scopus_citations!=null)out.push(`<span class="badge light">Scopus cit.: ${p.scopus_citations}</span>`);return out.join('')}
+function badgeHtml(q,p){
+  const out=[];
+  if(q?.scopus)out.push(`<span class="badge">Scopus ${esc(q.scopus_snip_quartile||q.scopus_sjr_quartile||'')}</span>`);
+  if(p.wos_core_collection===true){
+    const label=`WoS CC${q?.wos_jif_quartile?' · '+q.wos_jif_quartile:''}`;
+    const url=wosRecordUrl(p);
+    out.push(url?`<a class="badge" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`:`<span class="badge">${esc(label)}</span>`);
+  }
+  if(q){
+    if(q.rsci)out.push('<span class="badge">RSCI</span>');
+    if(q.white_list_2025)out.push(`<span class="badge light">${isEn()?'RCNI list':'БС РЦНИ'}-${esc(q.white_list_2025)}</span>`);
+    else if(q.white_list_2023)out.push(`<span class="badge light">${isEn()?'List':'БС'}-${esc(q.white_list_2023)}</span>`);
+    if(q.rudn_points)out.push(`<span class="badge light">RUDN ${esc(q.rudn_points)}</span>`);
+  }
+  if((p.rinc||p.rinc_citations)>0)out.push(`<span class="badge light">${isEn()?'RSCI cit.':'РИНЦ цит.'}: ${esc(String(p.rinc||p.rinc_citations))}</span>`);
+  if(p.scopus_citations!==''&&p.scopus_citations!=null)out.push(`<span class="badge light">Scopus cit.: ${esc(String(p.scopus_citations))}</span>`);
+  if(p.wos_citations!==''&&p.wos_citations!=null)out.push(`<span class="badge light">${isEn()?'WoS cit.':'WoS цит.'}: ${esc(String(p.wos_citations))}</span>`);
+  return out.join('');
+}
 function fmtMetric(v){return v==null||v===''?'—':String(v)}
 async function loadScientometrics(){try{const profile=await fetch('data/public/profile.json',{cache:'no-store'}).then(r=>r.json());window.SCIENTOMETRICS=profile.scientometrics||null}catch(e){window.SCIENTOMETRICS=null}renderScientometrics()}
 function renderScientometrics(){const box=document.getElementById('scientometrics');if(!box)return;const m=window.SCIENTOMETRICS;if(!m||!m.sources){box.innerHTML='';return}const cols=m.columns||['rinc','scopus','wos'];const rows=m.rows||[];const ids={rinc:{label:isEn()?'RSCI':'РИНЦ',url:'https://www.elibrary.ru/author_profile.asp?id=1012909'},scopus:{label:'Scopus',url:'http://www.scopus.com/inward/authorDetails.url?authorID=57220956828&partnerID=MN8TOARS'},wos:{label:'Web of Science',url:'https://www.webofscience.com/wos/author/record/AAG-1530-2021'}};const colHead=cols.map(c=>{const info=ids[c]||{label:c,url:'#'};return `<div class="scientometrics-cell scientometrics-head"><a href="${esc(info.url)}" target="_blank" rel="noopener">${esc(info.label)}</a></div>`}).join('');const body=rows.map(r=>`<div class="scientometrics-cell scientometrics-rowhead">${esc(isEn()?(r.label_en||r.label_ru):(r.label_ru||r.label_en))}</div>${cols.map(c=>`<div class="scientometrics-cell"><span class="scientometrics-value">${esc(fmtMetric((m.sources[c]||{})[r.key]))}</span></div>`).join('')}`).join('');box.innerHTML=`<section class="scientometrics-card"><div class="scientometrics-grid"><div class="scientometrics-cell scientometrics-head"><span class="ru">Показатель</span><span class="en">Metric</span></div>${colHead}${body}</div></section>`}
 
 let PUBS=[];window.QUALITY={};window.SCIENTOMETRICS=null;
 async function loadPublications(){
-  try{return (await fetch('data/public/publications.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject())).map(sanitizePub)}catch(e){}
+  try{return dedupePublicationsForDisplay((await fetch('data/public/publications.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject())).map(sanitizePub))}catch(e){}
   let txt;
   try{txt=await fetch('data/public/publications.tsv',{cache:'no-store'}).then(r=>r.ok?r.text():Promise.reject())}
   catch(e){txt=await fetch('data/elibrary/publications.tsv',{cache:'no-store'}).then(r=>r.text());txt='number\tyear\trinc_citations\tscopus_citations\ttitle\ttitle_ru\ttitle_ru_display\ttitle_en\ttitle_en_source\tauthors\tvenue\tvenue_ru\tvenue_en\tvolume\tissue\tpages\tdoi\turl\tgost_ru\tapa_en\tsources\n'+txt.split(/\n/).filter(Boolean).map(line=>{const c=line.split('\t');return [c[0],c[1],c[2],'',c[3],c[3],smartRuTitle(c[3]),'', '',c[4],c[5],c[5],'','','',c[6],'',c[7],fallbackGost({authors_raw:c[4],title_ru:c[3],venue:c[5],year:c[1],pages:c[6],url:c[7]}),'','elibrary'].join('\t')}).join('\n')}
-  return parseTSV(txt);
+  return dedupePublicationsForDisplay(parseTSV(txt));
 }
 function render(){
   const qEl=document.getElementById('q');const yearEl=document.getElementById('year');const srcEl=document.getElementById('src');const countEl=document.getElementById('count');const pubsEl=document.getElementById('pubs');

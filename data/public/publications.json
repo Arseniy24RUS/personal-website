@@ -63,7 +63,8 @@
       "scopus",
       "orcid_public_api",
       "crossref_api",
-      "wos"
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -878,7 +879,7 @@
       {
         "source": "web_of_science_free_view_author_profile",
         "wos_uid": "WOS:001705010300002",
-        "position": 1,
+        "position": 6,
         "document_type": "Article",
         "title": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
         "title_en": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
@@ -897,14 +898,31 @@
           "wos"
         ],
         "metadata_raw": "4 | Article | Comparative content analysis of master's and doctoral programmes in demography at world-class universities | Rostovskaya, TK | and | Sitkovskiy, AM | Jan 2026 | arrow_back | Информация о журнале | clear | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | Название издателя | RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | EDUCATION & EDUCATIONAL RESEARCH | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.25 | 2024 | 0.31 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | 28 | (1) | , pp.33-64 | Introduction. Global demographic challenges necessitate training specialists who possess both traditional and advanced digital and managerial competencies. However, the structure and content of demographic programmes at leading universities have not previously undergone comprehensive comparative | Бесплатный полный текст от издателя | for Comparative content analysis of master's and doctoral programmes in demography at world-class universities | 0 | Ссылки",
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "wos_uid": "WOS:001705010300002",
     "citation_observed_at": {
       "elibrary": "2026-09-20T16:25:47+00:00",
-      "scopus": "2026-09-20T14:39:45+00:00"
-    }
+      "scopus": "2026-09-20T14:39:45+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
+    },
+    "wos_citations": 0,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -2435,7 +2453,7 @@
     "doi": "10.3389/fhumd.2026.1788558",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001766714000001",
     "wos_uid": "WOS:001766714000001",
-    "wos_citations": null,
+    "wos_citations": 0,
     "references_count": null,
     "publication_type": "Article",
     "sources": [
@@ -2461,14 +2479,28 @@
         "sources": [
           "wos"
         ],
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "doi": "10.3389/fhumd.2026.1788558",
+        "position": 3,
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001766714000001",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
     "title_ru": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
     "venue_ru": "FRONTIERS IN HUMAN DYNAMICS",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T15:23:41.046Z"
+      "elibrary": "2026-09-20T15:23:41.046Z",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
     "title_ru_display": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
     "gost_ru": "Sitkovskiy, AM. Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition. // FRONTIERS IN HUMAN DYNAMICS. — 2026. — Т. 8. — URL: https://www.webofscience.com/wos/woscc/full-record/WOS:001766714000001.",
@@ -5319,7 +5351,11 @@
       ],
       "isbn": null,
       "url": "https://doi.org/10.3389/fhumd.2026.1788558"
-    }
+    },
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001766714000001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
   },
   {
     "source": "wos_free_view_auto",
@@ -5341,20 +5377,21 @@
     "doi": "10.17853/1994-5639-2026-1-33-64",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
     "wos_uid": "WOS:001705010300002",
-    "wos_citations": null,
+    "wos_citations": 0,
     "references_count": null,
     "publication_type": "Article",
     "sources": [
       "wos",
       "crossref_api",
       "orcid_public_api",
-      "openalex_api"
+      "openalex_api",
+      "web_of_science_free_view_author_profile"
     ],
     "wos_records": [
       {
         "source": "web_of_science_free_view_author_profile",
         "wos_uid": "WOS:001705010300002",
-        "position": 1,
+        "position": 6,
         "document_type": "Article",
         "title": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
         "title_en": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
@@ -5373,7 +5410,18 @@
           "wos"
         ],
         "metadata_raw": "4 | Article | Comparative content analysis of master's and doctoral programmes in demography at world-class universities | Rostovskaya, TK | and | Sitkovskiy, AM | Jan 2026 | arrow_back | Информация о журнале | clear | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | Название издателя | RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | EDUCATION & EDUCATIONAL RESEARCH | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.25 | 2024 | 0.31 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | 28 | (1) | , pp.33-64 | Introduction. Global demographic challenges necessitate training specialists who possess both traditional and advanced digital and managerial competencies. However, the structure and content of demographic programmes at leading universities have not previously undergone comprehensive comparative | Бесплатный полный текст от издателя | for Comparative content analysis of master's and doctoral programmes in demography at world-class universities | 0 | Ссылки",
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -7420,7 +7468,8 @@
       }
     ],
     "citation_observed_at": {
-      "elibrary": "2026-09-20T15:23:41.046Z"
+      "elibrary": "2026-09-20T15:23:41.046Z",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
     "crossref_metadata": {
       "source": "crossref_api",
@@ -7440,7 +7489,11 @@
       ],
       "isbn": null,
       "url": "https://doi.org/10.17853/1994-5639-2026-1-33-64"
-    }
+    },
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001705010300002",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
   },
   {
     "source": "scopus_api_auto",
@@ -7449,14 +7502,16 @@
     "year": 2026,
     "rinc_citations": 0,
     "title": "Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990–2024)",
-    "authors_raw": "Sitkovskiy A.M.",
-    "venue": "New Research of Tuva",
+    "authors_raw": "Ситковский А. М.",
+    "venue": "Новые исследования Тувы",
     "pages": "254–271",
     "doi": "10.25178/nit.2026.3.15",
     "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-105049859541",
     "sources": [
       "scopus",
-      "openalex_api"
+      "openalex_api",
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -7513,11 +7568,11 @@
     "auto_accept_reason": "author-scoped Scopus AU-ID record",
     "title_en": "Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990–2024)",
     "venue_en": "New Research of Tuva",
-    "title_ru": "Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990–2024)",
-    "venue_ru": "New Research of Tuva",
-    "title_en_source": "existing_publication",
-    "venue_en_source": "existing_publication",
-    "title_ru_display": "Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990–2024)",
+    "title_ru": "Корреляционный анализ влияния отдельных социально-экономических показателей на рождаемость Тувы (1990–2024 гг.)",
+    "venue_ru": "Новые исследования Тувы",
+    "title_en_source": "publisher",
+    "venue_en_source": "publisher",
+    "title_ru_display": "Корреляционный анализ влияния отдельных социально-экономических показателей на рождаемость Тувы (1990–2024 гг.)",
     "crossref_metadata": {
       "source": "crossref_api",
       "doi": "10.25178/nit.2026.3.15",
@@ -7539,15 +7594,14 @@
     "issue": "3",
     "publisher": "The New Research of Tuva Editorial Board",
     "publication_type": "journal-article",
-    "gost_ru": "Sitkovskiy A.M. Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990–2024). // New Research of Tuva. — 2026. — № 3. — С. 254–271. — DOI: 10.25178/nit.2026.3.15.",
-    "gost_ru_source": "generated",
-    "gost_ru_generated_sha256": "1e69f13c9200274393fa5a14b3cfed8acfeb1c24619d5096b46d18573b1da23d",
+    "gost_ru": "Ситковский А. М. Корреляционный анализ влияния отдельных социально-экономических показателей на рождаемость Тувы (1990–2024 гг.). // Новые исследования Тувы. — 2026. — № 3. — С. 254–271. — DOI: 10.25178/nit.2026.3.15.",
+    "gost_ru_source": "publisher_verified",
     "apa_en": "Sitkovskiy, A. M. (2026). Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990–2024). New Research of Tuva, (3), 254–271. https://doi.org/10.25178/nit.2026.3.15",
-    "apa_en_source": "generated",
-    "apa_en_generated_sha256": "a4aebb8f7f7c682a66593e548f10d960b7825d6ef3c380b41a8d9052436ca0a1",
+    "apa_en_source": "publisher_verified",
     "citation_observed_at": {
       "elibrary": "2026-09-20T15:23:41.046Z",
-      "scopus": "2026-09-20T14:39:45+00:00"
+      "scopus": "2026-09-20T14:39:45+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
     "open_sources": [
       {
@@ -9529,7 +9583,76 @@
           }
         }
       }
-    ]
+    ],
+    "wos_uid_aliases": [
+      "WOS:001878333400001"
+    ],
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "sources": [
+          "wos"
+        ],
+        "wos_uid": "WOS:001878333400001",
+        "doi": "10.25178/nit.2026.3.15",
+        "position": 5,
+        "title": "Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990-2024)",
+        "title_en": "Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990-2024)",
+        "authors_raw": "Sitkovskiy, AM",
+        "authors_display_is_truncated": false,
+        "year": 2026,
+        "venue": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "venue_en": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "volume": null,
+        "issue": "3",
+        "pages": "254-271",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001878333400001",
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001878333400001",
+        "document_type": "Article",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        },
+        "dedupe_fingerprint": "630d5ec86e0c991e"
+      }
+    ],
+    "wos_uid": "WOS:001878333400001",
+    "wos_citations": 0,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001878333400001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+    "title_ru_source": "publisher",
+    "authors_ru": "Ситковский А. М.",
+    "authors_en": "Sitkovskiy A. M.",
+    "published_date": "2026-09-01",
+    "publisher_url": "https://nit.tuva.asia/nit/en/article/view/1723",
+    "bibliography_provenance": {
+      "method": "publisher_article_page",
+      "checked_date": "2026-11-02",
+      "source_urls": [
+        "https://nit.tuva.asia/nit/ru/article/view/1723",
+        "https://nit.tuva.asia/nit/en/article/view/1723"
+      ],
+      "fields": [
+        "title_ru",
+        "title_en",
+        "authors_raw",
+        "authors_ru",
+        "authors_en",
+        "venue_ru",
+        "venue_en",
+        "issue",
+        "pages",
+        "published_date"
+      ]
+    }
   },
   {
     "source": "scopus_api_auto",
@@ -9538,14 +9661,16 @@
     "year": 2026,
     "rinc_citations": 0,
     "title": "Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census",
-    "authors_raw": "Sitkovskiy A.M.",
-    "venue": "New Research of Tuva",
+    "authors_raw": "Ростовская Т. К., Фаузер В. В., Ситковский А. М.",
+    "venue": "Новые исследования Тувы",
     "pages": "222–235",
     "doi": "10.25178/nit.2026.3.13",
     "url": "https://www.scopus.com/record/display.uri?eid=2-s2.0-105049919505",
     "sources": [
       "scopus",
-      "openalex_api"
+      "openalex_api",
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -9602,11 +9727,11 @@
     "auto_accept_reason": "author-scoped Scopus AU-ID record",
     "title_en": "Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census",
     "venue_en": "New Research of Tuva",
-    "title_ru": "Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census",
-    "venue_ru": "New Research of Tuva",
-    "title_en_source": "existing_publication",
-    "venue_en_source": "existing_publication",
-    "title_ru_display": "Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census",
+    "title_ru": "Этническая гомогамия и межэтнические браки в Туве: по материалам Всероссийской переписи населения 2021 года",
+    "venue_ru": "Новые исследования Тувы",
+    "title_en_source": "publisher",
+    "venue_en_source": "publisher",
+    "title_ru_display": "Этническая гомогамия и межэтнические браки в Туве: по материалам Всероссийской переписи населения 2021 года",
     "crossref_metadata": {
       "source": "crossref_api",
       "doi": "10.25178/nit.2026.3.13",
@@ -9628,15 +9753,14 @@
     "issue": "3",
     "publisher": "The New Research of Tuva Editorial Board",
     "publication_type": "journal-article",
-    "gost_ru": "Sitkovskiy A.M. Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census. // New Research of Tuva. — 2026. — № 3. — С. 222–235. — DOI: 10.25178/nit.2026.3.13.",
-    "gost_ru_source": "generated",
-    "gost_ru_generated_sha256": "532206863b18198f9ff61166fac5a6ca686dba9241ffe68549e19a7451cc5529",
-    "apa_en": "Sitkovskiy, A. M. (2026). Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census. New Research of Tuva, (3), 222–235. https://doi.org/10.25178/nit.2026.3.13",
-    "apa_en_source": "generated",
-    "apa_en_generated_sha256": "44c28735c13d3217d9c339f7f471790ba5735168e2c00e2aeb628e3111ed406a",
+    "gost_ru": "Ростовская Т. К., Фаузер В. В., Ситковский А. М. Этническая гомогамия и межэтнические браки в Туве: по материалам Всероссийской переписи населения 2021 года. // Новые исследования Тувы. — 2026. — № 3. — С. 222–235. — DOI: 10.25178/nit.2026.3.13.",
+    "gost_ru_source": "publisher_verified",
+    "apa_en": "Rostovskaya, T. K., Fauzer, V. V., & Sitkovskiy, A. M. (2026). Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census. New Research of Tuva, (3), 222–235. https://doi.org/10.25178/nit.2026.3.13",
+    "apa_en_source": "publisher_verified",
     "citation_observed_at": {
       "elibrary": "2026-09-20T15:23:41.046Z",
-      "scopus": "2026-09-20T14:39:45+00:00"
+      "scopus": "2026-09-20T14:39:45+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
     "open_sources": [
       {
@@ -11540,7 +11664,76 @@
           }
         }
       }
-    ]
+    ],
+    "wos_uid_aliases": [
+      "WOS:001879050800001"
+    ],
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "sources": [
+          "wos"
+        ],
+        "wos_uid": "WOS:001879050800001",
+        "doi": "10.25178/nit.2026.3.13",
+        "position": 4,
+        "title": "Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census",
+        "title_en": "Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census",
+        "authors_raw": "Rostovskaya, TK; Fauzer, VV and Sitkovskiy, AM",
+        "authors_display_is_truncated": false,
+        "year": 2026,
+        "venue": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "venue_en": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "volume": null,
+        "issue": "3",
+        "pages": "222-235",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001879050800001",
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001879050800001",
+        "document_type": "Article",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        },
+        "dedupe_fingerprint": "7b301a8ed8cbc7e4"
+      }
+    ],
+    "wos_uid": "WOS:001879050800001",
+    "wos_citations": 0,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001879050800001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+    "title_ru_source": "publisher",
+    "authors_ru": "Ростовская Т. К., Фаузер В. В., Ситковский А. М.",
+    "authors_en": "Rostovskaya T. K., Fauzer V. V., Sitkovskiy A. M.",
+    "published_date": "2026-09-01",
+    "publisher_url": "https://nit.tuva.asia/nit/en/article/view/1720",
+    "bibliography_provenance": {
+      "method": "publisher_article_page",
+      "checked_date": "2026-11-02",
+      "source_urls": [
+        "https://nit.tuva.asia/nit/ru/article/view/1720",
+        "https://nit.tuva.asia/nit/en/article/view/1720"
+      ],
+      "fields": [
+        "title_ru",
+        "title_en",
+        "authors_raw",
+        "authors_ru",
+        "authors_en",
+        "venue_ru",
+        "venue_en",
+        "issue",
+        "pages",
+        "published_date"
+      ]
+    }
   },
   {
     "source": "scopus_api_auto",
@@ -11671,13 +11864,27 @@
         "sources": [
           "wos"
         ],
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "doi": "10.3389/fdata.2026.1842233",
+        "position": 1,
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001826272100001",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "wos_uid": "WOS:001826272100001",
     "citation_observed_at": {
       "elibrary": "2026-09-20T15:23:41.046Z",
-      "scopus": "2026-09-20T14:39:45+00:00"
+      "scopus": "2026-09-20T14:39:45+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
     "open_sources": [
       {
@@ -14145,7 +14352,12 @@
           }
         }
       }
-    ]
+    ],
+    "wos_citations": 0,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001826272100001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
   },
   {
     "source": "wos_free_view_auto",
@@ -14167,7 +14379,7 @@
     "doi": "10.3389/frsc.2026.1719775",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001",
     "wos_uid": "WOS:001767258700001",
-    "wos_citations": null,
+    "wos_citations": 0,
     "references_count": null,
     "publication_type": "Article",
     "sources": [
@@ -14183,7 +14395,7 @@
         "document_type": "Article",
         "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
         "title_en": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
-        "authors_raw": "Raysikh, A ; Bezverbny, V ; (...); Zenkov, D",
+        "authors_raw": "Raysikh, A; Bezverbny, V; (...); Zenkov, D",
         "venue": "FRONTIERS IN SUSTAINABLE CITIES",
         "venue_en": "FRONTIERS IN SUSTAINABLE CITIES",
         "year": 2026,
@@ -14194,7 +14406,20 @@
         "sources": [
           "wos"
         ],
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "doi": "10.3389/frsc.2026.1719775",
+        "position": 2,
+        "authors_display_is_truncated": true,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -14202,7 +14427,8 @@
     "venue_ru": "FRONTIERS IN SUSTAINABLE CITIES",
     "citation_observed_at": {
       "elibrary": "2026-09-20T15:23:41.046Z",
-      "scopus": "2026-10-19T09:03:33+00:00"
+      "scopus": "2026-10-19T09:03:33+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
     "title_ru_display": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
     "gost_ru": "Raysikh, A ; Bezverbny, V ; (..); Zenkov, D. The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels. // FRONTIERS IN SUSTAINABLE CITIES. — 2026. — Т. 8. — URL: https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001.",
@@ -16815,7 +17041,11 @@
           ]
         }
       }
-    }
+    },
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -20836,7 +21066,9 @@
       "scopus",
       "orcid_public_api",
       "crossref_api",
-      "openalex_api"
+      "openalex_api",
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -22928,8 +23160,55 @@
     "observed_at": "2026-09-20T15:22:34.224Z",
     "citation_observed_at": {
       "elibrary": "2026-09-20T16:25:47+00:00",
-      "scopus": "2026-09-20T14:39:45+00:00"
-    }
+      "scopus": "2026-09-20T14:39:45+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
+    },
+    "wos_uid_aliases": [
+      "WOS:001504467400006"
+    ],
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001504467400006",
+        "position": 8,
+        "document_type": "Article",
+        "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+        "title_en": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+        "authors_raw": "Sitkovskiy, AM and Dozhdikov, AV",
+        "venue": "OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE",
+        "venue_en": "OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE",
+        "publisher": "RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV",
+        "year": 2025,
+        "volume": "27",
+        "issue": "6",
+        "pages": "149-179",
+        "doi": "10.17853/1994-5639-2025-6-149-179",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006",
+        "dedupe_fingerprint": "c1dbcbc6033e9767",
+        "sources": [
+          "wos"
+        ],
+        "metadata_raw": "6 | Article | Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education | Sitkovskiy, AM | and | Dozhdikov, AV | Jun 2025 | arrow_back | Информация о журнале | clear | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | Название издателя | RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | EDUCATION & EDUCATIONAL RESEARCH | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.25 | 2024 | 0.31 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | 27 | (6) | , pp.149-179 | Introduction. Intra-Russian educational migration among young people is significant due to the necessity for balanced spatial development within the educational system and the need to enhance the appeal of regional universities. The absence of an effective regional educational policy results in a | Бесплатный полный текст от издателя | for Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education | 1 | Цитирования | 0 | Ссылки",
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006",
+        "wos_core_collection": true,
+        "wos_citations": 1,
+        "wos_citations_evidence": "explicit_record_value",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
+      }
+    ],
+    "wos_uid": "WOS:001504467400006",
+    "wos_citations": 1,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "explicit_record_value"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -23144,7 +23423,9 @@
     "rinc_citations": 10,
     "dedupe_fingerprint": "e344883e06272cb3",
     "sources": [
-      "elibrary"
+      "elibrary",
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "title_en": "Russia’s Demographic Resources: Variability in Approaches and Evaluations",
     "title_en_source": "existing_latin",
@@ -23188,9 +23469,57 @@
     "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2025). Russia’s Demographic Resources: Variability in Approaches and Evaluations. Ekonomicheskie i sotsialnye peremeny: fakty, tendentsii, prognoz, 18(3), 183–202. https://doi.org/10.15838/esc.2025.3.99.10",
     "observed_at": "2026-09-20T15:22:34.224Z",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T16:25:47+00:00"
+      "elibrary": "2026-09-20T16:25:47+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
-    "book_title": ". С. 97-109. URL: https://publications.hse.ru/pubs/share/folder/muxlip35sh/117638510.pdf (дата обращения 07.05.2025)."
+    "book_title": ". С. 97-109. URL: https://publications.hse.ru/pubs/share/folder/muxlip35sh/117638510.pdf (дата обращения 07.05.2025).",
+    "wos_uid_aliases": [
+      "WOS:001555353700010"
+    ],
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001555353700010",
+        "position": 11,
+        "document_type": "Article",
+        "title": "Demographic Resources of Russia: Variability of Approaches and Assessments",
+        "title_en": "Demographic Resources of Russia: Variability of Approaches and Assessments",
+        "authors_raw": "Rostovskaya, TK and Sitkovskiy, AM",
+        "venue": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "venue_en": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "publisher": "INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS",
+        "year": 2025,
+        "volume": "18",
+        "issue": "3",
+        "pages": "183-202",
+        "doi": "10.15838/esc.2025.3.99.10",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010",
+        "dedupe_fingerprint": "cedfa5f82e69128a",
+        "sources": [
+          "wos"
+        ],
+        "metadata_raw": "9 | Article | Demographic Resources of Russia: Variability of Approaches and Assessments | Rostovskaya, TK | and | Sitkovskiy, AM | 2025 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 18 | (3) | , pp.183-202 | In the context of a deep demographic crisis faced by many countries in the world, the issue of identifying and using demographic development resources as a key component of national security is becoming important. This article continues a series of publications by the authors devoted to the study | Бесплатный полный текст от издателя | for Demographic Resources of Russia: Variability of Approaches and Assessments | 0 | Ссылки",
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
+      }
+    ],
+    "wos_uid": "WOS:001555353700010",
+    "venue_en": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+    "wos_citations": 0,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -23210,7 +23539,9 @@
     "dedupe_fingerprint": "568e73e9e25c6aa2",
     "sources": [
       "elibrary",
-      "openalex_api"
+      "openalex_api",
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "title_en": "Influence of the Aglomeration Effect on the Demographic Politics of Territories",
     "title_en_source": "existing_latin",
@@ -23254,7 +23585,8 @@
     "publication_type": "journal-article",
     "observed_at": "2026-09-20T15:22:34.224Z",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T16:25:47+00:00"
+      "elibrary": "2026-09-20T16:25:47+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
     "open_sources": [
       {
@@ -24218,7 +24550,54 @@
           }
         }
       }
-    ]
+    ],
+    "wos_uid_aliases": [
+      "WOS:001679486900004"
+    ],
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001679486900004",
+        "position": 9,
+        "document_type": "Article",
+        "title": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
+        "title_en": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
+        "authors_raw": "Sitkovskiy, AM; Raisikh, AE; (...); Bezverbnaya, NA",
+        "venue": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "venue_en": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "publisher": "INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS",
+        "year": 2025,
+        "volume": "18",
+        "issue": "6",
+        "pages": "90-109",
+        "doi": "10.15838/esc.2025.6.102.4",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004",
+        "dedupe_fingerprint": "6916a7362204b95c",
+        "sources": [
+          "wos"
+        ],
+        "metadata_raw": "7 | Article | The Influence of the Agglomeration Effect on the Demographic Policy of Territories | Sitkovskiy, AM | ; | Raisikh, AE | ; | (...); | Bezverbnaya, NA | 2025 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 18 | (6) | , pp.90-109 | In the context of increasing spatial polarization and uneven urbanization, the central question becomes the empirical assessment of the agglomeration effect's influence on the demographic dynamics of peripheral settlements. This study is devoted to a quantitative analysis of the relationship betw | Бесплатный полный текст от издателя | for The Influence of the Agglomeration Effect on the Demographic Policy of Territories | 0 | Ссылки",
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": true,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
+      }
+    ],
+    "wos_uid": "WOS:001679486900004",
+    "venue_en": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+    "wos_citations": 0,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -24241,7 +24620,9 @@
       "scopus",
       "orcid_public_api",
       "crossref_api",
-      "openalex_api"
+      "openalex_api",
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -25811,8 +26192,55 @@
     "observed_at": "2026-09-20T15:22:34.224Z",
     "citation_observed_at": {
       "elibrary": "2026-09-20T16:25:47+00:00",
-      "scopus": "2026-09-20T14:39:45+00:00"
-    }
+      "scopus": "2026-09-20T14:39:45+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
+    },
+    "wos_uid_aliases": [
+      "WOS:001508911200001"
+    ],
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001508911200001",
+        "position": 12,
+        "document_type": "Article",
+        "title": "The settlement system of the Republic of Tuva: central places",
+        "title_en": "The settlement system of the Republic of Tuva: central places",
+        "authors_raw": "Sitkovskiy, AM and Delovarova, LF",
+        "venue": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "venue_en": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "publisher": "CH K LAMAZHAA",
+        "year": 2025,
+        "volume": null,
+        "issue": "2",
+        "pages": "70-91",
+        "doi": "10.25178/nit.2025.2.4",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001",
+        "dedupe_fingerprint": "ccb4f8962953567f",
+        "sources": [
+          "wos"
+        ],
+        "metadata_raw": "10 | Article | The settlement system of the Republic of Tuva: central places | Sitkovskiy, AM | and | Delovarova, LF | 2025 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (2) | , pp.70-91 | The article presents an analysis of the settlement framework of the Republic of Tuva. The methodological basis includes statistical research methods and geoinformation methods (such as schematic mapping and the isochrone method). Data preparation and processing were carried out usingMS Excel and | Бесплатный полный текст от издателя | for The settlement system of the Republic of Tuva: central places | 0 | Ссылки",
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001",
+        "wos_core_collection": true,
+        "wos_citations": 2,
+        "wos_citations_evidence": "explicit_record_value",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
+      }
+    ],
+    "wos_uid": "WOS:001508911200001",
+    "wos_citations": 2,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "explicit_record_value"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -25835,7 +26263,9 @@
       "scopus",
       "orcid_public_api",
       "crossref_api",
-      "openalex_api"
+      "openalex_api",
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -27580,8 +28010,55 @@
     "observed_at": "2026-09-20T15:22:34.224Z",
     "citation_observed_at": {
       "elibrary": "2026-09-20T16:25:47+00:00",
-      "scopus": "2026-09-20T14:39:45+00:00"
-    }
+      "scopus": "2026-09-20T14:39:45+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
+    },
+    "wos_uid_aliases": [
+      "WOS:001633673200001"
+    ],
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001633673200001",
+        "position": 10,
+        "document_type": "Article",
+        "title": "Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\"",
+        "title_en": "Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\"",
+        "authors_raw": "Rostovskaya, TK; Sitkovskiy, AM and Gishkaeva, LN",
+        "venue": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "venue_en": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "publisher": "CH K LAMAZHAA",
+        "year": 2025,
+        "volume": null,
+        "issue": "4",
+        "pages": "233-253",
+        "doi": "10.25178/nit.2025.4.13",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001",
+        "dedupe_fingerprint": "e1cadb326aba0857",
+        "sources": [
+          "wos"
+        ],
+        "metadata_raw": "8 | Article | Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\" | Rostovskaya, TK | ; | Sitkovskiy, AM | and | Gishkaeva, LN | 2025 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (4) | , pp.233-253 | The article presents an evaluation of the authors' original methodology for conducting demographic expertise of documents in the field of demographic policy. The authors tested this methodology using the regional program of the Republic of Tuva, \"Increasing Birth Rates in the Republic of Tuva for | Бесплатный полный текст от издателя | for Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\" | 0 | Ссылки",
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001",
+        "wos_core_collection": true,
+        "wos_citations": 2,
+        "wos_citations_evidence": "explicit_record_value",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
+      }
+    ],
+    "wos_uid": "WOS:001633673200001",
+    "wos_citations": 2,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "explicit_record_value"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -33587,11 +34064,11 @@
       {
         "source": "web_of_science_free_view_author_profile",
         "wos_uid": "WOS:001643513900001",
-        "position": 2,
+        "position": 7,
         "document_type": "Article",
         "title": "The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance",
         "title_en": "The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance",
-        "authors_raw": "Bezverbny, V ; Rostovskaya, T ; (...); Roslavtsev, S",
+        "authors_raw": "Bezverbny, V; Rostovskaya, T; (...); Roslavtsev, S",
         "venue": "FRONTIERS IN POLITICAL SCIENCE",
         "venue_en": "FRONTIERS IN POLITICAL SCIENCE",
         "publisher": "FRONTIERS MEDIA SA",
@@ -33599,14 +34076,25 @@
         "volume": "7",
         "issue": null,
         "pages": null,
-        "doi": null,
+        "doi": "10.3389/fpos.2025.1715504",
         "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001643513900001",
         "dedupe_fingerprint": "37492320529d23f6",
         "sources": [
           "wos"
         ],
         "metadata_raw": "5 | Article | The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance | Bezverbny, V | ; | Rostovskaya, T | ; | (...); | Roslavtsev, S | Dec 8 2025 | arrow_back | Информация о журнале | clear | FRONTIERS IN POLITICAL SCIENCE | Название издателя | FRONTIERS MEDIA SA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | INTERNATIONAL RELATIONS | в ESCI редакция | Q2 | POLITICAL SCIENCE | в ESCI редакция | Q2 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.87 | 2024 | 1.02 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | FRONTIERS IN POLITICAL SCIENCE | 7 | This article quantifies how population density shapes the socio-economic trajectories of Russian regions and translates the results into an operational framework for place-sensitive policy (\"cluster-differentiated density governance\"). Using annual official statistics for 89 federal subjects over | Бесплатный полный текст от издателя | for The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance | 0 | Ссылки",
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": true,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001643513900001",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "wos_uid": "WOS:001643513900001",
@@ -33614,7 +34102,8 @@
     "publication_type": "Article",
     "observed_at": "2026-09-20T15:22:34.224Z",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T16:25:47+00:00"
+      "elibrary": "2026-09-20T16:25:47+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
     "issue": "а",
     "issn": "2673-3145",
@@ -33645,7 +34134,12 @@
       ],
       "isbn": null,
       "url": "https://doi.org/10.3389/fpos.2025.1715504"
-    }
+    },
+    "wos_citations": 0,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001643513900001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
   },
   {
     "source": "wos_free_view_auto",
@@ -33664,10 +34158,10 @@
     "volume": "18",
     "issue": "3",
     "pages": "183-202",
-    "doi": null,
+    "doi": "10.15838/esc.2025.3.99.10",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010",
     "wos_uid": "WOS:001555353700010",
-    "wos_citations": null,
+    "wos_citations": 0,
     "references_count": null,
     "publication_type": "Article",
     "sources": [
@@ -33678,7 +34172,7 @@
       {
         "source": "web_of_science_free_view_author_profile",
         "wos_uid": "WOS:001555353700010",
-        "position": 6,
+        "position": 11,
         "document_type": "Article",
         "title": "Demographic Resources of Russia: Variability of Approaches and Assessments",
         "title_en": "Demographic Resources of Russia: Variability of Approaches and Assessments",
@@ -33690,14 +34184,25 @@
         "volume": "18",
         "issue": "3",
         "pages": "183-202",
-        "doi": null,
+        "doi": "10.15838/esc.2025.3.99.10",
         "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010",
         "dedupe_fingerprint": "cedfa5f82e69128a",
         "sources": [
           "wos"
         ],
         "metadata_raw": "9 | Article | Demographic Resources of Russia: Variability of Approaches and Assessments | Rostovskaya, TK | and | Sitkovskiy, AM | 2025 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 18 | (3) | , pp.183-202 | In the context of a deep demographic crisis faced by many countries in the world, the issue of identifying and using demographic development resources as a key component of national security is becoming important. This article continues a series of publications by the authors devoted to the study | Бесплатный полный текст от издателя | for Demographic Resources of Russia: Variability of Approaches and Assessments | 0 | Ссылки",
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -33707,8 +34212,16 @@
     "gost_ru": "Rostovskaya, TK and Sitkovskiy, AM. Demographic Resources of Russia: Variability of Approaches and Assessments. // ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST. — 2025. — Т. 18. — № 3. — С. 183–202. — URL: https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010.",
     "apa_en": "Rostovskaya, TK and Sitkovskiy, & AM (2025). Demographic Resources of Russia: Variability of Approaches and Assessments. ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST, 18(3), 183–202. https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T15:23:41.046Z"
-    }
+      "elibrary": "2026-09-20T15:23:41.046Z",
+      "wos": "2026-11-02T00:00:00+00:00"
+    },
+    "doi_aliases": [
+      "10.15838/esc.2025.3.99.10"
+    ],
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001555353700010",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
   },
   {
     "source": "wos_free_view_auto",
@@ -33727,10 +34240,10 @@
     "volume": "27",
     "issue": "6",
     "pages": "149-179",
-    "doi": null,
+    "doi": "10.17853/1994-5639-2025-6-149-179",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006",
     "wos_uid": "WOS:001504467400006",
-    "wos_citations": null,
+    "wos_citations": 1,
     "references_count": null,
     "publication_type": "Article",
     "sources": [
@@ -33741,7 +34254,7 @@
       {
         "source": "web_of_science_free_view_author_profile",
         "wos_uid": "WOS:001504467400006",
-        "position": 3,
+        "position": 8,
         "document_type": "Article",
         "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
         "title_en": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
@@ -33753,14 +34266,25 @@
         "volume": "27",
         "issue": "6",
         "pages": "149-179",
-        "doi": null,
+        "doi": "10.17853/1994-5639-2025-6-149-179",
         "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006",
         "dedupe_fingerprint": "c1dbcbc6033e9767",
         "sources": [
           "wos"
         ],
         "metadata_raw": "6 | Article | Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education | Sitkovskiy, AM | and | Dozhdikov, AV | Jun 2025 | arrow_back | Информация о журнале | clear | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | Название издателя | RUSSIAN STATE VOCATIONAL PEDAGOGICAL UNIV | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | EDUCATION & EDUCATIONAL RESEARCH | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.25 | 2024 | 0.31 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE | 27 | (6) | , pp.149-179 | Introduction. Intra-Russian educational migration among young people is significant due to the necessity for balanced spatial development within the educational system and the need to enhance the appeal of regional universities. The absence of an effective regional educational policy results in a | Бесплатный полный текст от издателя | for Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education | 1 | Цитирования | 0 | Ссылки",
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006",
+        "wos_core_collection": true,
+        "wos_citations": 1,
+        "wos_citations_evidence": "explicit_record_value",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -33770,8 +34294,16 @@
     "gost_ru": "Sitkovskiy, AM and Dozhdikov, AV. Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education. // OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE. — 2025. — Т. 27. — № 6. — С. 149–179. — URL: https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006.",
     "apa_en": "Sitkovskiy, AM and Dozhdikov, & AV (2025). Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education. OBRAZOVANIE I NAUKA-EDUCATION AND SCIENCE, 27(6), 149–179. https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T15:23:41.046Z"
-    }
+      "elibrary": "2026-09-20T15:23:41.046Z",
+      "wos": "2026-11-02T00:00:00+00:00"
+    },
+    "doi_aliases": [
+      "10.17853/1994-5639-2025-6-149-179"
+    ],
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001504467400006",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "explicit_record_value"
   },
   {
     "source": "wos_free_view_auto",
@@ -33790,10 +34322,10 @@
     "volume": null,
     "issue": "4",
     "pages": "233-253",
-    "doi": null,
+    "doi": "10.25178/nit.2025.4.13",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001",
     "wos_uid": "WOS:001633673200001",
-    "wos_citations": null,
+    "wos_citations": 2,
     "references_count": null,
     "publication_type": "Article",
     "sources": [
@@ -33804,11 +34336,11 @@
       {
         "source": "web_of_science_free_view_author_profile",
         "wos_uid": "WOS:001633673200001",
-        "position": 5,
+        "position": 10,
         "document_type": "Article",
         "title": "Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\"",
         "title_en": "Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\"",
-        "authors_raw": "Rostovskaya, TK ; Sitkovskiy, AM and Gishkaeva, LN",
+        "authors_raw": "Rostovskaya, TK; Sitkovskiy, AM and Gishkaeva, LN",
         "venue": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
         "venue_en": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
         "publisher": "CH K LAMAZHAA",
@@ -33816,14 +34348,25 @@
         "volume": null,
         "issue": "4",
         "pages": "233-253",
-        "doi": null,
+        "doi": "10.25178/nit.2025.4.13",
         "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001",
         "dedupe_fingerprint": "e1cadb326aba0857",
         "sources": [
           "wos"
         ],
         "metadata_raw": "8 | Article | Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\" | Rostovskaya, TK | ; | Sitkovskiy, AM | and | Gishkaeva, LN | 2025 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (4) | , pp.233-253 | The article presents an evaluation of the authors' original methodology for conducting demographic expertise of documents in the field of demographic policy. The authors tested this methodology using the regional program of the Republic of Tuva, \"Increasing Birth Rates in the Republic of Tuva for | Бесплатный полный текст от издателя | for Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\" | 0 | Ссылки",
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001",
+        "wos_core_collection": true,
+        "wos_citations": 2,
+        "wos_citations_evidence": "explicit_record_value",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -33833,8 +34376,16 @@
     "gost_ru": "Rostovskaya, TK ; Sitkovskiy, AM and Gishkaeva, LN. Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\". // NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA. — 2025. — № 4. — С. 233–253. — URL: https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001.",
     "apa_en": "Rostovskaya, TK ; Sitkovskiy, AM and Gishkaeva, & LN (2025). Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\". NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA, (4), 233–253. https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T15:23:41.046Z"
-    }
+      "elibrary": "2026-09-20T15:23:41.046Z",
+      "wos": "2026-11-02T00:00:00+00:00"
+    },
+    "doi_aliases": [
+      "10.25178/nit.2025.4.13"
+    ],
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001633673200001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "explicit_record_value"
   },
   {
     "source": "wos_free_view_auto",
@@ -33853,10 +34404,10 @@
     "volume": "18",
     "issue": "6",
     "pages": "90-109",
-    "doi": null,
+    "doi": "10.15838/esc.2025.6.102.4",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004",
     "wos_uid": "WOS:001679486900004",
-    "wos_citations": null,
+    "wos_citations": 0,
     "references_count": null,
     "publication_type": "Article",
     "sources": [
@@ -33867,11 +34418,11 @@
       {
         "source": "web_of_science_free_view_author_profile",
         "wos_uid": "WOS:001679486900004",
-        "position": 4,
+        "position": 9,
         "document_type": "Article",
         "title": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
         "title_en": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
-        "authors_raw": "Sitkovskiy, AM ; Raisikh, AE ; (...); Bezverbnaya, NA",
+        "authors_raw": "Sitkovskiy, AM; Raisikh, AE; (...); Bezverbnaya, NA",
         "venue": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
         "venue_en": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
         "publisher": "INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS",
@@ -33879,14 +34430,25 @@
         "volume": "18",
         "issue": "6",
         "pages": "90-109",
-        "doi": null,
+        "doi": "10.15838/esc.2025.6.102.4",
         "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004",
         "dedupe_fingerprint": "6916a7362204b95c",
         "sources": [
           "wos"
         ],
         "metadata_raw": "7 | Article | The Influence of the Agglomeration Effect on the Demographic Policy of Territories | Sitkovskiy, AM | ; | Raisikh, AE | ; | (...); | Bezverbnaya, NA | 2025 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 18 | (6) | , pp.90-109 | In the context of increasing spatial polarization and uneven urbanization, the central question becomes the empirical assessment of the agglomeration effect's influence on the demographic dynamics of peripheral settlements. This study is devoted to a quantitative analysis of the relationship betw | Бесплатный полный текст от издателя | for The Influence of the Agglomeration Effect on the Demographic Policy of Territories | 0 | Ссылки",
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": true,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -33896,8 +34458,16 @@
     "gost_ru": "Sitkovskiy, AM ; Raisikh, AE ; (..); Bezverbnaya, NA. The Influence of the Agglomeration Effect on the Demographic Policy of Territories. // ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST. — 2025. — Т. 18. — № 6. — С. 90–109. — URL: https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004.",
     "apa_en": "Sitkovskiy, AM ; Raisikh, AE ; (...); Bezverbnaya, & NA (2025). The Influence of the Agglomeration Effect on the Demographic Policy of Territories. ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST, 18(6), 90–109. https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T15:23:41.046Z"
-    }
+      "elibrary": "2026-09-20T15:23:41.046Z",
+      "wos": "2026-11-02T00:00:00+00:00"
+    },
+    "doi_aliases": [
+      "10.15838/esc.2025.6.102.4"
+    ],
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001679486900004",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
   },
   {
     "source": "wos_free_view_auto",
@@ -33916,10 +34486,10 @@
     "volume": null,
     "issue": "2",
     "pages": "70-91",
-    "doi": null,
+    "doi": "10.25178/nit.2025.2.4",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001",
     "wos_uid": "WOS:001508911200001",
-    "wos_citations": null,
+    "wos_citations": 2,
     "references_count": null,
     "publication_type": "Article",
     "sources": [
@@ -33930,7 +34500,7 @@
       {
         "source": "web_of_science_free_view_author_profile",
         "wos_uid": "WOS:001508911200001",
-        "position": 7,
+        "position": 12,
         "document_type": "Article",
         "title": "The settlement system of the Republic of Tuva: central places",
         "title_en": "The settlement system of the Republic of Tuva: central places",
@@ -33942,14 +34512,25 @@
         "volume": null,
         "issue": "2",
         "pages": "70-91",
-        "doi": null,
+        "doi": "10.25178/nit.2025.2.4",
         "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001",
         "dedupe_fingerprint": "ccb4f8962953567f",
         "sources": [
           "wos"
         ],
         "metadata_raw": "10 | Article | The settlement system of the Republic of Tuva: central places | Sitkovskiy, AM | and | Delovarova, LF | 2025 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (2) | , pp.70-91 | The article presents an analysis of the settlement framework of the Republic of Tuva. The methodological basis includes statistical research methods and geoinformation methods (such as schematic mapping and the isochrone method). Data preparation and processing were carried out usingMS Excel and | Бесплатный полный текст от издателя | for The settlement system of the Republic of Tuva: central places | 0 | Ссылки",
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001",
+        "wos_core_collection": true,
+        "wos_citations": 2,
+        "wos_citations_evidence": "explicit_record_value",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -33959,8 +34540,16 @@
     "gost_ru": "Sitkovskiy, AM and Delovarova, LF. The settlement system of the Republic of Tuva: central places. // NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA. — 2025. — № 2. — С. 70–91. — URL: https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001.",
     "apa_en": "Sitkovskiy, AM and Delovarova, & LF (2025). The settlement system of the Republic of Tuva: central places. NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA, (2), 70–91. https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T15:23:41.046Z"
-    }
+      "elibrary": "2026-09-20T15:23:41.046Z",
+      "wos": "2026-11-02T00:00:00+00:00"
+    },
+    "doi_aliases": [
+      "10.25178/nit.2025.2.4"
+    ],
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001508911200001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "explicit_record_value"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -33979,7 +34568,9 @@
     "rinc_citations": 28,
     "dedupe_fingerprint": "eb00ba5f977054de",
     "sources": [
-      "elibrary"
+      "elibrary",
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "title_en": "Resources for Demographic Development: Towards the Unification of Concepts in Demographic Research",
     "title_en_source": "existing_latin",
@@ -33991,7 +34582,8 @@
     "apa_en": "Rostovskaya, T. K. & Sitkovskii, A. M. (2024). Resources for Demographic Development: Towards the Unification of Concepts in Demographic Research. Ekonomicheskie i sotsialnye peremeny: fakty, tendentsii, prognoz, 17(1), 178–200. https://www.elibrary.ru/item.asp?id=62766619",
     "observed_at": "2026-09-20T15:22:34.224Z",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T16:25:47+00:00"
+      "elibrary": "2026-09-20T16:25:47+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
     "publisher": "ств:",
     "issn": "1998-0698",
@@ -34024,7 +34616,54 @@
       "isbn": null,
       "url": "https://doi.org/10.15838/esc.2024.1.91.10"
     },
-    "publication_type": "journal-article"
+    "publication_type": "journal-article",
+    "wos_uid_aliases": [
+      "WOS:001186327000001"
+    ],
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001186327000001",
+        "position": 14,
+        "document_type": "Article",
+        "title": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
+        "title_en": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
+        "authors_raw": "Rostovskaya, TK and Sitkovskiy, AM",
+        "venue": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "venue_en": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+        "publisher": "INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS",
+        "year": 2024,
+        "volume": "17",
+        "issue": "1",
+        "pages": "178-200",
+        "doi": "10.15838/esc.2024.1.91.10",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001",
+        "dedupe_fingerprint": "1e4db15b8571e214",
+        "sources": [
+          "wos"
+        ],
+        "metadata_raw": "12 | Article | Demographic Development Resources: On the Unification of Concepts in Demographic Research | Rostovskaya, TK | and | Sitkovskiy, AM | 2024 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 17 | (1) | , pp.178-200 | The article attempts to distinguish a variety of related and consonant fundamental demographic terms, including: demographic development, demographic policy, demographic development (policy) tools, demographic development (policy) mechanism, demographic potential, demographic resilience. We also | Бесплатный полный текст от издателя | for Demographic Development Resources: On the Unification of Concepts in Demographic Research | 4 | Цитирования | 0 | Ссылки",
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001",
+        "wos_core_collection": true,
+        "wos_citations": 4,
+        "wos_citations_evidence": "explicit_record_value",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
+      }
+    ],
+    "wos_uid": "WOS:001186327000001",
+    "venue_en": "ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST",
+    "wos_citations": 4,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "explicit_record_value"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -34047,7 +34686,9 @@
       "scopus",
       "orcid_public_api",
       "crossref_api",
-      "openalex_api"
+      "openalex_api",
+      "wos",
+      "web_of_science_free_view_author_profile"
     ],
     "scopus": {
       "source": "scopus_api",
@@ -35645,7 +36286,8 @@
     "observed_at": "2026-09-20T15:22:34.224Z",
     "citation_observed_at": {
       "elibrary": "2026-09-20T16:25:47+00:00",
-      "scopus": "2026-09-20T14:39:45+00:00"
+      "scopus": "2026-09-20T14:39:45+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
     "volume": "ской областях за 2017-2019 гг.[5] Table 1...",
     "issn": "2079-8482",
@@ -35658,7 +36300,53 @@
       "volume": "ской областях за 2017-2019 гг.[5] Table 1...",
       "issue": "3",
       "pages": "226-239"
-    }
+    },
+    "wos_uid_aliases": [
+      "WOS:001331184300001"
+    ],
+    "wos_records": [
+      {
+        "source": "web_of_science_free_view_author_profile",
+        "wos_uid": "WOS:001331184300001",
+        "position": 13,
+        "document_type": "Article",
+        "title": "Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects",
+        "title_en": "Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects",
+        "authors_raw": "Bezverbny, VA; Mikryukov, NY and Sitkovskiy, AM",
+        "venue": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "venue_en": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
+        "publisher": "CH K LAMAZHAA",
+        "year": 2024,
+        "volume": null,
+        "issue": "3",
+        "pages": "226-239",
+        "doi": "10.25178/nit.2024.3.13",
+        "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001",
+        "dedupe_fingerprint": "3afa3efd22c8b75c",
+        "sources": [
+          "wos"
+        ],
+        "metadata_raw": "11 | Article | Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects | Bezverbny, VA | ; | Mikryukov, NY | and | Sitkovskiy, AM | 2024 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (3) | , pp.226-239 | The article explores the gender and spatial aspects of interregional educational migration in Russia between 2017 and 2019, with a particular focus on young people aged 15-16 and 17-18. The study uncovers trends in the appeal of different regions for educational migrants and identifies gender dif | Бесплатный полный текст от издателя | for Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects | 3 | Цитирования | 0 | Ссылки",
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001",
+        "wos_core_collection": true,
+        "wos_citations": 3,
+        "wos_citations_evidence": "explicit_record_value",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
+      }
+    ],
+    "wos_uid": "WOS:001331184300001",
+    "wos_citations": 3,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "explicit_record_value"
   },
   {
     "source": "wos_free_view_auto",
@@ -35677,10 +36365,10 @@
     "volume": "17",
     "issue": "1",
     "pages": "178-200",
-    "doi": null,
+    "doi": "10.15838/esc.2024.1.91.10",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001",
     "wos_uid": "WOS:001186327000001",
-    "wos_citations": null,
+    "wos_citations": 4,
     "references_count": null,
     "publication_type": "Article",
     "sources": [
@@ -35691,7 +36379,7 @@
       {
         "source": "web_of_science_free_view_author_profile",
         "wos_uid": "WOS:001186327000001",
-        "position": 9,
+        "position": 14,
         "document_type": "Article",
         "title": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
         "title_en": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
@@ -35703,14 +36391,25 @@
         "volume": "17",
         "issue": "1",
         "pages": "178-200",
-        "doi": null,
+        "doi": "10.15838/esc.2024.1.91.10",
         "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001",
         "dedupe_fingerprint": "1e4db15b8571e214",
         "sources": [
           "wos"
         ],
         "metadata_raw": "12 | Article | Demographic Development Resources: On the Unification of Concepts in Demographic Research | Rostovskaya, TK | and | Sitkovskiy, AM | 2024 | arrow_back | Информация о журнале | clear | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | Название издателя | INST SOCIO-ECONOMIC DEVELOPMENT TERRITORIES RUSSIAN ACAD SCIENCES-ISEDT RAS | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | ECONOMICS | в ESCI редакция | Q4 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 0.15 | 2024 | 0.13 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST | 17 | (1) | , pp.178-200 | The article attempts to distinguish a variety of related and consonant fundamental demographic terms, including: demographic development, demographic policy, demographic development (policy) tools, demographic development (policy) mechanism, demographic potential, demographic resilience. We also | Бесплатный полный текст от издателя | for Demographic Development Resources: On the Unification of Concepts in Demographic Research | 4 | Цитирования | 0 | Ссылки",
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001",
+        "wos_core_collection": true,
+        "wos_citations": 4,
+        "wos_citations_evidence": "explicit_record_value",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -35720,8 +36419,16 @@
     "gost_ru": "Rostovskaya, TK and Sitkovskiy, AM. Demographic Development Resources: On the Unification of Concepts in Demographic Research. // ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST. — 2024. — Т. 17. — № 1. — С. 178–200. — URL: https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001.",
     "apa_en": "Rostovskaya, TK and Sitkovskiy, & AM (2024). Demographic Development Resources: On the Unification of Concepts in Demographic Research. ECONOMIC AND SOCIAL CHANGES-FACTS TRENDS FORECAST, 17(1), 178–200. https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T15:23:41.046Z"
-    }
+      "elibrary": "2026-09-20T15:23:41.046Z",
+      "wos": "2026-11-02T00:00:00+00:00"
+    },
+    "doi_aliases": [
+      "10.15838/esc.2024.1.91.10"
+    ],
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001186327000001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "explicit_record_value"
   },
   {
     "source": "wos_free_view_auto",
@@ -35740,10 +36447,10 @@
     "volume": null,
     "issue": "3",
     "pages": "226-239",
-    "doi": null,
+    "doi": "10.25178/nit.2024.3.13",
     "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001",
     "wos_uid": "WOS:001331184300001",
-    "wos_citations": null,
+    "wos_citations": 3,
     "references_count": null,
     "publication_type": "Article",
     "sources": [
@@ -35754,11 +36461,11 @@
       {
         "source": "web_of_science_free_view_author_profile",
         "wos_uid": "WOS:001331184300001",
-        "position": 8,
+        "position": 13,
         "document_type": "Article",
         "title": "Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects",
         "title_en": "Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects",
-        "authors_raw": "Bezverbny, VA ; Mikryukov, NY and Sitkovskiy, AM",
+        "authors_raw": "Bezverbny, VA; Mikryukov, NY and Sitkovskiy, AM",
         "venue": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
         "venue_en": "NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA",
         "publisher": "CH K LAMAZHAA",
@@ -35766,14 +36473,25 @@
         "volume": null,
         "issue": "3",
         "pages": "226-239",
-        "doi": null,
+        "doi": "10.25178/nit.2024.3.13",
         "url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001",
         "dedupe_fingerprint": "3afa3efd22c8b75c",
         "sources": [
           "wos"
         ],
         "metadata_raw": "11 | Article | Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects | Bezverbny, VA | ; | Mikryukov, NY | and | Sitkovskiy, AM | 2024 | arrow_back | Информация о журнале | clear | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | Название издателя | CH K LAMAZHAA | Journal Impact Factor ™ | Сводка по Impact Factor журнала | Категория JCR | Квартиль категории | SOCIAL SCIENCES, INTERDISCIPLINARY | в ESCI редакция | Q3 | Источник: Journal Citation Reports | Перейти к Journal Citation Reports | open_in_new | Если у вас есть доступ к Journal Citation Reports™ с использованием подписки вашей организации, то вы сможете просмотреть последние данные Journal Impact Factor™ и дополнительные показатели, чтобы лучше понять содержание и аудиторию журнала. | Journal Citation Indicator ™ | 2025 | 1.16 | 2024 | 2.07 | Сводка по Journal Citation Indicator | Категория JCI | Ранг категории | Квартиль категории | Journal Citation Indicator показывает среднее нормализованное влияние цитирования в категории для документов (статей и рецензий), опубликованных журналом за последний трехлетний период. Он используется для помощи в оценке журналов на основе других показателей, кроме Impact Factor журнала (JIF). | Перейти к Journal Citation Indicator | open_in_new | Заинтересованы в рецензировании для этого журнала? | Добавьте этот журнал в свой список интересов рецензента. | Добавить журнал | NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA | (3) | , pp.226-239 | The article explores the gender and spatial aspects of interregional educational migration in Russia between 2017 and 2019, with a particular focus on young people aged 15-16 and 17-18. The study uncovers trends in the appeal of different regions for educational migrants and identifies gender dif | Бесплатный полный текст от издателя | for Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects | 3 | Цитирования | 0 | Ссылки",
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001",
+        "wos_core_collection": true,
+        "wos_citations": 3,
+        "wos_citations_evidence": "explicit_record_value",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
@@ -35783,8 +36501,16 @@
     "gost_ru": "Bezverbny, VA ; Mikryukov, NY and Sitkovskiy, AM. Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects. // NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA. — 2024. — № 3. — С. 226–239. — URL: https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001.",
     "apa_en": "Bezverbny, VA ; Mikryukov, NY and Sitkovskiy, & AM (2024). Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects. NOVYE ISSLEDOVANIYA TUVY-NEW RESEARCH OF TUVA, (3), 226–239. https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T15:23:41.046Z"
-    }
+      "elibrary": "2026-09-20T15:23:41.046Z",
+      "wos": "2026-11-02T00:00:00+00:00"
+    },
+    "doi_aliases": [
+      "10.25178/nit.2024.3.13"
+    ],
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001331184300001",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "explicit_record_value"
   },
   {
     "source": "elibrary_rinc_saved_html",
@@ -40007,7 +40733,7 @@
       {
         "source": "web_of_science_free_view_author_profile",
         "wos_uid": "WOS:000773381800013",
-        "position": 10,
+        "position": 15,
         "document_type": "Proceedings Paper",
         "title": "\"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
         "title_en": "\"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
@@ -40026,7 +40752,18 @@
           "wos"
         ],
         "metadata_raw": "13 | Proceedings Paper | \"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION | Gordeev, S | and | Sitkovskiy, A | 4th International Scientific Conference on Competitiveness and the Development of Socio-Economic Systems dedicated to the Memory of Alexander Tatarkin (CDSES) | 2021 | COMPETITIVENESS AND THE DEVELOPMENT OF SOCIO-ECONOMIC SYSTEMS | 105 | , pp.120-128 | The article discusses the issues of updating the foundations of the toolkit methodology associated with spatial development research. These issues are related to structural changes in the economy and inevitably affect various aspects of spatial development. Further, these changes predetermine the | Бесплатный полный текст от издателя | for \"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION | 0 | Ссылки",
-        "observed_at": "2026-09-20T15:28:23.031Z"
+        "observed_at": "2026-11-02T00:00:00+00:00",
+        "authors_display_is_truncated": false,
+        "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:000773381800013",
+        "wos_core_collection": true,
+        "wos_citations": 0,
+        "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+        "observation_date_precision": "day",
+        "observation_method": "user_provided_html_snapshot",
+        "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+        "citation_observed_at": {
+          "wos": "2026-11-02T00:00:00+00:00"
+        }
       }
     ],
     "wos_uid": "WOS:000773381800013",
@@ -40036,7 +40773,8 @@
     "venue_en_source": "existing_latin",
     "observed_at": "2026-09-20T15:22:34.224Z",
     "citation_observed_at": {
-      "elibrary": "2026-09-20T16:25:47+00:00"
+      "elibrary": "2026-09-20T16:25:47+00:00",
+      "wos": "2026-11-02T00:00:00+00:00"
     },
     "publisher": "ISO LONDON LIMITED - European Publisher",
     "issue": "19-010-00964",
@@ -40066,7 +40804,12 @@
       ],
       "isbn": null,
       "url": "https://doi.org/10.15405/epsbs.2021.04.13"
-    }
+    },
+    "wos_citations": 0,
+    "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:000773381800013",
+    "wos_core_collection": true,
+    "wos_observed_at": "2026-11-02T00:00:00+00:00",
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
   },
   {
     "source": "elibrary_rinc_saved_html",

@@ -393,7 +393,8 @@ def format_apa(pub: dict) -> str:
 def update_publications_tsv(publications: list[dict]) -> None:
     fields = [
         'number', 'year', 'rinc_citations', 'scopus_citations', 'title', 'title_ru', 'title_ru_display', 'title_en', 'title_en_source',
-        'authors', 'venue', 'venue_ru', 'venue_en', 'venue_en_source', 'volume', 'issue', 'pages', 'doi', 'url', 'gost_ru', 'apa_en', 'sources'
+        'authors', 'venue', 'venue_ru', 'venue_en', 'venue_en_source', 'volume', 'issue', 'pages', 'doi', 'url', 'gost_ru', 'apa_en',
+        'wos_uid', 'wos_core_collection', 'wos_url', 'wos_citations', 'wos_citation_observed_at', 'sources'
     ]
     with PUBLICATIONS_TSV.open('w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f, delimiter='\t', lineterminator='\n')
@@ -407,6 +408,9 @@ def update_publications_tsv(publications: list[dict]) -> None:
                 pub.get('title') or '', pub.get('title_ru') or pub.get('title') or '', pub.get('title_ru_display') or '', pub.get('title_en') or '', pub.get('title_en_source') or '',
                 pub.get('authors_raw') or pub.get('authors') or '', pub.get('venue') or '', pub.get('venue_ru') or pub.get('venue') or '', pub.get('venue_en') or '', pub.get('venue_en_source') or '',
                 pub.get('volume') or '', pub.get('issue') or '', pub.get('pages') or '', pub.get('doi') or '', pub.get('url') or '', pub.get('gost_ru') or '', pub.get('apa_en') or '',
+                pub.get('wos_uid') or '', 'true' if pub.get('wos_core_collection') is True else 'false',
+                pub.get('wos_url') or '', pub.get('wos_citations') if pub.get('wos_citations') is not None else '',
+                (pub.get('citation_observed_at') or {}).get('wos') or '',
                 ','.join(pub.get('sources') or []) if isinstance(pub.get('sources'), list) else pub.get('sources') or '',
             ])
 
