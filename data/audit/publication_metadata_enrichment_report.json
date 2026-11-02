@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-26T09:51:18+00:00",
+  "generated_at": "2026-11-02T11:14:48+00:00",
   "stats": {
-    "records": 72,
+    "records": 73,
     "titles_fixed": 0,
-    "title_fields_added": 0,
+    "title_fields_added": 1,
     "elibrary_detail_fields_added": 0,
-    "metadata_fields_added": 0,
-    "gost_built": 0,
-    "apa_built": 0,
-    "crossref_cache_hit": 45,
-    "crossref_fetched": 0,
+    "metadata_fields_added": 5,
+    "gost_built": 1,
+    "apa_built": 1,
+    "crossref_cache_hit": 52,
+    "crossref_fetched": 1,
     "crossref_failed": 0
   }
 }

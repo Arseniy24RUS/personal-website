@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T06:19:49+00:00",
+  "generated_at": "2026-11-02T11:14:46+00:00",
   "name_ru": "Ситковский Арсений Михайлович",
   "name_en": "Arseniy M. Sitkovskiy",
   "identifiers": {
@@ -512,6 +512,48 @@
       }
     },
     "observation_method": "user_provided_html_snapshot",
+    "observed_at": "2026-11-02T00:00:00+00:00",
+    "observation_date_precision": "day",
+    "provenance": {
+      "method": "user_provided_html_snapshot",
+      "source_file": "Arseniy Sitkovskiy.html",
+      "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+      "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
+      "observed_date": "2026-11-02",
+      "date_basis": "ZIP entry modification date; exact timezone not recorded",
+      "observation_date_precision": "day",
+      "scope": "Web of Science Core Collection"
+    },
+    "metric_methods": {
+      "publications": "user_provided_html_snapshot",
+      "citations": "user_provided_html_snapshot",
+      "h_index": "user_provided_html_snapshot"
+    },
+    "list_coverage": {
+      "selected_collection": "Web of Science Core Collection",
+      "displayed_result_count": 15,
+      "extracted_records": 15,
+      "page_size": 50,
+      "current_page": 1,
+      "total_pages": 1,
+      "complete_for_selected_collection": true,
+      "other_collection_records_in_html": false,
+      "non_indexed_records_in_html": false,
+      "citation_sum": 12,
+      "computed_h_index": 2,
+      "nonzero_citations": [
+        4,
+        3,
+        2,
+        2,
+        1
+      ],
+      "authors_truncated_positions": [
+        2,
+        7,
+        9
+      ]
+    },
     "records": [
       {
         "source": "web_of_science_free_view_author_profile",
@@ -1032,54 +1074,12 @@
         }
       }
     ],
-    "records_count_on_page": 15,
-    "observed_at": "2026-11-02T00:00:00+00:00",
-    "observation_date_precision": "day",
-    "provenance": {
-      "method": "user_provided_html_snapshot",
-      "source_file": "Arseniy Sitkovskiy.html",
-      "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
-      "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-      "observed_date": "2026-11-02",
-      "date_basis": "ZIP entry modification date; exact timezone not recorded",
-      "observation_date_precision": "day",
-      "scope": "Web of Science Core Collection"
-    },
-    "metric_methods": {
-      "publications": "user_provided_html_snapshot",
-      "citations": "user_provided_html_snapshot",
-      "h_index": "user_provided_html_snapshot"
-    },
-    "list_coverage": {
-      "selected_collection": "Web of Science Core Collection",
-      "displayed_result_count": 15,
-      "extracted_records": 15,
-      "page_size": 50,
-      "current_page": 1,
-      "total_pages": 1,
-      "complete_for_selected_collection": true,
-      "other_collection_records_in_html": false,
-      "non_indexed_records_in_html": false,
-      "citation_sum": 12,
-      "computed_h_index": 2,
-      "nonzero_citations": [
-        4,
-        3,
-        2,
-        2,
-        1
-      ],
-      "authors_truncated_positions": [
-        2,
-        7,
-        9
-      ]
-    }
+    "records_count_on_page": 15
   },
   "scopus_metrics": {
     "source": "scopus_api",
-    "generated_at": "2026-10-26T09:51:17+00:00",
-    "last_success_at": "2026-10-26T09:51:17+00:00",
+    "generated_at": "2026-11-02T11:14:45+00:00",
+    "last_success_at": "2026-11-02T11:14:45+00:00",
     "scopus_author_id": "57220956828",
     "author_profile_status": 401,
     "search_status": 200,
@@ -1091,7 +1091,7 @@
     "note": "Search metrics are calculated from a complete Search response. Missing citation counts remain unknown."
   },
   "scientometrics": {
-    "generated_at": "2026-11-02T06:19:49+00:00",
+    "generated_at": "2026-11-02T11:14:45+00:00",
     "columns": [
       "rinc",
       "scopus",
@@ -1123,7 +1123,7 @@
         "citations": 410,
         "h_index": 12,
         "status": "blocked",
-        "attempted_at": "2026-10-26T09:50:58+00:00",
+        "attempted_at": "2026-11-02T11:14:16+00:00",
         "last_success_at": "2026-09-20T16:25:44+00:00",
         "origin": "snapshot",
         "complete": false,
@@ -1149,16 +1149,16 @@
         "citations": 11,
         "h_index": 2,
         "status": "success",
-        "attempted_at": "2026-10-26T09:51:17+00:00",
-        "last_success_at": "2026-10-26T09:51:17+00:00",
+        "attempted_at": "2026-11-02T11:14:45+00:00",
+        "last_success_at": "2026-11-02T11:14:45+00:00",
         "origin": "live",
         "complete": true,
         "record_count": 11,
         "reason": null,
         "metric_observed_at": {
-          "publications": "2026-10-26T09:51:17+00:00",
-          "citations": "2026-10-26T09:51:17+00:00",
-          "h_index": "2026-10-26T09:51:17+00:00"
+          "publications": "2026-11-02T11:14:45+00:00",
+          "citations": "2026-11-02T11:14:45+00:00",
+          "h_index": "2026-11-02T11:14:45+00:00"
         },
         "retained_metrics": [],
         "method": {
@@ -1175,7 +1175,7 @@
         "citations": 12,
         "h_index": 2,
         "status": "blocked",
-        "attempted_at": "2026-10-26T09:51:13+00:00",
+        "attempted_at": "2026-11-02T11:14:39+00:00",
         "last_success_at": "2026-09-20T15:28:23.031Z",
         "origin": "snapshot",
         "complete": false,
@@ -1191,29 +1191,17 @@
           "citations",
           "h_index"
         ],
-        "method": "user_provided_html_snapshot",
-        "last_observation_at": "2026-11-02T00:00:00+00:00",
-        "provenance": {
-          "method": "user_provided_html_snapshot",
-          "source_file": "Arseniy Sitkovskiy.html",
-          "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
-          "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-          "observed_date": "2026-11-02",
-          "date_basis": "ZIP entry modification date; exact timezone not recorded",
-          "observation_date_precision": "day",
-          "scope": "Web of Science Core Collection"
-        },
-        "scope": "Web of Science Core Collection"
+        "method": "user_provided_html_snapshot"
       }
     }
   },
   "open_sources_report": {
-    "generated_at": "2026-10-26T09:45:45+00:00",
+    "generated_at": "2026-11-02T11:08:31+00:00",
     "providers": {
       "orcid": {
         "status": "success",
-        "attempted_at": "2026-10-26T09:45:46+00:00",
-        "last_success_at": "2026-10-26T09:45:46+00:00",
+        "attempted_at": "2026-11-02T11:08:31+00:00",
+        "last_success_at": "2026-11-02T11:08:31+00:00",
         "origin": "live",
         "complete": true,
         "record_count": 15,
@@ -1222,8 +1210,8 @@
       },
       "openalex_author": {
         "status": "success",
-        "attempted_at": "2026-10-26T09:45:47+00:00",
-        "last_success_at": "2026-10-26T09:45:47+00:00",
+        "attempted_at": "2026-11-02T11:08:33+00:00",
+        "last_success_at": "2026-11-02T11:08:33+00:00",
         "origin": "live",
         "complete": true,
         "record_count": 0,
@@ -1232,8 +1220,8 @@
       },
       "openalex_works": {
         "status": "success",
-        "attempted_at": "2026-10-26T09:45:50+00:00",
-        "last_success_at": "2026-10-26T09:45:50+00:00",
+        "attempted_at": "2026-11-02T11:08:35+00:00",
+        "last_success_at": "2026-11-02T11:08:35+00:00",
         "origin": "live",
         "complete": true,
         "record_count": 25,
@@ -1242,8 +1230,8 @@
       },
       "crossref": {
         "status": "success",
-        "attempted_at": "2026-10-26T09:45:52+00:00",
-        "last_success_at": "2026-10-26T09:45:52+00:00",
+        "attempted_at": "2026-11-02T11:08:38+00:00",
+        "last_success_at": "2026-11-02T11:08:38+00:00",
         "origin": "live",
         "complete": true,
         "record_count": 14,
@@ -1252,29 +1240,29 @@
       }
     },
     "status": "success",
-    "attempted_at": "2026-10-26T09:45:52+00:00",
-    "last_success_at": "2026-10-26T09:45:52+00:00",
+    "attempted_at": "2026-11-02T11:08:38+00:00",
+    "last_success_at": "2026-11-02T11:08:38+00:00",
     "origin": "live",
     "complete": true,
-    "record_count": 25,
+    "record_count": 26,
     "reason": null,
     "records_total_before_dedupe": 54,
-    "records_total_after_dedupe": 25
+    "records_total_after_dedupe": 26
   },
-  "canonical_publications_count": 72,
+  "canonical_publications_count": 73,
   "scopus_enriched_publications_count": 11,
   "scopus_auto_added_publications_count": 0,
-  "open_sources_records_count": 25,
+  "open_sources_records_count": 26,
   "open_sources_enriched_publications_count": 25,
-  "open_sources_auto_added_publications_count": 0,
+  "open_sources_auto_added_publications_count": 1,
   "wos_records_count": 15,
-  "wos_enriched_publications_count": 23,
+  "wos_enriched_publications_count": 15,
   "wos_auto_added_publications_count": 0,
   "admin_queue_size": 0,
   "source_health": {
     "elibrary": {
       "status": "blocked",
-      "attempted_at": "2026-10-26T09:50:58+00:00",
+      "attempted_at": "2026-11-02T11:14:16+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "snapshot",
       "complete": false,
@@ -1282,9 +1270,9 @@
       "reason": "profile_not_authenticated_or_changed",
       "stage": "login",
       "components": {
-        "details": {
+        "publications": {
           "status": "blocked",
-          "attempted_at": "2026-10-26T09:50:58+00:00",
+          "attempted_at": "2026-11-02T11:14:16+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
@@ -1293,16 +1281,16 @@
         },
         "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-10-26T09:50:58+00:00",
+          "attempted_at": "2026-11-02T11:14:16+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
           "reason": "profile_not_authenticated_or_changed"
         },
-        "publications": {
+        "details": {
           "status": "blocked",
-          "attempted_at": "2026-10-26T09:50:58+00:00",
+          "attempted_at": "2026-11-02T11:14:16+00:00",
           "last_success_at": "2026-09-20T16:25:44+00:00",
           "origin": "snapshot",
           "complete": false,
@@ -1313,41 +1301,38 @@
     },
     "wos": {
       "status": "blocked",
-      "attempted_at": "2026-10-26T09:51:13+00:00",
+      "attempted_at": "2026-11-02T11:14:39+00:00",
       "last_success_at": "2026-09-20T15:28:23.031Z",
       "origin": "snapshot",
       "complete": false,
-      "record_count": 13,
+      "record_count": 15,
       "reason": "human_verification_required",
       "stage": "login",
       "components": {
-        "publications": {
-          "status": "blocked",
-          "attempted_at": "2026-10-26T09:51:13+00:00",
-          "last_success_at": "2026-09-20T15:28:23.031Z",
-          "origin": "snapshot",
-          "complete": false,
-          "record_count": 0,
-          "reason": "human_verification_required",
-          "last_observation_at": "2026-11-02T00:00:00+00:00"
-        },
         "metrics": {
           "status": "blocked",
-          "attempted_at": "2026-10-26T09:51:13+00:00",
+          "attempted_at": "2026-11-02T11:14:39+00:00",
           "last_success_at": "2026-09-20T15:28:23.031Z",
           "origin": "snapshot",
           "complete": false,
           "record_count": 0,
-          "reason": "human_verification_required",
-          "last_observation_at": "2026-11-02T00:00:00+00:00"
+          "reason": "human_verification_required"
+        },
+        "publications": {
+          "status": "blocked",
+          "attempted_at": "2026-11-02T11:14:39+00:00",
+          "last_success_at": "2026-09-20T15:28:23.031Z",
+          "origin": "snapshot",
+          "complete": false,
+          "record_count": 0,
+          "reason": "human_verification_required"
         }
-      },
-      "last_observation_at": "2026-11-02T00:00:00+00:00"
+      }
     },
     "scopus": {
       "status": "success",
-      "attempted_at": "2026-10-26T09:51:17+00:00",
-      "last_success_at": "2026-10-26T09:51:17+00:00",
+      "attempted_at": "2026-11-02T11:14:45+00:00",
+      "last_success_at": "2026-11-02T11:14:45+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 11,
@@ -1355,7 +1340,7 @@
     },
     "media": {
       "status": "error",
-      "attempted_at": "2026-10-26T09:45:52+00:00",
+      "attempted_at": "2026-11-02T11:08:38+00:00",
       "last_success_at": "2026-09-20T14:25:17+00:00",
       "origin": "snapshot",
       "complete": false,
@@ -1365,8 +1350,8 @@
     },
     "orcid": {
       "status": "success",
-      "attempted_at": "2026-10-26T09:45:46+00:00",
-      "last_success_at": "2026-10-26T09:45:46+00:00",
+      "attempted_at": "2026-11-02T11:08:31+00:00",
+      "last_success_at": "2026-11-02T11:08:31+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 15,
@@ -1374,8 +1359,8 @@
     },
     "openalex": {
       "status": "success",
-      "attempted_at": "2026-10-26T09:45:50+00:00",
-      "last_success_at": "2026-10-26T09:45:50+00:00",
+      "attempted_at": "2026-11-02T11:08:35+00:00",
+      "last_success_at": "2026-11-02T11:08:35+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 25,
@@ -1383,8 +1368,8 @@
     },
     "crossref": {
       "status": "success",
-      "attempted_at": "2026-10-26T09:45:52+00:00",
-      "last_success_at": "2026-10-26T09:45:52+00:00",
+      "attempted_at": "2026-11-02T11:08:38+00:00",
+      "last_success_at": "2026-11-02T11:08:38+00:00",
       "origin": "live",
       "complete": true,
       "record_count": 14,
@@ -1392,9 +1377,9 @@
     }
   },
   "wos_public_merge_report": {
-    "generated_at": "2026-10-26T09:51:18+00:00",
-    "records_seen": 13,
-    "enriched": 13,
+    "generated_at": "2026-11-02T11:14:46+00:00",
+    "records_seen": 15,
+    "enriched": 15,
     "added": 0,
     "changed_fields": 0
   }

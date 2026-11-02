@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T09:51:18+00:00",
+  "generated_at": "2026-11-02T11:14:48+00:00",
   "items": {
     "10.17853/1994-5639-2026-1-33-64": {
       "fetched_at": "2026-06-03T20:08:47+00:00",
@@ -900,6 +900,29 @@
         ],
         "isbn": null,
         "url": "https://doi.org/10.3389/fhumd.2026.1788558"
+      }
+    },
+    "10.32687/0869-866x-2026-34-5-1306-1311": {
+      "fetched_at": "2026-11-02T11:14:47+00:00",
+      "status": 200,
+      "metadata": {
+        "source": "crossref_api",
+        "doi": "10.32687/0869-866x-2026-34-5-1306-1311",
+        "type": "journal-article",
+        "title": "The value aspects of Sevastopol residents in the context of realization of the National project “The Family”",
+        "subtitle": null,
+        "container_title": "Problems of Social Hygiene, Public Health and History of Medicine",
+        "publisher": "Joint-Stock Company Chicot",
+        "volume": "34",
+        "issue": "5",
+        "page": "1306–1311",
+        "year": 2026,
+        "issn": [
+          "2412-2106",
+          "0869-866X"
+        ],
+        "isbn": null,
+        "url": "https://doi.org/10.32687/0869-866x-2026-34-5-1306-1311"
       }
     }
   },

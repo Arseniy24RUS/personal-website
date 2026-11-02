@@ -6,7 +6,6 @@
   ],
   "display_name": "Arseniy Sitkovskiy",
   "raw_author_names": [
-    "10.26653/2076-4650-2021-6-08",
     "A. M. Sitkovskiy",
     "A.M. Sitkovskiy",
     "Arseniy M. Sitkovskiy",
@@ -17,7 +16,7 @@
   "works_count": 25,
   "cited_by_count": 20,
   "summary_stats": {
-    "2yr_mean_citedness": 0.7222222222222222,
+    "2yr_mean_citedness": 0.6842105263157895,
     "h_index": 3,
     "i10_index": 0
   },
@@ -153,7 +152,7 @@
     {
       "id": "https://openalex.org/T14019",
       "display_name": "Socioeconomic and Demographic Analysis",
-      "count": 13,
+      "count": 14,
       "subfield": {
         "id": "https://openalex.org/subfields/2308",
         "display_name": "Management, Monitoring, Policy and Law"
@@ -165,6 +164,23 @@
       "domain": {
         "id": "https://openalex.org/domains/3",
         "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T10585",
+      "display_name": "Family Dynamics and Relationships",
+      "count": 5,
+      "subfield": {
+        "id": "https://openalex.org/subfields/3317",
+        "display_name": "Demography"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/33",
+        "display_name": "Social Sciences"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/2",
+        "display_name": "Social Sciences"
       }
     },
     {
@@ -185,29 +201,12 @@
       }
     },
     {
-      "id": "https://openalex.org/T10585",
-      "display_name": "Family Dynamics and Relationships",
-      "count": 4,
+      "id": "https://openalex.org/T13888",
+      "display_name": "Social Policies and Family",
+      "count": 5,
       "subfield": {
-        "id": "https://openalex.org/subfields/3317",
-        "display_name": "Demography"
-      },
-      "field": {
-        "id": "https://openalex.org/fields/33",
-        "display_name": "Social Sciences"
-      },
-      "domain": {
-        "id": "https://openalex.org/domains/2",
-        "display_name": "Social Sciences"
-      }
-    },
-    {
-      "id": "https://openalex.org/T11858",
-      "display_name": "Urban Development and Societal Issues",
-      "count": 4,
-      "subfield": {
-        "id": "https://openalex.org/subfields/3322",
-        "display_name": "Urban Studies"
+        "id": "https://openalex.org/subfields/3312",
+        "display_name": "Sociology and Political Science"
       },
       "field": {
         "id": "https://openalex.org/fields/33",
@@ -223,7 +222,7 @@
     {
       "id": "https://openalex.org/T14019",
       "display_name": "Socioeconomic and Demographic Analysis",
-      "value": 0.0001556,
+      "value": 0.0001673,
       "subfield": {
         "id": "https://openalex.org/subfields/2308",
         "display_name": "Management, Monitoring, Policy and Law"
@@ -240,7 +239,7 @@
     {
       "id": "https://openalex.org/T13609",
       "display_name": "Economic, Social, and Public Health Issues in Russia and Globally",
-      "value": 9.53e-05,
+      "value": 9.42e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/1803",
         "display_name": "Management Science and Operations Research"
@@ -272,9 +271,9 @@
       }
     },
     {
-      "id": "https://openalex.org/T13747",
-      "display_name": "Sociopolitical Dynamics in Russia",
-      "value": 3.42e-05,
+      "id": "https://openalex.org/T13888",
+      "display_name": "Social Policies and Family",
+      "value": 4e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/3312",
         "display_name": "Sociology and Political Science"
@@ -289,9 +288,9 @@
       }
     },
     {
-      "id": "https://openalex.org/T13888",
-      "display_name": "Social Policies and Family",
-      "value": 3.19e-05,
+      "id": "https://openalex.org/T13747",
+      "display_name": "Sociopolitical Dynamics in Russia",
+      "value": 3.4e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/3312",
         "display_name": "Sociology and Political Science"
@@ -365,37 +364,36 @@
     },
     {
       "year": 2021,
-      "works_count": 2,
+      "works_count": 1,
       "oa_works_count": 1,
-      "cited_by_count": 3
+      "cited_by_count": 0
     },
     {
       "year": 2023,
       "works_count": 1,
       "oa_works_count": 1,
-      "cited_by_count": 4
+      "cited_by_count": 0
     },
     {
       "year": 2024,
       "works_count": 1,
       "oa_works_count": 1,
-      "cited_by_count": 3
+      "cited_by_count": 2
     },
     {
       "year": 2025,
       "works_count": 10,
       "oa_works_count": 9,
-      "cited_by_count": 10
+      "cited_by_count": 7
     },
     {
       "year": 2026,
-      "works_count": 7,
-      "oa_works_count": 7,
-      "cited_by_count": 0
+      "works_count": 8,
+      "oa_works_count": 8,
+      "cited_by_count": 11
     }
   ],
   "display_name_alternatives": [
-    "10.26653/2076-4650-2021-6-08",
     "A. M. Sitkovskiy",
     "A.M. Sitkovskiy",
     "Arseniy M. Sitkovskiy",
@@ -404,7 +402,7 @@
   ],
   "block_key": "10.26653/2076-4650-2021-6-08",
   "works_api_url": "https://api.openalex.org/works?filter=author.id:A5007601767",
-  "updated_date": "2026-10-23T12:28:23",
-  "created_date": "2022-05-12T00:00:00",
-  "last_success_at": "2026-10-26T09:45:47+00:00"
+  "updated_date": "2026-11-01T11:00:13",
+  "created_date": "2020-12-21T00:00:00",
+  "last_success_at": "2026-11-02T11:08:33+00:00"
 }

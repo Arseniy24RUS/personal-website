@@ -105,6 +105,48 @@
     }
   },
   "observation_method": "user_provided_html_snapshot",
+  "observed_at": "2026-11-02T00:00:00+00:00",
+  "observation_date_precision": "day",
+  "provenance": {
+    "method": "user_provided_html_snapshot",
+    "source_file": "Arseniy Sitkovskiy.html",
+    "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
+    "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
+    "observed_date": "2026-11-02",
+    "date_basis": "ZIP entry modification date; exact timezone not recorded",
+    "observation_date_precision": "day",
+    "scope": "Web of Science Core Collection"
+  },
+  "metric_methods": {
+    "publications": "user_provided_html_snapshot",
+    "citations": "user_provided_html_snapshot",
+    "h_index": "user_provided_html_snapshot"
+  },
+  "list_coverage": {
+    "selected_collection": "Web of Science Core Collection",
+    "displayed_result_count": 15,
+    "extracted_records": 15,
+    "page_size": 50,
+    "current_page": 1,
+    "total_pages": 1,
+    "complete_for_selected_collection": true,
+    "other_collection_records_in_html": false,
+    "non_indexed_records_in_html": false,
+    "citation_sum": 12,
+    "computed_h_index": 2,
+    "nonzero_citations": [
+      4,
+      3,
+      2,
+      2,
+      1
+    ],
+    "authors_truncated_positions": [
+      2,
+      7,
+      9
+    ]
+  },
   "records": [
     {
       "source": "web_of_science_free_view_author_profile",
@@ -625,47 +667,5 @@
       }
     }
   ],
-  "records_count_on_page": 15,
-  "observed_at": "2026-11-02T00:00:00+00:00",
-  "observation_date_precision": "day",
-  "provenance": {
-    "method": "user_provided_html_snapshot",
-    "source_file": "Arseniy Sitkovskiy.html",
-    "source_sha256": "0a8c31f1d617cd549f0fda3a969d1947fe78d706b1218d722588e365ca1e7ec0",
-    "source_url": "https://www.webofscience.com/wos/author/record/AAG-1530-2021",
-    "observed_date": "2026-11-02",
-    "date_basis": "ZIP entry modification date; exact timezone not recorded",
-    "observation_date_precision": "day",
-    "scope": "Web of Science Core Collection"
-  },
-  "metric_methods": {
-    "publications": "user_provided_html_snapshot",
-    "citations": "user_provided_html_snapshot",
-    "h_index": "user_provided_html_snapshot"
-  },
-  "list_coverage": {
-    "selected_collection": "Web of Science Core Collection",
-    "displayed_result_count": 15,
-    "extracted_records": 15,
-    "page_size": 50,
-    "current_page": 1,
-    "total_pages": 1,
-    "complete_for_selected_collection": true,
-    "other_collection_records_in_html": false,
-    "non_indexed_records_in_html": false,
-    "citation_sum": 12,
-    "computed_h_index": 2,
-    "nonzero_citations": [
-      4,
-      3,
-      2,
-      2,
-      1
-    ],
-    "authors_truncated_positions": [
-      2,
-      7,
-      9
-    ]
-  }
+  "records_count_on_page": 15
 }

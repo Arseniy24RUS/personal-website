@@ -1,11 +1,36 @@
 {
-  "generated_at": "2026-10-26T09:51:18+00:00",
-  "records_seen": 13,
-  "publications_after_merge": 72,
-  "enriched": 13,
+  "generated_at": "2026-11-02T11:14:46+00:00",
+  "records_seen": 15,
+  "publications_after_merge": 73,
+  "enriched": 15,
   "added": 0,
   "changed_fields": 0,
   "matched_sample": [
+    {
+      "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
+      "doi": "10.3389/fdata.2026.1842233",
+      "wos_uid": "WOS:001826272100001"
+    },
+    {
+      "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
+      "doi": "10.3389/frsc.2026.1719775",
+      "wos_uid": "WOS:001767258700001"
+    },
+    {
+      "title": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+      "doi": "10.3389/fhumd.2026.1788558",
+      "wos_uid": "WOS:001766714000001"
+    },
+    {
+      "title": "Ethnic Homogamy and Interethnic Marriages in Tuva: Evidence from the 2021 All-Russian Population Census",
+      "doi": "10.25178/nit.2026.3.13",
+      "wos_uid": "WOS:001879050800001"
+    },
+    {
+      "title": "Correlation Analysis of the Impact of Selected Socio-Economic Indicators on Fertility in Tuva (1990-2024)",
+      "doi": "10.25178/nit.2026.3.15",
+      "wos_uid": "WOS:001878333400001"
+    },
     {
       "title": "Comparative content analysis of master's and doctoral programmes in demography at world-class universities",
       "doi": "10.17853/1994-5639-2026-1-33-64",
@@ -13,63 +38,48 @@
     },
     {
       "title": "The impact of population density on the socio-economic development of Russian regions: from correlation portraits to the cluster-differentiated density governance",
-      "doi": null,
+      "doi": "10.3389/fpos.2025.1715504",
       "wos_uid": "WOS:001643513900001"
     },
     {
       "title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
-      "doi": null,
+      "doi": "10.17853/1994-5639-2025-6-149-179",
       "wos_uid": "WOS:001504467400006"
     },
     {
       "title": "The Influence of the Agglomeration Effect on the Demographic Policy of Territories",
-      "doi": null,
+      "doi": "10.15838/esc.2025.6.102.4",
       "wos_uid": "WOS:001679486900004"
     },
     {
       "title": "Methodology and practice of demographic expertise based on the example of the regional program \"Increasing Birth Rates in the Republic of Tuva for the Period 2023-2025\"",
-      "doi": null,
+      "doi": "10.25178/nit.2025.4.13",
       "wos_uid": "WOS:001633673200001"
     },
     {
       "title": "Demographic Resources of Russia: Variability of Approaches and Assessments",
-      "doi": null,
+      "doi": "10.15838/esc.2025.3.99.10",
       "wos_uid": "WOS:001555353700010"
     },
     {
       "title": "The settlement system of the Republic of Tuva: central places",
-      "doi": null,
+      "doi": "10.25178/nit.2025.2.4",
       "wos_uid": "WOS:001508911200001"
     },
     {
       "title": "Inter-regional educational migrations in Russia in 2017-2019: gender and spatial aspects",
-      "doi": null,
+      "doi": "10.25178/nit.2024.3.13",
       "wos_uid": "WOS:001331184300001"
     },
     {
       "title": "Demographic Development Resources: On the Unification of Concepts in Demographic Research",
-      "doi": null,
+      "doi": "10.15838/esc.2024.1.91.10",
       "wos_uid": "WOS:001186327000001"
     },
     {
       "title": "\"PATH DEPENDENCE\": THE TRANSFORMATION OF THE SOCIAL SPACE OF THE EURASIAN MACROREGION",
       "doi": "10.15405/epsbs.2021.04.13",
       "wos_uid": "WOS:000773381800013"
-    },
-    {
-      "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
-      "doi": null,
-      "wos_uid": "WOS:001826272100001"
-    },
-    {
-      "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
-      "doi": null,
-      "wos_uid": "WOS:001767258700001"
-    },
-    {
-      "title": "Age-sex heterogeneity among Russia's indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
-      "doi": null,
-      "wos_uid": "WOS:001766714000001"
     }
   ],
   "auto_added": []
