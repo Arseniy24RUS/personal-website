@@ -11742,7 +11742,7 @@
     "year": 2026,
     "rinc_citations": 0,
     "title": "Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization",
-    "authors_raw": "Dozhdikov A.V.",
+    "authors_raw": "Dozhdikov A.V., Sitkovskiy A.M.",
     "venue": "Frontiers in Big Data",
     "pages": null,
     "doi": "10.3389/fdata.2026.1842233",
@@ -11844,8 +11844,8 @@
     "volume": "9",
     "publisher": "Frontiers Media SA",
     "publication_type": "journal-article",
-    "gost_ru": "Dozhdikov A.V. Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization. // Frontiers in Big Data. — 2026. — Т. 9. — DOI: 10.3389/fdata.2026.1842233.",
-    "apa_en": "Dozhdikov, A. V. (2026). Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization. Frontiers in Big Data, 9. https://doi.org/10.3389/fdata.2026.1842233",
+    "gost_ru": "Dozhdikov A.V., Sitkovskiy A.M. Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization. // Frontiers in Big Data. — 2026. — Т. 9. — Ст. 1842233. — DOI: 10.3389/fdata.2026.1842233.",
+    "apa_en": "Dozhdikov, A. V., & Sitkovskiy, A. M. (2026). Evolutionary multi-agent reinforcement learning for crisis-aware demographic policy optimization. Frontiers in Big Data, 9, Article 1842233. https://doi.org/10.3389/fdata.2026.1842233",
     "wos_records": [
       {
         "source": "web_of_science_free_view_author_profile",
@@ -14357,7 +14357,33 @@
     "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001826272100001",
     "wos_core_collection": true,
     "wos_observed_at": "2026-11-02T00:00:00+00:00",
-    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+    "authors_en": "Dozhdikov A.V., Sitkovskiy A.M.",
+    "author_provenance": {
+      "source_url": "https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2026.1842233/full",
+      "observed_date": "2026-11-02",
+      "method": "publisher_article_page"
+    },
+    "gost_ru_source": "source_verified",
+    "apa_en_source": "source_verified",
+    "article_number": "1842233",
+    "publisher_url": "https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2026.1842233/full",
+    "bibliography_provenance": {
+      "source_urls": [
+        "https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2026.1842233/full"
+      ],
+      "checked_date": "2026-11-02",
+      "method": "publisher_article_page",
+      "fields": [
+        "authors_raw",
+        "authors_en",
+        "venue",
+        "volume",
+        "article_number",
+        "gost_ru",
+        "apa_en"
+      ]
+    }
   },
   {
     "source": "wos_free_view_auto",
@@ -14368,9 +14394,9 @@
     "title": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
     "title_en": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
     "title_en_source": "web_of_science",
-    "authors_raw": "Raysikh, A ; Bezverbny, V ; (...); Zenkov, D",
-    "venue": "FRONTIERS IN SUSTAINABLE CITIES",
-    "venue_en": "FRONTIERS IN SUSTAINABLE CITIES",
+    "authors_raw": "Raysikh A., Bezverbny V., Sitkovskiy A., Zenkov D.",
+    "venue": "Frontiers in Sustainable Cities",
+    "venue_en": "Frontiers in Sustainable Cities",
     "venue_en_source": "web_of_science",
     "publisher": "Frontiers Media SA",
     "volume": "8",
@@ -14424,19 +14450,17 @@
     ],
     "auto_accept_reason": "author-scoped Web of Science ResearcherID record",
     "title_ru": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
-    "venue_ru": "FRONTIERS IN SUSTAINABLE CITIES",
+    "venue_ru": "Frontiers in Sustainable Cities",
     "citation_observed_at": {
       "elibrary": "2026-09-20T15:23:41.046Z",
       "scopus": "2026-10-19T09:03:33+00:00",
       "wos": "2026-11-02T00:00:00+00:00"
     },
     "title_ru_display": "The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels",
-    "gost_ru": "Raysikh, A ; Bezverbny, V ; (..); Zenkov, D. The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels. // FRONTIERS IN SUSTAINABLE CITIES. — 2026. — Т. 8. — URL: https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001.",
-    "gost_ru_source": "generated",
-    "gost_ru_generated_sha256": "661b491d74a6db58a5e26b0dfcdb884525b5e931a8d62a3a3acccc16893f9ec1",
-    "apa_en": "Raysikh, A ; Bezverbny, V ; (...); Zenkov, & D (2026). The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels. FRONTIERS IN SUSTAINABLE CITIES, 8. https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001",
-    "apa_en_source": "generated",
-    "apa_en_generated_sha256": "9e9c09be3924271a13b5f12f519a94c87ab17e4028b7f56215f631a387c6a92e",
+    "gost_ru": "Raysikh A., Bezverbny V., Sitkovskiy A., Zenkov D. The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels. // Frontiers in Sustainable Cities. — 2026. — Т. 8. — Ст. 1719775. — DOI: 10.3389/frsc.2026.1719775.",
+    "gost_ru_source": "source_verified",
+    "apa_en": "Raysikh, A., Bezverbny, V., Sitkovskiy, A., & Zenkov, D. (2026). The impact of transport accessibility on demographic dynamics in Russian agglomerations: breakpoint analysis and zonal levels. Frontiers in Sustainable Cities, 8, Article 1719775. https://doi.org/10.3389/frsc.2026.1719775",
+    "apa_en_source": "source_verified",
     "open_sources": [
       {
         "source": "openalex_api",
@@ -17045,7 +17069,31 @@
     "wos_url": "https://www.webofscience.com/wos/woscc/full-record/WOS:001767258700001",
     "wos_core_collection": true,
     "wos_observed_at": "2026-11-02T00:00:00+00:00",
-    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate"
+    "wos_citations_evidence": "no_nonzero_citation_label; complete_list_sum_matches_aggregate",
+    "authors_en": "Raysikh A., Bezverbny V., Sitkovskiy A., Zenkov D.",
+    "author_provenance": {
+      "source_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/full",
+      "observed_date": "2026-11-02",
+      "method": "publisher_article_page"
+    },
+    "article_number": "1719775",
+    "publisher_url": "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/full",
+    "bibliography_provenance": {
+      "source_urls": [
+        "https://www.frontiersin.org/journals/sustainable-cities/articles/10.3389/frsc.2026.1719775/full"
+      ],
+      "checked_date": "2026-11-02",
+      "method": "publisher_article_page",
+      "fields": [
+        "authors_raw",
+        "authors_en",
+        "venue",
+        "volume",
+        "article_number",
+        "gost_ru",
+        "apa_en"
+      ]
+    }
   },
   {
     "source": "elibrary_rinc_saved_html",
