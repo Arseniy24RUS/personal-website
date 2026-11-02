@@ -38,7 +38,7 @@
           document.getElementById('rinc_h').textContent=val(ri.h_index);
           document.getElementById('rinc_h_core').textContent=val(ep.h_index_core_rinc);
           document.getElementById('rinc_core').textContent=val(ep.publications_core_rinc, val(c['публикации, включенные в ядро РИНЦ']));
-          document.getElementById('vak').textContent=val(c['статьи в российских журналах, включенных в перечень ВАК']);
+          document.getElementById('vak').textContent=val((((p.elibrary_profile_metrics||{}).general_metrics||{})['Число статей в российских журналах из перечня ВАК']||{}).value, val(c['статьи в российских журналах, включенных в перечень ВАК']));
           document.getElementById('scopus_works').textContent=val(sc.publications);
           document.getElementById('scopus_cit').textContent=val(sc.citations);
           document.getElementById('scopus_h').textContent=val(sc.h_index);
@@ -77,3 +77,4 @@
 </div>
 </body>
 </html>
+
