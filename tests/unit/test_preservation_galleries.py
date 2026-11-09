@@ -60,6 +60,31 @@ class GalleryTest(unittest.TestCase):
                 prepare_sources(source, root / 'work', {'.png'})
             self.assertFalse((root / 'work/escape.png').exists())
 
+    def test_diploma_builder_keeps_all_pages_and_manual_order(self):
+        import fitz
+        import build_diplomas_gallery as module
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / 'content'
+            source.mkdir()
+            with fitz.open() as pdf:
+                pdf.new_page(width=100, height=150)
+                pdf.new_page(width=150, height=100)
+                pdf.save(source / '2026-two-pages.pdf')
+            out = root / 'gallery.json'
+            out.write_text(json.dumps({'items': [{'id': 'pinned', 'title': 'Z', 'year': 2026, 'display_order': -1}]}))
+
+            with patch.multiple(module, INPUT_DIR=source, OUT=out, FULL=root / 'full', THUMBS=root / 'thumbs'):
+                module.main()
+            pinned, generated = json.loads(out.read_text())['items']
+            self.assertEqual(pinned['id'], 'pinned')
+            self.assertEqual([p['page'] for p in generated['pages']], [1, 2])
+            self.assertEqual(generated['full'], generated['pages'][0]['src'])
+            with Image.open(generated['thumb']) as thumb, Image.open(generated['pages'][1]['src']) as second:
+                self.assertLess(thumb.width, thumb.height)
+                self.assertGreater(second.width, second.height)
+
 
 if __name__ == '__main__':
     unittest.main()

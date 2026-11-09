@@ -1,7 +1,43 @@
 {
-  "generated_at": "2026-06-06",
-  "count": 57,
+  "generated_at": "2026-11-09T19:16:22+00:00",
+  "count": 62,
   "items": [
+    {
+      "id": "2026-rudn-letter-of-appreciation",
+      "year": 2026,
+      "display_order": -2,
+      "title": "Благодарность РУДН",
+      "title_en": "RUDN letter of appreciation",
+      "kind": "pdf",
+      "source_filename": "РУДН Благодарность Ситковскому АМ (2026).pdf",
+      "source_hash": "a6afcf6fa944a91b00980878b24c94064a71210a5e3f2d64c431e6a3bc23c199",
+      "thumb": "assets/diplomas/thumbs/2026-rudn-letter-of-appreciation.webp",
+      "full": "assets/diplomas/full/2026-rudn-letter-of-appreciation.webp",
+      "download": "assets/diplomas/full/2026-rudn-letter-of-appreciation.webp",
+      "download_filename": "2026-rudn-letter-of-appreciation.webp",
+      "width": 1555,
+      "height": 2200,
+      "orientation": "portrait",
+      "span": 1
+    },
+    {
+      "id": "2026-mgimo-kve",
+      "year": 2026,
+      "display_order": -1,
+      "title": "Кросс-вузовская экспертиза МГИМО",
+      "title_en": "MGIMO Cross-University Review",
+      "kind": "pdf",
+      "source_filename": "КВЭ-2026-МГИМО.pdf",
+      "source_hash": "2c3977e22298d88874808c58ab4e2f3341cc51985c0abe27a3bef08be164358f",
+      "thumb": "assets/diplomas/thumbs/2026-mgimo-kve.webp",
+      "full": "assets/diplomas/full/2026-mgimo-kve.webp",
+      "download": "assets/diplomas/full/2026-mgimo-kve.webp",
+      "download_filename": "2026-mgimo-kve.webp",
+      "width": 1051,
+      "height": 1496,
+      "orientation": "portrait",
+      "span": 1
+    },
     {
       "id": "2026-nauchnyy-rezultat-serifikat-sitkovskiy-a-m",
       "year": 2026,
@@ -69,6 +105,70 @@
       "download": "assets/diplomas/full/2025-uralskiy-demforum-2025-sitkovskiy-a-m.webp",
       "width": 1500,
       "height": 1060,
+      "orientation": "landscape",
+      "span": 2
+    },
+    {
+      "id": "2025-world-mbf",
+      "year": 2025,
+      "display_order": 1,
+      "title": "Бейдж спикера WORLD-MBF 2025",
+      "title_en": "WORLD-MBF 2025 speaker badge",
+      "kind": "pdf",
+      "source_filename": "WORLD-MBF-2025.pdf",
+      "source_hash": "c790f0d4b57da11abd8a6be291554ffe3e6d967c9b9d88f2ef8ae2cac8f2e6ca",
+      "thumb": "assets/diplomas/thumbs/2025-world-mbf.webp",
+      "full": "assets/diplomas/full/2025-world-mbf.webp",
+      "download": "assets/diplomas/full/2025-world-mbf.pdf",
+      "download_filename": "2025-world-mbf.pdf",
+      "width": 1083,
+      "height": 1453,
+      "orientation": "portrait",
+      "span": 1,
+      "pages": [
+        {
+          "page": 1,
+          "src": "assets/diplomas/full/2025-world-mbf.webp"
+        },
+        {
+          "page": 2,
+          "src": "assets/diplomas/full/2025-world-mbf-p02.webp"
+        }
+      ]
+    },
+    {
+      "id": "2025-icasf",
+      "year": 2025,
+      "display_order": 2,
+      "title": "Бейдж участника ICASF 2025",
+      "title_en": "ICASF 2025 participant badge",
+      "kind": "pdf",
+      "source_filename": "ICASF-2025.pdf",
+      "source_hash": "e28d2b4d613429fee2b616ab6605406f0346fdd6b188ac4129039ea498a9e1b9",
+      "thumb": "assets/diplomas/thumbs/2025-icasf.webp",
+      "full": "assets/diplomas/full/2025-icasf.webp",
+      "download": "assets/diplomas/full/2025-icasf.webp",
+      "download_filename": "2025-icasf.webp",
+      "width": 1085,
+      "height": 1450,
+      "orientation": "portrait",
+      "span": 1
+    },
+    {
+      "id": "2025-mgimo-visual-programming",
+      "year": 2025,
+      "display_order": 3,
+      "title": "Сертификат МГИМО: визуальное программирование",
+      "title_en": "MGIMO certificate in visual programming",
+      "kind": "pdf",
+      "source_filename": "Ситковский Сертификат МГИМО.pdf",
+      "source_hash": "c36a1bba44775fe57836037b51b51b54110e2114f9d695b89c1cb9c3ba665ab6",
+      "thumb": "assets/diplomas/thumbs/2025-mgimo-visual-programming.webp",
+      "full": "assets/diplomas/full/2025-mgimo-visual-programming.webp",
+      "download": "assets/diplomas/full/2025-mgimo-visual-programming.webp",
+      "download_filename": "2025-mgimo-visual-programming.webp",
+      "width": 2200,
+      "height": 1569,
       "orientation": "landscape",
       "span": 2
     },
@@ -801,5 +901,5 @@
       "span": 1
     }
   ],
-  "sort": "year_desc_title_asc"
+  "sort": "year_desc_display_order_asc_title_asc"
 }

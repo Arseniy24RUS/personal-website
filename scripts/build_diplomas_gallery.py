@@ -7,9 +7,9 @@ Universal workflow for future scientist portfolios:
 2. Optionally put standalone PDF/JPG/PNG/WebP files into content/diplomas/.
 3. Run GitHub Action "Build diplomas gallery" manually.
 
-The script recursively extracts all ZIP archives, processes images and the first
-page of PDFs, creates lightweight thumbnails and full-screen WebP versions, and
-writes data/diplomas/gallery.json for diplomas.html.
+The script recursively extracts all ZIP archives, renders images and PDF pages,
+creates a thumbnail from the first page of each document, and writes
+data/diplomas/gallery.json for diplomas.html.
 """
 from __future__ import annotations
 
@@ -71,23 +71,26 @@ def collect_source_files():
     return files
 
 
-def load_image(path: Path) -> Image.Image:
+def load_pages(path: Path):
     if path.suffix.lower() in PDF_EXTS:
         import fitz  # PyMuPDF is needed only for PDF inputs
-        doc = fitz.open(path)
-        page = doc.load_page(0)
-        pix = page.get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False)
-        img = Image.frombytes('RGB', [pix.width, pix.height], pix.samples)
-        doc.close()
-        return img
-    img = Image.open(path)
-    return ImageOps.exif_transpose(img).convert('RGB')
+        with fitz.open(path) as doc:
+            for page in doc:
+                pix = page.get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False)
+                yield Image.frombytes('RGB', (pix.width, pix.height), pix.samples)
+    else:
+        with Image.open(path) as img:
+            yield ImageOps.exif_transpose(img).convert('RGB')
 
 
 def resize_max(img: Image.Image, max_side: int) -> Image.Image:
     img = img.copy()
     img.thumbnail((max_side, max_side), Image.Resampling.LANCZOS)
     return img
+
+
+def display_sort_key(item):
+    return (-(item.get('year') or 0), item.get('display_order', 0), str(item.get('title') or item['id']))
 
 
 def build_additions():
@@ -105,7 +108,7 @@ def build_additions():
     staged_assets = []
     stage = WORK / 'rendered'
     stage.mkdir(parents=True, exist_ok=True)
-    for idx, path in enumerate(files, start=1):
+    for path in files:
         year = year_from_name(path.as_posix())
         digest = source_hash(path)
         if digest in known_hashes:
@@ -114,19 +117,24 @@ def build_additions():
         known_hashes.add(digest)
         full_path = FULL / f"{base}.webp"
         thumb_path = THUMBS / f"{base}.webp"
+        pages = []
         try:
-            img = load_image(path)
+            for page, img in enumerate(load_pages(path), start=1):
+                target = full_path if page == 1 else FULL / f"{base}-p{page:02d}.webp"
+                staged_full = stage / (target.stem + '-full.webp')
+                resize_max(img, 1800).save(staged_full, 'WEBP', quality=84, method=6)
+                staged_assets.append((staged_full, target))
+                pages.append({'page': page, 'src': target.as_posix()})
+                if page == 1:
+                    width, height = img.size
+                    staged_thumb = stage / (base + '-thumb.webp')
+                    resize_max(img, 340).save(staged_thumb, 'WEBP', quality=74, method=6)
+                    staged_assets.append((staged_thumb, thumb_path))
+            if not pages:
+                raise ValueError('No renderable pages')
         except Exception as exc:
             raise ValueError(f'Cannot render new document {path.name}; existing gallery retained') from exc
-        width, height = img.size
         orientation = 'landscape' if width > height else 'portrait'
-        staged_full = stage / (base + '-full.webp')
-        resize_max(img, 1800).save(staged_full, 'WEBP', quality=84, method=6)
-        staged_assets.append((staged_full, full_path))
-        # Smaller thumbnails: the page now displays roughly twice as many items per screen.
-        staged_thumb = stage / (base + '-thumb.webp')
-        resize_max(img, 340).save(staged_thumb, 'WEBP', quality=74, method=6)
-        staged_assets.append((staged_thumb, thumb_path))
         items.append({
             'id': base,
             'title': title_from_name(path),
@@ -141,17 +149,18 @@ def build_additions():
             'download_filename': full_path.name,
             'source_filename': path.name,
             'source_hash': digest,
+            **({'pages': pages} if len(pages) > 1 else {}),
         })
 
     if len(items) == len(previous['items']):
         print('All source hashes already present; existing gallery retained.')
         return 0
-    items.sort(key=lambda item: (-(item.get('year') or 0), str(item.get('title') or item['id'])))
+    items.sort(key=display_sort_key)
     publish(OUT, {
         **previous,
         'generated_at': datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         'count': len(items),
-        'sort': 'year_desc_name_asc',
+        'sort': 'year_desc_display_order_asc_title_asc',
         'input_archives': sorted(set(previous.get('input_archives', [])) | {str(p).replace('\\', '/') for p in archives}),
         'items': items,
     }, staged_assets)

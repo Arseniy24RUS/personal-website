@@ -166,18 +166,23 @@
   aspect-ratio:3/2;
   background:#f7f7f7;
 }
-.dpo-modal.open{
+.diploma-modal-pages{
+  display:contents;
+}
+:is(.dpo-modal,.diploma-modal--multipage).open{
   align-items:flex-start;
   overflow:auto;
   padding-top:82px;
 }
-.dpo-modal-pages{
+.dpo-modal-pages,
+.diploma-modal--multipage .diploma-modal-pages{
   width:min(1100px,calc(100vw - 70px));
   margin:0 auto 36px;
   display:grid;
   gap:18px;
 }
-.dpo-modal .dpo-modal-pages img{
+.dpo-modal .dpo-modal-pages img,
+.diploma-modal--multipage .diploma-modal-pages img{
   display:block;
   width:100%;
   height:auto;
@@ -202,8 +207,9 @@
     max-width:calc(100vw - 24px);
     max-height:calc(100vh - 90px);
   }
-  .dpo-modal.open{padding-top:78px}
-  .dpo-modal-pages{
+  :is(.dpo-modal,.diploma-modal--multipage).open{padding-top:78px}
+  .dpo-modal-pages,
+  .diploma-modal--multipage .diploma-modal-pages{
     width:calc(100vw - 24px);
     gap:12px;
   }
