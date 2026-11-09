@@ -24,6 +24,7 @@ for (const lang of ['ru', 'en']) {
     await expect.poll(() => pages.evaluateAll(imgs => imgs.every(img => (img as HTMLImageElement).naturalWidth > 0))).toBe(true);
     await pages.last().scrollIntoViewIfNeeded();
     await expect(pages.last()).toBeInViewport();
+    await expect(viewer.locator('.diploma-modal-bar')).toHaveCSS('background-color', 'rgb(21, 21, 21)');
     await expect(viewer.locator('#modal-download')).toHaveAttribute('download', '2025-world-mbf.pdf');
     await viewer.getByRole('button', { name: lang === 'en' ? 'Close' : 'Закрыть' }).click();
     await expect(viewer).toBeHidden();

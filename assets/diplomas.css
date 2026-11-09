@@ -169,6 +169,12 @@
 .diploma-modal-pages{
   display:contents;
 }
+.diploma-modal--multipage .diploma-modal-bar{
+  inset:0 0 auto;
+  padding:16px 18px;
+  background:#151515;
+  border-bottom:1px solid rgba(255,255,255,.18);
+}
 :is(.dpo-modal,.diploma-modal--multipage).open{
   align-items:flex-start;
   overflow:auto;
