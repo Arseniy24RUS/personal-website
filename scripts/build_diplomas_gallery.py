@@ -124,7 +124,7 @@ def build_additions():
                 staged_full = stage / (target.stem + '-full.webp')
                 resize_max(img, 1800).save(staged_full, 'WEBP', quality=84, method=6)
                 staged_assets.append((staged_full, target))
-                pages.append({'page': page, 'src': target.as_posix()})
+                pages.append({'page': page, 'src': target.as_posix(), 'width': img.width, 'height': img.height})
                 if page == 1:
                     width, height = img.size
                     staged_thumb = stage / (base + '-thumb.webp')

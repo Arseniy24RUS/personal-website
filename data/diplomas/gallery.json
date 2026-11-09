@@ -128,11 +128,15 @@
       "pages": [
         {
           "page": 1,
-          "src": "assets/diplomas/full/2025-world-mbf.webp"
+          "src": "assets/diplomas/full/2025-world-mbf.webp",
+          "width": 1083,
+          "height": 1453
         },
         {
           "page": 2,
-          "src": "assets/diplomas/full/2025-world-mbf-p02.webp"
+          "src": "assets/diplomas/full/2025-world-mbf-p02.webp",
+          "width": 1062,
+          "height": 1480
         }
       ]
     },

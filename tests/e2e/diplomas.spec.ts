@@ -20,9 +20,10 @@ for (const lang of ['ru', 'en']) {
     await expect(pages).toHaveCount(2);
     await expect(pages.first()).toHaveAttribute('src', 'assets/diplomas/full/2025-world-mbf.webp');
     await expect(pages.last()).toHaveAttribute('src', 'assets/diplomas/full/2025-world-mbf-p02.webp');
+    await expect(pages.last()).toHaveAttribute('height', '1480');
+    await expect.poll(() => pages.evaluateAll(imgs => imgs.every(img => (img as HTMLImageElement).naturalWidth > 0))).toBe(true);
     await pages.last().scrollIntoViewIfNeeded();
     await expect(pages.last()).toBeInViewport();
-    await expect.poll(() => pages.evaluateAll(imgs => imgs.every(img => (img as HTMLImageElement).naturalWidth > 0))).toBe(true);
     await expect(viewer.locator('#modal-download')).toHaveAttribute('download', '2025-world-mbf.pdf');
     await viewer.getByRole('button', { name: lang === 'en' ? 'Close' : 'Закрыть' }).click();
     await expect(viewer).toBeHidden();

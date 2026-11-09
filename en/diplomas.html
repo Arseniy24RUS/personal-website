@@ -60,8 +60,9 @@
       const modal=document.getElementById('modal');
       const title=diplomaTitle(d);
       const pages=d.pages?.length?d.pages:[{src:d.full}];
-      document.getElementById('modal-pages').replaceChildren(...pages.map(({src},index)=>{
+      document.getElementById('modal-pages').replaceChildren(...pages.map(({src,width,height},index)=>{
         const img=new Image();
+        if(width&&height){img.width=width; img.height=height}
         img.src=src;
         img.alt=title+(pages.length>1?` (${index+1}/${pages.length})`:'');
         return img;
