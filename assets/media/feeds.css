@@ -63,23 +63,10 @@
 .media-image.is-illustration .media-illustration-label {
   display: block;
 }
-#media-list .media-image img,
-.risi-card.is-supplemental .media-image img {
+#media-list .media-image img {
   position: absolute;
   inset: 0;
   min-height: 0;
-}
-.risi-card.has-image.is-supplemental {
-  grid-column: auto;
-  grid-template-columns: 1fr;
-}
-.risi-card.is-supplemental .media-image {
-  aspect-ratio: 16 / 9;
-  min-height: 0;
-}
-.risi-card.is-supplemental .media-image:not(.is-illustration) img {
-  object-fit: contain;
-  background: #f7f7f7;
 }
 @media (max-width: 1050px) {
   #media-list .media-image {

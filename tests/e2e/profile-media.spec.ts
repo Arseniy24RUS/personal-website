@@ -48,6 +48,18 @@ for (const lang of ['ru', 'en']) {
     const archive = page.locator('#risi-list .risi-card');
     await expect(archive).toHaveCount(13);
     await expect(archive.locator('.media-image img')).toHaveCount(13);
+    const rows = await archive.evaluateAll(cards => cards.map(card => {
+      const cover = card.querySelector('.media-image')!.getBoundingClientRect();
+      const body = card.querySelector('.media-body')!.getBoundingClientRect();
+      const row = card.getBoundingClientRect();
+      return { width: row.width, height: row.height, coverWidth: cover.width, horizontal: body.left >= cover.right - 1 };
+    }));
+    for (const row of rows) {
+      expect(row.horizontal).toBe(true);
+      expect(row.width).toBe(rows[0].width);
+      expect(row.coverWidth).toBe(rows[0].coverWidth);
+      if ((page.viewportSize()?.width ?? 0) >= 1100) expect(row.height).toBe(rows[0].height);
+    }
     await archive.locator('.media-image.is-illustration').first().click();
     await expect(page.locator('#risi-reader[open]')).toBeVisible();
   });
