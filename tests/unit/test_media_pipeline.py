@@ -37,6 +37,21 @@ ISD_ARTICLE = """<div class="news-single"><span class="datetime">15 сентяб
 
 
 class MediaTests(unittest.TestCase):
+    def test_featured_order_survives_a_refresh_with_newer_news(self):
+        existing = [
+            {'url': 'https://example.org/third', 'featured_order': 3, 'published_at': '2026-09-22'},
+            {'url': 'https://example.org/first', 'featured_order': 1, 'published_at': '2026-10-26'},
+            {'url': 'https://example.org/second', 'featured_order': 2, 'published_at': '2026-10-23'},
+        ]
+        incoming = [
+            {'url': 'https://example.org/news', 'published_at': '2026-11-09'},
+            {'url': 'https://example.org/older', 'published_at': '2026-11-08'},
+            {'url': 'https://example.org/first/', 'title': 'Council meeting'},
+        ]
+        merged = media.merge_records(existing, incoming)
+        self.assertEqual([r['url'].split('/')[-1] for r in merged], ['first', 'second', 'third', 'news', 'older'])
+        self.assertEqual(merged[0]['published_at'], '2026-10-26')
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

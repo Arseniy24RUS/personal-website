@@ -451,9 +451,10 @@ def mirror_image(record: dict, image_url: str | None, *, deadline: float | None 
     return {**info, 'status': 'cached', 'local': target.as_posix()}
 
 
-def sort_key(record: dict) -> tuple[str, str]:
-    published = parse_date_value(record.get('published_at')) or ''
-    return (published, str(record.get('title') or ''))
+def sort_key(record: dict) -> tuple[bool, int, str, str]:
+    order = record.get('featured_order')
+    featured = type(order) is int and order > 0
+    return (featured, -order if featured else 0, record.get('published_at') or '', record.get('title') or '')
 
 
 def read_records(path: Path) -> list[dict]:

@@ -25,7 +25,7 @@
 .career-card[open]{
   background:#f1f1f1;
 }
-.career-card:not([open]) > :not(summary){
+details.career-card:not([open]) > :not(summary){
   display:none!important;
 }
 .career-card--featured{
@@ -84,6 +84,16 @@
 .career-org-text{
   display:block;
   min-width:0;
+}
+.leadership-entry{
+  display:grid;
+  grid-template-columns:82px minmax(0,1fr);
+  align-items:center;
+  gap:16px;
+}
+.leadership-affiliation{
+  color:#444;
+  font-size:15px;
 }
 .career-title{
   display:block;
@@ -255,6 +265,10 @@ body.lang-en .education-list.en{
   }
   .career-org{
     grid-template-columns:64px minmax(0,1fr) 30px;
+    gap:12px;
+  }
+  .leadership-entry{
+    grid-template-columns:64px minmax(0,1fr);
     gap:12px;
   }
   .career-org::after{

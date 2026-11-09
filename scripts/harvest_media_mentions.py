@@ -24,7 +24,7 @@ from bs4 import BeautifulSoup
 import requests
 import yaml
 
-from media_postprocess import mirror_image, parse_date_value, is_blocked_record, usable_image_url
+from media_postprocess import mirror_image, parse_date_value, is_blocked_record, sort_key, usable_image_url
 from media_translation import MediaTranslator, update_translation_state
 
 OUT = Path('data/media')
@@ -487,7 +487,7 @@ def merge_records(existing, incoming):
             # A concurrent merge may fill the last missing translation. This
             # operational state must follow the merged fields, not old metadata.
             update_translation_state(merged[key])
-    return sorted(merged.values(), key=lambda r: (r.get('published_at') or '', r.get('title') or ''), reverse=True)
+    return sorted(merged.values(), key=sort_key, reverse=True)
 
 
 def merge_discovery_state(existing, incoming):

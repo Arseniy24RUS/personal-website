@@ -146,9 +146,9 @@ def seo_head(page: dict[str, str], lang: str, include_base: bool) -> str:
         lines.extend(
             [
                 '  <link rel="stylesheet" href="assets/site.css">',
-                '  <link rel="stylesheet" href="assets/additions.css?v=20260607-nav-nowrap">',
+                '  <link rel="stylesheet" href="assets/additions.css?v=20261109-leadership">',
                 '  <link rel="stylesheet" href="assets/diplomas.css?v=20260607-dpo">',
-                '  <script defer src="assets/site.js?v=20260607-it-resources"></script>',
+                '  <script defer src="assets/site.js?v=20261109-leadership"></script>',
                 '  <script defer src="assets/dpo.js?v=20260607-dpo"></script>',
             ]
         )

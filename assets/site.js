@@ -238,7 +238,7 @@ function orderHomeSections(){
   const profile = document.querySelector('.profile-hero');
   if(!profile) return;
   let anchor = profile;
-  ['career', 'education', 'dpo', 'grants', 'research'].forEach(id => {
+  ['career', 'education', 'dpo', 'leadership', 'grants', 'research'].forEach(id => {
     const section = document.getElementById(id);
     if(section){
       anchor.after(section);
