@@ -26,9 +26,7 @@
       if (detail.type === 'view') {
         const url = new URL(detail.url);
         if (url.origin !== location.origin || url.search) return;
-        // The tag can use its document URL for technical events. This document
-        // has only the clean page URL and receives no form values or DOM events.
-        history.replaceState(null, '', url.href);
+        // Keep the noindex frame on its own URL. Only the hit uses the public URL.
         if (!counter) {
           if (!numberPattern.test(detail.counter)) return;
           counter = Number(detail.counter);
@@ -57,7 +55,11 @@
         lastView = url.href;
       } else if (counter && detail.type === 'outbound') {
         const url = toPublicUrl(detail.url);
-        if (url && url.origin !== location.origin) window.ym(counter, 'extLink', url.href);
+        if (url && url.origin !== location.origin) {
+          window.ym(counter, 'extLink', url.href, {
+            params: { outbound_source_page: lastView }
+          });
+        }
       }
     });
     return;
