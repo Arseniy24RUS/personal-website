@@ -276,6 +276,12 @@
           },
           {
             "$": "publisherfullgold"
+          },
+          {
+            "$": "repository"
+          },
+          {
+            "$": "repositoryam"
           }
         ]
       },
@@ -286,6 +292,9 @@
           },
           {
             "$": "Gold"
+          },
+          {
+            "$": "Green"
           }
         ]
       }

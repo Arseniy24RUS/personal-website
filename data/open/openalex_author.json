@@ -14,10 +14,10 @@
   ],
   "full_name": "10.26653/2076-4650-2021-6-08",
   "works_count": 25,
-  "cited_by_count": 20,
+  "cited_by_count": 35,
   "summary_stats": {
-    "2yr_mean_citedness": 0.6842105263157895,
-    "h_index": 3,
+    "2yr_mean_citedness": 1.368421052631579,
+    "h_index": 4,
     "i10_index": 0
   },
   "ids": {
@@ -154,16 +154,16 @@
       "display_name": "Socioeconomic and Demographic Analysis",
       "count": 14,
       "subfield": {
-        "id": "https://openalex.org/subfields/2308",
-        "display_name": "Management, Monitoring, Policy and Law"
+        "id": "https://openalex.org/subfields/2002",
+        "display_name": "Economics and Econometrics"
       },
       "field": {
-        "id": "https://openalex.org/fields/23",
-        "display_name": "Environmental Science"
+        "id": "https://openalex.org/fields/20",
+        "display_name": "Economics, Econometrics and Finance"
       },
       "domain": {
-        "id": "https://openalex.org/domains/3",
-        "display_name": "Physical Sciences"
+        "id": "https://openalex.org/domains/2",
+        "display_name": "Social Sciences"
       }
     },
     {
@@ -185,7 +185,7 @@
     },
     {
       "id": "https://openalex.org/T11014",
-      "display_name": "Regional Economics and Spatial Analysis",
+      "display_name": "Agglomeration and Urban Systems",
       "count": 5,
       "subfield": {
         "id": "https://openalex.org/subfields/2002",
@@ -222,31 +222,31 @@
     {
       "id": "https://openalex.org/T14019",
       "display_name": "Socioeconomic and Demographic Analysis",
-      "value": 0.0001673,
+      "value": 0.0001818,
       "subfield": {
-        "id": "https://openalex.org/subfields/2308",
-        "display_name": "Management, Monitoring, Policy and Law"
+        "id": "https://openalex.org/subfields/2002",
+        "display_name": "Economics and Econometrics"
       },
       "field": {
-        "id": "https://openalex.org/fields/23",
-        "display_name": "Environmental Science"
+        "id": "https://openalex.org/fields/20",
+        "display_name": "Economics, Econometrics and Finance"
       },
       "domain": {
-        "id": "https://openalex.org/domains/3",
-        "display_name": "Physical Sciences"
+        "id": "https://openalex.org/domains/2",
+        "display_name": "Social Sciences"
       }
     },
     {
       "id": "https://openalex.org/T13609",
       "display_name": "Economic, Social, and Public Health Issues in Russia and Globally",
-      "value": 9.42e-05,
+      "value": 0.0001036,
       "subfield": {
-        "id": "https://openalex.org/subfields/1803",
-        "display_name": "Management Science and Operations Research"
+        "id": "https://openalex.org/subfields/3321",
+        "display_name": "Public Administration"
       },
       "field": {
-        "id": "https://openalex.org/fields/18",
-        "display_name": "Decision Sciences"
+        "id": "https://openalex.org/fields/33",
+        "display_name": "Social Sciences"
       },
       "domain": {
         "id": "https://openalex.org/domains/2",
@@ -256,7 +256,7 @@
     {
       "id": "https://openalex.org/T13618",
       "display_name": "Regional Socio-Economic Development Trends",
-      "value": 9e-05,
+      "value": 9.64e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/3317",
         "display_name": "Demography"
@@ -273,7 +273,7 @@
     {
       "id": "https://openalex.org/T13888",
       "display_name": "Social Policies and Family",
-      "value": 4e-05,
+      "value": 4.32e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/3312",
         "display_name": "Sociology and Political Science"
@@ -290,7 +290,7 @@
     {
       "id": "https://openalex.org/T13747",
       "display_name": "Sociopolitical Dynamics in Russia",
-      "value": 3.4e-05,
+      "value": 3.66e-05,
       "subfield": {
         "id": "https://openalex.org/subfields/3312",
         "display_name": "Sociology and Political Science"
@@ -378,19 +378,19 @@
       "year": 2024,
       "works_count": 1,
       "oa_works_count": 1,
-      "cited_by_count": 2
+      "cited_by_count": 3
     },
     {
       "year": 2025,
       "works_count": 10,
       "oa_works_count": 9,
-      "cited_by_count": 7
+      "cited_by_count": 12
     },
     {
       "year": 2026,
       "works_count": 8,
       "oa_works_count": 8,
-      "cited_by_count": 11
+      "cited_by_count": 20
     }
   ],
   "display_name_alternatives": [
@@ -402,7 +402,7 @@
   ],
   "block_key": "10.26653/2076-4650-2021-6-08",
   "works_api_url": "https://api.openalex.org/works?filter=author.id:A5007601767",
-  "updated_date": "2026-11-01T11:00:13",
+  "updated_date": "2026-11-07T12:08:38",
   "created_date": "2020-12-21T00:00:00",
-  "last_success_at": "2026-11-02T11:08:33+00:00"
+  "last_success_at": "2026-11-09T11:37:37+00:00"
 }

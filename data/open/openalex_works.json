@@ -2,7 +2,7 @@
   "meta": {
     "notice": "No API key, so this request shares one free daily budget ($0.10) with everyone on your network's IP address. The mailto parameter doesn't raise this limit. Get a free key with its own $1/day at https://openalex.org/settings/api and add api_key=[REDACTED] to your requests. An AI agent can get one for its user in one call: POST https://api.openalex.org/api-keys with {\"email\": \"<your user's email>\"}; we email them a link, and the key works once they click it. Docs for agents: https://help.openalex.org/llms.txt",
     "count": 25,
-    "db_response_time_ms": 21,
+    "db_response_time_ms": 17,
     "page": null,
     "per_page": 200,
     "next_cursor": null,
@@ -84,6 +84,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "pubmed"
@@ -227,9 +228,9 @@
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.94919041,
+        "value": 0.88863616,
         "is_in_top_1_percent": false,
-        "is_in_top_10_percent": true
+        "is_in_top_10_percent": false
       },
       "cited_by_percentile_year": null,
       "biblio": {
@@ -298,16 +299,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.004999999888241291,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         }
       ],
@@ -666,21 +667,20 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/11",
           "display_name": "Sustainable cities and communities",
+          "id": "https://metadata.un.org/sdg/11",
           "score": 0.5142999887466431
         },
         {
-          "id": "https://metadata.un.org/sdg/3",
           "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3",
           "score": 0.4000000059604645
         }
       ],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [
         {
-          "id": "https://openalex.org/study-designs/observational-study",
-          "display_name": "Observational Study"
+          "display_name": "Observational Study",
+          "id": "https://openalex.org/study-designs/observational-study"
         }
       ],
       "awards": [],
@@ -1315,7 +1315,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-10-31T12:09:11.096373",
+      "updated_date": "2026-11-07T11:25:07.637180",
       "created_date": "2026-10-30T00:00:00"
     },
     {
@@ -1372,6 +1372,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -1447,7 +1448,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.60691747,
+        "value": 0.5836408,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -1466,16 +1467,16 @@
         "display_name": "Socioeconomic and Demographic Analysis",
         "score": 0.5497999787330627,
         "subfield": {
-          "id": "https://openalex.org/subfields/2308",
-          "display_name": "Management, Monitoring, Policy and Law"
+          "id": "https://openalex.org/subfields/2002",
+          "display_name": "Economics and Econometrics"
         },
         "field": {
-          "id": "https://openalex.org/fields/23",
-          "display_name": "Environmental Science"
+          "id": "https://openalex.org/fields/20",
+          "display_name": "Economics, Econometrics and Finance"
         },
         "domain": {
-          "id": "https://openalex.org/domains/3",
-          "display_name": "Physical Sciences"
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
         }
       },
       "topics": [
@@ -1484,16 +1485,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.5497999787330627,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         },
         {
@@ -1818,9 +1819,16 @@
         "raw_type": "journal-article"
       },
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
-      "awards": [],
+      "awards": [
+        {
+          "id": "https://openalex.org/G7850240885",
+          "display_name": null,
+          "funder_award_id": "30004",
+          "funder_id": "https://openalex.org/F4320324099",
+          "funder_display_name": "Russian Science Foundation"
+        }
+      ],
       "funders": [
         {
           "id": "https://openalex.org/F4320324099",
@@ -1830,13 +1838,55 @@
       ],
       "has_content": {
         "pdf": true,
-        "grobid_xml": false
+        "grobid_xml": true
       },
       "content_urls": {
-        "pdf": "https://content.openalex.org/works/W7204881448.pdf"
+        "pdf": "https://content.openalex.org/works/W7204881448.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W7204881448.grobid-xml"
       },
-      "referenced_works_count": 0,
-      "referenced_works": [],
+      "referenced_works_count": 40,
+      "referenced_works": [
+        "https://openalex.org/W117502432",
+        "https://openalex.org/W1533578467",
+        "https://openalex.org/W1647816935",
+        "https://openalex.org/W2010947787",
+        "https://openalex.org/W2029978397",
+        "https://openalex.org/W2035827198",
+        "https://openalex.org/W2096062155",
+        "https://openalex.org/W2132599910",
+        "https://openalex.org/W2156090690",
+        "https://openalex.org/W2160367219",
+        "https://openalex.org/W2794717344",
+        "https://openalex.org/W2942334608",
+        "https://openalex.org/W2943486479",
+        "https://openalex.org/W2950544749",
+        "https://openalex.org/W2977950257",
+        "https://openalex.org/W3023666990",
+        "https://openalex.org/W3177175802",
+        "https://openalex.org/W3216274519",
+        "https://openalex.org/W4200341046",
+        "https://openalex.org/W4282974111",
+        "https://openalex.org/W4283210353",
+        "https://openalex.org/W4283213701",
+        "https://openalex.org/W4283214296",
+        "https://openalex.org/W4283520772",
+        "https://openalex.org/W4287062495",
+        "https://openalex.org/W4312556229",
+        "https://openalex.org/W4320076618",
+        "https://openalex.org/W4320156573",
+        "https://openalex.org/W4361215808",
+        "https://openalex.org/W4380302570",
+        "https://openalex.org/W4389803530",
+        "https://openalex.org/W4390051256",
+        "https://openalex.org/W4393338209",
+        "https://openalex.org/W4399965830",
+        "https://openalex.org/W4402967642",
+        "https://openalex.org/W4410943920",
+        "https://openalex.org/W4411804407",
+        "https://openalex.org/W4415774334",
+        "https://openalex.org/W4416843219",
+        "https://openalex.org/W4417201470"
+      ],
       "related_works": [
         "https://openalex.org/W4380302570",
         "https://openalex.org/W6888829563",
@@ -2334,7 +2384,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-11-02T09:45:03.842371",
+      "updated_date": "2026-11-07T11:25:07.637180",
       "created_date": "2026-09-02T00:00:00"
     },
     {
@@ -2391,6 +2441,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -2525,7 +2576,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.59775602,
+        "value": 0.6404514,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -2857,16 +2908,9 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/10",
           "display_name": "Reduced inequalities",
+          "id": "https://metadata.un.org/sdg/10",
           "score": 0.4074000120162964
-        }
-      ],
-      "sustainable_development_goals_aurora": [
-        {
-          "id": "https://metadata.un.org/sdg/10",
-          "display_name": "Reduced inequalities",
-          "score": 0.5403067469596863
         }
       ],
       "study_designs": [],
@@ -2894,8 +2938,27 @@
         "pdf": "https://content.openalex.org/works/W7204927332.pdf",
         "grobid_xml": "https://content.openalex.org/works/W7204927332.grobid-xml"
       },
-      "referenced_works_count": 0,
-      "referenced_works": [],
+      "referenced_works_count": 18,
+      "referenced_works": [
+        "https://openalex.org/W1790882315",
+        "https://openalex.org/W1828336329",
+        "https://openalex.org/W1981357652",
+        "https://openalex.org/W2021007988",
+        "https://openalex.org/W2109700910",
+        "https://openalex.org/W2124800409",
+        "https://openalex.org/W2136048895",
+        "https://openalex.org/W2570405823",
+        "https://openalex.org/W2923556210",
+        "https://openalex.org/W2951238350",
+        "https://openalex.org/W2995913473",
+        "https://openalex.org/W3097353692",
+        "https://openalex.org/W3202774808",
+        "https://openalex.org/W4390918960",
+        "https://openalex.org/W4408078824",
+        "https://openalex.org/W4410943920",
+        "https://openalex.org/W4416843219",
+        "https://openalex.org/W6908417256"
+      ],
       "related_works": [
         "https://openalex.org/W2923556210",
         "https://openalex.org/W2479044876",
@@ -3308,7 +3371,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-11-02T09:45:03.842371",
+      "updated_date": "2026-11-04T10:54:05.112534",
       "created_date": "2026-09-02T00:00:00"
     },
     {
@@ -3371,6 +3434,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj",
@@ -3505,15 +3569,18 @@
         "currency": "CHF",
         "value_usd": 1418
       },
-      "fwci": 0.0,
+      "fwci": 1.4846,
       "has_fulltext": true,
-      "cited_by_count": 0,
+      "cited_by_count": 1,
       "citation_normalized_percentile": {
-        "value": 0.47415781,
+        "value": 0.89022802,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
-      "cited_by_percentile_year": null,
+      "cited_by_percentile_year": {
+        "min": 91,
+        "max": 95
+      },
       "biblio": {
         "volume": "9",
         "issue": null,
@@ -3563,16 +3630,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.0010000000474974513,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         },
         {
@@ -3980,7 +4047,6 @@
         "raw_type": "journal-article"
       },
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [
@@ -4540,8 +4606,13 @@
           203
         ]
       },
-      "counts_by_year": [],
-      "updated_date": "2026-10-29T09:56:32.521200",
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 1
+        }
+      ],
+      "updated_date": "2026-11-07T11:25:07.637180",
       "created_date": "2026-07-09T00:00:00"
     },
     {
@@ -4602,6 +4673,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -4813,7 +4885,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.27415798,
+        "value": 0.25718353,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -4829,7 +4901,7 @@
       "is_xpac": false,
       "primary_topic": {
         "id": "https://openalex.org/T11014",
-        "display_name": "Regional Economics and Spatial Analysis",
+        "display_name": "Agglomeration and Urban Systems",
         "score": 0.7275000214576721,
         "subfield": {
           "id": "https://openalex.org/subfields/2002",
@@ -4847,7 +4919,7 @@
       "topics": [
         {
           "id": "https://openalex.org/T11014",
-          "display_name": "Regional Economics and Spatial Analysis",
+          "display_name": "Agglomeration and Urban Systems",
           "score": 0.7275000214576721,
           "subfield": {
             "id": "https://openalex.org/subfields/2002",
@@ -5266,21 +5338,14 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/11",
           "display_name": "Sustainable cities and communities",
+          "id": "https://metadata.un.org/sdg/11",
           "score": 1.0
         },
         {
-          "id": "https://metadata.un.org/sdg/10",
           "display_name": "Reduced inequalities",
+          "id": "https://metadata.un.org/sdg/10",
           "score": 0.7578999996185303
-        }
-      ],
-      "sustainable_development_goals_aurora": [
-        {
-          "id": "https://metadata.un.org/sdg/11",
-          "display_name": "Sustainable cities and communities",
-          "score": 0.7257272005081177
         }
       ],
       "study_designs": [],
@@ -5797,7 +5862,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-10-14T16:39:01.820549",
+      "updated_date": "2026-11-04T10:54:05.112534",
       "created_date": "2026-05-05T00:00:00"
     },
     {
@@ -5857,6 +5922,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -5950,7 +6016,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.27114127,
+        "value": 0.30406533,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -6021,12 +6087,12 @@
           "display_name": "Indigenous Health and Education",
           "score": 0.05869999900460243,
           "subfield": {
-            "id": "https://openalex.org/subfields/3600",
-            "display_name": "General Health Professions"
+            "id": "https://openalex.org/subfields/2739",
+            "display_name": "Public Health, Environmental and Occupational Health"
           },
           "field": {
-            "id": "https://openalex.org/fields/36",
-            "display_name": "Health Professions"
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
           },
           "domain": {
             "id": "https://openalex.org/domains/4",
@@ -6382,12 +6448,11 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/10",
           "display_name": "Reduced inequalities",
+          "id": "https://metadata.un.org/sdg/10",
           "score": 0.7390999794006348
         }
       ],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [
@@ -7259,6 +7324,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -7375,7 +7441,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.2249388,
+        "value": 0.25349021,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -7429,16 +7495,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.14380000531673431,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         },
         {
@@ -7620,7 +7686,7 @@
         }
       ],
       "mesh": [],
-      "locations_count": 2,
+      "locations_count": 3,
       "locations": [
         {
           "id": "doi:10.22363/2312-8313-2026-13-1-86-95",
@@ -7660,6 +7726,35 @@
           "is_published": true,
           "raw_source_name": "RUDN Journal of Public Administration",
           "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:https://cyberleninka.ru/article/n/demograficheskaya-tipologiya-korennyh-malochislennyh-narodov-rossii-klasternyy-analiz-vozrastnoy-struktury",
+          "doi": null,
+          "is_oa": true,
+          "landing_page_url": "https://cyberleninka.ru/article/n/demograficheskaya-tipologiya-korennyh-malochislennyh-narodov-rossii-klasternyy-analiz-vozrastnoy-struktury",
+          "pdf_url": "https://cyberleninka.ru/article/n/demograficheskaya-tipologiya-korennyh-malochislennyh-narodov-rossii-klasternyy-analiz-vozrastnoy-struktury/pdf",
+          "source": {
+            "id": "https://openalex.org/S4306401404",
+            "display_name": "CyberLeninK (CyberLeninka)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-nc",
+          "license_id": "https://openalex.org/licenses/cc-by-nc",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": null,
+          "raw_type": "text"
         },
         {
           "id": "pmh:oai:doaj.org/article:c72d4d7e0d39497d9145bdbb1da572fb",
@@ -7731,7 +7826,6 @@
         "raw_type": "journal-article"
       },
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -8011,7 +8105,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-10-28T10:33:24.094632",
+      "updated_date": "2026-11-04T10:54:05.112534",
       "created_date": "2026-04-11T00:00:00"
     },
     {
@@ -8069,6 +8163,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -8191,7 +8286,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.01841302,
+        "value": 0.01349702,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -8210,8 +8305,8 @@
         "display_name": "Higher Education Governance and Development",
         "score": 0.2281000018119812,
         "subfield": {
-          "id": "https://openalex.org/subfields/3320",
-          "display_name": "Political Science and International Relations"
+          "id": "https://openalex.org/subfields/3304",
+          "display_name": "Education"
         },
         "field": {
           "id": "https://openalex.org/fields/33",
@@ -8228,8 +8323,8 @@
           "display_name": "Higher Education Governance and Development",
           "score": 0.2281000018119812,
           "subfield": {
-            "id": "https://openalex.org/subfields/3320",
-            "display_name": "Political Science and International Relations"
+            "id": "https://openalex.org/subfields/3304",
+            "display_name": "Education"
           },
           "field": {
             "id": "https://openalex.org/fields/33",
@@ -8245,16 +8340,16 @@
           "display_name": "Doctoral Education Challenges and Solutions",
           "score": 0.10220000147819519,
           "subfield": {
-            "id": "https://openalex.org/subfields/3600",
-            "display_name": "General Health Professions"
+            "id": "https://openalex.org/subfields/3304",
+            "display_name": "Education"
           },
           "field": {
-            "id": "https://openalex.org/fields/36",
-            "display_name": "Health Professions"
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
           },
           "domain": {
-            "id": "https://openalex.org/domains/4",
-            "display_name": "Health Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         },
         {
@@ -8519,7 +8614,7 @@
         }
       ],
       "mesh": [],
-      "locations_count": 3,
+      "locations_count": 4,
       "locations": [
         {
           "id": "doi:10.17853/1994-5639-2026-1-33-64",
@@ -8561,6 +8656,35 @@
           "is_published": true,
           "raw_source_name": "The Education and science journal",
           "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:https://cyberleninka.ru/article/n/sravnitelnyy-kontent-analiz-magisterskih-i-doktorskih-programm-v-sfere-demografii-universitetov-mirovogo-urovnya",
+          "doi": null,
+          "is_oa": true,
+          "landing_page_url": "https://cyberleninka.ru/article/n/sravnitelnyy-kontent-analiz-magisterskih-i-doktorskih-programm-v-sfere-demografii-universitetov-mirovogo-urovnya",
+          "pdf_url": "https://cyberleninka.ru/article/n/sravnitelnyy-kontent-analiz-magisterskih-i-doktorskih-programm-v-sfere-demografii-universitetov-mirovogo-urovnya/pdf",
+          "source": {
+            "id": "https://openalex.org/S4306401404",
+            "display_name": "CyberLeninK (CyberLeninka)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by",
+          "license_id": "https://openalex.org/licenses/cc-by",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": null,
+          "raw_type": "text"
         },
         {
           "id": "pmh:oai:elar.uspu.ru:ru-uspu/67655",
@@ -8664,12 +8788,11 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/4",
           "display_name": "Quality education",
+          "id": "https://metadata.un.org/sdg/4",
           "score": 0.9235000014305115
         }
       ],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -9492,7 +9615,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-11-02T09:45:03.842371",
+      "updated_date": "2026-11-05T12:25:35.769452",
       "created_date": "2026-01-16T00:00:00"
     },
     {
@@ -9544,6 +9667,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref"
       ],
@@ -9648,7 +9772,7 @@
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.66146387,
+        "value": 0.57203739,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -9719,16 +9843,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.17319999635219574,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         }
       ],
@@ -9935,13 +10059,6 @@
         "raw_type": "journal-article"
       },
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [
-        {
-          "id": "https://metadata.un.org/sdg/10",
-          "display_name": "Reduced inequalities",
-          "score": 0.6855306625366211
-        }
-      ],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -10094,6 +10211,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref"
       ],
@@ -10164,7 +10282,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.51389806,
+        "value": 0.46705877,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -10183,16 +10301,16 @@
         "display_name": "Socioeconomic and Demographic Analysis",
         "score": 0.9125999808311462,
         "subfield": {
-          "id": "https://openalex.org/subfields/2308",
-          "display_name": "Management, Monitoring, Policy and Law"
+          "id": "https://openalex.org/subfields/2002",
+          "display_name": "Economics and Econometrics"
         },
         "field": {
-          "id": "https://openalex.org/fields/23",
-          "display_name": "Environmental Science"
+          "id": "https://openalex.org/fields/20",
+          "display_name": "Economics, Econometrics and Finance"
         },
         "domain": {
-          "id": "https://openalex.org/domains/3",
-          "display_name": "Physical Sciences"
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
         }
       },
       "topics": [
@@ -10201,16 +10319,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.9125999808311462,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         },
         {
@@ -10522,16 +10640,9 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/11",
           "display_name": "Sustainable cities and communities",
+          "id": "https://metadata.un.org/sdg/11",
           "score": 0.5142999887466431
-        }
-      ],
-      "sustainable_development_goals_aurora": [
-        {
-          "id": "https://metadata.un.org/sdg/11",
-          "display_name": "Sustainable cities and communities",
-          "score": 0.834139347076416
         }
       ],
       "study_designs": [],
@@ -10545,14 +10656,16 @@
         "pdf": "https://content.openalex.org/works/W7117456659.pdf",
         "grobid_xml": "https://content.openalex.org/works/W7117456659.grobid-xml"
       },
-      "referenced_works_count": 6,
+      "referenced_works_count": 8,
       "referenced_works": [
         "https://openalex.org/W2008385342",
         "https://openalex.org/W2461781660",
         "https://openalex.org/W2981820162",
         "https://openalex.org/W3199456957",
+        "https://openalex.org/W3210588343",
         "https://openalex.org/W4387221586",
-        "https://openalex.org/W4415774334"
+        "https://openalex.org/W4415774334",
+        "https://openalex.org/W6907706064"
       ],
       "related_works": [
         "https://openalex.org/W4318658995",
@@ -11220,7 +11333,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-10-28T10:33:24.094632",
+      "updated_date": "2026-11-04T10:54:05.112534",
       "created_date": "2025-12-29T00:00:00"
     },
     {
@@ -11277,6 +11390,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -11433,15 +11547,18 @@
         "currency": "RUB",
         "value_usd": 95
       },
-      "fwci": 0.0,
+      "fwci": 1.3517,
       "has_fulltext": true,
-      "cited_by_count": 0,
+      "cited_by_count": 2,
       "citation_normalized_percentile": {
-        "value": 0.28541743,
+        "value": 0.84118355,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
-      "cited_by_percentile_year": null,
+      "cited_by_percentile_year": {
+        "min": 95,
+        "max": 96
+      },
       "biblio": {
         "volume": null,
         "issue": "4",
@@ -11456,16 +11573,16 @@
         "display_name": "Socioeconomic and Demographic Analysis",
         "score": 0.5957000255584717,
         "subfield": {
-          "id": "https://openalex.org/subfields/2308",
-          "display_name": "Management, Monitoring, Policy and Law"
+          "id": "https://openalex.org/subfields/2002",
+          "display_name": "Economics and Econometrics"
         },
         "field": {
-          "id": "https://openalex.org/fields/23",
-          "display_name": "Environmental Science"
+          "id": "https://openalex.org/fields/20",
+          "display_name": "Economics, Econometrics and Finance"
         },
         "domain": {
-          "id": "https://openalex.org/domains/3",
-          "display_name": "Physical Sciences"
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
         }
       },
       "topics": [
@@ -11474,16 +11591,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.5957000255584717,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         },
         {
@@ -11626,7 +11743,7 @@
         }
       ],
       "mesh": [],
-      "locations_count": 2,
+      "locations_count": 3,
       "locations": [
         {
           "id": "doi:10.25178/nit.2025.4.13",
@@ -11667,6 +11784,35 @@
           "is_published": true,
           "raw_source_name": "The New Research of Tuva",
           "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:https://cyberleninka.ru/article/n/metodologiya-i-praktika-provedeniya-demograficheskoy-ekspertizy-na-primere-regionalnoy-programmy-povyshenie-rozhdaemosti-v",
+          "doi": null,
+          "is_oa": true,
+          "landing_page_url": "https://cyberleninka.ru/article/n/metodologiya-i-praktika-provedeniya-demograficheskoy-ekspertizy-na-primere-regionalnoy-programmy-povyshenie-rozhdaemosti-v",
+          "pdf_url": "https://cyberleninka.ru/article/n/metodologiya-i-praktika-provedeniya-demograficheskoy-ekspertizy-na-primere-regionalnoy-programmy-povyshenie-rozhdaemosti-v/pdf",
+          "source": {
+            "id": "https://openalex.org/S4306401404",
+            "display_name": "CyberLeninK (CyberLeninka)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by",
+          "license_id": "https://openalex.org/licenses/cc-by",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": null,
+          "raw_type": "text"
         },
         {
           "id": "pmh:oai:doaj.org/article:8b2c092a933f4d5abfb48c2af34f9f2e",
@@ -11739,7 +11885,6 @@
         "raw_type": "journal-article"
       },
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -11751,8 +11896,21 @@
         "pdf": "https://content.openalex.org/works/W4416843219.pdf",
         "grobid_xml": "https://content.openalex.org/works/W4416843219.grobid-xml"
       },
-      "referenced_works_count": 0,
-      "referenced_works": [],
+      "referenced_works_count": 12,
+      "referenced_works": [
+        "https://openalex.org/W2942334608",
+        "https://openalex.org/W2977950257",
+        "https://openalex.org/W2981820162",
+        "https://openalex.org/W3210588343",
+        "https://openalex.org/W4200341046",
+        "https://openalex.org/W4283210353",
+        "https://openalex.org/W4283213701",
+        "https://openalex.org/W4380302570",
+        "https://openalex.org/W4389630192",
+        "https://openalex.org/W4406689644",
+        "https://openalex.org/W4408040502",
+        "https://openalex.org/W6907706064"
+      ],
       "related_works": [
         "https://openalex.org/W7165220460",
         "https://openalex.org/W4380302570",
@@ -12320,8 +12478,13 @@
           214
         ]
       },
-      "counts_by_year": [],
-      "updated_date": "2026-09-23T05:00:35.095934",
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 2
+        }
+      ],
+      "updated_date": "2026-11-07T11:25:07.637180",
       "created_date": "2025-12-01T00:00:00"
     },
     {
@@ -12377,6 +12540,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -12440,16 +12604,16 @@
       ],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 4.5031,
+      "fwci": 4.3867,
       "has_fulltext": true,
-      "cited_by_count": 2,
+      "cited_by_count": 4,
       "citation_normalized_percentile": {
-        "value": 0.94938807,
+        "value": 0.94862146,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
       "cited_by_percentile_year": {
-        "min": 90,
+        "min": 93,
         "max": 96
       },
       "biblio": {
@@ -12501,16 +12665,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.00930000003427267,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         },
         {
@@ -12905,7 +13069,6 @@
         "raw_type": "journal-article"
       },
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -13530,14 +13693,14 @@
       "counts_by_year": [
         {
           "year": 2026,
-          "cited_by_count": 1
+          "cited_by_count": 2
         },
         {
           "year": 2025,
-          "cited_by_count": 1
+          "cited_by_count": 2
         }
       ],
-      "updated_date": "2026-10-28T10:33:24.094632",
+      "updated_date": "2026-11-07T11:25:07.637180",
       "created_date": "2025-11-02T00:00:00"
     },
     {
@@ -13593,6 +13756,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -13730,7 +13894,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.28406285,
+        "value": 0.24513577,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -13801,16 +13965,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.0017999999690800905,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         }
       ],
@@ -14021,12 +14185,11 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/16",
           "display_name": "Peace, justice, and strong institutions",
+          "id": "https://metadata.un.org/sdg/16",
           "score": 0.5473999977111816
         }
       ],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -14112,6 +14275,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -14120,7 +14284,7 @@
         "is_oa": true,
         "oa_status": "gold",
         "oa_url": "https://doi.org/10.17853/1994-5639-2025-6-149-179",
-        "any_repository_has_fulltext": false
+        "any_repository_has_fulltext": true
       },
       "authorships": [
         {
@@ -14221,17 +14385,17 @@
         "currency": "RUB",
         "value_usd": 333
       },
-      "fwci": 9.0063,
-      "has_fulltext": false,
-      "cited_by_count": 4,
+      "fwci": 5.4834,
+      "has_fulltext": true,
+      "cited_by_count": 5,
       "citation_normalized_percentile": {
-        "value": 0.97310937,
+        "value": 0.95875893,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
       "cited_by_percentile_year": {
-        "min": 98,
-        "max": 99
+        "min": 97,
+        "max": 98
       },
       "biblio": {
         "volume": "27",
@@ -14299,8 +14463,8 @@
           "display_name": "Human Resources and Workforce",
           "score": 0.002199999988079071,
           "subfield": {
-            "id": "https://openalex.org/subfields/3311",
-            "display_name": "Safety Research"
+            "id": "https://openalex.org/subfields/3305",
+            "display_name": "Geography, Planning and Development"
           },
           "field": {
             "id": "https://openalex.org/fields/33",
@@ -14413,7 +14577,7 @@
         }
       ],
       "mesh": [],
-      "locations_count": 2,
+      "locations_count": 3,
       "locations": [
         {
           "id": "doi:10.17853/1994-5639-2025-6-149-179",
@@ -14455,6 +14619,35 @@
           "is_published": true,
           "raw_source_name": "The Education and science journal",
           "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:oai:elar.uspu.ru:ru-uspu/66364",
+          "doi": null,
+          "is_oa": true,
+          "landing_page_url": "https://elar.uspu.ru/handle/ru-uspu/66364",
+          "pdf_url": "https://elar.uspu.ru/bitstream/ru-uspu/66364/1/edscience_2025_02_007.pdf",
+          "source": {
+            "id": "https://openalex.org/S4406922346",
+            "display_name": "Electronic archive USPU",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-nc",
+          "license_id": "https://openalex.org/licenses/cc-by-nc",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "Образование и наука",
+          "raw_type": "info:eu-repo/semantics/article"
         },
         {
           "id": "pmh:oai:doaj.org/article:154f4b7faec44ab885376a526c69aa52",
@@ -14529,25 +14722,27 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/10",
           "display_name": "Reduced inequalities",
+          "id": "https://metadata.un.org/sdg/10",
           "score": 0.7578999996185303
         },
         {
-          "id": "https://metadata.un.org/sdg/4",
           "display_name": "Quality education",
+          "id": "https://metadata.un.org/sdg/4",
           "score": 0.6164000034332275
         }
       ],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
       "has_content": {
-        "pdf": false,
-        "grobid_xml": false
+        "pdf": true,
+        "grobid_xml": true
       },
-      "content_urls": null,
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W4411027413.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W4411027413.grobid-xml"
+      },
       "referenced_works_count": 33,
       "referenced_works": [
         "https://openalex.org/W1969584169",
@@ -15284,10 +15479,10 @@
       "counts_by_year": [
         {
           "year": 2026,
-          "cited_by_count": 4
+          "cited_by_count": 5
         }
       ],
-      "updated_date": "2026-10-02T10:15:12.560889",
+      "updated_date": "2026-11-04T10:54:05.112534",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -15344,6 +15539,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -15451,15 +15647,18 @@
         "currency": "RUB",
         "value_usd": 95
       },
-      "fwci": 0.0,
+      "fwci": 2.1934,
       "has_fulltext": true,
-      "cited_by_count": 0,
+      "cited_by_count": 2,
       "citation_normalized_percentile": {
-        "value": 0.11268224,
+        "value": 0.8672913,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
-      "cited_by_percentile_year": null,
+      "cited_by_percentile_year": {
+        "min": 95,
+        "max": 96
+      },
       "biblio": {
         "volume": null,
         "issue": "2",
@@ -15506,7 +15705,7 @@
         },
         {
           "id": "https://openalex.org/T11014",
-          "display_name": "Regional Economics and Spatial Analysis",
+          "display_name": "Agglomeration and Urban Systems",
           "score": 0.05700000002980232,
           "subfield": {
             "id": "https://openalex.org/subfields/2002",
@@ -15591,7 +15790,7 @@
         }
       ],
       "mesh": [],
-      "locations_count": 2,
+      "locations_count": 3,
       "locations": [
         {
           "id": "doi:10.25178/nit.2025.2.4",
@@ -15632,6 +15831,35 @@
           "is_published": true,
           "raw_source_name": "The New Research of Tuva",
           "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:https://cyberleninka.ru/article/n/sistema-rasseleniya-respubliki-tyva-opornye-naselyonnye-punkty",
+          "doi": null,
+          "is_oa": false,
+          "landing_page_url": "https://cyberleninka.ru/article/n/sistema-rasseleniya-respubliki-tyva-opornye-naselyonnye-punkty",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306401404",
+            "display_name": "CyberLeninK (CyberLeninka)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": null,
+          "raw_type": "text"
         },
         {
           "id": "pmh:oai:doaj.org/article:eaafe4a07ae14e7e9f85421063f1b6ae",
@@ -15705,12 +15933,11 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/11",
           "display_name": "Sustainable cities and communities",
+          "id": "https://metadata.un.org/sdg/11",
           "score": 0.5142999887466431
         }
       ],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -15722,8 +15949,22 @@
         "pdf": "https://content.openalex.org/works/W4410943920.pdf",
         "grobid_xml": "https://content.openalex.org/works/W4410943920.grobid-xml"
       },
-      "referenced_works_count": 0,
-      "referenced_works": [],
+      "referenced_works_count": 13,
+      "referenced_works": [
+        "https://openalex.org/W2043265862",
+        "https://openalex.org/W2058112303",
+        "https://openalex.org/W2906673217",
+        "https://openalex.org/W3086907017",
+        "https://openalex.org/W3124087470",
+        "https://openalex.org/W4285197710",
+        "https://openalex.org/W4285518569",
+        "https://openalex.org/W4313299316",
+        "https://openalex.org/W4386310774",
+        "https://openalex.org/W4387913812",
+        "https://openalex.org/W4390636376",
+        "https://openalex.org/W4391436795",
+        "https://openalex.org/W4402469980"
+      ],
       "related_works": [
         "https://openalex.org/W4387913812",
         "https://openalex.org/W3087466179",
@@ -16215,8 +16456,13 @@
           184
         ]
       },
-      "counts_by_year": [],
-      "updated_date": "2026-09-25T08:18:29.962427",
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 2
+        }
+      ],
+      "updated_date": "2026-11-07T11:25:07.637180",
       "created_date": "2025-10-10T00:00:00"
     },
     {
@@ -16273,6 +16519,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref"
       ],
@@ -16363,11 +16610,11 @@
       "corresponding_institution_ids": [],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 6.7547,
+      "fwci": 4.3867,
       "has_fulltext": false,
-      "cited_by_count": 3,
+      "cited_by_count": 4,
       "citation_normalized_percentile": {
-        "value": 0.96750207,
+        "value": 0.94969664,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
@@ -16424,16 +16671,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.47119998931884766,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         },
         {
@@ -16441,12 +16688,12 @@
           "display_name": "Economic, Social, and Public Health Issues in Russia and Globally",
           "score": 0.00860000029206276,
           "subfield": {
-            "id": "https://openalex.org/subfields/1803",
-            "display_name": "Management Science and Operations Research"
+            "id": "https://openalex.org/subfields/3321",
+            "display_name": "Public Administration"
           },
           "field": {
-            "id": "https://openalex.org/fields/18",
-            "display_name": "Decision Sciences"
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
           },
           "domain": {
             "id": "https://openalex.org/domains/2",
@@ -16683,7 +16930,6 @@
         "raw_type": "journal-article"
       },
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -17374,10 +17620,10 @@
       "counts_by_year": [
         {
           "year": 2026,
-          "cited_by_count": 3
+          "cited_by_count": 4
         }
       ],
-      "updated_date": "2026-10-28T10:33:24.094632",
+      "updated_date": "2026-11-07T11:25:07.637180",
       "created_date": "2025-12-05T00:00:00"
     },
     {
@@ -17433,6 +17679,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref"
       ],
@@ -17487,17 +17734,17 @@
       "corresponding_institution_ids": [],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 1.7424,
+      "fwci": 0.9716,
       "has_fulltext": false,
       "cited_by_count": 1,
       "citation_normalized_percentile": {
-        "value": 0.9015517,
+        "value": 0.82832921,
         "is_in_top_1_percent": false,
-        "is_in_top_10_percent": true
+        "is_in_top_10_percent": false
       },
       "cited_by_percentile_year": {
-        "min": 93,
-        "max": 96
+        "min": 91,
+        "max": 95
       },
       "biblio": {
         "volume": null,
@@ -17565,16 +17812,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.012900000438094139,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         }
       ],
@@ -17814,7 +18061,6 @@
       ],
       "best_oa_location": null,
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -18238,7 +18484,7 @@
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-09-29T14:09:16.559479",
+      "updated_date": "2026-11-04T10:54:05.112534",
       "created_date": "2026-03-12T00:00:00"
     },
     {
@@ -18295,6 +18541,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref"
       ],
@@ -18385,7 +18632,7 @@
       "has_fulltext": false,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.53106119,
+        "value": 0.46761067,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -18401,7 +18648,7 @@
       "is_xpac": false,
       "primary_topic": {
         "id": "https://openalex.org/T11014",
-        "display_name": "Regional Economics and Spatial Analysis",
+        "display_name": "Agglomeration and Urban Systems",
         "score": 0.6377000212669373,
         "subfield": {
           "id": "https://openalex.org/subfields/2002",
@@ -18419,7 +18666,7 @@
       "topics": [
         {
           "id": "https://openalex.org/T11014",
-          "display_name": "Regional Economics and Spatial Analysis",
+          "display_name": "Agglomeration and Urban Systems",
           "score": 0.6377000212669373,
           "subfield": {
             "id": "https://openalex.org/subfields/2002",
@@ -18456,16 +18703,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.009700000286102295,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         }
       ],
@@ -18688,7 +18935,6 @@
         "raw_type": "journal-article"
       },
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -18713,7 +18959,7 @@
       ],
       "abstract_inverted_index": null,
       "counts_by_year": [],
-      "updated_date": "2026-10-28T10:33:24.094632",
+      "updated_date": "2026-11-04T10:54:05.112534",
       "created_date": "2025-12-29T00:00:00"
     },
     {
@@ -18770,6 +19016,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -18887,17 +19134,17 @@
         "currency": "RUB",
         "value_usd": 95
       },
-      "fwci": 2.5836,
+      "fwci": 3.0845,
       "has_fulltext": true,
-      "cited_by_count": 3,
+      "cited_by_count": 7,
       "citation_normalized_percentile": {
-        "value": 0.91924446,
+        "value": 0.93480493,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": true
       },
       "cited_by_percentile_year": {
-        "min": 96,
-        "max": 97
+        "min": 88,
+        "max": 98
       },
       "biblio": {
         "volume": null,
@@ -19055,7 +19302,7 @@
         }
       ],
       "mesh": [],
-      "locations_count": 2,
+      "locations_count": 3,
       "locations": [
         {
           "id": "doi:10.25178/nit.2024.3.13",
@@ -19096,6 +19343,35 @@
           "is_published": true,
           "raw_source_name": "The New Research of Tuva",
           "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:https://cyberleninka.ru/article/n/obrazovatelnye-mezhregionalnye-migratsii-v-rossii-v-2017-2019-gg-gendernye-i-prostranstvennye-aspekty",
+          "doi": null,
+          "is_oa": true,
+          "landing_page_url": "https://cyberleninka.ru/article/n/obrazovatelnye-mezhregionalnye-migratsii-v-rossii-v-2017-2019-gg-gendernye-i-prostranstvennye-aspekty",
+          "pdf_url": "https://cyberleninka.ru/article/n/obrazovatelnye-mezhregionalnye-migratsii-v-rossii-v-2017-2019-gg-gendernye-i-prostranstvennye-aspekty/pdf",
+          "source": {
+            "id": "https://openalex.org/S4306401404",
+            "display_name": "CyberLeninK (CyberLeninka)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by",
+          "license_id": "https://openalex.org/licenses/cc-by",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": null,
+          "raw_type": "text"
         },
         {
           "id": "pmh:oai:doaj.org/article:f8d097a37f7f4e119038d547da89f8de",
@@ -19169,22 +19445,21 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/10",
           "display_name": "Reduced inequalities",
+          "id": "https://metadata.un.org/sdg/10",
           "score": 0.8974000215530396
         },
         {
-          "id": "https://metadata.un.org/sdg/5",
           "display_name": "Gender equality",
+          "id": "https://metadata.un.org/sdg/5",
           "score": 0.7307999730110168
         },
         {
-          "id": "https://metadata.un.org/sdg/4",
           "display_name": "Quality education",
+          "id": "https://metadata.un.org/sdg/4",
           "score": 0.6164000034332275
         }
       ],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -19196,8 +19471,21 @@
         "pdf": "https://content.openalex.org/works/W4402469980.pdf",
         "grobid_xml": "https://content.openalex.org/works/W4402469980.grobid-xml"
       },
-      "referenced_works_count": 0,
-      "referenced_works": [],
+      "referenced_works_count": 12,
+      "referenced_works": [
+        "https://openalex.org/W2523173410",
+        "https://openalex.org/W2906190256",
+        "https://openalex.org/W2910386378",
+        "https://openalex.org/W2998401263",
+        "https://openalex.org/W3173180212",
+        "https://openalex.org/W3214610373",
+        "https://openalex.org/W4200016075",
+        "https://openalex.org/W4200341046",
+        "https://openalex.org/W4284884493",
+        "https://openalex.org/W4328051658",
+        "https://openalex.org/W4360850702",
+        "https://openalex.org/W4389793071"
+      ],
       "related_works": [
         "https://openalex.org/W4393905527",
         "https://openalex.org/W7034874450",
@@ -19667,10 +19955,14 @@
       "counts_by_year": [
         {
           "year": 2025,
-          "cited_by_count": 3
+          "cited_by_count": 6
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-10-12T09:40:04.860316",
+      "updated_date": "2026-11-07T11:25:07.637180",
       "created_date": "2024-09-13T00:00:00"
     },
     {
@@ -19723,6 +20015,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref"
       ],
@@ -19737,7 +20030,7 @@
           "author_position": "first",
           "author": {
             "id": "https://openalex.org/A5052250027",
-            "display_name": "Olga Kozlova",
+            "display_name": "Козлова Ольга Анатольевна",
             "orcid": "https://orcid.org/0000-0002-0448-3519",
             "observed_orcids": [
               "https://orcid.org/0000-0002-0448-3519"
@@ -19777,16 +20070,16 @@
       "corresponding_institution_ids": [],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 2.3314,
+      "fwci": 2.1797,
       "has_fulltext": true,
-      "cited_by_count": 4,
+      "cited_by_count": 6,
       "citation_normalized_percentile": {
-        "value": 0.89942019,
+        "value": 0.87813037,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
       "cited_by_percentile_year": {
-        "min": 89,
+        "min": 88,
         "max": 97
       },
       "biblio": {
@@ -19852,7 +20145,7 @@
         },
         {
           "id": "https://openalex.org/T11014",
-          "display_name": "Regional Economics and Spatial Analysis",
+          "display_name": "Agglomeration and Urban Systems",
           "score": 0.018200000748038292,
           "subfield": {
             "id": "https://openalex.org/subfields/2002",
@@ -19930,7 +20223,7 @@
         }
       ],
       "mesh": [],
-      "locations_count": 1,
+      "locations_count": 2,
       "locations": [
         {
           "id": "doi:10.22394/2304-3369-2023-4-33-52",
@@ -19967,6 +20260,35 @@
           "is_published": true,
           "raw_source_name": "Management Issues",
           "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:https://cyberleninka.ru/article/n/metodicheskiy-podhod-k-analizu-sotsialno-demograficheskih-faktorov-formirovaniya-opornogo-karkasa-rasseleniya",
+          "doi": null,
+          "is_oa": false,
+          "landing_page_url": "https://cyberleninka.ru/article/n/metodicheskiy-podhod-k-analizu-sotsialno-demograficheskih-faktorov-formirovaniya-opornogo-karkasa-rasseleniya",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306401404",
+            "display_name": "CyberLeninK (CyberLeninka)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "listed_in": [],
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "text"
         }
       ],
       "best_oa_location": {
@@ -20006,7 +20328,6 @@
         "raw_type": "journal-article"
       },
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -20110,18 +20431,18 @@
       "counts_by_year": [
         {
           "year": 2026,
-          "cited_by_count": 2
+          "cited_by_count": 3
         },
         {
           "year": 2025,
-          "cited_by_count": 1
+          "cited_by_count": 2
         },
         {
           "year": 2024,
           "cited_by_count": 1
         }
       ],
-      "updated_date": "2026-09-08T07:41:39.490200",
+      "updated_date": "2026-11-08T12:12:28.789561",
       "created_date": "2023-09-01T00:00:00"
     },
     {
@@ -20175,6 +20496,7 @@
       },
       "volume": null,
       "type": "article",
+      "is_traditional": true,
       "indexed_in": [
         "crossref"
       ],
@@ -20213,17 +20535,17 @@
       "corresponding_institution_ids": [],
       "apc_list": null,
       "apc_paid": null,
-      "fwci": 0.1519,
+      "fwci": 0.1383,
       "has_fulltext": false,
       "cited_by_count": 3,
       "citation_normalized_percentile": {
-        "value": 0.46837054,
+        "value": 0.42442073,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
       "cited_by_percentile_year": {
-        "min": 89,
-        "max": 96
+        "min": 88,
+        "max": 95
       },
       "biblio": {
         "volume": null,
@@ -20274,16 +20596,16 @@
           "display_name": "Urban Planning and Valuation",
           "score": 0.065700002014637,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/3305",
+            "display_name": "Geography, Planning and Development"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         },
         {
@@ -20462,13 +20784,6 @@
         "raw_type": "journal-article"
       },
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [
-        {
-          "id": "https://metadata.un.org/sdg/10",
-          "display_name": "Reduced inequalities",
-          "score": 0.47999998927116394
-        }
-      ],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -20563,6 +20878,7 @@
       },
       "volume": null,
       "type": "conference-paper",
+      "is_traditional": true,
       "indexed_in": [
         "crossref",
         "doaj"
@@ -20708,7 +21024,7 @@
       "has_fulltext": true,
       "cited_by_count": 0,
       "citation_normalized_percentile": {
-        "value": 0.22479127,
+        "value": 0.26480836,
         "is_in_top_1_percent": false,
         "is_in_top_10_percent": false
       },
@@ -20759,7 +21075,7 @@
         },
         {
           "id": "https://openalex.org/T11014",
-          "display_name": "Regional Economics and Spatial Analysis",
+          "display_name": "Agglomeration and Urban Systems",
           "score": 0.08760000020265579,
           "subfield": {
             "id": "https://openalex.org/subfields/2002",
@@ -21149,16 +21465,9 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/11",
           "display_name": "Sustainable cities and communities",
+          "id": "https://metadata.un.org/sdg/11",
           "score": 0.7250000238418579
-        }
-      ],
-      "sustainable_development_goals_aurora": [
-        {
-          "id": "https://metadata.un.org/sdg/11",
-          "display_name": "Sustainable cities and communities",
-          "score": 0.5
         }
       ],
       "study_designs": [],
@@ -21730,7 +22039,7 @@
         ]
       },
       "counts_by_year": [],
-      "updated_date": "2026-09-29T14:09:16.559479",
+      "updated_date": "2026-11-04T10:54:05.112534",
       "created_date": "2020-12-21T00:00:00"
     },
     {
@@ -21780,6 +22089,7 @@
       },
       "volume": null,
       "type": "preprint",
+      "is_traditional": true,
       "indexed_in": [],
       "open_access": {
         "is_oa": true,
@@ -22170,12 +22480,11 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/11",
           "display_name": "Sustainable cities and communities",
+          "id": "https://metadata.un.org/sdg/11",
           "score": 0.9333000183105469
         }
       ],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -23199,6 +23508,7 @@
       },
       "volume": null,
       "type": "preprint",
+      "is_traditional": true,
       "indexed_in": [],
       "open_access": {
         "is_oa": true,
@@ -23313,16 +23623,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.10300000011920929,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         },
         {
@@ -23601,12 +23911,11 @@
       },
       "sustainable_development_goals": [
         {
-          "id": "https://metadata.un.org/sdg/11",
           "display_name": "Sustainable cities and communities",
+          "id": "https://metadata.un.org/sdg/11",
           "score": 0.7820000052452087
         }
       ],
-      "sustainable_development_goals_aurora": [],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -24150,6 +24459,7 @@
       },
       "volume": null,
       "type": "preprint",
+      "is_traditional": true,
       "indexed_in": [],
       "open_access": {
         "is_oa": true,
@@ -24265,16 +24575,16 @@
         "display_name": "Socioeconomic and Demographic Analysis",
         "score": 0.8417999744415283,
         "subfield": {
-          "id": "https://openalex.org/subfields/2308",
-          "display_name": "Management, Monitoring, Policy and Law"
+          "id": "https://openalex.org/subfields/2002",
+          "display_name": "Economics and Econometrics"
         },
         "field": {
-          "id": "https://openalex.org/fields/23",
-          "display_name": "Environmental Science"
+          "id": "https://openalex.org/fields/20",
+          "display_name": "Economics, Econometrics and Finance"
         },
         "domain": {
-          "id": "https://openalex.org/domains/3",
-          "display_name": "Physical Sciences"
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
         }
       },
       "topics": [
@@ -24283,16 +24593,16 @@
           "display_name": "Socioeconomic and Demographic Analysis",
           "score": 0.8417999744415283,
           "subfield": {
-            "id": "https://openalex.org/subfields/2308",
-            "display_name": "Management, Monitoring, Policy and Law"
+            "id": "https://openalex.org/subfields/2002",
+            "display_name": "Economics and Econometrics"
           },
           "field": {
-            "id": "https://openalex.org/fields/23",
-            "display_name": "Environmental Science"
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
           },
           "domain": {
-            "id": "https://openalex.org/domains/3",
-            "display_name": "Physical Sciences"
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
           }
         },
         {
@@ -24490,13 +24800,6 @@
         "raw_type": null
       },
       "sustainable_development_goals": [],
-      "sustainable_development_goals_aurora": [
-        {
-          "id": "https://metadata.un.org/sdg/10",
-          "display_name": "Reduced inequalities",
-          "score": 0.5199999809265137
-        }
-      ],
       "study_designs": [],
       "awards": [],
       "funders": [],
@@ -24720,5 +25023,5 @@
     }
   ],
   "group_by": [],
-  "last_success_at": "2026-11-02T11:08:35+00:00"
+  "last_success_at": "2026-11-09T11:37:39+00:00"
 }
