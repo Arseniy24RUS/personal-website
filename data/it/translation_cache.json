@@ -1,0 +1,24 @@
+{
+  "471b98b8f001967d5d4a7b5f204b051e7af2273a12181afc6635a419c6da3bb6": {
+    "translation": "Demographic workshop · version 0. 8.",
+    "pair": "ru_en",
+    "model": {
+      "argos_version": "1.11.0",
+      "package_version": "1.9",
+      "pair": "ru_en",
+      "device": "cpu",
+      "probe_passed": true
+    }
+  },
+  "c150579398e2eddecfed9527f3c33727882171707e9108158394462f13d7bccf": {
+    "translation": "The cumulative issue combines reading of regional programs, joint study work, a source distribution map, a family of practices and collective assessment. The listener finds accurate quotes, checks the fields of the card, publishes it in the class and participates in the discussion.",
+    "pair": "ru_en",
+    "model": {
+      "argos_version": "1.11.0",
+      "package_version": "1.9",
+      "pair": "ru_en",
+      "device": "cpu",
+      "probe_passed": true
+    }
+  }
+}

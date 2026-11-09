@@ -154,6 +154,26 @@
       "aliases": [
         "Arseniy24RUS/Tsargrad-demographic-platform"
       ]
+    },
+    "1450801526": {
+      "resource_id": "github-1450801526",
+      "status": "pending",
+      "aliases": [
+        "Arseniy24RUS/demography-lab"
+      ],
+      "repository": {
+        "id": 1450801526,
+        "full_name": "Arseniy24RUS/demography-lab",
+        "name": "demography-lab",
+        "description": null,
+        "default_branch": "main",
+        "homepage": null,
+        "has_pages": true,
+        "html_url": "https://github.com/Arseniy24RUS/demography-lab",
+        "_readme_path": "README.md",
+        "_pages_url": "https://arseniy24rus.github.io/demography-lab/"
+      },
+      "reason": "website_not_ready"
     }
   }
 }
