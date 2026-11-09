@@ -26,8 +26,9 @@
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/additions.css?v=20260607-nav-nowrap">
   <link rel="stylesheet" href="assets/risi/risi.css?v=20260607-risi-reader2">
+  <link rel="stylesheet" href="assets/media/feeds.css?v=20261109">
   <script defer src="assets/site.js?v=20260607-it-resources"></script>
-  <script defer src="assets/risi/risi.js?v=20260607-risi"></script>
+  <script defer src="assets/risi/risi.js?v=20261109-covers"></script>
   <script>
     const URL_OVERRIDES={
       'https://www.rosbalt.ru/news/2026-01-31/obschestvo-superzrelosti-my-stremitelno-stareem-5543743':{
@@ -86,6 +87,25 @@
     function isBlockedInstitutionalProfile(r){const u=normalizeUrl(r.url);return BLOCKED_MEDIA_URL_PATTERNS.some(rx=>rx.test(u))||BLOCKED_MEDIA_TITLES.has(titleKey(r))}
     function dateValue(r){const t=Date.parse(r.published_at||'');return Number.isFinite(t)?t:0}
     function featuredOrder(r){return Number.isInteger(r.featured_order)&&r.featured_order>0?r.featured_order:Number.MAX_SAFE_INTEGER}
+    const PRESS_SOURCES=new Set(['institutional_news_listing','institutional_news_seed','conference_news_seed','conference_program_seed']);
+    const MEDIA_ILLUSTRATION='assets/media/illustrations/demographic-research.webp';
+    function feedFor(r){
+      if(r.media_feed==='expert'||r.media_feed==='press')return r.media_feed;
+      return PRESS_SOURCES.has(r.source)?'press':'expert';
+    }
+    function mediaCoverHtml({href,title,image,illustration,readerId}){
+      const src=image||MEDIA_ILLUSTRATION;
+      const isIllustration=illustration||src===MEDIA_ILLUSTRATION;
+      const action=readerId?`data-risi-open="${esc(readerId)}"`:'target="_blank" rel="noopener"';
+      return `<a class="media-image${isIllustration?' is-illustration':''}" href="${esc(href)}" aria-label="${esc(title)}" ${action}><img loading="lazy" src="${esc(src)}" alt=""${src===MEDIA_ILLUSTRATION?'':' data-cover-fallback'}><span class="media-illustration-label"><span class="ru">Иллюстрация</span><span class="en">Illustration</span></span></a>`;
+    }
+    document.addEventListener('error',event=>{
+      const img=event.target;
+      if(!(img instanceof HTMLImageElement)||!img.hasAttribute('data-cover-fallback'))return;
+      img.removeAttribute('data-cover-fallback');
+      img.closest('.media-image').classList.add('is-illustration');
+      img.src=MEDIA_ILLUSTRATION;
+    },true);
     function cleanDescription(r){let d=String(pick(r,'description')).replace(/\s+/g,' ').trim();if(isNavigationJunk(d)&&!overrideFor(r))d='';if(d.length>360)d=d.slice(0,357).trim()+'…';return d}
     function displayable(r){
       const u=normalizeUrl(r.url), t=String(pick(r,'title')||r.title||''), d=String(pick(r,'description')||r.description||'');
@@ -131,10 +151,23 @@
     ];
     let MEDIA_RECORDS=[];
     function renderMedia(){
-      const records=MEDIA_RECORDS.filter(displayable).sort((a,b)=>featuredOrder(a)-featuredOrder(b)||dateValue(b)-dateValue(a)||String(pick(a,'title')).localeCompare(String(pick(b,'title')),'ru'));
+      const activeFeed=document.querySelector('input[name="media-feed"]:checked')?.value||'expert';
+      const records=MEDIA_RECORDS.filter(r=>feedFor(r)===activeFeed&&displayable(r)).sort((a,b)=>featuredOrder(a)-featuredOrder(b)||dateValue(b)-dateValue(a)||String(pick(a,'title')).localeCompare(String(pick(b,'title')),'ru'));
       const box=document.getElementById('media-list');
-      if(!records.length){box.innerHTML='<div class="note ru">Пока опубликованные упоминания не загружены. Попробуйте обновить страницу после завершения workflow.</div><div class="note en">Published media mentions have not been loaded yet. Please refresh the page after the workflow finishes.</div>';return}
-      box.innerHTML=records.map(r=>{const desc=cleanDescription(r);const title=pick(r,'title')||sourceLabel(r);const pending=r.translation_state?.status==='pending'&&(r.translation_state.fields||[]).some(key=>!r[key]);const translationNote=lang()==='en'&&pending?'<p class="media-translation-note" lang="en">English translation pending. Original Russian text is shown where needed.</p>':'';const image=r.image?`<a class="media-image" href="${esc(r.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(r.image)}" alt=""></a>`:'';return `<article data-translation-status="${pending?'pending':'complete'}" class="media-card ${r.image?'has-image':'no-image'}">${image}<div class="media-body"><div class="media-source">${esc(sourceLabel(r))}${r.published_at?' · '+fmtDate(r.published_at):''}</div>${translationNote}<h2><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(title)}</a></h2>${desc?`<p>${esc(desc)}</p>`:''}<a class="media-link" href="${esc(r.url)}" target="_blank" rel="noopener"><span class="ru">Открыть материал</span><span class="en">Open material</span></a></div></article>`}).join('')
+      if(!records.length){
+        box.innerHTML=MEDIA_RECORDS.length
+          ?'<div class="note"><span class="ru">В этой ленте пока нет материалов.</span><span class="en">No stories in this feed yet.</span></div>'
+          :'<div class="note"><span class="ru">Не удалось загрузить материалы СМИ.</span><span class="en">Media stories could not be loaded.</span></div>';
+        return;
+      }
+      box.innerHTML=records.map(r=>{
+        const desc=cleanDescription(r);
+        const title=pick(r,'title')||sourceLabel(r);
+        const pending=r.translation_state?.status==='pending'&&(r.translation_state.fields||[]).some(key=>!r[key]);
+        const translationNote=lang()==='en'&&pending?'<p class="media-translation-note" lang="en">English translation pending. Original Russian text is shown where needed.</p>':'';
+        const image=mediaCoverHtml({href:r.url,title,image:r.image,illustration:r.image_kind==='illustration'});
+        return `<article data-translation-status="${pending?'pending':'complete'}" class="media-card has-image">${image}<div class="media-body"><div class="media-source">${esc(sourceLabel(r))}${r.published_at?' · '+fmtDate(r.published_at):''}</div>${translationNote}<h2><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(title)}</a></h2>${desc?`<p>${esc(desc)}</p>`:''}<a class="media-link" href="${esc(r.url)}" target="_blank" rel="noopener"><span class="ru">Открыть материал</span><span class="en">Open material</span></a></div></article>`;
+      }).join('');
     }
     async function fetchMediaRecords(url){
       const response=await fetch(url,{cache:'no-store'});
@@ -151,7 +184,10 @@
       }
       renderMedia();
     }
-    document.addEventListener('DOMContentLoaded',loadMedia)
+    document.addEventListener('DOMContentLoaded',()=>{
+      document.querySelector('.media-feed-switch').addEventListener('change',renderMedia);
+      loadMedia();
+    })
     window.addEventListener('site:languagechange',renderMedia)
   </script>
   <script type="application/ld+json">
@@ -173,7 +209,16 @@
 </head>
 <body class="lang-en"><div class="wrap"><header data-header></header>
 <section class="hero"><h1 class="ru">СМИ</h1><h1 class="en">Media</h1><p class="ru">Подборка материалов СМИ, интервью, новостей и аналитических публикаций, где можно узнать о моей профессиональной деятельности.</p><p class="en">A curated set of media articles, interviews, news items and analytical publications related to my professional work.</p></section>
-<section class="media-section"><div id="media-list" class="media-list"></div></section>
+<section class="media-section">
+  <fieldset class="media-feed-switch" aria-controls="media-list">
+    <legend><span class="ru">Ленты СМИ</span><span class="en">Media feeds</span></legend>
+    <input type="radio" id="media-expert" name="media-feed" value="expert" checked>
+    <label for="media-expert"><span class="ru">Экспертные материалы</span><span class="en">Expert coverage</span></label>
+    <input type="radio" id="media-press" name="media-feed" value="press">
+    <label for="media-press"><span class="ru">Пресс-релизы</span><span class="en">Press releases</span></label>
+  </fieldset>
+  <div id="media-list" class="media-list"></div>
+</section>
 <section class="media-section risi-section" id="risi-archive" aria-labelledby="risi-archive-title">
   <div class="risi-section-head">
     <h2 id="risi-archive-title" class="ru">Российский институт стратегических исследований (РИСИ)</h2>

@@ -49,7 +49,7 @@ media_monitoring:
     - "расселение"
     - "семейная ипотека"
   seed_urls:
-    # Numbered lead stories precede the chronological news feed.
+    # A featured story leads its feed; other stories are chronological.
     - url: "https://new.ras.ru/press-center/zasedanie-nts-kntr-demograficheskie-vyzovy-i-novye-mery-podderzhki-semey/"
       title: "Заседание НТС КНТР: демографические вызовы и новые меры поддержки семей"
       title_en: "Science and Technology Council meeting: demographic challenges and new measures to support families"
@@ -58,7 +58,9 @@ media_monitoring:
       source_name: "РАН"
       source_name_en: "Russian Academy of Sciences"
       date: "2026-10-26"
-      image: "https://new.ras.ru/upload/medialibrary/410/g94h8ypr944fr9mlj4qjdq16rpbjnasn.jpg"
+      image: "assets/media/mentions/ras-council-2026-provided.png"
+      image_kind: "provided"
+      media_feed: "expert"
       featured_order: 1
       force_publish: true
     - url: "https://isd-ras.ru/news/2026/10/zasedanie-nauchno-tehnicheskogo-soveta-ran/"
@@ -69,8 +71,9 @@ media_monitoring:
       source_name: "Институт социальной демографии ФНИСЦ РАН"
       source_name_en: "Institute for Social Demography, FCTAS RAS"
       date: "2026-10-23"
-      image: "https://cloud.isd-ras.ru/wp-content/uploads/12345124352345.png"
-      featured_order: 2
+      image: "assets/media/mentions/ras-council-2026-provided.png"
+      image_kind: "provided"
+      media_feed: "press"
       force_publish: true
     - url: "https://isd-ras.ru/news/2026/9/ekspertiza-novogo-nacproekta-semya/"
       title: "Всероссийский семинар по комплексной экспертизе нацпроекта «Семья»"
@@ -81,7 +84,20 @@ media_monitoring:
       source_name_en: "Institute for Social Demography, FCTAS RAS"
       date: "2026-09-22"
       image: "https://cloud.isd-ras.ru/wp-content/uploads/123412341234-1.jpg"
-      featured_order: 3
+      media_feed: "press"
+      force_publish: true
+    - url: "https://uiec.ru/new_070425/"
+      title: "Социально-демографические факторы и опорный каркас расселения региона"
+      title_en: "Socio-demographic factors and the backbone of a region's settlement system"
+      description: "На семинаре Института экономики УрО РАН Арсений Ситковский представил методы оценки того, как рождаемость, смертность, старение и миграция меняют региональную систему расселения. В материале разобрано, как эти данные помогают планировать инфраструктуру и оценивать риски."
+      description_en: "At a seminar of the Institute of Economics, Ural Branch of the Russian Academy of Sciences, Arseniy Sitkovskiy presented methods for assessing how fertility, mortality, ageing and migration reshape regional settlement systems. The article explains how these data can inform infrastructure planning and risk assessment."
+      source_name: "Институт экономики УрО РАН"
+      source_name_en: "Institute of Economics, Ural Branch of the Russian Academy of Sciences"
+      source_type: "institutional_news_seed"
+      date: "2025-04-09"
+      image: "assets/media/mentions/uiec-settlement-seminar-2025.jpg"
+      image_kind: "provided"
+      media_feed: "expert"
       force_publish: true
     - url: "https://deminform.ru/news/institutu-sotsialnoy-demografii-prisvoyeno-imya-leonida-rybakovskogo"
       title: "Институту социальной демографии присвоено имя Леонида Рыбаковского"
@@ -113,6 +129,7 @@ media_monitoring:
       source_name_en: "Institute of Socio-Economic Studies of Population, FCTAS RAS"
       date: "2026-09-17"
       image: "https://www.isesp-ras.ru/images/news/photos/2026_09_17/17.09.2026_01%202.jpg"
+      media_feed: "press"
       force_publish: true
     - url: "https://isd-ras.ru/news/2026/9/sitkovskij-zashhitil-kandidatskuyu-dissertaciyu/"
       title: "А.М. Ситковский успешно защитил кандидатскую диссертацию"
@@ -123,6 +140,7 @@ media_monitoring:
       source_name_en: "Institute for Social Demography, FCTAS RAS"
       date: "2026-09-15"
       image: "https://cloud.idrras.ru/wp-content/uploads/123412352134513245.png"
+      media_feed: "press"
       force_publish: true
     - url: "https://www.demoscope.ru/weekly/2025/01081/gazeta03.php"
       title_en: "Newspapers write about educational migration"
@@ -156,6 +174,8 @@ media_monitoring:
       source_type: "known_media_seed"
       force_publish: true
       date: "2026-01-31"
+      image: "assets/media/illustrations/population-ageing.webp"
+      image_kind: "illustration"
     - url: "https://www.sobaka.ru/city/society/210740"
       title_en: "Very soon Russians under 35 will make up only a quarter of the population; in 1990 they accounted for half. What happens next?"
       description_en: "A Sobaka.ru article on a new demographic forecast and the social landscape it implies."

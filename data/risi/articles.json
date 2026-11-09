@@ -2,8 +2,8 @@
   "generated_at": "2026-06-07T02:38:39Z",
   "section_title_ru": "Научно-популярные статьи для сайта Российского института стратегических исследований (РИСИ) 2016-2017 гг.",
   "section_title_en": "Popular-science articles for the Russian Institute for Strategic Studies (RISS), 2016-2017",
-  "source_note_ru": "Подготовлено из переданных Word-файлов и реальных скриншотов старых страниц сайта РИСИ; миниатюры показываются только там, где скриншот присутствует в архиве.",
-  "source_note_en": "Prepared from the provided Word files and real screenshots of the old RISS website pages; thumbnails are shown only where an archived screenshot is available.",
+  "source_note_ru": "Архив подготовлен из переданных Word-файлов и сохранённых скриншотов. Если скриншота нет, на карточке используется рисунок из статьи или тематическая иллюстрация.",
+  "source_note_en": "The archive was prepared from the supplied Word files and preserved screenshots. When a screenshot is unavailable, the card uses a figure from the article or an editorial illustration.",
   "records": [
     {
       "id": "vliyanie-prostitutsii-na-demografiyu",
@@ -104,13 +104,14 @@
       "source_name_en": "Russian Institute for Strategic Studies",
       "source_short_ru": "РИСИ",
       "source_short_en": "RISS",
-      "card_variant": "text",
+      "card_variant": "image",
       "html": "data/risi/articles/html/svyaz-rozhdaemosti-i-ekonomicheskogo-rosta.html",
       "docx": "content/risi/docx/svyaz-rozhdaemosti-i-ekonomicheskogo-rosta.docx",
       "article_media": [],
       "original_filename": "2016/РИСИ. Связь рождаемости и экономического роста.docx",
-      "image": null,
-      "screenshot": null
+      "image": "assets/media/illustrations/demographic-research.webp",
+      "screenshot": null,
+      "image_kind": "illustration"
     },
     {
       "id": "kachestvennoe-vosproizvodstvo-naseleniya",
@@ -124,13 +125,14 @@
       "source_name_en": "Russian Institute for Strategic Studies",
       "source_short_ru": "РИСИ",
       "source_short_en": "RISS",
-      "card_variant": "text",
+      "card_variant": "image",
       "html": "data/risi/articles/html/kachestvennoe-vosproizvodstvo-naseleniya.html",
       "docx": "content/risi/docx/kachestvennoe-vosproizvodstvo-naseleniya.docx",
       "article_media": [],
-      "image": null,
+      "image": "assets/media/illustrations/family-health.webp",
       "screenshot": null,
-      "original_filename": "2017/!РИСИ-17. Качественное воспроизводство населения..docx"
+      "original_filename": "2017/!РИСИ-17. Качественное воспроизводство населения..docx",
+      "image_kind": "illustration"
     },
     {
       "id": "osnova-zdorovya-cheloveka-reproduktivnoe-zdorove",
@@ -144,13 +146,14 @@
       "source_name_en": "Russian Institute for Strategic Studies",
       "source_short_ru": "РИСИ",
       "source_short_en": "RISS",
-      "card_variant": "text",
+      "card_variant": "image",
       "html": "data/risi/articles/html/osnova-zdorovya-cheloveka-reproduktivnoe-zdorove.html",
       "docx": "content/risi/docx/osnova-zdorovya-cheloveka-reproduktivnoe-zdorove.docx",
       "article_media": [],
-      "image": null,
+      "image": "assets/media/illustrations/family-health.webp",
       "screenshot": null,
-      "original_filename": "2017/!РИСИ-17. Основа здоровья человека - репродуктивное здоровье..docx"
+      "original_filename": "2017/!РИСИ-17. Основа здоровья человека - репродуктивное здоровье..docx",
+      "image_kind": "illustration"
     },
     {
       "id": "situatsiya-s-kureniem-tabaka-v-rossiyskoy-federatsii",
@@ -187,13 +190,14 @@
       "source_name_en": "Russian Institute for Strategic Studies",
       "source_short_ru": "РИСИ",
       "source_short_en": "RISS",
-      "card_variant": "text",
+      "card_variant": "image",
       "html": "data/risi/articles/html/demograficheskie-posledstviya-porno-zavisimosti-na-primere-yaponii.html",
       "docx": "content/risi/docx/demograficheskie-posledstviya-porno-zavisimosti-na-primere-yaponii.docx",
       "article_media": [],
-      "image": null,
+      "image": "assets/media/illustrations/family-health.webp",
       "screenshot": null,
-      "original_filename": "2017/РИСИ-17. Демографические последствия порно-зависимости на примере Японии.docx"
+      "original_filename": "2017/РИСИ-17. Демографические последствия порно-зависимости на примере Японии.docx",
+      "image_kind": "illustration"
     },
     {
       "id": "optimalnaya-chislennost-gosudarstvennyh-sluzhashchih-v-rossii",
@@ -207,13 +211,14 @@
       "source_name_en": "Russian Institute for Strategic Studies",
       "source_short_ru": "РИСИ",
       "source_short_en": "RISS",
-      "card_variant": "text",
+      "card_variant": "image",
       "html": "data/risi/articles/html/optimalnaya-chislennost-gosudarstvennyh-sluzhashchih-v-rossii.html",
       "docx": "content/risi/docx/optimalnaya-chislennost-gosudarstvennyh-sluzhashchih-v-rossii.docx",
       "article_media": [],
-      "image": null,
+      "image": "assets/media/illustrations/demographic-research.webp",
       "screenshot": null,
-      "original_filename": "2017/РИСИ-17. Оптимальная численность государственных служащих в России.docx"
+      "original_filename": "2017/РИСИ-17. Оптимальная численность государственных служащих в России.docx",
+      "image_kind": "illustration"
     },
     {
       "id": "ugrozy-neestestvennogo-prirosta-naseleniya",
@@ -227,13 +232,13 @@
       "source_name_en": "Russian Institute for Strategic Studies",
       "source_short_ru": "РИСИ",
       "source_short_en": "RISS",
-      "card_variant": "text",
+      "card_variant": "image",
       "html": "data/risi/articles/html/ugrozy-neestestvennogo-prirosta-naseleniya.html",
       "docx": "content/risi/docx/ugrozy-neestestvennogo-prirosta-naseleniya.docx",
       "article_media": [
         "data/risi/articles/media/ugrozy-neestestvennogo-prirosta-naseleniya/image1.png"
       ],
-      "image": null,
+      "image": "data/risi/articles/media/ugrozy-neestestvennogo-prirosta-naseleniya/image1.png",
       "screenshot": null,
       "original_filename": "2017/РИСИ-17. Угрозы неестественного прироста населения.docx"
     },
@@ -249,13 +254,14 @@
       "source_name_en": "Russian Institute for Strategic Studies",
       "source_short_ru": "РИСИ",
       "source_short_en": "RISS",
-      "card_variant": "text",
+      "card_variant": "image",
       "html": "data/risi/articles/html/filosofiya-sovremennoy-evgeniki-domysly-i-fakty.html",
       "docx": "content/risi/docx/filosofiya-sovremennoy-evgeniki-domysly-i-fakty.docx",
       "article_media": [],
-      "image": null,
+      "image": "assets/media/illustrations/demographic-research.webp",
       "screenshot": null,
-      "original_filename": "2017/РИСИ-17. Философия современной евгеники домыслы и факты..docx"
+      "original_filename": "2017/РИСИ-17. Философия современной евгеники домыслы и факты..docx",
+      "image_kind": "illustration"
     },
     {
       "id": "chislennost-naseleniya-v-rossii-2016-estestvennyy-prirost-ili-statisticheskiy-obman",
@@ -269,13 +275,13 @@
       "source_name_en": "Russian Institute for Strategic Studies",
       "source_short_ru": "РИСИ",
       "source_short_en": "RISS",
-      "card_variant": "text",
+      "card_variant": "image",
       "html": "data/risi/articles/html/chislennost-naseleniya-v-rossii-2016-estestvennyy-prirost-ili-statisticheskiy-obman.html",
       "docx": "content/risi/docx/chislennost-naseleniya-v-rossii-2016-estestvennyy-prirost-ili-statisticheskiy-obman.docx",
       "article_media": [
         "data/risi/articles/media/chislennost-naseleniya-v-rossii-2016-estestvennyy-prirost-ili-statisticheskiy-obman/image1.png"
       ],
-      "image": null,
+      "image": "data/risi/articles/media/chislennost-naseleniya-v-rossii-2016-estestvennyy-prirost-ili-statisticheskiy-obman/image1.png",
       "screenshot": null,
       "original_filename": "2017/РИСИ-17. Численность населения в России 2016 естественный прирост или статистический обман..docx"
     }

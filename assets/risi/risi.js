@@ -25,10 +25,9 @@
   function cardHtml(r){
     const title=pick(r,'title');
     const desc=pick(r,'description');
-    const hasImage=Boolean(r.image);
-    const image=hasImage?`<a class="media-image" href="${esc(r.html)}" data-risi-open="${esc(r.id)}"><img loading="lazy" src="${esc(r.image)}" alt="${esc(title)}"></a>`:'';
+    const image=mediaCoverHtml({href:r.html,title,image:r.image,illustration:r.image_kind==='illustration',readerId:r.id});
     const note=r.thumbnail_note_ru?`<div class="risi-extra-note ru">${esc(r.thumbnail_note_ru)}</div><div class="risi-extra-note en">${esc(r.thumbnail_note_en||r.thumbnail_note_ru)}</div>`:'';
-    return `<article class="media-card risi-card ${hasImage?'has-image':'no-image'}" data-risi-id="${esc(r.id)}" data-year="${esc(r.year)}">${image}<div class="media-body"><div class="media-source">${esc(sourceText(r))}</div><h2><a href="${esc(r.html)}" data-risi-open="${esc(r.id)}">${esc(title)}</a></h2>${desc?`<p>${esc(desc)}</p>`:''}${note}<div class="risi-actions"><a class="media-link" href="${esc(r.html)}" data-risi-open="${esc(r.id)}"><span class="ru">Читать на сайте</span><span class="en">Read on site</span></a><a class="risi-secondary-link" href="${esc(r.docx)}" download><span class="ru">Скачать DOCX</span><span class="en">Download DOCX</span></a></div></div></article>`;
+    return `<article class="media-card risi-card has-image${r.screenshot?'':' is-supplemental'}" data-risi-id="${esc(r.id)}" data-year="${esc(r.year)}">${image}<div class="media-body"><div class="media-source">${esc(sourceText(r))}</div><h2><a href="${esc(r.html)}" data-risi-open="${esc(r.id)}">${esc(title)}</a></h2>${desc?`<p>${esc(desc)}</p>`:''}${note}<div class="risi-actions"><a class="media-link" href="${esc(r.html)}" data-risi-open="${esc(r.id)}"><span class="ru">Читать на сайте</span><span class="en">Read on site</span></a><a class="risi-secondary-link" href="${esc(r.docx)}" download><span class="ru">Скачать DOCX</span><span class="en">Download DOCX</span></a></div></div></article>`;
   }
 
   function render(){

@@ -9,13 +9,19 @@ const leadStories = [
 for (const lang of ['ru', 'en']) {
   const prefix = lang === 'en' ? '/en' : '';
 
-  test(`${lang}: featured media keep their order ahead of newer articles`, async ({ page }) => {
+  test(`${lang}: expert and press feeds stay separate and use the supplied photos`, async ({ page }) => {
     await page.goto(`${prefix}/media.html`);
     const cards = page.locator('#media-list .media-card');
-    for (const [index, url] of leadStories.entries()) {
-      const card = cards.nth(index);
-      await expect(card.locator('h2 a')).toHaveAttribute('href', url);
+    await expect(page.locator('#media-expert')).toBeChecked();
+    await expect(cards.first().locator('h2 a')).toHaveAttribute('href', leadStories[0]);
+    await expect(cards.locator(`h2 a[href="${leadStories[1]}"]`)).toHaveCount(0);
+    const seminar = cards.filter({ has: page.locator('h2 a[href="https://uiec.ru/new_070425/"]') });
+    for (const [card, src] of [
+      [cards.first(), 'ras-council-2026-provided.png'],
+      [seminar, 'uiec-settlement-seminar-2025.jpg'],
+    ] as const) {
       const photo = card.locator('img');
+      await expect(photo).toHaveAttribute('src', `assets/media/mentions/${src}`);
       await photo.scrollIntoViewIfNeeded();
       await expect.poll(() => photo.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
     }
@@ -25,6 +31,25 @@ for (const lang of ['ru', 'en']) {
     ]) {
       await expect(cards.locator(`h2 a[href="${url}"]`)).toHaveCount(1);
     }
+    const expertUrls = await cards.locator('h2 a').evaluateAll(links => links.map(link => link.getAttribute('href')));
+    await page.locator('label[for="media-press"]').click();
+    await expect(page.locator('#media-press')).toBeChecked();
+    const pressDuplicate = cards.filter({ has: page.locator(`h2 a[href="${leadStories[1]}"]`) });
+    await expect(pressDuplicate).toBeVisible();
+    await expect(pressDuplicate.locator('img')).toHaveAttribute('src', 'assets/media/mentions/ras-council-2026-provided.png');
+    await expect(cards.locator(`h2 a[href="${leadStories[2]}"]`)).toBeVisible();
+    const pressUrls = await cards.locator('h2 a').evaluateAll(links => links.map(link => link.getAttribute('href')));
+    expect(pressUrls.filter(url => expertUrls.includes(url))).toEqual([]);
+    expect(expertUrls.length + pressUrls.length).toBeGreaterThanOrEqual(29);
+    await expect(cards.locator('.media-image img')).toHaveCount(pressUrls.length);
+    await page.locator('label[for="media-expert"]').click();
+    await expect(cards.first().locator('h2 a')).toHaveAttribute('href', leadStories[0]);
+    await expect(cards.locator('.media-image img')).toHaveCount(expertUrls.length);
+    const archive = page.locator('#risi-list .risi-card');
+    await expect(archive).toHaveCount(13);
+    await expect(archive.locator('.media-image img')).toHaveCount(13);
+    await archive.locator('.media-image.is-illustration').first().click();
+    await expect(page.locator('#risi-reader[open]')).toBeVisible();
   });
 
   test(`${lang}: career, leadership and dissertation details are current`, async ({ page }) => {

@@ -11,7 +11,9 @@
       "description": "Карточка SSRN с ранней работой, автор — Arseniy Sitkovskiy, RANEPA Chelyabinsk Branch.",
       "title_en": "Demographic policy of the Russian Federation",
       "description_en": "An SSRN record for an early work authored by Arseniy Sitkovskiy, RANEPA Chelyabinsk branch.",
-      "source_name_en": "SSRN"
+      "source_name_en": "SSRN",
+      "image": "assets/media/illustrations/demographic-research.webp",
+      "image_kind": "illustration"
     },
     {
       "url": "https://gsem.urfu.ru/fileadmin/user_upload/site_15921/docs3/Inf.pismo_Stud._konf.__CHF_RANKHiGS__25-26_aprelja_2019.pdf",
@@ -49,7 +51,9 @@
       "description": "Материал перечисляет Арсения Ситковского среди магистрантов Челябинского филиала РАНХиГС.",
       "title_en": "ION students visited Shirak State University in Armenia",
       "description_en": "A RANEPA Institute of Public Administration article listing Arseniy Sitkovskiy among master’s students of the Chelyabinsk branch of RANEPA.",
-      "source_name_en": "RANEPA"
+      "source_name_en": "RANEPA",
+      "image": "assets/media/illustrations/academic-exchange.webp",
+      "image_kind": "illustration"
     },
     {
       "url": "https://deminform.ru/analytics/voprosy-sistemy-rasseleniya-rossii-kotorym-ochen-nuzhny-otvety",
@@ -82,7 +86,9 @@
       "description": "Новость РУДН сообщает, что А.М. Ситковский стал соавтором трёх разделов доклада.",
       "title_en": "The National Demographic Report 2024 was presented at the Institute for Demographic Research of the Russian Academy of Sciences",
       "description_en": "A RUDN University news item noting that A. M. Sitkovskiy co-authored three sections of the report.",
-      "source_name_en": "RUDN University"
+      "source_name_en": "RUDN University",
+      "image": "assets/media/mentions/1c37bb1089f52e88.jpg",
+      "image_original_url": "https://phil.rudn.ru/upload/medialibrary/a0c/j3fddovjy6dzzy9zbjpz4arqp2umycsz.jpg"
     },
     {
       "url": "https://phil.rudn.ru/ru/media/news/123574/",
@@ -93,7 +99,9 @@
       "description": "Новость РУДН сообщает о докладе А.М. Ситковского.",
       "title_en": "RUDN delegation took part in an All-Russian research and practice conference",
       "description_en": "A RUDN University news item mentioning A. M. Sitkovskiy’s conference presentation.",
-      "source_name_en": "RUDN University"
+      "source_name_en": "RUDN University",
+      "image": "assets/media/mentions/3e9e02887f4e1703.jpg",
+      "image_original_url": "https://phil.rudn.ru/upload/medialibrary/e83/2t4a6jkn6moz7bnasvjlsfs8dbr5j8nm.jpg"
     },
     {
       "url": "https://new.ras.ru/press-center/vi-vserossiyskiy-demograficheskiy-forum-s-mezhdunarodnym-uchastiem/",
@@ -115,7 +123,11 @@
       "description": "Новость упоминает А.М. Ситковского как научного сотрудника лаборатории цифровой демографии ФНИСЦ РАН.",
       "title_en": "All-Russian Conference “Youth as a Resource for the Development of Russian Regions”",
       "description_en": "A BezFormata Chelyabinsk news item mentioning A. M. Sitkovskiy as a researcher at the Digital Demography Laboratory, FCTAS RAS.",
-      "source_name_en": "BezFormata Chelyabinsk"
+      "source_name_en": "BezFormata Chelyabinsk",
+      "media_feed": "press",
+      "image": "assets/media/mentions/ff0e149b620976c8.jpg",
+      "image_source_page": "https://hsem.susu.ru/hsem_news/molodjozh-kak-resurs-razvitiya-rossijskih-regionov/",
+      "image_original_url": "https://hsem.susu.ru/wp-content/uploads/2025/10/5199634412839498295-1024x682.jpg"
     },
     {
       "url": "https://mgimo.ru/about/news/departments/geodata-and-geoinformation-systems/",
@@ -126,7 +138,10 @@
       "description": "Страница упоминает Арсения Ситковского в контексте семинара по геоданным и ГИС.",
       "title_en": "Geodata and GIS: a methodological seminar for the Digital Department programme",
       "description_en": "An MGIMO page mentioning Arseniy Sitkovskiy in the context of a geodata and GIS seminar.",
-      "source_name_en": "MGIMO"
+      "source_name_en": "MGIMO",
+      "image": "assets/media/mentions/76917ca96c460960.jpg",
+      "image_source_page": "https://t.me/mgimo_university/14037",
+      "image_original_url": "https://cdn4.telesco.pe/file/ZEgGDU8sh8mwGCMCTHvS8MpwudloT-jGC6VJlp3rjSu6gvQvZhswW5xoev29TSGeKXdq06sJEwF3gELqASw-d8QVsTKF61DWv6xKaQtTYZ2ZiIT5MYE_Xpo3RDdTJqbBSfXe_dCyJsYxT4joGBoKd4X6uH1aSOy7xcWAGLHu4kCaBxpmMh1sNifQtB_AWvWRnu38DskshmhmVndjJgTFNuPhJuN6bst5Pd1cVm8dG_E0HvzxQHR9IsS0TZBCujTu8Ug2JETFdJ9JDa9slMWl_LUovIiDUk1Vr4ojlKz39LHpEfFGLKwqgocDDSBOuaIeDk_mBt7C1tMb9wtsdDC8hg.jpg"
     },
     {
       "url": "https://kaluga-zaprava.ru/biblioteka/rf/hossijan-molozhe-35-let-ostanetsja-lish-chetvert-naselenija/",

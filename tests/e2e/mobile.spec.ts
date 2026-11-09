@@ -25,17 +25,29 @@ test.describe('mobile portfolio layout', () => {
     await expect(page.locator('#src-all')).toHaveText('All sources');
   });
 
-  test('media cards without images use full width', async ({ page }) => {
+  test('media cards replace missing or broken covers with a labelled illustration', async ({ page }) => {
+    await page.route('**/data/media/published.json', route => route.fulfill({
+      json: { records: [
+        { url: 'https://example.org/no-photo', title: 'No photo' },
+        { url: 'https://example.org/broken-photo', title: 'Broken photo', image: 'assets/media/missing-cover.jpg' },
+      ] },
+    }));
+    await page.route('**/assets/media/missing-cover.jpg', route => route.fulfill({ status: 404 }));
     await page.goto('/media.html');
-    const noImage = page.locator('#media-list .media-card.no-image').first();
-    await expect(noImage).toBeVisible();
-    const box = await noImage.boundingBox();
-    expect(box?.width || 0).toBeGreaterThan(300);
+    const covers = page.locator('#media-list .media-image');
+    await expect(covers).toHaveCount(2);
+    for (const cover of await covers.all()) {
+      const image = cover.locator('img');
+      await image.scrollIntoViewIfNeeded();
+      await expect(image).toHaveAttribute('src', 'assets/media/illustrations/demographic-research.webp');
+      await expect(cover.locator('.media-illustration-label')).toBeVisible();
+      await expect.poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+    }
   });
 
   test('published media records load into the dynamic media list', async ({ page }) => {
     await page.goto('/media.html');
-    await page.waitForFunction(() => document.querySelectorAll('#media-list .media-card').length >= 20);
+    await page.waitForFunction(() => document.querySelectorAll('#media-list .media-card').length >= 15);
     await expect(page.locator('#media-list .note')).toHaveCount(0);
   });
 
@@ -52,22 +64,28 @@ test.describe('mobile portfolio layout', () => {
       body: invalidJson,
     }));
     await page.goto('/media.html');
-    await page.waitForFunction(() => document.querySelectorAll('#media-list .media-card').length >= 20);
+    await page.waitForFunction(() => document.querySelectorAll('#media-list .media-card').length >= 15);
+    await expect(page.locator('#media-list .note')).toHaveCount(0);
+    await page.locator('label[for="media-press"]').click();
+    await expect(page.locator('#media-list .media-card').first()).toBeVisible();
     await expect(page.locator('#media-list .note')).toHaveCount(0);
   });
 
   test('English media cards render translated dynamic text', async ({ page }) => {
     await page.goto('/en/media.html');
-    await page.waitForFunction(() => document.querySelectorAll('#media-list .media-card').length >= 20);
+    await page.waitForFunction(() => document.querySelectorAll('#media-list .media-card').length >= 15);
     await expect(page.locator('#media-list .note')).toHaveCount(0);
-    for (const card of await page.locator('#media-list .media-card:not([data-translation-status="pending"])').all()) {
-      expect(await card.innerText()).not.toMatch(cyrillic);
+    await expect(page.locator('#media-list h2').getByRole('link', { name: /Tolk: Russia.s shrinking younger population/ })).toBeVisible();
+    for (const feed of ['expert', 'press']) {
+      await page.locator(`label[for="media-${feed}"]`).click();
+      await expect(page.locator('#media-list .media-card').first()).toBeVisible();
+      for (const card of await page.locator('#media-list .media-card:not([data-translation-status="pending"])').all()) {
+        expect(await card.innerText()).not.toMatch(cyrillic);
+      }
+      for (const card of await page.locator('#media-list .media-card[data-translation-status="pending"]').all()) {
+        await expect(card.locator('.media-translation-note')).toContainText('English translation pending');
+      }
     }
-    for (const card of await page.locator('#media-list .media-card[data-translation-status="pending"]').all()) {
-      await expect(card.locator('.media-translation-note')).toContainText('English translation pending');
-    }
-    expect(await page.locator('#media-list .media-card').count()).toBeGreaterThanOrEqual(22);
-    await expect(page.getByRole('link', { name: /Tolk: Russia.s shrinking younger population/ })).toBeVisible();
   });
 
   test('new Russian media remains visible with an explicit pending English translation', async ({ page }) => {
@@ -93,6 +111,7 @@ test.describe('mobile portfolio layout', () => {
   for (const path of ['/media.html', '/en/media.html']) {
     test(`${path} retains the archive and displays both September news items`, async ({page}) => {
       await page.goto(path);
+      await page.locator('label[for="media-press"]').click();
       for (const suffix of ['pervaya-zashchita-dissovet-24124405-2026', 'sitkovskij-zashhitil-kandidatskuyu-dissertaciyu/']) {
         await expect(page.locator(`#media-list h2 a[href$="${suffix}"]`)).toBeVisible();
       }
