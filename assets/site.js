@@ -179,12 +179,58 @@ function installFooter(){
       <div>
         <div class="footer-title"><span class="ru">Персональный сайт Ситковского А.М.</span><span class="en">Personal website of Arseniy M. Sitkovskiy</span></div>
         <a class="footer-email" href="mailto:omnistat@yandex.ru">omnistat@yandex.ru</a>
+        <span aria-hidden="true"> · </span>
+        <a class="footer-email" href="privacy.html${pageLangFromUrl() === 'en' ? '#english' : ''}"><span class="ru">Приватность</span><span class="en">Privacy</span></a>
       </div>
       <div class="social-links" aria-label="Social links">
         <a href="https://vk.com/arseniy24gamer" target="_blank" rel="noopener noreferrer" aria-label="VK"><img src="assets/social/vk.svg?v=20260603" alt="" aria-hidden="true"></a>
         <a href="https://t.me/omnistat" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="assets/social/telegram.svg?v=20260603" alt="" aria-hidden="true"></a>
       </div>
     </div>`;
+}
+
+const ANALYTICS_OPT_OUT_KEY = 'portfolio-metrika-opt-out';
+
+function installAnalytics(){
+  const counter = '114142238';
+  if(!counter || location.origin !== 'https://sitkovskiy.ru') return;
+  const expected = localizedPath(pageLangFromUrl());
+  if(!expected || normalizedPath(location.pathname) !== expected) return;
+  try{
+    if(localStorage.getItem(ANALYTICS_OPT_OUT_KEY) === '1') return;
+  }catch{
+    return;
+  }
+  const script = document.createElement('script');
+  script.src = new URL('assets/metrika.js', document.baseURI).href;
+  script.dataset.counter = counter;
+  document.head.append(script);
+}
+
+function installAnalyticsPreference(){
+  const controls = [...document.querySelectorAll('[data-analytics-opt-out]')];
+  if(!controls.length) return;
+  let optedOut;
+  try{
+    optedOut = localStorage.getItem(ANALYTICS_OPT_OUT_KEY) === '1';
+  }catch{
+    controls.forEach(control => { control.checked = true; });
+    return;
+  }
+  controls.forEach(control => {
+    control.checked = optedOut;
+    control.disabled = false;
+    control.addEventListener('change', () => {
+      try{
+        if(control.checked) localStorage.setItem(ANALYTICS_OPT_OUT_KEY, '1');
+        else localStorage.removeItem(ANALYTICS_OPT_OUT_KEY);
+        optedOut = control.checked;
+      }catch{
+        controls.forEach(input => { input.disabled = true; });
+      }
+      controls.forEach(input => { input.checked = optedOut; });
+    });
+  });
 }
 
 function orderHomeSections(){
@@ -211,4 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
   installFooter();
   orderHomeSections();
   setLang(preferredLang(), {noNavigate: true});
+  installAnalyticsPreference();
+  installAnalytics();
 });
