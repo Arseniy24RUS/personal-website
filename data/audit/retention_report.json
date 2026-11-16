@@ -1,27 +1,27 @@
 {
   "status": "success",
-  "baseline_ref": "3bfb979192fbde66bdc77ea236daba7b33100b57",
-  "baseline_commit": "3bfb979192fbde66bdc77ea236daba7b33100b57",
+  "baseline_ref": "f39e5e9351a9740762a9fdd4f3bdcfc02359b67c",
+  "baseline_commit": "f39e5e9351a9740762a9fdd4f3bdcfc02359b67c",
   "datasets": {
     "data/public/publications.json": {
       "before": 73,
       "after": 73
     },
     "data/media/published.json": {
-      "before": 23,
-      "after": 23
+      "before": 29,
+      "after": 29
     },
     "data/media/published-fallback.json": {
-      "before": 23,
-      "after": 23
+      "before": 29,
+      "after": 29
     },
     "data/risi/articles.json": {
       "before": 13,
       "after": 13
     },
     "data/diplomas/gallery.json": {
-      "before": 57,
-      "after": 57
+      "before": 62,
+      "after": 62
     },
     "data/dpo/gallery.json": {
       "before": 10,
@@ -32,7 +32,7 @@
       "after": 25
     }
   },
-  "assets_checked": 330,
-  "assets_content_checked": 330,
+  "assets_checked": 358,
+  "assets_content_checked": 358,
   "issues": []
 }

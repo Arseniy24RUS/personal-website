@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T11:37:41+00:00",
+  "generated_at": "2026-11-16T11:20:15+00:00",
   "records": [
     {
       "source": "orcid_public_api",
@@ -235,7 +235,11 @@
               "raw_source_name": "RUDN Journal of Public Administration",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7153001482"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -326,7 +330,7 @@
                 "countries": [
                   "RU"
                 ],
-                "is_corresponding": false,
+                "is_corresponding": true,
                 "raw_author_name": "Arseniy M. Sitkovskiy",
                 "raw_affiliation_strings": [
                   "Federal Research Sociological Center of the Russian Academy of Sciences"
@@ -346,15 +350,21 @@
             "institutions": [],
             "countries_distinct_count": 1,
             "institutions_distinct_count": 3,
-            "corresponding_author_ids": [],
-            "corresponding_institution_ids": [],
+            "corresponding_author_ids": [
+              "https://openalex.org/A5007601767"
+            ],
+            "corresponding_institution_ids": [
+              "https://openalex.org/I1313323035",
+              "https://openalex.org/I4210098167"
+            ],
             "apc_list": null,
             "apc_paid": null,
             "fwci": 0.0,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.25349021,
+              "value": 0.0,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -647,19 +657,29 @@
                 "landing_page_url": "https://cyberleninka.ru/article/n/demograficheskaya-tipologiya-korennyh-malochislennyh-narodov-rossii-klasternyy-analiz-vozrastnoy-struktury",
                 "pdf_url": "https://cyberleninka.ru/article/n/demograficheskaya-tipologiya-korennyh-malochislennyh-narodov-rossii-klasternyy-analiz-vozrastnoy-struktury/pdf",
                 "source": {
-                  "id": "https://openalex.org/S4306401404",
-                  "display_name": "CyberLeninK (CyberLeninka)",
-                  "issn_l": null,
-                  "issn": null,
+                  "id": "https://openalex.org/S4210206045",
+                  "display_name": "RUDN Journal of Public Administration",
+                  "issn_l": "2312-8313",
+                  "issn": [
+                    "2312-8313",
+                    "2411-1228"
+                  ],
                   "is_oa": false,
-                  "is_in_doaj": false,
+                  "is_in_doaj": true,
                   "is_core": false,
-                  "listed_in": [],
-                  "host_organization": null,
-                  "host_organization_name": null,
-                  "host_organization_lineage": [],
-                  "host_organization_lineage_names": [],
-                  "type": "repository"
+                  "listed_in": [
+                    "doaj",
+                    "russia-white-list-3"
+                  ],
+                  "host_organization": "https://openalex.org/P4310312633",
+                  "host_organization_name": "Peoples' Friendship University of Russia",
+                  "host_organization_lineage": [
+                    "https://openalex.org/P4310312633"
+                  ],
+                  "host_organization_lineage_names": [
+                    "Peoples' Friendship University of Russia"
+                  ],
+                  "type": "journal"
                 },
                 "license": "cc-by-nc",
                 "license_id": "https://openalex.org/licenses/cc-by-nc",
@@ -743,8 +763,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7153001482.pdf",
@@ -758,7 +778,6 @@
             ],
             "related_works": [
               "https://openalex.org/W7160064681",
-              "https://openalex.org/W7223524909",
               "https://openalex.org/W2025648901",
               "https://openalex.org/W4387119454",
               "https://openalex.org/W4296436751",
@@ -1018,7 +1037,7 @@
               ]
             },
             "counts_by_year": [],
-            "updated_date": "2026-11-04T10:54:05.112534",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2026-04-11T00:00:00"
           }
         },
@@ -1497,7 +1516,11 @@
               "raw_source_name": "The Education and science journal",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7124245349"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -1619,10 +1642,11 @@
               "value_usd": 333
             },
             "fwci": 0.0,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.01349702,
+              "value": 0.0,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -2000,19 +2024,31 @@
                 "landing_page_url": "https://cyberleninka.ru/article/n/sravnitelnyy-kontent-analiz-magisterskih-i-doktorskih-programm-v-sfere-demografii-universitetov-mirovogo-urovnya",
                 "pdf_url": "https://cyberleninka.ru/article/n/sravnitelnyy-kontent-analiz-magisterskih-i-doktorskih-programm-v-sfere-demografii-universitetov-mirovogo-urovnya/pdf",
                 "source": {
-                  "id": "https://openalex.org/S4306401404",
-                  "display_name": "CyberLeninK (CyberLeninka)",
-                  "issn_l": null,
-                  "issn": null,
+                  "id": "https://openalex.org/S2737075480",
+                  "display_name": "The Education and science journal",
+                  "issn_l": "1994-5639",
+                  "issn": [
+                    "1994-5639",
+                    "2310-5828"
+                  ],
                   "is_oa": false,
-                  "is_in_doaj": false,
+                  "is_in_doaj": true,
                   "is_core": false,
-                  "listed_in": [],
-                  "host_organization": null,
-                  "host_organization_name": null,
-                  "host_organization_lineage": [],
-                  "host_organization_lineage_names": [],
-                  "type": "repository"
+                  "listed_in": [
+                    "doaj",
+                    "erih-plus",
+                    "poland-20",
+                    "russia-white-list-1"
+                  ],
+                  "host_organization": "https://openalex.org/P4310312858",
+                  "host_organization_name": "Russian State Vocational Pedagogical University",
+                  "host_organization_lineage": [
+                    "https://openalex.org/P4310312858"
+                  ],
+                  "host_organization_lineage_names": [
+                    "Russian State Vocational Pedagogical University"
+                  ],
+                  "type": "journal"
                 },
                 "license": "cc-by",
                 "license_id": "https://openalex.org/licenses/cc-by",
@@ -2124,23 +2160,23 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Quality education",
                 "id": "https://metadata.un.org/sdg/4",
-                "score": 0.9235000014305115
+                "score": 0.9235000014305115,
+                "display_name": "Quality education"
               }
             ],
             "study_designs": [],
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7124245349.pdf",
               "grobid_xml": "https://content.openalex.org/works/W7124245349.grobid-xml"
             },
-            "referenced_works_count": 16,
+            "referenced_works_count": 18,
             "referenced_works": [
               "https://openalex.org/W1969589005",
               "https://openalex.org/W2003044923",
@@ -2154,16 +2190,18 @@
               "https://openalex.org/W3118082289",
               "https://openalex.org/W4225716735",
               "https://openalex.org/W4236086753",
+              "https://openalex.org/W4252099290",
               "https://openalex.org/W4311304399",
               "https://openalex.org/W4317930756",
               "https://openalex.org/W4389387041",
+              "https://openalex.org/W4392642833",
               "https://openalex.org/W4400958521"
             ],
             "related_works": [
               "https://openalex.org/W2444477208",
               "https://openalex.org/W1573618705",
               "https://openalex.org/W4393161614",
-              "https://openalex.org/W4378675902",
+              "https://openalex.org/W1966023444",
               "https://openalex.org/W7095727720",
               "https://openalex.org/W2913999346",
               "https://openalex.org/W207552254",
@@ -2951,7 +2989,7 @@
               ]
             },
             "counts_by_year": [],
-            "updated_date": "2026-11-05T12:25:35.769452",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2026-01-16T00:00:00"
           }
         },
@@ -3568,7 +3606,11 @@
               "raw_source_name": "Research Result Sociology and Management",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7135080211"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -3672,10 +3714,11 @@
             "apc_list": null,
             "apc_paid": null,
             "fwci": 0.0,
+            "is_authors_truncated": false,
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.57203739,
+              "value": 0.0,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -3966,8 +4009,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": false,
-              "grobid_xml": false
+              "grobid_xml": false,
+              "pdf": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -3975,13 +4018,11 @@
             "related_works": [
               "https://openalex.org/W7216869244",
               "https://openalex.org/W2810373911",
-              "https://openalex.org/W4310564641",
               "https://openalex.org/W3024328908",
               "https://openalex.org/W7016386923",
               "https://openalex.org/W4400844525",
               "https://openalex.org/W179449321",
               "https://openalex.org/W7072333585",
-              "https://openalex.org/W7094641342",
               "https://openalex.org/W7016288764"
             ],
             "abstract_inverted_index": {
@@ -4063,7 +4104,7 @@
               ]
             },
             "counts_by_year": [],
-            "updated_date": "2026-10-28T10:33:24.094632",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2026-03-13T00:00:00"
           }
         },
@@ -4245,7 +4286,7 @@
       "venue": "DEMIS Demographic research",
       "type": "journal-article",
       "publisher": "Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences (FCTAS RAS)",
-      "is_referenced_by_count": 0,
+      "is_referenced_by_count": 1,
       "raw": {
         "put-code": 200970214,
         "created-date": {
@@ -4317,7 +4358,7 @@
       "openalex_id": "https://openalex.org/W7117456659",
       "landing_page_url": "https://doi.org/10.19181/demis.2025.5.4.11",
       "pdf_url": "https://www.demis-journal.ru/index.php/demis/article/download/RDSJKG/9097",
-      "cited_by_count": 0,
+      "cited_by_count": 1,
       "is_oa": true,
       "oa_status": "bronze",
       "orcid": "0000-0002-8725-6580",
@@ -4416,7 +4457,7 @@
           "landing_page_url": "https://doi.org/10.19181/demis.2025.5.4.11",
           "pdf_url": "https://www.demis-journal.ru/index.php/demis/article/download/RDSJKG/9097",
           "venue": "DEMIS Demographic research",
-          "cited_by_count": 0,
+          "cited_by_count": 1,
           "is_oa": true,
           "oa_status": "bronze",
           "raw": {
@@ -4465,7 +4506,11 @@
               "raw_source_name": "DEMIS. Demographic Research",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7117456659"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -4534,15 +4579,19 @@
             "corresponding_institution_ids": [],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 0.0,
+            "fwci": 0.6412,
+            "is_authors_truncated": false,
             "has_fulltext": true,
-            "cited_by_count": 0,
+            "cited_by_count": 1,
             "citation_normalized_percentile": {
-              "value": 0.46705877,
+              "value": 0.65897769,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
-            "cited_by_percentile_year": null,
+            "cited_by_percentile_year": {
+              "min": 91,
+              "max": 95
+            },
             "biblio": {
               "volume": "5",
               "issue": "4",
@@ -4896,17 +4945,17 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Sustainable cities and communities",
                 "id": "https://metadata.un.org/sdg/11",
-                "score": 0.5142999887466431
+                "score": 0.5142999887466431,
+                "display_name": "Sustainable cities and communities"
               }
             ],
             "study_designs": [],
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7117456659.pdf",
@@ -5588,8 +5637,13 @@
                 294
               ]
             },
-            "counts_by_year": [],
-            "updated_date": "2026-11-04T10:54:05.112534",
+            "counts_by_year": [
+              {
+                "year": 2026,
+                "cited_by_count": 1
+              }
+            ],
+            "updated_date": "2026-11-13T13:42:25.865203",
             "created_date": "2025-12-29T00:00:00"
           }
         },
@@ -5602,19 +5656,19 @@
           "venue": "DEMIS. Demographic Research",
           "type": "journal-article",
           "publisher": "Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences (FCTAS RAS)",
-          "is_referenced_by_count": 0,
+          "is_referenced_by_count": 1,
           "raw": {
             "indexed": {
               "date-parts": [
                 [
-                  2025,
-                  12,
-                  29
+                  2026,
+                  11,
+                  13
                 ]
               ],
-              "date-time": "2025-12-29T18:02:55Z",
-              "timestamp": 1767031375813,
-              "version": "3.48.0"
+              "date-time": "2026-11-13T09:31:34Z",
+              "timestamp": 1794562294174,
+              "version": "4.9.1"
             },
             "reference-count": 15,
             "publisher": "Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences (FCTAS RAS)",
@@ -5648,7 +5702,7 @@
             },
             "page": "188-215",
             "source": "Crossref",
-            "is-referenced-by-count": 0,
+            "is-referenced-by-count": 1,
             "title": [
               "Methodological Aspects of Demographic Expertise of Projects and Works"
             ],
@@ -5668,8 +5722,8 @@
                 ],
                 "role": [
                   {
-                    "role": "author",
-                    "vocabulary": "crossref"
+                    "vocabulary": "crossref",
+                    "role": "author"
                   }
                 ]
               },
@@ -5686,8 +5740,8 @@
                 ],
                 "role": [
                   {
-                    "role": "author",
-                    "vocabulary": "crossref"
+                    "vocabulary": "crossref",
+                    "role": "author"
                   }
                 ]
               }
@@ -5823,12 +5877,12 @@
             ],
             "issn-type": [
               {
-                "type": "print",
-                "value": "2782-2303"
+                "value": "2782-2303",
+                "type": "print"
               },
               {
-                "type": "electronic",
-                "value": "2782-229X"
+                "value": "2782-229X",
+                "type": "electronic"
               }
             ],
             "published": {
@@ -5853,7 +5907,7 @@
       "venue": "The New Research of Tuva",
       "type": "journal-article",
       "publisher": "The New Research of Tuva Editorial Board",
-      "is_referenced_by_count": 0,
+      "is_referenced_by_count": 1,
       "raw": {
         "put-code": 198410443,
         "created-date": {
@@ -5925,7 +5979,7 @@
       "openalex_id": "https://openalex.org/W4416843219",
       "landing_page_url": "https://doi.org/10.25178/nit.2025.4.13",
       "pdf_url": "https://nit.tuva.asia/nit/article/download/1547/1782",
-      "cited_by_count": 2,
+      "cited_by_count": 3,
       "is_oa": true,
       "oa_status": "gold",
       "orcid": "0000-0002-8725-6580",
@@ -6024,7 +6078,7 @@
           "landing_page_url": "https://doi.org/10.25178/nit.2025.4.13",
           "pdf_url": "https://nit.tuva.asia/nit/article/download/1547/1782",
           "venue": "The New Research of Tuva",
-          "cited_by_count": 2,
+          "cited_by_count": 3,
           "is_oa": true,
           "oa_status": "gold",
           "raw": {
@@ -6079,7 +6133,11 @@
               "raw_source_name": "The New Research of Tuva",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W4416843219"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -6238,17 +6296,18 @@
               "currency": "RUB",
               "value_usd": 95
             },
-            "fwci": 1.3517,
+            "fwci": 1.9235,
+            "is_authors_truncated": false,
             "has_fulltext": true,
-            "cited_by_count": 2,
+            "cited_by_count": 3,
             "citation_normalized_percentile": {
-              "value": 0.84118355,
+              "value": 0.84494113,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
             "cited_by_percentile_year": {
-              "min": 95,
-              "max": 96
+              "min": 96,
+              "max": 97
             },
             "biblio": {
               "volume": null,
@@ -6580,8 +6639,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4416843219.pdf",
@@ -6603,7 +6662,7 @@
               "https://openalex.org/W6907706064"
             ],
             "related_works": [
-              "https://openalex.org/W7165220460",
+              "https://openalex.org/W7140123489",
               "https://openalex.org/W4380302570",
               "https://openalex.org/W7154597582",
               "https://openalex.org/W7133191939",
@@ -7172,10 +7231,10 @@
             "counts_by_year": [
               {
                 "year": 2026,
-                "cited_by_count": 2
+                "cited_by_count": 3
               }
             ],
-            "updated_date": "2026-11-07T11:25:07.637180",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2025-12-01T00:00:00"
           }
         },
@@ -7188,19 +7247,19 @@
           "venue": "The New Research of Tuva",
           "type": "journal-article",
           "publisher": "The New Research of Tuva Editorial Board",
-          "is_referenced_by_count": 0,
+          "is_referenced_by_count": 1,
           "raw": {
             "indexed": {
               "date-parts": [
                 [
                   2026,
-                  1,
-                  8
+                  11,
+                  13
                 ]
               ],
-              "date-time": "2026-01-08T10:52:08Z",
-              "timestamp": 1767869528331,
-              "version": "3.49.0"
+              "date-time": "2026-11-13T09:00:05Z",
+              "timestamp": 1794560405473,
+              "version": "4.9.1"
             },
             "reference-count": 0,
             "publisher": "The New Research of Tuva Editorial Board",
@@ -7246,7 +7305,7 @@
             },
             "page": "233-253",
             "source": "Crossref",
-            "is-referenced-by-count": 0,
+            "is-referenced-by-count": 1,
             "title": [
               "Методология и практика проведения демографической экспертизы на примере региональной программы «Повышение рождаемости в Республике Тыва на период 2023–2025 годов»"
             ],
@@ -7261,8 +7320,8 @@
                 "affiliation": [],
                 "role": [
                   {
-                    "role": "author",
-                    "vocabulary": "crossref"
+                    "vocabulary": "crossref",
+                    "role": "author"
                   }
                 ]
               },
@@ -7275,8 +7334,8 @@
                 "affiliation": [],
                 "role": [
                   {
-                    "role": "author",
-                    "vocabulary": "crossref"
+                    "vocabulary": "crossref",
+                    "role": "author"
                   }
                 ]
               },
@@ -7289,8 +7348,8 @@
                 "affiliation": [],
                 "role": [
                   {
-                    "role": "author",
-                    "vocabulary": "crossref"
+                    "vocabulary": "crossref",
+                    "role": "author"
                   }
                 ]
               }
@@ -7618,7 +7677,11 @@
               "raw_source_name": "RUDN Journal of Public Administration",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W4415774327"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -7667,7 +7730,7 @@
                 "countries": [
                   "RU"
                 ],
-                "is_corresponding": false,
+                "is_corresponding": true,
                 "raw_author_name": "Tamara R. Rostovskaya",
                 "raw_affiliation_strings": [
                   "Institute for Demographic Research, Federal Research Center of the Russian Academy of Sciences (FRC RAS)",
@@ -7750,15 +7813,21 @@
             "institutions": [],
             "countries_distinct_count": 1,
             "institutions_distinct_count": 2,
-            "corresponding_author_ids": [],
-            "corresponding_institution_ids": [],
+            "corresponding_author_ids": [
+              "https://openalex.org/A5016469975"
+            ],
+            "corresponding_institution_ids": [
+              "https://openalex.org/I126527374",
+              "https://openalex.org/I1313323035"
+            ],
             "apc_list": null,
             "apc_paid": null,
             "fwci": 0.0,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.24513577,
+              "value": 0.0,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -8049,17 +8118,17 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Peace, justice, and strong institutions",
                 "id": "https://metadata.un.org/sdg/16",
-                "score": 0.5473999977111816
+                "score": 0.5473999977111816,
+                "display_name": "Peace, justice, and strong institutions"
               }
             ],
             "study_designs": [],
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4415774327.pdf",
@@ -8069,7 +8138,6 @@
             "referenced_works": [],
             "related_works": [
               "https://openalex.org/W1981143567",
-              "https://openalex.org/W2314498408",
               "https://openalex.org/W4206064735",
               "https://openalex.org/W3153737489",
               "https://openalex.org/W4283394260",
@@ -8081,7 +8149,7 @@
             ],
             "abstract_inverted_index": null,
             "counts_by_year": [],
-            "updated_date": "2026-10-29T09:56:32.521200",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2025-11-02T00:00:00"
           }
         },
@@ -8536,7 +8604,11 @@
               "raw_source_name": "RUDN Journal of Public Administration",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W4415774334"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -8602,11 +8674,12 @@
             ],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 4.3867,
+            "fwci": 4.0801,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 4,
             "citation_normalized_percentile": {
-              "value": 0.94862146,
+              "value": 0.92633532,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": true
             },
@@ -9071,8 +9144,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4415774334.pdf",
@@ -9095,8 +9168,7 @@
               "https://openalex.org/W7140276508",
               "https://openalex.org/W4405654980",
               "https://openalex.org/W4288034853",
-              "https://openalex.org/W3201846276",
-              "https://openalex.org/W307996862"
+              "https://openalex.org/W2245564082"
             ],
             "abstract_inverted_index": {
               "The": [
@@ -9698,7 +9770,7 @@
                 "cited_by_count": 2
               }
             ],
-            "updated_date": "2026-11-07T11:25:07.637180",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2025-11-02T00:00:00"
           }
         },
@@ -10052,7 +10124,7 @@
       "openalex_id": "https://openalex.org/W4411027413",
       "landing_page_url": "https://doi.org/10.17853/1994-5639-2025-6-149-179",
       "pdf_url": null,
-      "cited_by_count": 5,
+      "cited_by_count": 8,
       "is_oa": true,
       "oa_status": "gold",
       "orcid": "0000-0002-8725-6580",
@@ -10151,7 +10223,7 @@
           "landing_page_url": "https://doi.org/10.17853/1994-5639-2025-6-149-179",
           "pdf_url": null,
           "venue": "The Education and science journal",
-          "cited_by_count": 5,
+          "cited_by_count": 8,
           "is_oa": true,
           "oa_status": "gold",
           "raw": {
@@ -10207,7 +10279,11 @@
               "raw_source_name": "The Education and science journal",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W4411027413"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -10319,17 +10395,18 @@
               "currency": "RUB",
               "value_usd": 333
             },
-            "fwci": 5.4834,
+            "fwci": 8.1602,
+            "is_authors_truncated": false,
             "has_fulltext": true,
-            "cited_by_count": 5,
+            "cited_by_count": 8,
             "citation_normalized_percentile": {
-              "value": 0.95875893,
+              "value": 0.97611502,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": true
             },
             "cited_by_percentile_year": {
-              "min": 97,
-              "max": 98
+              "min": 89,
+              "max": 99
             },
             "biblio": {
               "volume": "27",
@@ -10656,22 +10733,22 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Reduced inequalities",
                 "id": "https://metadata.un.org/sdg/10",
-                "score": 0.7578999996185303
+                "score": 0.7578999996185303,
+                "display_name": "Reduced inequalities"
               },
               {
-                "display_name": "Quality education",
                 "id": "https://metadata.un.org/sdg/4",
-                "score": 0.6164000034332275
+                "score": 0.6164000034332275,
+                "display_name": "Quality education"
               }
             ],
             "study_designs": [],
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4411027413.pdf",
@@ -11413,10 +11490,14 @@
             "counts_by_year": [
               {
                 "year": 2026,
-                "cited_by_count": 5
+                "cited_by_count": 7
+              },
+              {
+                "year": 2025,
+                "cited_by_count": 1
               }
             ],
-            "updated_date": "2026-11-04T10:54:05.112534",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2025-10-10T00:00:00"
           }
         },
@@ -12072,7 +12153,11 @@
               "raw_source_name": "The New Research of Tuva",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W4410943920"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -12182,11 +12267,12 @@
               "currency": "RUB",
               "value_usd": 95
             },
-            "fwci": 2.1934,
+            "fwci": 2.0401,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 2,
             "citation_normalized_percentile": {
-              "value": 0.8672913,
+              "value": 0.83798408,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -12468,17 +12554,17 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Sustainable cities and communities",
                 "id": "https://metadata.un.org/sdg/11",
-                "score": 0.5142999887466431
+                "score": 0.5142999887466431,
+                "display_name": "Sustainable cities and communities"
               }
             ],
             "study_designs": [],
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4410943920.pdf",
@@ -12503,11 +12589,10 @@
             "related_works": [
               "https://openalex.org/W4387913812",
               "https://openalex.org/W3087466179",
-              "https://openalex.org/W7063105929",
-              "https://openalex.org/W7165220460",
+              "https://openalex.org/W3195892379",
+              "https://openalex.org/W7140123489",
               "https://openalex.org/W920752415",
               "https://openalex.org/W1159834903",
-              "https://openalex.org/W3195892379",
               "https://openalex.org/W4200341046",
               "https://openalex.org/W7154620465",
               "https://openalex.org/W4380302617"
@@ -12997,7 +13082,7 @@
                 "cited_by_count": 2
               }
             ],
-            "updated_date": "2026-11-07T11:25:07.637180",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2025-10-10T00:00:00"
           }
         },
@@ -13269,7 +13354,7 @@
       "openalex_id": "https://openalex.org/W4417026210",
       "landing_page_url": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617",
       "pdf_url": null,
-      "cited_by_count": 4,
+      "cited_by_count": 7,
       "is_oa": true,
       "oa_status": "diamond",
       "orcid": "0000-0002-8725-6580",
@@ -13364,7 +13449,7 @@
           "landing_page_url": "https://doi.org/10.52180/1999-9836_2025_21_4_8_602_617",
           "pdf_url": null,
           "venue": "Living Standards of the Population in the Regions of Russia",
-          "cited_by_count": 4,
+          "cited_by_count": 7,
           "is_oa": true,
           "oa_status": "diamond",
           "raw": {
@@ -13419,7 +13504,11 @@
               "raw_source_name": "Living Standards of the Population in the Regions of Russia",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W4417026210"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -13512,17 +13601,18 @@
             "corresponding_institution_ids": [],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 4.3867,
+            "fwci": 7.1402,
+            "is_authors_truncated": false,
             "has_fulltext": false,
-            "cited_by_count": 4,
+            "cited_by_count": 7,
             "citation_normalized_percentile": {
-              "value": 0.94969664,
+              "value": 0.97062688,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": true
             },
             "cited_by_percentile_year": {
-              "min": 97,
-              "max": 98
+              "min": 98,
+              "max": 99
             },
             "biblio": {
               "volume": "21",
@@ -13836,21 +13926,20 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": false,
-              "grobid_xml": false
+              "grobid_xml": false,
+              "pdf": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
             "referenced_works": [],
             "related_works": [
-              "https://openalex.org/W2590809354",
+              "https://openalex.org/W2965105193",
               "https://openalex.org/W6907616004",
               "https://openalex.org/W2955983014",
-              "https://openalex.org/W2965105193",
               "https://openalex.org/W4238214014",
               "https://openalex.org/W7168331725",
               "https://openalex.org/W2947218387",
-              "https://openalex.org/W7007070281",
+              "https://openalex.org/W2788529263",
               "https://openalex.org/W6997536224",
               "https://openalex.org/W43748944"
             ],
@@ -14522,10 +14611,10 @@
             "counts_by_year": [
               {
                 "year": 2026,
-                "cited_by_count": 4
+                "cited_by_count": 7
               }
             ],
-            "updated_date": "2026-11-07T11:25:07.637180",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2025-12-05T00:00:00"
           }
         },
@@ -14966,7 +15055,11 @@
               "raw_source_name": "The New Research of Tuva",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W4402469980"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -15086,11 +15179,12 @@
               "currency": "RUB",
               "value_usd": 95
             },
-            "fwci": 3.0845,
+            "fwci": 2.8918,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 7,
             "citation_normalized_percentile": {
-              "value": 0.93480493,
+              "value": 0.92170294,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": true
             },
@@ -15397,27 +15491,27 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Reduced inequalities",
                 "id": "https://metadata.un.org/sdg/10",
-                "score": 0.8974000215530396
+                "score": 0.8974000215530396,
+                "display_name": "Reduced inequalities"
               },
               {
-                "display_name": "Gender equality",
                 "id": "https://metadata.un.org/sdg/5",
-                "score": 0.7307999730110168
+                "score": 0.7307999730110168,
+                "display_name": "Gender equality"
               },
               {
-                "display_name": "Quality education",
                 "id": "https://metadata.un.org/sdg/4",
-                "score": 0.6164000034332275
+                "score": 0.6164000034332275,
+                "display_name": "Quality education"
               }
             ],
             "study_designs": [],
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4402469980.pdf",
@@ -15442,7 +15536,7 @@
               "https://openalex.org/W4393905527",
               "https://openalex.org/W7034874450",
               "https://openalex.org/W7168331306",
-              "https://openalex.org/W7081545784",
+              "https://openalex.org/W4411027413",
               "https://openalex.org/W4380302596",
               "https://openalex.org/W4389793071",
               "https://openalex.org/W3124304266",
@@ -15914,7 +16008,7 @@
                 "cited_by_count": 1
               }
             ],
-            "updated_date": "2026-11-07T11:25:07.637180",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2024-09-13T00:00:00"
           }
         },
@@ -16344,7 +16438,11 @@
               "raw_source_name": "Management Issues",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W4386310774"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -16401,11 +16499,12 @@
             "corresponding_institution_ids": [],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 2.1797,
+            "fwci": 2.098,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 6,
             "citation_normalized_percentile": {
-              "value": 0.87813037,
+              "value": 0.86118512,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -16663,8 +16762,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W4386310774.pdf",
@@ -17368,7 +17467,7 @@
       "openalex_id": "https://openalex.org/W3157314309",
       "landing_page_url": "https://doi.org/10.22394/2304-3369-2021-2-102-119",
       "pdf_url": null,
-      "cited_by_count": 3,
+      "cited_by_count": 4,
       "is_oa": true,
       "oa_status": "hybrid",
       "orcid": "0000-0002-8725-6580",
@@ -17463,7 +17562,7 @@
           "landing_page_url": "https://doi.org/10.22394/2304-3369-2021-2-102-119",
           "pdf_url": null,
           "venue": "Management Issues",
-          "cited_by_count": 3,
+          "cited_by_count": 4,
           "is_oa": true,
           "oa_status": "hybrid",
           "raw": {
@@ -17515,7 +17614,11 @@
               "raw_source_name": "Management Issues",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W3157314309"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -17556,17 +17659,18 @@
             "corresponding_institution_ids": [],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 0.1383,
+            "fwci": 0.1369,
+            "is_authors_truncated": false,
             "has_fulltext": false,
-            "cited_by_count": 3,
+            "cited_by_count": 4,
             "citation_normalized_percentile": {
-              "value": 0.42442073,
+              "value": 0.40042006,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
             "cited_by_percentile_year": {
               "min": 88,
-              "max": 95
+              "max": 96
             },
             "biblio": {
               "volume": null,
@@ -17809,8 +17913,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": false,
-              "grobid_xml": false
+              "grobid_xml": false,
+              "pdf": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -17823,22 +17927,22 @@
               "https://openalex.org/W2675949513",
               "https://openalex.org/W2804401683",
               "https://openalex.org/W2291581379",
-              "https://openalex.org/W7015349442",
-              "https://openalex.org/W1533731372",
+              "https://openalex.org/W2547571352",
+              "https://openalex.org/W3170044912",
               "https://openalex.org/W7135552906"
             ],
             "abstract_inverted_index": null,
             "counts_by_year": [
               {
                 "year": 2025,
-                "cited_by_count": 2
+                "cited_by_count": 3
               },
               {
                 "year": 2024,
                 "cited_by_count": 1
               }
             ],
-            "updated_date": "2026-08-18T07:49:30.821534",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2021-05-10T00:00:00"
           }
         },
@@ -18021,7 +18125,7 @@
       "landing_page_url": "https://doi.org/10.1051/e3sconf/202021707021",
       "pdf_url": "https://www.e3s-conferences.org/articles/e3sconf/pdf/2020/77/e3sconf_ersme2020_07021.pdf",
       "venue": "E3S Web of Conferences",
-      "cited_by_count": 0,
+      "cited_by_count": 2,
       "is_oa": true,
       "oa_status": "diamond",
       "raw": {
@@ -18232,7 +18336,7 @@
           "landing_page_url": "https://doi.org/10.1051/e3sconf/202021707021",
           "pdf_url": "https://www.e3s-conferences.org/articles/e3sconf/pdf/2020/77/e3sconf_ersme2020_07021.pdf",
           "venue": "E3S Web of Conferences",
-          "cited_by_count": 0,
+          "cited_by_count": 2,
           "is_oa": true,
           "oa_status": "diamond",
           "raw": {
@@ -18241,7 +18345,7 @@
             "title": "Visualization in models of transformation of social space of the Eurasian macroregion: the example of the Urals",
             "display_name": "Visualization in models of transformation of social space of the Eurasian macroregion: the example of the Urals",
             "publication_year": 2020,
-            "publication_date": "2020-01-01",
+            "publication_date": "2020-12-14",
             "ids": {
               "openalex": "https://openalex.org/W3111971945",
               "doi": "https://doi.org/10.1051/e3sconf/202021707021",
@@ -18291,7 +18395,11 @@
               "raw_source_name": "E3S Web of Conferences",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W3111971945"
+            ],
+            "child_works_count": 0,
             "type": "conference-paper",
             "is_traditional": true,
             "indexed_in": [
@@ -18435,15 +18543,19 @@
             ],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 0.0,
+            "fwci": 1.8585,
+            "is_authors_truncated": false,
             "has_fulltext": true,
-            "cited_by_count": 0,
+            "cited_by_count": 2,
             "citation_normalized_percentile": {
-              "value": 0.26480836,
+              "value": 0.79549393,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
-            "cited_by_percentile_year": null,
+            "cited_by_percentile_year": {
+              "min": 87,
+              "max": 93
+            },
             "biblio": {
               "volume": "217",
               "issue": null,
@@ -18880,9 +18992,9 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Sustainable cities and communities",
                 "id": "https://metadata.un.org/sdg/11",
-                "score": 0.7250000238418579
+                "score": 0.7250000238418579,
+                "display_name": "Sustainable cities and communities"
               }
             ],
             "study_designs": [],
@@ -18895,14 +19007,14 @@
               }
             ],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W3111971945.pdf",
               "grobid_xml": "https://content.openalex.org/works/W3111971945.grobid-xml"
             },
-            "referenced_works_count": 9,
+            "referenced_works_count": 10,
             "referenced_works": [
               "https://openalex.org/W920706371",
               "https://openalex.org/W1958100158",
@@ -18911,16 +19023,16 @@
               "https://openalex.org/W2727844201",
               "https://openalex.org/W2786120988",
               "https://openalex.org/W2985151274",
+              "https://openalex.org/W2996807341",
               "https://openalex.org/W4238775329",
               "https://openalex.org/W4385647613"
             ],
             "related_works": [
               "https://openalex.org/W3155381937",
               "https://openalex.org/W3169063868",
-              "https://openalex.org/W7134666554",
               "https://openalex.org/W6988207583",
               "https://openalex.org/W3164543277",
-              "https://openalex.org/W7113503602",
+              "https://openalex.org/W4206789826",
               "https://openalex.org/W3175630412",
               "https://openalex.org/W3114192667",
               "https://openalex.org/W1011280933",
@@ -19453,8 +19565,17 @@
                 252
               ]
             },
-            "counts_by_year": [],
-            "updated_date": "2026-11-04T10:54:05.112534",
+            "counts_by_year": [
+              {
+                "year": 2025,
+                "cited_by_count": 1
+              },
+              {
+                "year": 2021,
+                "cited_by_count": 1
+              }
+            ],
+            "updated_date": "2026-11-15T12:55:33.944570",
             "created_date": "2020-12-21T00:00:00"
           }
         }
@@ -19523,7 +19644,11 @@
           "raw_source_name": "Problems of Social Hygiene, Public Health and History of Medicine",
           "raw_type": "journal-article"
         },
-        "volume": null,
+        "parent_works": [],
+        "lineage": [
+          "https://openalex.org/W7224282505"
+        ],
+        "child_works_count": 0,
         "type": "article",
         "is_traditional": true,
         "indexed_in": [
@@ -19666,10 +19791,11 @@
         "apc_list": null,
         "apc_paid": null,
         "fwci": 0.0,
+        "is_authors_truncated": false,
         "has_fulltext": false,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.88863616,
+          "value": 0.0,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -20108,27 +20234,27 @@
         },
         "sustainable_development_goals": [
           {
-            "display_name": "Sustainable cities and communities",
             "id": "https://metadata.un.org/sdg/11",
-            "score": 0.5142999887466431
+            "score": 0.5142999887466431,
+            "display_name": "Sustainable cities and communities"
           },
           {
-            "display_name": "Good health and well-being",
             "id": "https://metadata.un.org/sdg/3",
-            "score": 0.4000000059604645
+            "score": 0.4000000059604645,
+            "display_name": "Good health and well-being"
           }
         ],
         "study_designs": [
           {
-            "display_name": "Observational Study",
-            "id": "https://openalex.org/study-designs/observational-study"
+            "id": "https://openalex.org/study-designs/observational-study",
+            "display_name": "Observational Study"
           }
         ],
         "awards": [],
         "funders": [],
         "has_content": {
-          "pdf": false,
-          "grobid_xml": false
+          "grobid_xml": false,
+          "pdf": false
         },
         "content_urls": null,
         "referenced_works_count": 3,
@@ -20826,7 +20952,11 @@
               "raw_source_name": "Problems of Social Hygiene, Public Health and History of Medicine",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7224282505"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -20969,10 +21099,11 @@
             "apc_list": null,
             "apc_paid": null,
             "fwci": 0.0,
+            "is_authors_truncated": false,
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.88863616,
+              "value": 0.0,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -21411,27 +21542,27 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Sustainable cities and communities",
                 "id": "https://metadata.un.org/sdg/11",
-                "score": 0.5142999887466431
+                "score": 0.5142999887466431,
+                "display_name": "Sustainable cities and communities"
               },
               {
-                "display_name": "Good health and well-being",
                 "id": "https://metadata.un.org/sdg/3",
-                "score": 0.4000000059604645
+                "score": 0.4000000059604645,
+                "display_name": "Good health and well-being"
               }
             ],
             "study_designs": [
               {
-                "display_name": "Observational Study",
-                "id": "https://openalex.org/study-designs/observational-study"
+                "id": "https://openalex.org/study-designs/observational-study",
+                "display_name": "Observational Study"
               }
             ],
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": false,
-              "grobid_xml": false
+              "grobid_xml": false,
+              "pdf": false
             },
             "content_urls": null,
             "referenced_works_count": 3,
@@ -22130,7 +22261,11 @@
           "raw_source_name": "The New Research of Tuva",
           "raw_type": "journal-article"
         },
-        "volume": null,
+        "parent_works": [],
+        "lineage": [
+          "https://openalex.org/W7204881448"
+        ],
+        "child_works_count": 0,
         "type": "article",
         "is_traditional": true,
         "indexed_in": [
@@ -22205,10 +22340,11 @@
           "value_usd": 95
         },
         "fwci": 0.0,
+        "is_authors_truncated": false,
         "has_fulltext": true,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.5836408,
+          "value": 0.0,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -22597,8 +22733,8 @@
           }
         ],
         "has_content": {
-          "pdf": true,
-          "grobid_xml": true
+          "grobid_xml": true,
+          "pdf": true
         },
         "content_urls": {
           "pdf": "https://content.openalex.org/works/W7204881448.pdf",
@@ -22651,8 +22787,8 @@
           "https://openalex.org/W4380302570",
           "https://openalex.org/W6888829563",
           "https://openalex.org/W4408749338",
-          "https://openalex.org/W7165220460",
-          "https://openalex.org/W7094549537",
+          "https://openalex.org/W7140123489",
+          "https://openalex.org/W3045562312",
           "https://openalex.org/W7168331725",
           "https://openalex.org/W7133191939",
           "https://openalex.org/W6964554407",
@@ -23144,7 +23280,7 @@
           ]
         },
         "counts_by_year": [],
-        "updated_date": "2026-11-07T11:25:07.637180",
+        "updated_date": "2026-11-14T11:04:58.165337",
         "created_date": "2026-09-02T00:00:00"
       },
       "sources": [
@@ -23216,7 +23352,11 @@
               "raw_source_name": "The New Research of Tuva",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7204881448"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -23291,10 +23431,11 @@
               "value_usd": 95
             },
             "fwci": 0.0,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.5836408,
+              "value": 0.0,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -23683,8 +23824,8 @@
               }
             ],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7204881448.pdf",
@@ -23737,8 +23878,8 @@
               "https://openalex.org/W4380302570",
               "https://openalex.org/W6888829563",
               "https://openalex.org/W4408749338",
-              "https://openalex.org/W7165220460",
-              "https://openalex.org/W7094549537",
+              "https://openalex.org/W7140123489",
+              "https://openalex.org/W3045562312",
               "https://openalex.org/W7168331725",
               "https://openalex.org/W7133191939",
               "https://openalex.org/W6964554407",
@@ -24230,7 +24371,7 @@
               ]
             },
             "counts_by_year": [],
-            "updated_date": "2026-11-07T11:25:07.637180",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2026-09-02T00:00:00"
           }
         }
@@ -24301,7 +24442,11 @@
           "raw_source_name": "The New Research of Tuva",
           "raw_type": "journal-article"
         },
-        "volume": null,
+        "parent_works": [],
+        "lineage": [
+          "https://openalex.org/W7204927332"
+        ],
+        "child_works_count": 0,
         "type": "article",
         "is_traditional": true,
         "indexed_in": [
@@ -24435,10 +24580,11 @@
           "value_usd": 95
         },
         "fwci": 0.0,
+        "is_authors_truncated": false,
         "has_fulltext": true,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.6404514,
+          "value": 0.0,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -24770,9 +24916,9 @@
         },
         "sustainable_development_goals": [
           {
-            "display_name": "Reduced inequalities",
             "id": "https://metadata.un.org/sdg/10",
-            "score": 0.4074000120162964
+            "score": 0.4074000120162964,
+            "display_name": "Reduced inequalities"
           }
         ],
         "study_designs": [],
@@ -24793,8 +24939,8 @@
           }
         ],
         "has_content": {
-          "pdf": true,
-          "grobid_xml": true
+          "grobid_xml": true,
+          "pdf": true
         },
         "content_urls": {
           "pdf": "https://content.openalex.org/works/W7204927332.pdf",
@@ -25305,7 +25451,11 @@
               "raw_source_name": "The New Research of Tuva",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7204927332"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -25439,10 +25589,11 @@
               "value_usd": 95
             },
             "fwci": 0.0,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.6404514,
+              "value": 0.0,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -25774,9 +25925,9 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Reduced inequalities",
                 "id": "https://metadata.un.org/sdg/10",
-                "score": 0.4074000120162964
+                "score": 0.4074000120162964,
+                "display_name": "Reduced inequalities"
               }
             ],
             "study_designs": [],
@@ -25797,8 +25948,8 @@
               }
             ],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7204927332.pdf",
@@ -26314,7 +26465,11 @@
           "raw_source_name": "Frontiers in Big Data",
           "raw_type": "journal-article"
         },
-        "volume": null,
+        "parent_works": [],
+        "lineage": [
+          "https://openalex.org/W7167674305"
+        ],
+        "child_works_count": 1,
         "type": "article",
         "is_traditional": true,
         "indexed_in": [
@@ -26451,11 +26606,12 @@
           "currency": "CHF",
           "value_usd": 1418
         },
-        "fwci": 1.4846,
+        "fwci": 1.3943,
+        "is_authors_truncated": false,
         "has_fulltext": true,
         "cited_by_count": 1,
         "citation_normalized_percentile": {
-          "value": 0.89022802,
+          "value": 0.80928809,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -26775,7 +26931,7 @@
           }
         ],
         "mesh": [],
-        "locations_count": 3,
+        "locations_count": 4,
         "locations": [
           {
             "id": "doi:10.3389/fdata.2026.1842233",
@@ -26825,7 +26981,7 @@
             "id": "pmh:oai:pubmedcentral.nih.gov:13388216",
             "doi": null,
             "is_oa": true,
-            "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/42488089/",
+            "landing_page_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13388216/",
             "pdf_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13388216/pdf/fdata-09-1842233.pdf",
             "source": {
               "id": "https://openalex.org/S2764455111",
@@ -26882,6 +27038,35 @@
             "is_published": true,
             "raw_source_name": "Frontiers in big data",
             "raw_type": "Journal Article"
+          },
+          {
+            "id": "pmh:oai:doaj.org/article:0cddb8e35aa047c3852d5473c898d0ff",
+            "doi": null,
+            "is_oa": false,
+            "landing_page_url": "https://doaj.org/article/0cddb8e35aa047c3852d5473c898d0ff",
+            "pdf_url": null,
+            "source": {
+              "id": "https://openalex.org/S4306401280",
+              "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+              "issn_l": null,
+              "issn": null,
+              "is_oa": false,
+              "is_in_doaj": false,
+              "is_core": false,
+              "listed_in": [],
+              "host_organization": null,
+              "host_organization_name": null,
+              "host_organization_lineage": [],
+              "host_organization_lineage_names": [],
+              "type": "repository"
+            },
+            "license": null,
+            "license_id": null,
+            "version": "submittedVersion",
+            "is_accepted": false,
+            "is_published": false,
+            "raw_source_name": "Frontiers in Big Data, Vol 9 (2026)",
+            "raw_type": "article"
           }
         ],
         "best_oa_location": {
@@ -26939,22 +27124,25 @@
           }
         ],
         "has_content": {
-          "pdf": true,
-          "grobid_xml": true
+          "grobid_xml": true,
+          "pdf": true
         },
         "content_urls": {
           "pdf": "https://content.openalex.org/works/W7167674305.pdf",
           "grobid_xml": "https://content.openalex.org/works/W7167674305.grobid-xml"
         },
-        "referenced_works_count": 7,
+        "referenced_works_count": 10,
         "referenced_works": [
           "https://openalex.org/W158468099",
           "https://openalex.org/W1969498530",
           "https://openalex.org/W2019029713",
           "https://openalex.org/W2493640907",
+          "https://openalex.org/W2596367596",
           "https://openalex.org/W2617547828",
+          "https://openalex.org/W2623431351",
           "https://openalex.org/W2889330812",
-          "https://openalex.org/W2991046523"
+          "https://openalex.org/W2991046523",
+          "https://openalex.org/W4394662461"
         ],
         "related_works": [
           "https://openalex.org/W7160856388",
@@ -27494,7 +27682,7 @@
             "cited_by_count": 1
           }
         ],
-        "updated_date": "2026-11-07T11:25:07.637180",
+        "updated_date": "2026-11-15T12:55:33.944570",
         "created_date": "2026-07-09T00:00:00"
       },
       "sources": [
@@ -27572,7 +27760,11 @@
               "raw_source_name": "Frontiers in Big Data",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7167674305"
+            ],
+            "child_works_count": 1,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -27709,11 +27901,12 @@
               "currency": "CHF",
               "value_usd": 1418
             },
-            "fwci": 1.4846,
+            "fwci": 1.3943,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 1,
             "citation_normalized_percentile": {
-              "value": 0.89022802,
+              "value": 0.80928809,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -28033,7 +28226,7 @@
               }
             ],
             "mesh": [],
-            "locations_count": 3,
+            "locations_count": 4,
             "locations": [
               {
                 "id": "doi:10.3389/fdata.2026.1842233",
@@ -28083,7 +28276,7 @@
                 "id": "pmh:oai:pubmedcentral.nih.gov:13388216",
                 "doi": null,
                 "is_oa": true,
-                "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/42488089/",
+                "landing_page_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13388216/",
                 "pdf_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13388216/pdf/fdata-09-1842233.pdf",
                 "source": {
                   "id": "https://openalex.org/S2764455111",
@@ -28140,6 +28333,35 @@
                 "is_published": true,
                 "raw_source_name": "Frontiers in big data",
                 "raw_type": "Journal Article"
+              },
+              {
+                "id": "pmh:oai:doaj.org/article:0cddb8e35aa047c3852d5473c898d0ff",
+                "doi": null,
+                "is_oa": false,
+                "landing_page_url": "https://doaj.org/article/0cddb8e35aa047c3852d5473c898d0ff",
+                "pdf_url": null,
+                "source": {
+                  "id": "https://openalex.org/S4306401280",
+                  "display_name": "DOAJ (DOAJ: Directory of Open Access Journals)",
+                  "issn_l": null,
+                  "issn": null,
+                  "is_oa": false,
+                  "is_in_doaj": false,
+                  "is_core": false,
+                  "listed_in": [],
+                  "host_organization": null,
+                  "host_organization_name": null,
+                  "host_organization_lineage": [],
+                  "host_organization_lineage_names": [],
+                  "type": "repository"
+                },
+                "license": null,
+                "license_id": null,
+                "version": "submittedVersion",
+                "is_accepted": false,
+                "is_published": false,
+                "raw_source_name": "Frontiers in Big Data, Vol 9 (2026)",
+                "raw_type": "article"
               }
             ],
             "best_oa_location": {
@@ -28197,22 +28419,25 @@
               }
             ],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7167674305.pdf",
               "grobid_xml": "https://content.openalex.org/works/W7167674305.grobid-xml"
             },
-            "referenced_works_count": 7,
+            "referenced_works_count": 10,
             "referenced_works": [
               "https://openalex.org/W158468099",
               "https://openalex.org/W1969498530",
               "https://openalex.org/W2019029713",
               "https://openalex.org/W2493640907",
+              "https://openalex.org/W2596367596",
               "https://openalex.org/W2617547828",
+              "https://openalex.org/W2623431351",
               "https://openalex.org/W2889330812",
-              "https://openalex.org/W2991046523"
+              "https://openalex.org/W2991046523",
+              "https://openalex.org/W4394662461"
             ],
             "related_works": [
               "https://openalex.org/W7160856388",
@@ -28752,7 +28977,7 @@
                 "cited_by_count": 1
               }
             ],
-            "updated_date": "2026-11-07T11:25:07.637180",
+            "updated_date": "2026-11-15T12:55:33.944570",
             "created_date": "2026-07-09T00:00:00"
           }
         }
@@ -28827,7 +29052,11 @@
           "raw_source_name": "Frontiers in Sustainable Cities",
           "raw_type": "journal-article"
         },
-        "volume": null,
+        "parent_works": [],
+        "lineage": [
+          "https://openalex.org/W7160039767"
+        ],
+        "child_works_count": 0,
         "type": "article",
         "is_traditional": true,
         "indexed_in": [
@@ -29038,10 +29267,11 @@
           "value_usd": 1418
         },
         "fwci": 0.0,
+        "is_authors_truncated": false,
         "has_fulltext": true,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.25718353,
+          "value": 0.0,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -29494,14 +29724,14 @@
         },
         "sustainable_development_goals": [
           {
-            "display_name": "Sustainable cities and communities",
             "id": "https://metadata.un.org/sdg/11",
-            "score": 1.0
+            "score": 1.0,
+            "display_name": "Sustainable cities and communities"
           },
           {
-            "display_name": "Reduced inequalities",
             "id": "https://metadata.un.org/sdg/10",
-            "score": 0.7578999996185303
+            "score": 0.7578999996185303,
+            "display_name": "Reduced inequalities"
           }
         ],
         "study_designs": [],
@@ -29522,8 +29752,8 @@
           }
         ],
         "has_content": {
-          "pdf": true,
-          "grobid_xml": true
+          "grobid_xml": true,
+          "pdf": true
         },
         "content_urls": {
           "pdf": "https://content.openalex.org/works/W7160039767.pdf",
@@ -30094,7 +30324,11 @@
               "raw_source_name": "Frontiers in Sustainable Cities",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7160039767"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -30305,10 +30539,11 @@
               "value_usd": 1418
             },
             "fwci": 0.0,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.25718353,
+              "value": 0.0,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -30761,14 +30996,14 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Sustainable cities and communities",
                 "id": "https://metadata.un.org/sdg/11",
-                "score": 1.0
+                "score": 1.0,
+                "display_name": "Sustainable cities and communities"
               },
               {
-                "display_name": "Reduced inequalities",
                 "id": "https://metadata.un.org/sdg/10",
-                "score": 0.7578999996185303
+                "score": 0.7578999996185303,
+                "display_name": "Reduced inequalities"
               }
             ],
             "study_designs": [],
@@ -30789,8 +31024,8 @@
               }
             ],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7160039767.pdf",
@@ -31359,7 +31594,11 @@
           "raw_source_name": "Frontiers in Human Dynamics",
           "raw_type": "journal-article"
         },
-        "volume": null,
+        "parent_works": [],
+        "lineage": [
+          "https://openalex.org/W7160064681"
+        ],
+        "child_works_count": 1,
         "type": "article",
         "is_traditional": true,
         "indexed_in": [
@@ -31452,10 +31691,11 @@
           "value_usd": 1418
         },
         "fwci": 0.0,
+        "is_authors_truncated": false,
         "has_fulltext": true,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.30406533,
+          "value": 0.0,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -31887,9 +32127,9 @@
         },
         "sustainable_development_goals": [
           {
-            "display_name": "Reduced inequalities",
             "id": "https://metadata.un.org/sdg/10",
-            "score": 0.7390999794006348
+            "score": 0.7390999794006348,
+            "display_name": "Reduced inequalities"
           }
         ],
         "study_designs": [],
@@ -31902,8 +32142,8 @@
           }
         ],
         "has_content": {
-          "pdf": true,
-          "grobid_xml": true
+          "grobid_xml": true,
+          "pdf": true
         },
         "content_urls": {
           "pdf": "https://content.openalex.org/works/W7160064681.pdf",
@@ -31930,7 +32170,6 @@
         ],
         "related_works": [
           "https://openalex.org/W7153001482",
-          "https://openalex.org/W7223524909",
           "https://openalex.org/W2188490555",
           "https://openalex.org/W2025648901",
           "https://openalex.org/W4387119454",
@@ -32707,7 +32946,7 @@
           ]
         },
         "counts_by_year": [],
-        "updated_date": "2026-09-29T14:09:16.559479",
+        "updated_date": "2026-11-15T12:55:33.944570",
         "created_date": "2026-05-05T00:00:00"
       },
       "sources": [
@@ -32782,7 +33021,11 @@
               "raw_source_name": "Frontiers in Human Dynamics",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7160064681"
+            ],
+            "child_works_count": 1,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -32875,10 +33118,11 @@
               "value_usd": 1418
             },
             "fwci": 0.0,
+            "is_authors_truncated": false,
             "has_fulltext": true,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.30406533,
+              "value": 0.0,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -33310,9 +33554,9 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Reduced inequalities",
                 "id": "https://metadata.un.org/sdg/10",
-                "score": 0.7390999794006348
+                "score": 0.7390999794006348,
+                "display_name": "Reduced inequalities"
               }
             ],
             "study_designs": [],
@@ -33325,8 +33569,8 @@
               }
             ],
             "has_content": {
-              "pdf": true,
-              "grobid_xml": true
+              "grobid_xml": true,
+              "pdf": true
             },
             "content_urls": {
               "pdf": "https://content.openalex.org/works/W7160064681.pdf",
@@ -33353,7 +33597,6 @@
             ],
             "related_works": [
               "https://openalex.org/W7153001482",
-              "https://openalex.org/W7223524909",
               "https://openalex.org/W2188490555",
               "https://openalex.org/W2025648901",
               "https://openalex.org/W4387119454",
@@ -34130,7 +34373,7 @@
               ]
             },
             "counts_by_year": [],
-            "updated_date": "2026-09-29T14:09:16.559479",
+            "updated_date": "2026-11-15T12:55:33.944570",
             "created_date": "2026-05-05T00:00:00"
           }
         }
@@ -34200,7 +34443,11 @@
           "raw_source_name": "Вестник Российской академии наук / Herald of the Russian Academy of Sciences",
           "raw_type": "journal-article"
         },
-        "volume": null,
+        "parent_works": [],
+        "lineage": [
+          "https://openalex.org/W7134954930"
+        ],
+        "child_works_count": 0,
         "type": "article",
         "is_traditional": true,
         "indexed_in": [
@@ -34257,11 +34504,12 @@
         "corresponding_institution_ids": [],
         "apc_list": null,
         "apc_paid": null,
-        "fwci": 0.9716,
+        "fwci": 0.9488,
+        "is_authors_truncated": false,
         "has_fulltext": false,
         "cited_by_count": 1,
         "citation_normalized_percentile": {
-          "value": 0.82832921,
+          "value": 0.71963537,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -34588,8 +34836,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "pdf": false,
-          "grobid_xml": false
+          "grobid_xml": false,
+          "pdf": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -35078,7 +35326,11 @@
               "raw_source_name": "Вестник Российской академии наук / Herald of the Russian Academy of Sciences",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7134954930"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -35135,11 +35387,12 @@
             "corresponding_institution_ids": [],
             "apc_list": null,
             "apc_paid": null,
-            "fwci": 0.9716,
+            "fwci": 0.9488,
+            "is_authors_truncated": false,
             "has_fulltext": false,
             "cited_by_count": 1,
             "citation_normalized_percentile": {
-              "value": 0.82832921,
+              "value": 0.71963537,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -35466,8 +35719,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": false,
-              "grobid_xml": false
+              "grobid_xml": false,
+              "pdf": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -35956,7 +36209,11 @@
           "raw_source_name": "Economic and Social Changes: Facts, Trends, Forecast / Экономические и социальные перемены: факты, тенденции, прогноз",
           "raw_type": "journal-article"
         },
-        "volume": null,
+        "parent_works": [],
+        "lineage": [
+          "https://openalex.org/W7117468480"
+        ],
+        "child_works_count": 0,
         "type": "article",
         "is_traditional": true,
         "indexed_in": [
@@ -36046,10 +36303,11 @@
         "apc_list": null,
         "apc_paid": null,
         "fwci": 0.0,
+        "is_authors_truncated": false,
         "has_fulltext": false,
         "cited_by_count": 0,
         "citation_normalized_percentile": {
-          "value": 0.46761067,
+          "value": 0.0,
           "is_in_top_1_percent": false,
           "is_in_top_10_percent": false
         },
@@ -36356,8 +36614,8 @@
         "awards": [],
         "funders": [],
         "has_content": {
-          "pdf": false,
-          "grobid_xml": false
+          "grobid_xml": false,
+          "pdf": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -36448,7 +36706,11 @@
               "raw_source_name": "Economic and Social Changes: Facts, Trends, Forecast / Экономические и социальные перемены: факты, тенденции, прогноз",
               "raw_type": "journal-article"
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W7117468480"
+            ],
+            "child_works_count": 0,
             "type": "article",
             "is_traditional": true,
             "indexed_in": [
@@ -36538,10 +36800,11 @@
             "apc_list": null,
             "apc_paid": null,
             "fwci": 0.0,
+            "is_authors_truncated": false,
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": {
-              "value": 0.46761067,
+              "value": 0.0,
               "is_in_top_1_percent": false,
               "is_in_top_10_percent": false
             },
@@ -36848,8 +37111,8 @@
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": false,
-              "grobid_xml": false
+              "grobid_xml": false,
+              "pdf": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -36932,7 +37195,11 @@
           "raw_source_name": "SSRN Electronic Journal",
           "raw_type": null
         },
-        "volume": null,
+        "parent_works": [],
+        "lineage": [
+          "https://openalex.org/W3191794798"
+        ],
+        "child_works_count": 0,
         "type": "preprint",
         "is_traditional": true,
         "indexed_in": [],
@@ -36996,6 +37263,7 @@
         "apc_list": null,
         "apc_paid": null,
         "fwci": null,
+        "is_authors_truncated": false,
         "has_fulltext": false,
         "cited_by_count": 0,
         "citation_normalized_percentile": null,
@@ -37325,17 +37593,17 @@
         },
         "sustainable_development_goals": [
           {
-            "display_name": "Sustainable cities and communities",
             "id": "https://metadata.un.org/sdg/11",
-            "score": 0.9333000183105469
+            "score": 0.9333000183105469,
+            "display_name": "Sustainable cities and communities"
           }
         ],
         "study_designs": [],
         "awards": [],
         "funders": [],
         "has_content": {
-          "pdf": false,
-          "grobid_xml": false
+          "grobid_xml": false,
+          "pdf": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -37344,12 +37612,12 @@
           "https://openalex.org/W6888902610",
           "https://openalex.org/W2499964252",
           "https://openalex.org/W4407668343",
-          "https://openalex.org/W7165320209",
+          "https://openalex.org/W3110865101",
           "https://openalex.org/W2478222781",
           "https://openalex.org/W4401088951",
           "https://openalex.org/W2405307931",
           "https://openalex.org/W4225915981",
-          "https://openalex.org/W7093847968",
+          "https://openalex.org/W2999958502",
           "https://openalex.org/W7139118661"
         ],
         "abstract_inverted_index": {
@@ -38303,7 +38571,7 @@
           ]
         },
         "counts_by_year": [],
-        "updated_date": "2026-07-14T23:32:53.992493",
+        "updated_date": "2026-11-14T11:04:58.165337",
         "created_date": "2021-08-16T00:00:00"
       },
       "sources": [
@@ -38368,7 +38636,11 @@
               "raw_source_name": "SSRN Electronic Journal",
               "raw_type": null
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W3191794798"
+            ],
+            "child_works_count": 0,
             "type": "preprint",
             "is_traditional": true,
             "indexed_in": [],
@@ -38432,6 +38704,7 @@
             "apc_list": null,
             "apc_paid": null,
             "fwci": null,
+            "is_authors_truncated": false,
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": null,
@@ -38761,17 +39034,17 @@
             },
             "sustainable_development_goals": [
               {
-                "display_name": "Sustainable cities and communities",
                 "id": "https://metadata.un.org/sdg/11",
-                "score": 0.9333000183105469
+                "score": 0.9333000183105469,
+                "display_name": "Sustainable cities and communities"
               }
             ],
             "study_designs": [],
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": false,
-              "grobid_xml": false
+              "grobid_xml": false,
+              "pdf": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -38780,12 +39053,12 @@
               "https://openalex.org/W6888902610",
               "https://openalex.org/W2499964252",
               "https://openalex.org/W4407668343",
-              "https://openalex.org/W7165320209",
+              "https://openalex.org/W3110865101",
               "https://openalex.org/W2478222781",
               "https://openalex.org/W4401088951",
               "https://openalex.org/W2405307931",
               "https://openalex.org/W4225915981",
-              "https://openalex.org/W7093847968",
+              "https://openalex.org/W2999958502",
               "https://openalex.org/W7139118661"
             ],
             "abstract_inverted_index": {
@@ -39739,7 +40012,7 @@
               ]
             },
             "counts_by_year": [],
-            "updated_date": "2026-07-14T23:32:53.992493",
+            "updated_date": "2026-11-14T11:04:58.165337",
             "created_date": "2021-08-16T00:00:00"
           }
         }
@@ -39756,8 +40029,8 @@
       "pdf_url": null,
       "venue": "SSRN Electronic Journal",
       "cited_by_count": 0,
-      "is_oa": true,
-      "oa_status": "green",
+      "is_oa": false,
+      "oa_status": "closed",
       "raw": {
         "id": "https://openalex.org/W3187712357",
         "doi": null,
@@ -39773,7 +40046,7 @@
         "primary_location": {
           "id": "mag:3187712357",
           "doi": null,
-          "is_oa": true,
+          "is_oa": false,
           "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
           "pdf_url": null,
           "source": {
@@ -39803,15 +40076,19 @@
           "raw_source_name": "SSRN Electronic Journal",
           "raw_type": null
         },
-        "volume": null,
+        "parent_works": [],
+        "lineage": [
+          "https://openalex.org/W3187712357"
+        ],
+        "child_works_count": 0,
         "type": "preprint",
         "is_traditional": true,
         "indexed_in": [],
         "open_access": {
-          "is_oa": true,
-          "oa_status": "green",
-          "oa_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
-          "any_repository_has_fulltext": true
+          "is_oa": false,
+          "oa_status": "closed",
+          "oa_url": null,
+          "any_repository_has_fulltext": false
         },
         "authorships": [
           {
@@ -39867,6 +40144,7 @@
         "apc_list": null,
         "apc_paid": null,
         "fwci": null,
+        "is_authors_truncated": false,
         "has_fulltext": false,
         "cited_by_count": 0,
         "citation_normalized_percentile": null,
@@ -40142,7 +40420,7 @@
           {
             "id": "mag:3187712357",
             "doi": null,
-            "is_oa": true,
+            "is_oa": false,
             "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
             "pdf_url": null,
             "source": {
@@ -40173,52 +40451,20 @@
             "raw_type": null
           }
         ],
-        "best_oa_location": {
-          "id": "mag:3187712357",
-          "doi": null,
-          "is_oa": true,
-          "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
-          "pdf_url": null,
-          "source": {
-            "id": "https://openalex.org/S4210172589",
-            "display_name": "SSRN Electronic Journal",
-            "issn_l": "1556-5068",
-            "issn": [
-              "1556-5068"
-            ],
-            "is_oa": true,
-            "is_in_doaj": false,
-            "is_core": false,
-            "listed_in": [],
-            "host_organization": "https://openalex.org/I1318003438",
-            "host_organization_name": "RELX Group (Netherlands)",
-            "host_organization_lineage": [
-              "https://openalex.org/I1318003438"
-            ],
-            "host_organization_lineage_names": [],
-            "type": "repository"
-          },
-          "license": null,
-          "license_id": null,
-          "version": "submittedVersion",
-          "is_accepted": false,
-          "is_published": false,
-          "raw_source_name": "SSRN Electronic Journal",
-          "raw_type": null
-        },
+        "best_oa_location": null,
         "sustainable_development_goals": [
           {
-            "display_name": "Sustainable cities and communities",
             "id": "https://metadata.un.org/sdg/11",
-            "score": 0.7820000052452087
+            "score": 0.7820000052452087,
+            "display_name": "Sustainable cities and communities"
           }
         ],
         "study_designs": [],
         "awards": [],
         "funders": [],
         "has_content": {
-          "pdf": false,
-          "grobid_xml": false
+          "grobid_xml": false,
+          "pdf": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -40227,12 +40473,12 @@
           "https://openalex.org/W7140065494",
           "https://openalex.org/W6943716501",
           "https://openalex.org/W3110611464",
-          "https://openalex.org/W7053546428",
+          "https://openalex.org/W18276182",
           "https://openalex.org/W7039425954",
-          "https://openalex.org/W7072414446",
+          "https://openalex.org/W2912729983",
           "https://openalex.org/W4362728089",
           "https://openalex.org/W7161163379",
-          "https://openalex.org/W3203657523",
+          "https://openalex.org/W3036198708",
           "https://openalex.org/W7082563892"
         ],
         "abstract_inverted_index": {
@@ -40706,7 +40952,7 @@
           ]
         },
         "counts_by_year": [],
-        "updated_date": "2026-07-14T23:32:53.992493",
+        "updated_date": "2026-11-15T12:55:33.944570",
         "created_date": "2021-08-16T00:00:00"
       },
       "sources": [
@@ -40724,8 +40970,8 @@
           "pdf_url": null,
           "venue": "SSRN Electronic Journal",
           "cited_by_count": 0,
-          "is_oa": true,
-          "oa_status": "green",
+          "is_oa": false,
+          "oa_status": "closed",
           "raw": {
             "id": "https://openalex.org/W3187712357",
             "doi": null,
@@ -40741,7 +40987,7 @@
             "primary_location": {
               "id": "mag:3187712357",
               "doi": null,
-              "is_oa": true,
+              "is_oa": false,
               "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
               "pdf_url": null,
               "source": {
@@ -40771,15 +41017,19 @@
               "raw_source_name": "SSRN Electronic Journal",
               "raw_type": null
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W3187712357"
+            ],
+            "child_works_count": 0,
             "type": "preprint",
             "is_traditional": true,
             "indexed_in": [],
             "open_access": {
-              "is_oa": true,
-              "oa_status": "green",
-              "oa_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
-              "any_repository_has_fulltext": true
+              "is_oa": false,
+              "oa_status": "closed",
+              "oa_url": null,
+              "any_repository_has_fulltext": false
             },
             "authorships": [
               {
@@ -40835,6 +41085,7 @@
             "apc_list": null,
             "apc_paid": null,
             "fwci": null,
+            "is_authors_truncated": false,
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": null,
@@ -41110,7 +41361,7 @@
               {
                 "id": "mag:3187712357",
                 "doi": null,
-                "is_oa": true,
+                "is_oa": false,
                 "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
                 "pdf_url": null,
                 "source": {
@@ -41141,52 +41392,20 @@
                 "raw_type": null
               }
             ],
-            "best_oa_location": {
-              "id": "mag:3187712357",
-              "doi": null,
-              "is_oa": true,
-              "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3339244",
-              "pdf_url": null,
-              "source": {
-                "id": "https://openalex.org/S4210172589",
-                "display_name": "SSRN Electronic Journal",
-                "issn_l": "1556-5068",
-                "issn": [
-                  "1556-5068"
-                ],
-                "is_oa": true,
-                "is_in_doaj": false,
-                "is_core": false,
-                "listed_in": [],
-                "host_organization": "https://openalex.org/I1318003438",
-                "host_organization_name": "RELX Group (Netherlands)",
-                "host_organization_lineage": [
-                  "https://openalex.org/I1318003438"
-                ],
-                "host_organization_lineage_names": [],
-                "type": "repository"
-              },
-              "license": null,
-              "license_id": null,
-              "version": "submittedVersion",
-              "is_accepted": false,
-              "is_published": false,
-              "raw_source_name": "SSRN Electronic Journal",
-              "raw_type": null
-            },
+            "best_oa_location": null,
             "sustainable_development_goals": [
               {
-                "display_name": "Sustainable cities and communities",
                 "id": "https://metadata.un.org/sdg/11",
-                "score": 0.7820000052452087
+                "score": 0.7820000052452087,
+                "display_name": "Sustainable cities and communities"
               }
             ],
             "study_designs": [],
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": false,
-              "grobid_xml": false
+              "grobid_xml": false,
+              "pdf": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -41195,12 +41414,12 @@
               "https://openalex.org/W7140065494",
               "https://openalex.org/W6943716501",
               "https://openalex.org/W3110611464",
-              "https://openalex.org/W7053546428",
+              "https://openalex.org/W18276182",
               "https://openalex.org/W7039425954",
-              "https://openalex.org/W7072414446",
+              "https://openalex.org/W2912729983",
               "https://openalex.org/W4362728089",
               "https://openalex.org/W7161163379",
-              "https://openalex.org/W3203657523",
+              "https://openalex.org/W3036198708",
               "https://openalex.org/W7082563892"
             ],
             "abstract_inverted_index": {
@@ -41674,7 +41893,7 @@
               ]
             },
             "counts_by_year": [],
-            "updated_date": "2026-07-14T23:32:53.992493",
+            "updated_date": "2026-11-15T12:55:33.944570",
             "created_date": "2021-08-16T00:00:00"
           }
         }
@@ -41691,8 +41910,8 @@
       "pdf_url": null,
       "venue": "SSRN Electronic Journal",
       "cited_by_count": 0,
-      "is_oa": true,
-      "oa_status": "green",
+      "is_oa": false,
+      "oa_status": "closed",
       "raw": {
         "id": "https://openalex.org/W3182071828",
         "doi": null,
@@ -41708,7 +41927,7 @@
         "primary_location": {
           "id": "mag:3182071828",
           "doi": null,
-          "is_oa": true,
+          "is_oa": false,
           "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
           "pdf_url": null,
           "source": {
@@ -41738,15 +41957,19 @@
           "raw_source_name": "SSRN Electronic Journal",
           "raw_type": null
         },
-        "volume": null,
+        "parent_works": [],
+        "lineage": [
+          "https://openalex.org/W3182071828"
+        ],
+        "child_works_count": 0,
         "type": "preprint",
         "is_traditional": true,
         "indexed_in": [],
         "open_access": {
-          "is_oa": true,
-          "oa_status": "green",
-          "oa_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
-          "any_repository_has_fulltext": true
+          "is_oa": false,
+          "oa_status": "closed",
+          "oa_url": null,
+          "any_repository_has_fulltext": false
         },
         "authorships": [
           {
@@ -41838,6 +42061,7 @@
         "apc_list": null,
         "apc_paid": null,
         "fwci": null,
+        "is_authors_truncated": false,
         "has_fulltext": false,
         "cited_by_count": 0,
         "citation_normalized_percentile": null,
@@ -42016,7 +42240,7 @@
           {
             "id": "mag:3182071828",
             "doi": null,
-            "is_oa": true,
+            "is_oa": false,
             "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
             "pdf_url": null,
             "source": {
@@ -42047,46 +42271,14 @@
             "raw_type": null
           }
         ],
-        "best_oa_location": {
-          "id": "mag:3182071828",
-          "doi": null,
-          "is_oa": true,
-          "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
-          "pdf_url": null,
-          "source": {
-            "id": "https://openalex.org/S4210172589",
-            "display_name": "SSRN Electronic Journal",
-            "issn_l": "1556-5068",
-            "issn": [
-              "1556-5068"
-            ],
-            "is_oa": true,
-            "is_in_doaj": false,
-            "is_core": false,
-            "listed_in": [],
-            "host_organization": "https://openalex.org/I1318003438",
-            "host_organization_name": "RELX Group (Netherlands)",
-            "host_organization_lineage": [
-              "https://openalex.org/I1318003438"
-            ],
-            "host_organization_lineage_names": [],
-            "type": "repository"
-          },
-          "license": null,
-          "license_id": null,
-          "version": "submittedVersion",
-          "is_accepted": false,
-          "is_published": false,
-          "raw_source_name": "SSRN Electronic Journal",
-          "raw_type": null
-        },
+        "best_oa_location": null,
         "sustainable_development_goals": [],
         "study_designs": [],
         "awards": [],
         "funders": [],
         "has_content": {
-          "pdf": false,
-          "grobid_xml": false
+          "grobid_xml": false,
+          "pdf": false
         },
         "content_urls": null,
         "referenced_works_count": 0,
@@ -42299,7 +42491,7 @@
           ]
         },
         "counts_by_year": [],
-        "updated_date": "2026-07-14T23:32:53.992493",
+        "updated_date": "2026-11-15T12:55:33.944570",
         "created_date": "2021-07-19T00:00:00"
       },
       "sources": [
@@ -42317,8 +42509,8 @@
           "pdf_url": null,
           "venue": "SSRN Electronic Journal",
           "cited_by_count": 0,
-          "is_oa": true,
-          "oa_status": "green",
+          "is_oa": false,
+          "oa_status": "closed",
           "raw": {
             "id": "https://openalex.org/W3182071828",
             "doi": null,
@@ -42334,7 +42526,7 @@
             "primary_location": {
               "id": "mag:3182071828",
               "doi": null,
-              "is_oa": true,
+              "is_oa": false,
               "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
               "pdf_url": null,
               "source": {
@@ -42364,15 +42556,19 @@
               "raw_source_name": "SSRN Electronic Journal",
               "raw_type": null
             },
-            "volume": null,
+            "parent_works": [],
+            "lineage": [
+              "https://openalex.org/W3182071828"
+            ],
+            "child_works_count": 0,
             "type": "preprint",
             "is_traditional": true,
             "indexed_in": [],
             "open_access": {
-              "is_oa": true,
-              "oa_status": "green",
-              "oa_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
-              "any_repository_has_fulltext": true
+              "is_oa": false,
+              "oa_status": "closed",
+              "oa_url": null,
+              "any_repository_has_fulltext": false
             },
             "authorships": [
               {
@@ -42464,6 +42660,7 @@
             "apc_list": null,
             "apc_paid": null,
             "fwci": null,
+            "is_authors_truncated": false,
             "has_fulltext": false,
             "cited_by_count": 0,
             "citation_normalized_percentile": null,
@@ -42642,7 +42839,7 @@
               {
                 "id": "mag:3182071828",
                 "doi": null,
-                "is_oa": true,
+                "is_oa": false,
                 "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
                 "pdf_url": null,
                 "source": {
@@ -42673,46 +42870,14 @@
                 "raw_type": null
               }
             ],
-            "best_oa_location": {
-              "id": "mag:3182071828",
-              "doi": null,
-              "is_oa": true,
-              "landing_page_url": "https://autopapers.ssrn.com/sol3/papers.cfm?abstract_id=3106523",
-              "pdf_url": null,
-              "source": {
-                "id": "https://openalex.org/S4210172589",
-                "display_name": "SSRN Electronic Journal",
-                "issn_l": "1556-5068",
-                "issn": [
-                  "1556-5068"
-                ],
-                "is_oa": true,
-                "is_in_doaj": false,
-                "is_core": false,
-                "listed_in": [],
-                "host_organization": "https://openalex.org/I1318003438",
-                "host_organization_name": "RELX Group (Netherlands)",
-                "host_organization_lineage": [
-                  "https://openalex.org/I1318003438"
-                ],
-                "host_organization_lineage_names": [],
-                "type": "repository"
-              },
-              "license": null,
-              "license_id": null,
-              "version": "submittedVersion",
-              "is_accepted": false,
-              "is_published": false,
-              "raw_source_name": "SSRN Electronic Journal",
-              "raw_type": null
-            },
+            "best_oa_location": null,
             "sustainable_development_goals": [],
             "study_designs": [],
             "awards": [],
             "funders": [],
             "has_content": {
-              "pdf": false,
-              "grobid_xml": false
+              "grobid_xml": false,
+              "pdf": false
             },
             "content_urls": null,
             "referenced_works_count": 0,
@@ -42925,7 +43090,7 @@
               ]
             },
             "counts_by_year": [],
-            "updated_date": "2026-07-14T23:32:53.992493",
+            "updated_date": "2026-11-15T12:55:33.944570",
             "created_date": "2021-07-19T00:00:00"
           }
         }

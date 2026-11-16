@@ -2,9 +2,9 @@
   "author_payload": {},
   "search_first_payload": {
     "search-results": {
-      "opensearch:totalResults": "11",
+      "opensearch:totalResults": "12",
       "opensearch:startIndex": "0",
-      "opensearch:itemsPerPage": "11",
+      "opensearch:itemsPerPage": "12",
       "opensearch:Query": {
         "@role": "request",
         "@searchTerms": "AU-ID(57220956828)",
@@ -95,6 +95,52 @@
               },
               {
                 "$": "Gold"
+              }
+            ]
+          }
+        },
+        {
+          "@_fa": "true",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105056072731",
+          "dc:identifier": "SCOPUS_ID:105056072731",
+          "eid": "2-s2.0-105056072731",
+          "dc:title": "Age–sex heterogeneity among Russia’s indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+          "dc:creator": "Sitkovskiy A.M.",
+          "prism:publicationName": "Frontiers in Human Dynamics",
+          "prism:coverDate": "2026-01-01",
+          "prism:doi": "10.3389/fhumd.2026.1788558",
+          "citedby-count": "0",
+          "prism:aggregationType": "Journal",
+          "subtype": "ar",
+          "subtypeDescription": "Article",
+          "openaccess": "1",
+          "openaccessFlag": true,
+          "freetoread": {
+            "value": [
+              {
+                "$": "all"
+              },
+              {
+                "$": "publisherfullgold"
+              },
+              {
+                "$": "repository"
+              },
+              {
+                "$": "repositoryam"
+              }
+            ]
+          },
+          "freetoreadLabel": {
+            "value": [
+              {
+                "$": "All Open Access"
+              },
+              {
+                "$": "Gold"
+              },
+              {
+                "$": "Green"
               }
             ]
           }
@@ -322,14 +368,14 @@
         },
         {
           "@_fa": "true",
-          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105007238835",
-          "dc:identifier": "SCOPUS_ID:105007238835",
-          "eid": "2-s2.0-105007238835",
-          "dc:title": "The settlement system of the Republic of Tuva: central places",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105008183052",
+          "dc:identifier": "SCOPUS_ID:105008183052",
+          "eid": "2-s2.0-105008183052",
+          "dc:title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
           "dc:creator": "Sitkovskiy A.M.",
-          "prism:publicationName": "New Research of Tuva",
+          "prism:publicationName": "Obrazovanie I Nauka",
           "prism:coverDate": "2025-01-01",
-          "prism:doi": "10.25178/nit.2025.2.4",
+          "prism:doi": "10.17853/1994-5639-2025-6-149-179",
           "citedby-count": "2",
           "prism:aggregationType": "Journal",
           "subtype": "ar",
@@ -368,14 +414,14 @@
         },
         {
           "@_fa": "true",
-          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105008183052",
-          "dc:identifier": "SCOPUS_ID:105008183052",
-          "eid": "2-s2.0-105008183052",
-          "dc:title": "Intra-Russian educational migration of youth: the attractiveness of regions for pursuing higher education",
+          "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105007238835",
+          "dc:identifier": "SCOPUS_ID:105007238835",
+          "eid": "2-s2.0-105007238835",
+          "dc:title": "The settlement system of the Republic of Tuva: central places",
           "dc:creator": "Sitkovskiy A.M.",
-          "prism:publicationName": "Obrazovanie I Nauka",
+          "prism:publicationName": "New Research of Tuva",
           "prism:coverDate": "2025-01-01",
-          "prism:doi": "10.17853/1994-5639-2025-6-149-179",
+          "prism:doi": "10.25178/nit.2025.2.4",
           "citedby-count": "2",
           "prism:aggregationType": "Journal",
           "subtype": "ar",

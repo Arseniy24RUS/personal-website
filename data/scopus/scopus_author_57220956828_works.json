@@ -650,5 +650,66 @@
         ]
       }
     }
+  },
+  {
+    "source": "scopus_api",
+    "eid": "2-s2.0-105056072731",
+    "scopus_id": "105056072731",
+    "title": "Age–sex heterogeneity among Russia’s indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+    "creator": "Sitkovskiy A.M.",
+    "journal_or_source": "Frontiers in Human Dynamics",
+    "cover_date": "2026-01-01",
+    "year": "2026",
+    "doi": "10.3389/fhumd.2026.1788558",
+    "cited_by_count": 0,
+    "aggregation_type": "Journal",
+    "subtype": "Article",
+    "openaccess": "1",
+    "raw": {
+      "@_fa": "true",
+      "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105056072731",
+      "dc:identifier": "SCOPUS_ID:105056072731",
+      "eid": "2-s2.0-105056072731",
+      "dc:title": "Age–sex heterogeneity among Russia’s indigenous small-numbered peoples: a census-based typology and the statistical core-region condition",
+      "dc:creator": "Sitkovskiy A.M.",
+      "prism:publicationName": "Frontiers in Human Dynamics",
+      "prism:coverDate": "2026-01-01",
+      "prism:doi": "10.3389/fhumd.2026.1788558",
+      "citedby-count": "0",
+      "prism:aggregationType": "Journal",
+      "subtype": "ar",
+      "subtypeDescription": "Article",
+      "openaccess": "1",
+      "openaccessFlag": true,
+      "freetoread": {
+        "value": [
+          {
+            "$": "all"
+          },
+          {
+            "$": "publisherfullgold"
+          },
+          {
+            "$": "repository"
+          },
+          {
+            "$": "repositoryam"
+          }
+        ]
+      },
+      "freetoreadLabel": {
+        "value": [
+          {
+            "$": "All Open Access"
+          },
+          {
+            "$": "Gold"
+          },
+          {
+            "$": "Green"
+          }
+        ]
+      }
+    }
   }
 ]

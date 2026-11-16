@@ -763,14 +763,14 @@
         "indexed": {
           "date-parts": [
             [
-              2025,
-              12,
-              29
+              2026,
+              11,
+              13
             ]
           ],
-          "date-time": "2025-12-29T18:02:55Z",
-          "timestamp": 1767031375813,
-          "version": "3.48.0"
+          "date-time": "2026-11-13T09:31:34Z",
+          "timestamp": 1794562294174,
+          "version": "4.9.1"
         },
         "reference-count": 15,
         "publisher": "Federal Center of Theoretical and Applied Sociology of the Russian Academy of Sciences (FCTAS RAS)",
@@ -804,7 +804,7 @@
         },
         "page": "188-215",
         "source": "Crossref",
-        "is-referenced-by-count": 0,
+        "is-referenced-by-count": 1,
         "title": [
           "Methodological Aspects of Demographic Expertise of Projects and Works"
         ],
@@ -824,8 +824,8 @@
             ],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           },
@@ -842,8 +842,8 @@
             ],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           }
@@ -979,12 +979,12 @@
         ],
         "issn-type": [
           {
-            "type": "print",
-            "value": "2782-2303"
+            "value": "2782-2303",
+            "type": "print"
           },
           {
-            "type": "electronic",
-            "value": "2782-229X"
+            "value": "2782-229X",
+            "type": "electronic"
           }
         ],
         "published": {
@@ -1002,13 +1002,13 @@
           "date-parts": [
             [
               2026,
-              1,
-              8
+              11,
+              13
             ]
           ],
-          "date-time": "2026-01-08T10:52:08Z",
-          "timestamp": 1767869528331,
-          "version": "3.49.0"
+          "date-time": "2026-11-13T09:00:05Z",
+          "timestamp": 1794560405473,
+          "version": "4.9.1"
         },
         "reference-count": 0,
         "publisher": "The New Research of Tuva Editorial Board",
@@ -1054,7 +1054,7 @@
         },
         "page": "233-253",
         "source": "Crossref",
-        "is-referenced-by-count": 0,
+        "is-referenced-by-count": 1,
         "title": [
           "Методология и практика проведения демографической экспертизы на примере региональной программы «Повышение рождаемости в Республике Тыва на период 2023–2025 годов»"
         ],
@@ -1069,8 +1069,8 @@
             "affiliation": [],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           },
@@ -1083,8 +1083,8 @@
             "affiliation": [],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           },
@@ -1097,8 +1097,8 @@
             "affiliation": [],
             "role": [
               {
-                "role": "author",
-                "vocabulary": "crossref"
+                "vocabulary": "crossref",
+                "role": "author"
               }
             ]
           }
@@ -3106,5 +3106,5 @@
       "search-terms": null
     }
   },
-  "last_success_at": "2026-11-09T11:37:41+00:00"
+  "last_success_at": "2026-11-16T11:20:15+00:00"
 }
