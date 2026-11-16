@@ -20,5 +20,16 @@
       "device": "cpu",
       "probe_passed": true
     }
+  },
+  "32291caaa4799fc4e9895a8738979830cf9e7fbeaa9771078114f3f1cf3bc1f1": {
+    "translation": "Demographic workshop · version 0.10. 2.",
+    "pair": "ru_en",
+    "model": {
+      "argos_version": "1.11.0",
+      "package_version": "1.9",
+      "pair": "ru_en",
+      "device": "cpu",
+      "probe_passed": true
+    }
   }
 }
