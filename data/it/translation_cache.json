@@ -31,5 +31,27 @@
       "device": "cpu",
       "probe_passed": true
     }
+  },
+  "f0fa93603eb3a9174e20d877bc5b39eedce8b9a3806b06375ebc679989555a05": {
+    "translation": "Demographic workshop · version 0.15.0",
+    "pair": "ru_en",
+    "model": {
+      "argos_version": "1.11.0",
+      "package_version": "1.9",
+      "pair": "ru_en",
+      "device": "cpu",
+      "probe_passed": true
+    }
+  },
+  "2b56b1b88cb139ef35a47668df61ae5a19147a9048e70ddf32fd3c6916604559": {
+    "translation": "A separate roadmap “EXAMPLE · Saransk” was prepared for the lesson: a detailed project passport 2027-2029, real fixed statistical facts, conditional scenarios, 9 events, 8 indicators, calendar, estimates, risks and a ready-made version for Word/PDF. Open it with a button at the beginning of the roadmaps.",
+    "pair": "ru_en",
+    "model": {
+      "argos_version": "1.11.0",
+      "package_version": "1.9",
+      "pair": "ru_en",
+      "device": "cpu",
+      "probe_passed": true
+    }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21",
+  "generated_at": "2026-11-23T12:59:26+00:00",
   "items": [
     {
       "id": "digital-demographic-observatory",
@@ -27,6 +27,18 @@
         "аналитика",
         "социально-экономические данные"
       ]
+    },
+    {
+      "id": "github-1450801526",
+      "title_ru": "Демографическая мастерская · версия 0.15.0",
+      "description_ru": "Для занятия подготовлена отдельная дорожная карта «ПРИМЕР · Саранск»: подробный паспорт проекта 2027–2029, реальные закреплённые статистические факты, условные сценарии, 9 мероприятий, 8 показателей, календарь, смета, риски и готовая версия для Word/PDF. Откройте её кнопкой в начале «Дорожных карт».",
+      "title_en": "Demographic workshop · version 0.15.0",
+      "description_en": "A separate roadmap “EXAMPLE · Saransk” was prepared for the lesson: a detailed project passport 2027-2029, real fixed statistical facts, conditional scenarios, 9 events, 8 indicators, calendar, estimates, risks and a ready-made version for Word/PDF. Open it with a button at the beginning of the roadmaps.",
+      "url": "https://xn----7sbabangicd2azeshy9ajmfct0b3e8kka.xn--p1ai/",
+      "tags": [
+        "GitHub"
+      ],
+      "thumb": "assets/it/thumbs/github-1450801526-5bdd8ed6f942447b.png"
     },
     {
       "id": "github-1378551868",

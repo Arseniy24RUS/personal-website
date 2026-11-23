@@ -157,7 +157,7 @@
     },
     "1450801526": {
       "resource_id": "github-1450801526",
-      "status": "pending",
+      "status": "published",
       "aliases": [
         "Arseniy24RUS/demography-lab"
       ],
@@ -171,8 +171,7 @@
         "has_pages": true,
         "html_url": "https://github.com/Arseniy24RUS/demography-lab",
         "_readme_path": "README.md"
-      },
-      "reason": "it_translation_pending"
+      }
     }
   }
 }
