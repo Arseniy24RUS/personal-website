@@ -1,6 +1,6 @@
 {
-  "attempted_at": "2026-11-16T11:18:56+00:00",
-  "base_sha": "f39e5e9351a9740762a9fdd4f3bdcfc02359b67c",
+  "attempted_at": "2026-11-23T12:38:48+00:00",
+  "base_sha": "e3bdd3ab2891d2cd326da193ab23183ea64f2059",
   "state": "ready",
   "scope": "portfolio",
   "selected_sources": [
@@ -10,5 +10,5 @@
     "scopus",
     "wos"
   ],
-  "completed_at": "2026-11-16T11:25:54+00:00"
+  "completed_at": "2026-11-23T12:45:30+00:00"
 }

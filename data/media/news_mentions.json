@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T20:13:53+00:00",
+  "generated_at": "2026-11-23T12:43:31+00:00",
   "records": [
     {
       "url": "https://new.ras.ru/press-center/zasedanie-nts-kntr-demograficheskie-vyzovy-i-novye-mery-podderzhki-semey/",
@@ -26,6 +26,31 @@
       "image_status": "provided",
       "image_kind": "provided",
       "media_feed": "expert"
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/11/demograficheskie-processy-v-sovremennom-obshhestve",
+      "title": "Курсы повышения квалификации ИСД ФНИСЦ РАН по демографии для специалистов социальной сферы в Мордовии",
+      "published_at": "2026-11-21",
+      "source": "institutional_news_listing",
+      "source_name": "Институт социальной демографии ФНИСЦ РАН",
+      "source_name_en": "Institute for Social Demography, FCTAS RAS",
+      "description": "В ноябре 2026 года в Республике Мордовия Институтом социальной демографии имени Л.Л. Рыбаковского Федерального научно-исследовательского социологического центра Российской академии наук (ИСД ФНИСЦ РАН) совместно с Координационным центром развития кадрового потенциала в области демографии ФНИСЦ РАН для специалистов социальной сферы был проведен обучающий…",
+      "image": "assets/media/mentions/3352fcc91312a54d.jpg",
+      "id": "3352fcc91312a54d",
+      "confidence": 0.95,
+      "status": "published",
+      "domain": "isd-ras.ru",
+      "harvested_at": "2026-11-23T12:42:18+00:00",
+      "title_ru": "Курсы повышения квалификации ИСД ФНИСЦ РАН по демографии для специалистов социальной сферы в Мордовии",
+      "description_ru": "В ноябре 2026 года в Республике Мордовия Институтом социальной демографии имени Л.Л. Рыбаковского Федерального научно-исследовательского социологического центра Российской академии наук (ИСД ФНИСЦ РАН) совместно с Координационным центром развития кадрового потенциала в области демографии ФНИСЦ РАН для специалистов социальной сферы был проведен обучающий…",
+      "language": "ru",
+      "title_en": "Advanced training courses of ISD FNISC RAS on demography for specialists in the social sphere in Mordovia",
+      "title_en_origin": "argos_ru_en",
+      "description_en": "In November 2026, in the Republic of Mordovia, the Institute of Social Demography named after L.L. Rybakovsky of the Federal Research Sociological Center of the Russian Academy of Sciences (IDS FNISC RAS) together with the Coordination Center for the Development of Personnel Potential in the Field of Demography of the FNISC RAS for specialists in the social sphere conducted a training...",
+      "description_en_origin": "argos_ru_en",
+      "image_original_url": "https://cloud.isd-ras.ru/wp-content/uploads/TAN_5291-scaled.jpg",
+      "image_status": "cached",
+      "image_checked_at": "2026-11-23T12:43:31+00:00"
     },
     {
       "url": "https://deminform.ru/news/institutu-sotsialnoy-demografii-prisvoyeno-imya-leonida-rybakovskogo",
@@ -76,6 +101,27 @@
       "image_kind": "provided",
       "image_status": "provided",
       "media_feed": "press"
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/ekspertiza-nacproekta-semya/",
+      "title": "Запущена цифровая платформа «Экспертиза национального проекта «Семья»» : данные, исследования и прогнозы",
+      "published_at": "2026-10-06",
+      "source": "institutional_news_listing",
+      "source_name": "Институт социальной демографии ФНИСЦ РАН",
+      "source_name_en": "Institute for Social Demography, FCTAS RAS",
+      "description": "Институт социальной демографии (ИСД) ФНИСЦ РАН разработал исследовательскую платформу «Экспертиза национального проекта «Семья»» ( https://экспертиза-нацпроекта-семья.рф/ ). Ресурс создан для открытого представления научных материалов, статистических данных и результатов комплексной экспертизы. Он адресован исследователям, преподавателям, студентам и…",
+      "id": "9150309c17acd2d3",
+      "confidence": 0.95,
+      "status": "published",
+      "domain": "isd-ras.ru",
+      "harvested_at": "2026-11-23T12:42:39+00:00",
+      "title_ru": "Запущена цифровая платформа «Экспертиза национального проекта «Семья»» : данные, исследования и прогнозы",
+      "description_ru": "Институт социальной демографии (ИСД) ФНИСЦ РАН разработал исследовательскую платформу «Экспертиза национального проекта «Семья»» ( https://экспертиза-нацпроекта-семья.рф/ ). Ресурс создан для открытого представления научных материалов, статистических данных и результатов комплексной экспертизы. Он адресован исследователям, преподавателям, студентам и…",
+      "language": "ru",
+      "title_en": "Digital platform “Expertisation of the Family National Project” launched: data, research and forecasts",
+      "title_en_origin": "argos_ru_en",
+      "description_en": "The Institute of Social Demography (ISD) of the FNISC RAS has developed a research platform \"Expertise of the national project \"Family\" (https://expertise-national project-family.rf/). It is addressed to researchers, teachers, students and...",
+      "description_en_origin": "argos_ru_en"
     },
     {
       "url": "https://isd-ras.ru/news/2026/9/ekspertiza-novogo-nacproekta-semya/",

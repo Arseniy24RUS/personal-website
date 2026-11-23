@@ -1,6 +1,6 @@
 {
   "status": "blocked",
-  "attempted_at": "2026-11-16T11:25:26+00:00",
+  "attempted_at": "2026-11-23T12:45:07+00:00",
   "last_success_at": "2026-09-20T16:25:44+00:00",
   "origin": "snapshot",
   "complete": false,
@@ -9,7 +9,7 @@
   "components": {
     "metrics": {
       "status": "blocked",
-      "attempted_at": "2026-11-16T11:25:26+00:00",
+      "attempted_at": "2026-11-23T12:45:07+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "snapshot",
       "complete": false,
@@ -18,7 +18,7 @@
     },
     "publications": {
       "status": "blocked",
-      "attempted_at": "2026-11-16T11:25:26+00:00",
+      "attempted_at": "2026-11-23T12:45:07+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "snapshot",
       "complete": false,
@@ -27,7 +27,7 @@
     },
     "details": {
       "status": "blocked",
-      "attempted_at": "2026-11-16T11:25:26+00:00",
+      "attempted_at": "2026-11-23T12:45:07+00:00",
       "last_success_at": "2026-09-20T16:25:44+00:00",
       "origin": "snapshot",
       "complete": false,

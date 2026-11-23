@@ -199,6 +199,301 @@
       "processed_at": "2026-09-20T14:25:10+00:00",
       "status": "low_confidence",
       "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/11/demograficheskie-processy-v-sovremennom-obshhestve": {
+      "processed_at": "2026-11-23T12:42:18+00:00",
+      "status": "published",
+      "confidence": 0.95
+    },
+    "https://isd-ras.ru/news/2026/11/upravlenie-chelovecheskimi-resursami": {
+      "processed_at": "2026-11-23T12:42:19+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/11/etnodemograficheskie-processy-v-sssr": {
+      "processed_at": "2026-11-23T12:42:20+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/aleksandrova-mgu-klassicheskiy-uchebnik-16-11-2026": {
+      "processed_at": "2026-11-23T12:42:20+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/aleksandrova-tochka-zreniya-socialnoe-gosudarstvo-16-11-2026": {
+      "processed_at": "2026-11-23T12:42:21+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/pilipenko-sovet-fed-19-11-2026": {
+      "processed_at": "2026-11-23T12:42:22+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/pilipenko-vysokovsky-hse-20-11-2026": {
+      "processed_at": "2026-11-23T12:42:22+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/den-economista-2026": {
+      "processed_at": "2026-11-23T12:42:23+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/11/zasedanie-uchenogo-soveta-isd-fnisc-ran": {
+      "processed_at": "2026-11-23T12:42:23+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/11/demograficheskaya-enciklopediya-v-licah": {
+      "processed_at": "2026-11-23T12:42:24+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/lapinskie-chteniya-2026-11-10": {
+      "processed_at": "2026-11-23T12:42:25+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/brushkova-novostroyki-otr-06-11-2026": {
+      "processed_at": "2026-11-23T12:42:26+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/11/sociologiya-religii": {
+      "processed_at": "2026-11-23T12:42:26+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/kroshilin-rek-2026-11-03": {
+      "processed_at": "2026-11-23T12:42:27+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/migracii-v-rossii-i-sssr": {
+      "processed_at": "2026-11-23T12:42:28+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/socialnoe-znanie-v-sovremennom-obshhestve": {
+      "processed_at": "2026-11-23T12:42:28+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/rek-2026": {
+      "processed_at": "2026-11-23T12:42:29+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/aleksandrova-ekonomicheskiy-kongress-29-10-2026": {
+      "processed_at": "2026-11-23T12:42:30+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/logo": {
+      "processed_at": "2026-11-23T12:42:30+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/pilipenko-smolensk-kollokvium-2026": {
+      "processed_at": "2026-11-23T12:42:31+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/dobrokhleb-nizhniy-novgorod-2026": {
+      "processed_at": "2026-11-23T12:42:32+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/klimat-i-zdorove-cheloveka": {
+      "processed_at": "2026-11-23T12:42:32+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/istoriya-rossii-s-drevnejshih-vremen": {
+      "processed_at": "2026-11-23T12:42:33+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/edinstvo-i-mnogoobrazie": {
+      "processed_at": "2026-11-23T12:42:34+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/socialnye-dvizheniya": {
+      "processed_at": "2026-11-23T12:42:35+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/realizaciya-gos-dem-i-semejnoj-politiki": {
+      "processed_at": "2026-11-23T12:42:35+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/itogi-socialnaya-dinamika-10-2026": {
+      "processed_at": "2026-11-23T12:42:36+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/aleksandrova-tochka-zreniya-13-10-2026": {
+      "processed_at": "2026-11-23T12:42:37+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/sovremennye-osobennosti-dempovedeniya-naseleniya": {
+      "processed_at": "2026-11-23T12:42:38+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/zasedanie-uchenogo-soveta-fnisc-2026-10": {
+      "processed_at": "2026-11-23T12:42:38+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/aktualnye-problemy-demograficheskih-issledovanij": {
+      "processed_at": "2026-11-23T12:42:39+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/ekspertiza-nacproekta-semya": {
+      "processed_at": "2026-11-23T12:42:39+00:00",
+      "status": "published",
+      "confidence": 0.95
+    },
+    "https://isd-ras.ru/news/2026/10/mery-podderzhki-semej": {
+      "processed_at": "2026-11-23T12:42:40+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/brushkova-vzaimopomoshch-otr-05-10-2026": {
+      "processed_at": "2026-11-23T12:42:41+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/10/prostranstvennaya-rekonfiguraciya-ekonomiki-rossii": {
+      "processed_at": "2026-11-23T12:42:41+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/digest-fnisc-summer-2026": {
+      "processed_at": "2026-11-23T12:42:42+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/sociologiya-religii": {
+      "processed_at": "2026-11-23T12:42:42+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/migracionnye-processy-v-atr": {
+      "processed_at": "2026-11-23T12:42:43+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/dem-forum-asia-2026": {
+      "processed_at": "2026-11-23T12:42:43+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/altaj-aziya-2026": {
+      "processed_at": "2026-11-23T12:42:44+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/ucheniy-sovet-isesp-24-09-2026": {
+      "processed_at": "2026-11-23T12:42:45+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/brushkova-brachnyj-partner-22-09-2026": {
+      "processed_at": "2026-11-23T12:42:46+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/formy-i-metody-socialnoj-raboty": {
+      "processed_at": "2026-11-23T12:42:46+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/istoricheskaya-demografiya-rossii": {
+      "processed_at": "2026-11-23T12:42:47+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/molodezh-v-bolshoj-evrazii": {
+      "processed_at": "2026-11-23T12:42:48+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/zasedanie-molodezhnoj-sekcii-nauchnogo-soveta": {
+      "processed_at": "2026-11-23T12:42:49+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isd-ras.ru/news/2026/9/demograficheskij-potencial-evrazii": {
+      "processed_at": "2026-11-23T12:42:50+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://isesp-ras.ru/news/ucheniy-sovet-isesp-30-06-2026": {
+      "processed_at": "2026-11-23T12:42:50+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=3192": {
+      "processed_at": "2026-11-23T12:42:55+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=3193": {
+      "processed_at": "2026-11-23T12:42:59+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=3246": {
+      "processed_at": "2026-11-23T12:43:01+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=1272": {
+      "processed_at": "2026-11-23T12:43:05+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=3226": {
+      "processed_at": "2026-11-23T12:43:08+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=3072": {
+      "processed_at": "2026-11-23T12:43:11+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=1284": {
+      "processed_at": "2026-11-23T12:43:15+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=1271": {
+      "processed_at": "2026-11-23T12:43:19+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=3071": {
+      "processed_at": "2026-11-23T12:43:21+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=3073": {
+      "processed_at": "2026-11-23T12:43:23+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
+    },
+    "https://fnisc.ru/index.php?page_id=2591": {
+      "processed_at": "2026-11-23T12:43:27+00:00",
+      "status": "low_confidence",
+      "confidence": 0.0
     }
   },
   "pending": {
@@ -1054,73 +1349,9 @@
       "url": "https://www.fnisc.ru/index.php?page_id=3267",
       "source": "institutional_site_scan",
       "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=3192": {
-      "url": "https://www.fnisc.ru/index.php?page_id=3192",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=3193": {
-      "url": "https://www.fnisc.ru/index.php?page_id=3193",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=3246": {
-      "url": "https://www.fnisc.ru/index.php?page_id=3246",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=1272": {
-      "url": "https://www.fnisc.ru/index.php?page_id=1272",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=3226": {
-      "url": "https://www.fnisc.ru/index.php?page_id=3226",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=3072": {
-      "url": "https://www.fnisc.ru/index.php?page_id=3072",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=1284": {
-      "url": "https://www.fnisc.ru/index.php?page_id=1284",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=1271": {
-      "url": "https://www.fnisc.ru/index.php?page_id=1271",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=3071": {
-      "url": "https://www.fnisc.ru/index.php?page_id=3071",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=3073": {
-      "url": "https://www.fnisc.ru/index.php?page_id=3073",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
-    },
-    "https://fnisc.ru/index.php?page_id=2591": {
-      "url": "https://www.fnisc.ru/index.php?page_id=2591",
-      "source": "institutional_site_scan",
-      "source_name": "ФНИСЦ РАН",
-      "source_name_en": null
+      "source_name_en": null,
+      "last_attempt_at": "2026-11-23T12:42:52+00:00",
+      "reason": "article_template_changed"
     },
     "https://fnisc.ru/index.php?page_id=3248": {
       "url": "https://www.fnisc.ru/index.php?page_id=3248",
@@ -3137,27 +3368,379 @@
       "source": "institutional_site_scan",
       "source_name": "РУДН",
       "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?page_id=3285": {
+      "url": "https://www.fnisc.ru/index.php?page_id=3285",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=14541&page_id=536": {
+      "url": "https://www.fnisc.ru/index.php?page_id=536&id=14541",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://fnisc.ru/index.php?id=1833&page_id=538": {
+      "url": "https://www.fnisc.ru/index.php?page_id=538&id=1833",
+      "source": "institutional_site_scan",
+      "source_name": "ФНИСЦ РАН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/schedule": {
+      "url": "https://www.rudn.ru/education/schedule",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/life-in-rudn/animator-akter-pedagog-babushka-prokuror-advokat-psiholog-prepodavateli-rudn-opisali-svoyu-rabotu": {
+      "url": "https://www.rudn.ru/media/news/life-in-rudn/animator-akter-pedagog-babushka-prokuror-advokat-psiholog-prepodavateli-rudn-opisali-svoyu-rabotu",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news?category=5946": {
+      "url": "https://www.rudn.ru/media/news?category=5946",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/international-cooperation/pozdravlyaem-pobediteley-specialnoy-stipendii-rudn-international-scholarship-1-1-1": {
+      "url": "https://www.rudn.ru/media/news/international-cooperation/pozdravlyaem-pobediteley-specialnoy-stipendii-rudn-international-scholarship-1-1-1",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news?category=5945": {
+      "url": "https://www.rudn.ru/media/news?category=5945",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/vypuskniki/spasibo-rudn-za-vse-obshchestvennyy-deyatel-karolina-gaspar-ramires-posetila-rodnoy-vuz-posle-polucheniya-gosnagrady": {
+      "url": "https://www.rudn.ru/media/news/vypuskniki/spasibo-rudn-za-vse-obshchestvennyy-deyatel-karolina-gaspar-ramires-posetila-rodnoy-vuz-posle-polucheniya-gosnagrady",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news?category=5947": {
+      "url": "https://www.rudn.ru/media/news?category=5947",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/nauka/vdohnovit-na-poisk-glubinnyh-prichin-kak-afrika-i-rudn--razvivayut-nauku": {
+      "url": "https://www.rudn.ru/media/news/nauka/vdohnovit-na-poisk-glubinnyh-prichin-kak-afrika-i-rudn--razvivayut-nauku",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/international-cooperation/klyanus-zashchishchat-russkuyu-kulturu-pyatero-vypusknikov-rudn-udostoeny-zvaniya-posol-rossiyskogo-obrazovaniya-i-nauki": {
+      "url": "https://www.rudn.ru/media/news/international-cooperation/klyanus-zashchishchat-russkuyu-kulturu-pyatero-vypusknikov-rudn-udostoeny-zvaniya-posol-rossiyskogo-obrazovaniya-i-nauki",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/life-in-rudn/kot-uchenyy-sdelal-bolshe-3-000-predskazaniy-kak-proshla-nedelya-rudn-na-mejdunarodnom-festivale-molodeji": {
+      "url": "https://www.rudn.ru/media/news/life-in-rudn/kot-uchenyy-sdelal-bolshe-3-000-predskazaniy-kak-proshla-nedelya-rudn-na-mejdunarodnom-festivale-molodeji",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/nauka/studenty-rudn-prinyali-uchastie-vo-vserossiyskom-forume-molodyh-uchenyh-polyus": {
+      "url": "https://www.rudn.ru/media/news/nauka/studenty-rudn-prinyali-uchastie-vo-vserossiyskom-forume-molodyh-uchenyh-polyus",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/international-cooperation/svyaz-mejdu-universitetami-i-potrebnostyami-obshchestva-v-rudn-pokazali-vklad-universitetov-v-dostijenie-cur": {
+      "url": "https://www.rudn.ru/media/news/international-cooperation/svyaz-mejdu-universitetami-i-potrebnostyami-obshchestva-v-rudn-pokazali-vklad-universitetov-v-dostijenie-cur",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/life-in-rudn/anastasiya-banahovich-iz-rudn-stala-pobeditelem-konkursa-student-goda-moskvy": {
+      "url": "https://www.rudn.ru/media/news/life-in-rudn/anastasiya-banahovich-iz-rudn-stala-pobeditelem-konkursa-student-goda-moskvy",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/life-in-rudn/docent-injenernoy-akademii-rudn-anton-sinelnikov-pobedil-na-otkrytom-kubke-moskvy-po-tyajeloy-atletike": {
+      "url": "https://www.rudn.ru/media/news/life-in-rudn/docent-injenernoy-akademii-rudn-anton-sinelnikov-pobedil-na-otkrytom-kubke-moskvy-po-tyajeloy-atletike",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a2e85d89-0ef0-4f4b-bd86-d03fae77cb58": {
+      "url": "https://www.rudn.ru/media/events?events_id=a2e85d89-0ef0-4f4b-bd86-d03fae77cb58&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a2e85d89-0ef0-4f4b-bd86-d03fae77cb58": {
+      "url": "https://www.rudn.ru/media/events/a2e85d89-0ef0-4f4b-bd86-d03fae77cb58",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a33d5910-1c32-4bd3-8e15-d04ab59d48dd": {
+      "url": "https://www.rudn.ru/media/events?events_id=a33d5910-1c32-4bd3-8e15-d04ab59d48dd&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a33d5910-1c32-4bd3-8e15-d04ab59d48dd": {
+      "url": "https://www.rudn.ru/media/events/a33d5910-1c32-4bd3-8e15-d04ab59d48dd",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a34af380-a1ca-4f23-af70-3f38da416893": {
+      "url": "https://www.rudn.ru/media/events?events_id=a34af380-a1ca-4f23-af70-3f38da416893&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a34af380-a1ca-4f23-af70-3f38da416893": {
+      "url": "https://www.rudn.ru/media/events/a34af380-a1ca-4f23-af70-3f38da416893",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a31aa9c9-e2f4-48da-8916-97f0ec2d711b": {
+      "url": "https://www.rudn.ru/media/events?events_id=a31aa9c9-e2f4-48da-8916-97f0ec2d711b&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a31aa9c9-e2f4-48da-8916-97f0ec2d711b": {
+      "url": "https://www.rudn.ru/media/events/a31aa9c9-e2f4-48da-8916-97f0ec2d711b",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a34b1121-f6e0-42be-af65-c2ab3e06c091": {
+      "url": "https://www.rudn.ru/media/events?events_id=a34b1121-f6e0-42be-af65-c2ab3e06c091&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a34b1121-f6e0-42be-af65-c2ab3e06c091": {
+      "url": "https://www.rudn.ru/media/events/a34b1121-f6e0-42be-af65-c2ab3e06c091",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a32132cc-e3e6-4c27-ab20-dedcdc1a879b": {
+      "url": "https://www.rudn.ru/media/events?events_id=a32132cc-e3e6-4c27-ab20-dedcdc1a879b&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a32132cc-e3e6-4c27-ab20-dedcdc1a879b": {
+      "url": "https://www.rudn.ru/media/events/a32132cc-e3e6-4c27-ab20-dedcdc1a879b",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a334abb4-f690-42f6-a292-5be0218c8208": {
+      "url": "https://www.rudn.ru/media/events?events_id=a334abb4-f690-42f6-a292-5be0218c8208&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a334abb4-f690-42f6-a292-5be0218c8208": {
+      "url": "https://www.rudn.ru/media/events/a334abb4-f690-42f6-a292-5be0218c8208",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a3374750-ea3a-42f0-a117-a90626a1f279": {
+      "url": "https://www.rudn.ru/media/events?events_id=a3374750-ea3a-42f0-a117-a90626a1f279&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a3374750-ea3a-42f0-a117-a90626a1f279": {
+      "url": "https://www.rudn.ru/media/events/a3374750-ea3a-42f0-a117-a90626a1f279",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a3411001-1d32-425e-b67b-be976404cc4d": {
+      "url": "https://www.rudn.ru/media/events?events_id=a3411001-1d32-425e-b67b-be976404cc4d&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a3411001-1d32-425e-b67b-be976404cc4d": {
+      "url": "https://www.rudn.ru/media/events/a3411001-1d32-425e-b67b-be976404cc4d",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a343601f-f7b8-4365-950c-025a65d5bb15": {
+      "url": "https://www.rudn.ru/media/events?events_id=a343601f-f7b8-4365-950c-025a65d5bb15&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a343601f-f7b8-4365-950c-025a65d5bb15": {
+      "url": "https://www.rudn.ru/media/events/a343601f-f7b8-4365-950c-025a65d5bb15",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/nauka/magistrantka-rudn-nazvala-barery-v-ispolzovanii-othodov-stekla-kak-vtorichnogo-syrya": {
+      "url": "https://www.rudn.ru/media/news/nauka/magistrantka-rudn-nazvala-barery-v-ispolzovanii-othodov-stekla-kak-vtorichnogo-syrya",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?format=97015975-dbdd-4333-88ff-45530543456a": {
+      "url": "https://www.rudn.ru/media/events?format=97015975-dbdd-4333-88ff-45530543456a",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?format=97015975-e075-4186-baeb-87b00496789f": {
+      "url": "https://www.rudn.ru/media/events?format=97015975-e075-4186-baeb-87b00496789f",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?format=97015975-dcc0-4de0-9083-4cb3991c6af9": {
+      "url": "https://www.rudn.ru/media/events?format=97015975-dcc0-4de0-9083-4cb3991c6af9",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a33d31cb-173d-4702-bd30-2ce25a94d99a": {
+      "url": "https://www.rudn.ru/media/events/a33d31cb-173d-4702-bd30-2ce25a94d99a",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a33d31cb-173d-4702-bd30-2ce25a94d99a": {
+      "url": "https://www.rudn.ru/media/events?events_id=a33d31cb-173d-4702-bd30-2ce25a94d99a&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a2e2d1f8-57c9-4227-8823-3f34e7b2600a": {
+      "url": "https://www.rudn.ru/media/events/a2e2d1f8-57c9-4227-8823-3f34e7b2600a",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a2e2d1f8-57c9-4227-8823-3f34e7b2600a": {
+      "url": "https://www.rudn.ru/media/events?events_id=a2e2d1f8-57c9-4227-8823-3f34e7b2600a&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/staff/obratnaya-svyaz-v-sisteme-kachestva-obucheniya": {
+      "url": "https://www.rudn.ru/staff/obratnaya-svyaz-v-sisteme-kachestva-obucheniya",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/education/studenty-mediki-vystupili-na-lektorii-bez-granic-na-vsemirnom-dne-nauki-v-zaryade": {
+      "url": "https://www.rudn.ru/media/news/education/studenty-mediki-vystupili-na-lektorii-bez-granic-na-vsemirnom-dne-nauki-v-zaryade",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/education/studenty-rudn-predstavili-injenernye-proekty-na-forume-rossiysko-afrikanskiy-syrevoy-dialog": {
+      "url": "https://www.rudn.ru/media/news/education/studenty-rudn-predstavili-injenernye-proekty-na-forume-rossiysko-afrikanskiy-syrevoy-dialog",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/news/education/opytnym-putem-kakie-zarubejnye-stajirovki-proshli-studenty-rudn-v-etom-godu": {
+      "url": "https://www.rudn.ru/media/news/education/opytnym-putem-kakie-zarubejnye-stajirovki-proshli-studenty-rudn-v-etom-godu",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?format=97015975-f8ac-42eb-914d-abc8fb988e6b": {
+      "url": "https://www.rudn.ru/media/events?format=97015975-f8ac-42eb-914d-abc8fb988e6b",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?organizers=9c471063-9c48-4d01-90dc-b12c7b0bce08": {
+      "url": "https://www.rudn.ru/media/events?organizers=9c471063-9c48-4d01-90dc-b12c7b0bce08",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events/a2ecad0a-de86-4665-9c71-8cfdd00953ac": {
+      "url": "https://www.rudn.ru/media/events/a2ecad0a-de86-4665-9c71-8cfdd00953ac",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?downloadICS=&events_id=a2ecad0a-de86-4665-9c71-8cfdd00953ac": {
+      "url": "https://www.rudn.ru/media/events?events_id=a2ecad0a-de86-4665-9c71-8cfdd00953ac&downloadICS",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/media/events?organizers=97015976-1316-419b-8937-f2fcfdfdf0d8": {
+      "url": "https://www.rudn.ru/media/events?organizers=97015976-1316-419b-8937-f2fcfdfdf0d8",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://rudn.ru/education/obratnaya-svyaz-v-sisteme-kachestva-obucheniya": {
+      "url": "https://www.rudn.ru/education/obratnaya-svyaz-v-sisteme-kachestva-obucheniya",
+      "source": "institutional_site_scan",
+      "source_name": "РУДН",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/v-chelyabinskom-filiale-ranhigs-organizovali-ploshhadku-dlya-bolshogo-etnograficheskogo-diktanta": {
+      "url": "https://chel.ranepa.ru/news/v-chelyabinskom-filiale-ranhigs-organizovali-ploshhadku-dlya-bolshogo-etnograficheskogo-diktanta/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
+    },
+    "https://chel.ranepa.ru/news/prezident-rossii-utverdil-status-prezidentskoi-akademii-kak-glavnogo-centra-podgotovki-i-ocenki-kadrov-dlya-gossluzhby": {
+      "url": "https://chel.ranepa.ru/news/prezident-rossii-utverdil-status-prezidentskoi-akademii-kak-glavnogo-centra-podgotovki-i-ocenki-kadrov-dlya-gossluzhby/",
+      "source": "institutional_site_scan",
+      "source_name": "Челябинский филиал РАНХиГС",
+      "source_name_en": null
     }
   },
   "initial_cutoff": "2026-06-22",
   "rss_cursor": {
-    "next_index": 2,
-    "attempted_at": "2026-09-20T14:23:03+00:00"
+    "next_index": 3,
+    "attempted_at": "2026-11-23T12:40:35+00:00"
   },
   "sitemap_pending": {
     "https://deminform.ru/sitemap.xml": [
       "https://deminform.ru/sitemap.xml"
     ],
     "https://www.sobaka.ru/sitemap.xml": [
+      "https://www.sobaka.ru/sitemaps/old-posts-spb-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-chlb-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-kostroma-jaroslavl-ivanovo-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-kursk-1.xml",
       "https://www.sobaka.ru/sitemaps/old-posts-ufa-1.xml",
       "https://www.sobaka.ru/sitemaps/old-posts-belgorod-1.xml",
       "https://www.sobaka.ru/sitemaps/old-posts-ekb-1.xml",
       "https://www.sobaka.ru/sitemaps/old-posts-nsk-1.xml",
-      "https://www.sobaka.ru/sitemap.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-spb-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-chlb-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-kostroma-jaroslavl-ivanovo-1.xml",
-      "https://www.sobaka.ru/sitemaps/old-posts-kursk-1.xml"
+      "https://www.sobaka.ru/sitemaps/old-posts-nvr-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-krd-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-krsk-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-irk-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-smr-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-kzn-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-omsk-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-rnd-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-prm-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-nn-1.xml",
+      "https://www.sobaka.ru/sitemaps/old-posts-spb-2.xml"
     ],
     "https://www.rosbalt.ru/sitemap.xml": []
   }

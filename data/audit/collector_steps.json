@@ -1,35 +1,35 @@
 {
-  "attempted_at": "2026-11-16T11:25:48+00:00",
+  "attempted_at": "2026-11-23T12:45:23+00:00",
   "steps": [
     {
       "source": "open",
       "exit_code": 0,
       "reason": "completed",
-      "attempted_at": "2026-11-16T11:20:07+00:00"
+      "attempted_at": "2026-11-23T12:39:51+00:00"
     },
     {
       "source": "media",
-      "exit_code": 1,
-      "reason": "nonzero_exit",
-      "attempted_at": "2026-11-16T11:20:15+00:00"
+      "exit_code": 0,
+      "reason": "completed",
+      "attempted_at": "2026-11-23T12:39:59+00:00"
     },
     {
       "source": "elibrary",
       "exit_code": 2,
       "reason": "nonzero_exit",
-      "attempted_at": "2026-11-16T11:23:47+00:00"
+      "attempted_at": "2026-11-23T12:43:32+00:00"
     },
     {
       "source": "wos",
       "exit_code": 2,
       "reason": "nonzero_exit",
-      "attempted_at": "2026-11-16T11:25:26+00:00"
+      "attempted_at": "2026-11-23T12:45:07+00:00"
     },
     {
       "source": "scopus",
       "exit_code": 0,
       "reason": "completed",
-      "attempted_at": "2026-11-16T11:25:45+00:00"
+      "attempted_at": "2026-11-23T12:45:19+00:00"
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
-  "status": "error",
-  "attempted_at": "2026-11-16T11:20:15+00:00",
-  "last_success_at": "2026-09-20T14:25:17+00:00",
-  "origin": "snapshot",
+  "status": "partial",
+  "attempted_at": "2026-11-23T12:43:31+00:00",
+  "last_success_at": "2026-11-23T12:43:31+00:00",
+  "origin": "live",
   "complete": false,
-  "record_count": 23,
-  "reason": "nonzero_exit",
+  "record_count": 31,
+  "reason": "source_failures_or_pending",
   "required_sources_ok": true,
-  "published": 23,
-  "new_records": 0,
+  "published": 31,
+  "new_records": 2,
   "low_confidence": 278,
-  "pending": 454,
+  "pending": 500,
   "providers": [
     {
       "url": "https://www.isesp-ras.ru/news/",
@@ -18,8 +18,8 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.isesp-ras.ru/news/",
-      "bytes": 102403,
-      "record_count": 14,
+      "bytes": 109055,
+      "record_count": 31,
       "collector": "listings",
       "required": true
     },
@@ -29,23 +29,16 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://isd-ras.ru/news/",
-      "bytes": 548316,
-      "record_count": 14,
+      "bytes": 580689,
+      "record_count": 45,
       "collector": "listings",
       "required": true
     },
     {
-      "url": "https://news.google.com/rss/search?q=%22%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9+%D0%90%D1%80%D1%81%D0%B5%D0%BD%D0%B8%D0%B9%22&hl=en&gl=US&ceid=US%3Aen",
+      "url": "https://news.google.com/rss/search?q=%22%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9+%D0%90.%D0%9C.%22&hl=ru&gl=RU&ceid=RU%3Aru",
       "status": "error",
       "attempts": 3,
       "reason": "ReadTimeout",
-      "collector": "rss",
-      "required": false
-    },
-    {
-      "url": "https://news.google.com/rss/search?q=%22%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9+%D0%90.%D0%9C.%22&hl=ru&gl=RU&ceid=RU%3Aru",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
       "collector": "rss",
       "required": false
     },
@@ -120,6 +113,13 @@
       "required": false
     },
     {
+      "url": "https://news.google.com/rss/search?q=%22%D0%A1%D0%B8%D1%82%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9+%D0%90%D1%80%D1%81%D0%B5%D0%BD%D0%B8%D0%B9%22&hl=en&gl=US&ceid=US%3Aen",
+      "status": "circuit_open",
+      "reason": "repeated_host_failures",
+      "collector": "rss",
+      "required": false
+    },
+    {
       "url": "https://deminform.ru/sitemap.xml",
       "status": "http_error",
       "attempts": 1,
@@ -129,96 +129,62 @@
       "required": false
     },
     {
-      "url": "https://www.sobaka.ru/sitemaps/old-posts-nvr-1.xml",
+      "url": "https://www.sobaka.ru/sitemaps/old-posts-ufa-1.xml",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-nvr-1.xml",
-      "bytes": 334835,
-      "excluded_before_cutoff": 477,
+      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-ufa-1.xml",
+      "bytes": 1876318,
+      "excluded_before_cutoff": 8717,
       "collector": "sitemaps",
       "required": false
     },
     {
-      "url": "https://www.sobaka.ru/sitemaps/old-posts-krd-1.xml",
+      "url": "https://www.sobaka.ru/sitemaps/old-posts-belgorod-1.xml",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-krd-1.xml",
-      "bytes": 543298,
-      "excluded_before_cutoff": 1122,
+      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-belgorod-1.xml",
+      "bytes": 163631,
+      "excluded_before_cutoff": 383,
       "collector": "sitemaps",
       "required": false
     },
     {
-      "url": "https://www.sobaka.ru/sitemaps/old-posts-krsk-1.xml",
+      "url": "https://www.sobaka.ru/sitemaps/old-posts-ekb-1.xml",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-krsk-1.xml",
-      "bytes": 64467,
-      "excluded_before_cutoff": 191,
+      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-ekb-1.xml",
+      "bytes": 330257,
+      "excluded_before_cutoff": 731,
       "collector": "sitemaps",
       "required": false
     },
     {
-      "url": "https://www.sobaka.ru/sitemaps/old-posts-irk-1.xml",
+      "url": "https://www.sobaka.ru/sitemaps/old-posts-nsk-1.xml",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-irk-1.xml",
-      "bytes": 182869,
-      "excluded_before_cutoff": 475,
+      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-nsk-1.xml",
+      "bytes": 1436575,
+      "excluded_before_cutoff": 7074,
       "collector": "sitemaps",
       "required": false
     },
     {
-      "url": "https://www.sobaka.ru/sitemaps/old-posts-smr-1.xml",
+      "url": "https://www.sobaka.ru/sitemap.xml",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-smr-1.xml",
-      "bytes": 738844,
-      "excluded_before_cutoff": 1262,
-      "collector": "sitemaps",
-      "required": false
-    },
-    {
-      "url": "https://www.sobaka.ru/sitemaps/old-posts-kzn-1.xml",
-      "status": "ok",
-      "attempts": 1,
-      "http_status": 200,
-      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-kzn-1.xml",
-      "bytes": 787533,
-      "excluded_before_cutoff": 3009,
-      "collector": "sitemaps",
-      "required": false
-    },
-    {
-      "url": "https://www.sobaka.ru/sitemaps/old-posts-omsk-1.xml",
-      "status": "ok",
-      "attempts": 1,
-      "http_status": 200,
-      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-omsk-1.xml",
-      "bytes": 65030,
-      "excluded_before_cutoff": 231,
-      "collector": "sitemaps",
-      "required": false
-    },
-    {
-      "url": "https://www.sobaka.ru/sitemaps/old-posts-rnd-1.xml",
-      "status": "ok",
-      "attempts": 1,
-      "http_status": 200,
-      "final_url": "https://www.sobaka.ru/sitemaps/old-posts-rnd-1.xml",
-      "bytes": 252412,
-      "excluded_before_cutoff": 586,
+      "final_url": "https://www.sobaka.ru/sitemap.xml",
+      "bytes": 1883,
       "collector": "sitemaps",
       "required": false
     },
     {
       "url": "https://www.sobaka.ru/sitemaps/old-posts-spb-1.xml",
-      "status": "too_large",
+      "status": "budget_exhausted",
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.sobaka.ru/sitemaps/old-posts-spb-1.xml",
@@ -239,6 +205,24 @@
     },
     {
       "url": "https://www.sobaka.ru/sitemaps/old-posts-kursk-1.xml",
+      "status": "budget_exhausted",
+      "collector": "sitemaps",
+      "required": false
+    },
+    {
+      "url": "https://www.sobaka.ru/sitemaps/old-posts-prm-1.xml",
+      "status": "budget_exhausted",
+      "collector": "sitemaps",
+      "required": false
+    },
+    {
+      "url": "https://www.sobaka.ru/sitemaps/old-posts-nn-1.xml",
+      "status": "budget_exhausted",
+      "collector": "sitemaps",
+      "required": false
+    },
+    {
+      "url": "https://www.sobaka.ru/sitemaps/old-posts-spb-2.xml",
       "status": "budget_exhausted",
       "collector": "sitemaps",
       "required": false
@@ -267,7 +251,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.fnisc.ru/",
-      "bytes": 60489,
+      "bytes": 59501,
       "collector": "sites",
       "required": false
     },
@@ -277,7 +261,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.fnisc.ru/pers_about.html?id=2472",
-      "bytes": 68765,
+      "bytes": 68798,
       "collector": "sites",
       "required": false
     },
@@ -287,7 +271,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.fnisc.ru/news.html",
-      "bytes": 46191,
+      "bytes": 46083,
       "collector": "sites",
       "required": false
     },
@@ -297,7 +281,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.fnisc.ru/index.php?page_id=2458",
-      "bytes": 45052,
+      "bytes": 44946,
       "collector": "sites",
       "required": false
     },
@@ -307,7 +291,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://piar.fnisc.info/",
-      "bytes": 36423,
+      "bytes": 36410,
       "collector": "sites",
       "required": false
     },
@@ -317,7 +301,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.fnisc.ru/index.php?page_id=3125",
-      "bytes": 45484,
+      "bytes": 45382,
       "collector": "sites",
       "required": false
     },
@@ -327,13 +311,15 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.fnisc.ru/index.php?page_id=2459",
-      "bytes": 45239,
+      "bytes": 45133,
       "collector": "sites",
       "required": false
     },
     {
       "url": "https://www.fnisc.ru/index.php?page_id=3158",
       "status": "budget_exhausted",
+      "attempts": 1,
+      "reason": "ReadTimeout",
       "collector": "sites",
       "required": false
     },
@@ -386,12 +372,6 @@
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=3270",
-      "status": "budget_exhausted",
-      "collector": "sites",
-      "required": false
-    },
-    {
       "url": "https://www.fnisc.ru/index.php?page_id=3138",
       "status": "budget_exhausted",
       "collector": "sites",
@@ -399,6 +379,12 @@
     },
     {
       "url": "https://www.fnisc.ru/index.php?page_id=2524",
+      "status": "budget_exhausted",
+      "collector": "sites",
+      "required": false
+    },
+    {
+      "url": "https://www.fnisc.ru/index.php?page_id=265",
       "status": "budget_exhausted",
       "collector": "sites",
       "required": false
@@ -429,6 +415,12 @@
     },
     {
       "url": "https://www.fnisc.ru/index.php?page_id=25",
+      "status": "budget_exhausted",
+      "collector": "sites",
+      "required": false
+    },
+    {
+      "url": "https://www.fnisc.ru/index.php?page_id=3285",
       "status": "budget_exhausted",
       "collector": "sites",
       "required": false
@@ -554,18 +546,12 @@
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=2485",
-      "status": "budget_exhausted",
-      "collector": "sites",
-      "required": false
-    },
-    {
       "url": "https://admission.rudn.ru/staff/86110487-4a8f-11f0-b545-00155d0c0d4a/",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://admission.rudn.ru/staff/86110487-4a8f-11f0-b545-00155d0c0d4a/",
-      "bytes": 34000,
+      "bytes": 33922,
       "collector": "sites",
       "required": false
     },
@@ -575,7 +561,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.rudn.ru/",
-      "bytes": 277816,
+      "bytes": 294951,
       "collector": "sites",
       "required": false
     },
@@ -585,7 +571,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.rudn.ru/media",
-      "bytes": 270926,
+      "bytes": 273126,
       "collector": "sites",
       "required": false
     },
@@ -595,7 +581,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.rudn.ru/staff/1045",
-      "bytes": 226801,
+      "bytes": 229600,
       "collector": "sites",
       "required": false
     },
@@ -605,7 +591,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.rudn.ru/education",
-      "bytes": 253298,
+      "bytes": 255793,
       "collector": "sites",
       "required": false
     },
@@ -615,7 +601,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.rudn.ru/education/schools-and-departments",
-      "bytes": 270427,
+      "bytes": 273517,
       "collector": "sites",
       "required": false
     },
@@ -625,7 +611,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.rudn.ru/education/organizaciya-uchebnogo-processa",
-      "bytes": 222420,
+      "bytes": 225510,
       "collector": "sites",
       "required": false
     },
@@ -635,17 +621,17 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.rudn.ru/education/educational-programs",
-      "bytes": 351879,
+      "bytes": 354969,
       "collector": "sites",
       "required": false
     },
     {
-      "url": "https://www.rudn.ru/education/raspisanie",
+      "url": "https://www.rudn.ru/education/schedule",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.rudn.ru/education/raspisanie",
-      "bytes": 213779,
+      "final_url": "https://www.rudn.ru/education/schedule",
+      "bytes": 229950,
       "collector": "sites",
       "required": false
     },
@@ -655,7 +641,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.rudn.ru/education/nauchnaya-biblioteka",
-      "bytes": 315052,
+      "bytes": 318142,
       "collector": "sites",
       "required": false
     },
@@ -665,7 +651,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.rudn.ru/education/continuing",
-      "bytes": 229250,
+      "bytes": 232340,
       "collector": "sites",
       "required": false
     },
@@ -675,7 +661,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.rudn.ru/education/foreign-languages",
-      "bytes": 267863,
+      "bytes": 270953,
       "collector": "sites",
       "required": false
     },
@@ -685,37 +671,25 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://www.rudn.ru/education/mooc",
-      "bytes": 254072,
+      "bytes": 257162,
       "collector": "sites",
       "required": false
     },
     {
       "url": "https://www.rudn.ru/education/fee-paying-education",
-      "status": "ok",
-      "attempts": 1,
-      "http_status": 200,
-      "final_url": "https://www.rudn.ru/education/fee-paying-education",
-      "bytes": 479858,
+      "status": "budget_exhausted",
       "collector": "sites",
       "required": false
     },
     {
       "url": "https://www.rudn.ru/education/rki",
-      "status": "ok",
-      "attempts": 1,
-      "http_status": 200,
-      "final_url": "https://www.rudn.ru/education/rki",
-      "bytes": 257269,
+      "status": "budget_exhausted",
       "collector": "sites",
       "required": false
     },
     {
       "url": "https://www.rudn.ru/education/learning-quality-system",
-      "status": "ok",
-      "attempts": 1,
-      "http_status": 200,
-      "final_url": "https://www.rudn.ru/education/learning-quality-system",
-      "bytes": 227318,
+      "status": "budget_exhausted",
       "collector": "sites",
       "required": false
     },
@@ -888,7 +862,7 @@
       "required": false
     },
     {
-      "url": "https://www.rudn.ru/education/learning-quality-system/obratnaya-svyaz-v-sisteme-kachestva-obucheniya",
+      "url": "https://www.rudn.ru/science/dad/aspirantura",
       "status": "budget_exhausted",
       "collector": "sites",
       "required": false
@@ -899,7 +873,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://chel.ranepa.ru/",
-      "bytes": 159757,
+      "bytes": 162737,
       "collector": "sites",
       "required": false
     },
@@ -909,7 +883,7 @@
       "attempts": 1,
       "http_status": 200,
       "final_url": "https://chel.ranepa.ru/novosti/",
-      "bytes": 160682,
+      "bytes": 161533,
       "collector": "sites",
       "required": false
     },
@@ -922,462 +896,608 @@
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=43",
+      "url": "https://isd-ras.ru/news/2026/11/demograficheskie-processy-v-sovremennom-obshhestve",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.fnisc.ru/contact.html",
-      "bytes": 46543,
+      "final_url": "https://isd-ras.ru/news/2026/11/demograficheskie-processy-v-sovremennom-obshhestve/",
+      "bytes": 14220,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/11/upravlenie-chelovecheskimi-resursami",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/11/upravlenie-chelovecheskimi-resursami/",
+      "bytes": 12840,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/11/etnodemograficheskie-processy-v-sssr",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/11/etnodemograficheskie-processy-v-sssr/",
+      "bytes": 12340,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/aleksandrova-mgu-klassicheskiy-uchebnik-16-11-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/aleksandrova-mgu-klassicheskiy-uchebnik-16-11-2026",
+      "bytes": 12983,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/aleksandrova-tochka-zreniya-socialnoe-gosudarstvo-16-11-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/aleksandrova-tochka-zreniya-socialnoe-gosudarstvo-16-11-2026",
+      "bytes": 12336,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/pilipenko-sovet-fed-19-11-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/pilipenko-sovet-fed-19-11-2026",
+      "bytes": 14183,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/pilipenko-vysokovsky-hse-20-11-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/pilipenko-vysokovsky-hse-20-11-2026",
+      "bytes": 12492,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/den-economista-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/den-economista-2026",
+      "bytes": 15993,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/11/zasedanie-uchenogo-soveta-isd-fnisc-ran/",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/11/zasedanie-uchenogo-soveta-isd-fnisc-ran/",
+      "bytes": 17662,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/11/demograficheskaya-enciklopediya-v-licah",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/11/demograficheskaya-enciklopediya-v-licah/",
+      "bytes": 12042,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/lapinskie-chteniya-2026-11-10",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/lapinskie-chteniya-2026-11-10",
+      "bytes": 14343,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/brushkova-novostroyki-otr-06-11-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/brushkova-novostroyki-otr-06-11-2026",
+      "bytes": 11681,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/11/sociologiya-religii/",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/11/sociologiya-religii/",
+      "bytes": 24977,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/kroshilin-rek-2026-11-03",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/kroshilin-rek-2026-11-03",
+      "bytes": 12841,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/migracii-v-rossii-i-sssr",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/migracii-v-rossii-i-sssr/",
+      "bytes": 11634,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/socialnoe-znanie-v-sovremennom-obshhestve",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/socialnoe-znanie-v-sovremennom-obshhestve/",
+      "bytes": 17653,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/rek-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/rek-2026/",
+      "bytes": 14326,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/aleksandrova-ekonomicheskiy-kongress-29-10-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/aleksandrova-ekonomicheskiy-kongress-29-10-2026",
+      "bytes": 13336,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/logo/",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/logo/",
+      "bytes": 11651,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/pilipenko-smolensk-kollokvium-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/pilipenko-smolensk-kollokvium-2026",
+      "bytes": 12033,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/dobrokhleb-nizhniy-novgorod-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/dobrokhleb-nizhniy-novgorod-2026",
+      "bytes": 12269,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/klimat-i-zdorove-cheloveka",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/klimat-i-zdorove-cheloveka/",
+      "bytes": 33229,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/istoriya-rossii-s-drevnejshih-vremen",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/istoriya-rossii-s-drevnejshih-vremen/",
+      "bytes": 10888,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/edinstvo-i-mnogoobrazie/",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/edinstvo-i-mnogoobrazie/",
+      "bytes": 18308,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/socialnye-dvizheniya",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/socialnye-dvizheniya/",
+      "bytes": 24282,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/realizaciya-gos-dem-i-semejnoj-politiki",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/realizaciya-gos-dem-i-semejnoj-politiki/",
+      "bytes": 11988,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/itogi-socialnaya-dinamika-10-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/itogi-socialnaya-dinamika-10-2026",
+      "bytes": 19773,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/aleksandrova-tochka-zreniya-13-10-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/aleksandrova-tochka-zreniya-13-10-2026",
+      "bytes": 11244,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/sovremennye-osobennosti-dempovedeniya-naseleniya",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/sovremennye-osobennosti-dempovedeniya-naseleniya/",
+      "bytes": 12783,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/zasedanie-uchenogo-soveta-fnisc-2026-10",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/zasedanie-uchenogo-soveta-fnisc-2026-10",
+      "bytes": 11951,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/aktualnye-problemy-demograficheskih-issledovanij",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/aktualnye-problemy-demograficheskih-issledovanij/",
+      "bytes": 12818,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/ekspertiza-nacproekta-semya/",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/ekspertiza-nacproekta-semya/",
+      "bytes": 14910,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/mery-podderzhki-semej/",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/mery-podderzhki-semej/",
+      "bytes": 13992,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/brushkova-vzaimopomoshch-otr-05-10-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/brushkova-vzaimopomoshch-otr-05-10-2026",
+      "bytes": 11481,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/10/prostranstvennaya-rekonfiguraciya-ekonomiki-rossii/",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/10/prostranstvennaya-rekonfiguraciya-ekonomiki-rossii/",
+      "bytes": 13669,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/digest-fnisc-summer-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/digest-fnisc-summer-2026",
+      "bytes": 13980,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/sociologiya-religii",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/9/sociologiya-religii/",
+      "bytes": 20521,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/migracionnye-processy-v-atr/",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/9/migracionnye-processy-v-atr/",
+      "bytes": 14974,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/dem-forum-asia-2026/",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/9/dem-forum-asia-2026/",
+      "bytes": 31703,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/altaj-aziya-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/9/altaj-aziya-2026/",
+      "bytes": 17349,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/ucheniy-sovet-isesp-24-09-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/ucheniy-sovet-isesp-24-09-2026",
+      "bytes": 11030,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/brushkova-brachnyj-partner-22-09-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/brushkova-brachnyj-partner-22-09-2026",
+      "bytes": 11141,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/formy-i-metody-socialnoj-raboty",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/9/formy-i-metody-socialnoj-raboty/",
+      "bytes": 14154,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/istoricheskaya-demografiya-rossii",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/9/istoricheskaya-demografiya-rossii/",
+      "bytes": 10935,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/molodezh-v-bolshoj-evrazii",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/9/molodezh-v-bolshoj-evrazii/",
+      "bytes": 19728,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/zasedanie-molodezhnoj-sekcii-nauchnogo-soveta",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/9/zasedanie-molodezhnoj-sekcii-nauchnogo-soveta/",
+      "bytes": 18760,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://isd-ras.ru/news/2026/9/demograficheskij-potencial-evrazii",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://isd-ras.ru/news/2026/9/demograficheskij-potencial-evrazii/",
+      "bytes": 14722,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.isesp-ras.ru/news/ucheniy-sovet-isesp-30-06-2026",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.isesp-ras.ru/news/ucheniy-sovet-isesp-30-06-2026",
+      "bytes": 11179,
+      "collector": "institutional_news_listing",
+      "required": true
+    },
+    {
+      "url": "https://www.fnisc.ru/index.php?page_id=3267",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://piar.fnisc.info/society",
+      "bytes": 84905,
       "collector": "institutional_site_scan",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=651",
-      "status": "ok",
-      "attempts": 1,
-      "http_status": 200,
-      "final_url": "https://www.fnisc.ru/phone.html",
-      "bytes": 49456,
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=658",
-      "status": "ok",
-      "attempts": 1,
-      "http_status": 200,
-      "final_url": "https://www.fnisc.ru/feedback.html",
-      "bytes": 49223,
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=535",
-      "status": "ok",
-      "attempts": 1,
-      "http_status": 200,
-      "final_url": "https://www.fnisc.ru/main_seminar.html",
-      "bytes": 46643,
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=1256",
-      "status": "ok",
-      "attempts": 1,
-      "http_status": 200,
-      "final_url": "https://www.fnisc.ru/seminar_news_full.html",
-      "bytes": 45209,
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=1256",
+      "url": "https://www.fnisc.ru/index.php?page_id=3267",
       "status": "parse_error",
       "reason": "article_template_changed",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=2533",
+      "url": "https://www.fnisc.ru/index.php?page_id=3192",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.fnisc.ru/index.php?page_id=2533",
-      "bytes": 45965,
+      "final_url": "https://www.fnisc.ru/index.php?page_id=3192",
+      "bytes": 49135,
       "collector": "institutional_site_scan",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=1258",
+      "url": "https://www.fnisc.ru/index.php?page_id=3193",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.fnisc.ru/index.php?page_id=1258",
-      "bytes": 46826,
+      "final_url": "https://www.fnisc.ru/index.php?page_id=3016&all",
+      "bytes": 68625,
       "collector": "institutional_site_scan",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=2719",
+      "url": "https://www.fnisc.ru/index.php?page_id=3246",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.fnisc.ru/index.php?page_id=2719",
-      "bytes": 45965,
+      "final_url": "https://www.fnisc.ru/index.php?page_id=3246",
+      "bytes": 46441,
       "collector": "institutional_site_scan",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=1259",
+      "url": "https://www.fnisc.ru/index.php?page_id=1272",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.fnisc.ru/index.php?page_id=1259",
-      "bytes": 47299,
+      "final_url": "https://www.fnisc.ru/index.php?page_id=1272",
+      "bytes": 48512,
       "collector": "institutional_site_scan",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=1292",
+      "url": "https://www.fnisc.ru/index.php?page_id=3226",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.fnisc.ru/index.php?page_id=1292",
-      "bytes": 45166,
+      "final_url": "https://www.fnisc.ru/index.php?page_id=3226",
+      "bytes": 46431,
       "collector": "institutional_site_scan",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=2499",
+      "url": "https://www.fnisc.ru/index.php?page_id=3072",
       "status": "ok",
       "attempts": 1,
       "http_status": 200,
-      "final_url": "https://www.fnisc.ru/index.php?page_id=2499",
-      "bytes": 45642,
+      "final_url": "https://www.fnisc.ru/index.php?page_id=3072",
+      "bytes": 46018,
       "collector": "institutional_site_scan",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=2501",
-      "status": "error",
-      "attempts": 3,
-      "reason": "SSLError",
+      "url": "https://www.fnisc.ru/index.php?page_id=1284",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.fnisc.ru/index.php?page_id=1284",
+      "bytes": 48987,
       "collector": "institutional_site_scan",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=2504",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
+      "url": "https://www.fnisc.ru/index.php?page_id=1271",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.fnisc.ru/index.php?page_id=1271",
+      "bytes": 48324,
       "collector": "institutional_site_scan",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=2507",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
+      "url": "https://www.fnisc.ru/index.php?page_id=3071",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.fnisc.ru/index.php?page_id=3071",
+      "bytes": 46180,
       "collector": "institutional_site_scan",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=2694",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
+      "url": "https://www.fnisc.ru/index.php?page_id=3073",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.fnisc.ru/index.php?page_id=3073",
+      "bytes": 45939,
       "collector": "institutional_site_scan",
       "required": false
     },
     {
-      "url": "https://www.fnisc.ru/index.php?page_id=2508",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2788",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=1339",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3126",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3127",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3128",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3129",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3130",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=755",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=558",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=1077",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3157",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=1560",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3085",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3151",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2556",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2749",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2522",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=1410",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3277",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2687",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2464",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2466",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2463",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3174",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2381",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3282",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2791",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2477",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2298",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2559",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2681",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3140",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3137",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3155",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3178",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3195",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3261",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3272",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3273",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3274",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=2238",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=528",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=569",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
-      "collector": "institutional_site_scan",
-      "required": false
-    },
-    {
-      "url": "https://www.fnisc.ru/index.php?page_id=3183",
-      "status": "circuit_open",
-      "reason": "repeated_host_failures",
+      "url": "https://www.fnisc.ru/index.php?page_id=2591",
+      "status": "ok",
+      "attempts": 1,
+      "http_status": 200,
+      "final_url": "https://www.fnisc.ru/index.php?page_id=2591",
+      "bytes": 52155,
       "collector": "institutional_site_scan",
       "required": false
     }
@@ -1386,30 +1506,35 @@
     {
       "collector": "listings",
       "budget_seconds": 60.0,
-      "elapsed_seconds": 2.83
+      "elapsed_seconds": 2.77
     },
     {
       "collector": "rss",
-      "budget_seconds": 44.29,
-      "elapsed_seconds": 33.65
+      "budget_seconds": 44.3,
+      "elapsed_seconds": 33.68
     },
     {
       "collector": "sitemaps",
-      "budget_seconds": 47.83,
-      "elapsed_seconds": 24.09
+      "budget_seconds": 47.85,
+      "elapsed_seconds": 24.87
     },
     {
       "collector": "sites",
-      "budget_seconds": 59.71,
-      "elapsed_seconds": 39.77
+      "budget_seconds": 59.34,
+      "elapsed_seconds": 43.54
     },
     {
       "collector": "telegram",
-      "budget_seconds": 79.64,
-      "elapsed_seconds": 33.29
+      "budget_seconds": 75.13,
+      "elapsed_seconds": 33.37
     }
   ],
   "translation_pending": 0,
-  "images": [],
-  "translation": "not_needed"
+  "images": [
+    {
+      "id": "3352fcc91312a54d",
+      "image": "cached"
+    }
+  ],
+  "translation": "argos_ru_en"
 }

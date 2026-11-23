@@ -1,7 +1,7 @@
 {
   "status": "success",
-  "baseline_ref": "f39e5e9351a9740762a9fdd4f3bdcfc02359b67c",
-  "baseline_commit": "f39e5e9351a9740762a9fdd4f3bdcfc02359b67c",
+  "baseline_ref": "e3bdd3ab2891d2cd326da193ab23183ea64f2059",
+  "baseline_commit": "e3bdd3ab2891d2cd326da193ab23183ea64f2059",
   "datasets": {
     "data/public/publications.json": {
       "before": 73,
@@ -9,11 +9,11 @@
     },
     "data/media/published.json": {
       "before": 29,
-      "after": 29
+      "after": 31
     },
     "data/media/published-fallback.json": {
       "before": 29,
-      "after": 29
+      "after": 31
     },
     "data/risi/articles.json": {
       "before": 13,
