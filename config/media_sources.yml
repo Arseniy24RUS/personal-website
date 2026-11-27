@@ -50,6 +50,19 @@ media_monitoring:
     - "семейная ипотека"
   seed_urls:
     # A featured story leads its feed; other stories are chronological.
+    - url: "https://www.e-mordovia.ru/for-smi/all-news/dopolnitelnaya-professionalnaya-programma-povysheniya-kvalifikatsii-dlya-spetsialistov-demografov/"
+      title: "Дополнительная профессиональная программа повышения квалификации для специалистов демографов"
+      title_en: "Continuing professional development programme for demography specialists"
+      description: "Правительство Мордовии сообщило, что Арсений Ситковский провёл занятия первого дня программы, объединившей более 100 участников. Слушатели изучали региональные меры поддержки семей с детьми и познакомились с цифровой платформой для работы с ними."
+      description_en: "The Government of Mordovia reported that Arseniy Sitkovskiy led the opening day of a professional development programme with more than 100 participants. Attendees studied regional support measures for families with children and were introduced to a digital platform for exploring them."
+      source_name: "Правительство Республики Мордовия"
+      source_name_en: "Government of the Republic of Mordovia"
+      source_type: "institutional_news_seed"
+      date: "2026-11-18"
+      image: "assets/media/illustrations/family-health.webp"
+      image_kind: "illustration"
+      media_feed: "press"
+      force_publish: true
     - url: "https://new.ras.ru/press-center/zasedanie-nts-kntr-demograficheskie-vyzovy-i-novye-mery-podderzhki-semey/"
       title: "Заседание НТС КНТР: демографические вызовы и новые меры поддержки семей"
       title_en: "Science and Technology Council meeting: demographic challenges and new measures to support families"
